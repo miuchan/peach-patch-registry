@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/FM4Dice",
+    "plugin": "JW-Modules",
+    "model": "FM4Dice",
+    "name": "FM4Dice",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/FM4Dice",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/FM4Dice.webp",
+    "wasmUrl": "packages/JW-Modules/FM4Dice/2.0.43/module.wasm",
+    "width": 45,
+    "description": "Automatically isolated from the JW-Modules/FM4Dice Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0.2812100350856781,
+        "position": {
+          "x": 22,
+          "y": 245,
+          "centered": true,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sequence length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 22,
+          "y": 86,
+          "centered": true,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Randomize internal FM parameters",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 150,
+          "centered": true,
+          "widget": "SmallButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sequence length CV",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 111,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger and advance step",
+        "kind": "gate",
+        "position": {
+          "x": 22,
+          "y": 290,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Randomize internal FM parameters",
+        "kind": "gate",
+        "position": {
+          "x": 22,
+          "y": 172,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Seed input for repeatable randomization",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 205,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22,
+          "y": 335,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "stepCount",
+        "type": "integer"
+      },
+      {
+        "key": "currentStep",
+        "type": "integer"
+      },
+      {
+        "key": "algorithm",
+        "type": "integer"
+      },
+      {
+        "key": "baseFrequency",
+        "type": "real"
+      },
+      {
+        "key": "noteLength",
+        "type": "real"
+      },
+      {
+        "key": "noteActive",
+        "type": "boolean"
+      },
+      {
+        "key": "noteElapsed",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/FM4Dice/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "b811c45a17ff41ed3124dcd54bab51c6b3750ffa195e06a09bf2ba735641a4c8",
+      "size": 91041
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:49.261Z"
+  }
+}

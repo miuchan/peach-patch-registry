@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/D1v1de",
+    "plugin": "JW-Modules",
+    "model": "D1v1de",
+    "name": "D1v1de",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/D1v1de",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/D1v1de.webp",
+    "wasmUrl": "packages/JW-Modules/D1v1de/2.0.43/module.wasm",
+    "width": 120,
+    "description": "Clock Divider",
+    "params": [
+      {
+        "id": 0,
+        "name": "Division",
+        "min": 1,
+        "max": 64,
+        "default": 4,
+        "position": {
+          "x": 35,
+          "y": 278,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Offset",
+        "min": 0,
+        "max": 64,
+        "default": 64,
+        "position": {
+          "x": 88,
+          "y": 278,
+          "widget": "SmallWhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 13,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 13,
+          "y": 283
+        }
+      },
+      {
+        "id": 2,
+        "name": "Division",
+        "kind": "cv",
+        "position": {
+          "x": 65,
+          "y": 283
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 94,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "Position",
+        "kind": "cv",
+        "position": {
+          "x": 65.5,
+          "y": 345
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "blockColor",
+        "type": "integer"
+      },
+      {
+        "key": "gatePulseLenSec",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/D1v1de/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "188544c05b20e20d4b49c9ac2bbfb24f8b999dc1655066ae1218516443e562d8",
+      "size": 73130
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:34.547Z"
+  }
+}

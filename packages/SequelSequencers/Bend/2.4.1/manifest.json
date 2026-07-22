@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SequelSequencers/Bend",
+    "plugin": "SequelSequencers",
+    "model": "Bend",
+    "name": "Bend",
+    "brand": "Daniel Davies",
+    "version": "2.4.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/danieldavies99/sequel",
+    "libraryUrl": "https://library.vcvrack.com/SequelSequencers/Bend",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SequelSequencers/Bend.webp",
+    "wasmUrl": "packages/SequelSequencers/Bend/2.4.1/module.wasm",
+    "width": 195,
+    "description": "Phase modulation oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 97.518,
+          "y": 95.164,
+          "centered": true,
+          "widget": "RedKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bend time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 141.422,
+          "y": 42.461,
+          "centered": true,
+          "widget": "RedSliderMedium"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bend",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 53.156,
+          "y": 122.873,
+          "centered": true,
+          "widget": "RedKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bend modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 77.312,
+          "y": 235.727,
+          "centered": true,
+          "widget": "RedKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Frequency modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 118.869,
+          "y": 235.727,
+          "centered": true,
+          "widget": "RedKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "LFO mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 35.755,
+          "y": 235.727,
+          "centered": true,
+          "widget": "CKD6Latch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 141.422,
+          "y": 117.263,
+          "centered": true,
+          "widget": "RedKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Amplitude modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160.426,
+          "y": 235.727,
+          "centered": true,
+          "widget": "RedKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 35.755,
+          "y": 277.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch v/oct",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 145.919,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bend modulation",
+        "kind": "cv",
+        "position": {
+          "x": 77.312,
+          "y": 277.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 118.869,
+          "y": 277.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Amplitude modulation",
+        "kind": "cv",
+        "position": {
+          "x": 160.426,
+          "y": 277.996,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Square",
+        "kind": "cv",
+        "position": {
+          "x": 35.755,
+          "y": 326.153,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 77.312,
+          "y": 326.153,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tri",
+        "kind": "cv",
+        "position": {
+          "x": 118.869,
+          "y": 326.153,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 160.426,
+          "y": 326.153,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallSimpleLight<RedLight>",
+        "position": {
+          "x": 35.755,
+          "y": 235.727,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "interpolationMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SequelSequencers/Bend/2.4.1/manifest.json",
+    "sourceCommit": "70f443ae84bfa1751f8af804682b7b73a6d851df",
+    "artifact": {
+      "sha256": "b87fd242c677a410476a1c1726ee77312e0e7f1027c4058193e9065cfa2e6c6a",
+      "size": 96947
+    }
+  },
+  "source": {
+    "url": "https://github.com/danieldavies99/sequel",
+    "commit": "70f443ae84bfa1751f8af804682b7b73a6d851df"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:13:52.294Z"
+  }
+}

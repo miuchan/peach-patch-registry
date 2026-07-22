@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Gravity",
+    "plugin": "SignalFunctionSet",
+    "model": "Gravity",
+    "name": "Gravity",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Gravity",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Gravity.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Gravity/2.16.3/module.wasm",
+    "width": 450,
+    "description": "Gravity-driven chaos engine with six visual modes: double pendulum, orbiting gravity well, elastic billiards, a Pac-Man-style maze, a LOGO turtle, and a spirograph/rose pattern generator. All modes share bipolar X/Y, radius and angle CVs, six sector-distance CVs, and six boundary-ray gates. Speed, chaos, and a mode-dependent gravity control; drag the display to throw or aim.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645
+      },
+      {
+        "id": 1,
+        "name": "Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 2,
+        "name": "Gravity direction",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Mode",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Speed CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Chaos CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Gravity direction CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Mode CV (0-10V -> 4 modes)",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tip X",
+        "kind": "cv",
+        "position": {
+          "x": 375,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tip Y",
+        "kind": "cv",
+        "position": {
+          "x": 420,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Radius (folded -5V .. +5V extended)",
+        "kind": "cv",
+        "position": {
+          "x": 420,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Angle from gravity (±180° -> ±5V)",
+        "kind": "cv",
+        "position": {
+          "x": 375,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sector 1 distance",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Sector 2 distance",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Sector 3 distance",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Sector 4 distance",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Sector 5 distance",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Sector 6 distance",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Ray 1 gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Ray 2 gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Ray 3 gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Ray 4 gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Ray 5 gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Ray 6 gate",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "lights": 12,
+    "stateKeys": [
+      {
+        "key": "th1",
+        "type": "real"
+      },
+      {
+        "key": "th2",
+        "type": "real"
+      },
+      {
+        "key": "w1",
+        "type": "real"
+      },
+      {
+        "key": "w2",
+        "type": "real"
+      },
+      {
+        "key": "gateHoldSec",
+        "type": "real"
+      },
+      {
+        "key": "trailLength",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "hmLevel",
+        "type": "integer"
+      },
+      {
+        "key": "hmScore",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Gravity/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "a37c8057c5db091e1246edf288ed29c317ebaedde51f69ab667ec85db1fff111",
+      "size": 115695
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:58.540Z"
+  }
+}

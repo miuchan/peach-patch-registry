@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Vac",
+    "plugin": "SignalFunctionSet",
+    "model": "Vac",
+    "name": "Vac",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Vac",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Vac.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Vac/2.16.3/module.wasm",
+    "width": 90,
+    "description": "Semi-stable A/R envelope with vactrol-like drift. Rise and fall each have a bipolar STAB control: each trigger samples a fresh random factor scaled exponentially by STAB, so cycle-to-cycle timing wanders without ever collapsing. Linear↔exponential CURVE (with CV), latching LOOP, END trigger out.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 22.5,
+          "y": 60,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rise stability",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 105,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0.550000011920929,
+        "position": {
+          "x": 22.5,
+          "y": 165,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fall stability",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 210,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Curve (linear → exponential)",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579,
+        "position": {
+          "x": 22.5,
+          "y": 254.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Loop (auto-retrigger at end of fall)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 314.97,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger (rising edge fires one A/R cycle)",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rise CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 60,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rise stability CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 105,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fall CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 165,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fall stability CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Curve CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 254.97,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "End-of-cycle trigger (1ms pulse at end of fall)",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Envelope (0–10V)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 360,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 314.97,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "continuousDrift",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Vac/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "f4d91a147bf4e0dce2d8f110c939ce1f82da2bc2ee8b97967a84c0e2d8fad1ea",
+      "size": 77023
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:57.428Z"
+  }
+}

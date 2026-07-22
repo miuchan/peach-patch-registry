@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Band",
+    "plugin": "SignalFunctionSet",
+    "model": "Band",
+    "name": "Band",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Band",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Band.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Band/2.16.3/module.wasm",
+    "width": 360,
+    "description": "Harmonic bandpass bank. Four narrow bands each lock to an integer harmonic of a shared 1V/oct fundamental, isolating individual harmonics of a rich low wave. Per-band level and enable with a global harmonic-shift CV, plus mix and polyphonic per-band outputs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tune",
+        "min": -4,
+        "max": 4,
+        "default": -1,
+        "position": {
+          "x": 158.563,
+          "y": 359.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Width",
+        "min": 0.019999999552965164,
+        "max": 2,
+        "default": 0.15000000596046448,
+        "position": {
+          "x": 195,
+          "y": 359.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Band 1 harmonic",
+        "min": 1,
+        "max": 32,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Band 2 harmonic",
+        "min": 1,
+        "max": 32,
+        "default": 2
+      },
+      {
+        "id": 4,
+        "name": "Band 3 harmonic",
+        "min": 1,
+        "max": 32,
+        "default": 3
+      },
+      {
+        "id": 5,
+        "name": "Band 4 harmonic",
+        "min": 1,
+        "max": 32,
+        "default": 4
+      },
+      {
+        "id": 6,
+        "name": "Band 1 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 7,
+        "name": "Band 2 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 8,
+        "name": "Band 3 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 9,
+        "name": "Band 4 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 10,
+        "name": "Band 1 enable",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Band 2 enable",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Band 3 enable",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Band 4 enable",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Fundamental V/oct",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Width CV",
+        "kind": "cv",
+        "position": {
+          "x": 240,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Harmonic shift CV (1V/harmonic, all bands)",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Band 1 harmonic CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Band 2 harmonic CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Band 3 harmonic CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Band 4 harmonic CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Band 1 level CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Band 2 level CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Band 3 level CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Band 4 level CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Band 1 enable gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Band 2 enable gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Band 3 enable gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Band 4 enable gate",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 282.49,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Per-band (polyphonic)",
+        "kind": "cv",
+        "position": {
+          "x": 322.5,
+          "y": 359.97,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "fourPole",
+        "type": "boolean"
+      },
+      {
+        "key": "followPitch",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Band/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "38f54ef28da506dd4e7c6bc98d14e8c5d00a7f361c8761f1bc0f6e6d8bea64e6",
+      "size": 84675
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:12:00.098Z"
+  }
+}

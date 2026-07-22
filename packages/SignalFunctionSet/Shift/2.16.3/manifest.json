@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Shift",
+    "plugin": "SignalFunctionSet",
+    "model": "Shift",
+    "name": "Shift",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Shift",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Shift.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Shift/2.16.3/module.wasm",
+    "width": 240,
+    "description": "4-output CV shift register. Per-lane step count, clock divider, step CV, and parallel/cascade mode (parallel = N-step delay line; cascade = tape-loop FIFO fed by the previous lane). Per-lane CV + gate outs, plus a jumble pair (random pick across lanes + accompanying clock).",
+    "params": [
+      {
+        "id": 0,
+        "name": "N Param A +  0",
+        "min": 0,
+        "max": 15,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "N Param A +  1",
+        "min": 0,
+        "max": 15,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "N Param A +  2",
+        "min": 0,
+        "max": 15,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "N Param A +  3",
+        "min": 0,
+        "max": 15,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Mode Param A +  0",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Mode Param A +  1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Mode Param A +  2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Mode Param A +  3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Div Param A +  0",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Div Param A +  1",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Div Param A +  2",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Div Param A +  3",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Reset (button)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 217.5,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV (data, sampled on each tap fire)",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock (advances all taps in parallel mode, and the cascade chain root)",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "N CV (±5V → ±15, summed into every N pot — global modulator on top of per-lane Step CVs)",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset (clears all counters and held values)",
+        "kind": "gate",
+        "position": {
+          "x": 165,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "STEP_CV_INPUT_A + 0",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "STEP_CV_INPUT_A + 1",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "STEP_CV_INPUT_A + 2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "STEP_CV_INPUT_A + 3",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT_A + 0",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "OUT_A + 1",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "OUT_A + 2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "OUT_A + 3",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "GATE_A + 0",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "GATE_A + 1",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "GATE_A + 2",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "GATE_A + 3",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Jumble CV (random pick from A/B/C/D, re-rolled on each input clock)",
+        "kind": "gate",
+        "position": {
+          "x": 187.47,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Jumble clock (mirrors the input clock shape)",
+        "kind": "gate",
+        "position": {
+          "x": 217.5,
+          "y": 359.97,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 165,
+          "y": 359.97,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "jumble",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Shift/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "1e519292f2d280cfce7e8569c47a6ccc53c16fa550f5a419f06712a0bb442574",
+      "size": 91865
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:55.303Z"
+  }
+}

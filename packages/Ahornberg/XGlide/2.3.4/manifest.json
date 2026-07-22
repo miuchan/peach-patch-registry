@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ahornberg/XGlide",
+    "plugin": "Ahornberg",
+    "model": "XGlide",
+    "name": "X-Glide",
+    "brand": "Ahornberg",
+    "version": "2.3.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Ahornberg/XGlide",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ahornberg/XGlide.webp",
+    "wasmUrl": "packages/Ahornberg/XGlide/2.3.4/module.wasm",
+    "width": 60,
+    "description": "cross-glide between 2 notes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Minimum Interval",
+        "min": 1,
+        "max": 127,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 118,
+          "centered": true,
+          "widget": "KnobTinySnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Maximum Interval",
+        "min": 1,
+        "max": 127,
+        "default": 127,
+        "position": {
+          "x": 45,
+          "y": 118,
+          "centered": true,
+          "widget": "KnobTinySnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Lowest MIDI note",
+        "min": 0,
+        "max": 127,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 15,
+          "y": 68,
+          "centered": true,
+          "widget": "KnobTinySnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Highest MIDI note",
+        "min": 0,
+        "max": 127,
+        "default": 127,
+        "snap": true,
+        "position": {
+          "x": 45,
+          "y": 68,
+          "centered": true,
+          "widget": "KnobTinySnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Volume",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 282,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch (1V/Octave)",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 174,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pedal/Gate",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 335,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 229,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Volume",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 282,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch (1V/Octave)",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 174,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 229,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 30,
+          "y": 68,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 30,
+          "y": 118,
+          "centered": true
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ahornberg/XGlide/2.3.4/manifest.json",
+    "sourceCommit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad",
+    "artifact": {
+      "sha256": "614633b76d9469061e472f0786e45ad90eb6d421b6ce4aa61854e0a31937d4a5",
+      "size": 75874
+    }
+  },
+  "source": {
+    "url": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "commit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:12:40.453Z"
+  }
+}

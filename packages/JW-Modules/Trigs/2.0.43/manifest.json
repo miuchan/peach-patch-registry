@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/Trigs",
+    "plugin": "JW-Modules",
+    "model": "Trigs",
+    "name": "Trigs",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/Trigs",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/Trigs.webp",
+    "wasmUrl": "packages/JW-Modules/Trigs/2.0.43/module.wasm",
+    "width": 195,
+    "description": "Automatically isolated from the JW-Modules/Trigs Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Length",
+        "min": 1,
+        "max": 64,
+        "default": 64,
+        "position": {
+          "x": 120,
+          "y": 35,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Play Mode",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 165,
+          "y": 35,
+          "widget": "JwPlayModeKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 33,
+          "y": 282,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Random Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25,
+          "y": 327,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Random Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 51,
+          "y": 327,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Start",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 35,
+          "widget": "JwSmallSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 7.5,
+          "y": 40
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 33,
+          "y": 40
+        }
+      },
+      {
+        "id": 2,
+        "name": "Random Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 5,
+          "y": 330
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rotate",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Flip",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Shift",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Length",
+        "kind": "cv",
+        "position": {
+          "x": 103,
+          "y": 40
+        }
+      },
+      {
+        "id": 7,
+        "name": "Start",
+        "kind": "cv",
+        "position": {
+          "x": 58,
+          "y": 40
+        }
+      },
+      {
+        "id": 8,
+        "name": "Play Mode",
+        "kind": "cv",
+        "position": {
+          "x": 148,
+          "y": 40
+        }
+      },
+      {
+        "id": 9,
+        "name": "Seed input for repeatable randomization",
+        "kind": "cv",
+        "position": {
+          "x": 65,
+          "y": 360
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "GATE_OUTPUT + 0",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 285
+        }
+      },
+      {
+        "id": 1,
+        "name": "GATE_OUTPUT + 1",
+        "kind": "gate",
+        "position": {
+          "x": 120,
+          "y": 285
+        }
+      },
+      {
+        "id": 2,
+        "name": "GATE_OUTPUT + 2",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 285
+        }
+      },
+      {
+        "id": 3,
+        "name": "GATE_OUTPUT + 3",
+        "kind": "gate",
+        "position": {
+          "x": 170,
+          "y": 285
+        }
+      },
+      {
+        "id": 4,
+        "name": "End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 170,
+          "y": 325
+        }
+      },
+      {
+        "id": 5,
+        "name": "OR",
+        "kind": "cv",
+        "position": {
+          "x": 95,
+          "y": 325
+        }
+      },
+      {
+        "id": 6,
+        "name": "XOR",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 325
+        }
+      },
+      {
+        "id": 7,
+        "name": "NOR",
+        "kind": "cv",
+        "position": {
+          "x": 145,
+          "y": 325
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "channels",
+        "type": "integer"
+      },
+      {
+        "key": "gatePulseLenSec",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/Trigs/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "2701e46aa1c95cf69a17af1aef86f159763dd3dae32a7d92ac185b0289bf94ee",
+      "size": 83992
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:46.609Z"
+  }
+}

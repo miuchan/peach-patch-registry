@@ -1,0 +1,1231 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/RandLoops",
+    "plugin": "SickoCV",
+    "model": "RandLoops",
+    "name": "randLoops",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/RandLoops",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/RandLoops.webp",
+    "wasmUrl": "packages/SickoCV/RandLoops/2.7.10/module.wasm",
+    "width": 165,
+    "description": "random voltage/trigger sequencer inspired by Turing Machine",
+    "params": [
+      {
+        "id": 0,
+        "name": "Control",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 60.531,
+          "centered": true,
+          "widget": "SickoBigKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 34.547,
+          "y": 135.827,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.24,
+          "y": 151.772,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Delete",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 25.098,
+          "y": 205.217,
+          "centered": true,
+          "widget": "VCVLightBezel<RedLight>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Add",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 60.531,
+          "y": 205.217,
+          "centered": true,
+          "widget": "VCVLightBezel<GreenLight>"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Random",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 95.965,
+          "y": 205.217,
+          "centered": true,
+          "widget": "VCVLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Prog",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 140.846,
+          "y": 102.756,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Recall",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 140.846,
+          "y": 271.654,
+          "centered": true,
+          "widget": "VCVLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Store",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 140.846,
+          "y": 342.815,
+          "centered": true,
+          "widget": "VCVLightBezel<RedLight>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Set",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 140.846,
+          "y": 188.976,
+          "centered": true,
+          "widget": "VCVLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Auto",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 140.846,
+          "y": 225.886,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<YellowLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ctrl CV",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 70.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Delete",
+        "kind": "cv",
+        "position": {
+          "x": 25.098,
+          "y": 234.744,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Add",
+        "kind": "cv",
+        "position": {
+          "x": 60.531,
+          "y": 234.744,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 25.098,
+          "y": 290.846,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 60.531,
+          "y": 290.846,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clear",
+        "kind": "gate",
+        "position": {
+          "x": 95.965,
+          "y": 290.846,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Random",
+        "kind": "cv",
+        "position": {
+          "x": 95.965,
+          "y": 234.744,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Prog",
+        "kind": "cv",
+        "position": {
+          "x": 140.846,
+          "y": 138.78,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Recall",
+        "kind": "cv",
+        "position": {
+          "x": 140.846,
+          "y": 300.886,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trig",
+        "kind": "gate",
+        "position": {
+          "x": 32.48,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 342.52,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 23,
+    "lightWidgets": [
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 72.343,
+          "y": 91.535,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 84.154,
+          "y": 91.535,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 95.965,
+          "y": 91.535,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 107.776,
+          "y": 91.535,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 72.343,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 84.154,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 95.965,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 107.776,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 72.343,
+          "y": 109.252,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 84.154,
+          "y": 109.252,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 95.965,
+          "y": 109.252,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 107.776,
+          "y": 109.252,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 72.343,
+          "y": 118.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 84.154,
+          "y": 118.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 95.965,
+          "y": 118.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 107.776,
+          "y": 118.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightBezel<RedLight>",
+        "position": {
+          "x": 25.098,
+          "y": 205.217,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightBezel<GreenLight>",
+        "position": {
+          "x": 60.531,
+          "y": 205.217,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightBezel<BlueLight>",
+        "position": {
+          "x": 95.965,
+          "y": 205.217,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 21,
+        "widget": "VCVLightBezel<BlueLight>",
+        "position": {
+          "x": 140.846,
+          "y": 188.976,
+          "centered": true
+        },
+        "paramId": 9
+      },
+      {
+        "id": 22,
+        "widget": "VCVLightLatch<MediumSimpleLight<YellowLight>>",
+        "position": {
+          "x": 140.846,
+          "y": 225.886,
+          "centered": true
+        },
+        "paramId": 10
+      },
+      {
+        "id": 19,
+        "widget": "VCVLightBezel<BlueLight>",
+        "position": {
+          "x": 140.846,
+          "y": 271.654,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 20,
+        "widget": "VCVLightBezel<RedLight>",
+        "position": {
+          "x": 140.846,
+          "y": 342.815,
+          "centered": true
+        },
+        "paramId": 8
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "initStart",
+        "type": "boolean"
+      },
+      {
+        "key": "dontAdvanceSetting",
+        "type": "boolean"
+      },
+      {
+        "key": "bitResolution",
+        "type": "integer"
+      },
+      {
+        "key": "progression",
+        "type": "integer"
+      },
+      {
+        "key": "bufferedAddDel",
+        "type": "boolean"
+      },
+      {
+        "key": "bufferedRandom",
+        "type": "boolean"
+      },
+      {
+        "key": "outType",
+        "type": "integer"
+      },
+      {
+        "key": "ignoreCtrl",
+        "type": "boolean"
+      },
+      {
+        "key": "ignoreScale",
+        "type": "boolean"
+      },
+      {
+        "key": "savedProgKnob",
+        "type": "integer"
+      },
+      {
+        "key": "progInType",
+        "type": "boolean"
+      },
+      {
+        "key": "lastProg",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "wSeq",
+        "type": "integer"
+      },
+      {
+        "key": "wSteps",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 16,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 17,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 18,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 19,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 20,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 21,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 22,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 23,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 24,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 25,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 26,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 27,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 28,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 29,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 30,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 31,
+        "key": "progSteps",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 16,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 17,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 18,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 19,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 20,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 21,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 22,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 23,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 24,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 25,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 26,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 27,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 28,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 29,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 30,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 31,
+        "key": "progCtrl",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 16,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 17,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 18,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 19,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 20,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 21,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 22,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 23,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 24,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 25,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 26,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 27,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 28,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 29,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 30,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 31,
+        "key": "progScale",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "key": "length",
+        "type": "integer"
+      },
+      {
+        "key": "reset",
+        "type": "real"
+      },
+      {
+        "key": "ctrl",
+        "type": "real"
+      },
+      {
+        "key": "offset",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/RandLoops/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "6d6bb5c555aa8b49b6798f1d22503eb68adb1fe73c655e79761052202afa14a6",
+      "size": 118300
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:04:51.011Z"
+  }
+}

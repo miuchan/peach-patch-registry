@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Swell",
+    "plugin": "SignalFunctionSet",
+    "model": "Swell",
+    "name": "Swell",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Swell",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Swell.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Swell/2.16.3/module.wasm",
+    "width": 90,
+    "description": "Ping-driven additive A/D envelope generator. Each ping adds voltage with its own rise, and pings stack additively over a continuous linear or exponential decay. Soft-saturated 0-10V output.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delta voltage per ping",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.5,
+          "y": 135,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 22.5,
+          "y": 180,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.5,
+          "y": 225,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Curve shape (linear → exponential)",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.5,
+          "y": 270,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ping (rising edge adds Delta)",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset (zeros envelope)",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delta CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rise CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fall CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Curve CV (±5V → ±50%)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 270,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope CV (0-10V, soft-saturated)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 360,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Swell/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "d34a51689556b868389624d5d1429244a28517ee399e37c177e193aeab6be734",
+      "size": 76939
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:54.662Z"
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Intone",
+    "plugin": "SignalFunctionSet",
+    "model": "Intone",
+    "name": "Intone",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Intone",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Intone.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Intone/2.16.3/module.wasm",
+    "width": 240,
+    "description": "CHANT/FOF formant synthesis voice with vowel morphing, 5 formant cells, and dual excitation modes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Formant 1 Frequency Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Formant 2 Frequency Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Formant 3 Frequency Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Formant 4 Frequency Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Formant 5 Frequency Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Formant 1 Bandwidth",
+        "min": 30,
+        "max": 500,
+        "default": 80
+      },
+      {
+        "id": 6,
+        "name": "Formant 2 Bandwidth",
+        "min": 30,
+        "max": 500,
+        "default": 80
+      },
+      {
+        "id": 7,
+        "name": "Formant 3 Bandwidth",
+        "min": 30,
+        "max": 500,
+        "default": 80
+      },
+      {
+        "id": 8,
+        "name": "Formant 4 Bandwidth",
+        "min": 30,
+        "max": 500,
+        "default": 80
+      },
+      {
+        "id": 9,
+        "name": "Formant 5 Bandwidth",
+        "min": 30,
+        "max": 500,
+        "default": 80
+      },
+      {
+        "id": 10,
+        "name": "Formant 1 Amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "Formant 2 Amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 12,
+        "name": "Formant 3 Amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 13,
+        "name": "Formant 4 Amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 14,
+        "name": "Formant 5 Amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224
+      },
+      {
+        "id": 15,
+        "name": "Vowel Morph",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 312.992,
+          "centered": true,
+          "widget": "VowelMorphSlider"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Skirt Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 52.5,
+          "y": 348.425,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Input Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 112.5,
+          "y": 348.425,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 142.5,
+          "y": 348.425,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Excitation",
+        "kind": "cv",
+        "position": {
+          "x": 172.5,
+          "y": 348.425,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Formant 1 Frequency CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Formant 2 Frequency CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Formant 3 Frequency CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Formant 4 Frequency CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Formant 5 Frequency CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Formant 1 Bandwidth CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Formant 2 Bandwidth CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Formant 3 Bandwidth CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Formant 4 Bandwidth CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Formant 5 Bandwidth CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Vowel Morph CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 348.425,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Skirt Width CV",
+        "kind": "cv",
+        "position": {
+          "x": 82.5,
+          "y": 348.425,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 217.5,
+          "y": 348.425,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Intone/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "0dca8c730a7268482be698148a646172cf0d5145ac051544e608f87ef3b5ea96",
+      "size": 89122
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:48.833Z"
+  }
+}

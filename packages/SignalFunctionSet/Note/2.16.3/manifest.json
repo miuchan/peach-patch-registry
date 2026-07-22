@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Note",
+    "plugin": "SignalFunctionSet",
+    "model": "Note",
+    "name": "Note",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Note",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Note.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Note/2.16.3/module.wasm",
+    "width": 150,
+    "description": "Monophonic CV/gate pattern sequencer with 12-note pitch matrix, scale and root selection (incl. just-intonation harmonic series), 8 patterns x 8 steps with velocity/accent/probability editing",
+    "params": [
+      {
+        "id": 0,
+        "name": "Root note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 69.98,
+          "y": 240.059,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "min": 0,
+        "max": 18,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 99.98,
+          "y": 240.059,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Octave shift",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 130.01,
+          "y": 240.059,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock (step advance)",
+        "kind": "gate",
+        "position": {
+          "x": 19.99,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bar (pattern advance)",
+        "kind": "cv",
+        "position": {
+          "x": 19.99,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 19.99,
+          "y": 270.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Root note CV (1V/oct, semitone-quantized)",
+        "kind": "cv",
+        "position": {
+          "x": 69.98,
+          "y": 270.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale select CV (1V/scale)",
+        "kind": "cv",
+        "position": {
+          "x": 99.98,
+          "y": 270.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Octave shift CV (1V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 130.01,
+          "y": 270.03,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 99.98,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 130.01,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Velocity (0-10V)",
+        "kind": "cv",
+        "position": {
+          "x": 99.98,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Accent",
+        "kind": "cv",
+        "position": {
+          "x": 130.01,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Root (relays current root)",
+        "kind": "cv",
+        "position": {
+          "x": 69.98,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale (relays current scale index)",
+        "kind": "cv",
+        "position": {
+          "x": 69.98,
+          "y": 360,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "editPattern",
+        "type": "integer"
+      },
+      {
+        "key": "editMode",
+        "type": "integer"
+      },
+      {
+        "key": "playPattern",
+        "type": "integer"
+      },
+      {
+        "key": "playStep",
+        "type": "integer"
+      },
+      {
+        "key": "currentBar",
+        "type": "integer"
+      },
+      {
+        "key": "rootNote",
+        "type": "integer"
+      },
+      {
+        "key": "scaleIndex",
+        "type": "integer"
+      },
+      {
+        "key": "octaveShift",
+        "type": "integer"
+      },
+      {
+        "key": "advanceOnBarOnly",
+        "type": "boolean"
+      },
+      {
+        "key": "gateLength",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Note/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "bbf94b9325ed20bb6e7aaea5b24cdaa6f716362f456915de9342101218a5d687",
+      "size": 92521
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:54.804Z"
+  }
+}

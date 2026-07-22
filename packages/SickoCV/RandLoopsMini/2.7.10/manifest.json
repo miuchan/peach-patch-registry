@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/RandLoopsMini",
+    "plugin": "SickoCV",
+    "model": "RandLoopsMini",
+    "name": "randLoops mini",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/RandLoopsMini",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/RandLoopsMini.webp",
+    "wasmUrl": "packages/SickoCV/RandLoopsMini/2.7.10/module.wasm",
+    "width": 30,
+    "description": "random voltage/trigger sequencer inspired by Turing Machine (rl)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Control",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 51.673,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 1,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 15,
+          "y": 115.157,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 153.543,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ctrl CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 264.272,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 227.362,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clear",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 191.929,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 307.382,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trig",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 346.949,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "initStart",
+        "type": "boolean"
+      },
+      {
+        "key": "dontAdvanceSetting",
+        "type": "boolean"
+      },
+      {
+        "key": "bitResolution",
+        "type": "integer"
+      },
+      {
+        "key": "progression",
+        "type": "integer"
+      },
+      {
+        "key": "outType",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "sr",
+        "type": "boolean"
+      },
+      {
+        "key": "length",
+        "type": "integer"
+      },
+      {
+        "key": "reset",
+        "type": "real"
+      },
+      {
+        "key": "ctrl",
+        "type": "real"
+      },
+      {
+        "key": "offset",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/RandLoopsMini/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "c582bb35f317794278dfc79bb3c8d1ee8cfa8ca55482d6605e1d53effd151752",
+      "size": 85756
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:04:31.034Z"
+  }
+}

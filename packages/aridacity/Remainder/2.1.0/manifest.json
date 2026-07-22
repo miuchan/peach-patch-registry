@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "aridacity/Remainder",
+    "plugin": "aridacity",
+    "model": "Remainder",
+    "name": "Remainder Fold",
+    "brand": "",
+    "version": "2.1.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cubeleco/aridacityVCV",
+    "libraryUrl": "https://library.vcvrack.com/aridacity/Remainder",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/aridacity/Remainder.webp",
+    "wasmUrl": "packages/aridacity/Remainder/2.1.0/module.wasm",
+    "width": 120,
+    "description": "Wavefolder using unsigned and signed remainder division",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gain",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 60,
+          "centered": true,
+          "widget": "WhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 60,
+          "centered": true,
+          "widget": "WhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 180,
+          "centered": true,
+          "widget": "WhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 90,
+          "y": 180,
+          "centered": true,
+          "widget": "WhiteKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fold Position",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 60,
+          "y": 120,
+          "centered": true,
+          "widget": "WhiteKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gain CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 250,
+          "centered": true,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Feedback CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 250,
+          "centered": true,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Shape CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 250,
+          "centered": true,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mix CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 250,
+          "centered": true,
+          "widget": "SmallWhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 340,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gain",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 290,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Feedback",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 290,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Shape",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 290,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 105,
+          "y": 290,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fold",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 340,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 90,
+          "y": 340,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/aridacity/Remainder/2.1.0/manifest.json",
+    "sourceCommit": "7a96486e439565b4449db14b6ad0ccb0cec7c9ab",
+    "artifact": {
+      "sha256": "1f0495322ad1103dcfe518d00f10c593e677699c2c5b2103190e175cc32da12a",
+      "size": 73662
+    }
+  },
+  "source": {
+    "url": "https://github.com/cubeleco/aridacityVCV",
+    "commit": "7a96486e439565b4449db14b6ad0ccb0cec7c9ab"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:14:41.792Z"
+  }
+}

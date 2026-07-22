@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/gsx",
+    "plugin": "SignalFunctionSet",
+    "model": "gsx",
+    "name": "GSX",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/gsx",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/gsx.webp",
+    "wasmUrl": "packages/SignalFunctionSet/gsx/2.16.3/module.wasm",
+    "width": 180,
+    "description": "Granular synthesis module based on Barry Truax's GSX system (1985-86), with real-time control over temporal, spectral, and spatial parameters",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 5.643856048583984,
+        "max": 10.965784072875977,
+        "default": 7.031329154968262,
+        "position": {
+          "x": 30,
+          "y": 85.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Streams",
+        "min": 1,
+        "max": 20,
+        "default": 10,
+        "position": {
+          "x": 90,
+          "y": 85.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 85.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Range",
+        "min": 0,
+        "max": 500,
+        "default": 100,
+        "position": {
+          "x": 30,
+          "y": 175.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Duration",
+        "min": 1,
+        "max": 100,
+        "default": 20,
+        "position": {
+          "x": 90,
+          "y": 175.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Delay",
+        "min": 0.10000000149011612,
+        "max": 200,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 150,
+          "y": 175.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Density",
+        "min": 1,
+        "max": 1000,
+        "default": 100,
+        "position": {
+          "x": 30,
+          "y": 265.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Variation",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 90,
+          "y": 265.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Spread",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 150,
+          "y": 265.01,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 122.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Streams CV",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 122.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 122.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Range CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 212.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Duration CV",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 212.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Delay CV",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 212.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Density CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 302.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Variation CV",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 302.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Spread CV",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 302.51,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "VCA CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 355.01,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 120,
+          "y": 355.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "gate",
+        "position": {
+          "x": 150,
+          "y": 355.01,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/gsx/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "c2d0fba4906a5832306b0fd64875bb317472b2c39701e27018b1a7544e5c5e04",
+      "size": 85909
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:45.989Z"
+  }
+}

@@ -1,0 +1,444 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Muse",
+    "plugin": "SignalFunctionSet",
+    "model": "Muse",
+    "name": "Muse",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Muse",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Muse.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Muse/2.16.3/module.wasm",
+    "width": 180,
+    "description": "Faithful Triadex Muse port. Four Theme and four Interval sliders each tap one of 40 sources (counters plus a 31-bit XNOR shift register) — Theme bits feed the register, Interval bits address a diatonic scale. External clock, V/oct + gate out, randomize, and selectable scale.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Theme 1 tap",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 165,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Theme 2 tap",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 195,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Theme 3 tap",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 225,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Theme 4 tap",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 255,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Interval Param 0 +  0",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Interval Param 0 +  1",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Interval Param 0 +  2",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Interval Param 0 +  3",
+        "min": 0,
+        "max": 39,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 172.479,
+          "centered": true,
+          "widget": "MuseSlider"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Root",
+        "min": -24,
+        "max": 24,
+        "default": 0,
+        "position": {
+          "x": 180,
+          "y": 360.03,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Run / Stop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 60,
+          "y": 360.03,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 240,
+          "y": 360.03,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Randomize sliders",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 300,
+          "y": 360.03,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Scale",
+        "min": 0,
+        "max": 18,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 120,
+          "y": 360.03,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset trigger",
+        "kind": "gate",
+        "position": {
+          "x": 270,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Run gate",
+        "kind": "gate",
+        "position": {
+          "x": 90,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Randomize trigger",
+        "kind": "gate",
+        "position": {
+          "x": 330,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "INTERVAL_CV_0 + 0",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "INTERVAL_CV_0 + 1",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "INTERVAL_CV_0 + 2",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "INTERVAL_CV_0 + 3",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Theme 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Theme 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 195,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Theme 3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 225,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Theme 4 CV",
+        "kind": "cv",
+        "position": {
+          "x": 255,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Root CV (1V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 210,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 360.03,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 390,
+          "y": 360.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 420,
+          "y": 360.03,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 60,
+          "y": 360.03,
+          "centered": true
+        },
+        "paramId": 9
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "gateOnChangeOnly",
+        "type": "boolean"
+      },
+      {
+        "key": "randomScope",
+        "type": "integer"
+      },
+      {
+        "key": "linkingEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "cvScaleMode",
+        "type": "integer"
+      },
+      {
+        "key": "sr",
+        "type": "integer"
+      },
+      {
+        "key": "binCounter",
+        "type": "integer"
+      },
+      {
+        "key": "mod12Counter",
+        "type": "integer"
+      },
+      {
+        "key": "clockHigh",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "SignalFunctionSet/Muse",
+            "symbol": "modelMuse",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Muse/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "6a76b4fea6d43b619cce3e13095ff79e6f703260f37dcc07608606e68bb1e1c4",
+      "size": 85786
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:57.836Z"
+  }
+}

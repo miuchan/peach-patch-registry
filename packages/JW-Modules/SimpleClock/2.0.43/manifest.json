@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/SimpleClock",
+    "plugin": "JW-Modules",
+    "model": "SimpleClock",
+    "name": "Simple Clock",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/SimpleClock",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/SimpleClock.webp",
+    "wasmUrl": "packages/JW-Modules/SimpleClock/2.0.43/module.wasm",
+    "width": 60,
+    "description": "Automatically isolated from the JW-Modules/SimpleClock Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": -2,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 17,
+          "y": 60,
+          "widget": "BPMKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23,
+          "y": 40,
+          "widget": "TinyButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Random Reset Probability",
+        "min": -2,
+        "max": 6,
+        "default": -2,
+        "position": {
+          "x": 17,
+          "y": 220,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23,
+          "y": 155,
+          "widget": "TinyButton"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 18,
+          "y": 105
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 18,
+          "y": 175
+        }
+      },
+      {
+        "id": 2,
+        "name": "/4",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 270
+        }
+      },
+      {
+        "id": 3,
+        "name": "/8",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 270
+        }
+      },
+      {
+        "id": 4,
+        "name": "/16",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 310
+        }
+      },
+      {
+        "id": 5,
+        "name": "/32",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 310
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<MyBlueValueLight>",
+        "position": {
+          "x": 26.75,
+          "y": 43.75
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "clockMult",
+        "type": "integer"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "gatePulseLenSec",
+        "type": "real"
+      },
+      {
+        "key": "resetPulseLenSec",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/SimpleClock/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "264735dd3350c287d8cd3a31656fb8fcae424ee7285d5e5d56c62738a5e0f0b1",
+      "size": 73162
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:43.848Z"
+  }
+}

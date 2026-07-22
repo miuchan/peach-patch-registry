@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Beat",
+    "plugin": "SignalFunctionSet",
+    "model": "Beat",
+    "name": "Beat",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Beat",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Beat.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Beat/2.16.3/module.wasm",
+    "width": 150,
+    "description": "Single-voice pattern sequencer with 8 patterns x 16 steps, on-screen step/velocity/accent editing, per-pattern length, and active-pattern progression",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock (step advance)",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bar (pattern advance)",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 270.03,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 120,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Velocity (0-10V)",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 270.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Accent",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 315,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "editPattern",
+        "type": "integer"
+      },
+      {
+        "key": "editMode",
+        "type": "integer"
+      },
+      {
+        "key": "playPattern",
+        "type": "integer"
+      },
+      {
+        "key": "playStep",
+        "type": "integer"
+      },
+      {
+        "key": "currentBar",
+        "type": "integer"
+      },
+      {
+        "key": "advanceOnBarOnly",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Beat/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "3bb3605e6d975f5cae59308ae11973e978862438020b05455d4bfffbe0319710",
+      "size": 85823
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:54.160Z"
+  }
+}

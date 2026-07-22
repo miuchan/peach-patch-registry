@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/Str1ker",
+    "plugin": "JW-Modules",
+    "model": "Str1ker",
+    "name": "Str1ker",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/Str1ker",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/Str1ker.webp",
+    "wasmUrl": "packages/JW-Modules/Str1ker/2.0.43/module.wasm",
+    "width": 120,
+    "description": "Automatically isolated from the JW-Modules/Str1ker Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "100's Value",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 20,
+          "y": 96,
+          "widget": "BPMPartKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "10's Value",
+        "min": 0,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 20,
+          "y": 156,
+          "widget": "BPMPartKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "1's Value",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 217,
+          "widget": "BPMPartKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": ".00's Value",
+        "min": 0,
+        "max": 128,
+        "default": 64,
+        "position": {
+          "x": 20,
+          "y": 276,
+          "widget": "BPMPartKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "On/Off",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 89,
+          "y": 85,
+          "widget": "JwHorizontalSwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fader Range",
+        "min": 1,
+        "max": 50,
+        "default": 1,
+        "position": {
+          "x": 88,
+          "y": 313,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 88,
+          "y": 175,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Fader",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 57,
+          "y": 80,
+          "widget": "FaderSliderJW"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "100's",
+        "kind": "gate",
+        "position": {
+          "x": 3,
+          "y": 101
+        }
+      },
+      {
+        "id": 1,
+        "name": "10's",
+        "kind": "gate",
+        "position": {
+          "x": 3,
+          "y": 161
+        }
+      },
+      {
+        "id": 2,
+        "name": "1's",
+        "kind": "gate",
+        "position": {
+          "x": 3,
+          "y": 222
+        }
+      },
+      {
+        "id": 3,
+        "name": ".00's",
+        "kind": "gate",
+        "position": {
+          "x": 3,
+          "y": 281
+        }
+      },
+      {
+        "id": 4,
+        "name": "BPM",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 277
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fader",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 330
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 93,
+          "y": 145
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 93,
+          "y": 208
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 93,
+          "y": 113
+        }
+      },
+      {
+        "id": 2,
+        "name": "BPM",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 243
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "clockMult",
+        "type": "integer"
+      },
+      {
+        "key": "gatePulseLenSec",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/Str1ker/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "4a09da98204f1cfb30b413849fb4a9a6c4fefd33f1ca34ae31fad2a9c27f1988",
+      "size": 77328
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:44.568Z"
+  }
+}

@@ -1,0 +1,851 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/SickoQuant4",
+    "plugin": "SickoCV",
+    "model": "SickoQuant4",
+    "name": "sickoQuant4",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/SickoQuant4",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/SickoQuant4.webp",
+    "wasmUrl": "packages/SickoCV/SickoQuant4/2.7.10/module.wasm",
+    "width": 180,
+    "description": "Four channels polyphonic quantizer with scales and presets (sQuant4)",
+    "params": [
+      {
+        "id": 0,
+        "name": "C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 17.717,
+          "y": 55.512,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "C#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.823,
+          "y": 36.319,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "D",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 41.929,
+          "y": 55.512,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "D#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 54.035,
+          "y": 36.319,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "E",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 66.142,
+          "y": 55.512,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 5,
+        "name": "F",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 90.354,
+          "y": 55.512,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "F#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 102.461,
+          "y": 36.319,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 7,
+        "name": "G",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 114.567,
+          "y": 55.512,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "G#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 126.673,
+          "y": 36.319,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 138.78,
+          "y": 55.512,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 10,
+        "name": "A#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 150.886,
+          "y": 36.319,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 11,
+        "name": "B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 162.992,
+          "y": 55.512,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<YellowLight>"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Att. #1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 75.886,
+          "y": 237.697,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Att. #2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 75.886,
+          "y": 273.13,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Att. #3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 75.886,
+          "y": 308.563,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Att. #4",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 75.886,
+          "y": 343.996,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Octave #1",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 132.283,
+          "y": 237.697,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Octave #2",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 132.283,
+          "y": 273.13,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Octave #3",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 132.283,
+          "y": 308.563,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Octave #4",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 132.283,
+          "y": 343.996,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Set",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 157.972,
+          "y": 85.039,
+          "centered": true,
+          "widget": "VCVLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Scale",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 64.665,
+          "y": 111.614,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Set Scale",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 101.87,
+          "y": 108.661,
+          "centered": true,
+          "widget": "VCVLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Auto",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 20.079,
+          "y": 142.913,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<YellowLight>>"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Prog",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 66.142,
+          "y": 178.642,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Store",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 152.067,
+          "y": 178.642,
+          "centered": true,
+          "widget": "VCVLightBezel<RedLight>"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Recall",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 111.319,
+          "y": 178.642,
+          "centered": true,
+          "widget": "VCVLightBezel<BlueLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 25.098,
+          "y": 111.614,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Prog",
+        "kind": "cv",
+        "position": {
+          "x": 26.575,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trig #1",
+        "kind": "gate",
+        "position": {
+          "x": 19.783,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trig #2",
+        "kind": "gate",
+        "position": {
+          "x": 19.783,
+          "y": 273.13,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trig #3",
+        "kind": "gate",
+        "position": {
+          "x": 19.783,
+          "y": 308.563,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trig #4",
+        "kind": "gate",
+        "position": {
+          "x": 19.783,
+          "y": 343.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Signal #1",
+        "kind": "audio",
+        "position": {
+          "x": 47.835,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Signal #2",
+        "kind": "audio",
+        "position": {
+          "x": 47.835,
+          "y": 273.13,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Signal #3",
+        "kind": "audio",
+        "position": {
+          "x": 47.835,
+          "y": 308.563,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Signal #4",
+        "kind": "audio",
+        "position": {
+          "x": 47.835,
+          "y": 343.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Offset #1",
+        "kind": "cv",
+        "position": {
+          "x": 103.937,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Offset #2",
+        "kind": "cv",
+        "position": {
+          "x": 103.937,
+          "y": 273.13,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Offset #3",
+        "kind": "cv",
+        "position": {
+          "x": 103.937,
+          "y": 308.563,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Offset #4",
+        "kind": "cv",
+        "position": {
+          "x": 103.937,
+          "y": 343.996,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal #1",
+        "kind": "audio",
+        "position": {
+          "x": 160.925,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Signal #2",
+        "kind": "audio",
+        "position": {
+          "x": 160.925,
+          "y": 273.13,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Signal #3",
+        "kind": "audio",
+        "position": {
+          "x": 160.925,
+          "y": 308.563,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Signal #4",
+        "kind": "audio",
+        "position": {
+          "x": 160.925,
+          "y": 343.996,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 17,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 17.717,
+          "y": 55.512,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 29.823,
+          "y": 36.319,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 41.929,
+          "y": 55.512,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 54.035,
+          "y": 36.319,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 66.142,
+          "y": 55.512,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 5,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 90.354,
+          "y": 55.512,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 102.461,
+          "y": 36.319,
+          "centered": true
+        },
+        "paramId": 6
+      },
+      {
+        "id": 7,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 114.567,
+          "y": 55.512,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 8,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 126.673,
+          "y": 36.319,
+          "centered": true
+        },
+        "paramId": 8
+      },
+      {
+        "id": 9,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 138.78,
+          "y": 55.512,
+          "centered": true
+        },
+        "paramId": 9
+      },
+      {
+        "id": 10,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 150.886,
+          "y": 36.319,
+          "centered": true
+        },
+        "paramId": 10
+      },
+      {
+        "id": 11,
+        "widget": "VCVLightBezelLatch<YellowLight>",
+        "position": {
+          "x": 162.992,
+          "y": 55.512,
+          "centered": true
+        },
+        "paramId": 11
+      },
+      {
+        "id": 12,
+        "widget": "VCVLightBezel<BlueLight>",
+        "position": {
+          "x": 157.972,
+          "y": 85.039,
+          "centered": true
+        },
+        "paramId": 20
+      },
+      {
+        "id": 13,
+        "widget": "VCVLightBezel<BlueLight>",
+        "position": {
+          "x": 101.87,
+          "y": 108.661,
+          "centered": true
+        },
+        "paramId": 22
+      },
+      {
+        "id": 14,
+        "widget": "VCVLightLatch<MediumSimpleLight<YellowLight>>",
+        "position": {
+          "x": 20.079,
+          "y": 142.913,
+          "centered": true
+        },
+        "paramId": 23
+      },
+      {
+        "id": 15,
+        "widget": "VCVLightBezel<BlueLight>",
+        "position": {
+          "x": 111.319,
+          "y": 178.642,
+          "centered": true
+        },
+        "paramId": 26
+      },
+      {
+        "id": 16,
+        "widget": "VCVLightBezel<RedLight>",
+        "position": {
+          "x": 152.067,
+          "y": 178.642,
+          "centered": true
+        },
+        "paramId": 25
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "progInType",
+        "type": "boolean"
+      },
+      {
+        "key": "lastProg",
+        "type": "integer"
+      },
+      {
+        "key": "outSumMode",
+        "type": "integer"
+      },
+      {
+        "key": "displayWorking",
+        "type": "integer"
+      },
+      {
+        "key": "savedScaleKnob",
+        "type": "integer"
+      },
+      {
+        "key": "savedProgKnob",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "note",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "note",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/SickoQuant4/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "24af7466b36312923cefbba0d9c2770a442dc36d3f658794b39a0c01c6425461",
+      "size": 109018
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:04:54.966Z"
+  }
+}

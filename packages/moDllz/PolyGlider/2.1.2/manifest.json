@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "moDllz/PolyGlider",
+    "plugin": "moDllz",
+    "model": "PolyGlider",
+    "name": "PolyGlider",
+    "brand": "moDllz",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/dllmusic/moDllz/tree/master/src",
+    "libraryUrl": "https://library.vcvrack.com/moDllz/PolyGlider",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/moDllz/PolyGlider.webp",
+    "wasmUrl": "packages/moDllz/PolyGlider/2.1.2/module.wasm",
+    "width": 135,
+    "description": "Polyphonic Slew limiter ~ Portamento ~ Glide",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Rise CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Fall CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Rise Factor",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Fall Factor",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Rise",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Fall",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Slope shape",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Glide from",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Threshold",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Glide Timeframe",
+        "min": 0,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Timeframe Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Timeframe Through",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rise time CV",
+        "kind": "cv",
+        "position": {
+          "x": 13.5,
+          "y": 91.5
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fall time CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.5,
+          "y": 91.5
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shapecv",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 170.5
+        }
+      },
+      {
+        "id": 3,
+        "name": "Threshold CV",
+        "kind": "gate",
+        "position": {
+          "x": 20,
+          "y": 255
+        }
+      },
+      {
+        "id": 4,
+        "name": "Timeframe CV",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 296
+        }
+      },
+      {
+        "id": 5,
+        "name": "Legato Glide Gate",
+        "kind": "gate",
+        "position": {
+          "x": 42.5,
+          "y": 327
+        }
+      },
+      {
+        "id": 6,
+        "name": "Follow (Glide from)",
+        "kind": "cv",
+        "position": {
+          "x": 70.5,
+          "y": 327
+        }
+      },
+      {
+        "id": 7,
+        "name": "Signal Input",
+        "kind": "audio",
+        "position": {
+          "x": 13,
+          "y": 327
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "10V Gate @ Rising",
+        "kind": "gate",
+        "position": {
+          "x": 17,
+          "y": 214.5
+        }
+      },
+      {
+        "id": 1,
+        "name": "10V Gate @ Falling",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 214.5
+        }
+      },
+      {
+        "id": 2,
+        "name": "+5-5V Shape Rising/Falling",
+        "kind": "cv",
+        "position": {
+          "x": 56,
+          "y": 214.5
+        }
+      },
+      {
+        "id": 3,
+        "name": "Signal Output",
+        "kind": "audio",
+        "position": {
+          "x": 101,
+          "y": 327
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "RedLed2",
+        "position": {
+          "x": 13,
+          "y": 248
+        }
+      },
+      {
+        "id": 2,
+        "widget": "RedLed2",
+        "position": {
+          "x": 6.5,
+          "y": 6.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "RedLed2",
+        "position": {
+          "x": 13,
+          "y": 289
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        7,
+        3
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/moDllz/PolyGlider/2.1.2/manifest.json",
+    "sourceCommit": "7a038e02ba175a524a16ac5e2f9e3d2baac2066f",
+    "artifact": {
+      "sha256": "9f60600cef1dbe15ececb5747d578554f94ad3a77a2e3e1bc412b3e37fa3971a",
+      "size": 77502
+    }
+  },
+  "source": {
+    "url": "https://github.com/dllmusic/moDllz/tree/master/src",
+    "commit": "7a038e02ba175a524a16ac5e2f9e3d2baac2066f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:14:49.510Z"
+  }
+}

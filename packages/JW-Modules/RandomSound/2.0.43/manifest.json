@@ -1,0 +1,4387 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/RandomSound",
+    "plugin": "JW-Modules",
+    "model": "RandomSound",
+    "name": "Random Sound",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/RandomSound",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/RandomSound.webp",
+    "wasmUrl": "packages/JW-Modules/RandomSound/2.0.43/module.wasm",
+    "width": 45,
+    "description": "Automatically isolated from the JW-Modules/RandomSound Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Amplitude Decay",
+        "min": 0.0010000000474974513,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 10,
+          "y": 70,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger Sound",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25,
+          "y": 192,
+          "widget": "TinyButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Randomize Sound",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25,
+          "y": 145,
+          "widget": "TinyButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger + Randomize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25,
+          "y": 242,
+          "widget": "TinyButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger Sound",
+        "kind": "gate",
+        "position": {
+          "x": 5,
+          "y": 192
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger Randomize",
+        "kind": "gate",
+        "position": {
+          "x": 5,
+          "y": 145
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger + Randomize",
+        "kind": "gate",
+        "position": {
+          "x": 5,
+          "y": 242
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 100
+        }
+      },
+      {
+        "id": 4,
+        "name": "Seed input for repeatable randomization",
+        "kind": "cv",
+        "position": {
+          "x": 25,
+          "y": 165
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Random Sound (polyphonic)",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 300
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "channels",
+        "type": "integer"
+      },
+      {
+        "key": "ampDecay",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          12,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          13,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          14,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "freq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "phase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "amp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "feedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "prevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "carrierWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "attackTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "decayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "envValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "envStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "pitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "pitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "pitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "pitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "modFreq"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modPhase"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modAmp"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modFeedback"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modPrevOut"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modWave"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "fmIndex"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "useFM"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "ampExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "modEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "modPitchEnvValue"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modPitchDecayTime"
+        ],
+        "key": "voices",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          "modPitchUp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "modPitchEnvStage"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "pitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "modAmpExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      },
+      {
+        "path": [
+          15,
+          "modPitchExp"
+        ],
+        "key": "voices",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/RandomSound/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "27939de8f0b94c2bbf22cbed37b23067c13e56b53476361214b7f1dabcdcb577",
+      "size": 237607
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:44.867Z"
+  }
+}

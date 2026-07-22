@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Tine",
+    "plugin": "SignalFunctionSet",
+    "model": "Tine",
+    "name": "Tine",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Tine",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Tine.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Tine/2.16.3/module.wasm",
+    "width": 120,
+    "description": "Tunable 3rd-order pingable resonator based on the Gamelan Resonator circuit, with variable damping and VCA anti-click mode",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 90,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Damping",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 30,
+          "y": 180,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ping",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 90,
+          "y": 180,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 345,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger (ping)",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 345,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Damping CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 180,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 90,
+          "y": 345,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "vcaMode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Tine/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "1863be30d3a98cfb818aac1c5d198700f244b15819fff1ca6b09a4950a924f74",
+      "size": 84342
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:51.508Z"
+  }
+}

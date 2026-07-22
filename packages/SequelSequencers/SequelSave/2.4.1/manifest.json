@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SequelSequencers/SequelSave",
+    "plugin": "SequelSequencers",
+    "model": "SequelSave",
+    "name": "Sequel Save",
+    "brand": "Daniel Davies",
+    "version": "2.4.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/danieldavies99/sequel",
+    "libraryUrl": "https://library.vcvrack.com/SequelSequencers/SequelSave",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SequelSequencers/SequelSave.webp",
+    "wasmUrl": "packages/SequelSequencers/SequelSave/2.4.1/module.wasm",
+    "width": 195,
+    "description": "Save state expander module for Sequel 8 & Sequel 16",
+    "params": [
+      {
+        "id": 0,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 24.006,
+          "y": 117.121,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 1,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 121.999,
+          "y": 117.121,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 24.006,
+          "y": 178.603,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 3,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 121.999,
+          "y": 178.603,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 4,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 24.006,
+          "y": 240.086,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 5,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 121.999,
+          "y": 240.089,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 6,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 24.006,
+          "y": 301.571,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 7,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 121.999,
+          "y": 301.571,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 73.001,
+          "y": 117.121,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 170.994,
+          "y": 117.121,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 73.001,
+          "y": 178.603,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 170.994,
+          "y": 178.603,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 73.001,
+          "y": 240.086,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 170.994,
+          "y": 240.089,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 73.001,
+          "y": 301.571,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 170.994,
+          "y": 301.571,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 170.994,
+          "y": 40.013,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "speedVal",
+        "type": "real"
+      },
+      {
+        "key": "stepCountVal",
+        "type": "integer"
+      },
+      {
+        "key": "triggerModeVal",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "SequelSequencers/Sequel8",
+            "symbol": "modelSequel8",
+            "index": 0
+          },
+          {
+            "key": "SequelSequencers/Sequel16",
+            "symbol": "modelSequel16",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SequelSequencers/SequelSave/2.4.1/manifest.json",
+    "sourceCommit": "70f443ae84bfa1751f8af804682b7b73a6d851df",
+    "artifact": {
+      "sha256": "04ebcb791e129c75f143f89a61b62e67eaf5dae1651835ee0cacfb1ec1cdb5ad",
+      "size": 81192
+    }
+  },
+  "source": {
+    "url": "https://github.com/danieldavies99/sequel",
+    "commit": "70f443ae84bfa1751f8af804682b7b73a6d851df"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:13:48.669Z"
+  }
+}

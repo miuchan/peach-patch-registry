@@ -1,0 +1,1073 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Astravox/Vocoder",
+    "plugin": "Astravox",
+    "model": "Vocoder",
+    "name": "Vocoder",
+    "brand": "Astravox",
+    "version": "2.0.3",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/JackArkyDev/Astravox",
+    "libraryUrl": "https://library.vcvrack.com/Astravox/Vocoder",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Astravox/Vocoder.webp",
+    "wasmUrl": "packages/Astravox/Vocoder/2.0.3/module.wasm",
+    "width": 180,
+    "description": "16-band vocoder with per-band level faders, internal carrier oscillator, and spectral CV outputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "VCO Frequency",
+        "min": -54,
+        "max": 36,
+        "default": 0,
+        "position": {
+          "x": 44.291,
+          "y": 81.821,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "VCO Wave",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 44.291,
+          "y": 123.159,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 44.291,
+          "y": 166.742,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Carrier Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44.291,
+          "y": 262.943,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gain Level",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 584.528,
+          "y": 236.339,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Spectral Shift",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 202.707,
+          "y": 289.902,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202.707,
+          "y": 333.455,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Shift LFO Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 283.76,
+          "y": 289.902,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Shift LFO Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 283.76,
+          "y": 333.455,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Band 1 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1,
+        "position": {
+          "x": 100.63,
+          "y": 135.591,
+          "centered": true,
+          "widget": "BandSlider"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Band 2 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "Band 3 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 12,
+        "name": "Band 4 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 13,
+        "name": "Band 5 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 14,
+        "name": "Band 6 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 15,
+        "name": "Band 7 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 16,
+        "name": "Band 8 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 17,
+        "name": "Band 9 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 18,
+        "name": "Band 10 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 19,
+        "name": "Band 11 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 20,
+        "name": "Band 12 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 21,
+        "name": "Band 13 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 22,
+        "name": "Band 14 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 23,
+        "name": "Band 15 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 24,
+        "name": "Band 16 Level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 25,
+        "name": "Noise type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 44.291,
+          "y": 224.852,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 435.886,
+          "y": 277.559,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 125.079,
+          "y": 333.455,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Volume",
+        "min": 0,
+        "max": 1,
+        "default": 0.75,
+        "position": {
+          "x": 584.528,
+          "y": 81.821,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "VCA mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 584.528,
+          "y": 122.037,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 44.291,
+          "y": 348.425,
+          "centered": true,
+          "widget": "VCVLightButton<SmallLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 584.528,
+          "y": 173.15,
+          "centered": true,
+          "widget": "VCVLightLatch<SmallLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Prog Trig EG",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 44.291,
+          "y": 315.207,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Attack mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 126.053,
+          "y": 286.358,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Program",
+        "kind": "cv",
+        "position": {
+          "x": 584.528,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 390.472,
+          "y": 316.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "VCA CV (–5V = silence, 0V = unity, +5V = no effect)",
+        "kind": "cv",
+        "position": {
+          "x": 474.035,
+          "y": 316.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 348.455,
+          "y": 316.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "PWM",
+        "kind": "cv",
+        "position": {
+          "x": 348.455,
+          "y": 347.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "LFO Rate",
+        "kind": "cv",
+        "position": {
+          "x": 432.638,
+          "y": 347.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 390.472,
+          "y": 347.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Formant",
+        "kind": "cv",
+        "position": {
+          "x": 432.638,
+          "y": 316.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Freeze",
+        "kind": "cv",
+        "position": {
+          "x": 474.035,
+          "y": 347.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Band Vcacv First",
+        "kind": "cv",
+        "position": {
+          "x": 100.63,
+          "y": 202.116,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "IN 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "IN 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "IN 13",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "IN 14",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "IN 15",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "IN 16",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "IN 17",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "IN 18",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "IN 19",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "IN 20",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "IN 21",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "IN 22",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "IN 23",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "IN 24",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Band Vcacv Last",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "VCA Out",
+        "kind": "cv",
+        "position": {
+          "x": 607.234,
+          "y": 347.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "LFO Out",
+        "kind": "cv",
+        "position": {
+          "x": 520.246,
+          "y": 347.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "EG Out",
+        "kind": "cv",
+        "position": {
+          "x": 520.187,
+          "y": 316.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Prog Env F",
+        "kind": "cv",
+        "position": {
+          "x": 564.124,
+          "y": 347.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Band Envf First",
+        "kind": "cv",
+        "position": {
+          "x": 100.63,
+          "y": 234.656,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "OUT 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "OUT 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "OUT 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "OUT 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "OUT 13",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "OUT 14",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "OUT 15",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "OUT 16",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "OUT 17",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "OUT 18",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "OUT 19",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Band Envf Last",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Even bands",
+        "kind": "cv",
+        "position": {
+          "x": 564.124,
+          "y": 316.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Odd bands",
+        "kind": "cv",
+        "position": {
+          "x": 607.234,
+          "y": 316.978,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 32,
+    "lightWidgets": [
+      {
+        "id": 9,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 19.193,
+          "y": 124.193,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 69.39,
+          "y": 124.193,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 19.193,
+          "y": 226.004,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 69.39,
+          "y": 226.004,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 100.984,
+          "y": 288.691,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 150.531,
+          "y": 288.691,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 19.193,
+          "y": 314.823,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 69.39,
+          "y": 314.823,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 409.813,
+          "y": 278.711,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 462.431,
+          "y": 278.711,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "BandMeterLight",
+        "position": {
+          "x": 100.63,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 559.429,
+          "y": 124.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 609.626,
+          "y": 124.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 598.848,
+          "y": 23.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 308.356,
+          "y": 280.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "VCVLightLatch<SmallLight<GreenLight>>",
+        "position": {
+          "x": 584.528,
+          "y": 173.15,
+          "centered": true
+        },
+        "paramId": 31
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightButton<SmallLight<GreenLight>>",
+        "position": {
+          "x": 44.291,
+          "y": 348.425,
+          "centered": true
+        },
+        "paramId": 30
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "phase",
+        "type": "real"
+      },
+      {
+        "key": "lfoPhase",
+        "type": "real"
+      },
+      {
+        "key": "egValue",
+        "type": "real"
+      },
+      {
+        "key": "progFollower",
+        "type": "real"
+      },
+      {
+        "key": "band0BP",
+        "type": "boolean"
+      },
+      {
+        "key": "band15BP",
+        "type": "boolean"
+      },
+      {
+        "key": "spacingMode",
+        "type": "integer"
+      },
+      {
+        "key": "vcaMode",
+        "type": "integer"
+      },
+      {
+        "key": "progTrigEg",
+        "type": "integer"
+      },
+      {
+        "key": "attackMode",
+        "type": "integer"
+      },
+      {
+        "key": "vcoWave",
+        "type": "integer"
+      },
+      {
+        "key": "noiseType",
+        "type": "integer"
+      },
+      {
+        "key": "filterBankMode",
+        "type": "integer"
+      },
+      {
+        "key": "hfBypass",
+        "type": "boolean"
+      },
+      {
+        "key": "bandCvMode",
+        "type": "integer"
+      },
+      {
+        "key": "lfoTarget",
+        "type": "integer"
+      },
+      {
+        "key": "lfoSync",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Astravox/Vocoder/2.0.3/manifest.json",
+    "sourceCommit": "c9b8c746ad3d87a67261e6cadc8f89e5ce6c7c72",
+    "artifact": {
+      "sha256": "f7d67cfb4075c33010594d109dbbf7b0f1248d6ecb1914cf575e5832d8fba0fa",
+      "size": 115488
+    }
+  },
+  "source": {
+    "url": "https://github.com/JackArkyDev/Astravox",
+    "commit": "c9b8c746ad3d87a67261e6cadc8f89e5ce6c7c72"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:15:08.967Z"
+  }
+}

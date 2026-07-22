@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Chance",
+    "plugin": "SignalFunctionSet",
+    "model": "Chance",
+    "name": "Chance",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Chance",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Chance.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Chance/2.16.3/module.wasm",
+    "width": 390,
+    "description": "5-stage probabilistic step sequencer. Per-stage voltage slider plus repeat, probability, and harmonic-drift amounts; selectable direction, active length, and gate length; internal or external clock; CV/Gate/EOC outs and a randomize trigger.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pattern 1 active",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Pattern 2 active",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Pattern 3 active",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Pattern 4 active",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Pattern 5 active",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Pattern 6 active",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Pattern 7 active",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Pattern 8 active",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Pattern 1 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 9,
+        "name": "Pattern 2 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 10,
+        "name": "Pattern 3 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "Pattern 4 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 12,
+        "name": "Pattern 5 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 13,
+        "name": "Pattern 6 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 14,
+        "name": "Pattern 7 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 15,
+        "name": "Pattern 8 repeats",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 16,
+        "name": "Key / scale",
+        "min": 0,
+        "max": 18,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 70.925,
+          "y": 314.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Root note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 111.88,
+          "y": 314.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Start step",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 19,
+        "name": "End step",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "snap": true
+      },
+      {
+        "id": 20,
+        "name": "Gravity (down – up)",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 21,
+        "name": "Drift (move size)",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 22,
+        "name": "Branch (stray from core)",
+        "min": 0,
+        "max": 1,
+        "default": 0.25
+      },
+      {
+        "id": 23,
+        "name": "Gate length",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 30,
+          "y": 265.748,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Rests",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 25,
+        "name": "Held nodes",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 26,
+        "name": "Octave leaps",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 27,
+        "name": "Ratchet (2-3 bursts within a step)",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 28,
+        "name": "Glide",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.925,
+          "y": 265.748,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Randomize (new core)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 152.805,
+          "y": 314.97,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193.76,
+          "y": 314.97,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Harmony (2nd voice)",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 275.61,
+          "y": 359.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 193.76,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Randomize trigger",
+        "kind": "gate",
+        "position": {
+          "x": 152.805,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Root CV (1V/oct, semitone-quantized) — e.g. Note or Phrase root out",
+        "kind": "cv",
+        "position": {
+          "x": 111.88,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gravity CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Drift CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Branch CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Scale-select CV (1V per scale) — e.g. Note or Phrase scale out",
+        "kind": "cv",
+        "position": {
+          "x": 70.925,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Rests CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Held nodes CV",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Octave leaps CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Ratchet CV",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV (1V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 316.565,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 357.49,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Harmony CV — the 2nd voice (diatonic interval)",
+        "kind": "cv",
+        "position": {
+          "x": 316.565,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Harmony gate",
+        "kind": "gate",
+        "position": {
+          "x": 357.49,
+          "y": 359.97,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 16,
+    "stateKeys": [
+      {
+        "key": "playPat",
+        "type": "integer"
+      },
+      {
+        "key": "editPat",
+        "type": "integer"
+      },
+      {
+        "key": "rangeOctaves",
+        "type": "integer"
+      },
+      {
+        "key": "startOnRoot",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Chance/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "95ec061a06d1e4307ab2429a4fa731c9a8533c32d33a91a30ea236174850d38e",
+      "size": 95958
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:12:01.362Z"
+  }
+}

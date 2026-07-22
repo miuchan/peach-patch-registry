@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "aridacity/Clip",
+    "plugin": "aridacity",
+    "model": "Clip",
+    "name": "Clip Limiter",
+    "brand": "",
+    "version": "2.1.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cubeleco/aridacityVCV",
+    "libraryUrl": "https://library.vcvrack.com/aridacity/Clip",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/aridacity/Clip.webp",
+    "wasmUrl": "packages/aridacity/Clip/2.1.0/module.wasm",
+    "width": 60,
+    "description": "Hard limiter with inner and outer limits",
+    "params": [
+      {
+        "id": 0,
+        "name": "Inner limit",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 10,
+          "y": 120,
+          "widget": "SmallWhiteSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Outer limit",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 40,
+          "y": 120,
+          "widget": "SmallWhiteSwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gain",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 10,
+          "y": 40,
+          "widget": "WhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Push",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 160,
+          "widget": "WhiteKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Limit",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 10,
+          "y": 240,
+          "widget": "WhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 4,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gain",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 80
+        }
+      },
+      {
+        "id": 2,
+        "name": "Push",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 200
+        }
+      },
+      {
+        "id": 3,
+        "name": "Push Position",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 200
+        }
+      },
+      {
+        "id": 4,
+        "name": "Limit",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 280
+        }
+      },
+      {
+        "id": 5,
+        "name": "Limit Position",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 280
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 35,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/aridacity/Clip/2.1.0/manifest.json",
+    "sourceCommit": "7a96486e439565b4449db14b6ad0ccb0cec7c9ab",
+    "artifact": {
+      "sha256": "b127c1137a3ac8d8f1ef3abc63a7ebeb2ab649ec03030484692131e02b46baed",
+      "size": 72395
+    }
+  },
+  "source": {
+    "url": "https://github.com/cubeleco/aridacityVCV",
+    "commit": "7a96486e439565b4449db14b6ad0ccb0cec7c9ab"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:14:41.733Z"
+  }
+}

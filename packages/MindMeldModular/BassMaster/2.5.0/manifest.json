@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MindMeldModular/BassMaster",
+    "plugin": "MindMeldModular",
+    "model": "BassMaster",
+    "name": "BassMaster",
+    "brand": "MindMeld",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/MindMeldModular",
+    "libraryUrl": "https://library.vcvrack.com/MindMeldModular/BassMaster",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MindMeldModular/BassMaster.webp",
+    "wasmUrl": "packages/MindMeldModular/BassMaster/2.5.0/module.wasm",
+    "width": 90,
+    "description": "Dual band spatialiser for high spread and bass mono with VU meter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Crossover",
+        "min": 50,
+        "max": 500,
+        "default": 120,
+        "position": {
+          "x": 45,
+          "y": 67.854,
+          "centered": true,
+          "widget": "MmBiggerKnobWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Slope 24 dB/oct",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Low width",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 22.146,
+          "y": 237.402,
+          "centered": true,
+          "widget": "Mm8mmKnobGrayWithArcTopCentered"
+        }
+      },
+      {
+        "id": 3,
+        "name": "High width",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 22.146,
+          "y": 155.551,
+          "centered": true,
+          "widget": "Mm8mmKnobGrayWithArcTopCentered"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Low solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 220.6,
+          "centered": true,
+          "widget": "MmSoloRoundButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "High solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 138.573,
+          "centered": true,
+          "widget": "MmSoloRoundButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Low gain",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.618,
+          "y": 237.402,
+          "centered": true,
+          "widget": "Mm8mmKnobGrayWithArcTopCentered"
+        }
+      },
+      {
+        "id": 7,
+        "name": "High gain",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.618,
+          "y": 155.551,
+          "centered": true,
+          "widget": "Mm8mmKnobGrayWithArcTopCentered"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 284.646,
+          "centered": true,
+          "widget": "MmBypassRoundButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Master gain",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 109.843,
+          "y": 195.148,
+          "centered": true,
+          "widget": "Mm8mmKnobGrayWithArcTopCentered"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 109.843,
+          "y": 243.159,
+          "centered": true,
+          "widget": "Mm8mmKnobGrayWithArc"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 20.108,
+          "y": 304.222,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 20.108,
+          "y": 332.037,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Low width",
+        "kind": "cv",
+        "position": {
+          "x": 107.48,
+          "y": 332.037,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "High width",
+        "kind": "cv",
+        "position": {
+          "x": 107.48,
+          "y": 304.222,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 69.449,
+          "y": 304.222,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 69.449,
+          "y": 332.037,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "miscSettings",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MindMeldModular/BassMaster/2.5.0/manifest.json",
+    "sourceCommit": "9f47a829e53acc7da5f40de21831917f932d928e",
+    "artifact": {
+      "sha256": "91d67625141763e2e0243425d05ad2a2243b7e876f7ef29b55b8f7210d00713c",
+      "size": 86286
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/MindMeldModular",
+    "commit": "9f47a829e53acc7da5f40de21831917f932d928e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:07:07.013Z"
+  }
+}

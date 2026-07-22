@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/Quantizer",
+    "plugin": "JW-Modules",
+    "model": "Quantizer",
+    "name": "Quantizer",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/Quantizer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/Quantizer.webp",
+    "wasmUrl": "packages/JW-Modules/Quantizer/2.0.43/module.wasm",
+    "width": 60,
+    "description": "Automatically isolated from the JW-Modules/Quantizer Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Root Note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 60,
+          "widget": "NoteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "min": 0,
+        "max": 28,
+        "default": 11,
+        "position": {
+          "x": 17,
+          "y": 133,
+          "widget": "ScaleKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Octave Shift",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 205,
+          "widget": "JwSmallSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Note",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 90
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 163
+        }
+      },
+      {
+        "id": 2,
+        "name": "Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 290
+        }
+      },
+      {
+        "id": 3,
+        "name": "Octave",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 235
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Quantized",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 290
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "inputsOverride",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/Quantizer/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "3eb6bc863c0d38b879609812ef0b0cc0acd9e9a8dd9c62ce7280fcbe36b262a5",
+      "size": 76647
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:41.346Z"
+  }
+}

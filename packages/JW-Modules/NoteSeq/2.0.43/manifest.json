@@ -1,0 +1,689 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/NoteSeq",
+    "plugin": "JW-Modules",
+    "model": "NoteSeq",
+    "name": "NoteSeq",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/NoteSeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/NoteSeq.webp",
+    "wasmUrl": "packages/JW-Modules/NoteSeq/2.0.43/module.wasm",
+    "width": 720,
+    "description": "Automatically isolated from the JW-Modules/NoteSeq Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 1,
+        "max": 32,
+        "default": 32,
+        "position": {
+          "x": 96,
+          "y": 35,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Play Mode",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 144,
+          "y": 35,
+          "widget": "JwPlayModeKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 30,
+          "y": 87,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 80,
+          "y": 87,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Random Mode",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 87,
+          "widget": "RndModeKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Random Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 80,
+          "y": 145,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Random Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 138,
+          "y": 145,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Rotate Right",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 80,
+          "y": 247,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Rotate Left",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 138,
+          "y": 247,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Flip Horizontal",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 80,
+          "y": 196,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Flip Vertical",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 138,
+          "y": 196,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Shift Up",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 62,
+          "y": 302,
+          "widget": "TinyButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Shift Down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 107,
+          "y": 302,
+          "widget": "TinyButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Life Switch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 102,
+          "y": 350,
+          "widget": "JwHorizontalSwitch"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Life Speed",
+        "min": 1,
+        "max": 16,
+        "default": 12,
+        "position": {
+          "x": 138,
+          "y": 345,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Scale",
+        "min": 0,
+        "max": 28,
+        "default": 11,
+        "position": {
+          "x": 683,
+          "y": 259,
+          "widget": "ScaleKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Root Note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 620,
+          "y": 259,
+          "widget": "NoteKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Octave",
+        "min": -5,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 652,
+          "y": 259,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Param 20",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Highest Note",
+        "min": 1,
+        "max": 32,
+        "default": 32,
+        "position": {
+          "x": 663,
+          "y": 147,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Lowest Note",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "position": {
+          "x": 663,
+          "y": 190,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Drum Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 675,
+          "y": 224,
+          "widget": "JwHorizontalSwitch"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Shift Amount",
+        "min": -32,
+        "max": 32,
+        "default": 1,
+        "position": {
+          "x": 50,
+          "y": 345,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Start",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 35,
+          "widget": "JwSmallSnapKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Shift Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 153,
+          "y": 302,
+          "widget": "TinyButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 7.5,
+          "y": 40
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 92
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clear",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 92
+        }
+      },
+      {
+        "id": 3,
+        "name": "Random Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 150
+        }
+      },
+      {
+        "id": 4,
+        "name": "Random Amount",
+        "kind": "cv",
+        "position": {
+          "x": 118,
+          "y": 150
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rotate Right",
+        "kind": "audio",
+        "position": {
+          "x": 60,
+          "y": 252
+        }
+      },
+      {
+        "id": 6,
+        "name": "Rotate Left",
+        "kind": "audio",
+        "position": {
+          "x": 118,
+          "y": 252
+        }
+      },
+      {
+        "id": 7,
+        "name": "Flip Horizontally",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 201
+        }
+      },
+      {
+        "id": 8,
+        "name": "Flip Vertically",
+        "kind": "cv",
+        "position": {
+          "x": 118,
+          "y": 201
+        }
+      },
+      {
+        "id": 9,
+        "name": "Shift Up",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 302
+        }
+      },
+      {
+        "id": 10,
+        "name": "Shift Down",
+        "kind": "cv",
+        "position": {
+          "x": 88,
+          "y": 302
+        }
+      },
+      {
+        "id": 11,
+        "name": "Highest Note",
+        "kind": "cv",
+        "position": {
+          "x": 643,
+          "y": 152
+        }
+      },
+      {
+        "id": 12,
+        "name": "Lowest Note",
+        "kind": "cv",
+        "position": {
+          "x": 643,
+          "y": 195
+        }
+      },
+      {
+        "id": 13,
+        "name": "Root",
+        "kind": "cv",
+        "position": {
+          "x": 623,
+          "y": 300
+        }
+      },
+      {
+        "id": 14,
+        "name": "Octave",
+        "kind": "cv",
+        "position": {
+          "x": 656,
+          "y": 300
+        }
+      },
+      {
+        "id": 15,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 690,
+          "y": 300
+        }
+      },
+      {
+        "id": 16,
+        "name": "Length",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 40
+        }
+      },
+      {
+        "id": 17,
+        "name": "Mode",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 40
+        }
+      },
+      {
+        "id": 18,
+        "name": "Shift Amount",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 350
+        }
+      },
+      {
+        "id": 19,
+        "name": "Start",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 40
+        }
+      },
+      {
+        "id": 20,
+        "name": "Shift Chaos",
+        "kind": "cv",
+        "position": {
+          "x": 134,
+          "y": 302
+        }
+      },
+      {
+        "id": 21,
+        "name": "Seed input for repeatable randomization",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 168
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/Oct Main",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Gate Main",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Minimum V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 656.303,
+          "y": 35
+        }
+      },
+      {
+        "id": 3,
+        "name": "Minimum Gate",
+        "kind": "gate",
+        "position": {
+          "x": 689.081,
+          "y": 35
+        }
+      },
+      {
+        "id": 4,
+        "name": "Middle V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 656.303,
+          "y": 56
+        }
+      },
+      {
+        "id": 5,
+        "name": "Middle Gate",
+        "kind": "gate",
+        "position": {
+          "x": 689.081,
+          "y": 56
+        }
+      },
+      {
+        "id": 6,
+        "name": "Maximum V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 656.303,
+          "y": 77
+        }
+      },
+      {
+        "id": 7,
+        "name": "Maximum Gate",
+        "kind": "gate",
+        "position": {
+          "x": 689.081,
+          "y": 77
+        }
+      },
+      {
+        "id": 8,
+        "name": "Random V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 656.303,
+          "y": 98
+        }
+      },
+      {
+        "id": 9,
+        "name": "Random Gate",
+        "kind": "gate",
+        "position": {
+          "x": 689.081,
+          "y": 98
+        }
+      },
+      {
+        "id": 10,
+        "name": "Poly V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 656,
+          "y": 345
+        }
+      },
+      {
+        "id": 11,
+        "name": "Poly Gate",
+        "kind": "gate",
+        "position": {
+          "x": 690,
+          "y": 345
+        }
+      },
+      {
+        "id": 12,
+        "name": "End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 623,
+          "y": 345
+        }
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "channels",
+        "type": "integer"
+      },
+      {
+        "key": "gatePulseLenSec",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/NoteSeq/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "c51e8a2a495dee073a46d98c7372446587a258e4c09f2bffede11a0d5c867cd0",
+      "size": 112124
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:02:38.594Z"
+  }
+}

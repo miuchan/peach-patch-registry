@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Wave",
+    "plugin": "SignalFunctionSet",
+    "model": "Wave",
+    "name": "Wave",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Wave",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Wave.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Wave/2.16.3/module.wasm",
+    "width": 240,
+    "description": "Parametric wavetable voice. Six macro shape controls (Peaks, Bias, Transition, Skew, Width, Fold) sculpt each waveform; eight bookmark slots form a wavetable that WT INDEX scans through with adjustable morph time.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Peaks",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Bias",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Transition (log ↔ exp)",
+        "min": -1,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 3,
+        "name": "Skew",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 5,
+        "name": "Fold",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Wander (internal random modulation)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 307.087,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Wavetable scan velocity",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 97.441,
+          "y": 307.087,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Velocity accel (slew)",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 307.087,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Snap (capture live shape into wavetable)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 188.976,
+          "y": 307.087,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 103.346,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM (linear, ~100 Hz/V)",
+        "kind": "cv",
+        "position": {
+          "x": 132.874,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync (rising edge resets phase)",
+        "kind": "gate",
+        "position": {
+          "x": 162.402,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Velocity CV (±5V → ±1.0)",
+        "kind": "cv",
+        "position": {
+          "x": 126.969,
+          "y": 307.087,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Snap trigger",
+        "kind": "gate",
+        "position": {
+          "x": 215.551,
+          "y": 307.087,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset (jump scan position to oldest)",
+        "kind": "gate",
+        "position": {
+          "x": 23.622,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Wander CV",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 307.087,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Peaks CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Bias CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Transition CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Skew CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Width CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Fold CV",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 215.551,
+          "y": 354.331,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Wave/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "b73fb038ca7a1c12fae318a61759af8d407cf43adadeb1fce33e1edea333219c",
+      "size": 94857
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:11:57.279Z"
+  }
+}
