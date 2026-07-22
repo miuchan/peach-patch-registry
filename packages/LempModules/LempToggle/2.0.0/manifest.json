@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LempModules/LempToggle",
+    "plugin": "LempModules",
+    "model": "LempToggle",
+    "name": "Toggle",
+    "brand": "Lemp",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/lempface/VCV-LempModules",
+    "libraryUrl": "https://library.vcvrack.com/LempModules/LempToggle",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LempModules/LempToggle.webp",
+    "wasmUrl": "packages/LempModules/LempToggle/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Output a constant voltage between 0-10v with a latch button.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Hold",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 87,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<LempBlueLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Value",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 22.5,
+          "y": 202,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 125,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mod",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 240.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 313,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallSimpleLight<LempBlueLight>",
+        "position": {
+          "x": 27.018,
+          "y": 345.62,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightButton<MediumSimpleLight<LempBlueLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 87,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LempModules/LempToggle/2.0.0/manifest.json",
+    "sourceCommit": "762045d4be877195ceb4297f53bc129d359b6aa3",
+    "artifact": {
+      "sha256": "a1a3e3203e9dd3877cbd8804e7acce6196b5ff71dbc11520bff219bffcf57496",
+      "size": 71759
+    }
+  },
+  "source": {
+    "url": "https://github.com/lempface/VCV-LempModules",
+    "commit": "762045d4be877195ceb4297f53bc129d359b6aa3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:43:01.274Z"
+  }
+}

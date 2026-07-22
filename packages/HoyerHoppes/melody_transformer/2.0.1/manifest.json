@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HoyerHoppes/melody_transformer",
+    "plugin": "HoyerHoppes",
+    "model": "melody_transformer",
+    "name": "Melody Transformer",
+    "brand": "HoyerHoppes",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/jakulley/HoyerHoppes",
+    "libraryUrl": "https://library.vcvrack.com/HoyerHoppes/melody_transformer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HoyerHoppes/melody_transformer.webp",
+    "wasmUrl": "packages/HoyerHoppes/melody_transformer/2.0.1/module.wasm",
+    "width": 180,
+    "description": "Quantizer with user-defined master scale and sub-scales. Pre-quantization processing utilities include gain, offset, and a 16-step polyphonic looper",
+    "params": [
+      {
+        "id": 0,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 84.056,
+          "y": 295.683,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 1,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 90.93,
+          "y": 284.746,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 97.713,
+          "y": 295.683,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 3,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 105.523,
+          "y": 284.746,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 4,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 111.797,
+          "y": 295.683,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 5,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 125.029,
+          "y": 295.683,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 6,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 131.288,
+          "y": 284.746,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 7,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 138.685,
+          "y": 295.683,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 8,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 145.981,
+          "y": 284.746,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 9,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 152.344,
+          "y": 295.683,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 10,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 160.677,
+          "y": 284.746,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 11,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 166.001,
+          "y": 295.683,
+          "centered": true,
+          "widget": "Note_Button"
+        }
+      },
+      {
+        "id": 12,
+        "name": "",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.855,
+          "y": 63.103,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 127.627,
+          "y": 63.103,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "turns sample and hold on and off",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 47.858,
+          "y": 77.356,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 15,
+        "name": "loop length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "snap": true,
+        "position": {
+          "x": 94.208,
+          "y": 122.374,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "when off, input writes to shift register",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.506,
+          "y": 129.289,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 17,
+        "name": "while held, replace contents of loop with contents of input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 157.91,
+          "y": 129.289,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 18,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 51.98,
+          "y": 181.967,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "",
+        "min": 0,
+        "max": 4,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 147.292,
+          "y": 181.967,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "",
+        "min": -10,
+        "max": 10,
+        "default": -10,
+        "position": {
+          "x": 51.98,
+          "y": 219.419,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "",
+        "min": -10,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 147.292,
+          "y": 219.419,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 23.852,
+          "y": 272.979,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "shift scale while staying in key",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 23.852,
+          "y": 304.093,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "-10 to 10v, white noise normaled in",
+        "kind": "cv",
+        "position": {
+          "x": 25.99,
+          "y": 47.282,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "-10 to 10v, attenuverted by knob",
+        "kind": "cv",
+        "position": {
+          "x": 97.527,
+          "y": 63.103,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "-10 to 10v, attenuverted by knob",
+        "kind": "cv",
+        "position": {
+          "x": 156.543,
+          "y": 63.103,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "expects triggers",
+        "kind": "gate",
+        "position": {
+          "x": 25.414,
+          "y": 74.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "normaled to sample and hold input",
+        "kind": "gate",
+        "position": {
+          "x": 55.952,
+          "y": 124.757,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "when high, take new sample on clock trigger",
+        "kind": "gate",
+        "position": {
+          "x": 136.376,
+          "y": 124.757,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "0-5v, overrides knob",
+        "kind": "cv",
+        "position": {
+          "x": 22.211,
+          "y": 183.05,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "0-5v, overrides knob",
+        "kind": "cv",
+        "position": {
+          "x": 117.523,
+          "y": 183.05,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "-10 to 10v, overrides knob",
+        "kind": "cv",
+        "position": {
+          "x": 22.211,
+          "y": 222.644,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "-10 to 10v, overrides knob",
+        "kind": "cv",
+        "position": {
+          "x": 117.523,
+          "y": 222.644,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "accepts v/oct",
+        "kind": "cv",
+        "position": {
+          "x": 52.172,
+          "y": 272.947,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "accepts v/oct, ignoring notes outside of active scale",
+        "kind": "cv",
+        "position": {
+          "x": 52.172,
+          "y": 304.063,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "unquantized, but still processed and looped (if applicable)",
+        "kind": "cv",
+        "position": {
+          "x": 22.639,
+          "y": 344.365,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "all active notes of the scale",
+        "kind": "cv",
+        "position": {
+          "x": 53.917,
+          "y": 344.365,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "e.g. the root, 3rd, and 5th of the scale",
+        "kind": "cv",
+        "position": {
+          "x": 87.67,
+          "y": 344.365,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "e.g. the root and 5th of the scale",
+        "kind": "cv",
+        "position": {
+          "x": 120.924,
+          "y": 344.365,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "e.g. the root of the scale",
+        "kind": "cv",
+        "position": {
+          "x": 155.982,
+          "y": 344.365,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 47.858,
+          "y": 77.356,
+          "centered": true
+        },
+        "paramId": 14
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 22.506,
+          "y": 129.289,
+          "centered": true
+        },
+        "paramId": 16
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 157.91,
+          "y": 129.289,
+          "centered": true
+        },
+        "paramId": 17
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HoyerHoppes/melody_transformer/2.0.1/manifest.json",
+    "sourceCommit": "9158d234902ce8efff3aa125386d4a243a82ca83",
+    "artifact": {
+      "sha256": "a93d0e6aa096e4ffbb3718b9fc4f5544912a028da39db9e716abd68747636482",
+      "size": 93790
+    }
+  },
+  "source": {
+    "url": "https://github.com/jakulley/HoyerHoppes",
+    "commit": "9158d234902ce8efff3aa125386d4a243a82ca83"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:42:47.738Z"
+  }
+}

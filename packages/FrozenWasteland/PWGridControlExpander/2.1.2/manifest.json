@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/PWGridControlExpander",
+    "plugin": "FrozenWasteland",
+    "model": "PWGridControlExpander",
+    "name": "Portland Weather - Grid Control Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/PWGridControlExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/PWGridControlExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/PWGridControlExpander/2.1.2/module.wasm",
+    "width": 195,
+    "description": "Allows Portland Weather to be modulated in a grid fashion",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pin Y Axis",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 8,
+          "y": 110,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Grid Y Axis Pin Position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 130,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Grid Y Axis Rotation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 69,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Grid Controls: Level",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 208,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Grid Controls: Panning",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Grid Controls: Filter Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 252,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Grid Controls: Filter Q",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 274,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Grid Controls: Pitch Shift",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 296,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Grid Controls: Pitch Detune",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 318,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Grid X Shift",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 34
+        }
+      },
+      {
+        "id": 1,
+        "name": "Grid Y Shift",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 34
+        }
+      },
+      {
+        "id": 2,
+        "name": "Grid X Axis Pin Position",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 133
+        }
+      },
+      {
+        "id": 3,
+        "name": "Grid Y Axis Rotation",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 72
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 21,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 9.5,
+          "y": 111.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 209.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 231.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 253.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 275.5
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 297.5
+        }
+      },
+      {
+        "id": 18,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 319.5
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/PortlandWeather",
+            "symbol": "modelPortlandWeather",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/PWTapBreakoutExpander",
+            "symbol": "modelPWTapBreakoutExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/PWGridControlExpander",
+            "symbol": "modelPWGridControlExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/PWAlgorithmicExpander",
+            "symbol": "modelPWAlgorithmicExpander",
+            "index": 3
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/PWGridControlExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "8b308543aa1339c2906f8e20262b6540e49d8777e571c3c0d7752a32b6c70374",
+      "size": 86693
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:42:32.804Z"
+  }
+}

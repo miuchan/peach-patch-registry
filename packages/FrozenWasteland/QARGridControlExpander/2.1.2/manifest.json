@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/QARGridControlExpander",
+    "plugin": "FrozenWasteland",
+    "model": "QARGridControlExpander",
+    "name": "QAR - Grid Control Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/QARGridControlExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/QARGridControlExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/QARGridControlExpander/2.1.2/module.wasm",
+    "width": 150,
+    "description": "Allows some QAR expanders to be modulated in a grid fashion",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pin Y Axis",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 53,
+          "y": 286,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Grid Y Axis Pin Position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 306,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Grid Y Axis Rotation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 245,
+          "widget": "RoundSmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Grid X Shift",
+        "kind": "cv",
+        "position": {
+          "x": 53,
+          "y": 210
+        }
+      },
+      {
+        "id": 1,
+        "name": "Grid Y Shift",
+        "kind": "cv",
+        "position": {
+          "x": 78,
+          "y": 210
+        }
+      },
+      {
+        "id": 2,
+        "name": "Grid X Axis Pin Position",
+        "kind": "cv",
+        "position": {
+          "x": 78,
+          "y": 309
+        }
+      },
+      {
+        "id": 3,
+        "name": "Grid Y Axis Rotation",
+        "kind": "cv",
+        "position": {
+          "x": 78,
+          "y": 248
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 54.5,
+          "y": 287.5
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+            "symbol": "modelQuadAlgorithmicRhythm",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+            "symbol": "modelQARWellFormedRhythmExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 6
+          },
+          {
+            "key": "FrozenWasteland/QARGridControlExpander",
+            "symbol": "modelQARGridControlExpander",
+            "index": 7
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/QARGridControlExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "1656e8bfc1e6260868448a3abfc44f974772f98f50a35b0728e1e9848da0d988",
+      "size": 84580
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:42:40.719Z"
+  }
+}
