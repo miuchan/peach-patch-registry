@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/MrBlueSky",
+    "plugin": "FrozenWasteland",
+    "model": "MrBlueSky",
+    "name": "Mr. Blue Sky",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/MrBlueSky",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/MrBlueSky.webp",
+    "wasmUrl": "packages/FrozenWasteland/MrBlueSky/2.1.2/module.wasm",
+    "width": 300,
+    "description": "16 band vocoder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 116,
+          "y": 18,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 156,
+          "y": 50,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 216,
+          "y": 50,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Carrier Q",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 156,
+          "y": 130,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Modulator Q",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 216,
+          "y": 130,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Band Offset",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 174,
+          "y": 202,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Modulator Gain",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 154,
+          "y": 288,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Carrier Gain",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 204,
+          "y": 288,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Overall Gain",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 254,
+          "y": 288,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Attack CV Attentuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 75,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Decay CV Attentuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 250,
+          "y": 75,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Carrier Q CV Attentuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 155,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Modulator Q CV Attentuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 250,
+          "y": 155,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Band Offset CV Attentuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 204,
+          "y": 230,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Invert Modifier Outputs",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 250,
+          "y": 262,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Carrier Input",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 20
+        }
+      },
+      {
+        "id": 1,
+        "name": "Modifier",
+        "kind": "cv",
+        "position": {
+          "x": 154,
+          "y": 335
+        }
+      },
+      {
+        "id": 2,
+        "name": "Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 204,
+          "y": 335
+        }
+      },
+      {
+        "id": 3,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 190,
+          "y": 52
+        }
+      },
+      {
+        "id": 4,
+        "name": "Decay",
+        "kind": "cv",
+        "position": {
+          "x": 250,
+          "y": 52
+        }
+      },
+      {
+        "id": 5,
+        "name": "Carrier Q",
+        "kind": "cv",
+        "position": {
+          "x": 190,
+          "y": 132
+        }
+      },
+      {
+        "id": 6,
+        "name": "Modifier Q",
+        "kind": "cv",
+        "position": {
+          "x": 250,
+          "y": 132
+        }
+      },
+      {
+        "id": 7,
+        "name": "Band Shift Down",
+        "kind": "audio",
+        "position": {
+          "x": 148,
+          "y": 207
+        }
+      },
+      {
+        "id": 8,
+        "name": "Band Shift Up",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 207
+        }
+      },
+      {
+        "id": 9,
+        "name": "Band Offset",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 234
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mod Output",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 20
+        }
+      },
+      {
+        "id": 1,
+        "name": "Vocoder",
+        "kind": "cv",
+        "position": {
+          "x": 256,
+          "y": 335
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 251.5,
+          "y": 263.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "bandModInvert",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/MrBlueSky/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "9f1558354a248dc18d0e603d81a24a07aa69806e21be29e234a43906c2d5a7c5",
+      "size": 95720
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:12.908Z"
+  }
+}

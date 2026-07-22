@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/GateModifier",
+    "plugin": "CountModula",
+    "model": "GateModifier",
+    "name": "Gate Modifier",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/GateModifier",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/GateModifier.webp",
+    "wasmUrl": "packages/CountModula/GateModifier/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Voltage controlled gate length modifier",
+    "params": [
+      {
+        "id": 0,
+        "name": "CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 0,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Range",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Length CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate/trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Modified gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Gate end",
+        "kind": "gate"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/GateModifier/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "dc846f9d52369c80fd911de90bb9348dcb988e45b7d77bad98d39293794f309f",
+      "size": 70712
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:13.993Z"
+  }
+}

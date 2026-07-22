@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SequencerExpanderLOG8",
+    "plugin": "CountModula",
+    "model": "SequencerExpanderLOG8",
+    "name": "Gated Comparator Expander - Gate Logic",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SequencerExpanderLOG8",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SequencerExpanderLOG8.webp",
+    "wasmUrl": "packages/CountModula/SequencerExpanderLOG8/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Gated Comparator expander adding logical mixing of the shift register outputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Output mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Logical AND",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Logical OR",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SequencerExpanderLOG8/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "f29c7c051e6e19e537b6fba5d0e19e675ac7c4c71f8472c4133025fd9634ec2d",
+      "size": 70445
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:51.262Z"
+  }
+}

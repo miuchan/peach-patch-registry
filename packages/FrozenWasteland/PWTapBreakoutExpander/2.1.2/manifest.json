@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/PWTapBreakoutExpander",
+    "plugin": "FrozenWasteland",
+    "model": "PWTapBreakoutExpander",
+    "name": "Portland Weather - Tap Breakoout Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/PWTapBreakoutExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/PWTapBreakoutExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/PWTapBreakoutExpander/2.1.2/module.wasm",
+    "width": 120,
+    "description": "Individual Send/Returns for each PW Tap",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Tap Pre Fb Input L",
+        "kind": "audio",
+        "position": {
+          "x": 73,
+          "y": 34
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tap Pre Fb Input R",
+        "kind": "audio",
+        "position": {
+          "x": 95,
+          "y": 34
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tap Output L",
+        "kind": "audio",
+        "position": {
+          "x": 20,
+          "y": 34
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tap Output R",
+        "kind": "audio",
+        "position": {
+          "x": 42,
+          "y": 34
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/PortlandWeather",
+            "symbol": "modelPortlandWeather",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/PWGridControlExpander",
+            "symbol": "modelPWGridControlExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/PWAlgorithmicExpander",
+            "symbol": "modelPWAlgorithmicExpander",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/PWTapBreakoutExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "bed5b646c8846e5e2d2a801aa77657b3a52e4d68aa0440aaaed8eacb2e7cc41d",
+      "size": 71078
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:25.849Z"
+  }
+}

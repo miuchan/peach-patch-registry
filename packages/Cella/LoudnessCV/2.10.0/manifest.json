@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/LoudnessCV",
+    "plugin": "Cella",
+    "model": "LoudnessCV",
+    "name": "Loudness CV",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/LoudnessCV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/LoudnessCV.webp",
+    "wasmUrl": "packages/Cella/LoudnessCV/2.10.0/module.wasm",
+    "width": 100,
+    "description": "Loud and Loudness Meter expander with scaled overshoot and signed-error output modes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Response",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 10.5,
+          "y": 153.5,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output scale",
+        "min": -3,
+        "max": 1,
+        "default": -1,
+        "position": {
+          "x": 15,
+          "y": 203.79,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 10.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Loudness overshoot / error",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Cella/Loud",
+            "symbol": "modelLoud",
+            "index": 0
+          },
+          {
+            "key": "Cella/LoudnessMeter",
+            "symbol": "modelLoudnessMeter",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/LoudnessCV/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "960dbbb2cbf08376dbec88ced70b198e5def62f2126b9deb7ec71b101ed37d8a",
+      "size": 67299
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:28.386Z"
+  }
+}

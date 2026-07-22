@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/MinimusMaximus",
+    "plugin": "CountModula",
+    "model": "MinimusMaximus",
+    "name": "Minimus Maximus",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/MinimusMaximus",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/MinimusMaximus.webp",
+    "wasmUrl": "packages/CountModula/MinimusMaximus/2.5.0/module.wasm",
+    "width": 180,
+    "description": "A signal processor that determines and outputs the minimum, maximum and mean (average) of up to 4 input signals",
+    "params": [
+      {
+        "id": 0,
+        "name": "Bias amount",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Channel D bias",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Gate output mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A_INPUT + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "A_INPUT + 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "A_INPUT + 2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "A_INPUT + 3",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A_MAX_OUTPUT + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "A_MAX_OUTPUT + 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "A_MAX_OUTPUT + 2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "A_MAX_OUTPUT + 3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "A_MIN_OUTPUT + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "A_MIN_OUTPUT + 1",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "A_MIN_OUTPUT + 2",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "A_MIN_OUTPUT + 3",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Minumum",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Maximum",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Mean",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/MinimusMaximus/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "fe8815e01c6d5f5c483a83099e64a36ab58186e29abf4edc9da66a20537724d4",
+      "size": 71877
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:20.834Z"
+  }
+}

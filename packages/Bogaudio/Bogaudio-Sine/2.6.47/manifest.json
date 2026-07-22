@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Sine",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Sine",
+    "name": "SINE",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Sine",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Sine.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Sine/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Sine oscillator with phase offset",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -3,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Slow mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "FM depth",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Phase offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Frequency modulation",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Phase CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Sync",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "poly_input",
+        "type": "integer"
+      },
+      {
+        "key": "dc_correction",
+        "type": "boolean"
+      },
+      {
+        "key": "wave",
+        "type": "integer"
+      },
+      {
+        "key": "fm_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "linear_mode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Sine/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "0a5654a32a7cc7dc98870e1e5a1386a3fcbd474a922a2dccf7751b1501b911cb",
+      "size": 107279
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:10:37.124Z"
+  }
+}

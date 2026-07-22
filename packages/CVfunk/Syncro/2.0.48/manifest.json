@@ -1,0 +1,1166 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Syncro",
+    "plugin": "CVfunk",
+    "model": "Syncro",
+    "name": "Syncro",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Syncro",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Syncro.webp",
+    "wasmUrl": "packages/CVfunk/Syncro/2.0.48/module.wasm",
+    "width": 390,
+    "description": "Eight channel clock ratio generator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock Rate",
+        "min": 9.999999974752427e-7,
+        "max": 480,
+        "default": 120,
+        "position": {
+          "x": 55,
+          "y": 80,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81.25,
+          "y": 80,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Swing",
+        "min": -99,
+        "max": 99,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 200,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Swing Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 230,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fill",
+        "min": 0,
+        "max": 8,
+        "default": 3,
+        "position": {
+          "x": 55,
+          "y": 145,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fill Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81.25,
+          "y": 145,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 130,
+          "y": 200,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate Width Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130,
+          "y": 230,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Rotate",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 200,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Rotate Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 230,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Multiply 1",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 73,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Multiply 2",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 111,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Multiply 3",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 149,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Multiply 4",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 187,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Multiply 5",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 225,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Multiply 6",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 263,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Multiply 7",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 301,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Multiply 8",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 339,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Divide 1",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 73,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Divide 2",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 111,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Divide 3",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 149,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Divide 4",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 187,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Divide 5",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 225,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Divide 6",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 263,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Divide 7",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 301,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Divide 8",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 190,
+          "y": 339,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Fill Button 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 73,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Fill Button 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 111,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Fill Button 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 149,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Fill Button 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 187,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Fill Button 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 225,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Fill Button 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 263,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Fill Button 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 301,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Fill Button 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280,
+          "y": 339,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 34,
+        "name": "On / Off",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 80,
+          "y": 305,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 130,
+          "y": 305,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 103.58,
+          "y": 80,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Swing CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fill CV",
+        "kind": "cv",
+        "position": {
+          "x": 103.58,
+          "y": 145,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulse Width CV",
+        "kind": "gate",
+        "position": {
+          "x": 130,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rotation CV",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ext. Clock In",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 330,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "On/Off In",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 330,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset In",
+        "kind": "gate",
+        "position": {
+          "x": 130,
+          "y": 330,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Fill 1",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 73,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Fill 2",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 111,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Fill 3",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 149,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Fill 4",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 187,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Fill 5",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Fill 6",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 263,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Fill 7",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 301,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Fill 8",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 339,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main Clock Out",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 35,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Inv. Main Clock",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 35,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock 1",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 73,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Inv. Clock 1",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 73,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clock 2",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 111,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Inv. Clock 2",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 111,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Clock 3",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 149,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Inv. Clock 3",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 149,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Clock 4",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 187,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Inv. Clock 4",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 187,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Clock 5",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Inv. Clock 5",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Clock 6",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 263,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Inv. Clock 6",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 263,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Clock 7",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 301,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Inv. Clock 7",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 301,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Clock 8",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 339,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Inv. Clock 8",
+        "kind": "gate",
+        "position": {
+          "x": 368,
+          "y": 339,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 35,
+    "lightWidgets": [
+      {
+        "id": 18,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 42,
+          "y": 120
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 52,
+          "y": 120
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 62,
+          "y": 120
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 72,
+          "y": 120
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82,
+          "y": 120
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 92,
+          "y": 120
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 102,
+          "y": 120
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 112,
+          "y": 120
+        }
+      },
+      {
+        "id": 34,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 80,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 73,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 111,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 149,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 187,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 263,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 301,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 280,
+          "y": 339,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 33
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 71
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 109
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 147
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 185
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 223
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 261
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 299
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 320,
+          "y": 337
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 33
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 71
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 109
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 147
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 185
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 223
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 261
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 299
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 350,
+          "y": 337
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "sequenceRunning",
+        "type": "boolean"
+      },
+      {
+        "key": "phasorMode",
+        "type": "boolean"
+      },
+      {
+        "key": "clockCVAsVoct",
+        "type": "boolean"
+      },
+      {
+        "key": "clockCVAsBPM",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Syncro/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "43b8fe1b0f5eca249178dab5e743b939c9e4064c5edcc6b9c70592e6e54c9eea",
+      "size": 95020
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:32.703Z"
+  }
+}

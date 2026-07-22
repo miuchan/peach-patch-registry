@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-LVCO",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-LVCO",
+    "name": "LVCO",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-LVCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-LVCO.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-LVCO/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -3,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Slow mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Waveform",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "FM depth",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Frequency modulation",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Sync",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 6,
+    "stateKeys": [
+      {
+        "key": "poly_input",
+        "type": "integer"
+      },
+      {
+        "key": "dc_correction",
+        "type": "boolean"
+      },
+      {
+        "key": "linear_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "wave",
+        "type": "integer"
+      },
+      {
+        "key": "fm_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "reset_on_wave_change",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-LVCO/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "05d2b8c92d0555cfb27f95c3fa958654d6fdca8a2b595871e2a5af47531776f2",
+      "size": 107179
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:10:29.375Z"
+  }
+}

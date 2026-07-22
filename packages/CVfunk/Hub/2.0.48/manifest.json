@@ -1,0 +1,813 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Hub",
+    "plugin": "CVfunk",
+    "model": "Hub",
+    "name": "Hub",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Hub",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Hub.webp",
+    "wasmUrl": "packages/CVfunk/Hub/2.0.48/module.wasm",
+    "width": 150,
+    "description": "Two animated knob macro controllers with gain, offset, and knob range CV control.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Master Knob I",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 70,
+          "centered": true,
+          "widget": "SmartRoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output Range I",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": -5,
+          "y": 155,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Range Att. I",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 155,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input I Att.",
+        "min": -2,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": -25,
+          "y": 45,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input I Offset Bias",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": -25,
+          "y": 95,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Master Knob II",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 241,
+          "centered": true,
+          "widget": "SmartRoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Output Range II",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": -5,
+          "y": 326,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Range Att. II",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 326,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Input II Att.",
+        "min": -2,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": -25,
+          "y": 216,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Input II Offset Bias",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": -25,
+          "y": 266,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "In I",
+        "kind": "cv",
+        "position": {
+          "x": -25,
+          "y": 70,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Range CV I",
+        "kind": "cv",
+        "position": {
+          "x": 55,
+          "y": 155,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "In II",
+        "kind": "cv",
+        "position": {
+          "x": -25,
+          "y": 241,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Range CV II",
+        "kind": "cv",
+        "position": {
+          "x": 55,
+          "y": 326,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out I",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 119,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out II",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 290,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 64,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 85,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 79,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 73,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 67,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 61,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 55,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 49,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 43,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 82,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 76,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 70,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 64,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 58,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 52,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 46,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 40,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 85,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 79,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 73,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 67,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 61,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 55,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 49,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 43,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 82,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 76,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 70,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 64,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 58,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 52,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 46,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 40,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 256,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 250,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 244,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 238,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 232,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 226,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 220,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 78,
+          "y": 214,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 253,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 247,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 241,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 235,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 229,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 223,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 217,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 84,
+          "y": 211,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 256,
+          "centered": true
+        }
+      },
+      {
+        "id": 50,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 250,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 244,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 238,
+          "centered": true
+        }
+      },
+      {
+        "id": 56,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 232,
+          "centered": true
+        }
+      },
+      {
+        "id": 58,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 226,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 220,
+          "centered": true
+        }
+      },
+      {
+        "id": 62,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 78,
+          "y": 214,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 253,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 247,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 241,
+          "centered": true
+        }
+      },
+      {
+        "id": 55,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 235,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 229,
+          "centered": true
+        }
+      },
+      {
+        "id": 59,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 223,
+          "centered": true
+        }
+      },
+      {
+        "id": 61,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 217,
+          "centered": true
+        }
+      },
+      {
+        "id": 63,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 84,
+          "y": 211,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Hub/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "e9f809b936bf247e77bd3ecaf82fa0b267b19f56581e551a7b824778dfc496d6",
+      "size": 72146
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:53.587Z"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/Rich",
+    "plugin": "Cella",
+    "model": "Rich",
+    "name": "Rich",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/Rich",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Rich.webp",
+    "wasmUrl": "packages/Cella/Rich/2.10.0/module.wasm",
+    "width": 100,
+    "description": "Expressive AD envelope generator with controllable and breathing accent dynamics",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 53.59,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0.6505150198936462,
+        "position": {
+          "x": 67.5,
+          "y": 53.59,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Envelope shape",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Base level",
+        "min": 0,
+        "max": 1,
+        "default": 0.75,
+        "position": {
+          "x": 22.5,
+          "y": 153.38,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Accent steps",
+        "min": -8,
+        "max": 8,
+        "default": 3,
+        "position": {
+          "x": 67.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Accent level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 67.5,
+          "y": 153.38,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Attack CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 203.79,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Decay CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 203.79,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Ascending/descending accent",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 203.79,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Accent",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 231.31,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 231.31,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ascending/descending accent",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 231.31,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Accent level",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeFresnelLight<BlueLight>",
+        "position": {
+          "x": 45,
+          "y": 35,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 45,
+          "y": 203.79,
+          "centered": true
+        },
+        "paramId": 8
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "exponentialAttack",
+        "type": "boolean"
+      },
+      {
+        "key": "retriggerStrategy",
+        "type": "boolean"
+      },
+      {
+        "key": "retriggerEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "exponentType",
+        "type": "integer"
+      },
+      {
+        "key": "triggerSyncDelay",
+        "type": "integer"
+      },
+      {
+        "key": "invert",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/Rich/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "947386b06ef52c29ba825eba20f07fc0c5db51d97a20d2af090d1b907f84c22d",
+      "size": 84906
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:17.873Z"
+  }
+}

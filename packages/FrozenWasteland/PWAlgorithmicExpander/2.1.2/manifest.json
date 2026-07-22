@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/PWAlgorithmicExpander",
+    "plugin": "FrozenWasteland",
+    "model": "PWAlgorithmicExpander",
+    "name": "Portland Weather - Algorithmic Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/PWAlgorithmicExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/PWAlgorithmicExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/PWAlgorithmicExpander/2.1.2/module.wasm",
+    "width": 210,
+    "description": "Allows Portland Weather to create Euclidean rhythms",
+    "params": [
+      {
+        "id": 0,
+        "name": "# Steps",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 40,
+          "y": 248,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "# Beats",
+        "min": 0,
+        "max": 16,
+        "default": 2,
+        "position": {
+          "x": 74,
+          "y": 248,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step Offset",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 108,
+          "y": 248,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step Padding",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 142,
+          "y": 248,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Algorithm",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 250,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Well Formed Ratio",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 176,
+          "y": 248,
+          "widget": "RoundSmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "# Steps",
+        "kind": "cv",
+        "position": {
+          "x": 42,
+          "y": 276
+        }
+      },
+      {
+        "id": 1,
+        "name": "# Beats",
+        "kind": "cv",
+        "position": {
+          "x": 76,
+          "y": 276
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step Offset",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 276
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step Padding",
+        "kind": "cv",
+        "position": {
+          "x": 144,
+          "y": 276
+        }
+      },
+      {
+        "id": 4,
+        "name": "Algorithm",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 276
+        }
+      },
+      {
+        "id": 5,
+        "name": "Well Formed Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 178,
+          "y": 276
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 251.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 27.5,
+          "y": 341.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "algorithm",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/PortlandWeather",
+            "symbol": "modelPortlandWeather",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/PWTapBreakoutExpander",
+            "symbol": "modelPWTapBreakoutExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/PWGridControlExpander",
+            "symbol": "modelPWGridControlExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 6
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 7
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/PWAlgorithmicExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "7645bfa1d8c9d76bac7a9822d23a2ddbb28fe1500ad2548e31e17acb91e49187",
+      "size": 88572
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:21.850Z"
+  }
+}

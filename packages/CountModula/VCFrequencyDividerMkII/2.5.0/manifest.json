@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/VCFrequencyDividerMkII",
+    "plugin": "CountModula",
+    "model": "VCFrequencyDividerMkII",
+    "name": "Voltage Controlled Frequency Divider MkII",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/VCFrequencyDividerMkII",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/VCFrequencyDividerMkII.webp",
+    "wasmUrl": "packages/CountModula/VCFrequencyDividerMkII/2.5.0/module.wasm",
+    "width": 60,
+    "description": "Frequency divider with a variable and voltage controlled division ratio from 1 to around 20",
+    "params": [
+      {
+        "id": 0,
+        "name": "CV Amount",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Divide by",
+        "min": 1,
+        "max": 21,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Division CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Bipolar",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Unipolar",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "antiAlias",
+        "type": "boolean"
+      },
+      {
+        "key": "legacyMode",
+        "type": "boolean"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/VCFrequencyDividerMkII/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "79fbb0a57e81f9d156a435811b0e6ff89545b17daa1a98935bff9788df57e072",
+      "size": 70494
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:43.911Z"
+  }
+}

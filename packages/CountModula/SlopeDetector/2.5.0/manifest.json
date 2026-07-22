@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SlopeDetector",
+    "plugin": "CountModula",
+    "model": "SlopeDetector",
+    "name": "Slope Detector",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SlopeDetector",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SlopeDetector.webp",
+    "wasmUrl": "packages/CountModula/SlopeDetector/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Slope Detector",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sense",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Sense range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Rising",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steady",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Falling",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Moving",
+        "kind": "cv"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SlopeDetector/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "1dfde6c006e742997c66ef5ef8e9f8bf8ce020664c8069757d4a2672da6ce873",
+      "size": 69744
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:48.861Z"
+  }
+}

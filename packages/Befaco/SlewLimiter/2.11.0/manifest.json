@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/SlewLimiter",
+    "plugin": "Befaco",
+    "model": "SlewLimiter",
+    "name": "Slew Limiter",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/SlewLimiter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/SlewLimiter.webp",
+    "wasmUrl": "packages/Befaco/SlewLimiter/2.11.0/module.wasm",
+    "width": 90,
+    "description": "Voltage controlled slew limiter, AKA lag processor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rise CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Fall CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "In",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/SlewLimiter/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "13ebf6e63594efd6a492b727f84b6caf9064f4c92b861393729990173e2094ec",
+      "size": 70500
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:08:13.274Z"
+  }
+}

@@ -1,0 +1,658 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/LissajousLFO",
+    "plugin": "FrozenWasteland",
+    "model": "LissajousLFO",
+    "name": "Lissajous LFO",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/LissajousLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/LissajousLFO.webp",
+    "wasmUrl": "packages/FrozenWasteland/LissajousLFO/2.1.2/module.wasm",
+    "width": 255,
+    "description": "LFO based on interactions of 4 sine waves",
+    "params": [
+      {
+        "id": 0,
+        "name": "Amplitude 1",
+        "min": 0,
+        "max": 5,
+        "default": 2.5,
+        "position": {
+          "x": 20,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Amplitude 1",
+        "min": 0,
+        "max": 5,
+        "default": 2.5,
+        "position": {
+          "x": 20,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "X 1 Frequency",
+        "min": -8,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Y 1 Frequency",
+        "min": -8,
+        "max": 3,
+        "default": 2,
+        "position": {
+          "x": 78,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "X 1 Phase",
+        "min": 0,
+        "max": 0.9998999834060669,
+        "default": 0,
+        "position": {
+          "x": 107,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "X 1 Wave Shape",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 136,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Y 1 Wave Shape ",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "X 1 Skew",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 194,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Y 1 Skew",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 223,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "X 2 Frequency",
+        "min": -8,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Y 2 Frequency",
+        "min": -8,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 78,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Phase X 2",
+        "min": 0,
+        "max": 0.9998999834060669,
+        "default": 0,
+        "position": {
+          "x": 107,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Wave Shape X 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 136,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Wave Shape Y 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Skew X 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 194,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Skew Y 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 223,
+          "y": 256,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Amplitude 1 CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Amplitude 2 CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "X 1 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 51,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Y 1 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "X 1 Phase CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 109,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "X 1 Wave Shape CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 138,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Y 1 Wave Shape CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 167,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "X 1 Skew CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 196,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Y 1 Skew CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "X 2 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 51,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Y 2 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "X 2 Phase CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 109,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "X 2 Wave Shape CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 138,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Y 2 Wave Shape CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 167,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "X 2 Skew CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 196,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Y 2 Skew CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225,
+          "y": 305,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Amplitude 1",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 196
+        }
+      },
+      {
+        "id": 1,
+        "name": "Amplitude 2",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 285
+        }
+      },
+      {
+        "id": 2,
+        "name": "X 1 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 52,
+          "y": 196
+        }
+      },
+      {
+        "id": 3,
+        "name": "Y 1 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 196
+        }
+      },
+      {
+        "id": 4,
+        "name": "X 1 Phase1",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 196
+        }
+      },
+      {
+        "id": 5,
+        "name": "X 1 Wave Shape",
+        "kind": "cv",
+        "position": {
+          "x": 139,
+          "y": 196
+        }
+      },
+      {
+        "id": 6,
+        "name": "Y 1 Wave Shape",
+        "kind": "cv",
+        "position": {
+          "x": 168,
+          "y": 196
+        }
+      },
+      {
+        "id": 7,
+        "name": "X 1 Skew",
+        "kind": "cv",
+        "position": {
+          "x": 197,
+          "y": 196
+        }
+      },
+      {
+        "id": 8,
+        "name": "Y 1 Skew",
+        "kind": "cv",
+        "position": {
+          "x": 226,
+          "y": 196
+        }
+      },
+      {
+        "id": 9,
+        "name": "X 2 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 52,
+          "y": 285
+        }
+      },
+      {
+        "id": 10,
+        "name": "Y 2 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 285
+        }
+      },
+      {
+        "id": 11,
+        "name": "X 2 Phase",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 285
+        }
+      },
+      {
+        "id": 12,
+        "name": "X 2 Wave Shape",
+        "kind": "cv",
+        "position": {
+          "x": 139,
+          "y": 285
+        }
+      },
+      {
+        "id": 13,
+        "name": "Y 2 Wave Shape",
+        "kind": "cv",
+        "position": {
+          "x": 168,
+          "y": 285
+        }
+      },
+      {
+        "id": 14,
+        "name": "X 2 Skew",
+        "kind": "cv",
+        "position": {
+          "x": 197,
+          "y": 285
+        }
+      },
+      {
+        "id": 15,
+        "name": "Y 2 Skew",
+        "kind": "cv",
+        "position": {
+          "x": 226,
+          "y": 285
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X Average",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 343
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y Average",
+        "kind": "cv",
+        "position": {
+          "x": 51,
+          "y": 343
+        }
+      },
+      {
+        "id": 2,
+        "name": "X+Y Average",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 343
+        }
+      },
+      {
+        "id": 3,
+        "name": "X1 / X2",
+        "kind": "cv",
+        "position": {
+          "x": 109,
+          "y": 343
+        }
+      },
+      {
+        "id": 4,
+        "name": "Y1 / Y2",
+        "kind": "cv",
+        "position": {
+          "x": 138,
+          "y": 343
+        }
+      },
+      {
+        "id": 5,
+        "name": "X1 * X2",
+        "kind": "cv",
+        "position": {
+          "x": 167,
+          "y": 343
+        }
+      },
+      {
+        "id": 6,
+        "name": "Y1 * Y2",
+        "kind": "cv",
+        "position": {
+          "x": 196,
+          "y": 343
+        }
+      },
+      {
+        "id": 7,
+        "name": "Ave X * Ave Y",
+        "kind": "cv",
+        "position": {
+          "x": 225,
+          "y": 343
+        }
+      }
+    ],
+    "lights": 4,
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "scope",
+          "inputs": [
+            0,
+            1
+          ],
+          "x": 0,
+          "y": 38.5,
+          "width": 255,
+          "height": 165
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/LissajousLFO/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "48f64921303853317163861f05172f65867228d84500026d4f10c670148eb1cf",
+      "size": 86139
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:09.462Z"
+  }
+}

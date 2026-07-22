@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/PNChordExpander",
+    "plugin": "FrozenWasteland",
+    "model": "PNChordExpander",
+    "name": "Probably Note - Chord Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/PNChordExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/PNChordExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/PNChordExpander/2.1.2/module.wasm",
+    "width": 60,
+    "description": "Adds Chord Generation to Probably Not(e)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Dissonance V Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 75,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Dissonance V Probability CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 101,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Dissonance VII Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 175,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Dissonance VII Probability CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 201,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Suspensions Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 275,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Suspensions Probability CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 301,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Inversions Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 270,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Inverions Probability CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 296,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Dissonance V Probability",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 79
+        }
+      },
+      {
+        "id": 1,
+        "name": "Dissonance VII Probability",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 179
+        }
+      },
+      {
+        "id": 2,
+        "name": "Suspensions Probability",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 279
+        }
+      },
+      {
+        "id": 3,
+        "name": "Inversions Probability",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 274
+        }
+      },
+      {
+        "id": 4,
+        "name": "Dissonance V External Random",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 115
+        }
+      },
+      {
+        "id": 5,
+        "name": "Dissonance VII External Random",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 215
+        }
+      },
+      {
+        "id": 6,
+        "name": "Suspensions Probability External Random",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 315
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/ProbablyNote",
+            "symbol": "modelProbablyNote",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/PNOctaveProbabilityExpander",
+            "symbol": "modelPNOctaveProbabilityExpander",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/PNChordExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "e4940a55ed873be270c5d757455e8f5b6a12da22b7130756c7215ac0f23b2ab2",
+      "size": 69552
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:21.324Z"
+  }
+}

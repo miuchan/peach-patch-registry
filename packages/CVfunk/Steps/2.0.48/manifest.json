@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Steps",
+    "plugin": "CVfunk",
+    "model": "Steps",
+    "name": "Steps",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Steps",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Steps.webp",
+    "wasmUrl": "packages/CVfunk/Steps/2.0.48/module.wasm",
+    "width": 150,
+    "description": "Fusion of a comparator and a step generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Bias",
+        "min": -5,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 38.321,
+          "y": 145.225,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Range",
+        "min": 0,
+        "max": 10,
+        "default": 3,
+        "position": {
+          "x": 109.899,
+          "y": 145.225,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step Size",
+        "min": -1,
+        "max": 1,
+        "default": 0.4166666567325592,
+        "position": {
+          "x": 38.321,
+          "y": 233.164,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bias Att.",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57.712,
+          "y": 60.26,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Range Att.",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 94.958,
+          "y": 60.26,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step Size Att.",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 21.555,
+          "y": 307.863,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Comp. Input Att.",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 21.555,
+          "y": 60.26,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57.712,
+          "y": 307.863,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94.958,
+          "y": 307.863,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Comparator In (Input breaks normal)",
+        "kind": "cv",
+        "position": {
+          "x": 21.555,
+          "y": 83.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bias CV",
+        "kind": "cv",
+        "position": {
+          "x": 57.712,
+          "y": 83.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Range CV",
+        "kind": "cv",
+        "position": {
+          "x": 94.958,
+          "y": 83.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Invert Gate",
+        "kind": "gate",
+        "position": {
+          "x": 21.555,
+          "y": 280.435,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step Size CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.555,
+          "y": 331.485,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 57.712,
+          "y": 331.485,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 94.958,
+          "y": 331.485,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Comparator Above",
+        "kind": "cv",
+        "position": {
+          "x": 131.235,
+          "y": 57.969,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Comparator Below",
+        "kind": "cv",
+        "position": {
+          "x": 131.179,
+          "y": 84.109,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Stepper",
+        "kind": "cv",
+        "position": {
+          "x": 131.179,
+          "y": 331.485,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 13,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 115.379,
+          "y": 64.131,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 115.719,
+          "y": 92.371,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 135.018,
+          "y": 231.691,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 315.275,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 305.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 296.702,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 287.415,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 278.126,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 268.84,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 259.553,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 250.267,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 240.98,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 120.836,
+          "y": 231.691,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "invertIsLatch",
+        "type": "boolean"
+      },
+      {
+        "key": "polyOverride",
+        "type": "integer"
+      },
+      {
+        "key": "quantDivisions",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Steps/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "ff2382aae9b4d1ce60f4d3ecc1e519634f7d9ed2ebfbf6cee5488c4e5311a966",
+      "size": 77443
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:08.435Z"
+  }
+}

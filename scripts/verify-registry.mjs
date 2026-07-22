@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import crypto from "node:crypto";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -19,4 +21,19 @@ for (const item of index.packages) {
   if (manifest.module.key !== item.key || manifest.module.artifact.sha256 !== digest)
     throw new Error(`Manifest mismatch ${item.key}`);
 }
-console.log(`verified ${keys.size} packages (${index.totalBytes} bytes)`);
+
+const cliPackage = index.packages.find((item) => item.manifestUrl);
+if (!cliPackage) throw new Error("Registry contains no installable package manifest");
+const prefix = fs.mkdtempSync(path.join(os.tmpdir(), "peach-registry-verify-"));
+try {
+  const cli = path.join(root, "bin", "peach.mjs");
+  execFileSync(process.execPath, [cli, "install", cliPackage.key, "--registry", path.join(root, "index.json"), "--prefix", prefix], { stdio: "pipe" });
+  execFileSync(process.execPath, [cli, "verify", cliPackage.key, "--registry", path.join(root, "index.json"), "--prefix", prefix], { stdio: "pipe" });
+  const installed = JSON.parse(fs.readFileSync(path.join(prefix, "packages", cliPackage.plugin, cliPackage.model, cliPackage.version, "manifest.json"), "utf8"));
+  if (installed.module?.key !== cliPackage.key || installed.module?.artifact?.sha256 !== cliPackage.artifact.sha256)
+    throw new Error(`CLI installed an incomplete manifest for ${cliPackage.key}`);
+} finally {
+  fs.rmSync(prefix, { recursive: true, force: true });
+}
+
+console.log(`verified ${keys.size} packages (${index.totalBytes} bytes) and local CLI install`);

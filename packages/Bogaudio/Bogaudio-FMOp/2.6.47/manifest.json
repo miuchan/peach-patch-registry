@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-FMOp",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-FMOp",
+    "name": "FM-OP",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-FMOp",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-FMOp.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-FMOp/2.6.47/module.wasm",
+    "width": 150,
+    "description": "FM operator / oscillator / synth voice",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency ratio",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Fine tune",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.14142100512981415
+      },
+      {
+        "id": 3,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 4,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 6,
+        "name": "FM depth",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 9,
+        "name": "Level follows envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Feedback follows envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "FM depth follows envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sustain CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Depth CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Feedback CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Frequency modulation",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "linearLevel",
+        "type": "boolean"
+      },
+      {
+        "key": "antialias_feedback",
+        "type": "boolean"
+      },
+      {
+        "key": "antialias_depth",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-FMOp/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "0b3b3e3dfa1bb30154ef881473b6bd33d74bfcca6dc51beb406efabf031eb9c5",
+      "size": 102832
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:10:37.041Z"
+  }
+}

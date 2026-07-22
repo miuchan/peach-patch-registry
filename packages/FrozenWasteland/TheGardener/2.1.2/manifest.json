@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/TheGardener",
+    "plugin": "FrozenWasteland",
+    "model": "TheGardener",
+    "name": "The Gardener",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/TheGardener",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/TheGardener.webp",
+    "wasmUrl": "packages/FrozenWasteland/TheGardener/2.1.2/module.wasm",
+    "width": 120,
+    "description": "Sequencer Controller",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reseed Division",
+        "min": 1,
+        "max": 999,
+        "default": 1,
+        "position": {
+          "x": 5,
+          "y": 67,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reseed Division CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 90,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "New Seed S&H Division",
+        "min": 1,
+        "max": 999,
+        "default": 1,
+        "position": {
+          "x": 65,
+          "y": 67,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "New Seed S&H Division CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94,
+          "y": 90,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Seed Process Delay Compensation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 14,
+          "y": 308,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Division Reset Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 65,
+          "y": 120,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 14,
+          "y": 212
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 14,
+          "y": 155
+        }
+      },
+      {
+        "id": 2,
+        "name": "Seed",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 254
+        }
+      },
+      {
+        "id": 3,
+        "name": "# Steps to Reseed",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 69
+        }
+      },
+      {
+        "id": 4,
+        "name": "# Steps to New Seed",
+        "kind": "cv",
+        "position": {
+          "x": 95,
+          "y": 69
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 212
+        }
+      },
+      {
+        "id": 1,
+        "name": "Seed",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 254
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reseed",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 295
+        }
+      },
+      {
+        "id": 3,
+        "name": "New Seed Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 334
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 66.5,
+          "y": 121.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "divResetMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/TheGardener/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "26cc44c5745aef4e677f65159d7356869ac73d494c71a2a63977a9ec520d3581",
+      "size": 71864
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:07.792Z"
+  }
+}

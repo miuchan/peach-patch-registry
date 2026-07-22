@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const DEFAULT_REGISTRY = "https://raw.githubusercontent.com/miuchan/peach-patch-registry/main/index.json";
 const args = process.argv.slice(2);
@@ -23,8 +24,8 @@ async function json(source) {
     if (!response.ok) throw new Error(`${source} returned ${response.status}`);
     return { data: await response.json(), base: response.url };
   }
-  const file = path.resolve(source);
-  return { data: JSON.parse(await fs.readFile(file, "utf8")), base: new URL(`file://${file}`).href };
+  const file = source.startsWith("file:") ? fileURLToPath(source) : path.resolve(source);
+  return { data: JSON.parse(await fs.readFile(file, "utf8")), base: pathToFileURL(file).href };
 }
 
 function artifactUrl(base, relative) {
@@ -64,11 +65,14 @@ if (command === "list" || command === "search") {
   const content = await bytes(artifactUrl(base, item.wasmUrl));
   verify(item, content);
   const target = path.join(prefix, "packages", item.plugin, item.model, item.version);
+  const installedManifest = item.manifestUrl
+    ? (await json(artifactUrl(base, item.manifestUrl))).data
+    : item;
   await fs.mkdir(target, { recursive: true });
   const temporary = path.join(target, `module.wasm.${process.pid}.tmp`);
   await fs.writeFile(temporary, content);
   await fs.rename(temporary, path.join(target, "module.wasm"));
-  await fs.writeFile(path.join(target, "manifest.json"), `${JSON.stringify(item, null, 2)}\n`);
+  await fs.writeFile(path.join(target, "manifest.json"), `${JSON.stringify(installedManifest, null, 2)}\n`);
   console.log(`${item.key}@${item.version} installed in ${target}`);
 } else if (command === "verify") {
   const item = find(query);

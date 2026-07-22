@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Circlefade/Random2",
+    "plugin": "Circlefade",
+    "model": "Random2",
+    "name": "Random2",
+    "brand": "Circlefade",
+    "version": "1.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/max-circlefade/Circlefade",
+    "libraryUrl": "https://library.vcvrack.com/Circlefade/Random2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Circlefade/Random2.webp",
+    "wasmUrl": "packages/Circlefade/Random2/1.0.1/module.wasm",
+    "width": 120,
+    "description": "Random Pitch Gate with Ratcheting, Sync, Scales and Loop",
+    "params": [
+      {
+        "id": 0,
+        "name": "TEMPERATURE",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 152,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "DENSITY",
+        "min": 0,
+        "max": 100,
+        "default": 20,
+        "position": {
+          "x": 40,
+          "y": 90,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "RATCHETING",
+        "min": 1,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 72,
+          "y": 152,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "4 / 8 / 16 Beats Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 91.535,
+          "y": 59.055,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 17.717,
+          "y": 59.055,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Temp Pot",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13.287,
+          "y": 235.06,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Density Pot",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50.197,
+          "y": 235.06,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Dur Pot",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 87.106,
+          "y": 235.06,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Density",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 275
+        }
+      },
+      {
+        "id": 1,
+        "name": "Temp",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 275
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clk",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 320
+        }
+      },
+      {
+        "id": 3,
+        "name": "Dur",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 275
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 84,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 42.815,
+          "y": 62.008
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 57.579,
+          "y": 62.008
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 72.343,
+          "y": 62.008
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Circlefade/Random2/1.0.1/manifest.json",
+    "sourceCommit": "38075bed27f8496820527200f43bfc7f908efed9",
+    "artifact": {
+      "sha256": "34d76134a6349c3fcf4de8f680cfbdde65fa90f0504abe4e57df9dca913a8988",
+      "size": 71812
+    }
+  },
+  "source": {
+    "url": "https://github.com/max-circlefade/Circlefade",
+    "commit": "38075bed27f8496820527200f43bfc7f908efed9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:19:39.319Z"
+  }
+}

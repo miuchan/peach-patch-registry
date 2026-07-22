@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Wonk",
+    "plugin": "CVfunk",
+    "model": "Wonk",
+    "name": "Wonk",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Wonk",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Wonk.webp",
+    "wasmUrl": "packages/CVfunk/Wonk/2.0.48/module.wasm",
+    "width": 180,
+    "description": "Generate clock-synced and wonky modulationss in six phase-locked channels.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 136.742,
+          "y": 42.998,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate multiplier (or divider for negative)",
+        "min": -24,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 162.924,
+          "y": 42.998,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wonk Input Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 46.716,
+          "y": 282.629,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Wonk Intensity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 280.293,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Wonk Feedback Pos.",
+        "min": 1,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 143.244,
+          "y": 295.332,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Nodes Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 46.716,
+          "y": 336.49,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Number of Mod. Nodes",
+        "min": -3,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 72.901,
+          "y": 336.49,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Modulation Depth Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 136.742,
+          "y": 336.49,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Modulation Depth",
+        "min": 0,
+        "max": 5,
+        "default": 5,
+        "position": {
+          "x": 162.924,
+          "y": 336.49,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Reset Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 76.636,
+          "y": 42.998,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 20.533,
+          "y": 42.998,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate",
+        "kind": "cv",
+        "position": {
+          "x": 110.56,
+          "y": 42.998,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wonk",
+        "kind": "cv",
+        "position": {
+          "x": 20.533,
+          "y": 282.629,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Nodes",
+        "kind": "cv",
+        "position": {
+          "x": 20.533,
+          "y": 336.49,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mod. Depth",
+        "kind": "cv",
+        "position": {
+          "x": 110.56,
+          "y": 336.49,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 55.967,
+          "y": 42.998,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1",
+        "kind": "cv",
+        "position": {
+          "x": 143.244,
+          "y": 88.987,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "2",
+        "kind": "cv",
+        "position": {
+          "x": 143.244,
+          "y": 116.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "3",
+        "kind": "cv",
+        "position": {
+          "x": 143.244,
+          "y": 144.074,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "4",
+        "kind": "cv",
+        "position": {
+          "x": 143.244,
+          "y": 171.617,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "5",
+        "kind": "cv",
+        "position": {
+          "x": 143.244,
+          "y": 199.16,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "6",
+        "kind": "cv",
+        "position": {
+          "x": 143.244,
+          "y": 226.704,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Polyphonic",
+        "kind": "cv",
+        "position": {
+          "x": 143.244,
+          "y": 256.521,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 76.636,
+          "y": 42.998,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "syncInterval",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "lfoPhase",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "lfoPhase",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "lfoPhase",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "lfoPhase",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "lfoPhase",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "lfoPhase",
+        "type": "real"
+      },
+      {
+        "key": "unipolarMode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Wonk/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "fdba0d3e7a96996e01b3be25689bed3538d9481bbe58fd6ff39110ed157ce311",
+      "size": 87761
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:49.022Z"
+  }
+}

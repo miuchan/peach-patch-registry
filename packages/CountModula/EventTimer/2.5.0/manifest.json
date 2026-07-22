@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/EventTimer",
+    "plugin": "CountModula",
+    "model": "EventTimer",
+    "name": "Countdown",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/EventTimer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/EventTimer.webp",
+    "wasmUrl": "packages/CountModula/EventTimer/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Clocked/realtime event counter with 3 digits",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Manual trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Manual reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "End gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "End trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 12,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "length",
+        "type": "integer"
+      },
+      {
+        "key": "count",
+        "type": "integer"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "clockState",
+        "type": "boolean"
+      },
+      {
+        "key": "retrigger",
+        "type": "boolean"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/EventTimer/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "6d9f93b534d4e2051efebe209abed42d801b57eb1e82eed9f95c900f7d26e656",
+      "size": 74039
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:45.168Z"
+  }
+}

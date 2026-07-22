@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bastl/Kompas",
+    "plugin": "Bastl",
+    "model": "Kompas",
+    "name": "Kompas",
+    "brand": "Bastl",
+    "version": "2.0.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/hemmer/bastl-vcv",
+    "libraryUrl": "https://library.vcvrack.com/Bastl/Kompas",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bastl/Kompas.webp",
+    "wasmUrl": "packages/Bastl/Kompas/2.0.0/module.wasm",
+    "width": 75,
+    "description": "Kompas is a three-coordinate probabilistic pattern navigator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Latitude",
+        "min": 0,
+        "max": 1023,
+        "default": 0,
+        "position": {
+          "x": 37.225,
+          "y": 49.456,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Altitude",
+        "min": 0,
+        "max": 1023,
+        "default": 0,
+        "position": {
+          "x": 37.243,
+          "y": 107.566,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Longitude",
+        "min": 0,
+        "max": 1023,
+        "default": 0,
+        "position": {
+          "x": 37.217,
+          "y": 165.656,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Latitude CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.371,
+          "y": 257.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Altitude CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.371,
+          "y": 291.732,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Longitude CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.371,
+          "y": 325.479,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 20.371,
+          "y": 224.294,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 54.118,
+          "y": 224.294,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Latitude",
+        "kind": "cv",
+        "position": {
+          "x": 54.118,
+          "y": 257.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Altitude",
+        "kind": "cv",
+        "position": {
+          "x": 54.118,
+          "y": 291.732,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Longitude",
+        "kind": "cv",
+        "position": {
+          "x": 54.118,
+          "y": 325.479,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 58.857,
+          "y": 39.171,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 58.857,
+          "y": 97.29,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 58.857,
+          "y": 155.353,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 15.738,
+          "y": 59.793,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 15.78,
+          "y": 117.912,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 15.78,
+          "y": 175.975,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 15.726,
+          "y": 199.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 58.857,
+          "y": 199.465,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "firmwareMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bastl/Kompas/2.0.0/manifest.json",
+    "sourceCommit": "68d874522c58608650c223c02c10d54a2c8fa205",
+    "artifact": {
+      "sha256": "55f7504a7f921b80abfb3d043fff22d99a603a1eed6146c8cb2f63e331aafc9e",
+      "size": 74686
+    }
+  },
+  "source": {
+    "url": "https://github.com/hemmer/bastl-vcv",
+    "commit": "68d874522c58608650c223c02c10d54a2c8fa205"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:07:07.006Z"
+  }
+}

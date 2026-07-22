@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/Integral",
+    "plugin": "Cella",
+    "model": "Integral",
+    "name": "Integral",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/Integral",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Integral.webp",
+    "wasmUrl": "packages/Cella/Integral/2.10.0/module.wasm",
+    "width": 100,
+    "description": "Signal integrator, essential for feedback, chaotic and cybernetic patches",
+    "params": [
+      {
+        "id": 0,
+        "name": "Integration rate",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 53.39,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 53.39,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rate range",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 16.54,
+          "y": 162.66,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clip",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 54.74,
+          "y": 162.66,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.5,
+          "y": 280.1,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Init",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 104.35,
+          "centered": true,
+          "widget": "VCVButtonHuge"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Init value",
+        "min": -10,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 67.5,
+          "y": 104.35,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Rate CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 203.79,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Leak CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 203.79,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Integrate on gate low/high",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 203.79,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<GoldLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Integrator gate",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 231.31,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rate CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 231.31,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Leak CV",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 231.31,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 280.1,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Result",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeFresnelLight<GreenRedLight>",
+        "position": {
+          "x": 45,
+          "y": 35,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<MediumSimpleLight<GoldLight>>",
+        "position": {
+          "x": 45,
+          "y": 203.79,
+          "centered": true
+        },
+        "paramId": 9
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "gateMode",
+        "type": "boolean"
+      },
+      {
+        "key": "clipValue",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/Integral/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "eb99c09e460dd1ea5b9045b830e1d95690846843fec92bc7dabd1f86083cf64a",
+      "size": 76218
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:28.581Z"
+  }
+}

@@ -1,0 +1,592 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/EnvelopeArray",
+    "plugin": "CVfunk",
+    "model": "EnvelopeArray",
+    "name": "Envelope Array",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/EnvelopeArray",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/EnvelopeArray.webp",
+    "wasmUrl": "packages/CVfunk/EnvelopeArray/2.0.48/module.wasm",
+    "width": 225,
+    "description": "Six related envelopes and gates",
+    "params": [
+      {
+        "id": 0,
+        "name": "Slant",
+        "min": -1,
+        "max": 1,
+        "default": -0.75,
+        "position": {
+          "x": 86.625,
+          "y": 79.766,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Curve",
+        "min": -1,
+        "max": 1,
+        "default": -0.75,
+        "position": {
+          "x": 140.33,
+          "y": 79.766,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "First Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 33.154,
+          "y": 92.238,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Last Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.75,
+        "position": {
+          "x": 192.883,
+          "y": 92.238,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Slant Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 86.625,
+          "y": 123.41,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Curve Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 140.33,
+          "y": 123.41,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "First Width Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 33.154,
+          "y": 133.804,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Last Width Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 192.883,
+          "y": 133.804,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "First Width Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.39,
+          "y": 44.291,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Last Width Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 178.119,
+          "y": 44.291,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Manual Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 20.965,
+          "y": 209.099,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Slant CV",
+        "kind": "cv",
+        "position": {
+          "x": 86.625,
+          "y": 148.211,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Curve CV",
+        "kind": "cv",
+        "position": {
+          "x": 140.33,
+          "y": 148.211,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "First Width CV",
+        "kind": "cv",
+        "position": {
+          "x": 33.154,
+          "y": 158.607,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Last Width CV",
+        "kind": "cv",
+        "position": {
+          "x": 192.883,
+          "y": 158.607,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate 1 CV",
+        "kind": "gate",
+        "position": {
+          "x": 20.965,
+          "y": 232.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate 2 CV",
+        "kind": "gate",
+        "position": {
+          "x": 57.458,
+          "y": 232.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate 3 CV",
+        "kind": "gate",
+        "position": {
+          "x": 93.951,
+          "y": 232.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate 4 CV",
+        "kind": "gate",
+        "position": {
+          "x": 130.447,
+          "y": 232.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate 5 CV",
+        "kind": "gate",
+        "position": {
+          "x": 166.94,
+          "y": 232.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gate 6 CV",
+        "kind": "gate",
+        "position": {
+          "x": 203.433,
+          "y": 232.721,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT 1",
+        "kind": "cv",
+        "position": {
+          "x": 20.965,
+          "y": 274.975,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Env. 2",
+        "kind": "cv",
+        "position": {
+          "x": 57.458,
+          "y": 274.975,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Env. 3",
+        "kind": "cv",
+        "position": {
+          "x": 93.951,
+          "y": 274.975,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Env. 4",
+        "kind": "cv",
+        "position": {
+          "x": 130.447,
+          "y": 274.975,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Env. 5",
+        "kind": "cv",
+        "position": {
+          "x": 166.94,
+          "y": 274.975,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Env. 6",
+        "kind": "cv",
+        "position": {
+          "x": 203.433,
+          "y": 274.975,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "GATE 1",
+        "kind": "gate",
+        "position": {
+          "x": 20.965,
+          "y": 331.683,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "End Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 57.458,
+          "y": 331.683,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "End Gate 3",
+        "kind": "gate",
+        "position": {
+          "x": 93.951,
+          "y": 331.683,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "End Gate 4",
+        "kind": "gate",
+        "position": {
+          "x": 130.447,
+          "y": 331.683,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "End Gate 5",
+        "kind": "gate",
+        "position": {
+          "x": 166.94,
+          "y": 331.683,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "End Gate 6",
+        "kind": "gate",
+        "position": {
+          "x": 203.433,
+          "y": 331.683,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 18,
+    "lightWidgets": [
+      {
+        "id": 12,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 34.63,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 43.488,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 52.346,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 194.359,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 203.218,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 212.076,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 20.965,
+          "y": 254.389,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 57.632,
+          "y": 254.389,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 93.954,
+          "y": 254.389,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 130.273,
+          "y": 254.389,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 166.594,
+          "y": 254.389,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 203.433,
+          "y": 254.389,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 20.965,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 57.632,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 93.954,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 130.273,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 166.594,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 203.433,
+          "y": 312.806,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "time1Range",
+        "type": "integer"
+      },
+      {
+        "key": "time6Range",
+        "type": "integer"
+      },
+      {
+        "key": "retrigEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "enablePolyOut",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/EnvelopeArray/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "0c2153756c025f80e23deee54decaf0daa853407e3595a7e52dbc267b8b2ef32",
+      "size": 82291
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:15.617Z"
+  }
+}

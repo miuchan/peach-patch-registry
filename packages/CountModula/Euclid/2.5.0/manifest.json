@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Euclid",
+    "plugin": "CountModula",
+    "model": "Euclid",
+    "name": "Euclidean Sequencer",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Euclid",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Euclid.webp",
+    "wasmUrl": "packages/CountModula/Euclid/2.5.0/module.wasm",
+    "width": 300,
+    "description": "Algorithmic trigger sequencer based on Euclidean division",
+    "params": [
+      {
+        "id": 0,
+        "name": "Length",
+        "min": 1,
+        "max": 96,
+        "default": 8
+      },
+      {
+        "id": 1,
+        "name": "Number of hits",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Shift",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Length CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Number of hits CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Shift CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Step left",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Step right",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 8,
+        "name": "Shift source",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Length CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Number of hits CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Shift CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Step left trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Step right trigger",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Hit trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Hit gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Rest trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Rest gate",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "End of cycle",
+        "kind": "gate"
+      }
+    ],
+    "lights": 7,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "currentStep",
+        "type": "integer"
+      },
+      {
+        "key": "shiftPosition",
+        "type": "integer"
+      },
+      {
+        "key": "clockState",
+        "type": "boolean"
+      },
+      {
+        "key": "runState",
+        "type": "boolean"
+      },
+      {
+        "key": "quantizeChanges",
+        "type": "boolean"
+      },
+      {
+        "key": "lengthCV",
+        "type": "real"
+      },
+      {
+        "key": "shiftCV",
+        "type": "real"
+      },
+      {
+        "key": "hitsCV",
+        "type": "real"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Euclid/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "2387a829cbeb6c3bb8506be69b089cea7d2da0031b89969febde3b879f50b54e",
+      "size": 82830
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:11.102Z"
+  }
+}

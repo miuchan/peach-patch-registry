@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "EnigmaCurry/Transport",
+    "plugin": "EnigmaCurry",
+    "model": "Transport",
+    "name": "Transport",
+    "brand": "EnigmaCurry",
+    "version": "2.0.7",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/EnigmaCurry/EnigmaCurry-vcv-pack",
+    "libraryUrl": "https://library.vcvrack.com/EnigmaCurry/Transport",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/EnigmaCurry/Transport.webp",
+    "wasmUrl": "packages/EnigmaCurry/Transport/2.0.7/module.wasm",
+    "width": 180,
+    "description": "A DAW-like transport for play/stop/record",
+    "params": [
+      {
+        "id": 0,
+        "name": "Record Length",
+        "min": 0,
+        "max": 128,
+        "default": 4
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Play",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Arm Recording",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Reset / Stop",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Play Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Play Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Record Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Record Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Loop Trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "bypassRecordLength",
+        "type": "integer"
+      },
+      {
+        "key": "armed",
+        "type": "integer"
+      },
+      {
+        "key": "playing",
+        "type": "integer"
+      },
+      {
+        "key": "armQuantize",
+        "type": "integer"
+      },
+      {
+        "key": "clockDivider",
+        "type": "integer"
+      },
+      {
+        "key": "playIsIdempotent",
+        "type": "integer"
+      },
+      {
+        "key": "onStartActions",
+        "type": "integer"
+      },
+      {
+        "key": "onStopActions",
+        "type": "integer"
+      },
+      {
+        "key": "recordLengthIsPlayLength",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/EnigmaCurry/Transport/2.0.7/manifest.json",
+    "sourceCommit": "3902d9cddb6376533122808b568f21a74ae72ec3",
+    "artifact": {
+      "sha256": "8c81153a252d42d8ca9487519736994b02d1076bae5d8e510fb38caf2fab84f8",
+      "size": 74943
+    }
+  },
+  "source": {
+    "url": "https://github.com/EnigmaCurry/EnigmaCurry-vcv-pack",
+    "commit": "3902d9cddb6376533122808b568f21a74ae72ec3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:25:34.258Z"
+  }
+}

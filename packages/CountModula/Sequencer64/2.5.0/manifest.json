@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Sequencer64",
+    "plugin": "CountModula",
+    "model": "Sequencer64",
+    "name": "64 Step Sequencer",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Sequencer64",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Sequencer64.webp",
+    "wasmUrl": "packages/CountModula/Sequencer64/2.5.0/module.wasm",
+    "width": 180,
+    "description": "64 Step CV/gate sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Length",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Direction",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Address",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Sample and hold mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Length CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Direction CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Voltage addressed CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "1-Shot end",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Inverted CV",
+        "kind": "cv"
+      }
+    ],
+    "lights": 9,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "currentStep",
+        "type": "integer"
+      },
+      {
+        "key": "direction",
+        "type": "integer"
+      },
+      {
+        "key": "clockState",
+        "type": "boolean"
+      },
+      {
+        "key": "runState",
+        "type": "boolean"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Sequencer64/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "1e045ded0cc12909479f194db2ab1785bc76087ba1f626f582c2de979bea26cb",
+      "size": 78911
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:23:13.423Z"
+  }
+}

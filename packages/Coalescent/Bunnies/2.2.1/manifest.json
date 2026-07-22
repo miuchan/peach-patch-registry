@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coalescent/Bunnies",
+    "plugin": "Coalescent",
+    "model": "Bunnies",
+    "name": "Bunnies",
+    "brand": "Coalescent",
+    "version": "2.2.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremycg/coalescent",
+    "libraryUrl": "https://library.vcvrack.com/Coalescent/Bunnies",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coalescent/Bunnies.webp",
+    "wasmUrl": "packages/Coalescent/Bunnies/2.2.1/module.wasm",
+    "width": 180,
+    "description": "Predator-prey oscillator: prey and predator chase each other a quarter cycle apart. Lotka-Volterra and Rosenzweig-MacArthur modes.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "min": -8,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Balance (predator/prey asymmetry)",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Wild (boom-bust size)",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645
+      },
+      {
+        "id": 3,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Balance CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Wild CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct rate",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Balance CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Wild CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Kick / prey-force",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Prey (bunnies)",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Predator (foxes)",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Prey peak",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Predator peak",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coalescent/Bunnies/2.2.1/manifest.json",
+    "sourceCommit": "bea6fe0d95e0e6693ac7814554e42906236ac99f",
+    "artifact": {
+      "sha256": "8e8e318807b3f45c4b1b3c6ff993d36a726021939ad3aa3538c6a452eac2cfd6",
+      "size": 73860
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremycg/coalescent",
+    "commit": "bea6fe0d95e0e6693ac7814554e42906236ac99f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:19:55.446Z"
+  }
+}

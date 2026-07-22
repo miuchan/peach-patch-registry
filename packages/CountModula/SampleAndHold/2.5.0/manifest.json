@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SampleAndHold",
+    "plugin": "CountModula",
+    "model": "SampleAndHold",
+    "name": "Sample & Hold",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SampleAndHold",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SampleAndHold.webp",
+    "wasmUrl": "packages/CountModula/SampleAndHold/2.5.0/module.wasm",
+    "width": 60,
+    "description": "Sample and Hold/Track and hold",
+    "params": [
+      {
+        "id": 0,
+        "name": "Hold mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Hold mode CV",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sampled signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Inverted sampled signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 3,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SampleAndHold/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "0116ce10a589df7fbf86868640b96114019172ca3bef24bd05795402dc0b05ea",
+      "size": 69123
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:29.389Z"
+  }
+}

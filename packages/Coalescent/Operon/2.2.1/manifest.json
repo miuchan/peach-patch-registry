@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coalescent/Operon",
+    "plugin": "Coalescent",
+    "model": "Operon",
+    "name": "Operon",
+    "brand": "Coalescent",
+    "version": "2.2.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremycg/coalescent",
+    "libraryUrl": "https://library.vcvrack.com/Coalescent/Operon",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coalescent/Operon.webp",
+    "wasmUrl": "packages/Coalescent/Operon/2.2.1/module.wasm",
+    "width": 210,
+    "description": "Three-phase oscillator on the repressilator gene circuit: three genes repressing each other in a ring, ~120 degrees out of phase",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -8,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Promoter strength (drive)",
+        "min": 0,
+        "max": 60,
+        "default": 12
+      },
+      {
+        "id": 2,
+        "name": "Hill coefficient (cooperativity n)",
+        "min": 1.2000000476837158,
+        "max": 8,
+        "default": 2.5
+      },
+      {
+        "id": 3,
+        "name": "Protein/mRNA decay ratio",
+        "min": 0.20000000298023224,
+        "max": 5,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Basal leak",
+        "min": 0,
+        "max": 1,
+        "default": 0.05000000074505806
+      },
+      {
+        "id": 5,
+        "name": "Drive CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Hill CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Decay-ratio CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Drive CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Hill CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Decay-ratio CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Perturbation (into gene 1)",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Protein 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Protein 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Protein 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Gate 1",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Gate 2",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Gate 3",
+        "kind": "gate"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coalescent/Operon/2.2.1/manifest.json",
+    "sourceCommit": "bea6fe0d95e0e6693ac7814554e42906236ac99f",
+    "artifact": {
+      "sha256": "28859ccac05d0a65819e5fb8c2e83b6fdc6bd4b39c471de5308db3901721851d",
+      "size": 78447
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremycg/coalescent",
+    "commit": "bea6fe0d95e0e6693ac7814554e42906236ac99f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:19:54.910Z"
+  }
+}

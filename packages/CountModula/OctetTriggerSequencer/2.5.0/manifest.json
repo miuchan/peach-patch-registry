@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/OctetTriggerSequencer",
+    "plugin": "CountModula",
+    "model": "OctetTriggerSequencer",
+    "name": "Octet Trigger Sequencer",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/OctetTriggerSequencer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/OctetTriggerSequencer.webp",
+    "wasmUrl": "packages/CountModula/OctetTriggerSequencer/2.5.0/module.wasm",
+    "width": 150,
+    "description": "Binary octet based trigger sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pattern A CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Pattern B CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Pattern A select",
+        "min": 0,
+        "max": 255,
+        "default": 170
+      },
+      {
+        "id": 3,
+        "name": "Pattern B select",
+        "min": 0,
+        "max": 255,
+        "default": 136
+      },
+      {
+        "id": 4,
+        "name": "Chain patterns",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Pattern A CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Pattern B CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Chain CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel A",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Channel B",
+        "kind": "gate"
+      }
+    ],
+    "lights": 35,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      },
+      {
+        "key": "clockState",
+        "type": "boolean"
+      },
+      {
+        "key": "runState",
+        "type": "boolean"
+      },
+      {
+        "key": "playingChannelB",
+        "type": "boolean"
+      },
+      {
+        "key": "chainedState",
+        "type": "boolean"
+      },
+      {
+        "key": "currentStep",
+        "type": "integer"
+      },
+      {
+        "key": "chainedPatternMode",
+        "type": "integer"
+      },
+      {
+        "key": "scaleA",
+        "type": "integer"
+      },
+      {
+        "key": "scaleB",
+        "type": "integer"
+      },
+      {
+        "key": "outputModeA",
+        "type": "integer"
+      },
+      {
+        "key": "outputModeB",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/OctetTriggerSequencer/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "7c148578567987497dc6832cb4a5dabe9464832e716d0556cd677de4c371d6be",
+      "size": 79280
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:23:02.474Z"
+  }
+}

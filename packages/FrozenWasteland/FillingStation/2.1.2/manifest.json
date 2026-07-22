@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/FillingStation",
+    "plugin": "FrozenWasteland",
+    "model": "FillingStation",
+    "name": "Filling Station",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/FillingStation",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/FillingStation.webp",
+    "wasmUrl": "packages/FrozenWasteland/FillingStation/2.1.2/module.wasm",
+    "width": 345,
+    "description": "Multi-Output Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scene #",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 160,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 78,
+          "y": 328,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 2,
+        "name": "No Repeat",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 140,
+          "y": 250,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Repeat on Highest Step #",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 4,
+        "name": "Repeat on Last Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 5,
+        "name": "Indpenedent Repeat",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 56,
+          "y": 172
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 250
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 98,
+          "y": 328
+        }
+      },
+      {
+        "id": 3,
+        "name": "Shift Up",
+        "kind": "cv",
+        "position": {
+          "x": 149,
+          "y": 148
+        }
+      },
+      {
+        "id": 4,
+        "name": "Shift Down",
+        "kind": "cv",
+        "position": {
+          "x": 149,
+          "y": 180
+        }
+      },
+      {
+        "id": 5,
+        "name": "Flip Tracks",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 180
+        }
+      },
+      {
+        "id": 6,
+        "name": "Flip Steps",
+        "kind": "cv",
+        "position": {
+          "x": 209,
+          "y": 180
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Track",
+        "kind": "cv",
+        "position": {
+          "x": 268,
+          "y": 181
+        }
+      },
+      {
+        "id": 1,
+        "name": "EOC",
+        "kind": "gate",
+        "position": {
+          "x": 223,
+          "y": 328
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 141.5,
+          "y": 251.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "currentSceneNbr",
+        "type": "integer"
+      },
+      {
+        "key": "repeatMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/FillingStation/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "00355d77dc4c9bc8f6b863773aa8c317eefb7243b0ffc52d01d42d24877bf7b9",
+      "size": 85181
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:05.933Z"
+  }
+}

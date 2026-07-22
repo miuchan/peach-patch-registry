@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "C1-ChannelStrip/ChanInCV",
+    "plugin": "C1-ChannelStrip",
+    "model": "ChanInCV",
+    "name": "CHI-X",
+    "brand": "Twisted Cable",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Eurikon/C1-ChannelStrip",
+    "libraryUrl": "https://library.vcvrack.com/C1-ChannelStrip/ChanInCV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/C1-ChannelStrip/ChanInCV.webp",
+    "wasmUrl": "packages/C1-ChannelStrip/ChanInCV/2.1.1/module.wasm",
+    "width": 45,
+    "description": "CV expander for CHAN-IN",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 103,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "HPF CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 173,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "LPF CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 243,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 60,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "HPF Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "LPF Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 200,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phase Invert CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 270,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 22.5,
+          "y": 90.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 14.3,
+          "y": 111.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 30.7,
+          "y": 111.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 22.5,
+          "y": 160.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 14.3,
+          "y": 181.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 30.7,
+          "y": 181.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 22.5,
+          "y": 230.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 14.3,
+          "y": 251.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 30.7,
+          "y": 251.8,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "C1-ChannelStrip/ChanIn",
+            "symbol": "modelChanIn",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/C1-ChannelStrip/ChanInCV/2.1.1/manifest.json",
+    "sourceCommit": "37873c00cb6fc08a853cd937a4b5055ed04fe83a",
+    "artifact": {
+      "sha256": "5a61507a786a5fde5e5cb45c40e31ff538bb25b3b611e79dfc8097332da51bf3",
+      "size": 67880
+    }
+  },
+  "source": {
+    "url": "https://github.com/Eurikon/C1-ChannelStrip",
+    "commit": "37873c00cb6fc08a853cd937a4b5055ed04fe83a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:13:55.474Z"
+  }
+}

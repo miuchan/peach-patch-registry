@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/ClockedRandomGates",
+    "plugin": "CountModula",
+    "model": "ClockedRandomGates",
+    "name": "Clocked Random Gates",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/ClockedRandomGates",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/ClockedRandomGates.webp",
+    "wasmUrl": "packages/CountModula/ClockedRandomGates/2.5.0/module.wasm",
+    "width": 435,
+    "description": "Generates a set of 8 synchronised gates and triggers",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Polyphonic gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Polyphonic trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Polyphonic gated clock",
+        "kind": "gate"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/ClockedRandomGates/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "c9f99edbc0f3cca9a83262111ef21ffd8d5803e291f51f167e4ce4c688146de1",
+      "size": 79560
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:06.924Z"
+  }
+}

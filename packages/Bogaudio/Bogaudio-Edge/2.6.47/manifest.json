@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Edge",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Edge",
+    "name": "EDGE",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Edge",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Edge.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Edge/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Edge detector, gate-to-trigger, comparator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rising threshold",
+        "min": -1,
+        "max": 1,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 1,
+        "name": "Falling threshold",
+        "min": -1,
+        "max": 1,
+        "default": 0.009999999776482582
+      },
+      {
+        "id": 2,
+        "name": "Hold/reset time",
+        "min": 0,
+        "max": 1,
+        "default": 0.0316229984164238
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "High gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Rising trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Falling trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Edge/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "13de83fad3766262bfa591686728463ec4e55800048b58df520fc3a96a6d7492",
+      "size": 72923
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:18.357Z"
+  }
+}

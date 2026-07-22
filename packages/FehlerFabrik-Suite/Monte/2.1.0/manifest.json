@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FehlerFabrik-Suite/Monte",
+    "plugin": "FehlerFabrik-Suite",
+    "model": "Monte",
+    "name": "Monte",
+    "brand": "Fehler Fabrik",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/RCameron93/FehlerFabrik",
+    "libraryUrl": "https://library.vcvrack.com/FehlerFabrik-Suite/Monte",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FehlerFabrik-Suite/Monte.webp",
+    "wasmUrl": "packages/FehlerFabrik-Suite/Monte/2.1.0/module.wasm",
+    "width": 210,
+    "description": "Probabalistic Clock Generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock Rate",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 59.69,
+          "y": 144.948,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sequencer Steps",
+        "min": 1,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 59.69,
+          "y": 258.567,
+          "centered": true,
+          "widget": "FF08GSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step 1 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 69.177,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 2 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 107.061,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 3 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 144.945,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 4 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 182.829,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 5 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 220.713,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 6 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 258.596,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Step 7 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 296.48,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Step 8 Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 137.669,
+          "y": 334.364,
+          "centered": true,
+          "widget": "FF08GKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Internal Clock CV",
+        "kind": "gate",
+        "position": {
+          "x": 59.69,
+          "y": 182.858,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "External Clock Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 59.69,
+          "y": 69.145,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Steps CV",
+        "kind": "cv",
+        "position": {
+          "x": 59.69,
+          "y": 295.547,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 59.69,
+          "y": 107.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 1",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 69.177,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 2",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 107.061,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 3",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 144.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 4",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 182.829,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Step 5",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 220.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Step 6",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 258.596,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Step 7",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 296.48,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step 8",
+        "kind": "cv",
+        "position": {
+          "x": 100.521,
+          "y": 334.364,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Step 1",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 69.177,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step 2",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 107.061,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step 3",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 144.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 4",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 182.829,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 5",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 220.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 6",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 258.596,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 7",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 296.48,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 8",
+        "kind": "gate",
+        "position": {
+          "x": 179.894,
+          "y": 334.364,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Combined",
+        "kind": "cv",
+        "position": {
+          "x": 59.687,
+          "y": 334.438,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 69.148,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 107.031,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 144.915,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 182.799,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 220.683,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 258.567,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 296.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.916,
+          "y": 334.335,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 59.687,
+          "y": 355.107,
+          "centered": true
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        8
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FehlerFabrik-Suite/Monte/2.1.0/manifest.json",
+    "sourceCommit": "c046a2b88848be0393df9ffcf2926c8ee129446b",
+    "artifact": {
+      "sha256": "376843f63e410f7976b592de0f169def9877e59c7279dc041eaaee5e5ff34c1f",
+      "size": 71029
+    }
+  },
+  "source": {
+    "url": "https://github.com/RCameron93/FehlerFabrik",
+    "commit": "c046a2b88848be0393df9ffcf2926c8ee129446b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:26:28.830Z"
+  }
+}

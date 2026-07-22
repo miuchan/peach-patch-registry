@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/Euler",
+    "plugin": "Cella",
+    "model": "Euler",
+    "name": "Euler",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/Euler",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Euler.webp",
+    "wasmUrl": "packages/Cella/Euler/2.10.0/module.wasm",
+    "width": 100,
+    "description": "Calculates rate of change of the incoming signal",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -8,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 37.5,
+          "y": 104.36,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Smooth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 154.33,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sampling signal",
+        "kind": "audio",
+        "position": {
+          "x": 37.5,
+          "y": 231.9,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Normalised angle of the slope",
+        "kind": "cv",
+        "position": {
+          "x": 21,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Absolute angle of the slope",
+        "kind": "cv",
+        "position": {
+          "x": 54,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Positive part of the angle",
+        "kind": "cv",
+        "position": {
+          "x": 21,
+          "y": 330.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Negative part of the angle",
+        "kind": "cv",
+        "position": {
+          "x": 54,
+          "y": 330.01,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeFresnelLight<GreenRedLight>",
+        "position": {
+          "x": 37.5,
+          "y": 35,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/Euler/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "36f5b470f3b761a55356ffaaa029a4b18424e1535da8ea0680dcfeaa0fbc03f1",
+      "size": 71616
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:17.801Z"
+  }
+}

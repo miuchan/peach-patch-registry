@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Mix2",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Mix2",
+    "name": "MIX2",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Mix2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Mix2.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Mix2/2.6.47/module.wasm",
+    "width": 75,
+    "description": "Stereo fader/amplifier with CV-controllable mute",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.9090909361839294
+      },
+      {
+        "id": 1,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Mute CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Left signal",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Right signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "linear_cv",
+        "type": "boolean"
+      },
+      {
+        "key": "poly_channel_offset",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Mix2/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "2fc1a2ebc001abc77578db0eb951038db12e3bb621e53312464e0746e42e1fdd",
+      "size": 77776
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:28.836Z"
+  }
+}

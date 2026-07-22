@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/BurstGenerator",
+    "plugin": "CountModula",
+    "model": "BurstGenerator",
+    "name": "Burst Generator",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/BurstGenerator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/BurstGenerator.webp",
+    "wasmUrl": "packages/CountModula/BurstGenerator/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Generates bursts of 1-16 pulses whenever a trigger is received at the trigger input",
+    "params": [
+      {
+        "id": 0,
+        "name": "Number of pulses",
+        "min": 1,
+        "max": 16,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Burst rate",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Rate CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Rate range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Retrigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Number of pulses CV amount",
+        "min": -1.600000023841858,
+        "max": 1.600000023841858,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Manual trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Pulse output probability",
+        "min": 0,
+        "max": 10,
+        "default": 10
+      },
+      {
+        "id": 8,
+        "name": "Probability CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "External clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Internal rate CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Number of pulses CV",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Pulse probability",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulse",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Start of burst",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Burst duration",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "End of burst",
+        "kind": "gate"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/BurstGenerator/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "9ae9ec18e52babb0d9d7856237287cce9458157c7c5849915d5745e5435f4676",
+      "size": 73296
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:10.538Z"
+  }
+}

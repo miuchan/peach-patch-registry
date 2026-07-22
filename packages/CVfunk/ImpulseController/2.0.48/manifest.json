@@ -1,0 +1,1165 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/ImpulseController",
+    "plugin": "CVfunk",
+    "model": "ImpulseController",
+    "name": "Impulse Controller",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/ImpulseController",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/ImpulseController.webp",
+    "wasmUrl": "packages/CVfunk/ImpulseController/2.0.48/module.wasm",
+    "width": 450,
+    "description": "Decay envelopes propagate across a network of 24 nodes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Lag",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 32.353,
+          "y": 70.866,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 142.742,
+          "y": 70.866,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Spread",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 87.546,
+          "y": 70.866,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Lag Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 32.669,
+          "y": 105.496,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Spread Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 87.862,
+          "y": 105.496,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Decay Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 143.058,
+          "y": 105.496,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Impulse Trig.",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 32.232,
+          "y": 191.929,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Impulse",
+        "kind": "gate",
+        "position": {
+          "x": 32.232,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Lag CV",
+        "kind": "cv",
+        "position": {
+          "x": 32.985,
+          "y": 133.019,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 143.374,
+          "y": 133.019,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Spread CV",
+        "kind": "cv",
+        "position": {
+          "x": 88.181,
+          "y": 133.019,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Impulse 1",
+        "kind": "gate",
+        "position": {
+          "x": 86.944,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Impulse 2",
+        "kind": "gate",
+        "position": {
+          "x": 141.656,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Impulse 3",
+        "kind": "gate",
+        "position": {
+          "x": 196.367,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Impulse 4",
+        "kind": "gate",
+        "position": {
+          "x": 196.367,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Impulse 5",
+        "kind": "gate",
+        "position": {
+          "x": 251.076,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Impulse 6",
+        "kind": "gate",
+        "position": {
+          "x": 251.076,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Impulse 7",
+        "kind": "gate",
+        "position": {
+          "x": 251.076,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Impulse 8",
+        "kind": "gate",
+        "position": {
+          "x": 305.787,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Impulse 9",
+        "kind": "gate",
+        "position": {
+          "x": 305.787,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Impulse 10",
+        "kind": "gate",
+        "position": {
+          "x": 305.787,
+          "y": 323.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Impulse 11",
+        "kind": "gate",
+        "position": {
+          "x": 305.787,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Impulse 12",
+        "kind": "gate",
+        "position": {
+          "x": 360.499,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Impulse 13",
+        "kind": "gate",
+        "position": {
+          "x": 360.499,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Impulse 14",
+        "kind": "gate",
+        "position": {
+          "x": 360.499,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Impulse 15",
+        "kind": "gate",
+        "position": {
+          "x": 360.499,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Impulse 16",
+        "kind": "gate",
+        "position": {
+          "x": 360.499,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Impulse 17",
+        "kind": "gate",
+        "position": {
+          "x": 360.499,
+          "y": 323.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Impulse 18",
+        "kind": "gate",
+        "position": {
+          "x": 415.211,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Impulse 19",
+        "kind": "gate",
+        "position": {
+          "x": 305.787,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Impulse 20",
+        "kind": "gate",
+        "position": {
+          "x": 415.211,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Impulse 21",
+        "kind": "gate",
+        "position": {
+          "x": 415.211,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Impulse 22",
+        "kind": "gate",
+        "position": {
+          "x": 415.211,
+          "y": 323.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Impulse 23",
+        "kind": "gate",
+        "position": {
+          "x": 415.211,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "Impulse 24",
+        "kind": "gate",
+        "position": {
+          "x": 415.211,
+          "y": 105.331,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 83,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 59.59,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 68.324,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 114.289,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 123.024,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 169.001,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.735,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 160.287,
+          "y": 196.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 169.004,
+          "y": 187.406,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.735,
+          "y": 178.674,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 223.713,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 232.444,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 214.999,
+          "y": 233.386,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 223.716,
+          "y": 242.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 232.447,
+          "y": 250.834,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 214.999,
+          "y": 141.41,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 223.716,
+          "y": 132.694,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 232.447,
+          "y": 123.963,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 278.421,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 287.156,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 269.711,
+          "y": 196.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 278.427,
+          "y": 187.406,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 287.156,
+          "y": 178.674,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 278.421,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 287.156,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 269.711,
+          "y": 86.699,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 278.427,
+          "y": 77.982,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 287.156,
+          "y": 69.254,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 269.711,
+          "y": 288.097,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 278.427,
+          "y": 296.814,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 287.156,
+          "y": 305.545,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 333.133,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 341.867,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 324.422,
+          "y": 233.386,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 333.139,
+          "y": 242.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 341.867,
+          "y": 250.834,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 333.133,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 341.867,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 324.422,
+          "y": 86.699,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 333.139,
+          "y": 77.982,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 341.867,
+          "y": 69.254,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 333.133,
+          "y": 323.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 341.867,
+          "y": 323.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 333.133,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 341.867,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 387.844,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 396.579,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 379.134,
+          "y": 288.097,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 387.85,
+          "y": 296.814,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 396.579,
+          "y": 305.545,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 387.844,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 50,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 396.579,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 379.134,
+          "y": 196.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 387.85,
+          "y": 187.406,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 396.579,
+          "y": 178.674,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 387.844,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 55,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 396.579,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 56,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 387.844,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 396.579,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 58,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 50.876,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 59,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 105.579,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 160.287,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 61,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 214.999,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 62,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 214.999,
+          "y": 160.707,
+          "centered": true
+        }
+      },
+      {
+        "id": 63,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 269.711,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 64,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 269.711,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 65,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 269.711,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 66,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 324.422,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 67,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 324.422,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 68,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 324.422,
+          "y": 323.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 69,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 324.422,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 70,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 379.134,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 71,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 379.134,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 72,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 379.134,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 73,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 379.134,
+          "y": 105.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 74,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 382.063,
+          "y": 159.732,
+          "centered": true
+        }
+      },
+      {
+        "id": 75,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 379.518,
+          "y": 324.283,
+          "centered": true
+        }
+      },
+      {
+        "id": 76,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 433.843,
+          "y": 160.042,
+          "centered": true
+        }
+      },
+      {
+        "id": 77,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 324.422,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 78,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 433.843,
+          "y": 269.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 79,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 433.843,
+          "y": 214.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 80,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 433.843,
+          "y": 323.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 81,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 433.843,
+          "y": 50.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 82,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 433.843,
+          "y": 105.331,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/ImpulseController/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "26164184b284a969f6bedaad0ca92aeb62254bbfaaf3324c1268d5ab3d3784c6",
+      "size": 83670
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:17.227Z"
+  }
+}

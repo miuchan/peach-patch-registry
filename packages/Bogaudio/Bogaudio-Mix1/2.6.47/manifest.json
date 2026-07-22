@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Mix1",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Mix1",
+    "name": "MIX1",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Mix1",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Mix1.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Mix1/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Fader/amplifier with CV-controllable mute",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.9090909361839294
+      },
+      {
+        "id": 1,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Mute CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "linear_cv",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Mix1/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "efdd5c39e9b07c1bf5ec00201a78613e5c6883010408ee11ec846f9840788d8c",
+      "size": 75715
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:35.501Z"
+  }
+}

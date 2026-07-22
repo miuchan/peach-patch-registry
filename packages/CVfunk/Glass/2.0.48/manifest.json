@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Glass",
+    "plugin": "CVfunk",
+    "model": "Glass",
+    "name": "Glass",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Glass",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Glass.webp",
+    "wasmUrl": "packages/CVfunk/Glass/2.0.48/module.wasm",
+    "width": 300,
+    "description": "A glass armonica physical model.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rotation Speed",
+        "min": 0,
+        "max": 6,
+        "default": 3.140000104904175
+      },
+      {
+        "id": 1,
+        "name": "Rotation Speed Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Water",
+        "min": 0,
+        "max": 1,
+        "default": 0.8500000238418579
+      },
+      {
+        "id": 3,
+        "name": "Water Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 5,
+        "name": "Sustain Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Damp",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 7,
+        "name": "Damper Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Axis Wobble Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.15000000596046448
+      },
+      {
+        "id": 9,
+        "name": "Wobble Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Damp (all bowls)",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Stereo Spread",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 12,
+        "name": "Root (semitone)",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "FM (continuous)",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "FM Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "Volume",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 16,
+        "name": "Volume Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Audio In Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 18,
+        "name": "Audio In Gain Att.",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct (polyphonic)",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate (polyphonic)",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Pressure (polyphonic)",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Mute Bowl Gate (polyphonic)",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Rotation Speed CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Water CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Sustain CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Damper Amount CV",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Axis Wobble CV",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "FM CV",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Volume CV",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Damper Gate (all bowls)",
+        "kind": "gate"
+      },
+      {
+        "id": 12,
+        "name": "Audio In",
+        "kind": "audio"
+      },
+      {
+        "id": 13,
+        "name": "Audio In Gain CV",
+        "kind": "audio"
+      },
+      {
+        "id": 14,
+        "name": "Root CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Envelope (RMS)",
+        "kind": "cv"
+      }
+    ],
+    "lights": 15,
+    "stateKeys": [
+      {
+        "key": "attackValue",
+        "type": "real"
+      },
+      {
+        "key": "releaseValue",
+        "type": "real"
+      },
+      {
+        "key": "attackCurve",
+        "type": "real"
+      },
+      {
+        "key": "releaseCurve",
+        "type": "real"
+      },
+      {
+        "key": "noiseCutoffMax",
+        "type": "real"
+      },
+      {
+        "key": "dampGateIntensity",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Glass/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "e2c77f104c3e3a8dfe7dbdb1cfb5eec457d7ec82f71fde5f77843593c97f9fbf",
+      "size": 94948
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:15:10.217Z"
+  }
+}

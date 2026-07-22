@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SequencerExpanderRM8",
+    "plugin": "CountModula",
+    "model": "SequencerExpanderRM8",
+    "name": "Gated Comparator Expander - Random Melody",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SequencerExpanderRM8",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SequencerExpanderRM8.webp",
+    "wasmUrl": "packages/CountModula/SequencerExpanderRM8/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Gated Comparator expander adding Random Melody output (also works with other sequencers)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Inverted CV",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SequencerExpanderRM8/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "d5f05af8182dba03f2a0602575b45bcdc036f24d07fb7a1d1b06885d4eedfa79",
+      "size": 70316
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:51.215Z"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/ManualCV2",
+    "plugin": "CountModula",
+    "model": "ManualCV2",
+    "name": "Polyphonic Manual CV Generator",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/ManualCV2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/ManualCV2.webp",
+    "wasmUrl": "packages/CountModula/ManualCV2/2.5.0/module.wasm",
+    "width": 120,
+    "description": "A basic manual CV generator with a range of output voltages",
+    "params": [
+      {
+        "id": 0,
+        "name": "Output value",
+        "min": 0,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Output range",
+        "min": 1,
+        "max": 10,
+        "default": 10
+      },
+      {
+        "id": 2,
+        "name": "Output polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Number of channels",
+        "min": 1,
+        "max": 16,
+        "default": 1
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Inverted CV",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "polarity",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/ManualCV2/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "30def8594ee6bd8853a9e7ca5c808c5fc8b98a761875ac621d02fcea936a19b9",
+      "size": 69815
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:29.636Z"
+  }
+}

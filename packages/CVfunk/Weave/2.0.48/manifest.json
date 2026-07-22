@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Weave",
+    "plugin": "CVfunk",
+    "model": "Weave",
+    "name": "Weave",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Weave",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Weave.webp",
+    "wasmUrl": "packages/CVfunk/Weave/2.0.48/module.wasm",
+    "width": 225,
+    "description": "A six note chord quantizer, with the abilty to weave the outputs into different permutations. Individual outputs per channel allow you to split your chords to different voices.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Weave",
+        "min": 0,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 106.299,
+          "y": 124.016,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Weave Att.",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 135.827,
+          "y": 124.016,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Chord",
+        "min": 0,
+        "max": 1.416659951210022,
+        "default": 0,
+        "position": {
+          "x": 56.985,
+          "y": 183.484,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Octave Down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 28.465,
+          "y": 252.165,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Octave Up",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 157.358,
+          "y": 252.165,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger Weave",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.197,
+          "y": 19.654,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset Weave",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.197,
+          "y": 73.89,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Transpose",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 144.685,
+          "y": 215.551,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Weave Trig.",
+        "kind": "gate",
+        "position": {
+          "x": 26.197,
+          "y": 40.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset Trig.",
+        "kind": "gate",
+        "position": {
+          "x": 26.197,
+          "y": 94.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Weave CV 1V/pattern",
+        "kind": "cv",
+        "position": {
+          "x": 162.402,
+          "y": 124.016,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Root Note V/oct",
+        "kind": "cv",
+        "position": {
+          "x": 47.814,
+          "y": 331.072,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Chord (1 semitone per value)",
+        "kind": "cv",
+        "position": {
+          "x": 90.239,
+          "y": 331.072,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Transpose Shift",
+        "kind": "cv",
+        "position": {
+          "x": 132.726,
+          "y": 331.072,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Note Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 198.254,
+          "y": 292.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Poly V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 330.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Note 1",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Note 2",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 79.724,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Note 3",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Note 4",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 144.685,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Note 5",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 177.165,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Note 6",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 209.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Root Note",
+        "kind": "cv",
+        "position": {
+          "x": 198.254,
+          "y": 242.126,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 19,
+    "lightWidgets": [
+      {
+        "id": 17,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 28.465,
+          "y": 250.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 157.358,
+          "y": 250.984,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "octaveState",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "currentPermute",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "currentPermute",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "currentPermute",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "currentPermute",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "currentPermute",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "currentPermute",
+        "type": "integer"
+      },
+      {
+        "key": "quantizeShift",
+        "type": "boolean"
+      },
+      {
+        "key": "inputTracksOctaves",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Weave/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "2f0cce37b5d4d3317435c5d071d26ba874f0e958ee271574b66a4b6cb1897a00",
+      "size": 93567
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:50.486Z"
+  }
+}

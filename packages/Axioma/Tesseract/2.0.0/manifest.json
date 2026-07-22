@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Axioma/Tesseract",
+    "plugin": "Axioma",
+    "model": "Tesseract",
+    "name": "Tesseract",
+    "brand": "Axioma",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/kauewerner/Axioma",
+    "libraryUrl": "https://library.vcvrack.com/Axioma/Tesseract",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Axioma/Tesseract.webp",
+    "wasmUrl": "packages/Axioma/Tesseract/2.0.0/module.wasm",
+    "width": 300,
+    "description": "Generate CV output sequences using vertex positions of a rotating tesseract projected on a 2D space",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rotation speed plane XY",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 59.055,
+          "y": 193.406,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rotation speed plane YZ",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 132.874,
+          "y": 193.406,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rotation speed plane XZ",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 59.055,
+          "y": 237.697,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rotation speed plane YW",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 132.874,
+          "y": 237.697,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rotation speed plane XW",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 59.055,
+          "y": 281.988,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rotation speed plane ZW",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 132.874,
+          "y": 281.988,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Perspective distance",
+        "min": 1.5,
+        "max": 8,
+        "default": 3,
+        "position": {
+          "x": 124.016,
+          "y": 327.756,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Xy",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 193.406,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Yz",
+        "kind": "cv",
+        "position": {
+          "x": 97.441,
+          "y": 193.406,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Xz",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Yw",
+        "kind": "cv",
+        "position": {
+          "x": 97.441,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Xw",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 281.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Zw",
+        "kind": "cv",
+        "position": {
+          "x": 97.441,
+          "y": 281.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Distance",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 327.756,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Point X",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 69.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 104.823,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 175.689,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 211.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 246.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 281.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 317.421,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "OUT 9",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "OUT 10",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 388.287,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "OUT 11",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 423.72,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "OUT 12",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 459.154,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "OUT 13",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 494.587,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "OUT 14",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 530.02,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "OUT 15",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 565.453,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "OUT 16",
+        "kind": "cv",
+        "position": {
+          "x": 172.736,
+          "y": 600.886,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Point Y",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 69.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "OUT 18",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 104.823,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "OUT 19",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "OUT 20",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 175.689,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "OUT 21",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 211.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "OUT 22",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 246.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "OUT 23",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 281.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "OUT 24",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 317.421,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "name": "OUT 25",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "OUT 26",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 388.287,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "name": "OUT 27",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 423.72,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "name": "OUT 28",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 459.154,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "name": "OUT 29",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 494.587,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "name": "OUT 30",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 530.02,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "name": "OUT 31",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 565.453,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "name": "OUT 32",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 600.886,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Axioma/Tesseract/2.0.0/manifest.json",
+    "sourceCommit": "3e7e01e6a449dc1e6c523bd4487c0a3200b322cb",
+    "artifact": {
+      "sha256": "52d00cdc30a6022ef78cc2ceeac85c43502e75fad6ae3464149e1dd035d621e6",
+      "size": 75390
+    }
+  },
+  "source": {
+    "url": "https://github.com/kauewerner/Axioma",
+    "commit": "3e7e01e6a449dc1e6c523bd4487c0a3200b322cb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:05:03.577Z"
+  }
+}

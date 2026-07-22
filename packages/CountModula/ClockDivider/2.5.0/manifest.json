@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/ClockDivider",
+    "plugin": "CountModula",
+    "model": "ClockDivider",
+    "name": "Clock Divider",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/ClockDivider",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/ClockDivider.webp",
+    "wasmUrl": "packages/CountModula/ClockDivider/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Clock divider with up/down mode and optional trigger outputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Count direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Output mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "count",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "doTrigs",
+        "type": "boolean"
+      },
+      {
+        "key": "countUp",
+        "type": "boolean"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/ClockDivider/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "98919f059e377b38ca45847f330f2d3156d6f1b3828017ff4d0874078f527ad2",
+      "size": 170976
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:45.237Z"
+  }
+}

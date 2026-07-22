@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "EternalEclipseModular/MoonPhaseDistortion",
+    "plugin": "EternalEclipseModular",
+    "model": "MoonPhaseDistortion",
+    "name": "Moon Phase Distortion",
+    "brand": "Eternal Eclipse",
+    "version": "2.7.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/7337Productions/eternaleclipsemodular",
+    "libraryUrl": "https://library.vcvrack.com/EternalEclipseModular/MoonPhaseDistortion",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/EternalEclipseModular/MoonPhaseDistortion.webp",
+    "wasmUrl": "packages/EternalEclipseModular/MoonPhaseDistortion/2.7.1/module.wasm",
+    "width": 120,
+    "description": "Stereo distortion whose depth and character follow the real phase of the moon, with manual override and CV.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Moon phase",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Phase source",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phase CV (10V = full cycle)",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Left audio",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Right audio (normalled to left)",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/EternalEclipseModular/MoonPhaseDistortion/2.7.1/manifest.json",
+    "sourceCommit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3",
+    "artifact": {
+      "sha256": "f6d218d2d4770d5dedfebcfad25ceba2434d4bd721fb250c243631978693adde",
+      "size": 76749
+    }
+  },
+  "source": {
+    "url": "https://github.com/7337Productions/eternaleclipsemodular",
+    "commit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:25:45.203Z"
+  }
+}

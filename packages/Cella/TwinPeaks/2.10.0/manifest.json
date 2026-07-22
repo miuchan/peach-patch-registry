@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/TwinPeaks",
+    "plugin": "Cella",
+    "model": "TwinPeaks",
+    "name": "Twin Peaks",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/TwinPeaks",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/TwinPeaks.webp",
+    "wasmUrl": "packages/Cella/TwinPeaks/2.10.0/module.wasm",
+    "width": 100,
+    "description": "Dual resonant filter inspired by the design of Rob Hordijk's TwinPeak filter. Made to be pinged.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency A",
+        "min": 4.321928024291992,
+        "max": 14.287712097167969,
+        "default": 4.321928024291992,
+        "position": {
+          "x": 45,
+          "y": 78.88,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency B",
+        "min": 4.321928024291992,
+        "max": 14.287712097167969,
+        "default": 14.287712097167969,
+        "position": {
+          "x": 135,
+          "y": 78.88,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0.7300000190734863,
+        "position": {
+          "x": 67.5,
+          "y": 153.38,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Resonance mod CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track A",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track B",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 157.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Frequency A mod",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 153.38,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Frequency B mod",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 157.5,
+          "y": 153.38,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Frequency A mod CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Frequency B mod CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 157.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "B->A FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Filter type",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 103.02,
+          "y": 208.09,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Low Pass<>Twin Peak",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 112.5,
+          "y": 153.38,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "LP<>TWP mod CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Resonance",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency A",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency B",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "FM A",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM B",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "LP<>TWP",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 280.01,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 157.5,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        5,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/TwinPeaks/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "176b37497c620e1e5cdfc6890751036fb46f7d5956bea7d40aa0eb83510e931e",
+      "size": 80326
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:18.238Z"
+  }
+}

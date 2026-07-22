@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SequencerExpanderTSG",
+    "plugin": "CountModula",
+    "model": "SequencerExpanderTSG",
+    "name": "Trigger Sequencer Gate Expander",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SequencerExpanderTSG",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SequencerExpanderTSG.webp",
+    "wasmUrl": "packages/CountModula/SequencerExpanderTSG/2.5.0/module.wasm",
+    "width": 75,
+    "description": "Adds gate outputs to the 8 and 16 Step Trigger Sequencers",
+    "params": [],
+    "inputs": [],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "CountModula/TriggerSequencer8",
+            "symbol": "modelTriggerSequencer8",
+            "index": 0
+          },
+          {
+            "key": "CountModula/TriggerSequencer16",
+            "symbol": "modelTriggerSequencer16",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SequencerExpanderTSG/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "ab7ac1acaf9c5a981f205846b1ba3c9dfd6e3a36e29418de497338ff074a6a51",
+      "size": 67736
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:06.697Z"
+  }
+}

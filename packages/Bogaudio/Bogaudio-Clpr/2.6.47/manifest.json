@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Clpr",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Clpr",
+    "name": "CLPR (Clipper)",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Clpr",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Clpr.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Clpr/2.6.47/module.wasm",
+    "width": 90,
+    "description": "Hard clipper and distortion",
+    "params": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 1,
+        "name": "Output gain",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Knee",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right signal",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Threshold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Output gain CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "threshold_range",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Clpr/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "47e7b039926d96d40488ab9b81408f815f3eb8ceffcd6c63b24a5c7959b1ea28",
+      "size": 75650
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:12:26.401Z"
+  }
+}

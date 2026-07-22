@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/ProbablyNoteBP",
+    "plugin": "FrozenWasteland",
+    "model": "ProbablyNoteBP",
+    "name": "Probably Note - Bohlen Pierce",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/ProbablyNoteBP",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/ProbablyNoteBP.webp",
+    "wasmUrl": "packages/FrozenWasteland/ProbablyNoteBP/2.1.2/module.wasm",
+    "width": 240,
+    "description": "Probabilistic Quantizer using Bohlen Pierce scales and tuning",
+    "params": [
+      {
+        "id": 0,
+        "name": "Spread",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 25,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spread CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 36,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slant",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Slant CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 93,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Distribution",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 124,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Distribution CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Weight Shift",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 133,
+          "y": 85,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Weight Shift CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159,
+          "y": 112,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scale CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 112,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Key",
+        "min": 0,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 68,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Key CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94,
+          "y": 112,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Tritave",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 188,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Tritave CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 214,
+          "y": 112,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Reset Scale Weights",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 115,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Tritave Wraparound",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 214,
+          "y": 143,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Map Octave to Tritave",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 8,
+          "y": 145,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Just Intonation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 214,
+          "y": 180,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Weight Scaling Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 135,
+          "y": 113,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Key Scaling Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 113,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Weight Scaling",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202,
+          "y": 292,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Randomize Pitch Amount",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 188,
+          "y": 216,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Randomize Pitch Amount CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 214,
+          "y": 242,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Gaussian Randomness",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 191,
+          "y": 250,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Trigger Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 62,
+          "y": 345,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Param 26",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "Param 27",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "Non Repeat Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 181,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Non Repeat Probability CV Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 207,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Unquantized CV",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spread",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 29
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slant",
+        "kind": "cv",
+        "position": {
+          "x": 95,
+          "y": 29
+        }
+      },
+      {
+        "id": 3,
+        "name": "Focus",
+        "kind": "cv",
+        "position": {
+          "x": 152,
+          "y": 29
+        }
+      },
+      {
+        "id": 4,
+        "name": "Shift",
+        "kind": "cv",
+        "position": {
+          "x": 161,
+          "y": 90
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 90
+        }
+      },
+      {
+        "id": 6,
+        "name": "Key",
+        "kind": "cv",
+        "position": {
+          "x": 96,
+          "y": 90
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tritave",
+        "kind": "cv",
+        "position": {
+          "x": 216,
+          "y": 90
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tempermanet",
+        "kind": "cv",
+        "position": {
+          "x": 192,
+          "y": 181
+        }
+      },
+      {
+        "id": 9,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 43,
+          "y": 345
+        }
+      },
+      {
+        "id": 10,
+        "name": "External Random",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 345
+        }
+      },
+      {
+        "id": 11,
+        "name": "Tritave Wrap",
+        "kind": "cv",
+        "position": {
+          "x": 192,
+          "y": 144
+        }
+      },
+      {
+        "id": 12,
+        "name": "Pitch Randomness",
+        "kind": "cv",
+        "position": {
+          "x": 216,
+          "y": 220
+        }
+      },
+      {
+        "id": 13,
+        "name": "Left",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Note Non-Repeat Probability",
+        "kind": "cv",
+        "position": {
+          "x": 209,
+          "y": 29
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Quantized CV",
+        "kind": "cv",
+        "position": {
+          "x": 205,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "Note Weight",
+        "kind": "cv",
+        "position": {
+          "x": 172,
+          "y": 345
+        }
+      },
+      {
+        "id": 2,
+        "name": "Note Changed",
+        "kind": "cv",
+        "position": {
+          "x": 134,
+          "y": 345
+        }
+      }
+    ],
+    "lights": 11,
+    "lightWidgets": [
+      {
+        "id": 6,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 71.5,
+          "y": 114.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 136.5,
+          "y": 114.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 215.5,
+          "y": 144.5
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 9.5,
+          "y": 146.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 215.5,
+          "y": 181.5
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 192.5,
+          "y": 251.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 63.5,
+          "y": 346.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "triggerDelayEnabled",
+        "type": "integer"
+      },
+      {
+        "key": "tritaveWrapAround",
+        "type": "integer"
+      },
+      {
+        "key": "justIntonation",
+        "type": "integer"
+      },
+      {
+        "key": "shiftMode",
+        "type": "integer"
+      },
+      {
+        "key": "keyLogarithmic",
+        "type": "integer"
+      },
+      {
+        "key": "tritaveMapping",
+        "type": "integer"
+      },
+      {
+        "key": "pitchRandomGaussian",
+        "type": "integer"
+      },
+      {
+        "key": "triggerPolyphonic",
+        "type": "integer"
+      },
+      {
+        "key": "quantizeMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/ProbablyNoteBP/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "3f50cce152c3c2d5f30a9e7f02c38890dc685c260f606084aa5cf86aec0482b0",
+      "size": 103047
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:18.193Z"
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/PNOctaveProbabilityExpander",
+    "plugin": "FrozenWasteland",
+    "model": "PNOctaveProbabilityExpander",
+    "name": "Probably Note - Octave Probability Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/PNOctaveProbabilityExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/PNOctaveProbabilityExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/PNOctaveProbabilityExpander/2.1.2/module.wasm",
+    "width": 210,
+    "description": "Adds Multi-Octave Note Range to Probably Not(e)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 327,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 38,
+          "y": 313,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 299,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Note Select",
+        "kind": "cv",
+        "position": {
+          "x": 62,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Octave Probability",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 316
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 78.5,
+          "y": 328.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 39.5,
+          "y": 314.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 78.5,
+          "y": 300.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 39.5,
+          "y": 286.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 78.5,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 78.5,
+          "y": 244.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 39.5,
+          "y": 230.5
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 78.5,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 39.5,
+          "y": 202.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 78.5,
+          "y": 188.5
+        }
+      },
+      {
+        "id": 10,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 39.5,
+          "y": 174.5
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 78.5,
+          "y": 160.5
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/ProbablyNote",
+            "symbol": "modelProbablyNote",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/PNChordExpander",
+            "symbol": "modelPNChordExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/PNOctaveProbabilityExpander",
+            "symbol": "modelPNOctaveProbabilityExpander",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/PNOctaveProbabilityExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "58027f5efd7e51713da680b8d2c9521871edbe8217cd762f313193e215ec3792",
+      "size": 73452
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:21.397Z"
+  }
+}

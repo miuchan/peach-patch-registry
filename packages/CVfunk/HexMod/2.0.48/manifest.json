@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/HexMod",
+    "plugin": "CVfunk",
+    "model": "HexMod",
+    "name": "Hex Mod",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/HexMod",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/HexMod.webp",
+    "wasmUrl": "packages/CVfunk/HexMod/2.0.48/module.wasm",
+    "width": 225,
+    "description": "Six phase-related LFOs with rate sync and individual phase reset triggers.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate, Hz",
+        "min": 0,
+        "max": 20,
+        "default": 2,
+        "position": {
+          "x": 21,
+          "y": 268,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Node Distribution",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 0,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rate Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 41,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Node Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 157,
+          "y": 41,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Output Range",
+        "min": -10,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 87,
+          "y": 290,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Range Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 113.25,
+          "y": 290,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Slow LFO Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": -5,
+          "y": -10,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger/Gate 1",
+        "kind": "gate",
+        "position": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger/Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 31,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger/Gate 3",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger/Gate 4",
+        "kind": "gate",
+        "position": {
+          "x": 93,
+          "y": 0
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trigger/Gate 5",
+        "kind": "gate",
+        "position": {
+          "x": 124,
+          "y": 0
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger/Gate 6",
+        "kind": "gate",
+        "position": {
+          "x": 155,
+          "y": 0
+        }
+      },
+      {
+        "id": 6,
+        "name": "Rate CV",
+        "kind": "cv",
+        "position": {
+          "x": 2,
+          "y": 63
+        }
+      },
+      {
+        "id": 7,
+        "name": "Node Distribution CV",
+        "kind": "cv",
+        "position": {
+          "x": 154,
+          "y": 63
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sync CV",
+        "kind": "cv",
+        "position": {
+          "x": 78,
+          "y": 60
+        }
+      },
+      {
+        "id": 9,
+        "name": "Range CV",
+        "kind": "cv",
+        "position": {
+          "x": 135.58,
+          "y": 290,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LFO 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "LFO 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "LFO 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "LFO 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "LFO 5",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "LFO 6",
+        "kind": "cv"
+      }
+    ],
+    "lights": 91,
+    "lightWidgets": [
+      {
+        "id": 60,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 11,
+          "y": 27
+        }
+      },
+      {
+        "id": 61,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 42,
+          "y": 27
+        }
+      },
+      {
+        "id": 62,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 73,
+          "y": 27
+        }
+      },
+      {
+        "id": 63,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 104,
+          "y": 27
+        }
+      },
+      {
+        "id": 64,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 135,
+          "y": 27
+        }
+      },
+      {
+        "id": 65,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 166,
+          "y": 27
+        }
+      },
+      {
+        "id": 90,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": -5,
+          "y": -10,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "lightsEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "syncEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "synclinkEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "SyncInterval",
+        "type": "real"
+      },
+      {
+        "key": "voctEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "enablePolyOut",
+        "type": "boolean"
+      },
+      {
+        "key": "slowMode",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "lfoOutput",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "lfoOutput",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "lfoOutput",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "lfoOutput",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "lfoOutput",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "lfoOutput",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "place",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "place",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/HexMod/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "8c53c95b9f9b505f5d599cec012511d49b79bf77a36b9690b34fb7f2098bc546",
+      "size": 94964
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:22.487Z"
+  }
+}

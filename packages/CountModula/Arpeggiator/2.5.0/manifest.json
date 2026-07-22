@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Arpeggiator",
+    "plugin": "CountModula",
+    "model": "Arpeggiator",
+    "name": "Super Arpeggiator",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Arpeggiator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Arpeggiator.webp",
+    "wasmUrl": "packages/CountModula/Arpeggiator/2.5.0/module.wasm",
+    "width": 330,
+    "description": "Arpeggiator with user definable patterns",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pattern length",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Sequence",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Note presort order",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Glide",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Octave processing",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Modifier processing",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Hold",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Hold",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Accent",
+        "kind": "cv"
+      }
+    ],
+    "lights": 36,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      },
+      {
+        "key": "numCVs",
+        "type": "integer"
+      },
+      {
+        "key": "hold",
+        "type": "boolean"
+      },
+      {
+        "key": "gate",
+        "type": "boolean"
+      },
+      {
+        "key": "nc",
+        "type": "integer"
+      },
+      {
+        "key": "pc",
+        "type": "integer"
+      },
+      {
+        "key": "polyOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "monoGateInput",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Arpeggiator/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "0da17c45f46857bec2a4e887397a6a77f469d9e2d4eed9bcf17f375aee26ed6a",
+      "size": 92850
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:50.542Z"
+  }
+}

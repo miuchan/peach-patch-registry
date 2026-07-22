@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SampleAndHold2",
+    "plugin": "CountModula",
+    "model": "SampleAndHold2",
+    "name": "Super Sample & Hold",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SampleAndHold2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SampleAndHold2.webp",
+    "wasmUrl": "packages/CountModula/SampleAndHold2/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Sample and Hold/Track and hold with probability, offset and inbuilt noise source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Hold mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Probability CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Input level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Offset amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Hold mode CV",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Probability CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Offset CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sampled signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Inverted sampled signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 3,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "sample",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "sample",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SampleAndHold2/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "1f309c41a43896b460b9a33cafb9e51f1555753bd60d0708d1751f738f280dad",
+      "size": 80749
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:23:07.211Z"
+  }
+}

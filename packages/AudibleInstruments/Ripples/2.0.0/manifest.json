@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AudibleInstruments/Ripples",
+    "plugin": "AudibleInstruments",
+    "model": "Ripples",
+    "name": "Liquid Filter",
+    "brand": "Audible Instruments",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/AudibleInstruments",
+    "libraryUrl": "https://library.vcvrack.com/AudibleInstruments/Ripples",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AudibleInstruments/Ripples.webp",
+    "wasmUrl": "packages/AudibleInstruments/Ripples/2.0.0/module.wasm",
+    "width": 120,
+    "description": "Based on Mutable Instruments Ripples",
+    "params": [
+      {
+        "id": 0,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26.197,
+          "y": 61.645,
+          "centered": true,
+          "widget": "Rogan2PSRed"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency",
+        "min": 4.321928024291992,
+        "max": 14.287712097167969,
+        "default": 14.287712097167969,
+        "position": {
+          "x": 59.962,
+          "y": 125.398,
+          "centered": true,
+          "widget": "Rogan3PSWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 93.992,
+          "y": 189.151,
+          "centered": true,
+          "widget": "Rogan2PSGreen"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Resonance",
+        "kind": "cv",
+        "position": {
+          "x": 24.292,
+          "y": 256.621,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 59.932,
+          "y": 256.621,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 95.572,
+          "y": 256.621,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 24.292,
+          "y": 292.261,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gain",
+        "kind": "cv",
+        "position": {
+          "x": 24.292,
+          "y": 327.904,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Band-pass 2-pole (12 dB/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.932,
+          "y": 292.261,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Low-pass 2-pole (12 dB/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 95.572,
+          "y": 292.261,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Low-pass 4-pole (24 dB/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.932,
+          "y": 327.904,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Low-pass 4-pole (24 dB/oct) VCA",
+        "kind": "cv",
+        "position": {
+          "x": 95.572,
+          "y": 327.904,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AudibleInstruments/Ripples/2.0.0/manifest.json",
+    "sourceCommit": "a15554e33721c2f8f65bb6b0f59588307fb6e625",
+    "artifact": {
+      "sha256": "66bcd49a17978ef7456d8551b90b6fca8a5b7de58e479a2ad1053a87be3bcb31",
+      "size": 76598
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/AudibleInstruments",
+    "commit": "a15554e33721c2f8f65bb6b0f59588307fb6e625"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:02:42.166Z"
+  }
+}

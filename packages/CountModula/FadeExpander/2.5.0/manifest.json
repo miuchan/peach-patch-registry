@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/FadeExpander",
+    "plugin": "CountModula",
+    "model": "FadeExpander",
+    "name": "Fade-in/Fade-out Expander",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/FadeExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/FadeExpander.webp",
+    "wasmUrl": "packages/CountModula/FadeExpander/2.5.0/module.wasm",
+    "width": 60,
+    "description": "Adds sequencer start/stop and envelope outputs to the fade controller",
+    "params": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Start/stop",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Fading in",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Fading out",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Inverted envelope",
+        "kind": "cv"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "CountModula/Fade",
+            "symbol": "modelFade",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/FadeExpander/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "73969dd8dda7270f7322a1c434124dceb30a78d878c004fbe25e971b517eee42",
+      "size": 68018
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:06.580Z"
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coalescent/GENDYN",
+    "plugin": "Coalescent",
+    "model": "GENDYN",
+    "name": "GENDYN",
+    "brand": "Coalescent",
+    "version": "2.2.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremycg/coalescent",
+    "libraryUrl": "https://library.vcvrack.com/Coalescent/GENDYN",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coalescent/GENDYN.webp",
+    "wasmUrl": "packages/Coalescent/GENDYN/2.2.1/module.wasm",
+    "width": 180,
+    "description": "Dynamic stochastic synthesis oscillator based on Xenakis GENDY3",
+    "params": [
+      {
+        "id": 0,
+        "name": "Breakpoints (N)",
+        "min": 2,
+        "max": 64,
+        "default": 13,
+        "position": {
+          "x": 23.622,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Amplitude step scale",
+        "min": 0,
+        "max": 1,
+        "default": 0.0020000000949949026
+      },
+      {
+        "id": 2,
+        "name": "Duration step scale",
+        "min": 0,
+        "max": 1,
+        "default": 0.0035000001080334187
+      },
+      {
+        "id": 3,
+        "name": "Amplitude barrier",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 4,
+        "name": "Center frequency",
+        "min": 20,
+        "max": 5000,
+        "default": 261.6260070800781,
+        "position": {
+          "x": 60.531,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Frequency barrier width",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645
+      },
+      {
+        "id": 6,
+        "name": "Distribution",
+        "min": 0,
+        "max": 3,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 121.063,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Scale Amp attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Scale Dur attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "B Amp attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "B Dur attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Glide persistence",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 156.496,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Pitch lock (normalize durations)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 90.059,
+          "y": 159.449,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scale Amp CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Scale Dur CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Amplitude barrier CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Duration barrier CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 44.291,
+          "y": 330.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Cycle trigger",
+        "kind": "gate",
+        "position": {
+          "x": 90.059,
+          "y": 330.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency 1V/oct",
+        "kind": "cv",
+        "position": {
+          "x": 135.827,
+          "y": 330.709,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "initShape",
+        "type": "integer"
+      },
+      {
+        "key": "N",
+        "type": "integer"
+      },
+      {
+        "key": "lockCorr",
+        "type": "real"
+      },
+      {
+        "key": "durErr",
+        "type": "real"
+      },
+      {
+        "key": "saveFs",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coalescent/GENDYN/2.2.1/manifest.json",
+    "sourceCommit": "bea6fe0d95e0e6693ac7814554e42906236ac99f",
+    "artifact": {
+      "sha256": "4efcfe14c329abc4eca11b69bd1d7afd15b45c724ab6da9bc3f68301d6000757",
+      "size": 90501
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremycg/coalescent",
+    "commit": "bea6fe0d95e0e6693ac7814554e42906236ac99f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:19:51.542Z"
+  }
+}

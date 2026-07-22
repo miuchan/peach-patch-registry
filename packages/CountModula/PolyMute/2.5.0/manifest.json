@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/PolyMute",
+    "plugin": "CountModula",
+    "model": "PolyMute",
+    "name": "Polyphonic Mute",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/PolyMute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/PolyMute.webp",
+    "wasmUrl": "packages/CountModula/PolyMute/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Polyphonic Manual/VC Mute",
+    "params": [
+      {
+        "id": 0,
+        "name": "Master Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 1,
+        "name": "Mute style",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Mute",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Master mute",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/PolyMute/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "e3e51ede6d6dd3dd68611a737fdc1b558e369d566aedabe5cdb71409164d1801",
+      "size": 70386
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:21.155Z"
+  }
+}

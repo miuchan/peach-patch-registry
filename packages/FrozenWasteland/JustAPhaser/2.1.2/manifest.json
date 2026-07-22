@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/JustAPhaser",
+    "plugin": "FrozenWasteland",
+    "model": "JustAPhaser",
+    "name": "Just A Phaser",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/JustAPhaser",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/JustAPhaser.webp",
+    "wasmUrl": "packages/FrozenWasteland/JustAPhaser/2.1.2/module.wasm",
+    "width": 150,
+    "description": "Advanced Phaser",
+    "params": [
+      {
+        "id": 0,
+        "name": "# of Stages",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 31,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Filter Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 294,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 2,
+        "name": "LFO Wave",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 60,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mod Frequency",
+        "min": -8,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 92,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mod Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 10,
+          "y": 172,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Modulation Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 65,
+          "y": 174,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Feedback",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 212,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Center Frequency",
+        "min": 4,
+        "max": 14,
+        "default": 8,
+        "position": {
+          "x": 10,
+          "y": 252,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Frequency Span",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 100,
+          "y": 252,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Resonance",
+        "min": 0.5,
+        "max": 5,
+        "default": 0.7070000171661377,
+        "position": {
+          "x": 10,
+          "y": 292,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Stereo Phase Separation",
+        "min": 0,
+        "max": 0.9999899864196777,
+        "default": 0.25,
+        "position": {
+          "x": 10,
+          "y": 132,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 53,
+          "y": 338,
+          "widget": "RoundSmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 8,
+          "y": 340
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 28,
+          "y": 340
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left Feedback Return",
+        "kind": "audio",
+        "position": {
+          "x": 110,
+          "y": 214
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right Feedback Return",
+        "kind": "audio",
+        "position": {
+          "x": 130,
+          "y": 214
+        }
+      },
+      {
+        "id": 4,
+        "name": "LFO Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 94
+        }
+      },
+      {
+        "id": 5,
+        "name": "LFO Depth",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 174
+        }
+      },
+      {
+        "id": 6,
+        "name": "Feedback",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 214
+        }
+      },
+      {
+        "id": 7,
+        "name": "Center Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 254
+        }
+      },
+      {
+        "id": 8,
+        "name": "Frequency Span",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 254
+        }
+      },
+      {
+        "id": 9,
+        "name": "Resonance",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 294
+        }
+      },
+      {
+        "id": 10,
+        "name": "Stereo Phase Separation",
+        "kind": "audio",
+        "position": {
+          "x": 38,
+          "y": 134
+        }
+      },
+      {
+        "id": 11,
+        "name": "External Modulation L",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 94
+        }
+      },
+      {
+        "id": 12,
+        "name": "External Modulation R",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 94
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 82,
+          "y": 340
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left Feedback Send",
+        "kind": "audio",
+        "position": {
+          "x": 65,
+          "y": 214
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Feedback Send",
+        "kind": "audio",
+        "position": {
+          "x": 85,
+          "y": 214
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 106,
+          "y": 340
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 126,
+          "y": 340
+        }
+      }
+    ],
+    "lights": 13,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 45,
+          "y": 35
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 65,
+          "y": 35
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 85,
+          "y": 35
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 120,
+          "y": 300
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 136,
+          "y": 300
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 45,
+          "y": 64
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 65,
+          "y": 64
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 85,
+          "y": 64
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 105,
+          "y": 64
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 85,
+          "y": 180
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 100,
+          "y": 180
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 115,
+          "y": 180
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 130,
+          "y": 180
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "nunberOfStagesIndex",
+        "type": "integer"
+      },
+      {
+        "key": "numberOfStages",
+        "type": "integer"
+      },
+      {
+        "key": "filterMode",
+        "type": "integer"
+      },
+      {
+        "key": "waveShape",
+        "type": "integer"
+      },
+      {
+        "key": "frequencyModType",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/JustAPhaser/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "9c7c8eafb3db259da88d240c7af6478d0a429317f139970daf59cb338e5ed638",
+      "size": 97867
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:09.405Z"
+  }
+}

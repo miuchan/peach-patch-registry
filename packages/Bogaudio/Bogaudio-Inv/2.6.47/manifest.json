@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Inv",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Inv",
+    "name": "INV",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Inv",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Inv.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Inv/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Dual signal inverter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel 1 gate",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Channel 1 latch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Channel 2 gate",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Channle 2 latch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate 1",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Signal 1",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Gate 2",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Signal 2",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal 1",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Signal 2",
+        "kind": "audio"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "save_latched_to_patch",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Inv/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "250a94eacac2a6c9238abb2dbe0adbf5325ca3de443f1e941bd7877b021bc1c0",
+      "size": 76430
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:13:11.674Z"
+  }
+}

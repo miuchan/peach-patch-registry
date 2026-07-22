@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "C1-ChannelStrip/ShapeCV",
+    "plugin": "C1-ChannelStrip",
+    "model": "ShapeCV",
+    "name": "SH-X",
+    "brand": "Twisted Cable",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Eurikon/C1-ChannelStrip",
+    "libraryUrl": "https://library.vcvrack.com/C1-ChannelStrip/ShapeCV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/C1-ChannelStrip/ShapeCV.webp",
+    "wasmUrl": "packages/C1-ChannelStrip/ShapeCV/2.1.1/module.wasm",
+    "width": 45,
+    "description": "CV expander for SHAPE",
+    "params": [
+      {
+        "id": 0,
+        "name": "Threshold CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 103,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sustain CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 173,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Release CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 243,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Threshold CV",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 60,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sustain CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Release CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 200,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Hard Gate Mode CV",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 270,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 22.5,
+          "y": 90.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 14.3,
+          "y": 111.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 30.7,
+          "y": 111.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 22.5,
+          "y": 160.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 14.3,
+          "y": 181.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 30.7,
+          "y": 181.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 22.5,
+          "y": 230.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 14.3,
+          "y": 251.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinySimpleLightHalf<YellowLight>",
+        "position": {
+          "x": 30.7,
+          "y": 251.8,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "C1-ChannelStrip/Shape",
+            "symbol": "modelShape",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/C1-ChannelStrip/ShapeCV/2.1.1/manifest.json",
+    "sourceCommit": "37873c00cb6fc08a853cd937a4b5055ed04fe83a",
+    "artifact": {
+      "sha256": "ee9c729c13e69b0ac5b73e12ede81d405806816a8dd662b5c79080b7042347c5",
+      "size": 67975
+    }
+  },
+  "source": {
+    "url": "https://github.com/Eurikon/C1-ChannelStrip",
+    "commit": "37873c00cb6fc08a853cd937a4b5055ed04fe83a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:13:55.427Z"
+  }
+}

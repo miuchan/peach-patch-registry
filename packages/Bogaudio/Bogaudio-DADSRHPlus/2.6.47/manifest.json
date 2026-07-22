@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-DADSRHPlus",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-DADSRHPlus",
+    "name": "DADSR(H)+",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-DADSRHPlus",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-DADSRHPlus.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-DADSRHPlus/2.6.47/module.wasm",
+    "width": 225,
+    "description": "Advanced envelope generator with additional CV",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.14142000675201416
+      },
+      {
+        "id": 2,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 3,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 4,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 5,
+        "name": "Hold",
+        "min": 0,
+        "max": 1,
+        "default": 0.44721001386642456
+      },
+      {
+        "id": 6,
+        "name": "Attack shape",
+        "min": 1,
+        "max": 3,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Decay shape",
+        "min": 1,
+        "max": 3,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Release shape",
+        "min": 1,
+        "max": 3,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Speed",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Retrigger",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Delay CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Attack CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Decay CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Sustain CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Release CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Hold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Trigger",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Delay stage gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Attack stage gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Decay stage gate",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Sustain stage gate",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Release stage gate",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Inverted envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "End-of-cycle trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 14,
+    "stateKeys": [
+      {
+        "key": "triggerOnLoad",
+        "type": "boolean"
+      },
+      {
+        "key": "shouldTriggerOnLoad",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-DADSRHPlus/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "54207ea55b8c8b311b92a01ac4933c0b238b1f063f3814b90516ed04fb8095da",
+      "size": 82939
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:01.797Z"
+  }
+}

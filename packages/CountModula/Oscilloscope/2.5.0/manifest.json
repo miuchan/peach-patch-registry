@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Oscilloscope",
+    "plugin": "CountModula",
+    "model": "Oscilloscope",
+    "name": "Quad Trace Oscilloscope",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Oscilloscope",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Oscilloscope.webp",
+    "wasmUrl": "packages/CountModula/Oscilloscope/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Quad trace oscilloscope.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Ch 1 scale",
+        "min": 0,
+        "max": 11,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Ch 2 scale",
+        "min": 0,
+        "max": 11,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Ch 3 scale",
+        "min": 0,
+        "max": 11,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Ch 4 scale",
+        "min": 0,
+        "max": 11,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Ch 1 pos",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Ch 2 pos",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Ch 3 pos",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Ch 4 pos",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Ch 1 zero",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Ch 2 zero",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Ch 3 zero",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "Ch 4 zero",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 12,
+        "name": "Time",
+        "min": -4,
+        "max": -18,
+        "default": -14
+      },
+      {
+        "id": 13,
+        "name": "Trace freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 14,
+        "name": "Trigger source",
+        "min": 0,
+        "max": 4,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 15,
+        "name": "Param 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Trigger level",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Hold-off",
+        "min": 0,
+        "max": 1000,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "Show grid",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 19,
+        "name": "Show grid baseline",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 20,
+        "name": "show trace baselines",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 21,
+        "name": "Show statistics",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Channel 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Channel 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Channel 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "External trigger",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [],
+    "lights": 11,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Oscilloscope/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "8cb86def17d58396320fe5316c0f499175e7bb099a811aa7daa9b366864d75e7",
+      "size": 74395
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:23:04.555Z"
+  }
+}

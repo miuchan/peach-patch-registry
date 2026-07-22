@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/QARConditionalExpander",
+    "plugin": "FrozenWasteland",
+    "model": "QARConditionalExpander",
+    "name": "QAR - Conditional",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/QARConditionalExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/QARConditionalExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/QARConditionalExpander/2.1.2/module.wasm",
+    "width": 195,
+    "description": "Clock Divide individual beats in QAR Rhythms",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76,
+          "y": 320,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 10,
+          "y": 30,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 36,
+          "y": 50,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 16,
+          "y": 53,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step/Beat Mode",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12,
+          "y": 324,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Divide Count  1",
+        "kind": "cv",
+        "position": {
+          "x": 40,
+          "y": 33
+        }
+      },
+      {
+        "id": 1,
+        "name": "Conditional Mode  1",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 57
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 6,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 17.5,
+          "y": 54.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 190,
+          "y": 284
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 13.5,
+          "y": 325.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 77.5,
+          "y": 321.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "stepsOrDivs",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+            "symbol": "modelQuadAlgorithmicRhythm",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+            "symbol": "modelQARWellFormedRhythmExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 6
+          },
+          {
+            "key": "FrozenWasteland/QARGridControlExpander",
+            "symbol": "modelQARGridControlExpander",
+            "index": 7
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/QARConditionalExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "d479b3180ac4e2d7a341c5e11288dca32d6106d75324b97150ebcb896ee9d764",
+      "size": 83122
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:26.958Z"
+  }
+}

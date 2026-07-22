@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/VoltageScaler",
+    "plugin": "CountModula",
+    "model": "VoltageScaler",
+    "name": "Voltage Scaler",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/VoltageScaler",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/VoltageScaler.webp",
+    "wasmUrl": "packages/CountModula/VoltageScaler/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Rescale a voltage from one range to another",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input minimum",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Input maximum",
+        "min": -10,
+        "max": 10,
+        "default": 10
+      },
+      {
+        "id": 2,
+        "name": "Output limit A",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Output limit B",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Limit A CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Limit B CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Scaled CV",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/VoltageScaler/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "4754dd071d11beb5aa0e41dc9e8be8cbe98b09e05466c824415a9690a6991049",
+      "size": 69311
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:15.639Z"
+  }
+}

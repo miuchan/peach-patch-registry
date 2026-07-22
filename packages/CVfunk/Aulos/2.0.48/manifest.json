@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Aulos",
+    "plugin": "CVfunk",
+    "model": "Aulos",
+    "name": "Aulos",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Aulos",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Aulos.webp",
+    "wasmUrl": "packages/CVfunk/Aulos/2.0.48/module.wasm",
+    "width": 300,
+    "description": "A dual wind instrument physical model based on the Aulos dual flute.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reed",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 1,
+        "name": "Reed Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Bore",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Bore Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 5,
+        "name": "Drive Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 7,
+        "name": "Resonance Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Air",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 9,
+        "name": "Air Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Chiff",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645
+      },
+      {
+        "id": 11,
+        "name": "Chiff Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Secondary Pipe",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Secondary Pipe Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Wood",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 15,
+        "name": "Wood Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Breath",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071
+      },
+      {
+        "id": 17,
+        "name": "Breath Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "Vibrato Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 19,
+        "name": "Pipe Tune",
+        "min": -1,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Finger Tune",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 21,
+        "name": "Manual Gate",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 22,
+        "name": "Drone Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 23,
+        "name": "Volume",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 24,
+        "name": "Volume Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 25,
+        "name": "Audio In Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 26,
+        "name": "Audio In Gain Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pipe V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Finger V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Breath CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Vibrato (FM)",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Reed CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Bore CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Drive CV",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Resonance CV",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Air CV",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Secondary Pipe CV",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Wood CV",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Chiff CV",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Audio In",
+        "kind": "audio"
+      },
+      {
+        "id": 14,
+        "name": "Drone CV",
+        "kind": "cv"
+      },
+      {
+        "id": 15,
+        "name": "Volume CV",
+        "kind": "cv"
+      },
+      {
+        "id": 16,
+        "name": "Audio In Gain CV",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Breath Envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Excitation (RMS)",
+        "kind": "cv"
+      }
+    ],
+    "lights": 22,
+    "stateKeys": [
+      {
+        "key": "droneActive",
+        "type": "boolean"
+      },
+      {
+        "key": "aulosTrack",
+        "type": "boolean"
+      },
+      {
+        "key": "followTime",
+        "type": "real"
+      },
+      {
+        "key": "attackCurve",
+        "type": "real"
+      },
+      {
+        "key": "releaseCurve",
+        "type": "real"
+      },
+      {
+        "key": "waveguideGain",
+        "type": "real"
+      },
+      {
+        "key": "decayValue",
+        "type": "real"
+      },
+      {
+        "key": "attackValue",
+        "type": "real"
+      },
+      {
+        "key": "releaseValue",
+        "type": "real"
+      },
+      {
+        "key": "vibratoRate",
+        "type": "real"
+      },
+      {
+        "key": "vibratoBreathDepth",
+        "type": "real"
+      },
+      {
+        "key": "legatoEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "legatoTime",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Aulos/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "f4dc873b55e5438c64f475824cce84dc74712c9cba0a3feb53d67ee32ce341e8",
+      "size": 100652
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:15:09.939Z"
+  }
+}

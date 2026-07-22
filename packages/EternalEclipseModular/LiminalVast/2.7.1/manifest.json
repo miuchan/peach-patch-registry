@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "EternalEclipseModular/LiminalVast",
+    "plugin": "EternalEclipseModular",
+    "model": "LiminalVast",
+    "name": "Liminal Vast Reverb",
+    "brand": "Eternal Eclipse",
+    "version": "2.7.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/7337Productions/eternaleclipsemodular",
+    "libraryUrl": "https://library.vcvrack.com/EternalEclipseModular/LiminalVast",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/EternalEclipseModular/LiminalVast.webp",
+    "wasmUrl": "packages/EternalEclipseModular/LiminalVast/2.7.1/module.wasm",
+    "width": 180,
+    "description": "Lush stereo reverb with a modulated feedback delay network — from intimate rooms to the endless liminal vast.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Size",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071
+      },
+      {
+        "id": 3,
+        "name": "Mod rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.3499999940395355
+      },
+      {
+        "id": 4,
+        "name": "Mod depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 5,
+        "name": "Pre-delay",
+        "min": 0,
+        "max": 250,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Low cut",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "High cut",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 8,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Size CV (10V = full range)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Decay CV (10V = full range)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Mix CV (10V = full range)",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 28.051,
+          "y": 349.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Right audio (normalled to left)",
+        "kind": "audio",
+        "position": {
+          "x": 69.39,
+          "y": 349.311,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 110.61,
+          "y": 349.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 151.949,
+          "y": 349.311,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/EternalEclipseModular/LiminalVast/2.7.1/manifest.json",
+    "sourceCommit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3",
+    "artifact": {
+      "sha256": "9901cb25a5a7d670674861bdb78c89209e78cab421347996013ee7f7b74cd16b",
+      "size": 83375
+    }
+  },
+  "source": {
+    "url": "https://github.com/7337Productions/eternaleclipsemodular",
+    "commit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:25:45.315Z"
+  }
+}

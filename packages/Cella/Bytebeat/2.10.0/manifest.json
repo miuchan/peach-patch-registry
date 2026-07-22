@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/Bytebeat",
+    "plugin": "Cella",
+    "model": "Bytebeat",
+    "name": "Bytebeat",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/Bytebeat",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Bytebeat.webp",
+    "wasmUrl": "packages/Cella/Bytebeat/2.10.0/module.wasm",
+    "width": 225,
+    "description": "Bytebeat evaluator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 4,
+        "max": 14.42849063873291,
+        "default": 12.965784072875977,
+        "position": {
+          "x": 22.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 202.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "VCVLightBezel<WhiteLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param <a>",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 67.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param <b>",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 112.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Param <c>",
+        "min": 0,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 157.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bit Depth",
+        "min": 1,
+        "max": 12,
+        "default": 8,
+        "position": {
+          "x": 202.5,
+          "y": 203.79,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param <a> CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Param <b> CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param <c> CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 157.5,
+          "y": 252.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Param <a> CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param <b> CV",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Param <c> CV",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 202.5,
+          "y": 280.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 202.5,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "LargeFresnelLight<YellowLight>",
+        "position": {
+          "x": 157.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeFresnelLight<RedLight>",
+        "position": {
+          "x": 67.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 252.5,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightBezel<WhiteLight>",
+        "position": {
+          "x": 202.5,
+          "y": 252.5,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "outputLevelType",
+        "type": "integer"
+      },
+      {
+        "key": "multiline",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/Bytebeat/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "074b7418536155661f272c81ae0e540aa7b14c9e5ea5495a4c95e300fa713394",
+      "size": 183457
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:20.689Z"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Attenuator",
+    "plugin": "CountModula",
+    "model": "Attenuator",
+    "name": "Attenuator",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Attenuator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Attenuator.webp",
+    "wasmUrl": "packages/CountModula/Attenuator/2.5.0/module.wasm",
+    "width": 60,
+    "description": "Dual attenuator with attenuverting option",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attenuation/Attenuversion",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "audio"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "boolean"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Attenuator/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "52a12b21253eb1357e5ea5cd7431bff10b7c73e7d8f8c6ff9c4f239f353039e2",
+      "size": 69630
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:06.494Z"
+  }
+}

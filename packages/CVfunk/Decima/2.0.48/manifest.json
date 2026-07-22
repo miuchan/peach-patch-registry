@@ -1,0 +1,848 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Decima",
+    "plugin": "CVfunk",
+    "model": "Decima",
+    "name": "Decima",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Decima",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Decima.webp",
+    "wasmUrl": "packages/CVfunk/Decima/2.0.48/module.wasm",
+    "width": 150,
+    "description": "Ten-channel gate sequencer with per-step probability.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Button 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 75,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Button 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 100,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Button 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 125,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Button 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 150,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Button 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 175,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Button 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 200,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Button 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 225,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Button 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 250,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Button 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 275,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Button 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 300,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Step Select 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 80,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step Select 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 105,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Step Select 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 130,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Step Select 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 155,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Step Select 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 180,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Step Select 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 205,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Step Select 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 230,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Step Select 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 255,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Step Select 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 280,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Step Select 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 305,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Step Probability 1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 75,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Step Probability 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 100,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Step Probability 3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 125,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Step Probability 4",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 150,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Step Probability 5",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 175,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Step Probability 6",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 200,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Step Probability 7",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 225,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Step Probability 8",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 250,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Step Probability 9",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 275,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Step Probability 10",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92,
+          "y": 300,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock CV",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset CV",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Dir. CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate 1",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 80,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 105,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate 3",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate 4",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 155,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate 5",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate 6",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 205,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate 7",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 230,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate 8",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate 9",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gate 10",
+        "kind": "gate",
+        "position": {
+          "x": 127,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 57,
+          "y": 338,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Inv.",
+        "kind": "cv",
+        "position": {
+          "x": 92,
+          "y": 338,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 20,
+    "lightWidgets": [
+      {
+        "id": 10,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 80,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 105,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 155,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 205,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 230,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 100,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 125,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 150,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 175,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 200,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 250,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 275,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 57,
+          "y": 300,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "stepActive",
+        "type": "boolean"
+      },
+      {
+        "key": "probGateEnabled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Decima/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "301f075da89c3d6cb73c7352ea867c5bc29cdecc749afcbbb8e990ddf35b210e",
+      "size": 85258
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:36.825Z"
+  }
+}

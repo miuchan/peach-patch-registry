@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/GatedComparator",
+    "plugin": "CountModula",
+    "model": "GatedComparator",
+    "name": "Gated Comparator",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/GatedComparator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/GatedComparator.webp",
+    "wasmUrl": "packages/CountModula/GatedComparator/2.5.0/module.wasm",
+    "width": 300,
+    "description": "Gated Comparator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Comparator threshold",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Comparator CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Melody Params +  0",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Melody Params +  1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Melody Params +  2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Melody Params +  3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Melody Params +  4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Melody Params +  5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Melody Params +  6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Melody Params +  7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Loop logic",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Comparator",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Comparator threshold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Loop",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Loop enable",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Comparator",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Random melody",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Inverted random melody",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Q_OUTPUTS + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Q_OUTPUTS + 1",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Q_OUTPUTS + 2",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Q_OUTPUTS + 3",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Q_OUTPUTS + 4",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Q_OUTPUTS + 5",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Q_OUTPUTS + 6",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Q_OUTPUTS + 7",
+        "kind": "cv"
+      }
+    ],
+    "lights": 10,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "loopEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "shiftReg",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/GatedComparator/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "8c796c5937a28de7372eb3d633e4befddbe33722da449ad44dd6e61331d59aa3",
+      "size": 73984
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:47.046Z"
+  }
+}

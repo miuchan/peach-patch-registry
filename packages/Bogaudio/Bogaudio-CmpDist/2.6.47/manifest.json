@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-CmpDist",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-CmpDist",
+    "name": "CMPDIST",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-CmpDist",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-CmpDist.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-CmpDist/2.6.47/module.wasm",
+    "width": 150,
+    "description": "Comparator-based distortion",
+    "params": [
+      {
+        "id": 0,
+        "name": "A scaling",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Window",
+        "min": 0,
+        "max": 1,
+        "default": 0.25
+      },
+      {
+        "id": 2,
+        "name": "B scaling",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Greater-than mix",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Equal mix",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Less-than mix",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Dry/wet mix",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "A dry level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "B dry level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Greater-than mix CV",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Less-than mix CV",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Window CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Dry/wet CV",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Signal A",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Scale A CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Signal B",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Scale B CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Greater than",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Less than",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Equal",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-CmpDist/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "d6ea5ef982d7922faf53b22cc7b81c96652ce3098c60858a3795291fd291c094",
+      "size": 78676
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:12:32.817Z"
+  }
+}

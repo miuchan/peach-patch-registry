@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Velo",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Velo",
+    "name": "VELO",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Velo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Velo.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Velo/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Triple-CV VCA, for tremolo, MIDI velocity, etc",
+    "params": [
+      {
+        "id": 0,
+        "name": "level",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 1,
+        "name": "Level CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Velocity range",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 3,
+        "name": "Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Level unipolar CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Level bipolar CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Velocity CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "level_scales_cv",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Velo/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "32681eb6f1b36024dda26fc9b8d7e5d8e898f2380b6f479ac706dc134117c306",
+      "size": 77308
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:45.717Z"
+  }
+}

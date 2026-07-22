@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/GateDelay",
+    "plugin": "CountModula",
+    "model": "GateDelay",
+    "name": "Gate Delay",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/GateDelay",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/GateDelay.webp",
+    "wasmUrl": "packages/CountModula/GateDelay/2.5.0/module.wasm",
+    "width": 180,
+    "description": "A dual gate delay line giving up to 40 seconds of delay with voltage control over the delay time",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay time",
+        "min": 0,
+        "max": 10,
+        "default": 5
+      },
+      {
+        "id": 1,
+        "name": "Delay time",
+        "min": 0,
+        "max": 10,
+        "default": 5
+      },
+      {
+        "id": 2,
+        "name": "Delay time CV amount",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Delay time CV amount",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Time range",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Time range",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Time CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Gate",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Direct",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Direct",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Delayed",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Delayed",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Mix",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Mix",
+        "kind": "audio"
+      }
+    ],
+    "lights": 6,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/GateDelay/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "828f06e864071a715b630ffdc11428a7d16808abc6b4b3649fbceb283a03cbcd",
+      "size": 74660
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:14.125Z"
+  }
+}

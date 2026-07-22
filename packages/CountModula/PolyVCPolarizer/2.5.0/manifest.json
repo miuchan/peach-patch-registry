@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/PolyVCPolarizer",
+    "plugin": "CountModula",
+    "model": "PolyVCPolarizer",
+    "name": "Polyphonic VC Polarizer",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/PolyVCPolarizer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/PolyVCPolarizer.webp",
+    "wasmUrl": "packages/CountModula/PolyVCPolarizer/2.5.0/module.wasm",
+    "width": 90,
+    "description": "A polyphonic voltage controlled polarizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Polarity",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Polarity CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 32,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/PolyVCPolarizer/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "53454d11a4277fb5870312f11cbb26052a242e87269a8e54fc7ade900f44b6d4",
+      "size": 69530
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:26.768Z"
+  }
+}

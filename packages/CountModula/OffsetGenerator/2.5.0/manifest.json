@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/OffsetGenerator",
+    "plugin": "CountModula",
+    "model": "OffsetGenerator",
+    "name": "Offset Generator",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/OffsetGenerator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/OffsetGenerator.webp",
+    "wasmUrl": "packages/CountModula/OffsetGenerator/2.5.0/module.wasm",
+    "width": 60,
+    "description": "Offsets a CV signal by a given amount",
+    "params": [
+      {
+        "id": 0,
+        "name": "Coarse",
+        "min": -8,
+        "max": 8,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Fine",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Coarse voltage",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Sample & hold trigger",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/OffsetGenerator/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "582defbfe4cb2ab47099563971a80599ac89a796c34a696eb6a6e918147b7363",
+      "size": 69192
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:02.602Z"
+  }
+}

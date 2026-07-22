@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Tuner",
+    "plugin": "CVfunk",
+    "model": "Tuner",
+    "name": "Tuner",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Tuner",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Tuner.webp",
+    "wasmUrl": "packages/CVfunk/Tuner/2.0.48/module.wasm",
+    "width": 225,
+    "description": "Dual autocorrelation tuner and zero-centered waveform display.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Wave Offset 1",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 16.667,
+          "y": 160,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wave Offset 2",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 16.667,
+          "y": 325,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Width in Wavelengths 1",
+        "min": 1,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 33.333,
+          "y": 160,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Width in Wavelengths 2",
+        "min": 1,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 33.333,
+          "y": 325,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Wave Gain 1",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 160,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Wave Gain 2",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 325,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio 1",
+        "kind": "audio",
+        "position": {
+          "x": 8.333,
+          "y": 170,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio 2",
+        "kind": "audio",
+        "position": {
+          "x": 8.333,
+          "y": 335,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Frequency (V/oct) 1",
+        "kind": "cv",
+        "position": {
+          "x": 41.667,
+          "y": 170,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency (V/oct) 2",
+        "kind": "cv",
+        "position": {
+          "x": 41.667,
+          "y": 335,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "displayMode",
+        "type": "boolean"
+      },
+      {
+        "key": "lagsPerCall",
+        "type": "integer"
+      },
+      {
+        "key": "analysisSkip",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Tuner/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "bb16910caf3a2ddf6ab39f8d7ca1882acf160ec01bd939bbaf22d765c700688e",
+      "size": 84318
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:15:01.742Z"
+  }
+}

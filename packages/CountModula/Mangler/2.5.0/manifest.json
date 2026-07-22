@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Mangler",
+    "plugin": "CountModula",
+    "model": "Mangler",
+    "name": "Mangler",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Mangler",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Mangler.webp",
+    "wasmUrl": "packages/CountModula/Mangler/2.5.0/module.wasm",
+    "width": 120,
+    "description": "A voltage controlled sample rate/bit depth reducer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input level",
+        "min": 0,
+        "max": 1.5,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Slice CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Crush CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Slice amount",
+        "min": 1,
+        "max": 12,
+        "default": 12
+      },
+      {
+        "id": 4,
+        "name": "Crush amount",
+        "min": 1,
+        "max": 64,
+        "default": 64
+      },
+      {
+        "id": 5,
+        "name": "Range",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Mangle mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Slice CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Cruch CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Mangler/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "a21ad26dfd939c600be8ee7e16ef2132dd3c6643cb640204276add454f988ee2",
+      "size": 70722
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:17.592Z"
+  }
+}

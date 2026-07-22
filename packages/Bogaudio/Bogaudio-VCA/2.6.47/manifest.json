@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-VCA",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-VCA",
+    "name": "VCA",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-VCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-VCA.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-VCA/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Dual voltage controlled attenuator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level 1",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 1,
+        "name": "Level 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 2,
+        "name": "Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Level 1 CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Signal 1",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Level 2 CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Signal 2",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal 1",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Signal 2",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-VCA/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "5fe6cd4d958179f20c33428172df105930997e9249b0b6745b4f606eb44c7a25",
+      "size": 76888
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:42.356Z"
+  }
+}

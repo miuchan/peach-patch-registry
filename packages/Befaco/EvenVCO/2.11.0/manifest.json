@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/EvenVCO",
+    "plugin": "Befaco",
+    "model": "EvenVCO",
+    "name": "Even VCO",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/EvenVCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/EvenVCO.webp",
+    "wasmUrl": "packages/Befaco/EvenVCO/2.11.0/module.wasm",
+    "width": 120,
+    "description": "Even VCO is an oscillator including even-harmonic waveform",
+    "params": [
+      {
+        "id": 0,
+        "name": "Octave",
+        "min": -5,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 22,
+          "y": 32,
+          "widget": "BefacoBigKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tune",
+        "min": -7,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 73,
+          "y": 131,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse width",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 16,
+          "y": 230,
+          "widget": "Davies1900hRedKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch 1",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 120
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch 2",
+        "kind": "cv",
+        "position": {
+          "x": 19,
+          "y": 157
+        }
+      },
+      {
+        "id": 2,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 183
+        }
+      },
+      {
+        "id": 3,
+        "name": "Hard Sync",
+        "kind": "cv",
+        "position": {
+          "x": 86,
+          "y": 189
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse Width Modulation",
+        "kind": "gate",
+        "position": {
+          "x": 72,
+          "y": 236
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 283
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 87,
+          "y": 283
+        }
+      },
+      {
+        "id": 2,
+        "name": "Even",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 306
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 327
+        }
+      },
+      {
+        "id": 4,
+        "name": "Square",
+        "kind": "cv",
+        "position": {
+          "x": 87,
+          "y": 327
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "removePulseDC",
+        "type": "boolean"
+      },
+      {
+        "key": "limitPW",
+        "type": "boolean"
+      },
+      {
+        "key": "oversamplingIndex",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/EvenVCO/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "035ae2df0b4da57e8c4738b3aed2977c3130bbc1ed5ce27409fab099763e6c48",
+      "size": 102504
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:07:44.055Z"
+  }
+}

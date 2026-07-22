@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-SampleHold",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-SampleHold",
+    "name": "S&H",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-SampleHold",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-SampleHold.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-SampleHold/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Dual sample (or track) and hold",
+    "params": [
+      {
+        "id": 0,
+        "name": "Trigger 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 1,
+        "name": "Trigger 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Track 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Track 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Invert 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Invert 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger 1",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Signal 1",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Trigger 2",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Signal 2",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "poly_input",
+        "type": "integer"
+      },
+      {
+        "key": "noise_type",
+        "type": "integer"
+      },
+      {
+        "key": "range_offset",
+        "type": "real"
+      },
+      {
+        "key": "range_scale",
+        "type": "real"
+      },
+      {
+        "key": "smoothing_ms",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-SampleHold/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "d8b202e443a5cc2e96987cfbf668c36bcaaf371ecd535fe75b0bc72fa5e13ef5",
+      "size": 82084
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:21.840Z"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-AMRM",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-AMRM",
+    "name": "AM/RM",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-AMRM",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-AMRM.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-AMRM/2.6.47/module.wasm",
+    "width": 90,
+    "description": "Variable ring/amplitude modulator and rectifier",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rectification",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Wet mix",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Modulator signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Carrier signal",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Rectify CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Dry/wet CV",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Modulated carrier signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Rectified modulator signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "poly_input",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-AMRM/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "b738e177836dc4c0236c1e1f098d3d36f676fd838dc7b0140c6e2e6f141ceda3",
+      "size": 72461
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:12:20.472Z"
+  }
+}

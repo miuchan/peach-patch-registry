@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/PolyChances",
+    "plugin": "CountModula",
+    "model": "PolyChances",
+    "name": "Polyphonic Bernoulli Gate",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/PolyChances",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/PolyChances.webp",
+    "wasmUrl": "packages/CountModula/PolyChances/2.5.0/module.wasm",
+    "width": 90,
+    "description": "Randomized routing of polyphonic gate signals",
+    "params": [
+      {
+        "id": 0,
+        "name": "Output B chance",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Probability CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv"
+      }
+    ],
+    "lights": 32,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/PolyChances/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "341f8720d319fb147b36edc28a251e8ad5b7a07cf198973bb517a0557dd888fa",
+      "size": 71341
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:25.302Z"
+  }
+}

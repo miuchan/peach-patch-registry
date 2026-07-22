@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AudibleInstruments/Warps",
+    "plugin": "AudibleInstruments",
+    "model": "Warps",
+    "name": "Meta Modulator",
+    "brand": "Audible Instruments",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/AudibleInstruments",
+    "libraryUrl": "https://library.vcvrack.com/AudibleInstruments/Warps",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AudibleInstruments/Warps.webp",
+    "wasmUrl": "packages/AudibleInstruments/Warps/2.0.0/module.wasm",
+    "width": 150,
+    "description": "Based on Mutable Instruments Warps",
+    "params": [
+      {
+        "id": 0,
+        "name": "Algorithm",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 73.557,
+          "y": 96.561,
+          "centered": true,
+          "widget": "Rogan6PSWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Timbre",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 94,
+          "y": 173,
+          "widget": "Rogan1PSWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Internal oscillator mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 16,
+          "y": 182,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 3,
+        "name": "External oscillator amplitude / internal oscillator frequency",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 14,
+          "y": 213,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Modulator amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 53,
+          "y": 213,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Level 1",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 273
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level 2",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 273
+        }
+      },
+      {
+        "id": 2,
+        "name": "Algorithm",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 273
+        }
+      },
+      {
+        "id": 3,
+        "name": "Timbre",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 273
+        }
+      },
+      {
+        "id": 4,
+        "name": "Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 316
+        }
+      },
+      {
+        "id": 5,
+        "name": "Modulator",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 316
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Modulator",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 316
+        }
+      },
+      {
+        "id": 1,
+        "name": "Auxiliary",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 316
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 21,
+          "y": 167
+        }
+      },
+      {
+        "id": 2,
+        "widget": "Rogan6PSLight<RedGreenBlueLight>",
+        "position": {
+          "x": 73.557,
+          "y": 96.561,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "shape",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        5,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AudibleInstruments/Warps/2.0.0/manifest.json",
+    "sourceCommit": "a15554e33721c2f8f65bb6b0f59588307fb6e625",
+    "artifact": {
+      "sha256": "1d9caa0ecd81d35884c7dac84c8a5019dd1f71c828bd5bd97902fb56e58b2352",
+      "size": 149977
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/AudibleInstruments",
+    "commit": "a15554e33721c2f8f65bb6b0f59588307fb6e625"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:02:14.550Z"
+  }
+}

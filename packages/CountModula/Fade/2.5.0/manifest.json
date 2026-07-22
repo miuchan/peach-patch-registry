@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Fade",
+    "plugin": "CountModula",
+    "model": "Fade",
+    "name": "Fade-in/Fade-out and Record Controller",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Fade",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Fade.webp",
+    "wasmUrl": "packages/CountModula/Fade/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Automated fade in/out with integrated start/stop control for the VCV Record module",
+    "params": [
+      {
+        "id": 0,
+        "name": "Start/stop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Fade-in time",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 3
+      },
+      {
+        "id": 2,
+        "name": "Fade-out time",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 3
+      },
+      {
+        "id": 3,
+        "name": "Monitor",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left/mono",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Control",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Running gate",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Running start/end trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 10,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "controlMode",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "CountModula/FadeExpander",
+            "symbol": "modelFadeExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Fade/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "8e15592d5a460d07cb2afd9062489410a99130c0c522fa6a8b9ee02008035775",
+      "size": 72322
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:02.550Z"
+  }
+}

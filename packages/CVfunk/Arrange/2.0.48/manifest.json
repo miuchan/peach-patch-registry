@@ -1,0 +1,741 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Arrange",
+    "plugin": "CVfunk",
+    "model": "Arrange",
+    "name": "Arrange",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Arrange",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Arrange.webp",
+    "wasmUrl": "packages/CVfunk/Arrange/2.0.48/module.wasm",
+    "width": 225,
+    "description": "A seven channel sequencer with quantize/volt option per channel, and adjustable length.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Stage",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 50,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Max Stages",
+        "min": 0,
+        "max": 128,
+        "default": 16,
+        "position": {
+          "x": 185,
+          "y": 50,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Forward",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 130,
+          "y": 90,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Backward",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 90,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 185,
+          "y": 90,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Chan. 1 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 50,
+          "y": 135,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Chan. 2 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 170,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Chan. 3 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 205,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Chan. 4 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 240,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Chan. 5 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 275,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Chan. 6 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 310,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Chan. 7 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 345,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Chan. 1",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 135,
+          "centered": true,
+          "widget": "SmartRoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Chan. 2",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 170,
+          "centered": true,
+          "widget": "SmartRoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Chan. 3",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 205,
+          "centered": true,
+          "widget": "SmartRoundBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Chan. 4",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 240,
+          "centered": true,
+          "widget": "SmartRoundBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Chan. 5",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 275,
+          "centered": true,
+          "widget": "SmartRoundBlackKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Chan. 6",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 310,
+          "centered": true,
+          "widget": "SmartRoundBlackKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Chan. 7",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 345,
+          "centered": true,
+          "widget": "SmartRoundBlackKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Record",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 90,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 210,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Forward",
+        "kind": "cv",
+        "position": {
+          "x": 155,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Backward",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Record",
+        "kind": "gate",
+        "position": {
+          "x": 20,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Chan. 1",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Chan. 2",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 170,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Chan. 3",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 205,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Chan. 4",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Chan. 5",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 275,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Chan. 6",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Chan. 7",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 345,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Monophonic Channel 1",
+        "kind": "audio",
+        "position": {
+          "x": 202,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Chan. 2",
+        "kind": "cv",
+        "position": {
+          "x": 202,
+          "y": 170,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Chan. 3",
+        "kind": "cv",
+        "position": {
+          "x": 202,
+          "y": 205,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Chan. 4",
+        "kind": "cv",
+        "position": {
+          "x": 202,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Chan. 5",
+        "kind": "cv",
+        "position": {
+          "x": 202,
+          "y": 275,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Chan. 6",
+        "kind": "cv",
+        "position": {
+          "x": 202,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Chan. 7",
+        "kind": "cv",
+        "position": {
+          "x": 202,
+          "y": 345,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 16,
+    "lightWidgets": [
+      {
+        "id": 14,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 45,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 45,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 50,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 50,
+          "y": 170,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 50,
+          "y": 205,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 50,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 50,
+          "y": 275,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 50,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 50,
+          "y": 345,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 50,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 50,
+          "y": 170,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 50,
+          "y": 205,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 50,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 50,
+          "y": 275,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 50,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 50,
+          "y": 345,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "channelButton",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "channelButton",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "channelButton",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "channelButton",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "channelButton",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "channelButton",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "channelButton",
+        "type": "integer"
+      },
+      {
+        "key": "recordLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "prevRecordState",
+        "type": "boolean"
+      },
+      {
+        "key": "stopRecordAtEnd",
+        "type": "boolean"
+      },
+      {
+        "key": "editModeLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "polyphonyChannels",
+        "type": "integer"
+      },
+      {
+        "key": "prevPolyphonyChannels",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "computedProb",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "computedProb",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "computedProb",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "computedProb",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "computedProb",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "computedProb",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "computedProb",
+        "type": "boolean"
+      },
+      {
+        "key": "maxSequenceLength",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Arrange/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "7bcca59c8b13475ce9b75c0e0819959455b54c31108a8ab21b883ac69a2db7f8",
+      "size": 95265
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:40.129Z"
+  }
+}

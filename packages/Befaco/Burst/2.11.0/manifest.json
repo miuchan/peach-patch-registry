@@ -1,0 +1,373 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/Burst",
+    "plugin": "Befaco",
+    "model": "Burst",
+    "name": "Burst",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/Burst",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/Burst.webp",
+    "wasmUrl": "packages/Befaco/Burst/2.11.0/module.wasm",
+    "width": 120,
+    "description": "Trigger processor and generator, designed to add an organic chain of events",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 83.983,
+          "y": 29.93,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Number of bursts",
+        "min": 1,
+        "max": 32,
+        "default": 4,
+        "position": {
+          "x": 26.67,
+          "y": 47.878,
+          "widget": "Davies1900hWhiteKnobEndless"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Manual Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 83.954,
+          "y": 87.576,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Quantity CV",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 50.97,
+          "y": 123.882,
+          "widget": "BefacoTinyKnobLightGrey"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Distribution",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.478,
+          "y": 172.609,
+          "widget": "BefacoTinyKnobDarkGrey"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Time Division/Multiplication",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 84.072,
+          "y": 221.209,
+          "widget": "BefacoTinyKnobBlack"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.179,
+          "y": 269.74,
+          "widget": "BefacoTinyKnobDarkGrey"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Quantity CV",
+        "kind": "cv",
+        "position": {
+          "x": 5.969,
+          "y": 124.832
+        }
+      },
+      {
+        "id": 1,
+        "name": "Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 23.33,
+          "y": 173.473
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ping",
+        "kind": "cv",
+        "position": {
+          "x": 6.054,
+          "y": 222.2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Time Division/Multiplication",
+        "kind": "cv",
+        "position": {
+          "x": 40.675,
+          "y": 222.137
+        }
+      },
+      {
+        "id": 4,
+        "name": "Probability",
+        "kind": "cv",
+        "position": {
+          "x": 23.313,
+          "y": 270.669
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 3.282,
+          "y": 322.746
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tempo",
+        "kind": "cv",
+        "position": {
+          "x": 32.711,
+          "y": 322.746
+        }
+      },
+      {
+        "id": 1,
+        "name": "End-of-cycle",
+        "kind": "cv",
+        "position": {
+          "x": 62.257,
+          "y": 322.811
+        }
+      },
+      {
+        "id": 2,
+        "name": "Burst",
+        "kind": "cv",
+        "position": {
+          "x": 91.568,
+          "y": 322.746
+        }
+      }
+    ],
+    "lights": 19,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 41.447,
+          "y": 29.49
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 54.208,
+          "y": 32.063
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 65.13,
+          "y": 39.326
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 72.304,
+          "y": 50.09
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 74.955,
+          "y": 62.753
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 72.304,
+          "y": 75.4
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 65.13,
+          "y": 86.129
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 54.208,
+          "y": 93.373
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 41.447,
+          "y": 95.929
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 28.769,
+          "y": 93.373
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 18.016,
+          "y": 86.129
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 10.882,
+          "y": 75.4
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 8.425,
+          "y": 62.753
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 10.882,
+          "y": 50.09
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 18.016,
+          "y": 39.326
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 28.769,
+          "y": 32.063
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 41.874,
+          "y": 307.923
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 71.302,
+          "y": 307.923
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 100.731,
+          "y": 307.923
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "includeOriginalTrigger",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/Burst/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "2f6493821c95e970e1cee402bb3ec3bc8695eccdd627a3531cca6f4f986c7369",
+      "size": 76237
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:09:02.512Z"
+  }
+}

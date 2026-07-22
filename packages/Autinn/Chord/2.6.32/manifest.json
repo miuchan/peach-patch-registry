@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Autinn/Chord",
+    "plugin": "Autinn",
+    "model": "Chord",
+    "name": "Rebel",
+    "brand": "Autinn",
+    "version": "2.6.32",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/NikolaiVChr/Autinn",
+    "libraryUrl": "https://library.vcvrack.com/Autinn/Chord",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Autinn/Chord.webp",
+    "wasmUrl": "packages/Autinn/Chord/2.6.32/module.wasm",
+    "width": 180,
+    "description": "Plays a random selected chord from a root note (does not have to be in tune). Polyphonic outputs.",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Root note 1V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 21.71,
+          "y": 248
+        }
+      },
+      {
+        "id": 1,
+        "name": "Switch chord trigger",
+        "kind": "gate",
+        "position": {
+          "x": 21.71,
+          "y": 187
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly 1V/Oct chord",
+        "kind": "cv",
+        "position": {
+          "x": 21.71,
+          "y": 310
+        }
+      },
+      {
+        "id": 1,
+        "name": "Poly CV. Active channels. (Output from inactives is garbage).",
+        "kind": "cv",
+        "position": {
+          "x": 21.71,
+          "y": 125
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "chordIndex",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Autinn/Chord/2.6.32/manifest.json",
+    "sourceCommit": "eff448f818f7ca94c6a893b69a907fcf45f0a639",
+    "artifact": {
+      "sha256": "645ddbf590aafecb68d5bc7afc79d1b39bb1f526d66a6f66774f0187cdcbc0aa",
+      "size": 70483
+    }
+  },
+  "source": {
+    "url": "https://github.com/NikolaiVChr/Autinn",
+    "commit": "eff448f818f7ca94c6a893b69a907fcf45f0a639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:04:36.877Z"
+  }
+}

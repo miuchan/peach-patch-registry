@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BaconMusic/KarplusStrongPoly",
+    "plugin": "BaconMusic",
+    "model": "KarplusStrongPoly",
+    "name": "KarplusStrongPoly",
+    "brand": "Bacon Music",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/baconpaul/BaconPlugs/",
+    "libraryUrl": "https://library.vcvrack.com/BaconMusic/KarplusStrongPoly",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BaconMusic/KarplusStrongPoly.webp",
+    "wasmUrl": "packages/BaconMusic/KarplusStrongPoly/2.7.0/module.wasm",
+    "width": 180,
+    "description": "An implementation of KS in a module",
+    "params": [
+      {
+        "id": 0,
+        "name": "Initial Packet",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 55,
+          "y": 35,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Filter Type",
+        "min": 0,
+        "max": 0,
+        "default": 0,
+        "position": {
+          "x": 55,
+          "y": 35,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 35,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Atten Knob",
+        "min": 0.10000000149011612,
+        "max": 4,
+        "default": 1.9500000476837158,
+        "position": {
+          "x": 20,
+          "y": 35,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 35,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Filter Knob A +  1",
+        "min": 2,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 20,
+          "y": 35,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 35,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trigger Button",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 8,
+        "name": "Kill Button",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Initial Packet",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Filter",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Freq CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Atten CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Filter CV A",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Filter CV B",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Filter CV C",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Synth",
+        "kind": "cv"
+      }
+    ],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 53,
+          "y": 33
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 53,
+          "y": 33
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 18,
+          "y": 33
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 18,
+          "y": 33
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 18,
+          "y": 33
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BaconMusic/KarplusStrongPoly/2.7.0/manifest.json",
+    "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
+    "artifact": {
+      "sha256": "23051f258d450ce1421814417e8083352f1c33722bf5b7f17d90b4b8d9d44ec2",
+      "size": 82336
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/BaconPlugs/",
+    "commit": "2886a282a0f8518e0515b549e426428db332378c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:06:26.701Z"
+  }
+}

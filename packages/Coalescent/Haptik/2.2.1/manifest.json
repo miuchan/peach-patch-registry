@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coalescent/Haptik",
+    "plugin": "Coalescent",
+    "model": "Haptik",
+    "name": "Haptik",
+    "brand": "Coalescent",
+    "version": "2.2.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremycg/coalescent",
+    "libraryUrl": "https://library.vcvrack.com/Coalescent/Haptik",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coalescent/Haptik.webp",
+    "wasmUrl": "packages/Coalescent/Haptik/2.2.1/module.wasm",
+    "width": 270,
+    "description": "Scanned-synthesis oscillator: a mass-spring ring scanned at audio rate",
+    "params": [
+      {
+        "id": 0,
+        "name": "Masses",
+        "min": 8,
+        "max": 128,
+        "default": 64,
+        "position": {
+          "x": 32.48,
+          "y": 188.976,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 188.976,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Evolution rate",
+        "min": -4.321928024291992,
+        "max": 4.906890392303467,
+        "default": 1.5849624872207642
+      },
+      {
+        "id": 3,
+        "name": "Coupling",
+        "min": 0,
+        "max": 0.8999999761581421,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 4,
+        "name": "Damping",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 5,
+        "name": "Inject",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 6,
+        "name": "Excitation",
+        "min": 0,
+        "max": 3,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 121.063,
+          "y": 188.976,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 206.693,
+          "y": 188.976,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Rate CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Couple CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Damp CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Inject CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Driver position",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 165.354,
+          "y": 188.976,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 239.173,
+          "y": 188.976,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 38.386,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Couple CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Damp CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Inject CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Trigger (re-excite)",
+        "kind": "gate",
+        "position": {
+          "x": 79.724,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "External force",
+        "kind": "cv",
+        "position": {
+          "x": 121.063,
+          "y": 333.661,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 188.976,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Motion (mass 0 displacement, audio-rate CV)",
+        "kind": "audio",
+        "position": {
+          "x": 230.315,
+          "y": 333.661,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "N",
+        "type": "integer"
+      },
+      {
+        "key": "scanPhase",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coalescent/Haptik/2.2.1/manifest.json",
+    "sourceCommit": "bea6fe0d95e0e6693ac7814554e42906236ac99f",
+    "artifact": {
+      "sha256": "168b0d3abd61d89ca395c9f0ebcf82ae2ab6298729b862d24504b6780f008efe",
+      "size": 85803
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremycg/coalescent",
+    "commit": "bea6fe0d95e0e6693ac7814554e42906236ac99f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:19:54.970Z"
+  }
+}

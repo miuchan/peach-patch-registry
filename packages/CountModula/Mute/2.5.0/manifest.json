@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Mute",
+    "plugin": "CountModula",
+    "model": "Mute",
+    "name": "Mute",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Mute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Mute.webp",
+    "wasmUrl": "packages/CountModula/Mute/2.5.0/module.wasm",
+    "width": 180,
+    "description": "A voltage controlled mute",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 1,
+        "name": "Mute type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal 1",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Signal 2",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Mute",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "L",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "R",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "Latch",
+        "type": "boolean"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Mute/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "8b3420ae862fc91f8d441e0c707d7bc9ca36d9507ecb3f3c9e946a347e726117",
+      "size": 70644
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:24.833Z"
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/BPMLFO2",
+    "plugin": "FrozenWasteland",
+    "model": "BPMLFO2",
+    "name": "BPM LFO 2",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/BPMLFO2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/BPMLFO2.webp",
+    "wasmUrl": "packages/FrozenWasteland/BPMLFO2/2.1.2/module.wasm",
+    "width": 120,
+    "description": "Beat Synchronized LFO with CV Waveshape",
+    "params": [
+      {
+        "id": 0,
+        "name": "Multiplier",
+        "min": 1,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 4,
+          "y": 52,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Multiplier CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29,
+          "y": 74,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Divisor",
+        "min": 1,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 67,
+          "y": 52,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Division CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 92,
+          "y": 74,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Wave Slope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 171,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Wave Slope CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 223,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Skew",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 171,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Skew CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 223,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Phase",
+        "min": 0,
+        "max": 0.9998999834060669,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 171,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Phase CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 92,
+          "y": 223,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Quantize Phase",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 75,
+          "y": 191,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 28,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Wave Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 51,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Hold Clock Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 76,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Hold Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 99,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Clock Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 9,
+          "y": 312
+        }
+      },
+      {
+        "id": 1,
+        "name": "Multiplier CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 54
+        }
+      },
+      {
+        "id": 2,
+        "name": "Division CV",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 54
+        }
+      },
+      {
+        "id": 3,
+        "name": "Waveslope",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 202
+        }
+      },
+      {
+        "id": 4,
+        "name": "Skew",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 202
+        }
+      },
+      {
+        "id": 5,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 202
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 312
+        }
+      },
+      {
+        "id": 7,
+        "name": "Hold",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 312
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "+45°",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 345
+        }
+      },
+      {
+        "id": 2,
+        "name": "+90°",
+        "kind": "cv",
+        "position": {
+          "x": 65,
+          "y": 345
+        }
+      },
+      {
+        "id": 3,
+        "name": "+180°",
+        "kind": "cv",
+        "position": {
+          "x": 95,
+          "y": 345
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 76.5,
+          "y": 192.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 100,
+          "y": 313.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "phaseQuantized",
+        "type": "boolean"
+      },
+      {
+        "key": "clockMode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/BPMLFOPhaseExpander",
+            "symbol": "modelBPMLFOPhaseExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/BPMLFO2/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "0c522b43f395c0372801d220d3a6c127500db2c80c233f651ab589aeff4f487f",
+      "size": 85861
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:02.079Z"
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/Resonators",
+    "plugin": "Cella",
+    "model": "Resonators",
+    "name": "Resonators",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/Resonators",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Resonators.webp",
+    "wasmUrl": "packages/Cella/Resonators/2.10.0/module.wasm",
+    "width": 100,
+    "description": "Four pitched resonators based on Karplus-Strong algorithm",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency I",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gain I",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency II",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gain II",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 67.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Frequency III",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gain III",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 112.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Frequency IV",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 157.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gain IV",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 157.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.8999999761581421,
+        "position": {
+          "x": 22.5,
+          "y": 153.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Color",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 67.5,
+          "y": 153.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Amp",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 112.5,
+          "y": 153.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 157.5,
+          "y": 153.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Decay CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Color CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Gain CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Mix CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 157.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "I 1V/octave pitch (Polyphonic)",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "II 1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "III 1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "IV 1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Decay (Polyphonic)",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 230.28,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Color (Polyphonic)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 230.28,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gain (Polyphonic)",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 230.28,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 157.5,
+          "y": 230.28,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 157.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wet signal (Polyphonic)",
+        "kind": "audio",
+        "position": {
+          "x": 112.5,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/Resonators/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "7dd33d615e07631ba1836f1da2fbd4d7975220fc478a6a685439a493a38c7655",
+      "size": 79338
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:11.856Z"
+  }
+}

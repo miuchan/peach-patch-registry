@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/2State",
+    "plugin": "Cella",
+    "model": "2State",
+    "name": "2State",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/2State",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/2State.webp",
+    "wasmUrl": "packages/Cella/2State/2.10.0/module.wasm",
+    "width": 100,
+    "description": "Combination of dual constant CV generator and a voltage-controlled switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gate 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7.25,
+          "y": 33.12,
+          "centered": true,
+          "widget": "VCVButtonTiny"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7.25,
+          "y": 146.47,
+          "centered": true,
+          "widget": "VCVButtonTiny"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7.25,
+          "y": 259.82,
+          "centered": true,
+          "widget": "VCVButtonTiny"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Latch 1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 37.25,
+          "y": 33.12,
+          "centered": true,
+          "widget": "VCVSwitchTiny"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Latch 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 37.25,
+          "y": 146.47,
+          "centered": true,
+          "widget": "VCVSwitchTiny"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Latch 3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 37.25,
+          "y": 259.82,
+          "centered": true,
+          "widget": "VCVSwitchTiny"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Low 1",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 53.4,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Low 2",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 166.75,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Low 3",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 280.1,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "High 1",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 53.4,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "High 2",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 166.75,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 11,
+        "name": "High 3",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 280.1,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate 1",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 102.55,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 215.9,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate 3",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out 1",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 102.55,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out 2",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 215.9,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Out 3",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 329.25,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 15,
+          "y": 82.34,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 45,
+          "y": 82.34,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 15,
+          "y": 195.69,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 45,
+          "y": 195.69,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 15,
+          "y": 309.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 45,
+          "y": 309.04,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "latched_states",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "latched_states",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "latched_states",
+        "type": "boolean"
+      },
+      {
+        "key": "rangeIndex",
+        "type": "integer"
+      },
+      {
+        "key": "latchEnabledByDefault",
+        "type": "boolean"
+      },
+      {
+        "key": "cascadingEnabled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/2State/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "e11e27c16cd20e0c02381c75145532e744ecb67bef290c1d9d9fdbfb2f7e4bb2",
+      "size": 76844
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:16:28.550Z"
+  }
+}

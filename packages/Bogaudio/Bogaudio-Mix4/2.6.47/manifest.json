@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Mix4",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Mix4",
+    "name": "MIX4",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Mix4",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Mix4.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Mix4/2.6.47/module.wasm",
+    "width": 225,
+    "description": "4-channel mixer and panner",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel 1 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.9090909361839294
+      },
+      {
+        "id": 1,
+        "name": "Channel 1 panning",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Channel 1 mute",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Channel 2 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.9090909361839294
+      },
+      {
+        "id": 4,
+        "name": "Channel 2 panning",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Channel 2 mute",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Channel 3 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.9090909361839294
+      },
+      {
+        "id": 7,
+        "name": "Channel 3 panning",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Channel 3 mute",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Channel 4 level",
+        "min": 0,
+        "max": 1,
+        "default": 0.9090909361839294
+      },
+      {
+        "id": 10,
+        "name": "Channel 4 panning",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Channel 4 mute",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Master level",
+        "min": 0,
+        "max": 1,
+        "default": 0.9090909361839294
+      },
+      {
+        "id": 13,
+        "name": "Master mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 14,
+        "name": "Master dim",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel 1 level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Channel 1 pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Channel 1",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Channel 2 level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Channel 2 pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Channel 2",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Channel 3 level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Channel 3 pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Channel 3",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Channel 4 level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Channel 4 pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Channel 4",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Mix level CV",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "linear_cv",
+        "type": "boolean"
+      },
+      {
+        "key": "dim_decibels",
+        "type": "real"
+      },
+      {
+        "key": "poly_channel_offset",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Bogaudio/Bogaudio-Mix4x",
+            "symbol": "modelMix4x",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Mix4/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "8bf4b9868d2d2259b3185bfd9e69e2e01755179dd355424535a4b5fac4a6219f",
+      "size": 98972
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:29.064Z"
+  }
+}

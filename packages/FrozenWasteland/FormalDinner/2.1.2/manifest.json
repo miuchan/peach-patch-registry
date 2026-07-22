@@ -1,0 +1,907 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/FormalDinner",
+    "plugin": "FrozenWasteland",
+    "model": "FormalDinner",
+    "name": "Formal Dinner",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/FormalDinner",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/FormalDinner.webp",
+    "wasmUrl": "packages/FrozenWasteland/FormalDinner/2.1.2/module.wasm",
+    "width": 300,
+    "description": "Formant Wave VCO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sync mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 235,
+          "y": 25,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 25,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Global FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 145,
+          "y": 25,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Primary VCO FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 25,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Formants Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 70,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Formants Mix CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 70,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "X-Y Formants Balance",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 70,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "X-Y Formants Balance CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110,
+          "y": 70,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "X Formants Balance",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 145,
+          "y": 70,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "X Formants Balance CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 180,
+          "y": 70,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Y Formants Balance",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 215,
+          "y": 70,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Y Formants Balance CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 70,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "X1 Ratio",
+        "min": 1,
+        "max": 240,
+        "default": 2,
+        "position": {
+          "x": 15,
+          "y": 203,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "X1 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 203,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "X1 Damp",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 185,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "X1 Damp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110,
+          "y": 185,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "X1 Warp",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 221,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "X1 Warp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110,
+          "y": 221,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "X1 Wave Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25,
+          "y": 233,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Y1 Ratio",
+        "min": 1,
+        "max": 240,
+        "default": 2,
+        "position": {
+          "x": 90,
+          "y": 130,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Y1 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 125,
+          "y": 130,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Y1 Damp",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 112,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Y1 Damp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 185,
+          "y": 112,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Y1 Warp",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 148,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Y1 Warp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 185,
+          "y": 148,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Y1 Wave Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 160,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "X2 Ratio",
+        "min": 1,
+        "max": 240,
+        "default": 2,
+        "position": {
+          "x": 160,
+          "y": 203,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "X2 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 195,
+          "y": 203,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "X2 Damp",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 220,
+          "y": 185,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "X2 Damp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 255,
+          "y": 185,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "X2 Warp",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 220,
+          "y": 221,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 31,
+        "name": "X2 Warp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 255,
+          "y": 221,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 32,
+        "name": "X2 Wave Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 170,
+          "y": 233,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Y2 Ratio",
+        "min": 1,
+        "max": 240,
+        "default": 2,
+        "position": {
+          "x": 90,
+          "y": 275,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Y2 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 125,
+          "y": 275,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Y2 Damp",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 257,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Y2 Damp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 185,
+          "y": 257,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Y2 Warp",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 293,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Y2 Warp CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 185,
+          "y": 293,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Y2 Wave Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 305,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 43
+        }
+      },
+      {
+        "id": 1,
+        "name": "Primary VCO Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 103,
+          "y": 43
+        }
+      },
+      {
+        "id": 2,
+        "name": "Global Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 173,
+          "y": 43
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 43
+        }
+      },
+      {
+        "id": 4,
+        "name": "Formants Mix",
+        "kind": "audio",
+        "position": {
+          "x": 33,
+          "y": 90
+        }
+      },
+      {
+        "id": 5,
+        "name": "X-Y Formants Balance",
+        "kind": "cv",
+        "position": {
+          "x": 103,
+          "y": 90
+        }
+      },
+      {
+        "id": 6,
+        "name": "X Formant Balance",
+        "kind": "cv",
+        "position": {
+          "x": 173,
+          "y": 90
+        }
+      },
+      {
+        "id": 7,
+        "name": "Y Formant Balannce",
+        "kind": "cv",
+        "position": {
+          "x": 243,
+          "y": 90
+        }
+      },
+      {
+        "id": 8,
+        "name": "X1 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 221
+        }
+      },
+      {
+        "id": 9,
+        "name": "X1 Damp",
+        "kind": "cv",
+        "position": {
+          "x": 108,
+          "y": 203
+        }
+      },
+      {
+        "id": 10,
+        "name": "X1 Warp",
+        "kind": "cv",
+        "position": {
+          "x": 108,
+          "y": 239
+        }
+      },
+      {
+        "id": 11,
+        "name": "Formant X 1 Wave Type",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Y1 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 123,
+          "y": 148
+        }
+      },
+      {
+        "id": 13,
+        "name": "Y1 Damp",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 130
+        }
+      },
+      {
+        "id": 14,
+        "name": "Y1 Warp",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 166
+        }
+      },
+      {
+        "id": 15,
+        "name": "Formant Y 1 Wave Type",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "X2 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 193,
+          "y": 221
+        }
+      },
+      {
+        "id": 17,
+        "name": "X2 Damp",
+        "kind": "cv",
+        "position": {
+          "x": 253,
+          "y": 203
+        }
+      },
+      {
+        "id": 18,
+        "name": "X2 Warp",
+        "kind": "cv",
+        "position": {
+          "x": 253,
+          "y": 239
+        }
+      },
+      {
+        "id": 19,
+        "name": "Formant X 2 Wave Type",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Y2 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 123,
+          "y": 293
+        }
+      },
+      {
+        "id": 21,
+        "name": "Y2 Damp",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 275
+        }
+      },
+      {
+        "id": 22,
+        "name": "Y2 Warp",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 311
+        }
+      },
+      {
+        "id": 23,
+        "name": "Formant Y 2 Wave Type",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 270,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Primary VCO",
+        "kind": "cv",
+        "position": {
+          "x": 245,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Formant X1 VCO",
+        "kind": "cv",
+        "position": {
+          "x": 17.5,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Formant Y1 VCO",
+        "kind": "cv",
+        "position": {
+          "x": 72.5,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Formant X2 VCO",
+        "kind": "cv",
+        "position": {
+          "x": 127.5,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Formant Y2 VCO",
+        "kind": "cv",
+        "position": {
+          "x": 182.5,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "X1 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Y1 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "X2 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 152.5,
+          "y": 350,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Y2 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 207.5,
+          "y": 350,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 236.5,
+          "y": 26.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 26.5,
+          "y": 234.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 101.5,
+          "y": 161.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 171.5,
+          "y": 234.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 101.5,
+          "y": 306.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "softSync",
+        "type": "integer"
+      },
+      {
+        "key": "formantX1WaveShape",
+        "type": "integer"
+      },
+      {
+        "key": "formantY1WaveShape",
+        "type": "integer"
+      },
+      {
+        "key": "formantX2WaveShape",
+        "type": "integer"
+      },
+      {
+        "key": "formantY2WaveShape",
+        "type": "integer"
+      },
+      {
+        "key": "warpRange",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/FormalDinner/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "c45f1e410bf1114a34583f8ecf09b14ec2026f3b62674684b2ee574adfa79f2f",
+      "size": 119890
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:05.998Z"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "EternalEclipseModular/Saros",
+    "plugin": "EternalEclipseModular",
+    "model": "Saros",
+    "name": "Saros",
+    "brand": "Eternal Eclipse",
+    "version": "2.7.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/7337Productions/eternaleclipsemodular",
+    "libraryUrl": "https://library.vcvrack.com/EternalEclipseModular/Saros",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/EternalEclipseModular/Saros.webp",
+    "wasmUrl": "packages/EternalEclipseModular/Saros/2.7.1/module.wasm",
+    "width": 180,
+    "description": "Envelope and modulation generator — morphing shape bank, mouse-drawable screen with playhead, time warp and flux, 5 ms to 30 minutes.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Warp",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Flux",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time CV (10V = full range)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Shape CV (10V = full range)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Warp CV (5V = full range)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Flux CV (10V = full range)",
+        "kind": "cv",
+        "position": {
+          "x": 69.39,
+          "y": 349.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 28.051,
+          "y": 349.311,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 151.949,
+          "y": 349.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "End of cycle trigger",
+        "kind": "gate",
+        "position": {
+          "x": 110.61,
+          "y": 349.311,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "bipolar",
+        "type": "boolean"
+      },
+      {
+        "key": "drawMode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/EternalEclipseModular/Saros/2.7.1/manifest.json",
+    "sourceCommit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3",
+    "artifact": {
+      "sha256": "b811f6b370ece9e23b9f80da60263c58f7f23357971d95cbb970b4b4c1e46f7f",
+      "size": 81659
+    }
+  },
+  "source": {
+    "url": "https://github.com/7337Productions/eternaleclipsemodular",
+    "commit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:25:45.285Z"
+  }
+}

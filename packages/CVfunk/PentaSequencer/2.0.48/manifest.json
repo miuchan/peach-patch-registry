@@ -1,0 +1,633 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/PentaSequencer",
+    "plugin": "CVfunk",
+    "model": "PentaSequencer",
+    "name": "Penta Sequencer",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/PentaSequencer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/PentaSequencer.webp",
+    "wasmUrl": "packages/CVfunk/PentaSequencer/2.0.48/module.wasm",
+    "width": 225,
+    "description": "A five step sequencer with five simultaneous outputs and tempo-synced slew",
+    "params": [
+      {
+        "id": 0,
+        "name": "Slew",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.208,
+          "y": 130.098,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "I",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 112.834,
+          "y": 284.241,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "II",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 59.734,
+          "y": 272.817,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "III",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 27.405,
+          "y": 228.162,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "IV",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 198.266,
+          "y": 228.162,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "V",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 165.936,
+          "y": 272.817,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Manual Trig.",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 21.363,
+          "y": 310.039,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Manual Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 203.666,
+          "y": 310.039,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 21.363,
+          "y": 331.81,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Shape",
+        "kind": "cv",
+        "position": {
+          "x": 66.939,
+          "y": 331.81,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shift",
+        "kind": "cv",
+        "position": {
+          "x": 112.515,
+          "y": 331.81,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Dir",
+        "kind": "cv",
+        "position": {
+          "x": 158.091,
+          "y": 331.81,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 203.666,
+          "y": 331.81,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Slew CV",
+        "kind": "cv",
+        "position": {
+          "x": 112.208,
+          "y": 130.098,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 113.052,
+          "y": 207.605,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 39.797,
+          "y": 154.175,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "C",
+        "kind": "cv",
+        "position": {
+          "x": 66.847,
+          "y": 68.38,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "D",
+        "kind": "cv",
+        "position": {
+          "x": 158.421,
+          "y": 68.897,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "E",
+        "kind": "cv",
+        "position": {
+          "x": 185.471,
+          "y": 154.352,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 40,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 26.997,
+          "y": 249.998,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 59.563,
+          "y": 293.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 113.324,
+          "y": 305.023,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 166.76,
+          "y": 293.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 199.084,
+          "y": 249.024,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 113.052,
+          "y": 229.468,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 92.309,
+          "y": 214.391,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 100.211,
+          "y": 190.025,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 125.894,
+          "y": 189.877,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 133.742,
+          "y": 214.252,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 39.797,
+          "y": 176.037,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 19.057,
+          "y": 160.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 26.956,
+          "y": 136.597,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 52.639,
+          "y": 136.45,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 60.487,
+          "y": 160.825,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 66.847,
+          "y": 90.245,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 46.104,
+          "y": 75.168,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 54.006,
+          "y": 50.802,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 79.686,
+          "y": 50.657,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 87.534,
+          "y": 75.03,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 158.421,
+          "y": 90.759,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 137.681,
+          "y": 75.682,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 145.583,
+          "y": 51.319,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 171.263,
+          "y": 51.171,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 179.114,
+          "y": 75.546,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 185.471,
+          "y": 176.218,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 164.728,
+          "y": 161.141,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 172.63,
+          "y": 136.775,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 198.313,
+          "y": 136.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 206.161,
+          "y": 161.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 89.876,
+          "y": 161.466,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 75.647,
+          "y": 119.652,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 112.503,
+          "y": 92.593,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 150.588,
+          "y": 120.36,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 136.193,
+          "y": 161.761,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 62.817,
+          "y": 199.314,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 31.146,
+          "y": 104.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 112.798,
+          "y": 43.875,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 194.82,
+          "y": 106.494,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 163.406,
+          "y": 199.157,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "enablePolyOut",
+        "type": "boolean"
+      },
+      {
+        "key": "step",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/PentaSequencer/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "2dddde5dd47daa9f85acf314414638db4c4cd50fbbe87c5eb50e8f2a4ada84b2",
+      "size": 77829
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:15.547Z"
+  }
+}

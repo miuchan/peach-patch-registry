@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-ASR",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-ASR",
+    "name": "ASR",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-ASR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-ASR.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-ASR/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Attack/sustain/release envelope generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.14142100512981415
+      },
+      {
+        "id": 1,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 2,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Attack CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Release CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "End-of-cycle trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "invert",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-ASR/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "f8fb1f7e1a94db27e69f80572b0cfb465a0ec333e4dadd890273b553c542a87a",
+      "size": 76417
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:11:09.738Z"
+  }
+}

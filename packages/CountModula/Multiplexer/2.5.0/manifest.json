@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Multiplexer",
+    "plugin": "CountModula",
+    "model": "Multiplexer",
+    "name": "Multiplexer",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Multiplexer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Multiplexer.webp",
+    "wasmUrl": "packages/CountModula/Multiplexer/2.5.0/module.wasm",
+    "width": 300,
+    "description": "A 1 input to 8 output and 8 input to 1 output multiplexer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Number of router steps (Sends)",
+        "min": 1,
+        "max": 7,
+        "default": 7,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Number of selector steps (Receives)",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Router sample mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Selector normalling mode",
+        "min": 1,
+        "max": 4,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Selector clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Router clock",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Selector reset",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Router reset",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Selector length CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Router length CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Router",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Selector recieve 1",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Selector recieve 2",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Selector recieve 3",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Selector recieve 4",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Selector recieve 5",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Selector recieve 6",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Selector recieve 7",
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "Selector recieve 8",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Selector",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Router send 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Router send 2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Router send 3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Router send 4",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Router send 5",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Router send 6",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Router send 7",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Router send 8",
+        "kind": "cv"
+      }
+    ],
+    "lights": 16,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Multiplexer/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "489f20bfd143f6e01436df4e78bd2af9b3561b7663eaafaaa23d691091b85fde",
+      "size": 74495
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:24.910Z"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Nsgt",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Nsgt",
+    "name": "NSGT",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Nsgt",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Nsgt.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Nsgt/2.6.47/module.wasm",
+    "width": 90,
+    "description": "Noise gate",
+    "params": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929
+      },
+      {
+        "id": 1,
+        "name": "Ratio",
+        "min": 0,
+        "max": 1,
+        "default": 0.5515900254249573
+      },
+      {
+        "id": 2,
+        "name": "Knee",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right signal",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Threshold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Ratio CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "attack_ms",
+        "type": "real"
+      },
+      {
+        "key": "release_ms",
+        "type": "real"
+      },
+      {
+        "key": "threshold_range",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Nsgt/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "fab331ec0a737c17c2c81f2932a82122b27cccc329a91816139859eeb4bbe5d5",
+      "size": 84401
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:12:33.043Z"
+  }
+}

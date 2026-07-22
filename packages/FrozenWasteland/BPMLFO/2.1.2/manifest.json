@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/BPMLFO",
+    "plugin": "FrozenWasteland",
+    "model": "BPMLFO",
+    "name": "BPM LFO",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/BPMLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/BPMLFO.webp",
+    "wasmUrl": "packages/FrozenWasteland/BPMLFO/2.1.2/module.wasm",
+    "width": 120,
+    "description": "Beat Synchronized LFO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Multiplier",
+        "min": 1,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 4,
+          "y": 52,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Multiplier CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29,
+          "y": 74,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Divisor",
+        "min": 1,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 67,
+          "y": 52,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Division CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 92,
+          "y": 74,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Phase",
+        "min": 0,
+        "max": 0.9998999834060669,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 171,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Phase CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 48,
+          "y": 222,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Quantize Phase",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 192,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 38,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Hold Clock Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 68,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Hold Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 98,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Clock Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 8,
+          "y": 262,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 9,
+          "y": 312
+        }
+      },
+      {
+        "id": 1,
+        "name": "Multiplier CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 54
+        }
+      },
+      {
+        "id": 2,
+        "name": "Division CV",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 54
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 49,
+          "y": 202
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 312
+        }
+      },
+      {
+        "id": 5,
+        "name": "Hold",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 312
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 345
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 65,
+          "y": 345
+        }
+      },
+      {
+        "id": 3,
+        "name": "Square/Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 345
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 32.5,
+          "y": 193.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 100,
+          "y": 313.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "phaseQuantized",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/BPMLFOPhaseExpander",
+            "symbol": "modelBPMLFOPhaseExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/BPMLFO/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "ae582f74cc625ffb0d873da41fdac2073228e4d7d2611dc773b2929489092904",
+      "size": 80524
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:26:58.459Z"
+  }
+}

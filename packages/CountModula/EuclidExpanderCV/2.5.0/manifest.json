@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/EuclidExpanderCV",
+    "plugin": "CountModula",
+    "model": "EuclidExpanderCV",
+    "name": "Euclidean Sequencer Expander",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/EuclidExpanderCV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/EuclidExpanderCV.webp",
+    "wasmUrl": "packages/CountModula/EuclidExpanderCV/2.5.0/module.wasm",
+    "width": 120,
+    "description": "CV Expander for the Euclidean Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "min": 0,
+        "max": 8,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Clock Source",
+        "min": 0,
+        "max": 8,
+        "default": 2,
+        "snap": true
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Inverted CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "channel",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/EuclidExpanderCV/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "0cf511a5e90afade9040f76b70c126c109a3b633df4c7caf1daed2f05e155887",
+      "size": 72001
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:22:11.051Z"
+  }
+}

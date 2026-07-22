@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CuteFoxModules/IPQ",
+    "plugin": "CuteFoxModules",
+    "model": "IPQ",
+    "name": "Intervallic Pair Quantizer",
+    "brand": "CuteFox Modules",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/CuteFoxModules/CuteFoxModules",
+    "libraryUrl": "https://library.vcvrack.com/CuteFoxModules/IPQ",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CuteFoxModules/IPQ.webp",
+    "wasmUrl": "packages/CuteFoxModules/IPQ/2.0.1/module.wasm",
+    "width": 120,
+    "description": "Quantizer based on a pair of intervals from 0 to 11 (semitones)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Interval 1 (in semitones)",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 93.142,
+          "centered": true,
+          "widget": "CuteFoxBigKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Interval 2 (in semitones)",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 209.46,
+          "centered": true,
+          "widget": "CuteFoxBigKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/Octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 27.118,
+          "y": 341.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Interval 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 143.861,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Interval 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 260.749,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/Octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 93.744,
+          "y": 341.92,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger on note change",
+        "kind": "gate",
+        "position": {
+          "x": 93.75,
+          "y": 303.874,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CuteFoxModules/IPQ/2.0.1/manifest.json",
+    "sourceCommit": "8a38d025030a2f2a7bafb1b9fd81a1b4e1e2cee9",
+    "artifact": {
+      "sha256": "bab1b859738709240c93491b12937a95baf570da5c991e113cb6ac9146b6d265",
+      "size": 68828
+    }
+  },
+  "source": {
+    "url": "https://github.com/CuteFoxModules/CuteFoxModules",
+    "commit": "8a38d025030a2f2a7bafb1b9fd81a1b4e1e2cee9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:23:21.420Z"
+  }
+}

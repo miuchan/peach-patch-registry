@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/PressedDuck",
+    "plugin": "CVfunk",
+    "model": "PressedDuck",
+    "name": "Pressed Duck",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/PressedDuck",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/PressedDuck.webp",
+    "wasmUrl": "packages/CVfunk/PressedDuck/2.0.48/module.wasm",
+    "width": 360,
+    "description": "A stereo six-channel dynamic compressing mixer with side-chain ducking, tanh saturation and ADAA.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel 1 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Channel 2 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Channel 3 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Channel 4 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Channel 5 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Channel 6 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Channel 1 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Channel 2 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Channel 3 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Channel 4 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Channel 5 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Channel 6 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Sidechain Volume",
+        "min": 0,
+        "max": 2,
+        "default": 0.6000000238418579
+      },
+      {
+        "id": 13,
+        "name": "Duck Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071
+      },
+      {
+        "id": 14,
+        "name": "Duck Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "Press",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Press Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Master Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 18,
+        "name": "Master Volume Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 19,
+        "name": "Feedback",
+        "min": 0,
+        "max": 11,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Feedback Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 21,
+        "name": "Mute 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 22,
+        "name": "Mute 2",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 23,
+        "name": "Mute 3",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 24,
+        "name": "Mute 4",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 25,
+        "name": "Mute 5",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 26,
+        "name": "Mute 6",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 27,
+        "name": "Mute Sidechain",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Chan. 1 L / Poly",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Chan. 1 R / Poly",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Chan. 2 L",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Chan. 2 R",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Chan. 3 L",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Chan. 3 R",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Chan. 4 L",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Chan. 4 R",
+        "kind": "audio"
+      },
+      {
+        "id": 8,
+        "name": "Chan. 5 L",
+        "kind": "audio"
+      },
+      {
+        "id": 9,
+        "name": "Chan. 5 R",
+        "kind": "audio"
+      },
+      {
+        "id": 10,
+        "name": "Chan. 6 L",
+        "kind": "audio"
+      },
+      {
+        "id": 11,
+        "name": "Chan. 6 R",
+        "kind": "audio"
+      },
+      {
+        "id": 12,
+        "name": "Chan. 1 VCA CV / Poly",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Chan. 2 VCA CV",
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "Chan. 3 VCA CV",
+        "kind": "cv"
+      },
+      {
+        "id": 15,
+        "name": "Chan. 4 VCA CV",
+        "kind": "cv"
+      },
+      {
+        "id": 16,
+        "name": "Chan. 5 VCA CV",
+        "kind": "cv"
+      },
+      {
+        "id": 17,
+        "name": "Chan. 6 VCA CV",
+        "kind": "cv"
+      },
+      {
+        "id": 18,
+        "name": "Sidechain VCA CV",
+        "kind": "cv"
+      },
+      {
+        "id": 19,
+        "name": "Channel 1 Pan CV / Poly",
+        "kind": "cv"
+      },
+      {
+        "id": 20,
+        "name": "Channel 2 Pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 21,
+        "name": "Channel 3 Pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 22,
+        "name": "Channel 4 Pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 23,
+        "name": "Channel 5 Pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 24,
+        "name": "Channel 6 Pan CV",
+        "kind": "cv"
+      },
+      {
+        "id": 25,
+        "name": "Sidechain L In",
+        "kind": "cv"
+      },
+      {
+        "id": 26,
+        "name": "Sidechain R In",
+        "kind": "cv"
+      },
+      {
+        "id": 27,
+        "name": "Duck CV",
+        "kind": "cv"
+      },
+      {
+        "id": 28,
+        "name": "Press CV",
+        "kind": "cv"
+      },
+      {
+        "id": 29,
+        "name": "Feedback CV",
+        "kind": "cv"
+      },
+      {
+        "id": 30,
+        "name": "Master Vol. CV",
+        "kind": "cv"
+      },
+      {
+        "id": 31,
+        "name": "Channel 1 Mute CV / Poly",
+        "kind": "cv"
+      },
+      {
+        "id": 32,
+        "name": "Channel 2 Mute CV",
+        "kind": "cv"
+      },
+      {
+        "id": 33,
+        "name": "Channel 3 Mute CV",
+        "kind": "cv"
+      },
+      {
+        "id": 34,
+        "name": "Channel 4 Mute CV",
+        "kind": "cv"
+      },
+      {
+        "id": 35,
+        "name": "Channel 5 Mute CV",
+        "kind": "cv"
+      },
+      {
+        "id": 36,
+        "name": "Channel 6 Mute CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main Out L",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Main Out R",
+        "kind": "audio"
+      }
+    ],
+    "lights": 134,
+    "stateKeys": [
+      {
+        "key": "muteCVToggle",
+        "type": "boolean"
+      },
+      {
+        "key": "applyFilters",
+        "type": "boolean"
+      },
+      {
+        "key": "mutedSideDucks",
+        "type": "boolean"
+      },
+      {
+        "key": "isSupersamplingEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "transitionTime",
+        "type": "real"
+      },
+      {
+        "key": "transitionSamples",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "muteLatch",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "muteLatch",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "muteLatch",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "muteLatch",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "muteLatch",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "muteLatch",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "muteLatch",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "fadeLevel",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "fadeLevel",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "fadeLevel",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "fadeLevel",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "fadeLevel",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "fadeLevel",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "fadeLevel",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "transitionCount",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "transitionCount",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "transitionCount",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "transitionCount",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "transitionCount",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "transitionCount",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "transitionCount",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/PressedDuck/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "6d54a3571c31d3d2c4ef88e8e49a410266953583ff131aa31f73e0a8b647d199",
+      "size": 114080
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:14:26.552Z"
+  }
+}

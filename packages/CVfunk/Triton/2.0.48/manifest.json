@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Triton",
+    "plugin": "CVfunk",
+    "model": "Triton",
+    "name": "Triton",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Triton",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Triton.webp",
+    "wasmUrl": "packages/CVfunk/Triton/2.0.48/module.wasm",
+    "width": 300,
+    "description": "A three-band filter with envelope followers.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Center",
+        "min": -2,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Center CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Spread",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645
+      },
+      {
+        "id": 3,
+        "name": "Spread CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Gap",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Gap CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Sharpness",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 7,
+        "name": "Sharpness CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Resonance CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Drive CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Low Level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 13,
+        "name": "Low Level CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Mid Level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 15,
+        "name": "Mid Level CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "High Level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 17,
+        "name": "High Level CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "Mix Level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 19,
+        "name": "Mix Level CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Width",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 21,
+        "name": "Width CV Trim",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 22,
+        "name": "Map Width to Center",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 23,
+        "name": "Map Width to Spread",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 24,
+        "name": "Map Width to Gap",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 25,
+        "name": "Map Width to Sharpness",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 26,
+        "name": "Map Width to Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 27,
+        "name": "Map Width to Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Center CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Spread CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Gap CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Sharpness CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Resonance CV",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Drive CV",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Low Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Mid Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "High Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Mix Level CV",
+        "kind": "audio"
+      },
+      {
+        "id": 13,
+        "name": "Width CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Low L",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Low R",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Mid L",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Mid R",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "High L",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "High R",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Low Envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Low Inv",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Mid Envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Mid Inv",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "High Envelope",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "High Inv",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Sum L",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Sum R",
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "Mix Envelope",
+        "kind": "audio"
+      }
+    ],
+    "lights": 10,
+    "stateKeys": [
+      {
+        "key": "widthTarget",
+        "type": "integer"
+      },
+      {
+        "key": "followTime",
+        "type": "real"
+      },
+      {
+        "key": "feedbackEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "scaledEnvelopes",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        12
+      ],
+      [
+        1,
+        13
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Triton/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "53603b4c6d9b77776ad88355e69f07fb262a4ca52c9d11ceac7fb2f1edeee079",
+      "size": 120253
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:15:10.578Z"
+  }
+}

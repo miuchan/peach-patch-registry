@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/TheOneRingModulator",
+    "plugin": "FrozenWasteland",
+    "model": "TheOneRingModulator",
+    "name": "The One Ring Modulator",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/TheOneRingModulator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/TheOneRingModulator.webp",
+    "wasmUrl": "packages/FrozenWasteland/TheOneRingModulator/2.1.2/module.wasm",
+    "width": 150,
+    "description": "Ring Modulator with CV controlable response",
+    "params": [
+      {
+        "id": 0,
+        "name": "Forward Bias",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 190,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Linear Voltage",
+        "min": 0,
+        "max": 10,
+        "default": 0.5,
+        "position": {
+          "x": 65,
+          "y": 190,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slope",
+        "min": 0.10000000149011612,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 112,
+          "y": 190,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Nonlinearity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110,
+          "y": 270,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Forward Bias CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 27,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Linear Voltage CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 78,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Slope CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 125,
+          "y": 216,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Nonlinearity CV Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 113,
+          "y": 302,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 100,
+          "y": 264,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mix CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 115,
+          "y": 290,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Feedback",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 264,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Feedback CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 55,
+          "y": 290,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Gain Makeup",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 338,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 340
+        }
+      },
+      {
+        "id": 1,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 35,
+          "y": 340
+        }
+      },
+      {
+        "id": 2,
+        "name": "Forward Bias",
+        "kind": "cv",
+        "position": {
+          "x": 6,
+          "y": 217
+        }
+      },
+      {
+        "id": 3,
+        "name": "Linear Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 57,
+          "y": 217
+        }
+      },
+      {
+        "id": 4,
+        "name": "Slope",
+        "kind": "cv",
+        "position": {
+          "x": 104,
+          "y": 217
+        }
+      },
+      {
+        "id": 5,
+        "name": "Nonlinearity",
+        "kind": "cv",
+        "position": {
+          "x": 113,
+          "y": 283
+        }
+      },
+      {
+        "id": 6,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 92,
+          "y": 291
+        }
+      },
+      {
+        "id": 7,
+        "name": "Feedback",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 291
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Wet",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 112,
+          "y": 340
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 71.5,
+          "y": 339.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "dropCompensate",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/TheOneRingModulator/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "06b487c776ad3b18b207e8aaa298eee0d94180d2ef8781ee3b1bd31202b40c02",
+      "size": 73837
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:14.210Z"
+  }
+}

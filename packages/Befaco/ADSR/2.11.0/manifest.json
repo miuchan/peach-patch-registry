@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/ADSR",
+    "plugin": "Befaco",
+    "model": "ADSR",
+    "name": "ADSR",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/ADSR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/ADSR.webp",
+    "wasmUrl": "packages/Befaco/ADSR/2.11.0/module.wasm",
+    "width": 120,
+    "description": "ADSR envelope generator with gate output on each stage, plus variable shape",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 59.832,
+          "y": 50.575,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 34.196,
+          "y": 95.885,
+          "centered": true,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Envelope shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 85.816,
+          "y": 96.18,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Attack time",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 6.774,
+          "y": 134.74,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 36.679,
+          "y": 134.74,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sustain level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 66.588,
+          "y": 134.74,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Release time",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 96.496,
+          "y": 134.74,
+          "widget": "BefacoSlidePot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 20.2,
+          "y": 45.768,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack CV",
+        "kind": "cv",
+        "position": {
+          "x": 14.829,
+          "y": 335.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 44.867,
+          "y": 335.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sustain CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.906,
+          "y": 335.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Release CV",
+        "kind": "cv",
+        "position": {
+          "x": 104.944,
+          "y": 335.156,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 99.57,
+          "y": 45.706,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack stage",
+        "kind": "cv",
+        "position": {
+          "x": 14.829,
+          "y": 297.809,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay stage",
+        "kind": "cv",
+        "position": {
+          "x": 44.867,
+          "y": 297.809,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sustain stage",
+        "kind": "cv",
+        "position": {
+          "x": 74.906,
+          "y": 297.809,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Release stage",
+        "kind": "cv",
+        "position": {
+          "x": 104.944,
+          "y": 297.809,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 59.805,
+          "y": 120.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 14.767,
+          "y": 274.29,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 44.805,
+          "y": 274.29,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 74.844,
+          "y": 274.29,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 104.882,
+          "y": 274.29,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/ADSR/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "25809ed7198ed1482c05b1fa0f71585deac6e4cbb5b06ecbc68c38955d910c48",
+      "size": 75773
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:08:27.885Z"
+  }
+}

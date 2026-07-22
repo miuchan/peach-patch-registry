@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/Rectifier",
+    "plugin": "CountModula",
+    "model": "Rectifier",
+    "name": "Rectifier",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/Rectifier",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/Rectifier.webp",
+    "wasmUrl": "packages/CountModula/Rectifier/2.5.0/module.wasm",
+    "width": 120,
+    "description": "A full/half wave rectifier with variable rectification axis",
+    "params": [
+      {
+        "id": 0,
+        "name": "CV amount",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Rectification axis",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Rectification axis CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Full wave rectified",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Positive half wave rectified",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Negative half wave rectified",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Inverted full wave rectified",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Inverted positive half wave rectified",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Inverted negative half wave rectified",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/Rectifier/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "4580a971ca2fae0de3ff137cda91889d70c5fca9a7eaaa2d42136e88c5449ba0",
+      "size": 68807
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:24.790Z"
+  }
+}

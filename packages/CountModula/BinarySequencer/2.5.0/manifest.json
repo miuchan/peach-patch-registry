@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/BinarySequencer",
+    "plugin": "CountModula",
+    "model": "BinarySequencer",
+    "name": "Binary Sequencer",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/BinarySequencer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/BinarySequencer.webp",
+    "wasmUrl": "packages/CountModula/BinarySequencer/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Binary counter based sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Divide by 2",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Divide by 4",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Divide by 8",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Divide by 16",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Divide by 32",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Divide by 64",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Clock Rate",
+        "min": -3,
+        "max": 7,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "Lag Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Lag Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "External clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Sample & hold",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Inverted CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "currentStep",
+        "type": "integer"
+      },
+      {
+        "key": "clockState",
+        "type": "boolean"
+      },
+      {
+        "key": "runState",
+        "type": "boolean"
+      },
+      {
+        "key": "clockPhase",
+        "type": "real"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/BinarySequencer/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "a160d8b27e5a1263895985d2c66c30dc8e2a140597020a4ee55c4e817296a3b0",
+      "size": 75659
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:21:06.649Z"
+  }
+}

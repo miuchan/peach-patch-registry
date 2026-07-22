@@ -1,0 +1,422 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Axioma/TheBifurcator",
+    "plugin": "Axioma",
+    "model": "TheBifurcator",
+    "name": "TheBifurcator",
+    "brand": "Axioma",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/kauewerner/Axioma",
+    "libraryUrl": "https://library.vcvrack.com/Axioma/TheBifurcator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Axioma/TheBifurcator.webp",
+    "wasmUrl": "packages/Axioma/TheBifurcator/2.0.0/module.wasm",
+    "width": 480,
+    "description": "Generate CV/GATE/TRIGGER outputs based on bifurcation maps of iterated functions",
+    "params": [
+      {
+        "id": 0,
+        "name": "Function Type ( 0-logistic, 1-tent, 2-parabola )",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 44.291,
+          "y": 187.5,
+          "centered": true,
+          "widget": "AxiomaSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Number Of Iterations (1 - 7)",
+        "min": 1,
+        "max": 7,
+        "default": 1,
+        "position": {
+          "x": 103.346,
+          "y": 187.5,
+          "centered": true,
+          "widget": "AxiomaSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bifurcation parameter",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 98.917,
+          "y": 246.555,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock tempo",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 115.157,
+          "y": 280.512,
+          "centered": true,
+          "widget": "AxiomaKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Number of map sections",
+        "min": 0,
+        "max": 3,
+        "default": 3,
+        "position": {
+          "x": 102.608,
+          "y": 342.52,
+          "centered": true,
+          "widget": "AxiomaSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "R",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 246.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 81.201,
+          "y": 281.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ext Clock",
+        "kind": "gate",
+        "position": {
+          "x": 51.673,
+          "y": 281.988,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 313.287
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 277.854
+        }
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 242.421
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 206.988
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 171.555
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 136.122
+        }
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 100.689
+        }
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "position": {
+          "x": 363.189,
+          "y": 65.256
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 398.622,
+          "y": 313.287
+        }
+      },
+      {
+        "id": 9,
+        "name": "OUT 10",
+        "kind": "cv",
+        "position": {
+          "x": 398.622,
+          "y": 277.854
+        }
+      },
+      {
+        "id": 10,
+        "name": "OUT 11",
+        "kind": "cv",
+        "position": {
+          "x": 398.622,
+          "y": 242.421
+        }
+      },
+      {
+        "id": 11,
+        "name": "OUT 12",
+        "kind": "cv",
+        "position": {
+          "x": 398.622,
+          "y": 206.988
+        }
+      },
+      {
+        "id": 12,
+        "name": "OUT 13",
+        "kind": "cv",
+        "position": {
+          "x": 398.622,
+          "y": 171.555
+        }
+      },
+      {
+        "id": 13,
+        "name": "OUT 14",
+        "kind": "cv",
+        "position": {
+          "x": 398.622,
+          "y": 136.122
+        }
+      },
+      {
+        "id": 14,
+        "name": "OUT 15",
+        "kind": "cv",
+        "position": {
+          "x": 398.622,
+          "y": 100.689
+        }
+      },
+      {
+        "id": 15,
+        "name": "OUT 16",
+        "kind": "cv",
+        "position": {
+          "x": 398.622,
+          "y": 65.256
+        }
+      },
+      {
+        "id": 16,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 434.055,
+          "y": 313.287
+        }
+      },
+      {
+        "id": 17,
+        "name": "OUT 18",
+        "kind": "cv",
+        "position": {
+          "x": 434.055,
+          "y": 277.854
+        }
+      },
+      {
+        "id": 18,
+        "name": "OUT 19",
+        "kind": "cv",
+        "position": {
+          "x": 434.055,
+          "y": 242.421
+        }
+      },
+      {
+        "id": 19,
+        "name": "OUT 20",
+        "kind": "cv",
+        "position": {
+          "x": 434.055,
+          "y": 206.988
+        }
+      },
+      {
+        "id": 20,
+        "name": "OUT 21",
+        "kind": "cv",
+        "position": {
+          "x": 434.055,
+          "y": 171.555
+        }
+      },
+      {
+        "id": 21,
+        "name": "OUT 22",
+        "kind": "cv",
+        "position": {
+          "x": 434.055,
+          "y": 136.122
+        }
+      },
+      {
+        "id": 22,
+        "name": "OUT 23",
+        "kind": "cv",
+        "position": {
+          "x": 434.055,
+          "y": 100.689
+        }
+      },
+      {
+        "id": 23,
+        "name": "OUT 24",
+        "kind": "cv",
+        "position": {
+          "x": 434.055,
+          "y": 65.256
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 323.622
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 288.189
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 252.756
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 217.323
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 181.89
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 146.457
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 111.024
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 339.567,
+          "y": 75.591
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Axioma/TheBifurcator/2.0.0/manifest.json",
+    "sourceCommit": "3e7e01e6a449dc1e6c523bd4487c0a3200b322cb",
+    "artifact": {
+      "sha256": "392d60642b81c99d34da6b19b8980a4d19c0dbfee6a6faafa7458c790e3a0d15",
+      "size": 71335
+    }
+  },
+  "source": {
+    "url": "https://github.com/kauewerner/Axioma",
+    "commit": "3e7e01e6a449dc1e6c523bd4487c0a3200b322cb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:04:56.190Z"
+  }
+}

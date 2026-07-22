@@ -1,0 +1,4405 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FehlerFabrik-Suite/Fax",
+    "plugin": "FehlerFabrik-Suite",
+    "model": "Fax",
+    "name": "Fax",
+    "brand": "Fehler Fabrik",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/RCameron93/FehlerFabrik",
+    "libraryUrl": "https://library.vcvrack.com/FehlerFabrik-Suite/Fax",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FehlerFabrik-Suite/Fax.webp",
+    "wasmUrl": "packages/FehlerFabrik-Suite/Fax/2.1.0/module.wasm",
+    "width": 240,
+    "description": "CV Recording Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sequencer Steps",
+        "min": 1,
+        "max": 32,
+        "default": 16,
+        "position": {
+          "x": 70.866,
+          "y": 110.911,
+          "centered": true,
+          "widget": "FF15GSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock Rate",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 169.134,
+          "y": 110.911,
+          "centered": true,
+          "widget": "FF15GKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 35.433,
+          "y": 183.236,
+          "centered": true,
+          "widget": "FFDPW"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 204.567,
+          "y": 183.236,
+          "centered": true,
+          "widget": "FFDPW"
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 120.248,
+          "y": 201.8,
+          "centered": true,
+          "widget": "FF20GKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 47.244,
+          "y": 265.775,
+          "centered": true,
+          "widget": "FFDPW"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Record",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192.756,
+          "y": 265.775,
+          "centered": true,
+          "widget": "FFDPW"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Start Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 47.244,
+          "y": 294.437,
+          "centered": true,
+          "widget": "HCKSS"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Record Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 192.756,
+          "y": 294.437,
+          "centered": true,
+          "widget": "HCKSS"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pre/Post",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 26.575,
+          "y": 87.54,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Auto Stop",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 213.425,
+          "y": 87.54,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sequencer Steps CV",
+        "kind": "cv",
+        "position": {
+          "x": 70.866,
+          "y": 69.145,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock Rate CV",
+        "kind": "gate",
+        "position": {
+          "x": 169.134,
+          "y": 69.145,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 107.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step Advance Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 35.153,
+          "y": 221.386,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 204.567,
+          "y": 221.386,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Start Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 47.244,
+          "y": 334.326,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Record Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 192.756,
+          "y": 334.326,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 296.415,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 97,
+    "lightWidgets": [
+      {
+        "id": 96,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 166.181,
+          "y": 334.326,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "Auto Polyphony",
+        "type": "boolean"
+      },
+      {
+        "key": "Polyphony Channels",
+        "type": "integer"
+      },
+      {
+        "key": "Index",
+        "type": "integer"
+      },
+      {
+        "key": "Running",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          0,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          1,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          2,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          3,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          4,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          5,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          6,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          7,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          8,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          9,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          10,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          11,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          12,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          13,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          14,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          0
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          1
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          2
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          3
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          4
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          5
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          6
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          7
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          8
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          9
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          10
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          11
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          12
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          13
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          14
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          15
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          16
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          17
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          18
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          19
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          20
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          21
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          22
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          23
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          24
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          25
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          26
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          27
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          28
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          29
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          30
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      },
+      {
+        "path": [
+          15,
+          31
+        ],
+        "key": "Stored Voltages",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FehlerFabrik-Suite/Fax/2.1.0/manifest.json",
+    "sourceCommit": "c046a2b88848be0393df9ffcf2926c8ee129446b",
+    "artifact": {
+      "sha256": "69507883b682a3eec44b23bb0f868b3d40b11189b0d1a83af1d899d86e978200",
+      "size": 224192
+    }
+  },
+  "source": {
+    "url": "https://github.com/RCameron93/FehlerFabrik",
+    "commit": "c046a2b88848be0393df9ffcf2926c8ee129446b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:26:32.689Z"
+  }
+}

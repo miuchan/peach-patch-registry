@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/BPMLFOPhaseExpander",
+    "plugin": "FrozenWasteland",
+    "model": "BPMLFOPhaseExpander",
+    "name": "BPM LFO Phase Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/BPMLFOPhaseExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/BPMLFOPhaseExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/BPMLFOPhaseExpander/2.1.2/module.wasm",
+    "width": 60,
+    "description": "Add multiple phased outputs to BMPLFO and BPMLFO 2",
+    "params": [
+      {
+        "id": 0,
+        "name": "Phase Division",
+        "min": 3,
+        "max": 12,
+        "default": 3,
+        "position": {
+          "x": 4,
+          "y": 36,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase Division CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 33,
+          "y": 61,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Force Integer Phase Divisions",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 72,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Wave Shape",
+        "min": 1,
+        "max": 5,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phase Division",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 40
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LFO  1",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 100
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 8.5,
+          "y": 73.5
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/BPMLFO",
+            "symbol": "modelBPMLFO",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/BPMLFO2",
+            "symbol": "modelBPMLFO2",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/BPMLFOPhaseExpander",
+            "symbol": "modelBPMLFOPhaseExpander",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/BPMLFOPhaseExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "99baf7eda14651b5fb7bd2bff91bd9fb459bb9ac7203b68080f0599a8fb3b97e",
+      "size": 76329
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:01.977Z"
+  }
+}

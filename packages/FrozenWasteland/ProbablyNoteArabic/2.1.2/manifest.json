@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/ProbablyNoteArabic",
+    "plugin": "FrozenWasteland",
+    "model": "ProbablyNoteArabic",
+    "name": "Probably Note - Arabic",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/ProbablyNoteArabic",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/ProbablyNoteArabic.webp",
+    "wasmUrl": "packages/FrozenWasteland/ProbablyNoteArabic/2.1.2/module.wasm",
+    "width": 315,
+    "description": "Probabilistic Quantizer using Arabic maqams, ajnas and sayrs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Spread",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 25,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spread CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 50,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slant",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Slant CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 91,
+          "y": 49,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Focus",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 122,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Focus CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148,
+          "y": 49,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Maqam",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Family (Root Jins)",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Maqam Scale Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 264,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 270,
+          "y": 275,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Tonic",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 243,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Octave",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 243,
+          "y": 25,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Octave CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 269,
+          "y": 49,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Randomize Pitch Amount",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 205,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Randomize Pitch Amount CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 275,
+          "y": 230,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Gaussian Randomness",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 252,
+          "y": 237,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Reset Maqam",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 139,
+          "y": 97,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Reset Jins",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 97,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Jins Weight Scaling",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 166,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Note Weight Scaling",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 285,
+          "y": 166,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Param 23",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 168,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Param 24",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 125,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Param 25",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 127,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Param 26",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 175,
+          "y": 312,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Param 27",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 195,
+          "y": 310,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Non Repeat Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 179,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Non Repeat Probability CV Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 205,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Unquantized CV",
+        "kind": "cv",
+        "position": {
+          "x": 290,
+          "y": 313
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spread",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 28
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slant",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 29
+        }
+      },
+      {
+        "id": 3,
+        "name": "Focus",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 29
+        }
+      },
+      {
+        "id": 4,
+        "name": "Maqam",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 90
+        }
+      },
+      {
+        "id": 5,
+        "name": "Family",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 90
+        }
+      },
+      {
+        "id": 6,
+        "name": "Modulation Chance",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Tonic",
+        "kind": "cv",
+        "position": {
+          "x": 271,
+          "y": 90
+        }
+      },
+      {
+        "id": 8,
+        "name": "Octave",
+        "kind": "cv",
+        "position": {
+          "x": 271,
+          "y": 29
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pitch Randomness",
+        "kind": "cv",
+        "position": {
+          "x": 278,
+          "y": 209
+        }
+      },
+      {
+        "id": 10,
+        "name": "Reset Scale",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 265,
+          "y": 313
+        }
+      },
+      {
+        "id": 12,
+        "name": "External Random (Note)",
+        "kind": "cv",
+        "position": {
+          "x": 240,
+          "y": 313
+        }
+      },
+      {
+        "id": 13,
+        "name": "External Random (Jins)",
+        "kind": "cv",
+        "position": {
+          "x": 240,
+          "y": 275
+        }
+      },
+      {
+        "id": 14,
+        "name": "External Random (Jins Octave)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Moduluate Jins Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 290,
+          "y": 275
+        }
+      },
+      {
+        "id": 16,
+        "name": "Jins Select",
+        "kind": "cv",
+        "position": {
+          "x": 196,
+          "y": 90
+        }
+      },
+      {
+        "id": 17,
+        "name": "Ajnas Weight",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 129
+        }
+      },
+      {
+        "id": 18,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 219,
+          "y": 314
+        }
+      },
+      {
+        "id": 19,
+        "name": "Note Non-Repeat Probability",
+        "kind": "cv",
+        "position": {
+          "x": 207,
+          "y": 29
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Quantized CV",
+        "kind": "cv",
+        "position": {
+          "x": 290,
+          "y": 346
+        }
+      },
+      {
+        "id": 1,
+        "name": "Note Weight",
+        "kind": "cv",
+        "position": {
+          "x": 263,
+          "y": 346
+        }
+      },
+      {
+        "id": 2,
+        "name": "Note Changed",
+        "kind": "cv",
+        "position": {
+          "x": 237,
+          "y": 346
+        }
+      },
+      {
+        "id": 3,
+        "name": "Current Jins",
+        "kind": "cv",
+        "position": {
+          "x": 210,
+          "y": 346
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 3,
+        "widget": "LargeLight<GreenRedLight>",
+        "position": {
+          "x": 6.5,
+          "y": 126.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<GreenRedLight>",
+        "position": {
+          "x": 176.5,
+          "y": 313.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 265.5,
+          "y": 127.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 253.5,
+          "y": 238.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "triggerDelayEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "maqamScaleMode",
+        "type": "boolean"
+      },
+      {
+        "key": "pitchRandomGaussian",
+        "type": "boolean"
+      },
+      {
+        "key": "quantizeMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/ProbablyNoteArabic/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "169a8f1ce7af1da70b1ad43a8973c0b54419b4d3a6d2c5e67f7dd9a0474db2cd",
+      "size": 119170
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:27:18.308Z"
+  }
+}
