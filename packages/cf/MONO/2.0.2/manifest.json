@@ -1,0 +1,341 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cf/MONO",
+    "plugin": "cf",
+    "model": "MONO",
+    "name": "Mono",
+    "brand": "cf",
+    "version": "2.0.2",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cfoulc/cf",
+    "libraryUrl": "https://library.vcvrack.com/cf/MONO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cf/MONO.webp",
+    "wasmUrl": "packages/cf/MONO/2.0.2/module.wasm",
+    "width": 90,
+    "description": "Modular mixer Mono Channel",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 38,
+          "y": 127,
+          "widget": "cfTrimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gain",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 27,
+          "y": 247,
+          "widget": "cfBigKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 38,
+          "y": 167,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "On/off",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 38,
+          "y": 208,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Solo trigger",
+        "kind": "gate",
+        "position": {
+          "x": 11,
+          "y": 171
+        }
+      },
+      {
+        "id": 1,
+        "name": "On/off trigger",
+        "kind": "gate",
+        "position": {
+          "x": 11,
+          "y": 211
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pan control",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 131
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gain control",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 281
+        }
+      },
+      {
+        "id": 4,
+        "name": "Solo link",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 31
+        }
+      },
+      {
+        "id": 5,
+        "name": "Left link",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 61
+        }
+      },
+      {
+        "id": 6,
+        "name": "Right link",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 91
+        }
+      },
+      {
+        "id": 7,
+        "name": "Panpot",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 321
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Solo link",
+        "kind": "cv",
+        "position": {
+          "x": 54,
+          "y": 31
+        }
+      },
+      {
+        "id": 1,
+        "name": "Left link",
+        "kind": "audio",
+        "position": {
+          "x": 54,
+          "y": 61
+        }
+      },
+      {
+        "id": 2,
+        "name": "Right link",
+        "kind": "audio",
+        "position": {
+          "x": 54,
+          "y": 91
+        }
+      },
+      {
+        "id": 3,
+        "name": "Aux",
+        "kind": "cv",
+        "position": {
+          "x": 54,
+          "y": 321
+        }
+      }
+    ],
+    "lights": 13,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 42.4,
+          "y": 171.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 42.4,
+          "y": 212.4
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 242
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 230
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 218
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 206
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 194
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 182
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 170
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 158
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 146
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 134
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 70,
+          "y": 122
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "solostate",
+        "type": "integer"
+      },
+      {
+        "key": "onstate",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cf/MONO/2.0.2/manifest.json",
+    "sourceCommit": "f037bcab20d92f4734437a1aad877499e7d1fe46",
+    "artifact": {
+      "sha256": "9de45bf58eca5300f402f5555cd18c750a85440d36f87622ffeaae359c433ed8",
+      "size": 74503
+    }
+  },
+  "source": {
+    "url": "https://github.com/cfoulc/cf",
+    "commit": "f037bcab20d92f4734437a1aad877499e7d1fe46"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:58:48.710Z"
+  }
+}

@@ -1,0 +1,403 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZetaCarinae/GuildensTurn",
+    "plugin": "ZetaCarinae",
+    "model": "GuildensTurn",
+    "name": "GuildensTurn",
+    "brand": "ZetaCarinae",
+    "version": "2.0.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mhampton/ZetaCarinaeModules",
+    "libraryUrl": "https://library.vcvrack.com/ZetaCarinae/GuildensTurn",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZetaCarinae/GuildensTurn.webp",
+    "wasmUrl": "packages/ZetaCarinae/GuildensTurn/2.0.4/module.wasm",
+    "width": 180,
+    "description": "4 state Markovian Router",
+    "params": [
+      {
+        "id": 0,
+        "name": "A->D transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 47.244,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "A->B transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 79.724,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "B->A transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 121.063,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "B->C transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 153.543,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "C->B transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 194.882,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "C->D transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 227.362,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "D->C transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 268.701,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "D->A transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.3330000042915344,
+        "position": {
+          "x": 45.768,
+          "y": 301.181,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "A->D transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 41.339,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "A->B transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 85.63,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "B->A transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 115.157,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "B->C transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "C->B transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 188.976,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "C->D transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 233.268,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "D->C transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 262.795,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "D->A transition probability external attenuation",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 106.299,
+          "y": 307.087,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.146,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 17.717,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 17.717,
+          "y": 137.303,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "C",
+        "kind": "cv",
+        "position": {
+          "x": 17.717,
+          "y": 211.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "D",
+        "kind": "cv",
+        "position": {
+          "x": 17.717,
+          "y": 284.941,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pad",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 50.197,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pab",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Pba",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 124.016,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Pbc",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pcb",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 197.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Pcd",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 224.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Pdc",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 271.654,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Pda",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 298.228,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "State",
+        "kind": "cv",
+        "position": {
+          "x": 101.87,
+          "y": 354.331,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZetaCarinae/GuildensTurn/2.0.4/manifest.json",
+    "sourceCommit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c",
+    "artifact": {
+      "sha256": "d4890973606666b1b7bc91c48bb34cf4dd2e3f6fa08182e5e5596cb1ca72d607",
+      "size": 71156
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhampton/ZetaCarinaeModules",
+    "commit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:20.785Z"
+  }
+}

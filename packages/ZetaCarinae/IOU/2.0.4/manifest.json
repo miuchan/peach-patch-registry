@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZetaCarinae/IOU",
+    "plugin": "ZetaCarinae",
+    "model": "IOU",
+    "name": "IOU",
+    "brand": "ZetaCarinae",
+    "version": "2.0.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mhampton/ZetaCarinaeModules",
+    "libraryUrl": "https://library.vcvrack.com/ZetaCarinae/IOU",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZetaCarinae/IOU.webp",
+    "wasmUrl": "packages/ZetaCarinae/IOU/2.0.4/module.wasm",
+    "width": 180,
+    "description": "stochastic generator/mixer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Noise level",
+        "min": 0,
+        "max": 5,
+        "default": 2,
+        "position": {
+          "x": 24.803,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mean reverting strength",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 24.803,
+          "y": 135.827,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Velocity damping",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 24.803,
+          "y": 212.598,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mean",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 24.803,
+          "y": 295.276,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "INT/EXT mix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 66.142,
+          "y": 295.276,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 24.803,
+          "y": 91.535,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spring",
+        "kind": "cv",
+        "position": {
+          "x": 24.803,
+          "y": 174.213,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Damp",
+        "kind": "cv",
+        "position": {
+          "x": 24.803,
+          "y": 250.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mean",
+        "kind": "cv",
+        "position": {
+          "x": 24.803,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ext",
+        "kind": "cv",
+        "position": {
+          "x": 66.142,
+          "y": 250.984,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Rand",
+        "kind": "cv",
+        "position": {
+          "x": 66.142,
+          "y": 73.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ou",
+        "kind": "cv",
+        "position": {
+          "x": 66.142,
+          "y": 124.016,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Iou",
+        "kind": "cv",
+        "position": {
+          "x": 66.142,
+          "y": 180.118,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZetaCarinae/IOU/2.0.4/manifest.json",
+    "sourceCommit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c",
+    "artifact": {
+      "sha256": "b9ba09be911634c632b58edbbc218f95bf0a29a53a2051f29621d8d4f5cb5df1",
+      "size": 75359
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhampton/ZetaCarinaeModules",
+    "commit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:18.831Z"
+  }
+}

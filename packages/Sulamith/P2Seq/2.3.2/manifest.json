@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sulamith/P2Seq",
+    "plugin": "Sulamith",
+    "model": "P2Seq",
+    "name": "Poly to Sequence",
+    "brand": "Sulamith",
+    "version": "2.3.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/JohannAsbjoernson/Sulamith",
+    "libraryUrl": "https://library.vcvrack.com/Sulamith/P2Seq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/P2Seq.webp",
+    "wasmUrl": "packages/Sulamith/P2Seq/2.3.2/module.wasm",
+    "width": 180,
+    "description": "Takes a polyphonic Input and sequences it to a clock (fwd, bwd, rnd). Step probability + add random probability with range.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sequencing Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 11.7,
+          "y": 136.8,
+          "centered": true,
+          "widget": "ModeSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 34.5,
+          "y": 136.8,
+          "centered": true,
+          "widget": "TrimpotSG"
+        }
+      },
+      {
+        "id": 2,
+        "name": "RND CV Probability (RND * Distance + INPUT)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 11.5,
+          "y": 156,
+          "centered": true,
+          "widget": "TrimpotSG"
+        }
+      },
+      {
+        "id": 3,
+        "name": "RND range +-",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 34.5,
+          "y": 156,
+          "centered": true,
+          "widget": "TrimpotSR"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Manual Step Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23,
+          "y": 24,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Polyphonic Signal",
+        "kind": "audio",
+        "position": {
+          "x": 23,
+          "y": 52.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 81.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 110.4,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sequence",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 340.8,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 19,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 23,
+          "y": 144,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 23,
+          "y": 163.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 15,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 20,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 25,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 30,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 15,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 20,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 25,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 30,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 15,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 20,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 25,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 30,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 15,
+          "y": 320,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 20,
+          "y": 320,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 25,
+          "y": 320,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "TinyLight<WhiteLight>",
+        "position": {
+          "x": 30,
+          "y": 320,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 23,
+          "y": 24,
+          "centered": true
+        },
+        "paramId": 4
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sulamith/P2Seq/2.3.2/manifest.json",
+    "sourceCommit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d",
+    "artifact": {
+      "sha256": "718f42750373676c66b904be743ef30fb04c2ac54a86adecf5918f8f2bdd161a",
+      "size": 71886
+    }
+  },
+  "source": {
+    "url": "https://github.com/JohannAsbjoernson/Sulamith",
+    "commit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:44:47.503Z"
+  }
+}

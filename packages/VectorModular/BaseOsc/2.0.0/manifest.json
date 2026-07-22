@@ -1,0 +1,591 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "VectorModular/BaseOsc",
+    "plugin": "VectorModular",
+    "model": "BaseOsc",
+    "name": "baseOsc",
+    "brand": "Vector Modular",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/vectormodular/VectorModular",
+    "libraryUrl": "https://library.vcvrack.com/VectorModular/BaseOsc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/VectorModular/BaseOsc.webp",
+    "wasmUrl": "packages/VectorModular/BaseOsc/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Versatile oscillator with analog waveforms, FM, PWM, wavetable synthesis, regular and digital noise, quantization, and bit reduction.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Quantizer Scale",
+        "min": 0,
+        "max": 19,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 157.562,
+          "y": 69.177,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Octave Up",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.714,
+          "y": 71.274,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Coarse Tune",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 81.431,
+          "centered": true,
+          "widget": "Rogan3PSWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Octave Down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.714,
+          "y": 91.589,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Quantizer Root",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 133.057,
+          "y": 93.685,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "LFO Mode Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.714,
+          "y": 123.493,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "FM Linear/Exponential Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 68.906,
+          "y": 123.493,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Fine Tune",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26.714,
+          "y": 153.853,
+          "centered": true,
+          "widget": "Rogan1PWhite"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Frequency Modulation Amount",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 68.906,
+          "y": 153.853,
+          "centered": true,
+          "widget": "Rogan1PWhite"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pulse Width Modulation Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 111.094,
+          "y": 153.853,
+          "centered": true,
+          "widget": "Rogan1PWhite"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Index Modulation Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 153.286,
+          "y": 153.853,
+          "centered": true,
+          "widget": "Rogan1PWhite"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Pulse Width",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 153.286,
+          "y": 240.148,
+          "centered": true,
+          "widget": "Rogan1PWhite"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Index",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 153.286,
+          "y": 284.666,
+          "centered": true,
+          "widget": "Rogan1PWhite"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Bit-Depth",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "snap": true,
+        "position": {
+          "x": 153.286,
+          "y": 329.185,
+          "centered": true,
+          "widget": "Rogan1PWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch V/oct",
+        "kind": "cv",
+        "position": {
+          "x": 26.714,
+          "y": 197.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 68.906,
+          "y": 197.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse Width Modulation",
+        "kind": "gate",
+        "position": {
+          "x": 111.094,
+          "y": 197.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Index Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 153.286,
+          "y": 197.002,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 26.714,
+          "y": 240.148,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 68.906,
+          "y": 240.148,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 111.094,
+          "y": 240.148,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 26.714,
+          "y": 284.666,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sub Square",
+        "kind": "cv",
+        "position": {
+          "x": 68.906,
+          "y": 284.666,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Wavetable Linear",
+        "kind": "cv",
+        "position": {
+          "x": 111.094,
+          "y": 284.666,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 26.714,
+          "y": 329.185,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Pitched Noise",
+        "kind": "cv",
+        "position": {
+          "x": 68.906,
+          "y": 329.185,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Digital Noise",
+        "kind": "gate",
+        "position": {
+          "x": 111.094,
+          "y": 329.185,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 47,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<RedLight>",
+        "position": {
+          "x": 51.499,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<RedLight>",
+        "position": {
+          "x": 59.2,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<RedLight>",
+        "position": {
+          "x": 66.901,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<RedLight>",
+        "position": {
+          "x": 74.601,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<RedLight>",
+        "position": {
+          "x": 82.299,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 90,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 97.701,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 105.399,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 113.099,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 120.8,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 128.501,
+          "y": 42.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 112.952,
+          "y": 116.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 123.038,
+          "y": 116.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 143.206,
+          "y": 116.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 153.292,
+          "y": 116.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 163.376,
+          "y": 116.463,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 107.911,
+          "y": 127.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 117.995,
+          "y": 127.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 128.079,
+          "y": 127.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 138.165,
+          "y": 127.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 148.249,
+          "y": 127.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 158.336,
+          "y": 127.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "TinyLight<RedGreenBlueLight>",
+        "position": {
+          "x": 168.419,
+          "y": 127.4,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "isLFOmode",
+        "type": "boolean"
+      },
+      {
+        "key": "isLINfm",
+        "type": "boolean"
+      },
+      {
+        "key": "octOffsetButtons",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/VectorModular/BaseOsc/2.0.0/manifest.json",
+    "sourceCommit": "6cda28cfa33f4740f1e58e485780c4b12bbb076e",
+    "artifact": {
+      "sha256": "d61ff09fdd7feece8efe10f498b334fe7dc52fa315b7e7ae176e673ec5d5f37b",
+      "size": 194310
+    }
+  },
+  "source": {
+    "url": "https://github.com/vectormodular/VectorModular",
+    "commit": "6cda28cfa33f4740f1e58e485780c4b12bbb076e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:55:24.292Z"
+  }
+}

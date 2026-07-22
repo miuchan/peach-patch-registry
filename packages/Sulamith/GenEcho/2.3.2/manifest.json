@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sulamith/GenEcho",
+    "plugin": "Sulamith",
+    "model": "GenEcho",
+    "name": "GenEcho: Stochastic Looper",
+    "brand": "Sulamith",
+    "version": "2.3.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/JohannAsbjoernson/Sulamith",
+    "libraryUrl": "https://library.vcvrack.com/Sulamith/GenEcho",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/GenEcho.webp",
+    "wasmUrl": "packages/Sulamith/GenEcho/2.3.2/module.wasm",
+    "width": 60,
+    "description": "Granular stereo recorder and stochastic effect. Stutter, Distortion, Glitches (port from Stochkit).",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "SAMPLE LENGTH",
+        "min": 0.15000000596046448,
+        "max": 0.8999999761581421,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 3,
+        "name": "GAIN",
+        "min": 0,
+        "max": 2,
+        "default": 0.699999988079071
+      },
+      {
+        "id": 4,
+        "name": "DRY/WET",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 5,
+        "name": "RECORD SAMPLE button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "DELETE SAMPLE button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "OCTAVE UP",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "LEFT",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "RIGHT",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "RECORD SAMPLE",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "DELETE SAMPLE",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "SAMPLE LENGTH CV (offset)",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "DRY/WET CV (offset)",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "OCT +1 (+ button)",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LEFT",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "RIGHT",
+        "kind": "audio"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "Sampl",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sulamith/GenEcho/2.3.2/manifest.json",
+    "sourceCommit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d",
+    "artifact": {
+      "sha256": "ec902ad1cbf6beb333a0dfd84343d3968b8ba370a30a8330f913572e1f424dbe",
+      "size": 83321
+    }
+  },
+  "source": {
+    "url": "https://github.com/JohannAsbjoernson/Sulamith",
+    "commit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:44:42.439Z"
+  }
+}

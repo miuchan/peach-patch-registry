@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cvly/brst",
+    "plugin": "cvly",
+    "model": "brst",
+    "name": "brst",
+    "brand": "cvly",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lyqst/cvly-modules",
+    "libraryUrl": "https://library.vcvrack.com/cvly/brst",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cvly/brst.webp",
+    "wasmUrl": "packages/cvly/brst/2.0.1/module.wasm",
+    "width": 165,
+    "description": "Burst generator with up to 8 outputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 135,
+          "centered": true,
+          "widget": "MediumButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Burst base time",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 22,
+          "y": 235,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Burst time variation",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 22,
+          "y": 275,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Weight Param +  0",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 70,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Weight Param +  1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 100,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Weight Param +  2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 130,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Weight Param +  3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 160,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Weight Param +  4",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 190,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Weight Param +  5",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 220,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Weight Param +  6",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 250,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Weight Param +  7",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 57,
+          "y": 280,
+          "centered": true,
+          "widget": "CustomSmallKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Sh Param +  0",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 70,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Sh Param +  1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 100,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Sh Param +  2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 130,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Sh Param +  3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 160,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Sh Param +  4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 190,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Sh Param +  5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 220,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Sh Param +  6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 250,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Sh Param +  7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 280,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22,
+          "y": 95,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 55,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV_OUTPUT + 0",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 70,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV_OUTPUT + 1",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 100,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV_OUTPUT + 2",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV_OUTPUT + 3",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 160,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV_OUTPUT + 4",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 190,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "CV_OUTPUT + 5",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 220,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "CV_OUTPUT + 6",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 250,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "CV_OUTPUT + 7",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "GATE_OUTPUT + 0",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 70,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "GATE_OUTPUT + 1",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 100,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "GATE_OUTPUT + 2",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "GATE_OUTPUT + 3",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 160,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "GATE_OUTPUT + 4",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 190,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "GATE_OUTPUT + 5",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 220,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "GATE_OUTPUT + 6",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 250,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "GATE_OUTPUT + 7",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 280,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 11,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 8,
+          "y": 155,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 8,
+          "y": 175,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 8,
+          "y": 195,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 70,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 100,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 160,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 190,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 220,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 250,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 153,
+          "y": 280,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cvly/brst/2.0.1/manifest.json",
+    "sourceCommit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa",
+    "artifact": {
+      "sha256": "268f96f7d048506ec45737acf545a10beae03a5f83951bd8625b77e37a2c5376",
+      "size": 74182
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lyqst/cvly-modules",
+    "commit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:59:38.751Z"
+  }
+}

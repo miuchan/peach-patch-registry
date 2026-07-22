@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cf/VARIABLE",
+    "plugin": "cf",
+    "model": "VARIABLE",
+    "name": "Variable",
+    "brand": "cf",
+    "version": "2.0.2",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cfoulc/cf",
+    "libraryUrl": "https://library.vcvrack.com/cf/VARIABLE",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cf/VARIABLE.webp",
+    "wasmUrl": "packages/cf/VARIABLE/2.0.2/module.wasm",
+    "width": 28,
+    "description": "Sample & Hold",
+    "params": [
+      {
+        "id": 0,
+        "name": "-1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 6,
+          "y": 298,
+          "widget": "upButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "+1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 6,
+          "y": 278,
+          "widget": "downButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Hold value",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 6,
+          "y": 69,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Value",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 31
+        }
+      },
+      {
+        "id": 1,
+        "name": "Value hold trigger",
+        "kind": "gate",
+        "position": {
+          "x": 3,
+          "y": 96
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Value",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 321
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 10.4,
+          "y": 73.4
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "loc",
+        "type": "integer"
+      },
+      {
+        "key": "plu",
+        "type": "integer"
+      },
+      {
+        "key": "val",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cf/VARIABLE/2.0.2/manifest.json",
+    "sourceCommit": "f037bcab20d92f4734437a1aad877499e7d1fe46",
+    "artifact": {
+      "sha256": "007a4459020a2684a92349efa41d9dc08b92e3c88793888f1838608313e9698a",
+      "size": 69204
+    }
+  },
+  "source": {
+    "url": "https://github.com/cfoulc/cf",
+    "commit": "f037bcab20d92f4734437a1aad877499e7d1fe46"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:58:52.621Z"
+  }
+}

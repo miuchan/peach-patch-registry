@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZetaCarinae/OrnsteinUhlenbeck",
+    "plugin": "ZetaCarinae",
+    "model": "OrnsteinUhlenbeck",
+    "name": "OrnsteinUhlenbeck",
+    "brand": "ZetaCarinae",
+    "version": "2.0.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mhampton/ZetaCarinaeModules",
+    "libraryUrl": "https://library.vcvrack.com/ZetaCarinae/OrnsteinUhlenbeck",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZetaCarinae/OrnsteinUhlenbeck.webp",
+    "wasmUrl": "packages/ZetaCarinae/OrnsteinUhlenbeck/2.0.4/module.wasm",
+    "width": 180,
+    "description": "Ornstein-Uhlenbeck stochastic process",
+    "params": [
+      {
+        "id": 0,
+        "name": "Noise level",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 65.551,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mean reverting strength",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 137.008,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mean",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 212.008,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 102.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spring",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 174.213,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mean",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 249.213,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 284.35,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sig",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 335.906,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZetaCarinae/OrnsteinUhlenbeck/2.0.4/manifest.json",
+    "sourceCommit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c",
+    "artifact": {
+      "sha256": "e314912259ba82697530f23caec9042bfdc898beca4b18dbd424831c5ce8193c",
+      "size": 73329
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhampton/ZetaCarinaeModules",
+    "commit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:18.287Z"
+  }
+}

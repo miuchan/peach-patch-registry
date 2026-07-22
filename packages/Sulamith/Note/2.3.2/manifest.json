@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sulamith/Note",
+    "plugin": "Sulamith",
+    "model": "Note",
+    "name": "Note Display",
+    "brand": "Sulamith",
+    "version": "2.3.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/JohannAsbjoernson/Sulamith",
+    "libraryUrl": "https://library.vcvrack.com/Sulamith/Note",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/Note.webp",
+    "wasmUrl": "packages/Sulamith/Note/2.3.2/module.wasm",
+    "width": 40,
+    "description": "Displays the notes (& cents) of a polyphonic input. With quantization option (to semis) for the output. Displays: Note, Octave, Cent (ie: G#4 + 26)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Chromatic Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 23,
+          "y": 290,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Polyphonic vOct Signal",
+        "kind": "audio",
+        "position": {
+          "x": 23,
+          "y": 320,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Polyphonic vOct (Chromatic when turned on)",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 349.5,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 23,
+          "y": 290,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sulamith/Note/2.3.2/manifest.json",
+    "sourceCommit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d",
+    "artifact": {
+      "sha256": "3cdc3ca90d76fd666f93851bc00a320433abb19690d947fa418f40dccb5ad40d",
+      "size": 68824
+    }
+  },
+  "source": {
+    "url": "https://github.com/JohannAsbjoernson/Sulamith",
+    "commit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:44:47.615Z"
+  }
+}

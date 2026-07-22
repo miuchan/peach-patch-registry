@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZZC/SC-VCA",
+    "plugin": "ZZC",
+    "model": "SC-VCA",
+    "name": "SC-VCA",
+    "brand": "ZZC",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/zezic/ZZC",
+    "libraryUrl": "https://library.vcvrack.com/ZZC/SC-VCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZZC/SC-VCA.webp",
+    "wasmUrl": "packages/ZZC/SC-VCA/2.1.2/module.wasm",
+    "width": 75,
+    "description": "Soft Clipping VCA",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gain (Multiplier)",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 4,
+          "y": 74.7,
+          "widget": "ZZC_BigKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clip Ceiling",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 24,
+          "y": 94.7,
+          "widget": "ZZC_BigKnobInner"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clip Softness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 42.5,
+          "y": 175.7,
+          "widget": "ZZC_Knob25"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Sig 1",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 275
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sig 2",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 275
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gain",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 221
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clip",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 221
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clip Softness",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 176
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sig 1",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 319.75
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sig 2",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 319.75
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 34.45,
+          "y": 44.15
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "exponentialMode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZZC/SC-VCA/2.1.2/manifest.json",
+    "sourceCommit": "5a9d37487026133e54b1af3004851fb8362a3d52",
+    "artifact": {
+      "sha256": "eb1f910e1aeb766a23bc972d939f7693f2fd67f3cc90ec1cf242cae30355c1c8",
+      "size": 77696
+    }
+  },
+  "source": {
+    "url": "https://github.com/zezic/ZZC",
+    "commit": "5a9d37487026133e54b1af3004851fb8362a3d52"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:05.623Z"
+  }
+}

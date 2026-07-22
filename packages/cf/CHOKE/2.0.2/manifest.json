@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cf/CHOKE",
+    "plugin": "cf",
+    "model": "CHOKE",
+    "name": "Choke",
+    "brand": "cf",
+    "version": "2.0.2",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cfoulc/cf",
+    "libraryUrl": "https://library.vcvrack.com/cf/CHOKE",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cf/CHOKE.webp",
+    "wasmUrl": "packages/cf/CHOKE/2.0.2/module.wasm",
+    "width": 28,
+    "description": "hi hat style choker",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mix",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 298,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Select signal 1 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 3,
+          "y": 91
+        }
+      },
+      {
+        "id": 1,
+        "name": "Select signal 2 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 3,
+          "y": 211
+        }
+      },
+      {
+        "id": 2,
+        "name": "Signal 1",
+        "kind": "audio",
+        "position": {
+          "x": 3,
+          "y": 61
+        }
+      },
+      {
+        "id": 3,
+        "name": "Signal 2",
+        "kind": "audio",
+        "position": {
+          "x": 3,
+          "y": 181
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 3,
+          "y": 321
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 8,
+          "y": 136
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 8,
+          "y": 256
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cf/CHOKE/2.0.2/manifest.json",
+    "sourceCommit": "f037bcab20d92f4734437a1aad877499e7d1fe46",
+    "artifact": {
+      "sha256": "c55250707487650cc8cb8090cf1e24fc31797485e95c0a9a91e5106c539f3a59",
+      "size": 68301
+    }
+  },
+  "source": {
+    "url": "https://github.com/cfoulc/cf",
+    "commit": "f037bcab20d92f4734437a1aad877499e7d1fe46"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:58:55.766Z"
+  }
+}

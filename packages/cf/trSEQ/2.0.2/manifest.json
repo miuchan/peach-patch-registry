@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cf/trSEQ",
+    "plugin": "cf",
+    "model": "trSEQ",
+    "name": "trSeq",
+    "brand": "cf",
+    "version": "2.0.2",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cfoulc/cf",
+    "libraryUrl": "https://library.vcvrack.com/cf/trSEQ",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cf/trSEQ.webp",
+    "wasmUrl": "packages/cf/trSEQ/2.0.2/module.wasm",
+    "width": 330,
+    "description": "sequencer with per step inputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock tempo",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 18,
+          "y": 56,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "On/off",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 60,
+          "y": 60,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 99,
+          "y": 60,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Write current note",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 186,
+          "y": 56,
+          "widget": "PadButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Erase current note",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 224,
+          "y": 56,
+          "widget": "PadButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pattern length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 132,
+          "y": 56,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Param 15",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Param 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Param 17",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "Param 18",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "Param 19",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Param 20",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Param 21",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Step 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Step 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Step 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 50,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Step 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 69,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Step 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 88,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Step 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 107,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Step 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 126,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Step 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 145,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Step 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 164,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Step 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 183,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Step 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 202,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Step 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 221,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Step 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 240,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Step 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 259,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Step 15",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 278,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Step 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 297,
+          "y": 202,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock control",
+        "kind": "gate",
+        "position": {
+          "x": 19,
+          "y": 98
+        }
+      },
+      {
+        "id": 1,
+        "name": "External Clock",
+        "kind": "gate",
+        "position": {
+          "x": 57,
+          "y": 98
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 98
+        }
+      },
+      {
+        "id": 3,
+        "name": "Write current note",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 98
+        }
+      },
+      {
+        "id": 4,
+        "name": "Erase current note",
+        "kind": "gate",
+        "position": {
+          "x": 226,
+          "y": 98
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pattern length control",
+        "kind": "cv",
+        "position": {
+          "x": 134,
+          "y": 98
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 1 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Step 2 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Step 3 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Step 4 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Step 5 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Step 6 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Step 7 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Step 8 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Step 9 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Step 10 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Step 11 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "Step 12 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "Step 13 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Step 14 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Step 15 trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Step 16 trigger",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Triggers",
+        "kind": "gate",
+        "position": {
+          "x": 282.5,
+          "y": 98
+        }
+      }
+    ],
+    "lights": 19,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 64.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 103.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 289.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 16.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 35.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 54.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 73.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 92.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 111.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 130.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 149.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 168.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 187.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 206.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 225.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 244.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 263.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 282.4,
+          "y": 206.4
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 301.4,
+          "y": 206.4
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "gates",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "gates",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cf/trSEQ/2.0.2/manifest.json",
+    "sourceCommit": "f037bcab20d92f4734437a1aad877499e7d1fe46",
+    "artifact": {
+      "sha256": "99eba8ff3f1527952b2e9d648c646c3c5d7a7fbcca9b3b6f266ec2cb3843362f",
+      "size": 81804
+    }
+  },
+  "source": {
+    "url": "https://github.com/cfoulc/cf",
+    "commit": "f037bcab20d92f4734437a1aad877499e7d1fe46"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:58:45.563Z"
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-debug",
+    "plugin": "computerscare",
+    "model": "computerscare-debug",
+    "name": "Debug",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-debug",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-debug.webp",
+    "wasmUrl": "packages/computerscare/computerscare-debug/2.3.3/module.wasm",
+    "width": 36,
+    "description": "Debugger, poly sample & hold, poly volt meter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 2,
+          "y": 325,
+          "widget": "ComputerscareClockButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset/Clear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 32,
+          "y": 324,
+          "widget": "ComputerscareResetButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock Channel Selector",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 305,
+          "widget": "HidableSmallSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input Channel Selector",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 66,
+          "y": 305,
+          "widget": "HidableSmallSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input Mode",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 58,
+          "y": 279,
+          "widget": "DebugModeSwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clock Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 0,
+          "y": 279,
+          "widget": "DebugModeSwitch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Clock Blinkers",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Visual Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Bar Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Theme",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Text Opacity",
+        "min": 0.15000000596046448,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "Bipolar Colors",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Bars Opacity",
+        "min": 0.15000000596046448,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Value",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 339
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 2,
+          "y": 339
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 31,
+          "y": 339
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 56,
+          "y": 1
+        }
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "outputRange",
+        "type": "integer"
+      },
+      {
+        "key": "triggerBlinkers",
+        "type": "boolean"
+      },
+      {
+        "key": "visualMode",
+        "type": "integer"
+      },
+      {
+        "key": "barMode",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      },
+      {
+        "key": "textOpacity",
+        "type": "real"
+      },
+      {
+        "key": "barsOpacity",
+        "type": "real"
+      },
+      {
+        "key": "bipolarColorMode",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "lines",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "lines",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-debug/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "772efb579c4e76f1f8c65cff1c5b9f81125062a09d037272842eaea388bf784a",
+      "size": 185364
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:59:16.850Z"
+  }
+}

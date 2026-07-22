@@ -1,0 +1,2540 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-fatherandson",
+    "plugin": "computerscare",
+    "model": "computerscare-fatherandson",
+    "name": "Father and Son Patch Sequencer",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-fatherandson",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-fatherandson.webp",
+    "wasmUrl": "packages/computerscare/computerscare-fatherandson/2.3.3/module.wasm",
+    "width": 50,
+    "description": "Patch Sequencer - 10 in, 10 out patch matrix with 16 scenes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Number of Steps",
+        "min": 1,
+        "max": 16,
+        "default": 2,
+        "position": {
+          "x": 108,
+          "y": 30,
+          "widget": "LrgKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Manual Scene Advance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 37,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Edit Next Scene",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 227,
+          "y": 41,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Edit Previous Scene",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 208,
+          "y": 41,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Toggle Input Row 1,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Toggle Input Row 2,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Toggle Input Row 3,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Toggle Input Row 4,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Toggle Input Row 5,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Toggle Input Row 6,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Toggle Input Row 7,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Toggle Input Row 8,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Toggle Input Row 9,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Toggle Input Row 10,Output Column 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Toggle Input Row 1,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Toggle Input Row 2,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Toggle Input Row 3,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Toggle Input Row 4,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Toggle Input Row 5,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Toggle Input Row 6,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Toggle Input Row 7,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Toggle Input Row 8,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Toggle Input Row 9,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Toggle Input Row 10,Output Column 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Toggle Input Row 1,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Toggle Input Row 2,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Toggle Input Row 3,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Toggle Input Row 4,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Toggle Input Row 5,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Toggle Input Row 6,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Toggle Input Row 7,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Toggle Input Row 8,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Toggle Input Row 9,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Toggle Input Row 10,Output Column 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Toggle Input Row 1,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Toggle Input Row 2,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Toggle Input Row 3,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Toggle Input Row 4,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Toggle Input Row 5,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Toggle Input Row 6,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Toggle Input Row 7,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Toggle Input Row 8,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Toggle Input Row 9,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Toggle Input Row 10,Output Column 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Toggle Input Row 1,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Toggle Input Row 2,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Toggle Input Row 3,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Toggle Input Row 4,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Toggle Input Row 5,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Toggle Input Row 6,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Toggle Input Row 7,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Toggle Input Row 8,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Toggle Input Row 9,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Toggle Input Row 10,Output Column 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 141,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Toggle Input Row 1,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Toggle Input Row 2,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Toggle Input Row 3,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Toggle Input Row 4,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Toggle Input Row 5,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Toggle Input Row 6,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Toggle Input Row 7,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Toggle Input Row 8,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Toggle Input Row 9,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 63,
+        "name": "Toggle Input Row 10,Output Column 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 64,
+        "name": "Toggle Input Row 1,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 65,
+        "name": "Toggle Input Row 2,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Toggle Input Row 3,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 67,
+        "name": "Toggle Input Row 4,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 68,
+        "name": "Toggle Input Row 5,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 69,
+        "name": "Toggle Input Row 6,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 70,
+        "name": "Toggle Input Row 7,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 71,
+        "name": "Toggle Input Row 8,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 72,
+        "name": "Toggle Input Row 9,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 73,
+        "name": "Toggle Input Row 10,Output Column 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 193,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 74,
+        "name": "Toggle Input Row 1,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 75,
+        "name": "Toggle Input Row 2,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 76,
+        "name": "Toggle Input Row 3,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 77,
+        "name": "Toggle Input Row 4,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 78,
+        "name": "Toggle Input Row 5,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 79,
+        "name": "Toggle Input Row 6,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 80,
+        "name": "Toggle Input Row 7,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 81,
+        "name": "Toggle Input Row 8,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 82,
+        "name": "Toggle Input Row 9,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 83,
+        "name": "Toggle Input Row 10,Output Column 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 84,
+        "name": "Toggle Input Row 1,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 85,
+        "name": "Toggle Input Row 2,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 86,
+        "name": "Toggle Input Row 3,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 87,
+        "name": "Toggle Input Row 4,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 88,
+        "name": "Toggle Input Row 5,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 89,
+        "name": "Toggle Input Row 6,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 90,
+        "name": "Toggle Input Row 7,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 91,
+        "name": "Toggle Input Row 8,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 92,
+        "name": "Toggle Input Row 9,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 93,
+        "name": "Toggle Input Row 10,Output Column 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 94,
+        "name": "Toggle Input Row 1,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 95,
+        "name": "Toggle Input Row 2,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 100,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 96,
+        "name": "Toggle Input Row 3,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 126,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 97,
+        "name": "Toggle Input Row 4,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 152,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 98,
+        "name": "Toggle Input Row 5,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 178,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 99,
+        "name": "Toggle Input Row 6,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 204,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 100,
+        "name": "Toggle Input Row 7,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 230,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 101,
+        "name": "Toggle Input Row 8,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 256,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 102,
+        "name": "Toggle Input Row 9,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 282,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 103,
+        "name": "Toggle Input Row 10,Output Column 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 308,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 104,
+        "name": "Reset To Scene 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 3,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 24,
+          "y": 37
+        }
+      },
+      {
+        "id": 1,
+        "name": "Row 1",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 70
+        }
+      },
+      {
+        "id": 2,
+        "name": "Row 2",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 96
+        }
+      },
+      {
+        "id": 3,
+        "name": "Row 3",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 122
+        }
+      },
+      {
+        "id": 4,
+        "name": "Row 4",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 148
+        }
+      },
+      {
+        "id": 5,
+        "name": "Row 5",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 174
+        }
+      },
+      {
+        "id": 6,
+        "name": "Row 6",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 200
+        }
+      },
+      {
+        "id": 7,
+        "name": "Row 7",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 226
+        }
+      },
+      {
+        "id": 8,
+        "name": "Row 8",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 252
+        }
+      },
+      {
+        "id": 9,
+        "name": "Row 9",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 278
+        }
+      },
+      {
+        "id": 10,
+        "name": "Row 10",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 304
+        }
+      },
+      {
+        "id": 11,
+        "name": "Randomize Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 270,
+          "y": 0
+        }
+      },
+      {
+        "id": 12,
+        "name": "Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 24,
+          "y": 3
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Column 1",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Column 2",
+        "kind": "cv",
+        "position": {
+          "x": 59,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "Column 3",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 330
+        }
+      },
+      {
+        "id": 3,
+        "name": "Column 4",
+        "kind": "cv",
+        "position": {
+          "x": 111,
+          "y": 330
+        }
+      },
+      {
+        "id": 4,
+        "name": "Column 5",
+        "kind": "cv",
+        "position": {
+          "x": 137,
+          "y": 330
+        }
+      },
+      {
+        "id": 5,
+        "name": "Column 6",
+        "kind": "cv",
+        "position": {
+          "x": 163,
+          "y": 330
+        }
+      },
+      {
+        "id": 6,
+        "name": "Column 7",
+        "kind": "cv",
+        "position": {
+          "x": 189,
+          "y": 330
+        }
+      },
+      {
+        "id": 7,
+        "name": "Column 8",
+        "kind": "cv",
+        "position": {
+          "x": 215,
+          "y": 330
+        }
+      },
+      {
+        "id": 8,
+        "name": "Column 9",
+        "kind": "cv",
+        "position": {
+          "x": 241,
+          "y": 330
+        }
+      },
+      {
+        "id": 9,
+        "name": "Column 10",
+        "kind": "cv",
+        "position": {
+          "x": 267,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 200,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 10,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 20,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 30,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 40,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 50,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 60,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 70,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 80,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 90,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 72.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 11,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 21,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 31,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 41,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 51,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 61,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 71,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 81,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 91,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 98.4
+        }
+      },
+      {
+        "id": 2,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 12,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 22,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 32,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 42,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 52,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 62,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 72,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 82,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 92,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 124.4
+        }
+      },
+      {
+        "id": 3,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 13,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 23,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 33,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 43,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 53,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 63,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 73,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 83,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 93,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 150.4
+        }
+      },
+      {
+        "id": 4,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 14,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 24,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 34,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 44,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 54,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 64,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 74,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 84,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 94,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 176.4
+        }
+      },
+      {
+        "id": 5,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 15,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 25,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 35,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 45,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 55,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 65,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 75,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 85,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 95,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 202.4
+        }
+      },
+      {
+        "id": 6,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 16,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 26,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 36,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 46,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 56,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 66,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 76,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 86,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 96,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 228.4
+        }
+      },
+      {
+        "id": 7,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 17,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 27,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 37,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 47,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 57,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 67,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 77,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 87,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 97,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 254.4
+        }
+      },
+      {
+        "id": 8,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 18,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 28,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 38,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 48,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 58,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 68,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 78,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 88,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 98,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 280.4
+        }
+      },
+      {
+        "id": 9,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 35.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 19,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 61.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 29,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 87.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 39,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 113.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 49,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 139.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 59,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 165.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 69,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 191.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 79,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 89,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 243.4,
+          "y": 306.4
+        }
+      },
+      {
+        "id": 99,
+        "widget": "ComputerscareHugeLight<ComputerscareGreenLight>",
+        "position": {
+          "x": 269.4,
+          "y": 306.4
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "onlyRandomizeActive",
+        "type": "boolean"
+      },
+      {
+        "key": "channelCountEnum",
+        "type": "integer"
+      },
+      {
+        "key": "randomizationStepEnum",
+        "type": "integer"
+      },
+      {
+        "key": "randomizationOutputBoundsEnum",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-fatherandson/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "e33425d6794fb757eb85acd0542ae969253b7a9040d50fc3b0560ce3d4d75f0b",
+      "size": 89139
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:59:15.455Z"
+  }
+}

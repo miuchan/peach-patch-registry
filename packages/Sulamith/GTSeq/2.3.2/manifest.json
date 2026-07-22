@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sulamith/GTSeq",
+    "plugin": "Sulamith",
+    "model": "GTSeq",
+    "name": "Gate Length Sequencer",
+    "brand": "Sulamith",
+    "version": "2.3.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/JohannAsbjoernson/Sulamith",
+    "libraryUrl": "https://library.vcvrack.com/Sulamith/GTSeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/GTSeq.webp",
+    "wasmUrl": "packages/Sulamith/GTSeq/2.3.2/module.wasm",
+    "width": 180,
+    "description": "Sequences 6 Gates (0.1s-10s) with playmodes, probability, seq length, reset. For holding notes, envelopes and switches.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Length of gate",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 1,
+        "name": "Length of gate",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 2,
+        "name": "Length of gate",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 3,
+        "name": "Length of gate",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 4,
+        "name": "Length of gate",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 5,
+        "name": "Length of gate",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 6,
+        "name": "Sequencing Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "Sequence Length",
+        "min": 1,
+        "max": 6,
+        "default": 6
+      },
+      {
+        "id": 9,
+        "name": "Manual Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock/Trigger/Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset __|if RES POLY IN & CLK NO IN btn clones IN to GATE_LEN Knobs",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate Sequence",
+        "kind": "gate"
+      }
+    ],
+    "lights": 7,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sulamith/GTSeq/2.3.2/manifest.json",
+    "sourceCommit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d",
+    "artifact": {
+      "sha256": "27ecfaa3f36a3671a36f4f3ed3b61c39e971e146a22f5d1f0b94e0c7b47993b7",
+      "size": 70919
+    }
+  },
+  "source": {
+    "url": "https://github.com/JohannAsbjoernson/Sulamith",
+    "commit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:44:45.240Z"
+  }
+}

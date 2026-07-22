@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackModules/RndH",
+    "plugin": "dbRackModules",
+    "model": "RndH",
+    "name": "RndH",
+    "brand": "docB",
+    "version": "2.6.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackModules",
+    "libraryUrl": "https://library.vcvrack.com/dbRackModules/RndH",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackModules/RndH.webp",
+    "wasmUrl": "packages/dbRackModules/RndH/2.6.1/module.wasm",
+    "width": 30,
+    "description": "Polyphonic Random Hold",
+    "params": [
+      {
+        "id": 0,
+        "name": "BI-Polar",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 4.429,
+          "y": 200.787,
+          "widget": "SmallButtonWithLabel"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Strength",
+        "min": 1,
+        "max": 20,
+        "default": 1,
+        "position": {
+          "x": 5.906,
+          "y": 147.638,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Polyphonic Channels",
+        "min": 1,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 5.906,
+          "y": 342.52,
+          "widget": "TrimbotWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.61,
+          "y": 26.575
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 5.61,
+          "y": 62.008
+        }
+      },
+      {
+        "id": 2,
+        "name": "Random Seed",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 112.205
+        }
+      },
+      {
+        "id": 3,
+        "name": "STRENGTH",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 171.26
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Min Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 236.22
+        }
+      },
+      {
+        "id": 1,
+        "name": "Weibull Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 271.654
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangular Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 307.087
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "roundSeed",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackModules/RndH/2.6.1/manifest.json",
+    "sourceCommit": "16df93fee43b631efc347f97542cf00a7a56e96a",
+    "artifact": {
+      "sha256": "0adef035f91ddae389d979f027dc441865c6413a9e6242ae8d7d7ccde25d745e",
+      "size": 85548
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackModules",
+    "commit": "16df93fee43b631efc347f97542cf00a7a56e96a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:04:17.016Z"
+  }
+}

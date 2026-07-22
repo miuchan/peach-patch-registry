@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "acModules/Pick6",
+    "plugin": "acModules",
+    "model": "Pick6",
+    "name": "Pick6",
+    "brand": "artificialcolors",
+    "version": "2.0.7",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gwygonik/acModules",
+    "libraryUrl": "https://library.vcvrack.com/acModules/Pick6",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/acModules/Pick6.webp",
+    "wasmUrl": "packages/acModules/Pick6/2.0.7/module.wasm",
+    "width": 150,
+    "description": "8-step finger-pickin' trigger sequencer (1:6 patterned switch), with optional 'Smart Riff' functionality.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Preset",
+        "min": 1,
+        "max": 50,
+        "default": 1,
+        "position": {
+          "x": 74.655,
+          "y": 135.186,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "At End of Pattern",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 117.992,
+          "y": 204.251,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Smart Riff",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 74.483,
+          "y": 188.156,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pick (Trigger Step)",
+        "kind": "gate",
+        "position": {
+          "x": 25.804,
+          "y": 135.186,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 25.804,
+          "y": 205.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Preset 0-10v CV",
+        "kind": "gate",
+        "position": {
+          "x": 124.656,
+          "y": 135.186,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Polyphonic CV (Notes and Mutes)",
+        "kind": "cv",
+        "position": {
+          "x": 43.751,
+          "y": 274.993,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Switched CV",
+        "kind": "audio",
+        "position": {
+          "x": 43.751,
+          "y": 321.868,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Polyphonic Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 106.249,
+          "y": 274.993,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mono Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 106.249,
+          "y": 321.868,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 74.483,
+          "y": 188.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 103.713,
+          "y": 358.234,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "acModules/Pick6p",
+            "symbol": "modelPick6p",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/acModules/Pick6/2.0.7/manifest.json",
+    "sourceCommit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf",
+    "artifact": {
+      "sha256": "1aef0d13ba420132f406e01e68102b2a93352c9bbc4f1b7d6a24913d718645ab",
+      "size": 77010
+    }
+  },
+  "source": {
+    "url": "https://github.com/gwygonik/acModules",
+    "commit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:37.952Z"
+  }
+}

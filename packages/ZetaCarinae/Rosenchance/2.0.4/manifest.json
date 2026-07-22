@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZetaCarinae/Rosenchance",
+    "plugin": "ZetaCarinae",
+    "model": "Rosenchance",
+    "name": "Rosenchance",
+    "brand": "ZetaCarinae",
+    "version": "2.0.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mhampton/ZetaCarinaeModules",
+    "libraryUrl": "https://library.vcvrack.com/ZetaCarinae/Rosenchance",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZetaCarinae/Rosenchance.webp",
+    "wasmUrl": "packages/ZetaCarinae/Rosenchance/2.0.4/module.wasm",
+    "width": 180,
+    "description": "2 State, 2 Emission Hidden Markov Model",
+    "params": [
+      {
+        "id": 0,
+        "name": "A->A transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 17.717,
+          "y": 44.291,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "A's e1 emission probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 17.717,
+          "y": 76.772,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "A's e1 emission value",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 17.717,
+          "y": 109.252,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "A's e2 emission value",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 17.717,
+          "y": 141.732,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "B->B transition probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 17.717,
+          "y": 174.213,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "B's e1 emission probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 17.717,
+          "y": 206.693,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "B's e1 emission value",
+        "min": -10,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 17.717,
+          "y": 239.173,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "B's e2 emission value",
+        "min": -10,
+        "max": 10,
+        "default": 3,
+        "position": {
+          "x": 17.717,
+          "y": 271.654,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "A->A transition probability external attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 38.386,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "A's e1 emission probability external attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 70.866,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "A's e1 emission value external attenuation",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 103.346,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "A's e2 emission value external attenuation",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 135.827,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "B->B transition probability external attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 168.307,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "B's e1 emission probability external attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 200.787,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "B's e1 emission value external attenuation",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 233.268,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "B's e2 emission value external attenuation",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 49.459,
+          "y": 265.748,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 36.909,
+          "y": 301.181,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pa",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pae 1",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ae 1",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 109.252,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ae 2",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 141.732,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pb",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 174.213,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pbe 1",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 206.693,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Be 1",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 239.173,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Be 2",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 271.654,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 36.909,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "State",
+        "kind": "cv",
+        "position": {
+          "x": 67.913,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 17.717,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 354.331,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZetaCarinae/Rosenchance/2.0.4/manifest.json",
+    "sourceCommit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c",
+    "artifact": {
+      "sha256": "fa8e0f9cf46e0c6e626488522e4aa5d5071c8e85de752b4b5ca13fcf4f96168d",
+      "size": 71918
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhampton/ZetaCarinaeModules",
+    "commit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:18.962Z"
+  }
+}

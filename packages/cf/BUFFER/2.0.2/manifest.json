@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cf/BUFFER",
+    "plugin": "cf",
+    "model": "BUFFER",
+    "name": "Buffer",
+    "brand": "cf",
+    "version": "2.0.2",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cfoulc/cf",
+    "libraryUrl": "https://library.vcvrack.com/cf/BUFFER",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cf/BUFFER.webp",
+    "wasmUrl": "packages/cf/BUFFER/2.0.2/module.wasm",
+    "width": 120,
+    "description": "dirty delay buffer/filter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pseudofilter mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19,
+          "y": 35,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 83.4,
+          "y": 284,
+          "widget": "cfTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 50.4,
+          "y": 284,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 321
+        }
+      },
+      {
+        "id": 1,
+        "name": "Signal feedback",
+        "kind": "audio",
+        "position": {
+          "x": 47,
+          "y": 321
+        }
+      },
+      {
+        "id": 2,
+        "name": "Length control",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 321
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 80,
+          "y": 31
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 23.4,
+          "y": 39.4
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "modestate",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cf/BUFFER/2.0.2/manifest.json",
+    "sourceCommit": "f037bcab20d92f4734437a1aad877499e7d1fe46",
+    "artifact": {
+      "sha256": "869a1426785efb0715f615e0f55d79cb6ad8eeb8c0aea516dd7ce10502195dad",
+      "size": 69206
+    }
+  },
+  "source": {
+    "url": "https://github.com/cfoulc/cf",
+    "commit": "f037bcab20d92f4734437a1aad877499e7d1fe46"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:58:59.397Z"
+  }
+}

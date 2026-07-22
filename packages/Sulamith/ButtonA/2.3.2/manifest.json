@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sulamith/ButtonA",
+    "plugin": "Sulamith",
+    "model": "ButtonA",
+    "name": "Button - Trigger/CV Utility",
+    "brand": "Sulamith",
+    "version": "2.3.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/JohannAsbjoernson/Sulamith",
+    "libraryUrl": "https://library.vcvrack.com/Sulamith/ButtonA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/ButtonA.webp",
+    "wasmUrl": "packages/Sulamith/ButtonA/2.3.2/module.wasm",
+    "width": 40,
+    "description": "Multi-tool with probability, scaled random cv gen, a<>b switch, constant voltage, 0.2s-10s gate & trig out + text label. Slew&retrig menu options.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 38.386,
+          "centered": true,
+          "widget": "WhiteButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "A: Constant-Voltage/RND-CV Range",
+        "min": 1,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 14.764,
+          "y": 278.445,
+          "centered": true,
+          "widget": "TrimpotSB"
+        }
+      },
+      {
+        "id": 2,
+        "name": "B: Constant-Voltage/RND-CV Range",
+        "min": 1,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 29.528,
+          "y": 288.484,
+          "centered": true,
+          "widget": "TrimpotSY"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 23.622,
+          "y": 134.35,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Set Gate Length (0 = Input)",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.146,
+          "y": 226.772,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.146,
+          "y": 336.614,
+          "centered": true,
+          "widget": "BTSwitch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Auto-Name",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 10.335,
+          "y": 372.047,
+          "centered": true,
+          "widget": "SGB"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger/Gate/Clock",
+        "kind": "gate",
+        "position": {
+          "x": 23.622,
+          "y": 73.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger/Gate/Clock",
+        "kind": "gate",
+        "position": {
+          "x": 23.622,
+          "y": 103.346,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.146,
+          "y": 166.535,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.146,
+          "y": 201.969,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 19.488,
+          "y": 258.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 24.803,
+          "y": 308.268,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 38.386,
+          "y": 178.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 38.386,
+          "y": 213.78,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 35.728,
+          "y": 270.472,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 38.386,
+          "y": 320.079,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "STARTUP",
+        "type": "boolean"
+      },
+      {
+        "key": "RTRIG",
+        "type": "boolean"
+      },
+      {
+        "key": "BOOLSLEW",
+        "type": "boolean"
+      },
+      {
+        "key": "CEVESLEW",
+        "type": "boolean"
+      },
+      {
+        "key": "RNDDIST",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sulamith/ButtonA/2.3.2/manifest.json",
+    "sourceCommit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d",
+    "artifact": {
+      "sha256": "89c0218933b3e84955aba9590076402146a8443cfbeb279dc8f00b1d2f7ed98d",
+      "size": 81924
+    }
+  },
+  "source": {
+    "url": "https://github.com/JohannAsbjoernson/Sulamith",
+    "commit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:44:44.822Z"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cvly/ntrvlx",
+    "plugin": "cvly",
+    "model": "ntrvlx",
+    "name": "ntrvlx",
+    "brand": "cvly",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lyqst/cvly-modules",
+    "libraryUrl": "https://library.vcvrack.com/cvly/ntrvlx",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cvly/ntrvlx.webp",
+    "wasmUrl": "packages/cvly/ntrvlx/2.0.1/module.wasm",
+    "width": 75,
+    "description": "ntrvlc expander with output triggers and stacking configuration",
+    "params": [
+      {
+        "id": 0,
+        "name": "Stacking weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 44,
+          "y": 32,
+          "centered": true,
+          "widget": "CustomKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Snap stacking",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 44,
+          "y": 74,
+          "centered": true,
+          "widget": "MediumSwitchButton"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Seq 1 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 44,
+          "y": 123,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Seq 2 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 44,
+          "y": 183,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Seq 3 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 44,
+          "y": 243,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Seq 4 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 44,
+          "y": 303,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 11,
+          "y": 311,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "poly out",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "cvly/Ntrvlc",
+            "symbol": "modelNtrvlc",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cvly/ntrvlx/2.0.1/manifest.json",
+    "sourceCommit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa",
+    "artifact": {
+      "sha256": "149c9da4f81762846b8308bdd40c133dc92efb892cf2e4158b8a3ea55ab2b26c",
+      "size": 69457
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lyqst/cvly-modules",
+    "commit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:59:41.848Z"
+  }
+}

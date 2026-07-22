@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sulamith/Compare",
+    "plugin": "Sulamith",
+    "model": "Compare",
+    "name": "Poly Comparator",
+    "brand": "Sulamith",
+    "version": "2.3.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/JohannAsbjoernson/Sulamith",
+    "libraryUrl": "https://library.vcvrack.com/Sulamith/Compare",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/Compare.webp",
+    "wasmUrl": "packages/Sulamith/Compare/2.3.2/module.wasm",
+    "width": 180,
+    "description": "Compares all channels from a polyphonic input with set threshold. Outputs Poly a<>b Gates and CV/Audio.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 23,
+          "y": 33.6,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attenuate Threshold CV in",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 13.5,
+          "y": 82.8,
+          "centered": true,
+          "widget": "TrimpotSG"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Threshold CV",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 62.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Polyphonic Signal",
+        "kind": "audio",
+        "position": {
+          "x": 23,
+          "y": 122.4,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate (over Threshold)",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 153.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate (below Threshold)",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 187.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "input Signal (over Threshold)",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 235.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "input Signal (below Threshold)",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 266.4,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 36,
+          "y": 165.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 36,
+          "y": 199.2,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sulamith/Compare/2.3.2/manifest.json",
+    "sourceCommit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d",
+    "artifact": {
+      "sha256": "70e471fd9842162c716cf295d8dbddb26e00d8e224e09b5bbbd7e5afc6bfdf9c",
+      "size": 67947
+    }
+  },
+  "source": {
+    "url": "https://github.com/JohannAsbjoernson/Sulamith",
+    "commit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:44:49.567Z"
+  }
+}

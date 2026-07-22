@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "VectorModular/SoloMixer",
+    "plugin": "VectorModular",
+    "model": "SoloMixer",
+    "name": "soloMixer",
+    "brand": "Vector Modular",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/vectormodular/VectorModular",
+    "libraryUrl": "https://library.vcvrack.com/VectorModular/SoloMixer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/VectorModular/SoloMixer.webp",
+    "wasmUrl": "packages/VectorModular/SoloMixer/2.0.0/module.wasm",
+    "width": 120,
+    "description": "Color-coded 3-channel mixer with solo performance control, cascading outputs, and CV offset.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Solo Red",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 13.792,
+          "y": 62.445,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch. R Level",
+        "min": 0,
+        "max": 1.2247449159622192,
+        "default": 0,
+        "position": {
+          "x": 53.646,
+          "y": 62.445,
+          "centered": true,
+          "widget": "Rogan2PSRed"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Solo Green",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 13.792,
+          "y": 119.528,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ch. G Level",
+        "min": 0,
+        "max": 1.2247449159622192,
+        "default": 0,
+        "position": {
+          "x": 52.955,
+          "y": 119.528,
+          "centered": true,
+          "widget": "Rogan2PSGreen"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Solo Blue",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 13.792,
+          "y": 176.613,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ch. B Level",
+        "min": 0,
+        "max": 1.2247449159622192,
+        "default": 0,
+        "position": {
+          "x": 52.955,
+          "y": 176.613,
+          "centered": true,
+          "widget": "Rogan2PSBlue"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Solo Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 13.792,
+          "y": 238.119,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Final Mix Attenuverter",
+        "min": -1.5,
+        "max": 1.5,
+        "default": 0,
+        "position": {
+          "x": 52.955,
+          "y": 238.119,
+          "centered": true,
+          "widget": "Rogan3PSWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ch. R Input",
+        "kind": "cv",
+        "position": {
+          "x": 34.385,
+          "y": 296.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch. G",
+        "kind": "cv",
+        "position": {
+          "x": 85.618,
+          "y": 296.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch. B",
+        "kind": "cv",
+        "position": {
+          "x": 34.385,
+          "y": 340.423,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ch. R",
+        "kind": "cv",
+        "position": {
+          "x": 98.755,
+          "y": 62.445,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch. G",
+        "kind": "cv",
+        "position": {
+          "x": 98.755,
+          "y": 119.528,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch. B",
+        "kind": "cv",
+        "position": {
+          "x": 98.755,
+          "y": 176.613,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bipolar Final Mix",
+        "kind": "audio",
+        "position": {
+          "x": 98.755,
+          "y": 238.119,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Unipolar Final Mix",
+        "kind": "audio",
+        "position": {
+          "x": 85.618,
+          "y": 340.423,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 24,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 98.756,
+          "y": 86.021,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 98.756,
+          "y": 143.107,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 98.756,
+          "y": 200.189,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 98.756,
+          "y": 261.698,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 13.792,
+          "y": 220.933,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 9.771,
+          "y": 255.309,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 17.817,
+          "y": 255.309,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 13.792,
+          "y": 45.258,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 9.771,
+          "y": 79.631,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 17.817,
+          "y": 79.631,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 13.792,
+          "y": 102.341,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 9.771,
+          "y": 136.717,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 17.817,
+          "y": 136.717,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 13.792,
+          "y": 159.427,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 9.771,
+          "y": 193.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 17.817,
+          "y": 193.8,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "redSoloF",
+        "type": "boolean"
+      },
+      {
+        "key": "greenSoloF",
+        "type": "boolean"
+      },
+      {
+        "key": "blueSoloF",
+        "type": "boolean"
+      },
+      {
+        "key": "redSoloT",
+        "type": "boolean"
+      },
+      {
+        "key": "greenSoloT",
+        "type": "boolean"
+      },
+      {
+        "key": "blueSoloT",
+        "type": "boolean"
+      },
+      {
+        "key": "soloToggle",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/VectorModular/SoloMixer/2.0.0/manifest.json",
+    "sourceCommit": "6cda28cfa33f4740f1e58e485780c4b12bbb076e",
+    "artifact": {
+      "sha256": "09ca1f7d879091de93987bdde2430a5440ed1fae5e3cb16b5067751ff01abede",
+      "size": 83563
+    }
+  },
+  "source": {
+    "url": "https://github.com/vectormodular/VectorModular",
+    "commit": "6cda28cfa33f4740f1e58e485780c4b12bbb076e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:55:23.091Z"
+  }
+}

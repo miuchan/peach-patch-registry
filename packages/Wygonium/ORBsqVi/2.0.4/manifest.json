@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Wygonium/ORBsqVi",
+    "plugin": "Wygonium",
+    "model": "ORBsqVi",
+    "name": "ORBsq Vi",
+    "brand": "Wygonium",
+    "version": "2.0.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gwygonik/ORBsqVi",
+    "libraryUrl": "https://library.vcvrack.com/Wygonium/ORBsqVi",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Wygonium/ORBsqVi.webp",
+    "wasmUrl": "packages/Wygonium/ORBsqVi/2.0.4/module.wasm",
+    "width": 180,
+    "description": "An algorithmic sequencer based on the Wygonium ORBsq Mi.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Filter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 205.937,
+          "y": 210.012,
+          "centered": true,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Number of Steps",
+        "min": 2,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 55.544,
+          "y": 327.475,
+          "centered": true,
+          "widget": "Davies1900hRedKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Base Position",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 34.06,
+          "y": 210.012,
+          "centered": true,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Range",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 77.029,
+          "y": 210.012,
+          "centered": true,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Drift Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 210.012,
+          "centered": true,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Amp",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 162.969,
+          "y": 210.012,
+          "centered": true,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Drift Speed",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 120,
+          "y": 352.692,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Filter Offset (Euclidean Only)",
+        "min": 0,
+        "max": 16,
+        "default": 0,
+        "position": {
+          "x": 205.937,
+          "y": 352.692,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Drift Type",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 120,
+          "y": 309.942,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Voltage Scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 162.969,
+          "y": 309.942,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Filter Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 205.937,
+          "y": 309.942,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Invert Voltage Range",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 162.969,
+          "y": 352.692,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 254.737,
+          "y": 57.351,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 254.737,
+          "y": 104.226,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Base 0-10v CV",
+        "kind": "cv",
+        "position": {
+          "x": 34.06,
+          "y": 265.355,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Range 0-10v CV",
+        "kind": "cv",
+        "position": {
+          "x": 77.029,
+          "y": 265.355,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Drift 0-10v CV",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 265.355,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Amp 0-10v CV",
+        "kind": "cv",
+        "position": {
+          "x": 162.969,
+          "y": 265.355,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Driftspeed",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Filter 0-10v CV",
+        "kind": "cv",
+        "position": {
+          "x": 205.937,
+          "y": 265.355,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Drifttype",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Voltscale",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Filtertype",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main Note CV",
+        "kind": "cv",
+        "position": {
+          "x": 254.737,
+          "y": 155.979,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Main Note Trig",
+        "kind": "gate",
+        "position": {
+          "x": 254.737,
+          "y": 187.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Filtered Note CV",
+        "kind": "cv",
+        "position": {
+          "x": 254.737,
+          "y": 234.103,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Filtered Note Trig",
+        "kind": "gate",
+        "position": {
+          "x": 254.737,
+          "y": 265.355,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Drone Note CV",
+        "kind": "cv",
+        "position": {
+          "x": 254.737,
+          "y": 312.23,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Drone Trig",
+        "kind": "gate",
+        "position": {
+          "x": 254.737,
+          "y": 343.479,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 162.969,
+          "y": 352.692,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Wygonium/ORBsqVi/2.0.4/manifest.json",
+    "sourceCommit": "d9cf8d7f46dfb75e021b2b6b5daf9b86a923dff1",
+    "artifact": {
+      "sha256": "13a88cf7fc282031db8c89eec3d642d9f43913fd8685a82641df3dffa0f83888",
+      "size": 102616
+    }
+  },
+  "source": {
+    "url": "https://github.com/gwygonik/ORBsqVi",
+    "commit": "d9cf8d7f46dfb75e021b2b6b5daf9b86a923dff1"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:56:46.211Z"
+  }
+}

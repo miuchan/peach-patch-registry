@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "acModules/Merc8or",
+    "plugin": "acModules",
+    "model": "Merc8or",
+    "name": "Merc8or",
+    "brand": "artificialcolors",
+    "version": "2.0.7",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gwygonik/acModules",
+    "libraryUrl": "https://library.vcvrack.com/acModules/Merc8or",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/acModules/Merc8or.webp",
+    "wasmUrl": "packages/acModules/Merc8or/2.0.7/module.wasm",
+    "width": 90,
+    "description": "Quickly remap, scale, and/or invert one range of polyphonic CV values to another.",
+    "params": [
+      {
+        "id": 0,
+        "name": "High voltage",
+        "min": -10,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 24.918,
+          "y": 226.822,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Low voltage",
+        "min": -10,
+        "max": 10,
+        "default": -5,
+        "position": {
+          "x": 24.918,
+          "y": 272.135,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "High voltage",
+        "min": -10,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 65.082,
+          "y": 226.822,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Low voltage",
+        "min": -10,
+        "max": 10,
+        "default": -5,
+        "position": {
+          "x": 65.082,
+          "y": 272.135,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 24.918,
+          "y": 322.943,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 65.082,
+          "y": 322.943,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 67.101,
+          "y": 358.14,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 81.413,
+          "y": 226.822,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 81.413,
+          "y": 272.135,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "acModules/MOREc8or",
+            "symbol": "modelMOREc8or",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/acModules/Merc8or/2.0.7/manifest.json",
+    "sourceCommit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf",
+    "artifact": {
+      "sha256": "64f754e5c25e7a234acbce0d1ca8d6e105ed3fa40033d2c883686cacc883726d",
+      "size": 70656
+    }
+  },
+  "source": {
+    "url": "https://github.com/gwygonik/acModules",
+    "commit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:42.215Z"
+  }
+}

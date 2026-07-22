@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZZC/SRC",
+    "plugin": "ZZC",
+    "model": "SRC",
+    "name": "SRC",
+    "brand": "ZZC",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/zezic/ZZC",
+    "libraryUrl": "https://library.vcvrack.com/ZZC/SRC",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZZC/SRC.webp",
+    "wasmUrl": "packages/ZZC/SRC/2.1.2/module.wasm",
+    "width": 45,
+    "description": "Voltage Source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Coarse Tuning",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 9,
+          "y": 105,
+          "widget": "ZZC_SelectKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine Tuning",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 156,
+          "widget": "ZZC_Knob25"
+        }
+      },
+      {
+        "id": 2,
+        "name": "On/Off",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11.3,
+          "y": 276,
+          "widget": "ZZC_LEDBezelDark"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 200
+        }
+      },
+      {
+        "id": 1,
+        "name": "On",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 242
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 25,
+          "y": 42.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LedLight<ZZC_YellowLight>",
+        "position": {
+          "x": 13.35,
+          "y": 277.95
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "on",
+        "type": "boolean"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "quantizeInput",
+        "type": "boolean"
+      },
+      {
+        "key": "onHold",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZZC/SRC/2.1.2/manifest.json",
+    "sourceCommit": "5a9d37487026133e54b1af3004851fb8362a3d52",
+    "artifact": {
+      "sha256": "903a50b8fae4133d7cdd1e98edeeb77efdf495166d73a657f22b91bc967a6433",
+      "size": 69022
+    }
+  },
+  "source": {
+    "url": "https://github.com/zezic/ZZC",
+    "commit": "5a9d37487026133e54b1af3004851fb8362a3d52"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:07.077Z"
+  }
+}

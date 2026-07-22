@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZetaCarinae/Warbler",
+    "plugin": "ZetaCarinae",
+    "model": "Warbler",
+    "name": "WeebleWarbler",
+    "brand": "ZetaCarinae",
+    "version": "2.0.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mhampton/ZetaCarinaeModules",
+    "libraryUrl": "https://library.vcvrack.com/ZetaCarinae/Warbler",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZetaCarinae/Warbler.webp",
+    "wasmUrl": "packages/ZetaCarinae/Warbler/2.0.4/module.wasm",
+    "width": 180,
+    "description": "Oscillator with some mixing capability",
+    "params": [
+      {
+        "id": 0,
+        "name": "Stochasticity",
+        "min": 0,
+        "max": 1,
+        "default": 0.009999999776482582,
+        "position": {
+          "x": 17.717,
+          "y": 56.102,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Variation/detune amount",
+        "min": 0,
+        "max": 2,
+        "default": 0.00009999999747378752,
+        "position": {
+          "x": 17.717,
+          "y": 112.205,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input influence",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 17.717,
+          "y": 168.307,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "(Sub)Harmonics",
+        "min": 0,
+        "max": 20,
+        "default": 10,
+        "position": {
+          "x": 17.717,
+          "y": 224.409,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Attenuator for external random input",
+        "min": 0,
+        "max": 2,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 76.772,
+          "y": 50.197,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Attenuator for external detune input",
+        "min": 0,
+        "max": 2,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 76.772,
+          "y": 106.299,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Attenuator for external gain input",
+        "min": 0,
+        "max": 2,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 76.772,
+          "y": 162.402,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Attenuator for external harmonic input",
+        "min": 0,
+        "max": 2,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 76.772,
+          "y": 218.504,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 50.197,
+          "y": 50.197,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Detune",
+        "kind": "cv",
+        "position": {
+          "x": 50.197,
+          "y": 106.299,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gain",
+        "kind": "cv",
+        "position": {
+          "x": 50.197,
+          "y": 162.402,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Harmn",
+        "kind": "cv",
+        "position": {
+          "x": 50.197,
+          "y": 218.504,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 280.512,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ext",
+        "kind": "cv",
+        "position": {
+          "x": 62.008,
+          "y": 280.512,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 336.614,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 62.008,
+          "y": 336.614,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZetaCarinae/Warbler/2.0.4/manifest.json",
+    "sourceCommit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c",
+    "artifact": {
+      "sha256": "98b67f335ca0ad4ebf04a35efb53d5bbec0661477bd1c3b1d6b6f0090a81c257",
+      "size": 77497
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhampton/ZetaCarinaeModules",
+    "commit": "54dbe9b22fbc956cbc7b00426e3fce3c757c236c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:19.084Z"
+  }
+}

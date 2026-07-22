@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "acModules/Pul5es",
+    "plugin": "acModules",
+    "model": "Pul5es",
+    "name": "Pul5es",
+    "brand": "artificialcolors",
+    "version": "2.0.7",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gwygonik/acModules",
+    "libraryUrl": "https://library.vcvrack.com/acModules/Pul5es",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/acModules/Pul5es.webp",
+    "wasmUrl": "packages/acModules/Pul5es/2.0.7/module.wasm",
+    "width": 60,
+    "description": "Outputs a trigger pulse upon receiving a specified number of incoming pulses.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Out on...",
+        "min": 2,
+        "max": 256,
+        "default": 16,
+        "position": {
+          "x": 16.376,
+          "y": 160.896,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 16.376,
+          "y": 207.496,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 41.406,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 92.288,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Out On... (0-10V)",
+        "kind": "cv",
+        "position": {
+          "x": 41.82,
+          "y": 160.896,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Toggle Loop (Trigger)",
+        "kind": "gate",
+        "position": {
+          "x": 41.82,
+          "y": 207.496,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 263.247,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 16.376,
+          "y": 207.496,
+          "centered": true
+        },
+        "paramId": 1
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/acModules/Pul5es/2.0.7/manifest.json",
+    "sourceCommit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf",
+    "artifact": {
+      "sha256": "b13582cfe3ae192fc5a460bf367d254e53054ae8f3712b56b4262a39b9c94ebd",
+      "size": 70350
+    }
+  },
+  "source": {
+    "url": "https://github.com/gwygonik/acModules",
+    "commit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:43.544Z"
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sulamith/BPMClk",
+    "plugin": "Sulamith",
+    "model": "BPMClk",
+    "name": "BPM Clock",
+    "brand": "Sulamith",
+    "version": "2.3.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/JohannAsbjoernson/Sulamith",
+    "libraryUrl": "https://library.vcvrack.com/Sulamith/BPMClk",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/BPMClk.webp",
+    "wasmUrl": "packages/Sulamith/BPMClk/2.3.2/module.wasm",
+    "width": 45,
+    "description": "/48 to x48, Sync, 4 Clock outs in 3HP.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 35,
+          "y": 10.8,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tempo",
+        "min": -2,
+        "max": 2.3219499588012695,
+        "default": 1,
+        "position": {
+          "x": 23,
+          "y": 139.2,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Div/Mult",
+        "min": 0,
+        "max": 22,
+        "default": 11,
+        "snap": true,
+        "position": {
+          "x": 23,
+          "y": 204,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Div/Mult",
+        "min": 0,
+        "max": 22,
+        "default": 11,
+        "snap": true,
+        "position": {
+          "x": 23,
+          "y": 259.2,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Div/Mult",
+        "min": 0,
+        "max": 22,
+        "default": 11,
+        "snap": true,
+        "position": {
+          "x": 23,
+          "y": 314.4,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 66.24,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock ON/OFF",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 28.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "External clock",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 100.8,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Master Clock",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 170.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock 1",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 230.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock 2",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 285.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock 3",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 340.8,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 8,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 8,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 8,
+          "y": 295.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 8,
+          "y": 350.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 35,
+          "y": 10.8,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "runs",
+        "type": "integer"
+      },
+      {
+        "key": "extmode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sulamith/BPMClk/2.3.2/manifest.json",
+    "sourceCommit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d",
+    "artifact": {
+      "sha256": "b3fa23869132ed1bb57a7b9b654372d74a5bd04d8b1f71f90033a7a8d103b69b",
+      "size": 76637
+    }
+  },
+  "source": {
+    "url": "https://github.com/JohannAsbjoernson/Sulamith",
+    "commit": "086d8c47ba610052e305c9d0a333c0f0e8abe98d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:44:45.340Z"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cf/METRO",
+    "plugin": "cf",
+    "model": "METRO",
+    "name": "Metro",
+    "brand": "cf",
+    "version": "2.0.2",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cfoulc/cf",
+    "libraryUrl": "https://library.vcvrack.com/cf/METRO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cf/METRO.webp",
+    "wasmUrl": "packages/cf/METRO/2.0.2/module.wasm",
+    "width": 90,
+    "description": "Clock",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 0,
+        "max": 301,
+        "default": 120.0999984741211,
+        "position": {
+          "x": 27,
+          "y": 107,
+          "widget": "cfBigKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 38,
+          "y": 197,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Beat",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 38,
+          "y": 227,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Start/stop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 38,
+          "y": 167,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Start/stop trigger",
+        "kind": "gate",
+        "position": {
+          "x": 11,
+          "y": 171
+        }
+      },
+      {
+        "id": 1,
+        "name": "BPM control",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 141
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "12 ppn",
+        "kind": "cv",
+        "position": {
+          "x": 54,
+          "y": 321
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mes",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Audio ticks per note",
+        "kind": "audio",
+        "position": {
+          "x": 54,
+          "y": 265
+        }
+      },
+      {
+        "id": 3,
+        "name": "Start/reset",
+        "kind": "gate",
+        "position": {
+          "x": 11,
+          "y": 321
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 42.4,
+          "y": 171.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 42.4,
+          "y": 201.4
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 42.4,
+          "y": 231.4
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "onstate",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cf/METRO/2.0.2/manifest.json",
+    "sourceCommit": "f037bcab20d92f4734437a1aad877499e7d1fe46",
+    "artifact": {
+      "sha256": "a349585e15597dcbd9b81d02ba1887ce4239ad7f1ab1bde03cb1fff377f6ade6",
+      "size": 69848
+    }
+  },
+  "source": {
+    "url": "https://github.com/cfoulc/cf",
+    "commit": "f037bcab20d92f4734437a1aad877499e7d1fe46"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:58:42.111Z"
+  }
+}

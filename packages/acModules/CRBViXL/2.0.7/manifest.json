@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "acModules/CRBViXL",
+    "plugin": "acModules",
+    "model": "CRBViXL",
+    "name": "C|RB Vi XL",
+    "brand": "artificialcolors",
+    "version": "2.0.7",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gwygonik/acModules",
+    "libraryUrl": "https://library.vcvrack.com/acModules/CRBViXL",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/acModules/CRBViXL.webp",
+    "wasmUrl": "packages/acModules/CRBViXL/2.0.7/module.wasm",
+    "width": 180,
+    "description": "eXtra-Large Two-Dimensional performance instrument with on-screen note guides, selectable octave range, optional note snapping, Y-axis curve shapes, with modulation input. Can also function as a playable VCA.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Base Octave",
+        "min": -5,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 59.096,
+          "y": 321.112,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Octaves",
+        "min": 1,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 145.86,
+          "y": 321.112,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input Curve",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 302.158,
+          "y": 321.112,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Snap To Notes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 223.919,
+          "y": 321.112,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Modulation To Note (X)",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 466.438,
+          "y": 321.112,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Modulation To Volume (Y)",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 575.814,
+          "y": 321.112,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Use Input Curve",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 513.313,
+          "y": 321.112,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Use Input Curve",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 622.689,
+          "y": 321.112,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Apply To VCA",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 669.564,
+          "y": 321.112,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Modulation Voltage Range",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 399.068,
+          "y": 347.052,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "External [POLY]",
+        "kind": "cv",
+        "position": {
+          "x": 778.042,
+          "y": 350.705,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 399.068,
+          "y": 310.078,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Note (X)",
+        "kind": "cv",
+        "position": {
+          "x": 778.042,
+          "y": 310.078,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Volume (Y)",
+        "kind": "cv",
+        "position": {
+          "x": 821.793,
+          "y": 310.078,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 863.979,
+          "y": 310.078,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "VCA [POLY]",
+        "kind": "cv",
+        "position": {
+          "x": 821.793,
+          "y": 350.705,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Raw [POLY]",
+        "kind": "cv",
+        "position": {
+          "x": 863.979,
+          "y": 350.705,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 223.919,
+          "y": 321.112,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 513.313,
+          "y": 321.112,
+          "centered": true
+        },
+        "paramId": 6
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 622.689,
+          "y": 321.112,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 669.564,
+          "y": 321.112,
+          "centered": true
+        },
+        "paramId": 8
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/acModules/CRBViXL/2.0.7/manifest.json",
+    "sourceCommit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf",
+    "artifact": {
+      "sha256": "2dbc943c943f911917a809aa284a41bb18b56b0a75a1b5c45951e01f35ab6e4d",
+      "size": 83301
+    }
+  },
+  "source": {
+    "url": "https://github.com/gwygonik/acModules",
+    "commit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:45.702Z"
+  }
+}

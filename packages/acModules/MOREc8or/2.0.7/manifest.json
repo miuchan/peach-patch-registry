@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "acModules/MOREc8or",
+    "plugin": "acModules",
+    "model": "MOREc8or",
+    "name": "MOREc8or",
+    "brand": "artificialcolors",
+    "version": "2.0.7",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gwygonik/acModules",
+    "libraryUrl": "https://library.vcvrack.com/acModules/MOREc8or",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/acModules/MOREc8or.webp",
+    "wasmUrl": "packages/acModules/MOREc8or/2.0.7/module.wasm",
+    "width": 45,
+    "description": "Expands Merc8or's abilities with creative tools and CV control of output range.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Invert Output Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 45.233,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Invert CV Type",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 14.539,
+          "y": 104.737,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Link High and Low",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 167.533,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Invert Switch",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 74.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output Range High CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 226.689,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output Range Low CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 271.763,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output CV",
+        "kind": "cv"
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 36.514,
+          "y": 25.361,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 32.185,
+          "y": 149.536,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 9.906,
+          "y": 358.14,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 167.533,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "acModules/Merc8or",
+            "symbol": "modelMerc8or",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/acModules/MOREc8or/2.0.7/manifest.json",
+    "sourceCommit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf",
+    "artifact": {
+      "sha256": "66173c0144db814ca05f5d9a58c156fe197832dc0ab34ab38e00778d00e9838f",
+      "size": 68854
+    }
+  },
+  "source": {
+    "url": "https://github.com/gwygonik/acModules",
+    "commit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:57:43.857Z"
+  }
+}

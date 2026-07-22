@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cvly/bss",
+    "plugin": "cvly",
+    "model": "bss",
+    "name": "bss",
+    "brand": "cvly",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lyqst/cvly-modules",
+    "libraryUrl": "https://library.vcvrack.com/cvly/bss",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cvly/bss.webp",
+    "wasmUrl": "packages/cvly/bss/2.0.1/module.wasm",
+    "width": 45,
+    "description": "Generates a bass note for the incoming poly input, using one of three modes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 113,
+          "centered": true,
+          "widget": "MediumButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 248,
+          "centered": true,
+          "widget": "CustomSmallSwitchKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Octave",
+        "min": 0,
+        "max": 8,
+        "default": 4,
+        "position": {
+          "x": 22.5,
+          "y": 216,
+          "centered": true,
+          "widget": "CustomSmallSwitchKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 33,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 73,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 298,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 7.5,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 7.5,
+          "y": 141,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 7.5,
+          "y": 152,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "min_polyphony",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cvly/bss/2.0.1/manifest.json",
+    "sourceCommit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa",
+    "artifact": {
+      "sha256": "836b0517cc8e39aac68140c4c878bc060ed80e969730e6b03e0d5fdc7ecad7d3",
+      "size": 69950
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lyqst/cvly-modules",
+    "commit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:59:51.814Z"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cvly/spc",
+    "plugin": "cvly",
+    "model": "spc",
+    "name": "spc",
+    "brand": "cvly",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lyqst/cvly-modules",
+    "libraryUrl": "https://library.vcvrack.com/cvly/spc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cvly/spc.webp",
+    "wasmUrl": "packages/cvly/spc/2.0.1/module.wasm",
+    "width": 45,
+    "description": "Spreads the notes for incoming poly input, with a settable minimum interval distance",
+    "params": [
+      {
+        "id": 0,
+        "name": "Min. interval",
+        "min": 0,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 115,
+          "centered": true,
+          "widget": "CustomSmallSwitchKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Octave",
+        "min": 0,
+        "max": 8,
+        "default": 4,
+        "position": {
+          "x": 22.5,
+          "y": 216,
+          "centered": true,
+          "widget": "CustomSmallSwitchKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 248,
+          "centered": true,
+          "widget": "CustomSmallSwitchKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 38,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 73,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 298,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "sort",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cvly/spc/2.0.1/manifest.json",
+    "sourceCommit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa",
+    "artifact": {
+      "sha256": "696f156eb50ea14b1415b34ed9b8617274b112694f5141807c0e8d423e149cd9",
+      "size": 72185
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lyqst/cvly-modules",
+    "commit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:59:43.937Z"
+  }
+}

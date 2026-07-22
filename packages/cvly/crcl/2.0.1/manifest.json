@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cvly/crcl",
+    "plugin": "cvly",
+    "model": "crcl",
+    "name": "crcl",
+    "brand": "cvly",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lyqst/cvly-modules",
+    "libraryUrl": "https://library.vcvrack.com/cvly/crcl",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cvly/crcl.webp",
+    "wasmUrl": "packages/cvly/crcl/2.0.1/module.wasm",
+    "width": 300,
+    "description": "Quantizer/sequencer based on the circle of fifths",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 150,
+          "y": 37,
+          "centered": true,
+          "widget": "MediumButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Root",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Perfect Fifth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Mayor Second",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Mayor Sixth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Mayor Third",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Mayor Seventh",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Tritone",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Minor Second",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Minor Sixth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Minor Third",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Minor Seventh",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Perfect Fourth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 28,
+          "y": 38,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 28,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 28,
+          "y": 142,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Root",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 213,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 267,
+          "y": 38,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 267,
+          "y": 90,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 15,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 130,
+          "y": 57,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 130,
+          "y": 68,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<CustomGreenLight>",
+        "position": {
+          "x": 130,
+          "y": 79,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cvly/crcl/2.0.1/manifest.json",
+    "sourceCommit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa",
+    "artifact": {
+      "sha256": "222395fd3fc555cf62f00ad48550e7a0b277280b4a8525e00d75731fcca8b786",
+      "size": 75361
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lyqst/cvly-modules",
+    "commit": "6be025ebb57c0211a475d22ca06b7fa5ff4982fa"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:59:42.033Z"
+  }
+}
