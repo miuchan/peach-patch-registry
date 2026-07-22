@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "az/LoFiTV",
+    "plugin": "az",
+    "model": "LoFiTV",
+    "name": "LoFiTV",
+    "brand": "az",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/azrrik/az-vcv",
+    "libraryUrl": "https://library.vcvrack.com/az/LoFiTV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/az/LoFiTV.webp",
+    "wasmUrl": "packages/az/LoFiTV/2.0.1/module.wasm",
+    "width": 480,
+    "description": "slime mold simulation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Total Agents",
+        "min": 0,
+        "max": 5000,
+        "default": 1000,
+        "position": {
+          "x": 430,
+          "y": 141,
+          "centered": true,
+          "widget": "RoundSmallWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sensor Angle",
+        "min": 0,
+        "max": 1,
+        "default": 0.24770000576972961,
+        "position": {
+          "x": 430,
+          "y": 303,
+          "centered": true,
+          "widget": "RoundSmallWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sensor Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0.13369999825954437,
+        "position": {
+          "x": 430,
+          "y": 332.5,
+          "centered": true,
+          "widget": "RoundSmallWhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Red Weight",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 403,
+          "y": 209,
+          "centered": true,
+          "widget": "RoundSmallRedKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Blue Weight",
+        "min": 0,
+        "max": 1,
+        "default": 0.6700000166893005,
+        "position": {
+          "x": 430,
+          "y": 209,
+          "centered": true,
+          "widget": "RoundSmallBlueKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Green Weight",
+        "min": 0,
+        "max": 1,
+        "default": 0.8999999761581421,
+        "position": {
+          "x": 457,
+          "y": 209,
+          "centered": true,
+          "widget": "RoundSmallGreenKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Diffusion Factor",
+        "min": 0,
+        "max": 1,
+        "default": 0.5730000138282776,
+        "position": {
+          "x": 430,
+          "y": 244,
+          "centered": true,
+          "widget": "RoundSmallWhiteKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Retainment Factor",
+        "min": 0,
+        "max": 1,
+        "default": 0.5230000019073486,
+        "position": {
+          "x": 430,
+          "y": 273.5,
+          "centered": true,
+          "widget": "RoundSmallWhiteKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Jitter Force",
+        "min": 0,
+        "max": 25,
+        "default": 13.699999809265137,
+        "position": {
+          "x": 421,
+          "y": 73,
+          "centered": true,
+          "widget": "RoundSmallWhiteKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 110,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 450,
+          "y": 21,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 457,
+          "y": 110,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Jitter",
+        "kind": "cv",
+        "position": {
+          "x": 410,
+          "y": 21,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Force CV",
+        "kind": "cv",
+        "position": {
+          "x": 451,
+          "y": 73,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Red CV",
+        "kind": "cv",
+        "position": {
+          "x": 403,
+          "y": 181,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Blue CV",
+        "kind": "cv",
+        "position": {
+          "x": 430,
+          "y": 181,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Green CV",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 181,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Total Agents CV",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 141,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Diffusion Factor CV",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 244,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Retainment Factor CV",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 273.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Sensor Angle CV",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 303,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Sensor Offset CV",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 332.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mod 3",
+        "kind": "cv",
+        "position": {
+          "x": 403,
+          "y": 365,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mod 5",
+        "kind": "cv",
+        "position": {
+          "x": 430,
+          "y": 365,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mod 7",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 365,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<GreenLight>",
+        "position": {
+          "x": 430,
+          "y": 110,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/az/LoFiTV/2.0.1/manifest.json",
+    "sourceCommit": "a0509693b1cfd814f9cbde43a0809539685ad839",
+    "artifact": {
+      "sha256": "64b93300adc07f8840b38ce87299531a3a8b19169f8099f028e555434135b964",
+      "size": 85091
+    }
+  },
+  "source": {
+    "url": "https://github.com/azrrik/az-vcv",
+    "commit": "a0509693b1cfd814f9cbde43a0809539685ad839"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:24:05.401Z"
+  }
+}

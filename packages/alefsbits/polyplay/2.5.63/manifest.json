@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "alefsbits/polyplay",
+    "plugin": "alefsbits",
+    "model": "polyplay",
+    "name": "polyplay",
+    "brand": "alef's bits",
+    "version": "2.5.63",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/alefsbits",
+    "libraryUrl": "https://library.vcvrack.com/alefsbits/polyplay",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/alefsbits/polyplay.webp",
+    "wasmUrl": "packages/alefsbits/polyplay/2.5.63/module.wasm",
+    "width": 60,
+    "description": "load and play a sample polyphonically",
+    "params": [
+      {
+        "id": 0,
+        "name": "channels",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 97.5,
+          "centered": true,
+          "widget": "BitKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 30,
+          "y": 97.5,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "trigger",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 97.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "left/mono",
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 97.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "right",
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 97.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "phase",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 97.5,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "a",
+        "type": "real"
+      },
+      {
+        "key": "b",
+        "type": "real"
+      },
+      {
+        "key": "file_loaded",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/alefsbits/polyplay/2.5.63/manifest.json",
+    "sourceCommit": "f6192a74f867be4338da7accde238b32c577ab3d",
+    "artifact": {
+      "sha256": "bf94b1c0e47f68402dca8ec2094bbd5dbeae661514094dd91d6c913a68c81149",
+      "size": 200792
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/alefsbits",
+    "commit": "f6192a74f867be4338da7accde238b32c577ab3d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:22:13.829Z"
+  }
+}

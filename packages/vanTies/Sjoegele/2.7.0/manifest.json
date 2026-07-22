@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "vanTies/Sjoegele",
+    "plugin": "vanTies",
+    "model": "Sjoegele",
+    "name": "Sjoegele",
+    "brand": "",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/matthiassars/vanTies",
+    "libraryUrl": "https://library.vcvrack.com/vanTies/Sjoegele",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/vanTies/Sjoegele.webp",
+    "wasmUrl": "packages/vanTies/Sjoegele/2.7.0/module.wasm",
+    "width": 120,
+    "description": "double pendulum simulator",
+    "params": [
+      {
+        "id": 0,
+        "name": "length",
+        "min": -6,
+        "max": 0,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "gravity",
+        "min": -6,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "friction",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "length",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "gravity",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "friction",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "start",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "x₁",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "y₁",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "x₂",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "y₂",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "θ₁ = 0",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "θ₂ = 0",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "x2y2Relative",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/vanTies/Sjoegele/2.7.0/manifest.json",
+    "sourceCommit": "a20ff3bb4960f7c2e78e1a8eacdcf58cd4400f79",
+    "artifact": {
+      "sha256": "ed40f0679ab254769509feb2b13629c2728778f10a52f86311a4c7d2e37c971e",
+      "size": 82508
+    }
+  },
+  "source": {
+    "url": "https://github.com/matthiassars/vanTies",
+    "commit": "a20ff3bb4960f7c2e78e1a8eacdcf58cd4400f79"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T23:27:10.378Z"
+  }
+}
