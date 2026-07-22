@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackSequencer/PwmClock",
+    "plugin": "dbRackSequencer",
+    "model": "PwmClock",
+    "name": "PwmClock",
+    "brand": "docB",
+    "version": "2.6.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackSequencer",
+    "libraryUrl": "https://library.vcvrack.com/dbRackSequencer/PwmClock",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackSequencer/PwmClock.webp",
+    "wasmUrl": "packages/dbRackSequencer/PwmClock/2.6.3/module.wasm",
+    "width": 180,
+    "description": "Clock generator with nine configurable clocks with adjustable pwm",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 30,
+        "max": 240,
+        "default": 120
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 23,
+        "default": 15,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 23,
+        "default": 15,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 0,
+        "max": 23,
+        "default": 15,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "BPM (V/Oct)",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Pwm",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Clk",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "BPM (V/Oct)",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "accurate",
+        "type": "boolean"
+      },
+      {
+        "key": "showTime",
+        "type": "boolean"
+      },
+      {
+        "key": "showAlternativeLabels",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackSequencer/PwmClock/2.6.3/manifest.json",
+    "sourceCommit": "a2eb63edb6011a549871f8502e27d811a0ae92f5",
+    "artifact": {
+      "sha256": "8b373dca1709dbdd41809ba261e98c6545352ca7b2f1b526b26772865ae4419f",
+      "size": 82674
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackSequencer",
+    "commit": "a2eb63edb6011a549871f8502e27d811a0ae92f5"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:12:55.051Z"
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/ShiftRegister16",
+    "plugin": "CountModula",
+    "model": "ShiftRegister16",
+    "name": "16 Step Shift Register",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/ShiftRegister16",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/ShiftRegister16.webp",
+    "wasmUrl": "packages/CountModula/ShiftRegister16/2.5.0/module.wasm",
+    "width": 195,
+    "description": "16 step bi-directional shift register for CV or gates",
+    "params": [
+      {
+        "id": 0,
+        "name": "Loop enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Chance loop changes",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Shift",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Loop enable",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Direction",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Loop mode",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Chance",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "5",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "6",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "7",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "8",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "9",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "10",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "11",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "12",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "13",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "14",
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "15",
+        "kind": "cv"
+      },
+      {
+        "id": 15,
+        "name": "16",
+        "kind": "cv"
+      },
+      {
+        "id": 16,
+        "name": "Sampled random",
+        "kind": "cv"
+      }
+    ],
+    "lights": 36,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "digitalMode",
+        "type": "boolean"
+      },
+      {
+        "key": "randomRange",
+        "type": "integer"
+      },
+      {
+        "key": "shiftState",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/ShiftRegister16/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "aec7206e6091d4a89f62dd7e4058f7c9f3c591f5185aa2200cff431ecc2d5d39",
+      "size": 88316
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:59:19.975Z"
+  }
+}

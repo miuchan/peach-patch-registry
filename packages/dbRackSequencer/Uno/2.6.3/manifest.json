@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackSequencer/Uno",
+    "plugin": "dbRackSequencer",
+    "model": "Uno",
+    "name": "Uno",
+    "brand": "docB",
+    "version": "2.6.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackSequencer",
+    "libraryUrl": "https://library.vcvrack.com/dbRackSequencer/Uno",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackSequencer/Uno.webp",
+    "wasmUrl": "packages/dbRackSequencer/Uno/2.6.3/module.wasm",
+    "width": 180,
+    "description": "A step sequencer with random skip function",
+    "params": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Probability 1",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Glide 1",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 3,
+        "name": "Reset 1",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 4,
+        "name": "Reset 2",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 5,
+        "name": "Reset 3",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "Reset 4",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Reset 5",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 8,
+        "name": "Reset 6",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Reset 7",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Reset 8",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Rst",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Master Rst",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Poly CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Poly Probability",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Set 1",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Direction",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Set 3",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Set 4",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Set 5",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Set 6",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Set 7",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Set 8",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "GATE",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Step",
+        "kind": "cv"
+      }
+    ],
+    "lights": 8,
+    "stateKeys": [
+      {
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "key": "quantize",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "dbRackSequencer/UnoE",
+            "symbol": "modelUnoE",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackSequencer/Uno/2.6.3/manifest.json",
+    "sourceCommit": "a2eb63edb6011a549871f8502e27d811a0ae92f5",
+    "artifact": {
+      "sha256": "1e41fc9e2139eb79e6f2853b3a2bd8e8118aadb3e4a7353d6740f64f4cb77232",
+      "size": 85099
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackSequencer",
+    "commit": "a2eb63edb6011a549871f8502e27d811a0ae92f5"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:12:57.593Z"
+  }
+}

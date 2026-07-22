@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/Rampage",
+    "plugin": "Befaco",
+    "model": "Rampage",
+    "name": "Rampage",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/Rampage",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/Rampage.webp",
+    "wasmUrl": "packages/Befaco/Rampage/2.11.0/module.wasm",
+    "width": 270,
+    "description": "Dual ramp generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Ch 1 range",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 94,
+          "y": 32,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 2 range",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 147,
+          "y": 32,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch 1 shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 27,
+          "y": 90,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ch 2 shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 217,
+          "y": 90,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ch 1 trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 72,
+          "y": 82,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ch 2 trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 170,
+          "y": 82,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Ch 1 rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 16,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Ch 2 rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 197,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Ch 1 fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 57,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Ch 2 fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 238,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ch 1 cycle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 101,
+          "y": 238,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Ch 2 cycle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 141,
+          "y": 238,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Balance",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 117,
+          "y": 76,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 30
+        }
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 229,
+          "y": 30
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger A",
+        "kind": "gate",
+        "position": {
+          "x": 52,
+          "y": 37
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger B",
+        "kind": "gate",
+        "position": {
+          "x": 192,
+          "y": 37
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rise CV A",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 268
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rise CV B",
+        "kind": "cv",
+        "position": {
+          "x": 176,
+          "y": 268
+        }
+      },
+      {
+        "id": 6,
+        "name": "Fall CV A",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 268
+        }
+      },
+      {
+        "id": 7,
+        "name": "Fall CV B",
+        "kind": "cv",
+        "position": {
+          "x": 237,
+          "y": 268
+        }
+      },
+      {
+        "id": 8,
+        "name": "Exponetial CV A",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 297
+        }
+      },
+      {
+        "id": 9,
+        "name": "Exponetial CV B",
+        "kind": "cv",
+        "position": {
+          "x": 207,
+          "y": 297
+        }
+      },
+      {
+        "id": 10,
+        "name": "Cycle A",
+        "kind": "cv",
+        "position": {
+          "x": 102,
+          "y": 290
+        }
+      },
+      {
+        "id": 11,
+        "name": "Cycle B",
+        "kind": "cv",
+        "position": {
+          "x": 143,
+          "y": 290
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Rising A",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 326
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rising B",
+        "kind": "cv",
+        "position": {
+          "x": 177,
+          "y": 326
+        }
+      },
+      {
+        "id": 2,
+        "name": "Falling A",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 326
+        }
+      },
+      {
+        "id": 3,
+        "name": "Falling B",
+        "kind": "cv",
+        "position": {
+          "x": 237,
+          "y": 326
+        }
+      },
+      {
+        "id": 4,
+        "name": "End of cycle A",
+        "kind": "cv",
+        "position": {
+          "x": 104,
+          "y": 326
+        }
+      },
+      {
+        "id": 5,
+        "name": "End of cycle B",
+        "kind": "cv",
+        "position": {
+          "x": 140,
+          "y": 326
+        }
+      },
+      {
+        "id": 6,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 102,
+          "y": 195
+        }
+      },
+      {
+        "id": 7,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 142,
+          "y": 195
+        }
+      },
+      {
+        "id": 8,
+        "name": "B > A",
+        "kind": "cv",
+        "position": {
+          "x": 122,
+          "y": 133
+        }
+      },
+      {
+        "id": 9,
+        "name": "Minimum of A and B",
+        "kind": "cv",
+        "position": {
+          "x": 89,
+          "y": 157
+        }
+      },
+      {
+        "id": 10,
+        "name": "Maximum of A and B",
+        "kind": "cv",
+        "position": {
+          "x": 155,
+          "y": 157
+        }
+      }
+    ],
+    "lights": 27,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 132,
+          "y": 167
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 123,
+          "y": 174
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 141,
+          "y": 174
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 126,
+          "y": 185
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 138,
+          "y": 185
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 18,
+          "y": 312
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 78,
+          "y": 312
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 187,
+          "y": 312
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 247,
+          "y": 312
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/Rampage/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "ffc49935706a10b15e6f018beec2a17bb7fa7cb688e2a5a88bce4d7592cd80c1",
+      "size": 83444
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:16:13.056Z"
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackSequencer/CCA2",
+    "plugin": "dbRackSequencer",
+    "model": "CCA2",
+    "name": "CCA2",
+    "brand": "docB",
+    "version": "2.6.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackSequencer",
+    "libraryUrl": "https://library.vcvrack.com/dbRackSequencer/CCA2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackSequencer/CCA2.webp",
+    "wasmUrl": "packages/dbRackSequencer/CCA2/2.6.3/module.wasm",
+    "width": 450,
+    "description": "2D Continuous Cellular Automaton Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "X",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 388.287,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 388.287,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Out Scale Factor",
+        "min": 0,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 388.287,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Out Offset Factor",
+        "min": -5,
+        "max": 5,
+        "default": -1,
+        "position": {
+          "x": 388.287,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate Threshold",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 375,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger Random",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 401.575,
+          "y": 47.244,
+          "widget": "MLEDM"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Random Density",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 375,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Next Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 375,
+          "y": 47.244,
+          "widget": "MLEDM"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Generation On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 428.15,
+          "y": 47.244,
+          "widget": "MLED"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 375,
+          "y": 47.244,
+          "widget": "MLEDM"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Function",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 375,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Function Param",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 401.575,
+          "y": 47.244,
+          "widget": "TrimbotWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV X",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV_Y",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 2,
+        "name": "Out scale factor",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 3,
+        "name": "Out voltage offset",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 4,
+        "name": "Next Step",
+        "kind": "cv",
+        "position": {
+          "x": 401.575,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 401.575,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 6,
+        "name": "On",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Random Density",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Random Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 428.15,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 9,
+        "name": "Cf",
+        "kind": "cv",
+        "position": {
+          "x": 428.15,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 10,
+        "name": "Save",
+        "kind": "cv",
+        "position": {
+          "x": 428.15,
+          "y": 47.244
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 428.15,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 401.575,
+          "y": 47.244
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "avgType",
+        "type": "integer"
+      },
+      {
+        "key": "colorMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackSequencer/CCA2/2.6.3/manifest.json",
+    "sourceCommit": "a2eb63edb6011a549871f8502e27d811a0ae92f5",
+    "artifact": {
+      "sha256": "a809fa8469e28fcd4d8f7734a0e08bed87791e2cfded585589cda37e79575b6c",
+      "size": 97218
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackSequencer",
+    "commit": "a2eb63edb6011a549871f8502e27d811a0ae92f5"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:13:02.176Z"
+  }
+}

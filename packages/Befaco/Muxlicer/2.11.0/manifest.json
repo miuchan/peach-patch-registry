@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/Muxlicer",
+    "plugin": "Befaco",
+    "model": "Muxlicer",
+    "name": "Muxlicer",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/Muxlicer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/Muxlicer.webp",
+    "wasmUrl": "packages/Befaco/Muxlicer/2.11.0/module.wasm",
+    "width": 240,
+    "description": "Muxlicer is a VC adressable sequential switch and sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Play switch",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 105.501,
+          "y": 29.551,
+          "widget": "BefacoSwitchMomentary"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Address",
+        "min": -1,
+        "max": 7,
+        "default": -1,
+        "position": {
+          "x": 11.342,
+          "y": 32.193,
+          "widget": "BefacoTinyKnobDarkGrey"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate mode",
+        "min": -1,
+        "max": 8,
+        "default": 1,
+        "position": {
+          "x": 200.293,
+          "y": 32.086,
+          "widget": "BefacoTinyKnobDarkGrey"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Main clock mult/div",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 83.039,
+          "y": 72.701,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gain step 1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 6.872,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gain step 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 36.779,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gain step 3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 66.687,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gain step 4",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 96.594,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gain step 5",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 126.207,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gain step 6",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 156.409,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Gain step 7",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 186.317,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Gain step 8",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 216.224,
+          "y": 120.092,
+          "widget": "BefacoSlidePot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate mode CV",
+        "kind": "gate",
+        "position": {
+          "x": 152.268,
+          "y": 33.076
+        }
+      },
+      {
+        "id": 1,
+        "name": "Address CV",
+        "kind": "cv",
+        "position": {
+          "x": 62.42,
+          "y": 33.181
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 130.644,
+          "y": 73.632
+        }
+      },
+      {
+        "id": 3,
+        "name": "One shot/reset",
+        "kind": "gate",
+        "position": {
+          "x": 37.268,
+          "y": 73.694
+        }
+      },
+      {
+        "id": 4,
+        "name": "COM I/O",
+        "kind": "cv",
+        "position": {
+          "x": 107.227,
+          "y": 289.604
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 1",
+        "kind": "cv",
+        "position": {
+          "x": 2.646,
+          "y": 322.674
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 2",
+        "kind": "cv",
+        "position": {
+          "x": 32.638,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 3",
+        "kind": "cv",
+        "position": {
+          "x": 62.545,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 8,
+        "name": "Step 4",
+        "kind": "cv",
+        "position": {
+          "x": 92.351,
+          "y": 322.652
+        }
+      },
+      {
+        "id": 9,
+        "name": "Step 5",
+        "kind": "cv",
+        "position": {
+          "x": 122.259,
+          "y": 322.652
+        }
+      },
+      {
+        "id": 10,
+        "name": "Step 6",
+        "kind": "cv",
+        "position": {
+          "x": 152.166,
+          "y": 322.652
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step 7",
+        "kind": "cv",
+        "position": {
+          "x": 182.175,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 12,
+        "name": "Step 8",
+        "kind": "cv",
+        "position": {
+          "x": 212.083,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 13,
+        "name": "All",
+        "kind": "cv",
+        "position": {
+          "x": 47.592,
+          "y": 289.639
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 176.72,
+          "y": 73.694
+        }
+      },
+      {
+        "id": 1,
+        "name": "All gates",
+        "kind": "gate",
+        "position": {
+          "x": 167.116,
+          "y": 289.555
+        }
+      },
+      {
+        "id": 2,
+        "name": "End of cycle trigger",
+        "kind": "gate",
+        "position": {
+          "x": 197.027,
+          "y": 289.577
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate step 1",
+        "kind": "gate",
+        "position": {
+          "x": 2.646,
+          "y": 256.257
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate step 2",
+        "kind": "gate",
+        "position": {
+          "x": 32.553,
+          "y": 256.213
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate step 3",
+        "kind": "gate",
+        "position": {
+          "x": 62.444,
+          "y": 256.235
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate step 4",
+        "kind": "gate",
+        "position": {
+          "x": 92.351,
+          "y": 256.235
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate step 5",
+        "kind": "gate",
+        "position": {
+          "x": 122.259,
+          "y": 256.235
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate step 6",
+        "kind": "gate",
+        "position": {
+          "x": 152.268,
+          "y": 256.297
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gate step 7",
+        "kind": "gate",
+        "position": {
+          "x": 182.175,
+          "y": 256.297
+        }
+      },
+      {
+        "id": 10,
+        "name": "Gate step 8",
+        "kind": "gate",
+        "position": {
+          "x": 211.981,
+          "y": 256.235
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step 1",
+        "kind": "cv",
+        "position": {
+          "x": 2.646,
+          "y": 322.674
+        }
+      },
+      {
+        "id": 12,
+        "name": "Step 2",
+        "kind": "cv",
+        "position": {
+          "x": 32.638,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 13,
+        "name": "Step 3",
+        "kind": "cv",
+        "position": {
+          "x": 62.545,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 14,
+        "name": "Step 4",
+        "kind": "cv",
+        "position": {
+          "x": 92.351,
+          "y": 322.652
+        }
+      },
+      {
+        "id": 15,
+        "name": "Step 5",
+        "kind": "cv",
+        "position": {
+          "x": 122.259,
+          "y": 322.652
+        }
+      },
+      {
+        "id": 16,
+        "name": "Step 6",
+        "kind": "cv",
+        "position": {
+          "x": 152.166,
+          "y": 322.652
+        }
+      },
+      {
+        "id": 17,
+        "name": "Step 7",
+        "kind": "cv",
+        "position": {
+          "x": 182.175,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 18,
+        "name": "Step 8",
+        "kind": "cv",
+        "position": {
+          "x": 212.083,
+          "y": 322.714
+        }
+      },
+      {
+        "id": 19,
+        "name": "COM I/O",
+        "kind": "cv",
+        "position": {
+          "x": 107.227,
+          "y": 289.604
+        }
+      },
+      {
+        "id": 20,
+        "name": "All",
+        "kind": "cv",
+        "position": {
+          "x": 47.592,
+          "y": 289.639
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 210.483,
+          "y": 82.755
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 11.791,
+          "y": 241.736
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 41.609,
+          "y": 241.736
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 71.531,
+          "y": 241.736
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 101.454,
+          "y": 241.736
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 131.376,
+          "y": 241.736
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 161.299,
+          "y": 241.736
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 191.221,
+          "y": 241.736
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 221.144,
+          "y": 241.736
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "modeCOMIO",
+        "type": "integer"
+      },
+      {
+        "key": "quadraticGatesOnly",
+        "type": "boolean"
+      },
+      {
+        "key": "allInNormalVoltage",
+        "type": "integer"
+      },
+      {
+        "key": "mainClockMultDiv",
+        "type": "integer"
+      },
+      {
+        "key": "outputClockMultDiv",
+        "type": "integer"
+      },
+      {
+        "key": "playState",
+        "type": "integer"
+      },
+      {
+        "key": "outputClockFollowsPlayMode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/Muxlicer/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "91ed39cddb0e91dcf503bb677d509405c3728f88d516d52451d5c61c2df9d6d3",
+      "size": 83658
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:17:11.374Z"
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/ShiftRegister32",
+    "plugin": "CountModula",
+    "model": "ShiftRegister32",
+    "name": "32 Step Shift Register",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/ShiftRegister32",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/ShiftRegister32.webp",
+    "wasmUrl": "packages/CountModula/ShiftRegister32/2.5.0/module.wasm",
+    "width": 285,
+    "description": "32 step bi-directional shift register for CV or gates",
+    "params": [
+      {
+        "id": 0,
+        "name": "Loop enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Chance loop changes",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Shift",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Loop enable",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Direction",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Loop mode",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Chance",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "5",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "6",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "7",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "8",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "9",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "10",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "11",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "12",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "13",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "14",
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "15",
+        "kind": "cv"
+      },
+      {
+        "id": 15,
+        "name": "16",
+        "kind": "cv"
+      },
+      {
+        "id": 16,
+        "name": "17",
+        "kind": "cv"
+      },
+      {
+        "id": 17,
+        "name": "18",
+        "kind": "cv"
+      },
+      {
+        "id": 18,
+        "name": "19",
+        "kind": "cv"
+      },
+      {
+        "id": 19,
+        "name": "20",
+        "kind": "cv"
+      },
+      {
+        "id": 20,
+        "name": "21",
+        "kind": "cv"
+      },
+      {
+        "id": 21,
+        "name": "22",
+        "kind": "cv"
+      },
+      {
+        "id": 22,
+        "name": "23",
+        "kind": "cv"
+      },
+      {
+        "id": 23,
+        "name": "24",
+        "kind": "cv"
+      },
+      {
+        "id": 24,
+        "name": "25",
+        "kind": "cv"
+      },
+      {
+        "id": 25,
+        "name": "26",
+        "kind": "cv"
+      },
+      {
+        "id": 26,
+        "name": "27",
+        "kind": "cv"
+      },
+      {
+        "id": 27,
+        "name": "28",
+        "kind": "cv"
+      },
+      {
+        "id": 28,
+        "name": "29",
+        "kind": "cv"
+      },
+      {
+        "id": 29,
+        "name": "30",
+        "kind": "cv"
+      },
+      {
+        "id": 30,
+        "name": "31",
+        "kind": "cv"
+      },
+      {
+        "id": 31,
+        "name": "32",
+        "kind": "cv"
+      },
+      {
+        "id": 32,
+        "name": "Sampled random",
+        "kind": "cv"
+      }
+    ],
+    "lights": 68,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "key": "digitalMode",
+        "type": "boolean"
+      },
+      {
+        "key": "randomRange",
+        "type": "integer"
+      },
+      {
+        "key": "shiftState",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 16,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 17,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 18,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 19,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 20,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 21,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 22,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 23,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 24,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 25,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 26,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 27,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 28,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 29,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 30,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "index": 31,
+        "key": "outputValues",
+        "type": "real"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/ShiftRegister32/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "606e4a375d71d87941a07c34fc27f0131d4c5e9f43d877ae91a8d02657a1f287",
+      "size": 90886
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:59:20.204Z"
+  }
+}
