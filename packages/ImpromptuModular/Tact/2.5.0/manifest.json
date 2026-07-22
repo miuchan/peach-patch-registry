@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Tact",
+    "plugin": "ImpromptuModular",
+    "model": "Tact",
+    "name": "Tact",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Tact",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Tact.webp",
+    "wasmUrl": "packages/ImpromptuModular/Tact/2.5.0/module.wasm",
+    "width": 255,
+    "description": "Dual-channel tactile-inspired controller",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tact pad (left)",
+        "min": 0,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Tact pad (right)",
+        "min": 0,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Attenuverter (left)",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Attenuverter (right)",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Rate (left)",
+        "min": 0,
+        "max": 4,
+        "default": 0.20000000298023224
+      },
+      {
+        "id": 5,
+        "name": "Rate (right)",
+        "min": 0,
+        "max": 4,
+        "default": 0.20000000298023224
+      },
+      {
+        "id": 6,
+        "name": "Link both channels",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Slide when recall (left)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Slide when recall (right)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Store (left)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Store (right)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "Exponential",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "TOP_INPUTS + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "TOP_INPUTS + 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "BOT_INPUTS + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "BOT_INPUTS + 1",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "RECALL_INPUTS + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "RECALL_INPUTS + 1",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV_OUTPUTS + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV_OUTPUTS + 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "EOC_OUTPUTS + 0",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "EOC_OUTPUTS + 1",
+        "kind": "cv"
+      }
+    ],
+    "lights": 44,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 60.827,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 77.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 94.843,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 111.85,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 128.858,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 145.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 162.874,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 179.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 196.89,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 213.898,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "cv0",
+        "type": "real"
+      },
+      {
+        "key": "cv1",
+        "type": "real"
+      },
+      {
+        "key": "storeCV0",
+        "type": "real"
+      },
+      {
+        "key": "storeCV1",
+        "type": "real"
+      },
+      {
+        "key": "rateMultiplier",
+        "type": "real"
+      },
+      {
+        "key": "levelSensitiveTopBot",
+        "type": "boolean"
+      },
+      {
+        "key": "autoReturnLeft",
+        "type": "integer"
+      },
+      {
+        "key": "autoReturnRight",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Tact/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "776dc49cf306b42ea691a38825fc16e61b3dfe764d6575859d2c3ea1bd330bc9",
+      "size": 87566
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:58.579Z"
+  }
+}

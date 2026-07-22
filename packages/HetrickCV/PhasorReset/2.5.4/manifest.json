@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorReset",
+    "plugin": "HetrickCV",
+    "model": "PhasorReset",
+    "name": "Phasor Reset",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorReset",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorReset.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorReset/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Duplicates an incoming phasor, but allows you to reset it independently of the input.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reset Phase",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Reset Phase CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Reset Phase CV",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorReset/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "aaa1fecb0826d9e85bc580a6c9a5acd91933faf2ab216371253f4d0e004d79e3",
+      "size": 71053
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:05.072Z"
+  }
+}

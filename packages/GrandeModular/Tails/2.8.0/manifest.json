@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GrandeModular/Tails",
+    "plugin": "GrandeModular",
+    "model": "Tails",
+    "name": "Tails",
+    "brand": "Grande",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/dbgrande/GrandeModular",
+    "libraryUrl": "https://library.vcvrack.com/GrandeModular/Tails",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GrandeModular/Tails.webp",
+    "wasmUrl": "packages/GrandeModular/Tails/2.8.0/module.wasm",
+    "width": 30,
+    "description": "Mono-to-poly sequential note splitter—helps preserve envelope tails.",
+    "params": [
+      {
+        "id": 0,
+        "name": "VCA gain",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 165.945,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channels out",
+        "min": 1,
+        "max": 5,
+        "default": 2,
+        "position": {
+          "x": 15,
+          "y": 340.453,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "VCA",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 63.78,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "VCA CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 133.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mono pitch",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 217.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mono gate/trigger",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 279.921,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "VCA",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 98.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Poly pitch",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 244.783,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Poly gate/trigger",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 307.972,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "latch_mode",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GrandeModular/Tails/2.8.0/manifest.json",
+    "sourceCommit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d",
+    "artifact": {
+      "sha256": "92c4e259af1ead758545d5da6d021fed561534915b27a783d24e4b3562c685cc",
+      "size": 72861
+    }
+  },
+  "source": {
+    "url": "https://github.com/dbgrande/GrandeModular",
+    "commit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:34:00.296Z"
+  }
+}

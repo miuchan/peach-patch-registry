@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorEuclidean",
+    "plugin": "HetrickCV",
+    "model": "PhasorEuclidean",
+    "name": "Phasor to Euclidean",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorEuclidean",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorEuclidean.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorEuclidean/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Generates a Euclidean rhythm via a 0-5V Phasor input",
+    "params": [
+      {
+        "id": 0,
+        "name": "Beats",
+        "min": 1,
+        "max": 64,
+        "default": 16
+      },
+      {
+        "id": 1,
+        "name": "Beats CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Fill",
+        "min": 0,
+        "max": 64,
+        "default": 4
+      },
+      {
+        "id": 3,
+        "name": "Fill CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Rotate",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Rotate CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Pulse Width",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Pulse Width CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "Fill Parameter Limiting Mode",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Fill Limit Mode CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 10,
+        "name": "Quantize Steps Parameter",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Quantize Fill Parameter",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Quantize Param Changes",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Detection Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Beats CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Fill CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Rotate CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Pulse Width CV",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Fill Mode CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Euclidean Phasors",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Euclidean Gates",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Beats Clock",
+        "kind": "gate"
+      }
+    ],
+    "lights": 9,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorEuclidean/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "51e822a455b9e80f4fd0f1a5e547d3231cadf0034c2f20b17a1365ee08fb48a8",
+      "size": 77966
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:35:38.607Z"
+  }
+}

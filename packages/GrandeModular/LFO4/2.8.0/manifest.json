@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GrandeModular/LFO4",
+    "plugin": "GrandeModular",
+    "model": "LFO4",
+    "name": "LFO4",
+    "brand": "Grande",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/dbgrande/GrandeModular",
+    "libraryUrl": "https://library.vcvrack.com/GrandeModular/LFO4",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GrandeModular/LFO4.webp",
+    "wasmUrl": "packages/GrandeModular/LFO4/2.8.0/module.wasm",
+    "width": 30,
+    "description": "Four ratioed bipolar sine LFOs with common primary frequency input.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -6,
+        "max": 8,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 53.888,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "A scaling ratio",
+        "min": -8,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 120.472,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "B scaling ratio",
+        "min": -8,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 185.433,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "C scaling ratio",
+        "min": -8,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 250.394,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "D scaling ratio",
+        "min": -8,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 315.354,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Negative CV mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19.193,
+          "y": 62.377,
+          "widget": "SmallLEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 79.724,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine A",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 145.571,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sine B",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 210.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sine C",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 275.492,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sine D",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 340.453,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 4,
+        "widget": "SmallLightFlat<BlueLight>",
+        "position": {
+          "x": 23.622,
+          "y": 66.806,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "PetiteStealthLight<RedLight>",
+        "position": {
+          "x": 24.213,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "PetiteStealthLight<RedLight>",
+        "position": {
+          "x": 24.213,
+          "y": 177.165,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "PetiteStealthLight<RedLight>",
+        "position": {
+          "x": 24.213,
+          "y": 242.126,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "PetiteStealthLight<RedLight>",
+        "position": {
+          "x": 24.213,
+          "y": 307.087,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "negative",
+        "type": "boolean"
+      },
+      {
+        "key": "hold",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GrandeModular/LFO4/2.8.0/manifest.json",
+    "sourceCommit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d",
+    "artifact": {
+      "sha256": "93f947c10b143526e1155a7566e877151d69d13a0540a3e4a954dfa76f4f8b7c",
+      "size": 82037
+    }
+  },
+  "source": {
+    "url": "https://github.com/dbgrande/GrandeModular",
+    "commit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:33:46.598Z"
+  }
+}

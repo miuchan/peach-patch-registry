@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Gate-Seq-64-Expander",
+    "plugin": "ImpromptuModular",
+    "model": "Gate-Seq-64-Expander",
+    "name": "GateSeq64 expander",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Gate-Seq-64-Expander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Gate-Seq-64-Expander.webp",
+    "wasmUrl": "packages/ImpromptuModular/Gate-Seq-64-Expander/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Expander for GateSeq64",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Probability",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Write",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Write 1 (on)",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Write 0 (off)",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Step left",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/GateSeq64",
+            "symbol": "modelGateSeq64",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Gate-Seq-64-Expander/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "e41106e190cdbab668283c74bf596fd90a9080ac5a7c1467d7d884bd0abf0b3f",
+      "size": 67347
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:52.741Z"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coffee/Travel",
+    "plugin": "Coffee",
+    "model": "Travel",
+    "name": "Travel",
+    "brand": "Coffee",
+    "version": "2.4.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "libraryUrl": "https://library.vcvrack.com/Coffee/Travel",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coffee/Travel.webp",
+    "wasmUrl": "packages/Coffee/Travel/2.4.1/module.wasm",
+    "width": 60,
+    "description": "On trigger, take two samples and interpolate an output",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25.335,
+          "y": 33.957,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Duration",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 44.528,
+          "y": 103.346,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Duration scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 44.528,
+          "y": 132.874,
+          "centered": true,
+          "widget": "CoffeeSwitch3PosHori"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale",
+        "min": -5,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 250.984,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Offset",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 280.512,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale",
+        "min": -5,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 44.528,
+          "y": 250.984,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Offset",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 44.528,
+          "y": 280.512,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Shape",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 44.528,
+          "y": 177.165,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track or Hold",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 44.528,
+          "y": 44.291,
+          "centered": true,
+          "widget": "CoffeeSwitch2PosHori"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Duration",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 177.165,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV1",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV2",
+        "kind": "cv",
+        "position": {
+          "x": 44.528,
+          "y": 221.457,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 330.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 44.528,
+          "y": 330.709,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "MediumLight<OrangeLight>",
+        "position": {
+          "x": 15,
+          "y": 73.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<OrangeLight>",
+        "position": {
+          "x": 15,
+          "y": 132.874,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coffee/Travel/2.4.1/manifest.json",
+    "sourceCommit": "dfb2174d7f8cd4b035abd1aac2555f941a517854",
+    "artifact": {
+      "sha256": "efeabec1df4612ec076613fa675720cf041f271a3a67e60cfaf543bebce87527",
+      "size": 74289
+    }
+  },
+  "source": {
+    "url": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "commit": "dfb2174d7f8cd4b035abd1aac2555f941a517854"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:02:57.336Z"
+  }
+}

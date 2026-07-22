@@ -1,0 +1,1145 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/SeriouslySlowEG",
+    "plugin": "FrozenWasteland",
+    "model": "SeriouslySlowEG",
+    "name": "Seriously Slow EG",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/SeriouslySlowEG",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/SeriouslySlowEG.webp",
+    "wasmUrl": "packages/FrozenWasteland/SeriouslySlowEG/2.1.2/module.wasm",
+    "width": 375,
+    "description": "Envelope Generator for modulating CV over *very* long time periods",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay Time Base - Seconds",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 183,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Delay Time Base - Minutes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 201,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delay Time Base - Hours",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 219,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Delay Time Base - Days",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 237,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Delay Time Base - Weeks",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 255,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Delay Time Base - Months",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 273,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Delay Time",
+        "min": 0,
+        "max": 100,
+        "default": 1,
+        "position": {
+          "x": 5,
+          "y": 150,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Attack Time Base - Seconds",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97,
+          "y": 183,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Attack Time Base - Minutes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97,
+          "y": 201,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Attack Time Base - Hours",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97,
+          "y": 219,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Attack Time Base - Days",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97,
+          "y": 2537,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Attack Time Base - Weeks",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97,
+          "y": 255,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Attack Time Base - Months",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97,
+          "y": 273,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Attack Time",
+        "min": 0,
+        "max": 100,
+        "default": 1,
+        "position": {
+          "x": 97,
+          "y": 150,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Attack Curve - Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 117,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Attack Curve - Exponential",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 137,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Attack Curve - Logarithmic",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Decay Time Base - Seconds",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 172,
+          "y": 183,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Decay Time Base - Minutes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 172,
+          "y": 201,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Decay Time Base - Hours",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 172,
+          "y": 219,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Decay Time Base - Days",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 172,
+          "y": 237,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Decay Time Base - Weeks",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 172,
+          "y": 255,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Decay Time Base - Months",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 172,
+          "y": 273,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Decay Time",
+        "min": 0,
+        "max": 100,
+        "default": 1,
+        "position": {
+          "x": 172,
+          "y": 150,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Decay Curve - Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Decay Curve - Exponential",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 212,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Decay Curve - Logarithmic",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 172,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Sustain Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 315,
+          "y": 50,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Release Time Base - Seconds",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247,
+          "y": 183,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Release Time Base - Minutes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247,
+          "y": 201,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Release Time Base - Hours",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247,
+          "y": 219,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Release Time Base - Days",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247,
+          "y": 237,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Release Time Base - Weeks",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247,
+          "y": 255,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Release Time Base - Months",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247,
+          "y": 273,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Release Time",
+        "min": 0,
+        "max": 100,
+        "default": 1,
+        "position": {
+          "x": 247,
+          "y": 150,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Release Curve - Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 267,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Release Curve - Exponential",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 287,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Release Curve - Logarithmic",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247,
+          "y": 307,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Hold Time Base - Seconds",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 325,
+          "y": 183,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Hold Time Base - Minutes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 325,
+          "y": 201,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Hold Time Base - Hours",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 325,
+          "y": 219,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Hold Time Base - Days",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 325,
+          "y": 237,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Hold Time Base - Weeks",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 325,
+          "y": 255,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Hold Time Base - Months",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 325,
+          "y": 273,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Hold Time",
+        "min": 0,
+        "max": 100,
+        "default": 1,
+        "position": {
+          "x": 323,
+          "y": 150,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 245,
+          "y": 350,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Gate Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 12,
+          "y": 329.5,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Cycle Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 42,
+          "y": 329.5,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Retrigger Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 72,
+          "y": 329.5,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 265,
+          "y": 350
+        }
+      },
+      {
+        "id": 1,
+        "name": "Delay Time",
+        "kind": "cv",
+        "position": {
+          "x": 37,
+          "y": 154
+        }
+      },
+      {
+        "id": 2,
+        "name": "Attack Time",
+        "kind": "cv",
+        "position": {
+          "x": 129,
+          "y": 154
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay Time",
+        "kind": "cv",
+        "position": {
+          "x": 204,
+          "y": 154
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sustain Level",
+        "kind": "cv",
+        "position": {
+          "x": 348,
+          "y": 54
+        }
+      },
+      {
+        "id": 5,
+        "name": "Release Time",
+        "kind": "cv",
+        "position": {
+          "x": 279,
+          "y": 154
+        }
+      },
+      {
+        "id": 6,
+        "name": "Hold Time",
+        "kind": "gate",
+        "position": {
+          "x": 353,
+          "y": 154
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 350
+        }
+      },
+      {
+        "id": 1,
+        "name": "End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 335,
+          "y": 350
+        }
+      }
+    ],
+    "lights": 39,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 6.5,
+          "y": 184.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 6.5,
+          "y": 202.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 6.5,
+          "y": 220.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 6.5,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 6.5,
+          "y": 256.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 6.5,
+          "y": 274.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 98.5,
+          "y": 184.5
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 98.5,
+          "y": 202.5
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 98.5,
+          "y": 220.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 98.5,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 10,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 98.5,
+          "y": 256.5
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 98.5,
+          "y": 274.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 173.5,
+          "y": 184.5
+        }
+      },
+      {
+        "id": 13,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 173.5,
+          "y": 202.5
+        }
+      },
+      {
+        "id": 14,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 173.5,
+          "y": 220.5
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 173.5,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 16,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 173.5,
+          "y": 256.5
+        }
+      },
+      {
+        "id": 17,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 173.5,
+          "y": 274.5
+        }
+      },
+      {
+        "id": 18,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 248.5,
+          "y": 184.5
+        }
+      },
+      {
+        "id": 19,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 248.5,
+          "y": 202.5
+        }
+      },
+      {
+        "id": 20,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 248.5,
+          "y": 220.5
+        }
+      },
+      {
+        "id": 21,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 248.5,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 22,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 248.5,
+          "y": 256.5
+        }
+      },
+      {
+        "id": 23,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 248.5,
+          "y": 274.5
+        }
+      },
+      {
+        "id": 24,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 326.6,
+          "y": 184.5
+        }
+      },
+      {
+        "id": 25,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 326.6,
+          "y": 202.5
+        }
+      },
+      {
+        "id": 26,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 326.5,
+          "y": 220.5
+        }
+      },
+      {
+        "id": 27,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 326.5,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 28,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 326.5,
+          "y": 256.5
+        }
+      },
+      {
+        "id": 29,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 326.5,
+          "y": 274.5
+        }
+      },
+      {
+        "id": 32,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 98.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 30,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 118.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 31,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 138.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 35,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 173.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 33,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 193.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 34,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 213.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 38,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 248.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 36,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 268.5,
+          "y": 308.5
+        }
+      },
+      {
+        "id": 37,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 288.5,
+          "y": 308.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "delayTimeBase",
+        "type": "integer"
+      },
+      {
+        "key": "attackTimeBase",
+        "type": "integer"
+      },
+      {
+        "key": "decayTimeBase",
+        "type": "integer"
+      },
+      {
+        "key": "releaseTimeBase",
+        "type": "integer"
+      },
+      {
+        "key": "holdTimeBase",
+        "type": "integer"
+      },
+      {
+        "key": "attackCurve",
+        "type": "integer"
+      },
+      {
+        "key": "decayCurve",
+        "type": "integer"
+      },
+      {
+        "key": "releaseCurve",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/SeriouslySlowEG/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "1ccfc39b4817e5b0ee8665596dc8190c0ee737d73de4c05538c19c1dd52dcd20",
+      "size": 86924
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:25.510Z"
+  }
+}

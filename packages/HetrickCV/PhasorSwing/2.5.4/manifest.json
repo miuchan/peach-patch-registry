@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorSwing",
+    "plugin": "HetrickCV",
+    "model": "PhasorSwing",
+    "name": "Phasor Swing",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorSwing",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorSwing.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorSwing/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Bends a phasor input to provide swing timing on the outputs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 64,
+        "default": 4
+      },
+      {
+        "id": 1,
+        "name": "Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Grouping",
+        "min": 1,
+        "max": 64,
+        "default": 2
+      },
+      {
+        "id": 3,
+        "name": "Grouping CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Swing",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Swing CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Variation",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Variation CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "Mode",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Mode CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steps CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Grouping CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Swing CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Variation CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Mode CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Activation Gate",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Swung Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Step Phasors",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Step Gates",
+        "kind": "gate"
+      }
+    ],
+    "lights": 10,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorSwing/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "6dd7f0a119cad3d6a8fdf2958fc961cdab417a1464c0fa58c9e8c9feec8ab27e",
+      "size": 75881
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:12.785Z"
+  }
+}

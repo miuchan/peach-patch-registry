@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/NoteFilter",
+    "plugin": "ImpromptuModular",
+    "model": "NoteFilter",
+    "name": "NoteFilter",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/NoteFilter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/NoteFilter.webp",
+    "wasmUrl": "packages/ImpromptuModular/NoteFilter/2.5.0/module.wasm",
+    "width": 60,
+    "description": "Eliminates polyphony of identical overlapping notes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gate input sample delay",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 147.638,
+          "centered": true,
+          "widget": "IMSmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "CV2/Velocity",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "CV2/Velocity",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 46.831,
+          "y": 38.386,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "currCv",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "currCv2",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "currCv2",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/NoteFilter/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "77223963a92b8c29f4dce3e81e100f1bdcaed17d9fce47804e9036eeae04b793",
+      "size": 85999
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:54.207Z"
+  }
+}

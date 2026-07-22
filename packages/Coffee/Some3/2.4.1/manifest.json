@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coffee/Some3",
+    "plugin": "Coffee",
+    "model": "Some3",
+    "name": "Some3",
+    "brand": "Coffee",
+    "version": "2.4.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "libraryUrl": "https://library.vcvrack.com/Coffee/Some3",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coffee/Some3.webp",
+    "wasmUrl": "packages/Coffee/Some3/2.4.1/module.wasm",
+    "width": 60,
+    "description": "From a polyphonic input, when triggered, mute a number of the inputs, based on a probability",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25.335,
+          "y": 33.957,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Shift Up",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25.335,
+          "y": 129.921,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shift Down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25.335,
+          "y": 129.921,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Selection Start",
+        "min": 0,
+        "max": 16,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 140.256,
+          "centered": true,
+          "widget": "CoffeeKnob8mm"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Selection End",
+        "min": 0,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 15,
+          "y": 250.984,
+          "centered": true,
+          "widget": "CoffeeKnob8mm"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Probabilty",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 15,
+          "y": 44.291,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Seed",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 44.291,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 55.335,
+          "y": 33.957,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Selection voltage scaling",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 15,
+          "y": 140.256,
+          "centered": true,
+          "widget": "CoffeeSwitch3PosHori"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger CV",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Probability CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Selection Start CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Selection End CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 250.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 339.567,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Shift Selection Up",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Shift Selection Down",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 44.291,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV Out 1",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 339.567,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 25.335,
+          "y": 54.626,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 25.335,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 25.335,
+          "y": 261.319,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coffee/Some3/2.4.1/manifest.json",
+    "sourceCommit": "dfb2174d7f8cd4b035abd1aac2555f941a517854",
+    "artifact": {
+      "sha256": "b9cd86172bb2f6b6f74bddd1ae9054fd31d7a617c06344f08b2a9c2b75f5943a",
+      "size": 74099
+    }
+  },
+  "source": {
+    "url": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "commit": "dfb2174d7f8cd4b035abd1aac2555f941a517854"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:03:02.252Z"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/Gingerbread",
+    "plugin": "HetrickCV",
+    "model": "Gingerbread",
+    "name": "Gingerbread Chaos",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/Gingerbread",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/Gingerbread.webp",
+    "wasmUrl": "packages/HetrickCV/Gingerbread/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Self-modulating audio and modulation chaos generator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sample Rate",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Sample Rate CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Feedback FM",
+        "min": -5,
+        "max": 5,
+        "default": -5
+      },
+      {
+        "id": 3,
+        "name": "Feedback FM CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Speed Range",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Enable Slew",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "DC Filtering",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Reseed Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reseed",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Sample Rate CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Feedback FM CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Chaos",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/Gingerbread/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "e636084c9319883860eefe44298f86f4e2e3e8de1f75af381197a5d7be2a68c6",
+      "size": 80000
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:35:26.544Z"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorSubstepShape",
+    "plugin": "HetrickCV",
+    "model": "PhasorSubstepShape",
+    "name": "Phasor Sub-Step Shaper",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorSubstepShape",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorSubstepShape.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorSubstepShape/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Processes individual steps of phasor signals in interesting ways for sequence modification or phase distortion synthesis.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 64,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Phasor Shape",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Phasoe Shape CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Shape Mode",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Shape Mode CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steps CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Phasor Shape CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Mode CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Activation Gate",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Shaped Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Shaped Phasor Steps",
+        "kind": "cv"
+      }
+    ],
+    "lights": 13,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorSubstepShape/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "b8a3b180216cffa858e185cc5e3f467faa1ef017c9542684b9075ce8a1230835",
+      "size": 77311
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:12.847Z"
+  }
+}

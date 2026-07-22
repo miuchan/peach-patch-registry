@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCVGPL/PhasorBeatMap",
+    "plugin": "HetrickCVGPL",
+    "model": "PhasorBeatMap",
+    "name": "Phasor Beat Map",
+    "brand": "HetrickCV",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mhetrick/phasorbeatgen",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCVGPL/PhasorBeatMap",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCVGPL/PhasorBeatMap.webp",
+    "wasmUrl": "packages/HetrickCVGPL/PhasorBeatMap/2.0.0/module.wasm",
+    "width": 100,
+    "description": "Phasor-driven topographic drum sequencer based on Mutable Instruments Grids. Uses phasor input (0-10V) for playback, enabling reverse, scrub, and non-linear pattern navigation.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pattern Map X",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 166.15,
+          "widget": "Rogan1PSWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pattern Map Y",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 226.15,
+          "widget": "Rogan1PSWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pattern Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 286.15,
+          "widget": "Rogan1PSWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 1 Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 121,
+          "y": 40.15,
+          "widget": "Rogan1PSBrightRed"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Channel 2 Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 157,
+          "y": 103.15,
+          "widget": "Rogan1PSOrange"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel 3 Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 193,
+          "y": 166.15,
+          "widget": "Rogan1PSYellow"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pattern Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 49,
+          "y": 106.15,
+          "widget": "Rogan1PSWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Map X CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Map Y CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Chaos CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Channel 1 Density CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Channel 2 Density CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Channel 3 Density CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Pattern Mode CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Channel 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Channel 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Channel 1 Accent",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Channel 2 Accent",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Channel 3 Accent",
+        "kind": "cv"
+      }
+    ],
+    "lights": 3,
+    "stateKeys": [
+      {
+        "key": "sequencerMode",
+        "type": "integer"
+      },
+      {
+        "key": "triggerOutputMode",
+        "type": "integer"
+      },
+      {
+        "key": "panelStyle",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCVGPL/PhasorBeatMap/2.0.0/manifest.json",
+    "sourceCommit": "56bf82b2fcb9fe833d3ea7cc43b3b4f44f8f63ef",
+    "artifact": {
+      "sha256": "8369d49e425945bc5b3244e0b9f1c9aad8e7d617d8bf543141329907e5ece80c",
+      "size": 85436
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/phasorbeatgen",
+    "commit": "56bf82b2fcb9fe833d3ea7cc43b3b4f44f8f63ef"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:45.122Z"
+  }
+}

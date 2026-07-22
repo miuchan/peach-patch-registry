@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Write-Seq-64",
+    "plugin": "ImpromptuModular",
+    "model": "Write-Seq-64",
+    "name": "WriteSeq64",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Write-Seq-64",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Write-Seq-64.webp",
+    "wasmUrl": "packages/ImpromptuModular/Write-Seq-64/2.5.0/module.wasm",
+    "width": 180,
+    "description": "4-channel, 64-step sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Display mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Quantize",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 3,
+        "name": "Channel",
+        "min": 0,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Copy",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 5,
+        "name": "Paste",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Write",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 8,
+        "name": "Step left",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Monitor",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Step right",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "Number of steps",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Step",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Autostep when write",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 14,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 15,
+        "name": "Paste sync",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Unused",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Write",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Step left",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Step right",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Clock 1 and 2",
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Clock 3 and 4",
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 9,
+        "name": "Run",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel 1 CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Channel 2 CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Channel 3 CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Channel 4 CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Channel 1 Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Channel 2 Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Channel 3 Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Channel 4 Gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 7,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "indexStep",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "indexStep",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "indexStep",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "indexStep",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "indexStep",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "indexSteps",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "indexSteps",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "indexSteps",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "indexSteps",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "indexSteps",
+        "type": "integer"
+      },
+      {
+        "key": "resetOnRun",
+        "type": "boolean"
+      },
+      {
+        "key": "retrigGatesOnReset2",
+        "type": "integer"
+      },
+      {
+        "key": "stepRotates",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Write-Seq-64/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "3a8dfc8dce527d3ba7426b0852135717051ee0c6b8b610cc45046aff174abf4a",
+      "size": 92635
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:38:02.173Z"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/SeedsOfChangeGateExpander",
+    "plugin": "FrozenWasteland",
+    "model": "SeedsOfChangeGateExpander",
+    "name": "Seeds Of Change - Gate Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/SeedsOfChangeGateExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/SeedsOfChangeGateExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/SeedsOfChangeGateExpander/2.1.2/module.wasm",
+    "width": 105,
+    "description": "Additional Gates for SoC",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 4,
+          "y": 44,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 42,
+          "y": 45,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 59,
+          "y": 45,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate Probability  1",
+        "kind": "gate",
+        "position": {
+          "x": 28,
+          "y": 47
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate  1",
+        "kind": "gate",
+        "position": {
+          "x": 79,
+          "y": 45
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 60.5,
+          "y": 46.5
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/SeedsOfChange",
+            "symbol": "modelSeedsOfChange",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/SeedsOfChangeCVExpander",
+            "symbol": "modelSeedsOfChangeCVExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/SeedsOfChangeGateExpander",
+            "symbol": "modelSeedsOfChangeGateExpander",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/SeedsOfChangeGateExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "f7c43b95465202289c2d965a733a3d5c9d629cc1da7b6f7766759f225085e3f5",
+      "size": 76009
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:22.226Z"
+  }
+}

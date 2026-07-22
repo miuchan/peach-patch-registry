@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorToLFO",
+    "plugin": "HetrickCV",
+    "model": "PhasorToLFO",
+    "name": "Phasor to LFO",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorToLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorToLFO.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorToLFO/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Shapes incoming phasor signals to useful, morphing LFO waveshapes. These waveforms are not anti-aliased, hence the LFO designation.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Skew",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Skew CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Width",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Width CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Shape",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Shape CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Curve",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Curve CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "Polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Skew CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Width CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Shape CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Curve CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main LFO",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Triangle LFO",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Pulse LFO",
+        "kind": "gate"
+      }
+    ],
+    "lights": 6,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorToLFO/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "587e85577539551c7b4e7a7d2620e69e88805846bd195576aa2dcb39aef1b428",
+      "size": 79382
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:20.939Z"
+  }
+}

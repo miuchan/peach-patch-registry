@@ -1,0 +1,1033 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+    "plugin": "FrozenWasteland",
+    "model": "QuadAlgorithmicRhythm",
+    "name": "Quad Algorithmic Rhythm Generator",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/QuadAlgorithmicRhythm",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/QuadAlgorithmicRhythm.webp",
+    "wasmUrl": "packages/FrozenWasteland/QuadAlgorithmicRhythm/2.1.2/module.wasm",
+    "width": 180,
+    "description": "4 track Euclidean and Golumb Ruler Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Track 1 Steps",
+        "min": 1,
+        "max": 73,
+        "default": 16,
+        "position": {
+          "x": 316,
+          "y": 63,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1 Beats",
+        "min": 0,
+        "max": 73,
+        "default": 2,
+        "position": {
+          "x": 316,
+          "y": 88,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 1 Step Offset",
+        "min": 0,
+        "max": 72,
+        "default": 0,
+        "position": {
+          "x": 316,
+          "y": 113,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 Step Padding",
+        "min": 0,
+        "max": 72,
+        "default": 0,
+        "position": {
+          "x": 316,
+          "y": 138,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Accents",
+        "min": 0,
+        "max": 73,
+        "default": 0,
+        "position": {
+          "x": 316,
+          "y": 203,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 1 Acccent Rotation",
+        "min": 0,
+        "max": 72,
+        "default": 0,
+        "position": {
+          "x": 316,
+          "y": 228,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Algorithm  1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 296,
+          "y": 27,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 317,
+          "y": 253,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 2 Steps",
+        "min": 1,
+        "max": 73,
+        "default": 16
+      },
+      {
+        "id": 9,
+        "name": "Track 2 Beats",
+        "min": 0,
+        "max": 73,
+        "default": 2
+      },
+      {
+        "id": 10,
+        "name": "Track 2 Step Offset",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Track 2 Step Padding",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Track 2 Accents",
+        "min": 0,
+        "max": 73,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Track 2 Acccent Rotation",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Algorithm  2",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "Param 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Track 3 Steps",
+        "min": 1,
+        "max": 73,
+        "default": 16
+      },
+      {
+        "id": 17,
+        "name": "Track 3 Beats",
+        "min": 0,
+        "max": 73,
+        "default": 2
+      },
+      {
+        "id": 18,
+        "name": "Track 3 Step Offset",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 19,
+        "name": "Track 3 Step Padding",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Track 3 Accents",
+        "min": 0,
+        "max": 73,
+        "default": 0
+      },
+      {
+        "id": 21,
+        "name": "Track 3 Acccent Rotation",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 22,
+        "name": "Algorithm  3",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 23,
+        "name": "Param 24",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Track 4 Steps",
+        "min": 1,
+        "max": 73,
+        "default": 16
+      },
+      {
+        "id": 25,
+        "name": "Track 4 Beats",
+        "min": 0,
+        "max": 73,
+        "default": 2
+      },
+      {
+        "id": 26,
+        "name": "Track 4 Step Offset",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 27,
+        "name": "Track 4 Step Padding",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 28,
+        "name": "Track 4 Accents",
+        "min": 0,
+        "max": 73,
+        "default": 0
+      },
+      {
+        "id": 29,
+        "name": "Track 4 Acccent Rotation",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "id": 30,
+        "name": "Algorithm  4",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 31,
+        "name": "Param 32",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "Param 33",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 296,
+          "y": 169,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Meta Track Step Count",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190,
+          "y": 334,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Chain Mode - None",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12,
+          "y": 279.5,
+          "widget": "FWLEDButton"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Chain Mode - Boss",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12,
+          "y": 294.5,
+          "widget": "FWLEDButton"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Chain Mode - Employee",
+        "min": 1,
+        "max": 360,
+        "default": 16,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12,
+          "y": 309.5,
+          "widget": "FWLEDButton"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Time Sync Tracks",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 176,
+          "y": 278,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 118.5,
+          "y": 360,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 157,
+          "y": 359,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Param 41",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 41,
+        "name": "Save Scene",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 121,
+          "y": 292.5,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 81,
+          "y": 359,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Track 1 # of Steps",
+        "kind": "cv",
+        "position": {
+          "x": 341,
+          "y": 65
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1 # of Beats",
+        "kind": "cv",
+        "position": {
+          "x": 341,
+          "y": 90
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 1 Offset",
+        "kind": "cv",
+        "position": {
+          "x": 341,
+          "y": 115
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 Padding",
+        "kind": "cv",
+        "position": {
+          "x": 341,
+          "y": 140
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Accents",
+        "kind": "cv",
+        "position": {
+          "x": 341,
+          "y": 205
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 1 Accent Rotate",
+        "kind": "cv",
+        "position": {
+          "x": 341,
+          "y": 230
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 1 Algorithm",
+        "kind": "cv",
+        "position": {
+          "x": 296,
+          "y": 46
+        }
+      },
+      {
+        "id": 7,
+        "name": "Start  1",
+        "kind": "cv",
+        "position": {
+          "x": 317,
+          "y": 277
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 2 # of Steps",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Track 2 # of Beats",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Track 2 Offset",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Track 2 Padding",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Track 2 Accents",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Track 2 Accent Rotate",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Track 2 Algorithm",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Start  2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Track 3 # of Steps",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "Track 3 # of Beats",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "Track 3 Offset",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Track 3 Padding",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Track 3 Accents",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Track 3 Accent Rotate",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Track 3 Algorithm",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Start  3",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Track 4 # of Steps",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "Track 4 # of Beats",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "Track 4 Offset",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "Track 4 Padding",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "Track 4 Accents",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "Track 4 Accent Rotate",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 30,
+        "name": "Track 4 Algorithm",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 31,
+        "name": "Start  4",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 13,
+          "y": 340
+        }
+      },
+      {
+        "id": 33,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 118,
+          "y": 340
+        }
+      },
+      {
+        "id": 34,
+        "name": "Mute",
+        "kind": "cv",
+        "position": {
+          "x": 157,
+          "y": 340
+        }
+      },
+      {
+        "id": 35,
+        "name": "Meta Track # of Steps",
+        "kind": "cv",
+        "position": {
+          "x": 220,
+          "y": 338
+        }
+      },
+      {
+        "id": 36,
+        "name": "Scene #",
+        "kind": "cv",
+        "position": {
+          "x": 152,
+          "y": 306
+        }
+      },
+      {
+        "id": 37,
+        "name": "BPM",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 340
+        }
+      },
+      {
+        "id": 38,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 81,
+          "y": 340
+        }
+      },
+      {
+        "id": 39,
+        "name": "Track 1 Accent Algorithm",
+        "kind": "cv",
+        "position": {
+          "x": 296,
+          "y": 188
+        }
+      },
+      {
+        "id": 40,
+        "name": "Track 2 Accent Algorithm",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 41,
+        "name": "Track 3 Accent Algorithm",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 42,
+        "name": "Track 4 Accent Algorithm",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Track 1 Beat",
+        "kind": "cv",
+        "position": {
+          "x": 317,
+          "y": 343
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1 Accent",
+        "kind": "cv",
+        "position": {
+          "x": 317,
+          "y": 321
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 1 EOC",
+        "kind": "gate",
+        "position": {
+          "x": 317,
+          "y": 299
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 2 Beat",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Track 2 Accent",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Track 2 EOC",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Track 3 Beat",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Track 3 Accent",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Track 3 EOC",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Track 4 Beat",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Track 4 Accent",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Track 4 EOC",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Track 1 Groove EOC",
+        "kind": "gate",
+        "position": {
+          "x": 341,
+          "y": 299
+        }
+      },
+      {
+        "id": 13,
+        "name": "Track 2 Groove EOC",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Track 3 Groove EOC",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Track 4 Groove EOC",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "lights": 50,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 297.5,
+          "y": 28.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 297.5,
+          "y": 170.5
+        }
+      },
+      {
+        "id": 24,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 318.5,
+          "y": 254.5
+        }
+      },
+      {
+        "id": 41,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 338,
+          "y": 353
+        }
+      },
+      {
+        "id": 36,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 13.5,
+          "y": 281
+        }
+      },
+      {
+        "id": 37,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 13.5,
+          "y": 296
+        }
+      },
+      {
+        "id": 38,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 13.5,
+          "y": 311
+        }
+      },
+      {
+        "id": 47,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 82,
+          "y": 360.5
+        }
+      },
+      {
+        "id": 39,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 158,
+          "y": 360.5
+        }
+      },
+      {
+        "id": 46,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 122.5,
+          "y": 294
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "manualRun",
+        "type": "integer"
+      },
+      {
+        "key": "currentScene",
+        "type": "integer"
+      },
+      {
+        "key": "constantTime",
+        "type": "integer"
+      },
+      {
+        "key": "masterTrack",
+        "type": "integer"
+      },
+      {
+        "key": "chainMode",
+        "type": "integer"
+      },
+      {
+        "key": "muted",
+        "type": "integer"
+      },
+      {
+        "key": "bpmX4",
+        "type": "integer"
+      },
+      {
+        "key": "resetTriggerisHardReset",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+            "symbol": "modelQuadAlgorithmicRhythm",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+            "symbol": "modelQARWellFormedRhythmExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 6
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/QuadAlgorithmicRhythm/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "eb8d4e2c7173c9bb5def64ccb5a6b34e7a8c2055381e76ff1d0179cad1482a47",
+      "size": 162346
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:18.283Z"
+  }
+}

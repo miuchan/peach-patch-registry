@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Geodesics/Twin-Paradox",
+    "plugin": "Geodesics",
+    "model": "Twin-Paradox",
+    "name": "Twin Paradox",
+    "brand": "Geodesics",
+    "version": "2.4.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/MarcBoule/Geodesics/",
+    "libraryUrl": "https://library.vcvrack.com/Geodesics/Twin-Paradox",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Geodesics/Twin-Paradox.webp",
+    "wasmUrl": "packages/Geodesics/Twin-Paradox/2.4.0/module.wasm",
+    "width": 180,
+    "description": "Relativistic clock generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reference time",
+        "min": 1,
+        "max": 8,
+        "default": 4
+      },
+      {
+        "id": 1,
+        "name": "Traveler time",
+        "min": 1,
+        "max": 8,
+        "default": 8
+      },
+      {
+        "id": 2,
+        "name": "Tempo",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 104.842,
+          "y": 347.978,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.91,
+          "y": 347.978,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Probability to travel",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Traveler selection probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 7,
+        "name": "Travel",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 8,
+        "name": "Div/Mult",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Tap tempo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Sync input mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "Sync output mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "BPM CV / Ext clock",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Travel",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Travel probability CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Traveler selection probability CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Reference time CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Traveler time CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Twin 1 clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Twin 2 clock",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Meet",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Sync clock",
+        "kind": "gate"
+      }
+    ],
+    "lights": 67,
+    "lightWidgets": [
+      {
+        "id": 61,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 82.352,
+          "y": 80.877,
+          "centered": true
+        }
+      },
+      {
+        "id": 63,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 59.91,
+          "y": 89.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 62,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 113.829,
+          "y": 112.33,
+          "centered": true
+        }
+      },
+      {
+        "id": 64,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 104.842,
+          "y": 134.821,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "SmallLight<GeoRedLight>",
+        "position": {
+          "x": 19.531,
+          "y": 115.679,
+          "centered": true
+        }
+      },
+      {
+        "id": 65,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 104.842,
+          "y": 89.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "SmallLight<GeoWhiteRedLight>",
+        "position": {
+          "x": 23.464,
+          "y": 147.004,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 63.825,
+          "y": 175.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 56,
+        "widget": "SmallLight<GeoVioletGreen2Light>",
+        "position": {
+          "x": 24.961,
+          "y": 187.717,
+          "centered": true
+        }
+      },
+      {
+        "id": 58,
+        "widget": "SmallLight<GeoVioletGreen2Light>",
+        "position": {
+          "x": 34.448,
+          "y": 197.204,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 71.308,
+          "y": 226.507,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 82.352,
+          "y": 233.963,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 93.444,
+          "y": 239.411,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 104.842,
+          "y": 243.096,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 115.578,
+          "y": 244.983,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 126.815,
+          "y": 245.966,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 137.715,
+          "y": 244.679,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 148.782,
+          "y": 240.164,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 71.308,
+          "y": 234.12,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 82.352,
+          "y": 245.187,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 93.444,
+          "y": 256.253,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 104.842,
+          "y": 267.32,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 115.578,
+          "y": 278.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 126.815,
+          "y": 289.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 137.715,
+          "y": 300.524,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 148.782,
+          "y": 311.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 66,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 89.866,
+          "y": 304.044,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 74.839,
+          "y": 304.044,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "widget": "SmallLight<GeoWhiteRedLight>",
+        "position": {
+          "x": 30.453,
+          "y": 304.044,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 45.433,
+          "y": 347.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 119.319,
+          "y": 347.978,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "resetOnStartStop",
+        "type": "integer"
+      },
+      {
+        "key": "bpmManual",
+        "type": "integer"
+      },
+      {
+        "key": "syncInPpqn",
+        "type": "integer"
+      },
+      {
+        "key": "syncOutPpqn",
+        "type": "integer"
+      },
+      {
+        "key": "divMultInt",
+        "type": "integer"
+      },
+      {
+        "key": "resetClockOutputsHigh",
+        "type": "boolean"
+      },
+      {
+        "key": "momentaryRunInput",
+        "type": "boolean"
+      },
+      {
+        "key": "bpmInputScale",
+        "type": "real"
+      },
+      {
+        "key": "bpmInputOffset",
+        "type": "real"
+      },
+      {
+        "key": "meetOnlyAtEndOfTravel",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Geodesics/TwinParadoxExpander",
+            "symbol": "modelTwinParadoxExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Geodesics/Twin-Paradox/2.4.0/manifest.json",
+    "sourceCommit": "1fd26f2f27a2077868a9c78582efb5c650bd1519",
+    "artifact": {
+      "sha256": "f00302b35efd5d6155962563c944ebabc074039ebf69521f42ff0ec74c76a725",
+      "size": 79600
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/Geodesics/",
+    "commit": "1fd26f2f27a2077868a9c78582efb5c650bd1519"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:33:16.529Z"
+  }
+}

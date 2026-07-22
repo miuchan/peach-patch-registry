@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/FlipPan",
+    "plugin": "HetrickCV",
+    "model": "FlipPan",
+    "name": "Flip Pan",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/FlipPan",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/FlipPan.webp",
+    "wasmUrl": "packages/HetrickCV/FlipPan/2.5.4/module.wasm",
+    "width": 100,
+    "description": "A bidirectional panner, crossfader, and VCA",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pan",
+        "min": 0,
+        "max": 5,
+        "default": 2.5
+      },
+      {
+        "id": 1,
+        "name": "Pan CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Panning Style",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 35,
+          "y": 200,
+          "widget": "CKSSRot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 235
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 55,
+          "y": 235
+        }
+      },
+      {
+        "id": 2,
+        "name": "Amount",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 145
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 285
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 55,
+          "y": 285
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/FlipPan/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "af4d8fe63ba975f458c94e7f8c4992bec2c270b8bc141777ce8fcf835f4d9653",
+      "size": 69090
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:35:19.350Z"
+  }
+}

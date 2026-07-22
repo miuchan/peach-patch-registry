@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KarateSnoopy/KSnpy2DGridSeq",
+    "plugin": "KarateSnoopy",
+    "model": "KSnpy2DGridSeq",
+    "name": "2D grid sequencer",
+    "brand": "KarateSnoopy",
+    "version": "1.0.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/KarateSnoopy/vcv-karatesnoopy.git",
+    "libraryUrl": "https://library.vcvrack.com/KarateSnoopy/KSnpy2DGridSeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KarateSnoopy/KSnpy2DGridSeq.webp",
+    "wasmUrl": "packages/KarateSnoopy/KSnpy2DGridSeq/1.0.0/module.wasm",
+    "width": 180,
+    "description": "2D grid sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock tempo",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 18,
+          "y": 56,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 60,
+          "y": 60,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 99,
+          "y": 60,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Steps",
+        "min": 1,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 132,
+          "y": 56,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pattern",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 287,
+          "y": 148,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 19,
+          "y": 98
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ext Clock",
+        "kind": "gate",
+        "position": {
+          "x": 57,
+          "y": 98
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 98
+        }
+      },
+      {
+        "id": 3,
+        "name": "Steps",
+        "kind": "cv",
+        "position": {
+          "x": 134,
+          "y": 98
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pattern",
+        "kind": "cv",
+        "position": {
+          "x": 289,
+          "y": 188
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 288,
+          "y": 98
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate X",
+        "kind": "gate",
+        "position": {
+          "x": 211,
+          "y": 98
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate Y",
+        "kind": "gate",
+        "position": {
+          "x": 249,
+          "y": 98
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate Xory",
+        "kind": "gate",
+        "position": {
+          "x": 172,
+          "y": 98
+        }
+      }
+    ],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 64.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 103.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 179.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 217.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 255.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 293.4,
+          "y": 64.4
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 80,
+          "y": 167
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KarateSnoopy/KSnpy2DGridSeq/1.0.0/manifest.json",
+    "sourceCommit": "4168a22c4fd90790697f8a2416472fe257153294",
+    "artifact": {
+      "sha256": "d4bb725b89f307706573c40089f6ecebf3d397db11f51da04fcc4bd36bcd72a8",
+      "size": 78340
+    }
+  },
+  "source": {
+    "url": "https://github.com/KarateSnoopy/vcv-karatesnoopy.git",
+    "commit": "4168a22c4fd90790697f8a2416472fe257153294"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:39:31.737Z"
+  }
+}

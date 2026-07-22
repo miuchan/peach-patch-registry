@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ML_modules/FreeVerb",
+    "plugin": "ML_modules",
+    "model": "FreeVerb",
+    "name": "FreeVerb",
+    "brand": "ML Modules",
+    "version": "2.0.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/martin-lueders/ML_modules",
+    "libraryUrl": "https://library.vcvrack.com/ML_modules/FreeVerb",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ML_modules/FreeVerb.webp",
+    "wasmUrl": "packages/ML_modules/FreeVerb/2.0.3/module.wasm",
+    "width": 90,
+    "description": "VCV Rack implementation of the good old Freeverb",
+    "params": [
+      {
+        "id": 0,
+        "name": "Roomsize",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 10,
+          "y": 122,
+          "widget": "SmallBlueMLKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Damping",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 10,
+          "y": 186,
+          "widget": "SmallBlueMLKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14,
+          "y": 250,
+          "widget": "ML_MediumLEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 33,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "name": "Roomsize",
+        "kind": "cv",
+        "position": {
+          "x": 53,
+          "y": 120
+        }
+      },
+      {
+        "id": 2,
+        "name": "Damping",
+        "kind": "cv",
+        "position": {
+          "x": 53,
+          "y": 183
+        }
+      },
+      {
+        "id": 3,
+        "name": "Freeze",
+        "kind": "cv",
+        "position": {
+          "x": 53,
+          "y": 246
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 313
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 55,
+          "y": 313
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MLMediumLight<GreenLight>",
+        "position": {
+          "x": 18,
+          "y": 254
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ML_modules/FreeVerb/2.0.3/manifest.json",
+    "sourceCommit": "05ac273285dca1da828deca5aba37c0b7df0fbbd",
+    "artifact": {
+      "sha256": "4946bca74005c0ff866ef4d6a50b2e1353b00e297ed25b607d79f361d472c6ae",
+      "size": 74553
+    }
+  },
+  "source": {
+    "url": "https://github.com/martin-lueders/ML_modules",
+    "commit": "05ac273285dca1da828deca5aba37c0b7df0fbbd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:43:57.089Z"
+  }
+}

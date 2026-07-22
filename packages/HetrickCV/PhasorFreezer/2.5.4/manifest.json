@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorFreezer",
+    "plugin": "HetrickCV",
+    "model": "PhasorFreezer",
+    "name": "Phasor Freezer",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorFreezer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorFreezer.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorFreezer/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Duplicates an incoming phasor, but allows you to reset it or freeze it independently of the input.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reset Phase",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Reset Phase CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Reset Phase CV",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Freeze",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorFreezer/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "2e997fc2bd5219a151bc6ed4de7c1fe81e778171b67cfb68c7b0c51223ba8843",
+      "size": 69914
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:35:38.502Z"
+  }
+}

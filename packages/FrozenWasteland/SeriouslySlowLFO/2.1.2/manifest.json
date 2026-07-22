@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/SeriouslySlowLFO",
+    "plugin": "FrozenWasteland",
+    "model": "SeriouslySlowLFO",
+    "name": "Seriously Slow LFO",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/SeriouslySlowLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/SeriouslySlowLFO.webp",
+    "wasmUrl": "packages/FrozenWasteland/SeriouslySlowLFO/2.1.2/module.wasm",
+    "width": 185,
+    "description": "LFO for modulating CV over *very* long time periods",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time Base - Minutes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 3.5,
+          "y": 166,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Time Base - Hours",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 3.5,
+          "y": 186,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time Base - Days",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 3.5,
+          "y": 206,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Time Base - Weeks",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 3.5,
+          "y": 226,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Time Base - Months",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 3.5,
+          "y": 246,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Duration Multiplier",
+        "min": 1,
+        "max": 100,
+        "default": 1,
+        "position": {
+          "x": 56,
+          "y": 80,
+          "widget": "RoundLargeFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Duration CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 99,
+          "y": 111,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase",
+        "min": 0,
+        "max": 0.9998999834060669,
+        "default": 0,
+        "position": {
+          "x": 72,
+          "y": 162,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Phase CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 223,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Quantize Phase",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 58,
+          "y": 184,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 58,
+          "y": 266,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 116,
+          "y": 276,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Duration Multiplier",
+        "kind": "cv",
+        "position": {
+          "x": 98,
+          "y": 83
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 74,
+          "y": 195
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 90,
+          "y": 272
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 29,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 63,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 98,
+          "y": 320
+        }
+      },
+      {
+        "id": 3,
+        "name": "Square/Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 132,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 5,
+          "y": 167.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 5,
+          "y": 187.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 5,
+          "y": 207.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 5,
+          "y": 227.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 5,
+          "y": 247.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 59.5,
+          "y": 185.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "timeBase",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/SeriouslySlowLFO/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "a6bbf0150386d0ea970706b259dc6e9ba3de35df478381f7c8640ad2271719d4",
+      "size": 78467
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:25.537Z"
+  }
+}

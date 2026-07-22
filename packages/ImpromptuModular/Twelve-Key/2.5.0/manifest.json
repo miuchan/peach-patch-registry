@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Twelve-Key",
+    "plugin": "ImpromptuModular",
+    "model": "Twelve-Key",
+    "name": "TwelveKey",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Twelve-Key",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Twelve-Key.webp",
+    "wasmUrl": "packages/ImpromptuModular/Twelve-Key/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Chainable one octave keyboard controller",
+    "params": [
+      {
+        "id": 0,
+        "name": "Oct up",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 1,
+        "name": "Oct down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Max velocity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 3,
+        "name": "Velocity polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Octave",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Velocity",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Octave",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Velocity",
+        "kind": "cv"
+      }
+    ],
+    "lights": 18,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "octave",
+        "type": "integer"
+      },
+      {
+        "key": "cv",
+        "type": "real"
+      },
+      {
+        "key": "vel",
+        "type": "real"
+      },
+      {
+        "key": "maxVel",
+        "type": "real"
+      },
+      {
+        "key": "stateInternal",
+        "type": "boolean"
+      },
+      {
+        "key": "invertVel",
+        "type": "boolean"
+      },
+      {
+        "key": "linkVelSettings",
+        "type": "boolean"
+      },
+      {
+        "key": "tracer",
+        "type": "integer"
+      },
+      {
+        "key": "keyView",
+        "type": "integer"
+      },
+      {
+        "key": "pkinfokey",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/TwelveKey",
+            "symbol": "modelTwelveKey",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Twelve-Key/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "35cd47db04299fee6ec22f43f5c84acb9f2d091d8f8fdc06a628796aa7d7980e",
+      "size": 75775
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:38:00.981Z"
+  }
+}

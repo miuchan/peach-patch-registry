@@ -1,0 +1,498 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GrandeModular/Tails4",
+    "plugin": "GrandeModular",
+    "model": "Tails4",
+    "name": "Tails4",
+    "brand": "Grande",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/dbgrande/GrandeModular",
+    "libraryUrl": "https://library.vcvrack.com/GrandeModular/Tails4",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GrandeModular/Tails4.webp",
+    "wasmUrl": "packages/GrandeModular/Tails4/2.8.0/module.wasm",
+    "width": 60,
+    "description": "Quad mono-to-poly sequential note splitter with common outputs—helps preserve envelope tails.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitch poly-merge mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 1.476,
+          "y": 147.047,
+          "widget": "SmallLEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate poly-merge mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 29.33,
+          "y": 147.047,
+          "widget": "SmallLEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channels per note",
+        "min": 1,
+        "max": 5,
+        "default": 2,
+        "position": {
+          "x": 15,
+          "y": 211.122,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "VCA gain",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 343.287,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch 1",
+        "kind": "cv",
+        "position": {
+          "x": 16.075,
+          "y": 55.364,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch 2",
+        "kind": "cv",
+        "position": {
+          "x": 16.075,
+          "y": 82.677,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch 3",
+        "kind": "cv",
+        "position": {
+          "x": 16.075,
+          "y": 109.99,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pitch 4",
+        "kind": "cv",
+        "position": {
+          "x": 16.075,
+          "y": 137.303,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate 1",
+        "kind": "gate",
+        "position": {
+          "x": 43.928,
+          "y": 55.364,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 43.928,
+          "y": 82.677,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate 3",
+        "kind": "gate",
+        "position": {
+          "x": 43.928,
+          "y": 109.99,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate 4",
+        "kind": "gate",
+        "position": {
+          "x": 43.928,
+          "y": 137.303,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Poly-resplit",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 219.242,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "VCA",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 253.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "VCA CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 320.669,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 16.075,
+          "y": 176.427,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate/trigger",
+        "kind": "gate",
+        "position": {
+          "x": 43.928,
+          "y": 176.427,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "1st poly",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 250.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "2nd poly",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 280.512,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "3rd poly",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 310.039,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "4th poly",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 339.567,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "VCA",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 286.417,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 37,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 25.766,
+          "y": 43.553,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 25.766,
+          "y": 70.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 25.766,
+          "y": 98.179,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 25.766,
+          "y": 125.492,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 53.622,
+          "y": 43.553,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 53.622,
+          "y": 70.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 53.622,
+          "y": 98.179,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "PetiteLight<BlueLight>",
+        "position": {
+          "x": 53.622,
+          "y": 125.492,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "PetiteLight<RedLight>",
+        "position": {
+          "x": 25.766,
+          "y": 164.616,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "PetiteLight<RedLight>",
+        "position": {
+          "x": 53.622,
+          "y": 164.616,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLightFlat<BlueLight>",
+        "position": {
+          "x": 5.906,
+          "y": 151.476,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLightFlat<BlueLight>",
+        "position": {
+          "x": 33.759,
+          "y": 151.476,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "PetiteLight<RedLight>",
+        "position": {
+          "x": 24.803,
+          "y": 203.15,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "PetiteLightTop<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 239.173,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "PetiteLightTop<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "PetiteLightTop<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "PetiteLightTop<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "PetiteLightBot<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 239.173,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "PetiteLightBot<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "PetiteLightBot<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "PetiteLightBot<RedGreenBlueLight>",
+        "position": {
+          "x": 54.803,
+          "y": 327.756,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "voct_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "gate_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "latch_mode",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        9,
+        6
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GrandeModular/Tails4/2.8.0/manifest.json",
+    "sourceCommit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d",
+    "artifact": {
+      "sha256": "0166969d5cb56e0b7aa757e4605e79a37b123919cf25ba8fdaad86330fa0ca15",
+      "size": 79475
+    }
+  },
+  "source": {
+    "url": "https://github.com/dbgrande/GrandeModular",
+    "commit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:34:03.404Z"
+  }
+}

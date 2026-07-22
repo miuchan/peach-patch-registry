@@ -1,0 +1,654 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HamptonHarmonics/Progress",
+    "plugin": "HamptonHarmonics",
+    "model": "Progress",
+    "name": "Progress",
+    "brand": "Hampton Harmonics",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://gitlab.com/hampton-harmonics/hampton-harmonics-modules",
+    "libraryUrl": "https://library.vcvrack.com/HamptonHarmonics/Progress",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HamptonHarmonics/Progress.webp",
+    "wasmUrl": "packages/HamptonHarmonics/Progress/2.0.3/module.wasm",
+    "width": 390,
+    "description": "Polyphonic Chord Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 30.056,
+          "y": 135,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step 1 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 60,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step 2 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 97.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 3 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 135,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 4 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 172.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 5 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 210,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 6 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 247.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 7 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 285,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Step 8 Root",
+        "min": 0,
+        "max": 83,
+        "default": 36,
+        "position": {
+          "x": 202.5,
+          "y": 322.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Step 1 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 60,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Step 2 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 97.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step 3 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 135,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Step 4 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 172.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Step 5 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 210,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Step 6 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 247.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Step 7 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 285,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Step 8 Type",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 247.5,
+          "y": 322.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Step 1 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 60,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Step 2 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 97.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Step 3 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 135,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Step 4 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 172.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Step 5 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 210,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Step 6 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 247.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Step 7 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 285,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Step 8 Inversion",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 322.5,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Step 1 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 60,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Step 2 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 97.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Step 3 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 135,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Step 4 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 172.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Step 5 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 210,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Step 6 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 247.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Step 7 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 285,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Step 8 Length",
+        "min": 0,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 337.5,
+          "y": 322.5,
+          "centered": true,
+          "widget": "DaviesMaroonMediumSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 75.679,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 75.679,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Steps CV",
+        "kind": "cv",
+        "position": {
+          "x": 60.056,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Length CV 1",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 60,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Length CV 2",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 97.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Length CV 3",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Length CV 4",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 172.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Length CV 5",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Length CV 6",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 247.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Length CV 7",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Length CV 8",
+        "kind": "cv",
+        "position": {
+          "x": 367.5,
+          "y": 322.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch 1",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 209.734,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/oct pitch 2",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 209.734,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "1V/oct pitch 3",
+        "kind": "cv",
+        "position": {
+          "x": 29.873,
+          "y": 246.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "1V/oct pitch 4",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 246.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "1V/oct pitch (poly)",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 284.439,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate (poly)",
+        "kind": "gate",
+        "position": {
+          "x": 59.873,
+          "y": 284.439,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "End of cycle",
+        "kind": "cv",
+        "position": {
+          "x": 45.059,
+          "y": 322.264,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HamptonHarmonics/Progress/2.0.3/manifest.json",
+    "sourceCommit": "608ba60463d9132aab09dc1a681e676e742b4deb",
+    "artifact": {
+      "sha256": "1bf7b803a5d63834ba3e5644e54fcdbae84d4b1fd3fd6045962205033215e3e1",
+      "size": 74650
+    }
+  },
+  "source": {
+    "url": "https://gitlab.com/hampton-harmonics/hampton-harmonics-modules",
+    "commit": "608ba60463d9132aab09dc1a681e676e742b4deb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:34:08.363Z"
+  }
+}

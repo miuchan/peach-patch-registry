@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Foundry-Expander",
+    "plugin": "ImpromptuModular",
+    "model": "Foundry-Expander",
+    "name": "Foundry expander",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Foundry-Expander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Foundry-Expander.webp",
+    "wasmUrl": "packages/ImpromptuModular/Foundry-Expander/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Expander for Foundry",
+    "params": [
+      {
+        "id": 0,
+        "name": "Synchronize Seq# changes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Write mode",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Track A CV2",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Track B CV2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Track C CV2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Track D CV2",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Track A seq#",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Track B seq#",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Track C seq#",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Track D seq#",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Track select",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 10,
+        "name": "Gate probability",
+        "kind": "gate"
+      },
+      {
+        "id": 11,
+        "name": "Tied",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Slide",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Write mode",
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "Step left",
+        "kind": "audio"
+      },
+      {
+        "id": 15,
+        "name": "Step right",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [],
+    "lights": 6,
+    "stateKeys": [
+      {
+        "key": "stepIndexEdit",
+        "type": "integer"
+      },
+      {
+        "key": "phraseIndexEdit",
+        "type": "integer"
+      },
+      {
+        "key": "trackIndexEdit",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/Foundry",
+            "symbol": "modelFoundry",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Foundry-Expander/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "8f94f4087eca480cbb7755c92898f0bd7a6fb8a0b62e11f6e2422c7a9ef6686b",
+      "size": 69267
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:51.443Z"
+  }
+}

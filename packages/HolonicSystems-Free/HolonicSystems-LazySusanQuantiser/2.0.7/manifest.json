@@ -1,0 +1,953 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HolonicSystems-Free/HolonicSystems-LazySusanQuantiser",
+    "plugin": "HolonicSystems-Free",
+    "model": "HolonicSystems-LazySusanQuantiser",
+    "name": "Lazy Susan",
+    "brand": "Holonic Systems",
+    "version": "2.0.7",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/hdavid/VCVRack-Holon.ist",
+    "libraryUrl": "https://library.vcvrack.com/HolonicSystems-Free/HolonicSystems-LazySusanQuantiser",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HolonicSystems-Free/HolonicSystems-LazySusanQuantiser.webp",
+    "wasmUrl": "packages/HolonicSystems-Free/HolonicSystems-LazySusanQuantiser/2.0.7/module.wasm",
+    "width": 180,
+    "description": "Quad Quantiser with user editable scales",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 10,
+          "y": 40,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale CV Attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 90,
+          "y": 44,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Common Attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 90,
+          "y": 105,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 4,
+        "name": "C#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 5,
+        "name": "D",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 6,
+        "name": "D#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 7,
+        "name": "E",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 8,
+        "name": "F",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 9,
+        "name": "F#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 10,
+        "name": "G",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 11,
+        "name": "G#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 12,
+        "name": "A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 13,
+        "name": "A#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 14,
+        "name": "B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95,
+          "y": 320,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Transpose CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 87,
+          "y": 70,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 180
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 245
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV 3",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 310
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV 4",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 375
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trig 1",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 210
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trig 2",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 275
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trig 3",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 340
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trig 4",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 405
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 64,
+          "y": 40
+        }
+      },
+      {
+        "id": 9,
+        "name": "Transpose",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 70
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 180
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 245
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV 3",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 310
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV 4",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 375
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trig 1",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 210
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trig 2",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 275
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trig 3",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 340
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trig 4",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 405
+        }
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 10,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 95,
+          "y": 320
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 75,
+          "y": 310
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 16,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 17,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 18,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 19,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 20,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 21,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 22,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 23,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 24,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 25,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 26,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 27,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 28,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 29,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 30,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 31,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 32,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 33,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 34,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 35,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 36,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 37,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 38,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 39,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 40,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 41,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 42,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 43,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 44,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 45,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 46,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 47,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 48,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 49,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 50,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 51,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 52,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 53,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 54,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 55,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 56,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 57,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 58,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 59,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 60,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 61,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 62,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 63,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 64,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 65,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 66,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 67,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 68,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 69,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 70,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 71,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 72,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 73,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 74,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 75,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 76,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 77,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 78,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 79,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 80,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 81,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 82,
+        "key": "scales",
+        "type": "boolean"
+      },
+      {
+        "index": 83,
+        "key": "scales",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HolonicSystems-Free/HolonicSystems-LazySusanQuantiser/2.0.7/manifest.json",
+    "sourceCommit": "5fe1d9b68bb1fb8205308cd41a0be3ea1a019299",
+    "artifact": {
+      "sha256": "adc1e81bcb5e988e8a9a8546cf66d65f17a343a5b1da4ce52f3bce14fbc83eaf",
+      "size": 95246
+    }
+  },
+  "source": {
+    "url": "https://github.com/hdavid/VCVRack-Holon.ist",
+    "commit": "5fe1d9b68bb1fb8205308cd41a0be3ea1a019299"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:05.570Z"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Chord-Key-Expander",
+    "plugin": "ImpromptuModular",
+    "model": "Chord-Key-Expander",
+    "name": "ChordKey expander",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Chord-Key-Expander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Chord-Key-Expander.webp",
+    "wasmUrl": "packages/ImpromptuModular/Chord-Key-Expander/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Expander for ChordKey",
+    "params": [
+      {
+        "id": 0,
+        "name": "Oct channel 1",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Oct channel 2",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Oct channel 3",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Oct channel 4",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "CV 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "CV 4",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "CV 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "CV 4",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/ChordKey",
+            "symbol": "modelChordKey",
+            "index": 0
+          },
+          {
+            "key": "ImpromptuModular/FourView",
+            "symbol": "modelFourView",
+            "index": 1
+          },
+          {
+            "key": "ImpromptuModular/ChordKeyExpander",
+            "symbol": "modelChordKeyExpander",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Chord-Key-Expander/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "96c41c8d6362086cbe15eb5f352fa104b17fe8193801953515ea170a2da74849",
+      "size": 71006
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:47.488Z"
+  }
+}

@@ -1,0 +1,658 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LifeFormModular/ImpulseControl",
+    "plugin": "LifeFormModular",
+    "model": "ImpulseControl",
+    "name": "ImpulseControl",
+    "brand": "LifeFormModular",
+    "version": "2.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "libraryUrl": "https://library.vcvrack.com/LifeFormModular/ImpulseControl",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LifeFormModular/ImpulseControl.webp",
+    "wasmUrl": "packages/LifeFormModular/ImpulseControl/2.0/module.wasm",
+    "width": 180,
+    "description": "Trigger sequencer based on Fundamental SEQ3",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Number of steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 10,
+          "y": 162,
+          "widget": "LFMSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Probabilty Threshold",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 18,
+          "y": 230,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Probability Mod ",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23,
+          "y": 300,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 41.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 71.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 101.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 131.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 161.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 191.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 221.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Trig 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 251.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 41.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 71.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 101.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 131.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 161.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 191.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 221.5,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Trig 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 251.5,
+          "widget": "ButtonLED"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ext Clock 1",
+        "kind": "gate",
+        "position": {
+          "x": 18,
+          "y": 45
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset 1",
+        "kind": "gate",
+        "position": {
+          "x": 5,
+          "y": 95
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset 2",
+        "kind": "gate",
+        "position": {
+          "x": 35,
+          "y": 95
+        }
+      },
+      {
+        "id": 3,
+        "name": "Dmod 1",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 285
+        }
+      },
+      {
+        "id": 4,
+        "name": "Dmod 2",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate 1",
+        "kind": "gate",
+        "position": {
+          "x": 67,
+          "y": 280
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate1a",
+        "kind": "gate",
+        "position": {
+          "x": 67,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate1b",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 112,
+          "y": 280
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate2a",
+        "kind": "gate",
+        "position": {
+          "x": 112,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 34,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 42.9
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 72.9
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 102.9
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 132.9
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 162.9
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 192.9
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 222.9
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 71.4,
+          "y": 252.9
+        }
+      },
+      {
+        "id": 18,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 42.9
+        }
+      },
+      {
+        "id": 19,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 72.9
+        }
+      },
+      {
+        "id": 20,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 102.9
+        }
+      },
+      {
+        "id": 21,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 132.9
+        }
+      },
+      {
+        "id": 22,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 162.9
+        }
+      },
+      {
+        "id": 23,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 192.9
+        }
+      },
+      {
+        "id": 24,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 222.9
+        }
+      },
+      {
+        "id": 25,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.4,
+          "y": 252.9
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "gates1",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "gates2",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "gates2",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LifeFormModular/ImpulseControl/2.0/manifest.json",
+    "sourceCommit": "d1673014007bab2a17c74e1b061905bdc780f09d",
+    "artifact": {
+      "sha256": "236172fc8a6d63d15d0206febfd749d8a7dcf18b20744ba2ed07aa2ae6b45c67",
+      "size": 92096
+    }
+  },
+  "source": {
+    "url": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "commit": "d1673014007bab2a17c74e1b061905bdc780f09d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:41:17.697Z"
+  }
+}

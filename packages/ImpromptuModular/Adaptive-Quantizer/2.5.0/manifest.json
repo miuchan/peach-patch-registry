@@ -1,0 +1,1031 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Adaptive-Quantizer",
+    "plugin": "ImpromptuModular",
+    "model": "Adaptive-Quantizer",
+    "name": "AdaptiveQuantizer",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Adaptive-Quantizer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Adaptive-Quantizer.webp",
+    "wasmUrl": "packages/ImpromptuModular/Adaptive-Quantizer/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Adaptive reference based quantizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Number of pitches",
+        "min": 1,
+        "max": 12,
+        "default": 12
+      },
+      {
+        "id": 1,
+        "name": "Octave weighting",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Duration weighting",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Offset",
+        "min": 0,
+        "max": 240,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Persistence",
+        "min": 4,
+        "max": 240,
+        "default": 240
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 312.992,
+          "y": 140.256,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 312.992,
+          "y": 56.102,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Thru",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 32.48,
+          "y": 53.15,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sample and hold",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 32.48,
+          "y": 131.398,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Chord polyphony",
+        "min": 1,
+        "max": 5,
+        "default": 3
+      },
+      {
+        "id": 10,
+        "name": "Interval mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 32.48,
+          "y": 175.689,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reference CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Reference Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Freeze",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Number of pitches",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Persistence",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Thru",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Offset",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Octave weighting",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Duration weighting",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Chord",
+        "kind": "cv"
+      }
+    ],
+    "lights": 92,
+    "lightWidgets": [
+      {
+        "id": 89,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 252.106,
+          "y": 18.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 75.059,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 62,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 92.776,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 64,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 110.492,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 66,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 128.209,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 68,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 145.925,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 70,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 163.642,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 72,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 181.358,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 74,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 199.075,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 76,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 216.791,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 78,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 234.508,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 80,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 252.224,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 82,
+        "widget": "MediumLargeLight<WhiteBlueLight>",
+        "position": {
+          "x": 269.941,
+          "y": 47.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 50,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 55,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 56,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 58,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 59,
+        "widget": "MediumLargeLight<PitchMatrixLight>",
+        "position": {
+          "x": 75.059,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 86,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 32.48,
+          "y": 53.15,
+          "centered": true
+        }
+      },
+      {
+        "id": 87,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 32.48,
+          "y": 131.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 90,
+        "widget": "MediumLight<YellowGreenLightIM>",
+        "position": {
+          "x": 32.48,
+          "y": 175.689,
+          "centered": true
+        }
+      },
+      {
+        "id": 85,
+        "widget": "LEDBezelLight<BlueLight>",
+        "position": {
+          "x": 312.992,
+          "y": 56.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 84,
+        "widget": "LEDBezelLight<GreenLightIM>",
+        "position": {
+          "x": 312.992,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 88,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 168.602,
+          "y": 203.445,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "thru",
+        "type": "boolean"
+      },
+      {
+        "key": "freeze",
+        "type": "boolean"
+      },
+      {
+        "key": "sampHold",
+        "type": "boolean"
+      },
+      {
+        "key": "resetClearsDataTable",
+        "type": "integer"
+      },
+      {
+        "key": "cvOut",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "chordOut",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "chordOut",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "chordOut",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "chordOut",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "chordOut",
+        "type": "real"
+      },
+      {
+        "key": "head",
+        "type": "integer"
+      },
+      {
+        "key": "full",
+        "type": "boolean"
+      },
+      {
+        "key": "intervalMode",
+        "type": "integer"
+      },
+      {
+        "key": "ignoreRepetitions",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Adaptive-Quantizer/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "7825a6c2574ba07ef2f253dbccf8aa5081900041afc21147539a9c7b86628666",
+      "size": 99292
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:44.755Z"
+  }
+}

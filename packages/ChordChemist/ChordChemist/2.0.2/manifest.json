@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ChordChemist/ChordChemist",
+    "plugin": "ChordChemist",
+    "model": "ChordChemist",
+    "name": "ChordChemist",
+    "brand": "Drude",
+    "version": "2.0.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/TheDrude/ChordChemist/tree/main/src",
+    "libraryUrl": "https://library.vcvrack.com/ChordChemist/ChordChemist",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ChordChemist/ChordChemist.webp",
+    "wasmUrl": "packages/ChordChemist/ChordChemist/2.0.2/module.wasm",
+    "width": 60,
+    "description": "Circular Chord Generative Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Seq Length",
+        "min": 1,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 45.768,
+          "y": 197.835,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Root Note",
+        "min": 0,
+        "max": 60,
+        "default": 24,
+        "position": {
+          "x": 129.921,
+          "y": 56.102,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale Type",
+        "min": 0,
+        "max": 42,
+        "default": 0,
+        "position": {
+          "x": 239.173,
+          "y": 56.102,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voice Spread",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45.768,
+          "y": 150.591,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Randomize Seq",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45.768,
+          "y": 245.079,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 1
+      },
+      {
+        "id": 7,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 2
+      },
+      {
+        "id": 8,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 3
+      },
+      {
+        "id": 9,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 4
+      },
+      {
+        "id": 10,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 5
+      },
+      {
+        "id": 11,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 6
+      },
+      {
+        "id": 12,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 1
+      },
+      {
+        "id": 14,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 2
+      },
+      {
+        "id": 15,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 3
+      },
+      {
+        "id": 16,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 4
+      },
+      {
+        "id": 17,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 5
+      },
+      {
+        "id": 18,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 6
+      },
+      {
+        "id": 19,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Step Degree",
+        "min": 0,
+        "max": 6,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 45.768,
+          "y": 56.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 45.768,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Root CV",
+        "kind": "cv",
+        "position": {
+          "x": 162.402,
+          "y": 56.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 271.654,
+          "y": 56.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Spread CV",
+        "kind": "cv",
+        "position": {
+          "x": 76.772,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Steps CV",
+        "kind": "cv",
+        "position": {
+          "x": 76.772,
+          "y": 197.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Random CV",
+        "kind": "cv",
+        "position": {
+          "x": 76.772,
+          "y": 245.079,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step Degree Input  0",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "IN 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "IN 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "IN 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "IN 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "IN 13",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "IN 14",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "IN 15",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "IN 16",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "IN 17",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "IN 18",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "IN 19",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "IN 20",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "IN 21",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "IN 22",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Step Degree Input  15",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Voice  1",
+        "kind": "cv",
+        "position": {
+          "x": 342.52,
+          "y": 56.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Voice  2",
+        "kind": "cv",
+        "position": {
+          "x": 342.52,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Voice  3",
+        "kind": "cv",
+        "position": {
+          "x": 342.52,
+          "y": 144.685,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voice  4",
+        "kind": "cv",
+        "position": {
+          "x": 342.52,
+          "y": 188.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Poly",
+        "kind": "cv",
+        "position": {
+          "x": 342.52,
+          "y": 233.268,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ChordChemist/ChordChemist/2.0.2/manifest.json",
+    "sourceCommit": "a0d47600f09bb7c030d62d12248e76403fae396c",
+    "artifact": {
+      "sha256": "8a8b335170dfa79d9aaa12b21fda0f1c498f421789e00f541893751aa7339738",
+      "size": 79805
+    }
+  },
+  "source": {
+    "url": "https://github.com/TheDrude/ChordChemist/tree/main/src",
+    "commit": "a0d47600f09bb7c030d62d12248e76403fae396c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:03:21.653Z"
+  }
+}

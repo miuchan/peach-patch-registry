@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorDivMult",
+    "plugin": "HetrickCV",
+    "model": "PhasorDivMult",
+    "name": "Phasor Divide & Multiply",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorDivMult",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorDivMult.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorDivMult/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Processes a phasor signal and outputs a phasor at a precise, variable time multiple or division.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Divide",
+        "min": -8,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Divide CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Multiply",
+        "min": -8,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Multiply CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Sync Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 5,
+        "name": "Resync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Resync",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Divide CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Multiply CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorDivMult/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "b9e5633ce4843a39f1920118c5733d96da5e52858d87154ee8ad34959f5d01c3",
+      "size": 76213
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:35:38.559Z"
+  }
+}

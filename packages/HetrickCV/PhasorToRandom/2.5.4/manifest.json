@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorToRandom",
+    "plugin": "HetrickCV",
+    "model": "PhasorToRandom",
+    "name": "Phasor to Random",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorToRandom",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorToRandom.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorToRandom/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Generates random values for each step of a phasor input.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 64,
+        "default": 16
+      },
+      {
+        "id": 1,
+        "name": "Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Probability",
+        "min": -5,
+        "max": 5,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Probability CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Voltage Range",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steps CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Probability CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Stepped Random",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Slewed Random",
+        "kind": "cv"
+      }
+    ],
+    "lights": 4,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorToRandom/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "3c28c08b67577ddf62d213eff06912db8cec1adb7ca59f2f275ac3e60aa20388",
+      "size": 73598
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:20.872Z"
+  }
+}

@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GrandeModular/MicrotonalChords",
+    "plugin": "GrandeModular",
+    "model": "MicrotonalChords",
+    "name": "Microtonal Chords",
+    "brand": "Grande",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/dbgrande/GrandeModular",
+    "libraryUrl": "https://library.vcvrack.com/GrandeModular/MicrotonalChords",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GrandeModular/MicrotonalChords.webp",
+    "wasmUrl": "packages/GrandeModular/MicrotonalChords/2.8.0/module.wasm",
+    "width": 165,
+    "description": "Microtonal quad chord generator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "NoteA1",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 150.591,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "NoteA2",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 117.372,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "NoteA3",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 84.154,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "NoteA4",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 50.935,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "NoteB1",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 150.591,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "NoteB2",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 117.372,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "NoteB3",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 84.154,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 7,
+        "name": "NoteB4",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 50.935,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 8,
+        "name": "NoteC1",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 291.585,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 9,
+        "name": "NoteC2",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 258.366,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 10,
+        "name": "NoteC3",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 225.148,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 11,
+        "name": "NoteC4",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 191.929,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 12,
+        "name": "NoteD1",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 291.585,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 13,
+        "name": "NoteD2",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 258.366,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 14,
+        "name": "NoteD3",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 225.148,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 15,
+        "name": "NoteD4",
+        "min": 0,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 134.173,
+          "y": 191.929,
+          "centered": true,
+          "widget": "RoundSmallRotarySwitch"
+        }
+      },
+      {
+        "id": 16,
+        "name": "OctaveA1",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 150.591,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 17,
+        "name": "OctaveA2",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 117.372,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 18,
+        "name": "OctaveA3",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 84.154,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 19,
+        "name": "OctaveA4",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 50.935,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 20,
+        "name": "OctaveB1",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 150.591,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 21,
+        "name": "OctaveB2",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 117.372,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 22,
+        "name": "OctaveB3",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 84.154,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 23,
+        "name": "OctaveB4",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 50.935,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 24,
+        "name": "OctaveC1",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 291.585,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 25,
+        "name": "OctaveC2",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 258.366,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 26,
+        "name": "OctaveC3",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 225.148,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 27,
+        "name": "OctaveC4",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 24.36,
+          "y": 191.929,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 28,
+        "name": "OctaveD1",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 291.585,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 29,
+        "name": "OctaveD2",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 258.366,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 30,
+        "name": "OctaveD3",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 225.148,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 31,
+        "name": "OctaveD4",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 102.431,
+          "y": 191.929,
+          "centered": true,
+          "widget": "RoundTinyRotarySwitch"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Notes per Octave",
+        "min": 1,
+        "max": 34,
+        "default": 12,
+        "position": {
+          "x": 32.48,
+          "y": 338.091,
+          "centered": true,
+          "widget": "RoundBlackRotarySwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Select",
+        "kind": "cv",
+        "position": {
+          "x": 76.772,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv",
+        "position": {
+          "x": 136.211,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 17.717,
+          "y": 39.124,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 95.787,
+          "y": 39.124,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 17.717,
+          "y": 180.118,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 95.787,
+          "y": 180.118,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GrandeModular/MicrotonalChords/2.8.0/manifest.json",
+    "sourceCommit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d",
+    "artifact": {
+      "sha256": "a0977d496c9c9a6504df6e6047477371667bf1340e3ef56a334ca5ebe08a2524",
+      "size": 74101
+    }
+  },
+  "source": {
+    "url": "https://github.com/dbgrande/GrandeModular",
+    "commit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:33:50.260Z"
+  }
+}

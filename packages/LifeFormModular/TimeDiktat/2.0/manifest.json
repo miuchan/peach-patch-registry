@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LifeFormModular/TimeDiktat",
+    "plugin": "LifeFormModular",
+    "model": "TimeDiktat",
+    "name": "TimeDiktat",
+    "brand": "LifeFormModular",
+    "version": "2.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "libraryUrl": "https://library.vcvrack.com/LifeFormModular/TimeDiktat",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LifeFormModular/TimeDiktat.webp",
+    "wasmUrl": "packages/LifeFormModular/TimeDiktat/2.0/module.wasm",
+    "width": 180,
+    "description": "Clock Gen based on JW clock",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock Rate",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 93.5,
+          "y": 40,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 13,
+          "y": 83,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 106,
+          "y": 145,
+          "widget": "ButtonLED"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 139
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clockmult 16",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 191
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clockmult 8",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 226
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clockmult 4",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 261
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clockmult 2",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 296
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clockmult 1",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 331
+        }
+      },
+      {
+        "id": 6,
+        "name": "Clockdiv 2",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 191
+        }
+      },
+      {
+        "id": 7,
+        "name": "Clockdiv 4",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 226
+        }
+      },
+      {
+        "id": 8,
+        "name": "Clockdiv 8",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 261
+        }
+      },
+      {
+        "id": 9,
+        "name": "Clockdiv 16",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 296
+        }
+      },
+      {
+        "id": 10,
+        "name": "Clockdiv 32",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 331
+        }
+      },
+      {
+        "id": 11,
+        "name": "Ratecv",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 108
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 14.4,
+          "y": 84.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 107.4,
+          "y": 146.4
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 28,
+          "y": 40
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "LifeFormModular/TimeExpansion",
+            "symbol": "modelTimeExpansion",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LifeFormModular/TimeDiktat/2.0/manifest.json",
+    "sourceCommit": "d1673014007bab2a17c74e1b061905bdc780f09d",
+    "artifact": {
+      "sha256": "a8753df04a3da8f7368b690c4e1d6c9c56816f2b1e3911730e58053a342c89b8",
+      "size": 68445
+    }
+  },
+  "source": {
+    "url": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "commit": "d1673014007bab2a17c74e1b061905bdc780f09d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:41:12.935Z"
+  }
+}

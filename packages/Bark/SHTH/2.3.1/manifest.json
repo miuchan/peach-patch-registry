@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bark/SHTH",
+    "plugin": "Bark",
+    "model": "SHTH",
+    "name": "S&H / T&H",
+    "brand": "Bark",
+    "version": "2.3.1",
+    "license": "BSD-4-Clause",
+    "sourceUrl": "https://github.com/Coirt/Bark",
+    "libraryUrl": "https://library.vcvrack.com/Bark/SHTH",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bark/SHTH.webp",
+    "wasmUrl": "packages/Bark/SHTH/2.3.1/module.wasm",
+    "width": 180,
+    "description": "Sample & Hold | Track & Hold",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "V/Oct Range",
+        "min": 0.5,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Invert",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Offset",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Sample Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 17.25,
+          "y": 260.55,
+          "widget": "BarkPushButton2"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Next",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Prev",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Sample",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sampled",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Current Index",
+        "type": "integer"
+      },
+      {
+        "key": "Number of Channels",
+        "type": "integer"
+      },
+      {
+        "key": "Mode",
+        "type": "integer"
+      },
+      {
+        "key": "Number of Channels Override",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bark/SHTH/2.3.1/manifest.json",
+    "sourceCommit": "ee3db2842c714ad8e21c51bda4b768f46df98020",
+    "artifact": {
+      "sha256": "cf2c39124fde07b015131af6e8a7974bd274f7724f286874fc8cb220280d15fc",
+      "size": 78988
+    }
+  },
+  "source": {
+    "url": "https://github.com/Coirt/Bark",
+    "commit": "ee3db2842c714ad8e21c51bda4b768f46df98020"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:03:39.877Z"
+  }
+}

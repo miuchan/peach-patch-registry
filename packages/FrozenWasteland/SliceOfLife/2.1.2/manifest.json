@@ -1,0 +1,843 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/SliceOfLife",
+    "plugin": "FrozenWasteland",
+    "model": "SliceOfLife",
+    "name": "Slice Of Life",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/SliceOfLife",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/SliceOfLife.webp",
+    "wasmUrl": "packages/FrozenWasteland/SliceOfLife/2.1.2/module.wasm",
+    "width": 390,
+    "description": "Wave Slicing VCO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Positive VCO - Analog mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 165,
+          "y": 77,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Positive VCO - Hard sync",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 269,
+          "y": 77,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Positive VCO - Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 212,
+          "y": 35,
+          "widget": "RoundLargeFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Positive VCO - Fine frequency",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 173,
+          "y": 50,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "+ VCO FM Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 289,
+          "y": 54,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Positive VCO - Frequency modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 257,
+          "y": 50,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Positive Sin Level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 163,
+          "y": 95,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Positive Triangle Level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 218,
+          "y": 95,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Positive Sawtooth Level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 273,
+          "y": 95,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Negative VCO - Analog mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 315,
+          "y": 77,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Negative VCO - Hard sync",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 419,
+          "y": 77,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Negative VCO - Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 212,
+          "y": 194,
+          "widget": "RoundLargeFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Negative VCO - Fine frequency",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 173,
+          "y": 209,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "- VCO FM Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 289,
+          "y": 213,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Negative VCO - Frequency modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 257,
+          "y": 209,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Negative Sin Level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 163,
+          "y": 254,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Negative Triangle Level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 218,
+          "y": 254,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Negative Sawtooth Level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 273,
+          "y": 254,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Scissor VCO - Hard sync",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 119,
+          "y": 77,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Scissor VCO - Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 35,
+          "widget": "RoundHugeFWKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Scissor VCO - Fine frequency",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 75,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Scissor VCO FM 1 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 133,
+          "y": 79,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Scissor VCO - Frequency modulation 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 101,
+          "y": 75,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Scissor VCO FM 2 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 133,
+          "y": 129,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Param 25",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 101,
+          "y": 125,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Scissor VCO - Pulse width",
+        "min": 0.009999999776482582,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 13,
+          "y": 138,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Scissor VCO - Pulse width modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 188,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Pulse Width Skew Amount",
+        "min": 0,
+        "max": 4,
+        "default": 2,
+        "position": {
+          "x": 73,
+          "y": 188,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "PW Skew",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 20,
+          "y": 265,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 29,
+        "name": "CV Lock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 265,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Sync Lock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 120,
+          "y": 265,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 31,
+        "name": "VCA Bias",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 345,
+          "y": 50,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Mix",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 345,
+          "y": 100,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 33,
+        "name": "VCA CV Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 335,
+          "y": 150,
+          "widget": "RoundSmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "+ VCO v/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 176,
+          "y": 147
+        }
+      },
+      {
+        "id": 1,
+        "name": "+ VCO FM",
+        "kind": "cv",
+        "position": {
+          "x": 210,
+          "y": 147
+        }
+      },
+      {
+        "id": 2,
+        "name": "+ VCO Sync",
+        "kind": "cv",
+        "position": {
+          "x": 245,
+          "y": 147
+        }
+      },
+      {
+        "id": 3,
+        "name": "+ VCO Sin Level",
+        "kind": "cv",
+        "position": {
+          "x": 192,
+          "y": 115
+        }
+      },
+      {
+        "id": 4,
+        "name": "+ VCO Tri Level",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 115
+        }
+      },
+      {
+        "id": 5,
+        "name": "+ VCO Saw Level",
+        "kind": "cv",
+        "position": {
+          "x": 302,
+          "y": 115
+        }
+      },
+      {
+        "id": 6,
+        "name": "+ VCO v/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 176,
+          "y": 306
+        }
+      },
+      {
+        "id": 7,
+        "name": "- VCO FM",
+        "kind": "cv",
+        "position": {
+          "x": 210,
+          "y": 306
+        }
+      },
+      {
+        "id": 8,
+        "name": "- VCO Sync",
+        "kind": "cv",
+        "position": {
+          "x": 245,
+          "y": 306
+        }
+      },
+      {
+        "id": 9,
+        "name": "- VCO Sin Level",
+        "kind": "cv",
+        "position": {
+          "x": 192,
+          "y": 274
+        }
+      },
+      {
+        "id": 10,
+        "name": "- VCO Tri Level",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 274
+        }
+      },
+      {
+        "id": 11,
+        "name": "- VCO Saw Level",
+        "kind": "cv",
+        "position": {
+          "x": 302,
+          "y": 274
+        }
+      },
+      {
+        "id": 12,
+        "name": "Scisssor VCO v/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 306
+        }
+      },
+      {
+        "id": 13,
+        "name": "Scisssor VCO FM 1",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 306
+        }
+      },
+      {
+        "id": 14,
+        "name": "Scisssor VCO FM 2",
+        "kind": "cv",
+        "position": {
+          "x": 71,
+          "y": 306
+        }
+      },
+      {
+        "id": 15,
+        "name": "Scisssor VCO Pulse Width",
+        "kind": "gate",
+        "position": {
+          "x": 131,
+          "y": 306
+        }
+      },
+      {
+        "id": 16,
+        "name": "Scisssor VCO Sync",
+        "kind": "cv",
+        "position": {
+          "x": 101,
+          "y": 306
+        }
+      },
+      {
+        "id": 17,
+        "name": "Scisssor VCO Skew",
+        "kind": "cv",
+        "position": {
+          "x": 108,
+          "y": 198
+        }
+      },
+      {
+        "id": 18,
+        "name": "VCA CV",
+        "kind": "cv",
+        "position": {
+          "x": 365,
+          "y": 155
+        }
+      },
+      {
+        "id": 19,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 365,
+          "y": 155
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "+ Sin",
+        "kind": "cv",
+        "position": {
+          "x": 134,
+          "y": 340
+        }
+      },
+      {
+        "id": 1,
+        "name": "+ Tri",
+        "kind": "cv",
+        "position": {
+          "x": 159,
+          "y": 340
+        }
+      },
+      {
+        "id": 2,
+        "name": "+ Saw",
+        "kind": "cv",
+        "position": {
+          "x": 184,
+          "y": 340
+        }
+      },
+      {
+        "id": 3,
+        "name": "+ Mix",
+        "kind": "audio",
+        "position": {
+          "x": 209,
+          "y": 340
+        }
+      },
+      {
+        "id": 4,
+        "name": "- Sin",
+        "kind": "cv",
+        "position": {
+          "x": 244,
+          "y": 340
+        }
+      },
+      {
+        "id": 5,
+        "name": "- Tri",
+        "kind": "cv",
+        "position": {
+          "x": 269,
+          "y": 340
+        }
+      },
+      {
+        "id": 6,
+        "name": "- Saw",
+        "kind": "cv",
+        "position": {
+          "x": 294,
+          "y": 340
+        }
+      },
+      {
+        "id": 7,
+        "name": "- Mix",
+        "kind": "audio",
+        "position": {
+          "x": 319,
+          "y": 340
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scissor Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 340
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scissor Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 64,
+          "y": 340
+        }
+      },
+      {
+        "id": 10,
+        "name": "Scissor Square/Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 14,
+          "y": 340
+        }
+      },
+      {
+        "id": 11,
+        "name": "Glue",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 340
+        }
+      }
+    ],
+    "lights": 21,
+    "lightWidgets": [
+      {
+        "id": 6,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 134.5,
+          "y": 80.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 134.5,
+          "y": 130.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 21.5,
+          "y": 266.5
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 71.5,
+          "y": 266.5
+        }
+      },
+      {
+        "id": 18,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 121.5,
+          "y": 266.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 290.5,
+          "y": 55.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 290.5,
+          "y": 214.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "pwSkew",
+        "type": "integer"
+      },
+      {
+        "key": "cvLock",
+        "type": "boolean"
+      },
+      {
+        "key": "syncLock",
+        "type": "boolean"
+      },
+      {
+        "key": "posVCOFMMode",
+        "type": "boolean"
+      },
+      {
+        "key": "negVCOFMMode",
+        "type": "boolean"
+      },
+      {
+        "key": "sisVCOFM1Mode",
+        "type": "boolean"
+      },
+      {
+        "key": "sisVCOFM2Mode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/SliceOfLife/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "b61ddcc829df107bca8cec2a00785d91809f394cb2ac50711e1f52300bf30780",
+      "size": 118065
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:24.445Z"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/SeedsOfChangeCVExpander",
+    "plugin": "FrozenWasteland",
+    "model": "SeedsOfChangeCVExpander",
+    "name": "Seeds Of Change - CV Expander",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/SeedsOfChangeCVExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/SeedsOfChangeCVExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/SeedsOfChangeCVExpander/2.1.2/module.wasm",
+    "width": 120,
+    "description": "Additional CV Outs for SoC",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 4,
+          "y": 28,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 50,
+          "y": 28,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 34,
+          "y": 38,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 80,
+          "y": 38,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Multiply  1",
+        "kind": "cv",
+        "position": {
+          "x": 26,
+          "y": 28
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset  1",
+        "kind": "cv",
+        "position": {
+          "x": 72,
+          "y": 28
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV  1",
+        "kind": "cv",
+        "position": {
+          "x": 97,
+          "y": 29
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/SeedsOfChange",
+            "symbol": "modelSeedsOfChange",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/SeedsOfChangeCVExpander",
+            "symbol": "modelSeedsOfChangeCVExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/SeedsOfChangeGateExpander",
+            "symbol": "modelSeedsOfChangeGateExpander",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/SeedsOfChangeCVExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "e58b1b9c9fdf1d62bb083a9e065961389cd4cae5720d79291c5040119d01235e",
+      "size": 75390
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:22.275Z"
+  }
+}

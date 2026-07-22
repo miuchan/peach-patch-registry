@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LifeFormModular/PitchDiktat",
+    "plugin": "LifeFormModular",
+    "model": "PitchDiktat",
+    "name": "PitchDiktat",
+    "brand": "LifeFormModular",
+    "version": "2.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "libraryUrl": "https://library.vcvrack.com/LifeFormModular/PitchDiktat",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LifeFormModular/PitchDiktat.webp",
+    "wasmUrl": "packages/LifeFormModular/PitchDiktat/2.0/module.wasm",
+    "width": 180,
+    "description": "Quantizer based on ML Quantum",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 32,
+          "widget": "LFMSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 72,
+          "widget": "MS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 30,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 54,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 78,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 102,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 126,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 150,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 174,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 198,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 222,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 246,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 270,
+          "widget": "ButtonLED"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 294,
+          "widget": "ButtonLED"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 105
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22,
+          "y": 150
+        }
+      },
+      {
+        "id": 2,
+        "name": "Transpose",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 240
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 285
+        }
+      },
+      {
+        "id": 4,
+        "name": "Var",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 195
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 31.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 55.4
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 79.4
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 103.4
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 127.4
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 151.4
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 175.4
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 199.4
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 223.4
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 247.4
+        }
+      },
+      {
+        "id": 10,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 271.4
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.4,
+          "y": 295.4
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "scale",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "scale",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LifeFormModular/PitchDiktat/2.0/manifest.json",
+    "sourceCommit": "d1673014007bab2a17c74e1b061905bdc780f09d",
+    "artifact": {
+      "sha256": "9f41ef9b3c9591f58bc7cf11aa56bc9f211266e12462c074345f167372375c85",
+      "size": 81997
+    }
+  },
+  "source": {
+    "url": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "commit": "d1673014007bab2a17c74e1b061905bdc780f09d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:41:15.054Z"
+  }
+}

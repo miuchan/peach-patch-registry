@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/ClockToPhasor",
+    "plugin": "HetrickCV",
+    "model": "ClockToPhasor",
+    "name": "Clock to Phasor",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/ClockToPhasor",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/ClockToPhasor.webp",
+    "wasmUrl": "packages/HetrickCV/ClockToPhasor/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Generates a phasor from a series of gates.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pulses Per Cycle",
+        "min": 1,
+        "max": 64,
+        "default": 4
+      },
+      {
+        "id": 1,
+        "name": "Pulses Per Cycle CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pulses",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Finished Trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 2,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/ClockToPhasor/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "cbeefbf915b71a58aac4dfcfc6ae0279d020702ab716efc110dd990d54217893",
+      "size": 74683
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:56:18.161Z"
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/Scanner",
+    "plugin": "HetrickCV",
+    "model": "Scanner",
+    "name": "Scanner",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/Scanner",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/Scanner.webp",
+    "wasmUrl": "packages/HetrickCV/Scanner/2.5.4/module.wasm",
+    "width": 100,
+    "description": "8-channel signal crossfader, mixer, scanner, and router.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scan",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Number of Stages",
+        "min": 0,
+        "max": 6,
+        "default": 6
+      },
+      {
+        "id": 2,
+        "name": "Width",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Slope",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Voltage Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Mix Scale",
+        "min": 0,
+        "max": 1,
+        "default": 0.125
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input 1",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input 2",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 90
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input 3",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 130
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input 4",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 170
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input 5",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 210
+        }
+      },
+      {
+        "id": 5,
+        "name": "Input 6",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 250
+        }
+      },
+      {
+        "id": 6,
+        "name": "Input 7",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 290
+        }
+      },
+      {
+        "id": 7,
+        "name": "Input 8",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 330
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scan",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Stages",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Width",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Slope",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Allin",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 90
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output 3",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 130
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output 4",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 170
+        }
+      },
+      {
+        "id": 4,
+        "name": "Output 5",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 210
+        }
+      },
+      {
+        "id": 5,
+        "name": "Output 6",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 250
+        }
+      },
+      {
+        "id": 6,
+        "name": "Output 7",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 290
+        }
+      },
+      {
+        "id": 7,
+        "name": "Output 8",
+        "kind": "cv",
+        "position": {
+          "x": 235,
+          "y": 330
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mix",
+        "kind": "audio",
+        "hidden": true
+      }
+    ],
+    "lights": 24,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 59
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 99
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 139
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 179
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 219
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 259
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 299
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 339
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 59
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 99
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 139
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 179
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 219
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 259
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 299
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 210,
+          "y": 339
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/Scanner/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "de37891f7bac8526e008af99de412eb9dc8522666caf651855922c4f7f5fbd24",
+      "size": 73821
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:29.520Z"
+  }
+}

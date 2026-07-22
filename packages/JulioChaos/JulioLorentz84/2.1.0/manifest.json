@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JulioChaos/JulioLorentz84",
+    "plugin": "JulioChaos",
+    "model": "JulioLorentz84",
+    "name": "Lorentz84 Oscillator",
+    "brand": "Julio Argudo",
+    "version": "2.1.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/JulioArgudo/JulioChaos-modules",
+    "libraryUrl": "https://library.vcvrack.com/JulioChaos/JulioLorentz84",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JulioChaos/JulioLorentz84.webp",
+    "wasmUrl": "packages/JulioChaos/JulioLorentz84/2.1.0/module.wasm",
+    "width": 135,
+    "description": "Chaotic oscillator based on the Lorentz84 system",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.104,
+          "y": 78.549,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "P1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.912,
+          "y": 78.549,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "P2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37.104,
+          "y": 165.405,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "P3",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.912,
+          "y": 165.405,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rate CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.654,
+          "y": 237.963,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "P1 CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 51.505,
+          "y": 237.963,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "P2 CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 83.542,
+          "y": 237.963,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "P3 CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 115.338,
+          "y": 237.963,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Fq Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 67.01,
+          "y": 124.928,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "kind": "cv",
+        "position": {
+          "x": 19.051,
+          "y": 287.773,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "P1",
+        "kind": "cv",
+        "position": {
+          "x": 50.46,
+          "y": 287.773,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "P2",
+        "kind": "cv",
+        "position": {
+          "x": 83.929,
+          "y": 287.773,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "P3",
+        "kind": "cv",
+        "position": {
+          "x": 115.338,
+          "y": 287.773,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 19.051,
+          "y": 334.955,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 50.46,
+          "y": 334.955,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 83.929,
+          "y": 334.955,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Z",
+        "kind": "cv",
+        "position": {
+          "x": 115.338,
+          "y": 334.955,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 67.01,
+          "y": 124.928,
+          "centered": true
+        },
+        "paramId": 8
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JulioChaos/JulioLorentz84/2.1.0/manifest.json",
+    "sourceCommit": "39d9429c92b1332b41d17fff49dbfd433869b968",
+    "artifact": {
+      "sha256": "c7761279de6fb211f29db79c2ce54eb08e88af78c41a66252149ac0bd3b3ef14",
+      "size": 72586
+    }
+  },
+  "source": {
+    "url": "https://github.com/JulioArgudo/JulioChaos-modules",
+    "commit": "39d9429c92b1332b41d17fff49dbfd433869b968"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:39:10.241Z"
+  }
+}

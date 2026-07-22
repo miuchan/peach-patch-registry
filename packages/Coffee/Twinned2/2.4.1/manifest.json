@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coffee/Twinned2",
+    "plugin": "Coffee",
+    "model": "Twinned2",
+    "name": "Twinned2",
+    "brand": "Coffee",
+    "version": "2.4.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "libraryUrl": "https://library.vcvrack.com/Coffee/Twinned2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coffee/Twinned2.webp",
+    "wasmUrl": "packages/Coffee/Twinned2/2.4.1/module.wasm",
+    "width": 240,
+    "description": "A sequencer with pair of 8 step notes, gates, randomisation and polyphonic input.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.752,
+          "y": 93.012,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.752,
+          "y": 93.012,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 16.417,
+          "y": 103.346,
+          "centered": true,
+          "widget": "CoffeeKnob8mm"
+        }
+      },
+      {
+        "id": 3,
+        "name": "AB Threshold",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 119.764,
+          "y": 66.437,
+          "centered": true,
+          "widget": "CoffeeKnob8mm"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Randomize Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 16.417,
+          "y": 103.346,
+          "centered": true,
+          "widget": "CoffeeKnob8mm"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Randomize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 16.417,
+          "y": 103.346,
+          "centered": true,
+          "widget": "CoffeeInputButton5mm"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 16.417,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 16.417,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "AB Select",
+        "kind": "cv",
+        "position": {
+          "x": 119.764,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Steps",
+        "kind": "cv",
+        "position": {
+          "x": 16.417,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "GATES A",
+        "kind": "gate",
+        "position": {
+          "x": 82.854,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "GATES B",
+        "kind": "gate",
+        "position": {
+          "x": 156.673,
+          "y": 36.909,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/OCT Selected Out",
+        "kind": "cv",
+        "position": {
+          "x": 119.764,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/OCT A Out",
+        "kind": "cv",
+        "position": {
+          "x": 82.854,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "V/OCT B Out",
+        "kind": "cv",
+        "position": {
+          "x": 156.673,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "EOC Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 119.764,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "B Gate",
+        "kind": "gate",
+        "position": {
+          "x": 119.764,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "A Gate",
+        "kind": "gate",
+        "position": {
+          "x": 119.764,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Selected Gate",
+        "kind": "gate",
+        "position": {
+          "x": 119.764,
+          "y": 221.457,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 26.752,
+          "y": 113.681,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coffee/Twinned2/2.4.1/manifest.json",
+    "sourceCommit": "dfb2174d7f8cd4b035abd1aac2555f941a517854",
+    "artifact": {
+      "sha256": "7010eea747e1894ab1159ac9ea77b4fb30b9d8d81ee7be2c785369027e72b6f7",
+      "size": 81310
+    }
+  },
+  "source": {
+    "url": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "commit": "dfb2174d7f8cd4b035abd1aac2555f941a517854"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:03:04.319Z"
+  }
+}

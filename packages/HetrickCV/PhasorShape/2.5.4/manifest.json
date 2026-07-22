@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorShape",
+    "plugin": "HetrickCV",
+    "model": "PhasorShape",
+    "name": "Phasor Shaper",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorShape",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorShape.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorShape/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Processes phasor signals in interesting ways for sequence modification or phase distortion synthesis.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Phasor Shape",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Phasor Shape CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Shape Mode",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Shape Mode CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Phasor Shape CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Shape Mode CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Shaped Phasor",
+        "kind": "cv"
+      }
+    ],
+    "lights": 11,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorShape/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "7bde3215e96a284c13ca3fd3b7c4ee20bcd30740ec76f6f538a9522a8fa3adfb",
+      "size": 73610
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:05.009Z"
+  }
+}

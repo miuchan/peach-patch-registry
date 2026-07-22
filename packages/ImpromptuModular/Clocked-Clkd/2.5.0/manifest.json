@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Clocked-Clkd",
+    "plugin": "ImpromptuModular",
+    "model": "Clocked-Clkd",
+    "name": "Clkd",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Clocked-Clkd",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Clocked-Clkd.webp",
+    "wasmUrl": "packages/ImpromptuModular/Clocked-Clkd/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Chainable master clock",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clk 1 ratio",
+        "min": -34,
+        "max": 34,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Clk 2 ratio",
+        "min": -34,
+        "max": 34,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Clk 3 ratio",
+        "min": -34,
+        "max": 34,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Master clock",
+        "min": 30,
+        "max": 300,
+        "default": 120
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 5,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "Bpm mode prev",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Bpm mode next",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 8,
+        "name": "Display prev",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Display next",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "BPM CV / Ext clock",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Master clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Clock 1",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Clock 2",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Clock 3",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "BPM CV / Ext clock thru",
+        "kind": "gate"
+      }
+    ],
+    "lights": 12,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "bpmDetectionMode",
+        "type": "boolean"
+      },
+      {
+        "key": "resetOnStartStop",
+        "type": "integer"
+      },
+      {
+        "key": "ppqn",
+        "type": "integer"
+      },
+      {
+        "key": "resetClockOutputsHigh",
+        "type": "boolean"
+      },
+      {
+        "key": "momentaryRunInput",
+        "type": "boolean"
+      },
+      {
+        "key": "forceCvOnBpmOut",
+        "type": "boolean"
+      },
+      {
+        "key": "displayIndex",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "trigOuts",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "trigOuts",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "trigOuts",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "trigOuts",
+        "type": "boolean"
+      },
+      {
+        "key": "bpmInputScale",
+        "type": "real"
+      },
+      {
+        "key": "bpmInputOffset",
+        "type": "real"
+      },
+      {
+        "key": "clockMaster",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Clocked-Clkd/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "8d56e5ed4c1cc0ede56436c28207f0b3d61735161a2af12eeaa7d62b4cee07ec",
+      "size": 89293
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:50.206Z"
+  }
+}

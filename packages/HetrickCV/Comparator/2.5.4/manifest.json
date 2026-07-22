@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/Comparator",
+    "plugin": "HetrickCV",
+    "model": "Comparator",
+    "name": "Comparator",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/Comparator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/Comparator.webp",
+    "wasmUrl": "packages/HetrickCV/Comparator/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Determine whether a signal is above or below a threshold.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Compare Threshold",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Compare CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 195
+        }
+      },
+      {
+        "id": 1,
+        "name": "Compare CV",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 145
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Greater Than Gate",
+        "kind": "gate",
+        "position": {
+          "x": 53,
+          "y": 285
+        }
+      },
+      {
+        "id": 1,
+        "name": "Greater Than Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 53,
+          "y": 315
+        }
+      },
+      {
+        "id": 2,
+        "name": "Less Than Gate",
+        "kind": "gate",
+        "position": {
+          "x": 12,
+          "y": 285
+        }
+      },
+      {
+        "id": 3,
+        "name": "Less Than Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 12,
+          "y": 315
+        }
+      },
+      {
+        "id": 4,
+        "name": "Crossing Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 32.5,
+          "y": 245
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 22,
+          "y": 275
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 62,
+          "y": 275
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 42,
+          "y": 275
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/Comparator/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "1fa29304bb33ebcf9c48a803c0d78f389048401a695f5d09720f1798aec9ee60",
+      "size": 72055
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:56:15.192Z"
+  }
+}

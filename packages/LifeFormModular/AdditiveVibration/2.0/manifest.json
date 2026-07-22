@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LifeFormModular/AdditiveVibration",
+    "plugin": "LifeFormModular",
+    "model": "AdditiveVibration",
+    "name": "AdditiveVibration",
+    "brand": "LifeFormModular",
+    "version": "2.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "libraryUrl": "https://library.vcvrack.com/LifeFormModular/AdditiveVibration",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LifeFormModular/AdditiveVibration.webp",
+    "wasmUrl": "packages/LifeFormModular/AdditiveVibration/2.0/module.wasm",
+    "width": 180,
+    "description": "Additive/FM synth voice based on 21Khz PalmLoop and Befaco Rampage ",
+    "params": [
+      {
+        "id": 0,
+        "name": "Octave",
+        "min": 4,
+        "max": 12,
+        "default": 8,
+        "position": {
+          "x": 10,
+          "y": 40,
+          "widget": "LFMSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sine Width",
+        "min": 0.10000000149011612,
+        "max": 0.8999999761581421,
+        "default": 0.5,
+        "position": {
+          "x": 10,
+          "y": 110,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sine Curve",
+        "min": 0,
+        "max": 0.8999999761581421,
+        "default": 0.5,
+        "position": {
+          "x": 130,
+          "y": 110,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "1st Harmonic level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 25.5,
+          "y": 190,
+          "widget": "LFMSliderWhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "2nd Harmonic level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 85.5,
+          "y": 190,
+          "widget": "LFMSliderWhite"
+        }
+      },
+      {
+        "id": 5,
+        "name": "3rd Harmonic level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 145.5,
+          "y": 190,
+          "widget": "LFMSliderWhite"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sine Width modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 83,
+          "y": 127,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Sine Curve modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 203,
+          "y": 127,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "1st Harmonic level mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 28,
+          "y": 317,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "2nd Harmonic level mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88,
+          "y": 317,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "3rd Harmonic level mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148,
+          "y": 317,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "FM Depth",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 40,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Harmonics set",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 190,
+          "y": 230,
+          "widget": "LFMSnapKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "FM Depth env mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 110,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "FM Depth mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 263,
+          "y": 197,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "FM Depth mod2",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 263,
+          "y": 267,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Env time",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 370,
+          "y": 48,
+          "widget": "LFMSwitch"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Env shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 368,
+          "y": 130,
+          "widget": "MS"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Env trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 19,
+        "name": "Env rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 310,
+          "y": 40,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Env fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 310,
+          "y": 110,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Lfo mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 398,
+          "y": 130,
+          "widget": "MS"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Env mod destination",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 370,
+          "y": 188,
+          "widget": "LFMSwitch"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Env mod amount",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 323,
+          "y": 197,
+          "widget": "LFMTinyKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 78,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "name": "V Oct 2",
+        "kind": "cv",
+        "position": {
+          "x": 138,
+          "y": 50
+        }
+      },
+      {
+        "id": 2,
+        "name": "V Oct 3",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 50
+        }
+      },
+      {
+        "id": 3,
+        "name": "D",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 110
+        }
+      },
+      {
+        "id": 4,
+        "name": "V",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 110
+        }
+      },
+      {
+        "id": 5,
+        "name": "Harm 1",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 300
+        }
+      },
+      {
+        "id": 6,
+        "name": "Harm 2",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 300
+        }
+      },
+      {
+        "id": 7,
+        "name": "Harm 3",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 300
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tzmod",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 180
+        }
+      },
+      {
+        "id": 9,
+        "name": "Tzmod 2",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 250
+        }
+      },
+      {
+        "id": 10,
+        "name": "CV A",
+        "kind": "cv",
+        "position": {
+          "x": 308,
+          "y": 180
+        }
+      },
+      {
+        "id": 11,
+        "name": "Trigg A",
+        "kind": "gate",
+        "position": {
+          "x": 318,
+          "y": 260
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sin",
+        "kind": "cv",
+        "position": {
+          "x": 258,
+          "y": 318
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output A",
+        "kind": "cv",
+        "position": {
+          "x": 378,
+          "y": 260
+        }
+      },
+      {
+        "id": 2,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 318,
+          "y": 318
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LifeFormModular/AdditiveVibration/2.0/manifest.json",
+    "sourceCommit": "d1673014007bab2a17c74e1b061905bdc780f09d",
+    "artifact": {
+      "sha256": "79d5f1c196beaadf619a46871c808aebddb4d3ce74515ed1a1680711a0606007",
+      "size": 105293
+    }
+  },
+  "source": {
+    "url": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "commit": "d1673014007bab2a17c74e1b061905bdc780f09d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:41:20.497Z"
+  }
+}

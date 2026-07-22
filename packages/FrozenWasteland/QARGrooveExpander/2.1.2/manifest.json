@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/QARGrooveExpander",
+    "plugin": "FrozenWasteland",
+    "model": "QARGrooveExpander",
+    "name": "QAR - Groove",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/QARGrooveExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/QARGrooveExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/QARGrooveExpander/2.1.2/module.wasm",
+    "width": 225,
+    "description": "Add Grooves and Microrhythms to QAR",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 296,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Set Groove Length to Track Length",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26,
+          "y": 341,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Groove Length",
+        "min": 1,
+        "max": 18,
+        "default": 18,
+        "position": {
+          "x": 42,
+          "y": 326,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Groove Length CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 69,
+          "y": 342,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Groove Amount",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 100,
+          "y": 326,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Groove Amount CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 127,
+          "y": 342,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Groove Randomness",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 167,
+          "y": 326,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Groove Randomness CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 194,
+          "y": 342,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Random Distribution Pattern",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 175,
+          "y": 351,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 22,
+          "y": 30,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 46,
+          "y": 48,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Step/Beat Mode",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12,
+          "y": 312,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Groove Length",
+        "kind": "cv",
+        "position": {
+          "x": 70,
+          "y": 319
+        }
+      },
+      {
+        "id": 1,
+        "name": "Groove Amount",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 319
+        }
+      },
+      {
+        "id": 2,
+        "name": "Swing Randomness",
+        "kind": "cv",
+        "position": {
+          "x": 195,
+          "y": 319
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step  1 Swing Amount",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 33
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 76.5,
+          "y": 298.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 13.5,
+          "y": 313.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 27.5,
+          "y": 342.5
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 176.5,
+          "y": 352.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 190,
+          "y": 284
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "stepsOrDivs",
+        "type": "integer"
+      },
+      {
+        "key": "grooveIsTrackLength",
+        "type": "integer"
+      },
+      {
+        "key": "gaussianDistribution",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+            "symbol": "modelQuadAlgorithmicRhythm",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+            "symbol": "modelQARWellFormedRhythmExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 6
+          },
+          {
+            "key": "FrozenWasteland/QARGridControlExpander",
+            "symbol": "modelQARGridControlExpander",
+            "index": 7
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/QARGrooveExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "52e7b0e0a1c1e147a08d01f3c162d08f361b5763d4bdbf39a7e5f0c1e8475618",
+      "size": 83061
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:16.495Z"
+  }
+}

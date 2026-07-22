@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/TactG",
+    "plugin": "ImpromptuModular",
+    "model": "TactG",
+    "name": "TactG",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/TactG",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/TactG.webp",
+    "wasmUrl": "packages/ImpromptuModular/TactG/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Tactile-inspired controller with gate output",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tact pad",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 37.795,
+          "widget": "TactPad"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Rate",
+        "min": 0,
+        "max": 4,
+        "default": 0.20000000298023224
+      },
+      {
+        "id": 3,
+        "name": "Exponential",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Offset2 CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Slow (rate knob x3)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Chain gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Offset 2",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 20,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 60.827,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 77.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 94.843,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 111.85,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 128.858,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 145.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 162.874,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 179.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 196.89,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 105.118,
+          "y": 213.898,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "cv0",
+        "type": "real"
+      },
+      {
+        "key": "cv1",
+        "type": "real"
+      },
+      {
+        "key": "storeCV0",
+        "type": "real"
+      },
+      {
+        "key": "storeCV1",
+        "type": "real"
+      },
+      {
+        "key": "rateMultiplier",
+        "type": "real"
+      },
+      {
+        "key": "levelSensitiveTopBot",
+        "type": "boolean"
+      },
+      {
+        "key": "autoReturnLeft",
+        "type": "integer"
+      },
+      {
+        "key": "autoReturnRight",
+        "type": "integer"
+      },
+      {
+        "key": "cv",
+        "type": "real"
+      },
+      {
+        "key": "autoReturn",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/TactG/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "c9fbc3c8a3ba11422bed9a3a27df9be588a93684ca8cdf5e58c2ebcabcf62c67",
+      "size": 79930
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:59.811Z"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Geodesics/Branes",
+    "plugin": "Geodesics",
+    "model": "Branes",
+    "name": "Branes",
+    "brand": "Geodesics",
+    "version": "2.4.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/MarcBoule/Geodesics/",
+    "libraryUrl": "https://library.vcvrack.com/Geodesics/Branes",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Geodesics/Branes.webp",
+    "wasmUrl": "packages/Geodesics/Branes/2.4.0/module.wasm",
+    "width": 165,
+    "description": "Coliding sample and hold",
+    "params": [
+      {
+        "id": 0,
+        "name": "Top brane bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 1,
+        "name": "Bottom brane bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Top brane noise range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 3,
+        "name": "Bottom brane noise range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Top left pink S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Top left red S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Top left blue S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Top white S&H",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Top right blue S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Top right red S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Top right pink S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Bottom right pink S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 8,
+        "name": "Bottom right red S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 9,
+        "name": "Bottom right blue S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 10,
+        "name": "Bottom white S&H",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Bottom left blue S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 12,
+        "name": "Bottom left red S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 13,
+        "name": "Bottom left pink S&H",
+        "kind": "audio"
+      },
+      {
+        "id": 14,
+        "name": "Top S&H trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 15,
+        "name": "Bottom S&H trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 16,
+        "name": "Top brane bypass",
+        "kind": "gate"
+      },
+      {
+        "id": 17,
+        "name": "Bottom brane bypass",
+        "kind": "gate"
+      },
+      {
+        "id": 18,
+        "name": "Top brane noise range",
+        "kind": "cv"
+      },
+      {
+        "id": 19,
+        "name": "Bottom brane noise range",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Top left pink",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Top left red",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Top left blue",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Top white",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Top right blue",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Top right red",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Top right pink",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Bottom right pink",
+        "kind": "audio"
+      },
+      {
+        "id": 8,
+        "name": "Bottom right red",
+        "kind": "audio"
+      },
+      {
+        "id": 9,
+        "name": "Bottom right blue",
+        "kind": "audio"
+      },
+      {
+        "id": 10,
+        "name": "Bottom white",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Bottom left blue",
+        "kind": "audio"
+      },
+      {
+        "id": 12,
+        "name": "Bottom left red",
+        "kind": "audio"
+      },
+      {
+        "id": 13,
+        "name": "Bottom left pink",
+        "kind": "audio"
+      }
+    ],
+    "lights": 14,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "trigBypass0",
+        "type": "real"
+      },
+      {
+        "key": "trigBypass1",
+        "type": "real"
+      },
+      {
+        "key": "vibrations0",
+        "type": "integer"
+      },
+      {
+        "key": "vibrations1",
+        "type": "integer"
+      },
+      {
+        "key": "noiseRange0",
+        "type": "real"
+      },
+      {
+        "key": "noiseRange1",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Geodesics/Branes/2.4.0/manifest.json",
+    "sourceCommit": "1fd26f2f27a2077868a9c78582efb5c650bd1519",
+    "artifact": {
+      "sha256": "31538124bdfb8edb56719a7c3ed2e9649a6253c2596ac947f3074736ec19a36c",
+      "size": 79305
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/Geodesics/",
+    "commit": "1fd26f2f27a2077868a9c78582efb5c650bd1519"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:33:10.461Z"
+  }
+}

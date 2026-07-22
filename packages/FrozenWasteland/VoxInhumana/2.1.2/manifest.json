@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/VoxInhumana",
+    "plugin": "FrozenWasteland",
+    "model": "VoxInhumana",
+    "name": "Vox Inhumana",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/VoxInhumana",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/VoxInhumana.webp",
+    "wasmUrl": "packages/FrozenWasteland/VoxInhumana/2.1.2/module.wasm",
+    "width": 210,
+    "description": "Formant/Vowel Filter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Vowel 1",
+        "min": 0,
+        "max": 4.599999904632568,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 30,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Vowel 2",
+        "min": 0,
+        "max": 4.599999904632568,
+        "default": 0,
+        "position": {
+          "x": 140,
+          "y": 30,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Vowel Balance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 89,
+          "y": 30,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voice Type",
+        "min": 0,
+        "max": 4.599999904632568,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 103,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Main Freqency Cutoff Shift",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 140,
+          "y": 103,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Formant 1 Freqency Shift",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 160,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Formant 2 Freqency Shift",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 195,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Formant 3 Freqency Shift",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 230,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Formant 4 Freqency Shift",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 265,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Formant 5 Freqency Shift",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 300,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Formant 1 Amplitude",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 110,
+          "y": 160,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Formant 2 Amplitude",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 110,
+          "y": 195,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Formant 3 Amplitude",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 110,
+          "y": 230,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Formant 4 Amplitude",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 110,
+          "y": 265,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Formant 5 Amplitude",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 110,
+          "y": 300,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Vowel 1 CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 62,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Vowel 2 CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170,
+          "y": 62,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Vowel Balance CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 107,
+          "y": 62,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Voice Type CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 31,
+          "y": 134,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Main Freqency Cutoff CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 169,
+          "y": 125,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Formant 1 FM CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 162,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Formant 2 FM CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 197,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Formant 3 FM CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 232,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Formant 4 FM CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 267,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Formant 5 FM CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 302,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Formant 1 Amplitude CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 175,
+          "y": 162,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Formant 2 Amplitude CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 175,
+          "y": 197,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Formant 3 Amplitude CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 175,
+          "y": 232,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Formant 4 Amplitude CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 175,
+          "y": 267,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Formant 5 Amplitude CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 175,
+          "y": 302,
+          "widget": "RoundSmallFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 16,
+          "y": 343
+        }
+      },
+      {
+        "id": 1,
+        "name": "Vowel 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 62
+        }
+      },
+      {
+        "id": 2,
+        "name": "Vowel 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 143,
+          "y": 62
+        }
+      },
+      {
+        "id": 3,
+        "name": "Vowel Balance",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 62
+        }
+      },
+      {
+        "id": 4,
+        "name": "Voice Type",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 134
+        }
+      },
+      {
+        "id": 5,
+        "name": "Main Freqency Cutoff Shift",
+        "kind": "cv",
+        "position": {
+          "x": 170,
+          "y": 97
+        }
+      },
+      {
+        "id": 6,
+        "name": "Formant 1 Freqency Shift",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 162
+        }
+      },
+      {
+        "id": 7,
+        "name": "Formant 2 Freqency Shift",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 197
+        }
+      },
+      {
+        "id": 8,
+        "name": "Formant 3 Freqency Shift",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 232
+        }
+      },
+      {
+        "id": 9,
+        "name": "Formant 4 Freqency Shift",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 267
+        }
+      },
+      {
+        "id": 10,
+        "name": "Formant 5 Freqency Shift",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 302
+        }
+      },
+      {
+        "id": 11,
+        "name": "Formant 1 Amplitude",
+        "kind": "cv",
+        "position": {
+          "x": 145,
+          "y": 162
+        }
+      },
+      {
+        "id": 12,
+        "name": "Formant 2 Amplitude",
+        "kind": "cv",
+        "position": {
+          "x": 145,
+          "y": 197
+        }
+      },
+      {
+        "id": 13,
+        "name": "Formant 3 Amplitude",
+        "kind": "cv",
+        "position": {
+          "x": 145,
+          "y": 232
+        }
+      },
+      {
+        "id": 14,
+        "name": "Formant 4 Amplitude",
+        "kind": "cv",
+        "position": {
+          "x": 145,
+          "y": 267
+        }
+      },
+      {
+        "id": 15,
+        "name": "Formant 5 Amplitude",
+        "kind": "cv",
+        "position": {
+          "x": 145,
+          "y": 302
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Vox",
+        "kind": "cv",
+        "position": {
+          "x": 170,
+          "y": 343
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 72,
+          "y": 37
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 120,
+          "y": 37
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/VoxInhumanaExpander",
+            "symbol": "modelVoxInhumanaExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/VoxInhumana/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "174dfebb657e159f515a224d36c02751d15e0e25f9a3de4bfba58bb177781b22",
+      "size": 80083
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:26.790Z"
+  }
+}

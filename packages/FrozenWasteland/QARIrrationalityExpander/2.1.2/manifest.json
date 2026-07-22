@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/QARIrrationalityExpander",
+    "plugin": "FrozenWasteland",
+    "model": "QARIrrationalityExpander",
+    "name": "QAR - Irrational",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/QARIrrationalityExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/QARIrrationalityExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/QARIrrationalityExpander/2.1.2/module.wasm",
+    "width": 105,
+    "description": "Add Irrational Rhythms to QAR",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 333,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Enable IR",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 52,
+          "y": 294,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Starting Step",
+        "min": 1,
+        "max": 71,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 59,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Starting Step CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 87,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "# Steps",
+        "min": 2,
+        "max": 72,
+        "default": 2,
+        "position": {
+          "x": 12,
+          "y": 139,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "# Steps CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Ratio",
+        "min": -6,
+        "max": 71,
+        "default": 1,
+        "position": {
+          "x": 12,
+          "y": 219,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 247,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step/Beat Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12,
+          "y": 294,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Enable IR",
+        "kind": "cv",
+        "position": {
+          "x": 77,
+          "y": 294
+        }
+      },
+      {
+        "id": 1,
+        "name": "Starting Step",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 64
+        }
+      },
+      {
+        "id": 2,
+        "name": "# Steps",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 144
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 224
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 6,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 13.5,
+          "y": 295.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 53.5,
+          "y": 295.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 8.5,
+          "y": 334.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "irEnabled",
+        "type": "integer"
+      },
+      {
+        "key": "stepsOrDivs",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+            "symbol": "modelQuadAlgorithmicRhythm",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+            "symbol": "modelQARWellFormedRhythmExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 6
+          },
+          {
+            "key": "FrozenWasteland/QARGridControlExpander",
+            "symbol": "modelQARGridControlExpander",
+            "index": 7
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/QARIrrationalityExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "00fef4303474150bf842b89365bd3724cc9e11d992480425c8ef35eb6336c9f4",
+      "size": 79897
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:16.405Z"
+  }
+}

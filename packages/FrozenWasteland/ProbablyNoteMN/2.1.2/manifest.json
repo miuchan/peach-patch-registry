@@ -1,0 +1,1427 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/ProbablyNoteMN",
+    "plugin": "FrozenWasteland",
+    "model": "ProbablyNoteMN",
+    "name": "Probably Note - Math Nerd",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/ProbablyNoteMN",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/ProbablyNoteMN.webp",
+    "wasmUrl": "packages/FrozenWasteland/ProbablyNoteMN/2.1.2/module.wasm",
+    "width": 180,
+    "description": "Probabilistic Quantizer using prime number based generative scales",
+    "params": [
+      {
+        "id": 0,
+        "name": "Spread",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 508,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spread CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 534,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slant",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 565,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Slant CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 591,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Distribution",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 622,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Distribution CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 648,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Key",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 563,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Key CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 589,
+          "y": 112,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Consonance/Dissonance Balance",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 623,
+          "y": 86,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Dissonance CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 649,
+          "y": 112,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Weight Shift",
+        "min": -12,
+        "max": 12,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Weight Shift CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Octave",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 683,
+          "y": 86,
+          "widget": "RoundSmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Octave CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 709,
+          "y": 112,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Reset Scale Weights",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 15,
+        "name": "Octave Wraparound",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 709,
+          "y": 143,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Weight Scaling Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 17,
+        "name": "Key Scaling Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 568,
+          "y": 113,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Note Reduction Algorithm",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 412,
+          "y": 205,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Max # of Notes in Scale",
+        "min": 1,
+        "max": 115,
+        "default": 12,
+        "position": {
+          "x": 342,
+          "y": 205,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "# of Notes CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 366,
+          "y": 222,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Map Generated Scale to Traditional Scale Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 340,
+          "y": 323,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Mapped Scale",
+        "min": 0,
+        "max": 41,
+        "default": 0,
+        "position": {
+          "x": 414,
+          "y": 324,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Mapped Scale CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 438,
+          "y": 341,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Use Mapped Scale's Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 340,
+          "y": 343,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Param 26",
+        "min": 0,
+        "max": 39,
+        "default": 3,
+        "position": {
+          "x": 10,
+          "y": 33,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Param 27",
+        "min": 1,
+        "max": 40,
+        "default": 4,
+        "position": {
+          "x": 50,
+          "y": 35,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Param 28",
+        "min": 2,
+        "max": 41,
+        "default": 5,
+        "position": {
+          "x": 82,
+          "y": 33,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Param 29",
+        "min": 3,
+        "max": 42,
+        "default": 6,
+        "position": {
+          "x": 122,
+          "y": 35,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Param 30",
+        "min": 4,
+        "max": 43,
+        "default": 7,
+        "position": {
+          "x": 154,
+          "y": 33,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Param 31",
+        "min": 5,
+        "max": 44,
+        "default": 8,
+        "position": {
+          "x": 194,
+          "y": 35,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Param 32",
+        "min": 6,
+        "max": 45,
+        "default": 9,
+        "position": {
+          "x": 224,
+          "y": 33,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Param 33",
+        "min": 7,
+        "max": 46,
+        "default": 10,
+        "position": {
+          "x": 264,
+          "y": 35,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Octave Size",
+        "min": 8,
+        "max": 47,
+        "default": 11,
+        "position": {
+          "x": 503,
+          "y": 113,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Octave Size CV Attenuation",
+        "min": 9,
+        "max": 48,
+        "default": 12,
+        "position": {
+          "x": 529,
+          "y": 139,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Map v/O to Scale's Octave Size",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 484,
+          "y": 116,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Weight Scaling",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 697,
+          "y": 292,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Randomize Pitch Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 683,
+          "y": 216,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Randomize Pitch Amount CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 709,
+          "y": 242,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Gaussian Randomness",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 686,
+          "y": 250,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Param 41",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 41,
+        "name": "Param 42",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 42,
+        "name": "Non Repeat Probability",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 679,
+          "y": 25,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Non Repeat Probability CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 705,
+          "y": 51,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 44,
+        "name": "EDO/Equal Interval Mode",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 306,
+          "y": 80,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 45,
+        "name": "# of Equal Divisions",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 304,
+          "y": 53,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Equal Step Size",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 304,
+          "y": 53,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Equal Divisions CV Attenuation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 326,
+          "y": 70,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 48,
+        "name": "# of Equal Division Steps",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 361,
+          "y": 53,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Equal Division Steps CV Attenuation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 383,
+          "y": 70,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 50,
+        "name": "# of Equal Division Octave Wraps",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 418,
+          "y": 53,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Equal Division Octave Wraps CV Attenuation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 440,
+          "y": 70,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Param 53",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 297,
+          "y": 162,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 53,
+        "name": "# of MOS Large Steps",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 135,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 54,
+        "name": "MOS Large Steps CV Attenuation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 317,
+          "y": 152,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 55,
+        "name": "# of MOS Small Steps",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 341,
+          "y": 135,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 56,
+        "name": "MOS Small Steps CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 363,
+          "y": 152,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 57,
+        "name": "MOS L/s Ratio",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 387,
+          "y": 135,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 58,
+        "name": "MOS L/s Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 409,
+          "y": 152,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 59,
+        "name": "MOS Levels Steps",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 433,
+          "y": 135,
+          "widget": "RoundReallySmallFWSnapKnob"
+        }
+      },
+      {
+        "id": 60,
+        "name": "MOS Levels CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 455,
+          "y": 152,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 61,
+        "name": "EDO Tempering Mode",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 314,
+          "y": 265,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Tempering Threshold",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 375,
+          "y": 265,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 63,
+        "name": "Tempering Threshold CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 397,
+          "y": 281,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 64,
+        "name": "Tempering Strength",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 434,
+          "y": 265,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 65,
+        "name": "Tempering Strength CV Attenuation",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 456,
+          "y": 281,
+          "widget": "RoundExtremelySmallFWKnob"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Spread by %",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 513,
+          "y": 52,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 67,
+        "name": "Quantitize Octave Size",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 508,
+          "y": 140,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 68,
+        "name": "Quantitize MOS Ratio",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 390,
+          "y": 159,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 69,
+        "name": "Set Root Note",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 576,
+          "y": 360,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 70,
+        "name": "Trigger Mode",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 545,
+          "y": 359,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Unquantized CV",
+        "kind": "cv",
+        "position": {
+          "x": 502,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "Spread",
+        "kind": "cv",
+        "position": {
+          "x": 536,
+          "y": 29
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slant",
+        "kind": "cv",
+        "position": {
+          "x": 593,
+          "y": 29
+        }
+      },
+      {
+        "id": 3,
+        "name": "Focus",
+        "kind": "cv",
+        "position": {
+          "x": 650,
+          "y": 29
+        }
+      },
+      {
+        "id": 4,
+        "name": "Key",
+        "kind": "cv",
+        "position": {
+          "x": 591,
+          "y": 90
+        }
+      },
+      {
+        "id": 5,
+        "name": "Consonance/Dissonance Balance",
+        "kind": "cv",
+        "position": {
+          "x": 651,
+          "y": 90
+        }
+      },
+      {
+        "id": 6,
+        "name": "Shift",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Octave",
+        "kind": "cv",
+        "position": {
+          "x": 711,
+          "y": 90
+        }
+      },
+      {
+        "id": 8,
+        "name": "Note Reduction Algorithm",
+        "kind": "cv",
+        "position": {
+          "x": 434,
+          "y": 208
+        }
+      },
+      {
+        "id": 9,
+        "name": "Map Generated Scale to Traditional Scale Mode Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 364,
+          "y": 326
+        }
+      },
+      {
+        "id": 10,
+        "name": "Mapped Scale",
+        "kind": "cv",
+        "position": {
+          "x": 440,
+          "y": 327
+        }
+      },
+      {
+        "id": 11,
+        "name": "Use Mapped Scale's Probability Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 364,
+          "y": 346
+        }
+      },
+      {
+        "id": 12,
+        "name": "Max # of Notes in Scale",
+        "kind": "cv",
+        "position": {
+          "x": 368,
+          "y": 208
+        }
+      },
+      {
+        "id": 13,
+        "name": "Factor  1",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 36
+        }
+      },
+      {
+        "id": 14,
+        "name": "Factor Numerator Step  1",
+        "kind": "cv",
+        "position": {
+          "x": 106,
+          "y": 36
+        }
+      },
+      {
+        "id": 15,
+        "name": "Factor Denominator Step  1",
+        "kind": "cv",
+        "position": {
+          "x": 178,
+          "y": 36
+        }
+      },
+      {
+        "id": 16,
+        "name": "Factor Temper Step  1",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 36
+        }
+      },
+      {
+        "id": 17,
+        "name": "Octave Size",
+        "kind": "cv",
+        "position": {
+          "x": 531,
+          "y": 117
+        }
+      },
+      {
+        "id": 18,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 532,
+          "y": 345
+        }
+      },
+      {
+        "id": 19,
+        "name": "External Random",
+        "kind": "cv",
+        "position": {
+          "x": 592,
+          "y": 345
+        }
+      },
+      {
+        "id": 20,
+        "name": "Octave Wrap Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 687,
+          "y": 144
+        }
+      },
+      {
+        "id": 21,
+        "name": "Pitch Randomness",
+        "kind": "cv",
+        "position": {
+          "x": 711,
+          "y": 220
+        }
+      },
+      {
+        "id": 22,
+        "name": "Left",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Note Non-Repeat Probability",
+        "kind": "cv",
+        "position": {
+          "x": 707,
+          "y": 29
+        }
+      },
+      {
+        "id": 24,
+        "name": "Equal Division Mode",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "# of Equal Divisions",
+        "kind": "cv",
+        "position": {
+          "x": 328,
+          "y": 55
+        }
+      },
+      {
+        "id": 26,
+        "name": "# of Equal Division Steps",
+        "kind": "cv",
+        "position": {
+          "x": 385,
+          "y": 55
+        }
+      },
+      {
+        "id": 27,
+        "name": "# of Equal Division Octave Wraps",
+        "kind": "cv",
+        "position": {
+          "x": 442,
+          "y": 55
+        }
+      },
+      {
+        "id": 28,
+        "name": "# of MOS Large Steps",
+        "kind": "cv",
+        "position": {
+          "x": 319,
+          "y": 138
+        }
+      },
+      {
+        "id": 29,
+        "name": "# of MOS Small Steps",
+        "kind": "cv",
+        "position": {
+          "x": 365,
+          "y": 138
+        }
+      },
+      {
+        "id": 30,
+        "name": "MOS L/s Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 411,
+          "y": 138
+        }
+      },
+      {
+        "id": 31,
+        "name": "MOS Levels Steps",
+        "kind": "cv",
+        "position": {
+          "x": 457,
+          "y": 138
+        }
+      },
+      {
+        "id": 32,
+        "name": "EDO Tempering Mode",
+        "kind": "cv",
+        "position": {
+          "x": 336,
+          "y": 268
+        }
+      },
+      {
+        "id": 33,
+        "name": "Tempering Threshold",
+        "kind": "gate",
+        "position": {
+          "x": 399,
+          "y": 267
+        }
+      },
+      {
+        "id": 34,
+        "name": "Tempering Strength",
+        "kind": "cv",
+        "position": {
+          "x": 458,
+          "y": 267
+        }
+      },
+      {
+        "id": 35,
+        "name": "Set Root Note Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 562,
+          "y": 345
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Quantized CV",
+        "kind": "cv",
+        "position": {
+          "x": 700,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "name": "Note Weight",
+        "kind": "cv",
+        "position": {
+          "x": 667,
+          "y": 345
+        }
+      },
+      {
+        "id": 2,
+        "name": "Note Changed Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 629,
+          "y": 345
+        }
+      }
+    ],
+    "lights": 48,
+    "lightWidgets": [
+      {
+        "id": 45,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 546.5,
+          "y": 360.5
+        }
+      },
+      {
+        "id": 27,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 514.5,
+          "y": 53.5
+        }
+      },
+      {
+        "id": 21,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 569.5,
+          "y": 114.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 710.5,
+          "y": 144.5
+        }
+      },
+      {
+        "id": 24,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 687.5,
+          "y": 251.5
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 485.5,
+          "y": 117.5
+        }
+      },
+      {
+        "id": 39,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 509.5,
+          "y": 141.5
+        }
+      },
+      {
+        "id": 30,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 307.5,
+          "y": 81.5
+        }
+      },
+      {
+        "id": 33,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 298.5,
+          "y": 163.5
+        }
+      },
+      {
+        "id": 42,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 391.5,
+          "y": 160.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 413.5,
+          "y": 206.5
+        }
+      },
+      {
+        "id": 36,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 315.5,
+          "y": 266.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 341.5,
+          "y": 324.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 341.5,
+          "y": 344.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "pitchGridDisplayMode",
+        "type": "integer"
+      },
+      {
+        "key": "triggerDelayEnabled",
+        "type": "integer"
+      },
+      {
+        "key": "noteReductionAlgorithm",
+        "type": "integer"
+      },
+      {
+        "key": "scaleMappingMode",
+        "type": "integer"
+      },
+      {
+        "key": "useScaleWeighting",
+        "type": "integer"
+      },
+      {
+        "key": "edoTempering",
+        "type": "integer"
+      },
+      {
+        "key": "equalDivisionMode",
+        "type": "integer"
+      },
+      {
+        "key": "quantizeMosRatio",
+        "type": "boolean"
+      },
+      {
+        "key": "quantizeOctaveSize",
+        "type": "boolean"
+      },
+      {
+        "key": "octaveScaleMapping",
+        "type": "integer"
+      },
+      {
+        "key": "spreadMode",
+        "type": "boolean"
+      },
+      {
+        "key": "octaveWrapAround",
+        "type": "integer"
+      },
+      {
+        "key": "shiftMode",
+        "type": "integer"
+      },
+      {
+        "key": "keyLogarithmic",
+        "type": "integer"
+      },
+      {
+        "key": "pitchRandomGaussian",
+        "type": "integer"
+      },
+      {
+        "key": "quantizeMode",
+        "type": "integer"
+      },
+      {
+        "key": "triggerPolyphonic",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/ProbablyNoteMN/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "5c3e08b855ada1949f98d62d4ca16f4245fa3eb23cc3df266539dfbbbe517663",
+      "size": 190847
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:13.341Z"
+  }
+}

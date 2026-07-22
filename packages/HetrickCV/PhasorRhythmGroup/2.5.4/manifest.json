@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorRhythmGroup",
+    "plugin": "HetrickCV",
+    "model": "PhasorRhythmGroup",
+    "name": "Phasor Rhythm Group",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorRhythmGroup",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorRhythmGroup.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorRhythmGroup/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Generates a clock by dividing a phasor into a series of triggers, and then groups the clock into two subrhythms.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 64,
+        "default": 16
+      },
+      {
+        "id": 1,
+        "name": "Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Group Steps",
+        "min": 1,
+        "max": 64,
+        "default": 7
+      },
+      {
+        "id": 3,
+        "name": "Group Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Subgroup Steps",
+        "min": 1,
+        "max": 64,
+        "default": 3
+      },
+      {
+        "id": 5,
+        "name": "Subgroup Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steps CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Group Steps CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Subgroup Steps CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Steps Phasors",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steps Triggers",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Group Steps Phasors",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Group Steps Triggers",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Subgroup Steps Phasors",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Subgroup Steps Triggers",
+        "kind": "gate"
+      }
+    ],
+    "lights": 3,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorRhythmGroup/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "71e27af9e7d299fea281371f4a0a8d9290ab97026df562660ad02a4e97ad2de1",
+      "size": 76556
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:56:41.957Z"
+  }
+}

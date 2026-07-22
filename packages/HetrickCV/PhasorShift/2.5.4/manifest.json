@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorShift",
+    "plugin": "HetrickCV",
+    "model": "PhasorShift",
+    "name": "Phasor Shift",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorShift",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorShift.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorShift/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Processes phasor signals and provides a phase shifted output, optionally quantized to step distances.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 64,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Phasor Shift",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Phasor Shift CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steps CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Shift CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Shifted Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Shifted Step Gates",
+        "kind": "gate"
+      }
+    ],
+    "lights": 3,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorShift/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "8561dc2e09df0fdd15dbae828e25a621b2ca43431798597172240c4720cb9f6f",
+      "size": 70186
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:36:04.935Z"
+  }
+}

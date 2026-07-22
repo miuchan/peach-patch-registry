@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+    "plugin": "FrozenWasteland",
+    "model": "QARWellFormedRhythmExpander",
+    "name": "QAR - Well Formed Rhythms",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/QARWellFormedRhythmExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/QARWellFormedRhythmExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/QARWellFormedRhythmExpander/2.1.2/module.wasm",
+    "width": 75,
+    "description": "Extra Parameters for Well Formed Algorithm",
+    "params": [
+      {
+        "id": 0,
+        "name": "Track 1 - Ratio",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 12,
+          "y": 59,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 - Ratio",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Track 3 - Ratio",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "Track 4 - Ratio",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 4,
+        "name": "Track 1 - Hierarchical",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 103,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 2 - Hierarchical",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "Track 3 - Hierarchical",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Track 4 - Hierarchical",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 8,
+        "name": "Track 1 - Complimentary",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 48,
+          "y": 103,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 2 - Complimentary",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Track 3 - Complimentary",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "Track 4 - Complimentary",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Track 1 - Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 49,
+          "y": 64
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 - Ratio",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Track 3 - Ratio",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Track 4 - Ratio",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [],
+    "lights": 16,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 104.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 49.5,
+          "y": 104.5
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+            "symbol": "modelQuadAlgorithmicRhythm",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+            "symbol": "modelQARWellFormedRhythmExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 6
+          },
+          {
+            "key": "FrozenWasteland/QARGridControlExpander",
+            "symbol": "modelQARGridControlExpander",
+            "index": 7
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/QARWellFormedRhythmExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "8a3661ee840c18f08a067c4b2613d0415674b15b5166958d68a00a1d13640967",
+      "size": 80157
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:19.371Z"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ChemicalElements/Tritium",
+    "plugin": "ChemicalElements",
+    "model": "Tritium",
+    "name": "Tritium",
+    "brand": "",
+    "version": "2.0.0",
+    "license": "GPL-3.0+",
+    "sourceUrl": "https://gitlab.com/pythongirl/chemical-elements",
+    "libraryUrl": "https://library.vcvrack.com/ChemicalElements/Tritium",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ChemicalElements/Tritium.webp",
+    "wasmUrl": "packages/ChemicalElements/Tritium/2.0.0/module.wasm",
+    "width": 45,
+    "description": "Poisson process trigger generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Decay Rate",
+        "min": -4,
+        "max": 2,
+        "default": 0.3010300099849701,
+        "position": {
+          "x": 0.3,
+          "y": 0.6,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Stability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 0.3,
+          "y": 1.6,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Decay Rate CV",
+        "kind": "cv",
+        "position": {
+          "x": 0.3,
+          "y": 1,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Stability CV",
+        "kind": "cv",
+        "position": {
+          "x": 0.3,
+          "y": 2,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 0.3,
+          "y": 4.56,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<PhosphorLight>",
+        "position": {
+          "x": 0.3,
+          "y": 4,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "time",
+        "type": "real"
+      },
+      {
+        "key": "period",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ChemicalElements/Tritium/2.0.0/manifest.json",
+    "sourceCommit": "414e488e8db482e0d67a3294b2d8461ade36ac03",
+    "artifact": {
+      "sha256": "81a3b6154846190ab35b7d562c8d35513f31ba4cbdc0d1f6ee8c5bd41a1269cd",
+      "size": 69970
+    }
+  },
+  "source": {
+    "url": "https://gitlab.com/pythongirl/chemical-elements",
+    "commit": "414e488e8db482e0d67a3294b2d8461ade36ac03"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:31:22.892Z"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Coffee/Some",
+    "plugin": "Coffee",
+    "model": "Some",
+    "name": "Some",
+    "brand": "Coffee",
+    "version": "2.4.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "libraryUrl": "https://library.vcvrack.com/Coffee/Some",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coffee/Some.webp",
+    "wasmUrl": "packages/Coffee/Some/2.4.1/module.wasm",
+    "width": 60,
+    "description": "From a group of active inputs, when triggered, mute a number of the inputs, based on a probability",
+    "params": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25.335,
+          "y": 33.957,
+          "centered": true,
+          "widget": "CoffeeTinyButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 44.528,
+          "y": 88.583,
+          "centered": true,
+          "widget": "CoffeeKnob6mm"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Probability",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 88.583,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 29.764,
+          "y": 124.016,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Coffee/Some/2.4.1/manifest.json",
+    "sourceCommit": "dfb2174d7f8cd4b035abd1aac2555f941a517854",
+    "artifact": {
+      "sha256": "fd69f028a4d1add3d118a8259485b4f9d0eda2a5267794f677e7c44668801716",
+      "size": 71839
+    }
+  },
+  "source": {
+    "url": "https://github.com/CoffeeVCV/CoffeeVCV/blob/master/README.md",
+    "commit": "dfb2174d7f8cd4b035abd1aac2555f941a517854"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:02:57.402Z"
+  }
+}

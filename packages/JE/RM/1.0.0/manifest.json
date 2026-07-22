@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JE/RM",
+    "plugin": "JE",
+    "model": "RM",
+    "name": "RM",
+    "brand": "JE",
+    "version": "1.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/eres-j/VCVRack-plugin-JE",
+    "libraryUrl": "https://library.vcvrack.com/JE/RM",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JE/RM.webp",
+    "wasmUrl": "packages/JE/RM/1.0.0/module.wasm",
+    "width": 180,
+    "description": "Ring Modulator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54,
+          "y": 57,
+          "widget": "rack::RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Carrier level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54,
+          "y": 57,
+          "widget": "rack::RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Carrier offset",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 54,
+          "y": 57,
+          "widget": "rack::RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input polarity",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Carrier polarity",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Diode forward-bias voltage (Vb)",
+        "min": 1.1920928955078125e-7,
+        "max": 5,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 9,
+          "y": 51,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Diode voltage beyond which the function is linear - Vb",
+        "min": 1.1920928955078125e-7,
+        "max": 5,
+        "default": 0.5,
+        "position": {
+          "x": 9,
+          "y": 51,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Diode slope of the linear section",
+        "min": 0,
+        "max": 1,
+        "default": 0.8999999761581421,
+        "position": {
+          "x": 9,
+          "y": 51,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 63
+        }
+      },
+      {
+        "id": 1,
+        "name": "Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 63
+        }
+      },
+      {
+        "id": 2,
+        "name": "Carrier Offset",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 63
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ring",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Sum",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 63
+        }
+      },
+      {
+        "id": 2,
+        "name": "Diff",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 63
+        }
+      },
+      {
+        "id": 3,
+        "name": "Min",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 63
+        }
+      },
+      {
+        "id": 4,
+        "name": "Max",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 63
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JE/RM/1.0.0/manifest.json",
+    "sourceCommit": "89fecee9302ae457ed6f83985486ea860d659dd2",
+    "artifact": {
+      "sha256": "62a75444514c36c0bbb25366e39567914fe80929900088b63b61ef04cddf6a5d",
+      "size": 71324
+    }
+  },
+  "source": {
+    "url": "https://github.com/eres-j/VCVRack-plugin-JE",
+    "commit": "89fecee9302ae457ed6f83985486ea860d659dd2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:58:11.685Z"
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/QARWarpedSpaceExpander",
+    "plugin": "FrozenWasteland",
+    "model": "QARWarpedSpaceExpander",
+    "name": "QAR - Warped Space",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/QARWarpedSpaceExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/QARWarpedSpaceExpander.webp",
+    "wasmUrl": "packages/FrozenWasteland/QARWarpedSpaceExpander/2.1.2/module.wasm",
+    "width": 105,
+    "description": "Make your QAR Rhythms explore non-linear space",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 333,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Warp Amount",
+        "min": 1,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 12,
+          "y": 59,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Warp Amount CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 87,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Warp Position",
+        "min": 0,
+        "max": 72,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 139,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Warp Position CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 167,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Warp Length",
+        "min": 1,
+        "max": 73,
+        "default": 1,
+        "position": {
+          "x": 12,
+          "y": 219,
+          "widget": "RoundFWSnapKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Warp Length CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 247,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Enable Warping",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 52,
+          "y": 294,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Warp Amount",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 64
+        }
+      },
+      {
+        "id": 1,
+        "name": "Warp Position",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 144
+        }
+      },
+      {
+        "id": 2,
+        "name": "Warp Length",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 224
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ws On Off",
+        "kind": "cv",
+        "position": {
+          "x": 77,
+          "y": 294
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 5,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 53.5,
+          "y": 295.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 8.5,
+          "y": 334.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "wsEnabled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "FrozenWasteland/QuadAlgorithmicRhythm",
+            "symbol": "modelQuadAlgorithmicRhythm",
+            "index": 0
+          },
+          {
+            "key": "FrozenWasteland/QARWellFormedRhythmExpander",
+            "symbol": "modelQARWellFormedRhythmExpander",
+            "index": 1
+          },
+          {
+            "key": "FrozenWasteland/QARProbabilityExpander",
+            "symbol": "modelQARProbabilityExpander",
+            "index": 2
+          },
+          {
+            "key": "FrozenWasteland/QARGrooveExpander",
+            "symbol": "modelQARGrooveExpander",
+            "index": 3
+          },
+          {
+            "key": "FrozenWasteland/QARWarpedSpaceExpander",
+            "symbol": "modelQARWarpedSpaceExpander",
+            "index": 4
+          },
+          {
+            "key": "FrozenWasteland/QARIrrationalityExpander",
+            "symbol": "modelQARIrrationalityExpander",
+            "index": 5
+          },
+          {
+            "key": "FrozenWasteland/QARConditionalExpander",
+            "symbol": "modelQARConditionalExpander",
+            "index": 6
+          },
+          {
+            "key": "FrozenWasteland/QARGridControlExpander",
+            "symbol": "modelQARGridControlExpander",
+            "index": 7
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/QARWarpedSpaceExpander/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "8478b4290ec0fa78388382e3d5c899e955fce5b3d105e86cf6b8d5fb72b6e8b6",
+      "size": 78485
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:32:19.320Z"
+  }
+}

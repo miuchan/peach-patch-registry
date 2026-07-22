@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorProbability",
+    "plugin": "HetrickCV",
+    "model": "PhasorProbability",
+    "name": "Phasor Probability",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorProbability",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorProbability.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorProbability/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Sends one phasor to two places randomly.",
+    "params": [
+      {
+        "id": 0,
+        "name": "PhasorProbability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "PhasorProbability CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "PhasorProbability Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "PhasorProbability CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A Phase",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "A Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "B Phase",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "B Gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 7,
+    "stateKeys": [
+      {
+        "key": "probMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorProbability/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "a94c4894d493d2b81e206eeecc8dd682be35aba83923ce439c5b3426cf137e91",
+      "size": 71050
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:35:54.876Z"
+  }
+}

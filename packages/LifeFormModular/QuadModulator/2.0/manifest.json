@@ -1,0 +1,700 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LifeFormModular/QuadModulator",
+    "plugin": "LifeFormModular",
+    "model": "QuadModulator",
+    "name": "QuadModulator",
+    "brand": "LifeFormModular",
+    "version": "2.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "libraryUrl": "https://library.vcvrack.com/LifeFormModular/QuadModulator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LifeFormModular/QuadModulator.webp",
+    "wasmUrl": "packages/LifeFormModular/QuadModulator/2.0/module.wasm",
+    "width": 180,
+    "description": "Quad synced LFO with skew from ramp up to ramp down through sine plus dual unity mixer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock Rate",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 78,
+          "y": 25,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "LFO1 Clock Division",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 110,
+          "widget": "LFMSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "LFO1 Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 28,
+          "y": 190,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "LFO1 Shape Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 28,
+          "y": 245,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "LFO2 Clock Division",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 70,
+          "y": 110,
+          "widget": "LFMSnapKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "LFO2 Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 88,
+          "y": 190,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "LFO2 Shape Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88,
+          "y": 245,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "LFO3 Clock Division",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 130,
+          "y": 110,
+          "widget": "LFMSnapKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "LFO3 Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 148,
+          "y": 190,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "LFO3 Shape Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148,
+          "y": 245,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "LFO4 Clock Division",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 190,
+          "y": 110,
+          "widget": "LFMSnapKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "LFO4 Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 208,
+          "y": 190,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "LFO4 Shape Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 208,
+          "y": 245,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "MIX1 LFO1 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 30,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 14,
+        "name": "MIX1 LFO2 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 70,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 15,
+        "name": "MIX1 LFO3 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 110,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 16,
+        "name": "MIX1 LFO4 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 150,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 17,
+        "name": "MIX2 LFO1 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 30,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 18,
+        "name": "MIX2 LFO2 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 70,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 19,
+        "name": "MIX2 LFO3 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 110,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 20,
+        "name": "MIX2 LFO4 On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 150,
+          "widget": "ButtonLEDLatch"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Param 22",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Param 23",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Param 24",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Param 25",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "Param 26",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "Param 27",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "Param 28",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "Param 29",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "LFO1 Exp Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 170,
+          "widget": "MS"
+        }
+      },
+      {
+        "id": 30,
+        "name": "LFO2 Exp Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 68,
+          "y": 170,
+          "widget": "MS"
+        }
+      },
+      {
+        "id": 31,
+        "name": "LFO3 Exp Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 128,
+          "y": 170,
+          "widget": "MS"
+        }
+      },
+      {
+        "id": 32,
+        "name": "LFO4 Exp Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 188,
+          "y": 170,
+          "widget": "MS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "kind": "cv",
+        "position": {
+          "x": 17,
+          "y": 25
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 18,
+          "y": 60
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shapexmod",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 230
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset 2",
+        "kind": "gate",
+        "position": {
+          "x": 78,
+          "y": 60
+        }
+      },
+      {
+        "id": 4,
+        "name": "Shapexmod 2",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 230
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset 3",
+        "kind": "gate",
+        "position": {
+          "x": 138,
+          "y": 60
+        }
+      },
+      {
+        "id": 6,
+        "name": "Shapexmod 3",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 230
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset 4",
+        "kind": "gate",
+        "position": {
+          "x": 198,
+          "y": 60
+        }
+      },
+      {
+        "id": 8,
+        "name": "Shapexmod 4",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 230
+        }
+      },
+      {
+        "id": 9,
+        "name": "Resetg",
+        "kind": "gate",
+        "position": {
+          "x": 138,
+          "y": 25
+        }
+      },
+      {
+        "id": 10,
+        "name": "Altshtrig",
+        "kind": "gate",
+        "position": {
+          "x": 248,
+          "y": 283
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 300
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output 3",
+        "kind": "cv",
+        "position": {
+          "x": 153,
+          "y": 300
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output 4",
+        "kind": "cv",
+        "position": {
+          "x": 213,
+          "y": 300
+        }
+      },
+      {
+        "id": 4,
+        "name": "Output 5",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 235
+        }
+      },
+      {
+        "id": 5,
+        "name": "Output 6",
+        "kind": "cv",
+        "position": {
+          "x": 293,
+          "y": 235
+        }
+      },
+      {
+        "id": 6,
+        "name": "Steplfo 1",
+        "kind": "cv",
+        "position": {
+          "x": 3,
+          "y": 290
+        }
+      },
+      {
+        "id": 7,
+        "name": "Steplfo 2",
+        "kind": "cv",
+        "position": {
+          "x": 63,
+          "y": 290
+        }
+      },
+      {
+        "id": 8,
+        "name": "Steplfo 3",
+        "kind": "cv",
+        "position": {
+          "x": 123,
+          "y": 290
+        }
+      },
+      {
+        "id": 9,
+        "name": "Steplfo 4",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 290
+        }
+      },
+      {
+        "id": 10,
+        "name": "Steplfo 5",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 190
+        }
+      },
+      {
+        "id": 11,
+        "name": "Steplfo 6",
+        "kind": "cv",
+        "position": {
+          "x": 293,
+          "y": 190
+        }
+      },
+      {
+        "id": 12,
+        "name": "Steplfo 7",
+        "kind": "cv",
+        "position": {
+          "x": 248,
+          "y": 310
+        }
+      },
+      {
+        "id": 13,
+        "name": "Steplfo 8",
+        "kind": "cv",
+        "position": {
+          "x": 293,
+          "y": 310
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 251.4,
+          "y": 31.4
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 251.4,
+          "y": 71.4
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 251.4,
+          "y": 111.4
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 251.4,
+          "y": 151.4
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 296.4,
+          "y": 31.4
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 296.4,
+          "y": 71.4
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 296.4,
+          "y": 111.4
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 296.4,
+          "y": 151.4
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LifeFormModular/QuadModulator/2.0/manifest.json",
+    "sourceCommit": "d1673014007bab2a17c74e1b061905bdc780f09d",
+    "artifact": {
+      "sha256": "e5c3a38c97e0f41f59878e14141421026b2269a45c1cc07c293e26d29d14e4be",
+      "size": 79951
+    }
+  },
+  "source": {
+    "url": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "commit": "d1673014007bab2a17c74e1b061905bdc780f09d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:41:17.480Z"
+  }
+}

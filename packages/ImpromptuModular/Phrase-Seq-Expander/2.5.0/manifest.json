@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Phrase-Seq-Expander",
+    "plugin": "ImpromptuModular",
+    "model": "Phrase-Seq-Expander",
+    "name": "PhraseSeq expander",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Phrase-Seq-Expander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Phrase-Seq-Expander.webp",
+    "wasmUrl": "packages/ImpromptuModular/Phrase-Seq-Expander/2.5.0/module.wasm",
+    "width": 180,
+    "description": "Expander for PhraseSeq16 and PhraseSeq32",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate 1",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Gate 2",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Tied",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Slide",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Mode",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/PhraseSeq16",
+            "symbol": "modelPhraseSeq16",
+            "index": 0
+          },
+          {
+            "key": "ImpromptuModular/PhraseSeq32",
+            "symbol": "modelPhraseSeq32",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Phrase-Seq-Expander/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "193cb195c6c7774d032991903a935bbfce56d8b726fc2d0a894ea29ca28cb76f",
+      "size": 67369
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:37:56.924Z"
+  }
+}

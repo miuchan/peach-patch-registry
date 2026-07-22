@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/PhasorHumanizer",
+    "plugin": "HetrickCV",
+    "model": "PhasorHumanizer",
+    "name": "Phasor Humanizer",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorHumanizer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorHumanizer.webp",
+    "wasmUrl": "packages/HetrickCV/PhasorHumanizer/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Repeatedly modifies the slope of an incoming phasor to make the timing less robotic.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 2,
+        "max": 64,
+        "default": 2
+      },
+      {
+        "id": 1,
+        "name": "Steps CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Humanize",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Humanize CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Steps CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Humanize CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Humanized Phasor",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCV/PhasorHumanizer/2.5.4/manifest.json",
+    "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+    "artifact": {
+      "sha256": "0e744243135efe46349bb268a9c9dd1af96ff2c174e4ba5e8fa4c8bde2591e7c",
+      "size": 71515
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:35:48.189Z"
+  }
+}

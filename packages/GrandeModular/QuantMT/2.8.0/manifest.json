@@ -1,0 +1,635 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GrandeModular/QuantMT",
+    "plugin": "GrandeModular",
+    "model": "QuantMT",
+    "name": "QuantMT",
+    "brand": "Grande",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/dbgrande/GrandeModular",
+    "libraryUrl": "https://library.vcvrack.com/GrandeModular/QuantMT",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GrandeModular/QuantMT.webp",
+    "wasmUrl": "packages/GrandeModular/QuantMT/2.8.0/module.wasm",
+    "width": 90,
+    "description": "Microtonal quantizer.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rounding",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 47.982,
+          "y": 193.406,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Equi-likely notes",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 70.128,
+          "y": 197.244,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Notes per Octave",
+        "min": 1,
+        "max": 34,
+        "default": 12,
+        "position": {
+          "x": 65.669,
+          "y": 116.634,
+          "centered": true,
+          "widget": "RoundBlackRotarySwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Set All",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 46.627,
+          "y": 42.198,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clear All",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 68.773,
+          "y": 42.198,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Note0",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.093,
+          "y": 356.988,
+          "widget": "RectButtonDim"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Note1",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Note2",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "Note3",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Note4",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 10,
+        "name": "Note5",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "Note6",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Note7",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 13,
+        "name": "Note8",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Note9",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 15,
+        "name": "Note10",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Note11",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 17,
+        "name": "Note12",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "Note13",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 19,
+        "name": "Note14",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Note15",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 21,
+        "name": "Note16",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 22,
+        "name": "Note17",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 23,
+        "name": "Note18",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 24,
+        "name": "Note19",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 25,
+        "name": "Note20",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 26,
+        "name": "Note21",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 27,
+        "name": "Note22",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 28,
+        "name": "Note23",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 29,
+        "name": "Note24",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 30,
+        "name": "Note25",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 31,
+        "name": "Note26",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 32,
+        "name": "Note27",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 33,
+        "name": "Note28",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 34,
+        "name": "Note29",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 35,
+        "name": "Note30",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 36,
+        "name": "Note31",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 37,
+        "name": "Note32",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 38,
+        "name": "Note33",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 39,
+        "name": "Rotate Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 46.627,
+          "y": 68.773,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Reference Scale",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 68.773,
+          "y": 68.773,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Transpose",
+        "kind": "cv",
+        "position": {
+          "x": 65.669,
+          "y": 160.925,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 65.669,
+          "y": 250.984,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 65.669,
+          "y": 295.276,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 65.669,
+          "y": 339.567,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 70,
+    "lightWidgets": [
+      {
+        "id": 69,
+        "widget": "MediumLightFlat<BlueLight>",
+        "position": {
+          "x": 76.476,
+          "y": 76.358,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "TinyStealthLight<BlueLight>",
+        "position": {
+          "x": 12.549,
+          "y": 366.88,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "PetiteStealthLight<BlueLight>",
+        "position": {
+          "x": 40.01,
+          "y": 361.713,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 16,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 17,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 18,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 19,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 20,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 21,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 22,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 23,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 24,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 25,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 26,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 27,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 28,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 29,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 30,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 31,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 32,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 33,
+        "key": "refstates",
+        "type": "boolean"
+      },
+      {
+        "index": 34,
+        "key": "refstates",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GrandeModular/QuantMT/2.8.0/manifest.json",
+    "sourceCommit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d",
+    "artifact": {
+      "sha256": "f2d1539eba01edf4b606d3f7667a6c7fb4197d7dedffc2453ae928e125db0da3",
+      "size": 99142
+    }
+  },
+  "source": {
+    "url": "https://github.com/dbgrande/GrandeModular",
+    "commit": "2f5f9d84a3c1c9500c0bbd4bcc284dfe0d15209d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:33:56.995Z"
+  }
+}

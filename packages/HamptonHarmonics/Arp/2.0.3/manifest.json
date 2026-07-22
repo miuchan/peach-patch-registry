@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HamptonHarmonics/Arp",
+    "plugin": "HamptonHarmonics",
+    "model": "Arp",
+    "name": "Arp",
+    "brand": "Hampton Harmonics",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://gitlab.com/hampton-harmonics/hampton-harmonics-modules",
+    "libraryUrl": "https://library.vcvrack.com/HamptonHarmonics/Arp",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HamptonHarmonics/Arp.webp",
+    "wasmUrl": "packages/HamptonHarmonics/Arp/2.0.3/module.wasm",
+    "width": 150,
+    "description": "Polyphonic Input Arpeggiator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pattern",
+        "min": 1,
+        "max": 7,
+        "default": 1,
+        "position": {
+          "x": 74.914,
+          "y": 77.477,
+          "centered": true,
+          "widget": "DaviesMaroonLargeSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate length",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 30.05,
+          "y": 172.411,
+          "centered": true,
+          "widget": "DaviesGrayMedium"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Octave",
+        "min": 1,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 120,
+          "y": 172.411,
+          "centered": true,
+          "widget": "DaviesGrayMediumSnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Latch/Hold",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 81.407,
+          "y": 215.197,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pattern CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.914,
+          "y": 117.136,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate CV",
+        "kind": "gate",
+        "position": {
+          "x": 74.914,
+          "y": 153.573,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Octave CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.914,
+          "y": 191.043,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 60.092,
+          "y": 283.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 22.949,
+          "y": 283.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "1V/oct pitch (poly)",
+        "kind": "cv",
+        "position": {
+          "x": 22.949,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate (poly)",
+        "kind": "gate",
+        "position": {
+          "x": 60.092,
+          "y": 327.756,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 116.333,
+          "y": 283.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 116.333,
+          "y": 327.756,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HamptonHarmonics/Arp/2.0.3/manifest.json",
+    "sourceCommit": "608ba60463d9132aab09dc1a681e676e742b4deb",
+    "artifact": {
+      "sha256": "ae1a6051661c16d3c9fd91d3b87824a08925ef02e5bba6b599af9468af5e5c0e",
+      "size": 84508
+    }
+  },
+  "source": {
+    "url": "https://gitlab.com/hampton-harmonics/hampton-harmonics-modules",
+    "commit": "608ba60463d9132aab09dc1a681e676e742b4deb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T19:34:11.651Z"
+  }
+}

@@ -6,16 +6,15 @@
     "plugin": "Fundamental",
     "model": "LFO",
     "name": "LFO",
-    "brand": "Fundamental",
+    "brand": "VCV",
     "version": "2.6.4",
     "license": "GPL-3.0-or-later",
-    "polyphonic": true,
     "sourceUrl": "https://github.com/VCVRack/Fundamental",
     "libraryUrl": "https://library.vcvrack.com/Fundamental/LFO",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/LFO.webp",
     "wasmUrl": "packages/Fundamental/LFO/2.6.4/module.wasm",
     "width": 135,
-    "description": "Low-frequency oscillator translated with Fundamental parameter and port indices, clock sync, reset, offset, and invert",
+    "description": "Low-frequency oscillator",
     "params": [
       {
         "id": 0,
@@ -23,7 +22,13 @@
         "min": 0,
         "max": 1,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 83.501,
+          "y": 238.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 1,
@@ -31,107 +36,215 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 51.499,
+          "y": 238.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 2,
         "name": "Frequency",
         "min": -8,
         "max": 10,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 67.624,
+          "y": 88.001,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
       },
       {
         "id": 3,
-        "name": "FM",
+        "name": "Frequency modulation",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 19.5,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       },
       {
         "id": 4,
-        "name": "Legacy FM",
+        "name": "Param 5",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "hidden": true
       },
       {
         "id": 5,
         "name": "Pulse width",
-        "min": 0.01,
-        "max": 0.99,
-        "default": 0.5
+        "min": 0.009999999776482582,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 67.503,
+          "y": 166.5,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
       },
       {
         "id": 6,
-        "name": "PWM",
+        "name": "Pulse width modulation",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 115.5,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "FM",
-        "kind": "cv"
+        "name": "Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 19.5,
+          "y": 286.001,
+          "centered": true
+        }
       },
       {
         "id": 1,
-        "name": "LEGACY FM",
-        "kind": "cv"
+        "name": "FM 2",
+        "kind": "cv",
+        "hidden": true
       },
       {
         "id": 2,
-        "name": "RESET",
-        "kind": "gate"
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 83.501,
+          "y": 285.883,
+          "centered": true
+        }
       },
       {
         "id": 3,
-        "name": "PWM",
-        "kind": "cv"
+        "name": "Pulse width modulation",
+        "kind": "gate",
+        "position": {
+          "x": 115.5,
+          "y": 285.883,
+          "centered": true
+        }
       },
       {
         "id": 4,
-        "name": "CLOCK",
-        "kind": "gate"
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 51.499,
+          "y": 286.001,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "SIN",
-        "kind": "cv"
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 19.5,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 1,
-        "name": "TRI",
-        "kind": "cv"
+        "name": "Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 51.499,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 2,
-        "name": "SAW",
-        "kind": "cv"
+        "name": "Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 83.501,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 3,
-        "name": "SQR",
-        "kind": "gate"
+        "name": "Square",
+        "kind": "cv",
+        "position": {
+          "x": 115.5,
+          "y": 334.001,
+          "centered": true
+        }
       }
     ],
     "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 91.786,
+          "y": 48.508,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 51.499,
+          "y": 238.001,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 83.501,
+          "y": 238.001,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
     "manifestUrl": "packages/Fundamental/LFO/2.6.4/manifest.json",
+    "sourceCommit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e",
     "artifact": {
-      "sha256": "028c1df8d0454b56a8ef4669a7f70bc00f48404e4e889c33eddfd0dcb65f9f82",
-      "size": 71863
+      "sha256": "7f712b534d35ae5111cdce3d8315825d44b215a4fa76c389f06cb04600831898",
+      "size": 79314
     }
   },
   "source": {
     "url": "https://github.com/VCVRack/Fundamental",
-    "commit": null
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
   },
   "build": {
-    "strategy": "ordered-translation",
+    "strategy": "direct-rack-source-adapter",
     "fingerprint": null,
-    "builtAt": null
+    "builtAt": "2026-07-22T19:32:42.479Z"
   }
 }
