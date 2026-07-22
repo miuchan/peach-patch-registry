@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackModules/RndH2",
+    "plugin": "dbRackModules",
+    "model": "RndH2",
+    "name": "RndH2",
+    "brand": "docB",
+    "version": "2.6.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackModules",
+    "libraryUrl": "https://library.vcvrack.com/dbRackModules/RndH2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackModules/RndH2.webp",
+    "wasmUrl": "packages/dbRackModules/RndH2/2.6.1/module.wasm",
+    "width": 60,
+    "description": "Random and Hold mk2",
+    "params": [
+      {
+        "id": 0,
+        "name": "BI-Polar",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 20.079,
+          "y": 26.575,
+          "widget": "SmallButtonWithLabel"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Strength",
+        "min": 1,
+        "max": 20,
+        "default": 1,
+        "position": {
+          "x": 5.61,
+          "y": 26.575,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Polyphonic Channels",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 35.138,
+          "y": 26.575,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Random Seed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5.61,
+          "y": 26.575,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Range",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 5.61,
+          "y": 188.976,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Range CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5.61,
+          "y": 188.976,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Offset",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 35.138,
+          "y": 188.976,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Offset CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.138,
+          "y": 188.976,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Slew",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20.374,
+          "y": 271.654,
+          "widget": "TrimbotWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.61,
+          "y": 26.575
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 20.374,
+          "y": 26.575
+        }
+      },
+      {
+        "id": 2,
+        "name": "Random Seed",
+        "kind": "cv",
+        "position": {
+          "x": 35.138,
+          "y": 26.575
+        }
+      },
+      {
+        "id": 3,
+        "name": "STRENGTH",
+        "kind": "cv",
+        "position": {
+          "x": 35.138,
+          "y": 26.575
+        }
+      },
+      {
+        "id": 4,
+        "name": "Range",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 188.976
+        }
+      },
+      {
+        "id": 5,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": 35.138,
+          "y": 188.976
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Min Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 35.138,
+          "y": 307.087
+        }
+      },
+      {
+        "id": 1,
+        "name": "Weibull Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 307.087
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangular Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 307.087
+        }
+      },
+      {
+        "id": 3,
+        "name": "Uniform Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 35.138,
+          "y": 307.087
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackModules/RndH2/2.6.1/manifest.json",
+    "sourceCommit": "16df93fee43b631efc347f97542cf00a7a56e96a",
+    "artifact": {
+      "sha256": "bdb7de196a3708663c599b9c8637e8b0b0567e5d6f650a139bb9a884c3251aa3",
+      "size": 92468
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackModules",
+    "commit": "16df93fee43b631efc347f97542cf00a7a56e96a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:34:00.763Z"
+  }
+}

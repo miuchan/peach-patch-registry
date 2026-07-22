@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "alefsbits/probablynot",
+    "plugin": "alefsbits",
+    "model": "probablynot",
+    "name": "probably not",
+    "brand": "alef's bits",
+    "version": "2.5.63",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/alefsbits",
+    "libraryUrl": "https://library.vcvrack.com/alefsbits/probablynot",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/alefsbits/probablynot.webp",
+    "wasmUrl": "packages/alefsbits/probablynot/2.5.63/module.wasm",
+    "width": 45,
+    "description": "mute a signal on trigger, based on probability",
+    "params": [
+      {
+        "id": 0,
+        "name": "probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.5,
+          "y": 170.566,
+          "centered": true,
+          "widget": "BitKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "signal",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 80.303,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 124.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "probability cv",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 217.252,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "signal",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 277.636,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "fade",
+        "type": "boolean"
+      },
+      {
+        "key": "fade_dur",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/alefsbits/probablynot/2.5.63/manifest.json",
+    "sourceCommit": "f6192a74f867be4338da7accde238b32c577ab3d",
+    "artifact": {
+      "sha256": "136c7aed2d316c8a579833bdad8b2ca6d4ec744da7f6484b561b60f1d6cb1495",
+      "size": 71178
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/alefsbits",
+    "commit": "f6192a74f867be4338da7accde238b32c577ab3d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:42:28.106Z"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "alefsbits/nos",
+    "plugin": "alefsbits",
+    "model": "nos",
+    "name": "nos",
+    "brand": "alef's bits",
+    "version": "2.5.63",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/alefsbits",
+    "libraryUrl": "https://library.vcvrack.com/alefsbits/nos",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/alefsbits/nos.webp",
+    "wasmUrl": "packages/alefsbits/nos/2.5.63/module.wasm",
+    "width": 60,
+    "description": "a weird noise-based oscillator thing",
+    "params": [
+      {
+        "id": 0,
+        "name": "frequency",
+        "min": 32.70000076293945,
+        "max": 1046.5,
+        "default": 261.6255798339844,
+        "position": {
+          "x": 100,
+          "y": 112.5,
+          "centered": true,
+          "widget": "BitKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "inject",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 112.5,
+          "centered": true,
+          "widget": "VCVLightButton<LargeSimpleLight<RedLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "pitch",
+        "kind": "cv",
+        "position": {
+          "x": 100,
+          "y": 112.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "inject",
+        "kind": "cv",
+        "position": {
+          "x": 100,
+          "y": 112.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "signal",
+        "kind": "audio",
+        "position": {
+          "x": 100,
+          "y": 112.5,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightButton<LargeSimpleLight<RedLight>>",
+        "position": {
+          "x": 100,
+          "y": 112.5,
+          "centered": true
+        },
+        "paramId": 1
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "tableSize",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "simplexSpeed",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/alefsbits/nos/2.5.63/manifest.json",
+    "sourceCommit": "f6192a74f867be4338da7accde238b32c577ab3d",
+    "artifact": {
+      "sha256": "e431d83b9b6e68099a8fe22271f43d58ea5bd8c49ad1b3fd2d35c42af7cb1b8d",
+      "size": 81513
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/alefsbits",
+    "commit": "f6192a74f867be4338da7accde238b32c577ab3d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:42:31.119Z"
+  }
+}

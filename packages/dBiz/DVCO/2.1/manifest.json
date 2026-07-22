@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dBiz/DVCO",
+    "plugin": "dBiz",
+    "model": "DVCO",
+    "name": "DVCO",
+    "brand": "dBiz",
+    "version": "2.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/dBiz/dBiz",
+    "libraryUrl": "https://library.vcvrack.com/dBiz/DVCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dBiz/DVCO.webp",
+    "wasmUrl": "packages/dBiz/DVCO/2.1/module.wasm",
+    "width": 195,
+    "description": "Automatically isolated from the dBiz/DVCO Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Analog mode A",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 20,
+          "y": 270,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Analog mode B",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Hard sync A",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 47,
+          "y": 270,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Hard sync B",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Osc1 Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 25,
+          "widget": "LRoundWhy"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Osc2 Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Osc A Level",
+        "min": 0,
+        "max": 1.409999966621399,
+        "default": 1,
+        "position": {
+          "x": 64,
+          "y": 220,
+          "widget": "Trim"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Osc B Level",
+        "min": 0,
+        "max": 1.409999966621399,
+        "default": 1,
+        "position": {
+          "x": 108,
+          "y": 220,
+          "widget": "Trim"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Osc1 Frequency modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 58,
+          "y": 60,
+          "widget": "RoundWhy"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Osc1 Frequency modulation 2",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 58,
+          "y": 100,
+          "widget": "RoundWhy"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Osc2 Frequency modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Osc2 Frequency modulation 2",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Osc1 Pulse width",
+        "min": 0.009999999776482582,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 15,
+          "y": 110,
+          "widget": "RoundAzz"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Osc2 Pulse width",
+        "min": 0.009999999776482582,
+        "max": 0.9900000095367432,
+        "default": 0.5
+      },
+      {
+        "id": 14,
+        "name": "Osc1 Pulse width modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 160,
+          "widget": "RoundAzz"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Osc2 Pulse width modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Wave1 Sel",
+        "min": 0,
+        "max": 3,
+        "default": 1.5,
+        "position": {
+          "x": 53,
+          "y": 150,
+          "widget": "RoundRed"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Wave2 Sel",
+        "min": 0,
+        "max": 3,
+        "default": 1.5
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch A",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 290
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch B",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "FM A",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 290
+        }
+      },
+      {
+        "id": 3,
+        "name": "FM 2 A",
+        "kind": "cv",
+        "position": {
+          "x": 59,
+          "y": 290
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM B",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "FM 2 B",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Sync A",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 325
+        }
+      },
+      {
+        "id": 7,
+        "name": "Sync B",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Pw A",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 325
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pw B",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Wave A",
+        "kind": "cv",
+        "position": {
+          "x": 59,
+          "y": 325
+        }
+      },
+      {
+        "id": 11,
+        "name": "Wave B",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OSC A",
+        "kind": "cv",
+        "position": {
+          "x": 6,
+          "y": 225
+        }
+      },
+      {
+        "id": 1,
+        "name": "OSC An",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 225
+        }
+      },
+      {
+        "id": 2,
+        "name": "OSC B",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "OSC Bn",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Master",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 250
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 20,
+          "y": 270,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 47,
+          "y": 270,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dBiz/DVCO/2.1/manifest.json",
+    "sourceCommit": "ec7bcd9fecd21db4bb4a809b17ffaef7d5fb8125",
+    "artifact": {
+      "sha256": "90fa265dc73fe6fe6a502ce776f7609192d33002b05ad10fcac879dec4ec3fb3",
+      "size": 101114
+    }
+  },
+  "source": {
+    "url": "https://github.com/dBiz/dBiz",
+    "commit": "ec7bcd9fecd21db4bb4a809b17ffaef7d5fb8125"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:32:25.469Z"
+  }
+}

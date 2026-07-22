@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/EuclideanRhythm",
+    "plugin": "MADZINE",
+    "model": "EuclideanRhythm",
+    "name": "Euclidean Rhythm",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/EuclideanRhythm",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/EuclideanRhythm.webp",
+    "wasmUrl": "packages/MADZINE/EuclideanRhythm/2.5.3/module.wasm",
+    "width": 120,
+    "description": "A three-track Euclidean Rhythm Generator with CV control and Slew",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 56,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "T1 Div/Mult",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 99,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "T1 Length",
+        "min": 1,
+        "max": 32,
+        "default": 16,
+        "position": {
+          "x": 13,
+          "y": 99,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "T1 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 100,
+        "position": {
+          "x": 13,
+          "y": 99,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 4,
+        "name": "T1 Shift",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 99,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "T1 Length CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 146,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "T1 Fill CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 146,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "T1 Shift CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 146,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "T2 Div/Mult",
+        "min": -3,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 13,
+          "y": 181,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "T2 Length",
+        "min": 1,
+        "max": 32,
+        "default": 16,
+        "position": {
+          "x": 13,
+          "y": 181,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "T2 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 13,
+          "y": 181,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 11,
+        "name": "T2 Shift",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 181,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "T2 Length CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 228,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "T2 Fill CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 228,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 14,
+        "name": "T2 Shift CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 228,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "T3 Div/Mult",
+        "min": -3,
+        "max": 3,
+        "default": 2,
+        "position": {
+          "x": 13,
+          "y": 263,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "T3 Length",
+        "min": 1,
+        "max": 32,
+        "default": 16,
+        "position": {
+          "x": 13,
+          "y": 263,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "T3 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "position": {
+          "x": 13,
+          "y": 263,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 18,
+        "name": "T3 Shift",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 263,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "T3 Length CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 310,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 20,
+        "name": "T3 Fill CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 310,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "T3 Shift CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 310,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Global Clock",
+        "kind": "gate",
+        "position": {
+          "x": 33,
+          "y": 56,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Global Reset",
+        "kind": "gate",
+        "position": {
+          "x": 77,
+          "y": 56,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 1 Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 124,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 Fill CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 124,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Shift CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 124,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 2 Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 206,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 2 Fill CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 206,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 2 Shift CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 206,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 3 Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 288,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 3 Fill CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 288,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 3 Shift CV",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 288,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "T1 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 106,
+          "y": 146,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "T2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 106,
+          "y": 228,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "T3 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 106,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Master Trigger Sum",
+        "kind": "gate",
+        "position": {
+          "x": 104,
+          "y": 358,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Chain 1+2",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 358,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Chain 2+3",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 358,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Chain 1+2+3",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 358,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 13,
+    "lightWidgets": [
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 5,
+          "y": 375,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 21,
+          "y": 375,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 36,
+          "y": 375,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 52,
+          "y": 375,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 65,
+          "y": 375,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 75,
+          "y": 375,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 85,
+          "y": 375,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 112,
+          "y": 375,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/EuclideanRhythm/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "50746a86d99d62334f537c5e4815416e8a514e83bbff6b6a6b8baac03071ad2f",
+      "size": 86497
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:48:44.046Z"
+  }
+}

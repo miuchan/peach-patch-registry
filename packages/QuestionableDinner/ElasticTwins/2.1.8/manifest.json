@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuestionableDinner/ElasticTwins",
+    "plugin": "QuestionableDinner",
+    "model": "ElasticTwins",
+    "name": "Elastic Twin",
+    "brand": "Questionable Dinner",
+    "version": "2.1.8",
+    "license": "Apache-2.0",
+    "sourceUrl": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "libraryUrl": "https://library.vcvrack.com/QuestionableDinner/ElasticTwins",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuestionableDinner/ElasticTwins.webp",
+    "wasmUrl": "packages/QuestionableDinner/ElasticTwins/2.1.8/module.wasm",
+    "width": 180,
+    "description": "Record and swap buffers to delay and garble audio.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Select Current Buffer",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100.689,
+          "y": 122.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Record To Buffer",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19.311,
+          "y": 122.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clear Buffers",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 46.314,
+          "y": 122.539,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Buffer 1 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 46.875,
+          "y": 338.091,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Buffer 2 Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 73.125,
+          "y": 338.091,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 19.311,
+          "y": 299.705,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Smooth",
+        "min": 0.000009999999747378752,
+        "max": 20,
+        "default": 3,
+        "position": {
+          "x": 100.689,
+          "y": 299.705,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Swap Buffer Data",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 73.686,
+          "y": 122.539,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Clock 1",
+        "min": -4,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 37.028,
+          "y": 187.5,
+          "centered": true,
+          "widget": "QKnob18mm"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Clock 2",
+        "min": -4,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 82.972,
+          "y": 240.65,
+          "centered": true,
+          "widget": "QKnob18mm"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Select Clock",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 100.689,
+          "y": 90.059,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Record Clock",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 19.311,
+          "y": 90.059,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Clear Clock",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 46.314,
+          "y": 90.059,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Swap Clock",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 73.686,
+          "y": 90.059,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Sync",
+        "min": 0,
+        "max": 1,
+        "default": 9,
+        "snap": true,
+        "position": {
+          "x": 96.142,
+          "y": 177.165,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 19.311,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Select Override",
+        "kind": "cv",
+        "position": {
+          "x": 100.689,
+          "y": 57.579,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Record Override",
+        "kind": "gate",
+        "position": {
+          "x": 19.311,
+          "y": 57.579,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clear Override",
+        "kind": "gate",
+        "position": {
+          "x": 46.314,
+          "y": 57.579,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Swap Override",
+        "kind": "cv",
+        "position": {
+          "x": 73.686,
+          "y": 57.579,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 100.689,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 19.311,
+          "y": 122.539,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 46.314,
+          "y": 122.539,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 73.686,
+          "y": 122.539,
+          "centered": true
+        },
+        "paramId": 8
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 100.689,
+          "y": 122.539,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuestionableDinner/ElasticTwins/2.1.8/manifest.json",
+    "sourceCommit": "db0da92ece0c8c0f12136ce07a494d887be0428c",
+    "artifact": {
+      "sha256": "95ba161ec281ec27d0fb5788e2a26b499f34c65c2d796b21dd090ebd09bfb7ad",
+      "size": 80733
+    }
+  },
+  "source": {
+    "url": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "commit": "db0da92ece0c8c0f12136ce07a494d887be0428c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:44:48.348Z"
+  }
+}

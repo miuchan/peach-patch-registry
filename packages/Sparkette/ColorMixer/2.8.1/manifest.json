@@ -1,0 +1,1697 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sparkette/ColorMixer",
+    "plugin": "Sparkette",
+    "model": "ColorMixer",
+    "name": "Color Mixer",
+    "brand": "Sparkette's Stuff",
+    "version": "2.8.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sparkette/ColorMixer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/ColorMixer.webp",
+    "wasmUrl": "packages/Sparkette/ColorMixer/2.8.1/module.wasm",
+    "width": 255,
+    "description": "Provides layers for compositing images, e.g. for RGB Matrix modules.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Background Red/Hue Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 333.777,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Background Red/Hue Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 333.777,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Background Green/Sat Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 333.777,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Background Green/Sat Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 333.777,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Background Blue/Val Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 333.777,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Background Blue/Sat Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 333.777,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Background Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 141.732,
+          "y": 354.089,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Enabled Lights",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 227.362,
+          "y": 41.339,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Clamp Mode",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 227.362,
+          "y": 79.724,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Param 15",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Param 16",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.062,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Param 17",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148.438,
+          "y": 26.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Param 18",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 46.887,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Param 19",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 36.731,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Param 20",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Param 21",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Param 22",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Param 23",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Param 24",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Param 25",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Param 26",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.062,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Param 27",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148.438,
+          "y": 70.866,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Param 28",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 91.178,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Param 29",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 81.022,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Param 30",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Param 31",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Param 32",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Param 33",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Param 34",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Param 35",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Param 36",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.062,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Param 37",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148.438,
+          "y": 115.157,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Param 38",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 135.469,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Param 39",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 125.313,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Param 40",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Param 41",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Param 42",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Param 43",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Param 44",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Param 45",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Param 46",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.062,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Param 47",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148.438,
+          "y": 159.449,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Param 48",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 179.761,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Param 49",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 169.605,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Param 50",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Param 51",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Param 52",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Param 53",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Param 54",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Param 55",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Param 56",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.062,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Param 57",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148.438,
+          "y": 203.74,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Param 58",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 224.052,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Param 59",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 213.896,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Param 60",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Param 61",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Param 62",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Param 63",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 63,
+        "name": "Param 64",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 64,
+        "name": "Param 65",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 65,
+        "name": "Param 66",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.062,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Param 67",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148.438,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 67,
+        "name": "Param 68",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 268.344,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 68,
+        "name": "Param 69",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 258.188,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 69,
+        "name": "Param 70",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16.562,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 70,
+        "name": "Param 71",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.938,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 71,
+        "name": "Param 72",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 54.062,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 72,
+        "name": "Param 73",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.438,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 73,
+        "name": "Param 74",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.562,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 74,
+        "name": "Param 75",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.938,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 75,
+        "name": "Param 76",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.062,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 76,
+        "name": "Param 77",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 148.438,
+          "y": 292.323,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 77,
+        "name": "Param 78",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 159.449,
+          "y": 312.635,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 78,
+        "name": "Param 79",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 302.479,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Background Red/Hue",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 354.089,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Background Green/Sat",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 354.089,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Background Blue/Val",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 354.089,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Layer Inputs Start",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 46.887,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 46.887,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 46.887,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "IN 7",
+        "kind": "cv",
+        "position": {
+          "x": 138.75,
+          "y": 46.887,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 91.178,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "IN 9",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 91.178,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "IN 10",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 91.178,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "IN 11",
+        "kind": "cv",
+        "position": {
+          "x": 138.75,
+          "y": 91.178,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "IN 12",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 135.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "IN 13",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 135.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "IN 14",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 135.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "IN 15",
+        "kind": "cv",
+        "position": {
+          "x": 138.75,
+          "y": 135.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "IN 16",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 179.761,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "IN 17",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 179.761,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "IN 18",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 179.761,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "IN 19",
+        "kind": "cv",
+        "position": {
+          "x": 138.75,
+          "y": 179.761,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "IN 20",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 224.052,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "IN 21",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 224.052,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "IN 22",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 224.052,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "IN 23",
+        "kind": "cv",
+        "position": {
+          "x": 138.75,
+          "y": 224.052,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "IN 24",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 268.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "name": "IN 25",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 268.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "IN 26",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 268.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "name": "IN 27",
+        "kind": "cv",
+        "position": {
+          "x": 138.75,
+          "y": 268.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "name": "IN 28",
+        "kind": "cv",
+        "position": {
+          "x": 26.25,
+          "y": 312.635,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "name": "IN 29",
+        "kind": "cv",
+        "position": {
+          "x": 63.75,
+          "y": 312.635,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "name": "IN 30",
+        "kind": "cv",
+        "position": {
+          "x": 101.25,
+          "y": 312.635,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "name": "IN 31",
+        "kind": "cv",
+        "position": {
+          "x": 138.75,
+          "y": 312.635,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Red",
+        "kind": "cv",
+        "position": {
+          "x": 232.5,
+          "y": 167.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Green",
+        "kind": "cv",
+        "position": {
+          "x": 232.5,
+          "y": 213.777,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blue",
+        "kind": "cv",
+        "position": {
+          "x": 232.5,
+          "y": 260.029,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Alpha",
+        "kind": "cv",
+        "position": {
+          "x": 232.5,
+          "y": 306.591,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 88,
+    "lightWidgets": [
+      {
+        "id": 4,
+        "widget": "MediumLight<FiveColorLight>",
+        "position": {
+          "x": 163.878,
+          "y": 26.575,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<FiveColorLight>",
+        "position": {
+          "x": 163.878,
+          "y": 70.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "MediumLight<FiveColorLight>",
+        "position": {
+          "x": 163.878,
+          "y": 115.157,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "MediumLight<FiveColorLight>",
+        "position": {
+          "x": 163.878,
+          "y": 159.449,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "widget": "MediumLight<FiveColorLight>",
+        "position": {
+          "x": 163.878,
+          "y": 203.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 64,
+        "widget": "MediumLight<FiveColorLight>",
+        "position": {
+          "x": 163.878,
+          "y": 248.031,
+          "centered": true
+        }
+      },
+      {
+        "id": 76,
+        "widget": "MediumLight<FiveColorLight>",
+        "position": {
+          "x": 163.878,
+          "y": 292.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 172.736,
+          "y": 57.043,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 172.736,
+          "y": 101.334,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 172.736,
+          "y": 145.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 172.736,
+          "y": 189.917,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 172.736,
+          "y": 234.208,
+          "centered": true
+        }
+      },
+      {
+        "id": 69,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 172.736,
+          "y": 278.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 81,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 172.736,
+          "y": 322.791,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 183.071,
+          "y": 57.043,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 183.071,
+          "y": 101.334,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 183.071,
+          "y": 145.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 183.071,
+          "y": 189.917,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 183.071,
+          "y": 234.208,
+          "centered": true
+        }
+      },
+      {
+        "id": 72,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 183.071,
+          "y": 278.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 84,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 183.071,
+          "y": 322.791,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 193.406,
+          "y": 57.043,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 193.406,
+          "y": 101.334,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 193.406,
+          "y": 145.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 193.406,
+          "y": 189.917,
+          "centered": true
+        }
+      },
+      {
+        "id": 61,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 193.406,
+          "y": 234.208,
+          "centered": true
+        }
+      },
+      {
+        "id": 73,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 193.406,
+          "y": 278.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 85,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 193.406,
+          "y": 322.791,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 126.969,
+          "y": 333.777,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 217.766,
+          "y": 291.827,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sparkette/ColorMixer/2.8.1/manifest.json",
+    "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+    "artifact": {
+      "sha256": "3677d135e106b2b0ae960696d9aceabd59788256dcb15bff86b10bbe4bfcbcfb",
+      "size": 88699
+    }
+  },
+  "source": {
+    "url": "https://github.com/flarn2006/SparketteVCV",
+    "commit": "b90cd69589ac77f41f626ea4ecb3a49d57780239"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:47:14.158Z"
+  }
+}

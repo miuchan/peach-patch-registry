@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackModules/GenScale",
+    "plugin": "dbRackModules",
+    "model": "GenScale",
+    "name": "GenScale",
+    "brand": "docB",
+    "version": "2.6.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackModules",
+    "libraryUrl": "https://library.vcvrack.com/dbRackModules/GenScale",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackModules/GenScale.webp",
+    "wasmUrl": "packages/dbRackModules/GenScale/2.6.1/module.wasm",
+    "width": 45,
+    "description": "Generates a polyphonic Scale",
+    "params": [
+      {
+        "id": 0,
+        "name": "Base Note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 9,
+          "y": 236,
+          "widget": "TrimbotWhite9Snap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Base Octave",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 9,
+          "y": 278,
+          "widget": "TrimbotWhite9Snap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Perfect unison",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 12,
+          "y": 178,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Minor Second",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 168,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Major Second",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 158,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Minor Third",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 148,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Major Third",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 138,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Perfect Forth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 128,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tritone",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 118,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Perfect Fifth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 108,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Minor Sixth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 98,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Major Sixth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 88,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Minor Seventh",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 78,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Major Seventh",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 68,
+          "widget": "SmallButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 190
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "channels",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackModules/GenScale/2.6.1/manifest.json",
+    "sourceCommit": "16df93fee43b631efc347f97542cf00a7a56e96a",
+    "artifact": {
+      "sha256": "8b86176b576ac1df2af697c7e071556a223882df5e97bd027a86406d512493dd",
+      "size": 72420
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackModules",
+    "commit": "16df93fee43b631efc347f97542cf00a7a56e96a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:33:43.906Z"
+  }
+}

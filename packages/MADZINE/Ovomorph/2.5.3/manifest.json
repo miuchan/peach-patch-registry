@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/Ovomorph",
+    "plugin": "MADZINE",
+    "model": "Ovomorph",
+    "name": "Ovomorph",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/Ovomorph",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/Ovomorph.webp",
+    "wasmUrl": "packages/MADZINE/Ovomorph/2.5.3/module.wasm",
+    "width": 60,
+    "description": "Chaos-modulated stereo reverb with room and decay control, derived from Ellen Ripley",
+    "params": [
+      {
+        "id": 0,
+        "name": "Room",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 15,
+          "y": 72,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 45,
+          "y": 72,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579,
+        "position": {
+          "x": 15,
+          "y": 117,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 117,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 162,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rate",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 162,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left Audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Room CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 197,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tone CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 197,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 232,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 232,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Chaos CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 267,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Rate CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 267,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Chaos CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 302,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sample & Hold CV",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 302,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/Ovomorph/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "09b27795d709dcce9ab406e58680cbdada865bcb1458b1ff0c7e673c6e7f6609",
+      "size": 79604
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:49:26.603Z"
+  }
+}

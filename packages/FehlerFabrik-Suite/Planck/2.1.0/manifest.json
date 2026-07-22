@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FehlerFabrik-Suite/Planck",
+    "plugin": "FehlerFabrik-Suite",
+    "model": "Planck",
+    "name": "Planck",
+    "brand": "Fehler Fabrik",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/RCameron93/FehlerFabrik",
+    "libraryUrl": "https://library.vcvrack.com/FehlerFabrik-Suite/Planck",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FehlerFabrik-Suite/Planck.webp",
+    "wasmUrl": "packages/FehlerFabrik-Suite/Planck/2.1.0/module.wasm",
+    "width": 120,
+    "description": "Bit Depth and Sample Rate Crusher",
+    "params": [
+      {
+        "id": 0,
+        "name": "Bit Depth Reduction",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 32.395,
+          "y": 171.582,
+          "centered": true,
+          "widget": "FF15GSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sample Rate Decimation",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "position": {
+          "x": 87.806,
+          "y": 107.04,
+          "centered": true,
+          "widget": "FF15GKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Bit Depth Reducer",
+        "kind": "cv",
+        "position": {
+          "x": 29.064,
+          "y": 296.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Depth Reduction CV",
+        "kind": "cv",
+        "position": {
+          "x": 29.064,
+          "y": 258.644,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sample Rate Decimator",
+        "kind": "cv",
+        "position": {
+          "x": 90.818,
+          "y": 296.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sample Rate Decimation CV",
+        "kind": "cv",
+        "position": {
+          "x": 90.818,
+          "y": 258.644,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Bit Depth Reducer",
+        "kind": "cv",
+        "position": {
+          "x": 29.064,
+          "y": 334.326,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sample Rate Decimator",
+        "kind": "cv",
+        "position": {
+          "x": 90.818,
+          "y": 334.326,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FehlerFabrik-Suite/Planck/2.1.0/manifest.json",
+    "sourceCommit": "c046a2b88848be0393df9ffcf2926c8ee129446b",
+    "artifact": {
+      "sha256": "03721951cb202a2fb444067492831617665eb56054d2633d89d34130792c3a0d",
+      "size": 73229
+    }
+  },
+  "source": {
+    "url": "https://github.com/RCameron93/FehlerFabrik",
+    "commit": "c046a2b88848be0393df9ffcf2926c8ee129446b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:46:17.076Z"
+  }
+}

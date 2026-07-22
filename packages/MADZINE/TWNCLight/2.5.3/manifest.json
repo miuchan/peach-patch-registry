@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/TWNCLight",
+    "plugin": "MADZINE",
+    "model": "TWNCLight",
+    "name": "TWNC Light",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/TWNCLight",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/TWNCLight.webp",
+    "wasmUrl": "packages/MADZINE/TWNCLight/2.5.3/module.wasm",
+    "width": 60,
+    "description": "Simplified dual-track Euclidean rhythm generator with envelope control",
+    "params": [
+      {
+        "id": 0,
+        "name": "Global Length",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 53,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1 Fill",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 140,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 2,
+        "name": "VCA Shift",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 104,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob26"
+        }
+      },
+      {
+        "id": 3,
+        "name": "VCA Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 140,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 176,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 1 Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 104,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 2 Fill",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 228,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 2 Div/Mult",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 264,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob26"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 2 Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 264,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 2 Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 300,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 2 Shift",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 228,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob26"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Global Clock",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 51,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Drum Frequency CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Drum Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 176,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Hats Frequency CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Hats Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 300,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Accent VCA Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1 FM Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 2 VCA Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/TWNCLight/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "c3e577f17b927b63d6289bace0a8c4471a8aacc930d8511e641fd8870c595a3a",
+      "size": 75819
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:48:55.561Z"
+  }
+}

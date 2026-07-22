@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/TWNC2",
+    "plugin": "MADZINE",
+    "model": "TWNC2",
+    "name": "TWNC 2",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/TWNC2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/TWNC2.webp",
+    "wasmUrl": "packages/MADZINE/TWNC2/2.5.3/module.wasm",
+    "width": 120,
+    "description": "Three-track Euclidean drum machine with drum synthesis",
+    "params": [
+      {
+        "id": 0,
+        "name": "Kick Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 20,
+          "y": 69,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Kick Frequency",
+        "min": 4.584962368011475,
+        "max": 8.965784072875977,
+        "default": 4.584962368011475,
+        "position": {
+          "x": 20,
+          "y": 106,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Kick FM Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.1570000797510147,
+        "position": {
+          "x": 60,
+          "y": 106,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Kick Punch Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.1680000126361847,
+        "position": {
+          "x": 100,
+          "y": 106,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Snare Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 20,
+          "y": 184,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Snare Frequency",
+        "min": 6.643856048583984,
+        "max": 8.228818893432617,
+        "default": 6.910017013549805,
+        "position": {
+          "x": 20,
+          "y": 221,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Snare Noise Tone",
+        "min": 0,
+        "max": 1,
+        "default": 0.7170000672340393,
+        "position": {
+          "x": 100,
+          "y": 184,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Snare Noise Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.2879998981952667,
+        "position": {
+          "x": 60,
+          "y": 221,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Hats Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 20,
+          "y": 269,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Hats Tone",
+        "min": 0,
+        "max": 1,
+        "default": 0.9649999737739563,
+        "position": {
+          "x": 100,
+          "y": 269,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Hats Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 306,
+          "centered": true,
+          "widget": "madzine::widgets::TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Duck Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 368,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Kick Envelope CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 69,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Kick Accent CV",
+        "kind": "cv",
+        "position": {
+          "x": 100,
+          "y": 69,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Kick Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 143,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Kick FM CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 143,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Kick Punch CV",
+        "kind": "cv",
+        "position": {
+          "x": 100,
+          "y": 143,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Snare Envelope CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 184,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Snare Noise Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 100,
+          "y": 221,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Hats Envelope CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 269,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Hats Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 306,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "External Input",
+        "kind": "cv",
+        "position": {
+          "x": 100,
+          "y": 306,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Kick Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Snare Audio",
+        "kind": "audio",
+        "position": {
+          "x": 62,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Hats Audio 1",
+        "kind": "audio",
+        "position": {
+          "x": 100,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix Output L",
+        "kind": "audio",
+        "position": {
+          "x": 62,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mix Output R",
+        "kind": "audio",
+        "position": {
+          "x": 100,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/TWNC2/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "32734e6186cbf8eba044f863937efea7845e7ec1f150dda2b5fe80536804d78f",
+      "size": 90982
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:48:55.684Z"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuestionableDinner/Loam",
+    "plugin": "QuestionableDinner",
+    "model": "Loam",
+    "name": "Loam",
+    "brand": "Questionable Dinner",
+    "version": "2.1.8",
+    "license": "Apache-2.0",
+    "sourceUrl": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "libraryUrl": "https://library.vcvrack.com/QuestionableDinner/Loam",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuestionableDinner/Loam.webp",
+    "wasmUrl": "packages/QuestionableDinner/Loam/2.1.8/module.wasm",
+    "width": 90,
+    "description": "A dirty resonant filter.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 3,
+        "max": 14,
+        "default": 8.5,
+        "position": {
+          "x": 64.783,
+          "y": 94.488,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 64.783,
+          "y": 144.685,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 64.783,
+          "y": 194.882,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Radioactivity",
+        "min": 0,
+        "max": 0.25,
+        "default": 0,
+        "position": {
+          "x": 64.783,
+          "y": 295.276,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gain",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 64.783,
+          "y": 245.079,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Freq Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.311,
+          "y": 88.583,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Res Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.311,
+          "y": 126.969,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Feedback Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.311,
+          "y": 165.354,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Radioactivity Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.311,
+          "y": 242.126,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gain Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.311,
+          "y": 203.74,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Mod Relationship",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 45,
+          "y": 41.339,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "",
+        "kind": "audio",
+        "position": {
+          "x": 19.311,
+          "y": 301.181,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mod +",
+        "kind": "cv",
+        "position": {
+          "x": 19.311,
+          "y": 41.339,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mod -",
+        "kind": "cv",
+        "position": {
+          "x": 70.689,
+          "y": 41.339,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Lowpass",
+        "kind": "audio",
+        "position": {
+          "x": 70.689,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Highpass",
+        "kind": "audio",
+        "position": {
+          "x": 19.311,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuestionableDinner/Loam/2.1.8/manifest.json",
+    "sourceCommit": "db0da92ece0c8c0f12136ce07a494d887be0428c",
+    "artifact": {
+      "sha256": "af861090a456c4ae2cdf65d81e2dbabaa5ef5db6ebcfa4290057540518db1536",
+      "size": 75384
+    }
+  },
+  "source": {
+    "url": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "commit": "db0da92ece0c8c0f12136ce07a494d887be0428c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:44:48.455Z"
+  }
+}

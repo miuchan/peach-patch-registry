@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "alefsbits/turnt",
+    "plugin": "alefsbits",
+    "model": "turnt",
+    "name": "turnt",
+    "brand": "alef's bits",
+    "version": "2.5.63",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/alefsbits",
+    "libraryUrl": "https://library.vcvrack.com/alefsbits/turnt",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/alefsbits/turnt.webp",
+    "wasmUrl": "packages/alefsbits/turnt/2.5.63/module.wasm",
+    "width": 120,
+    "description": "generate triggers when a CV signal changes direction, crosses zero, or both",
+    "params": [
+      {
+        "id": 0,
+        "name": "mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 100,
+          "y": 52.5,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 1,
+        "name": "zero threshold",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 107.5,
+          "y": 37.5,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 92.5,
+          "y": 37.5,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "source",
+        "kind": "cv",
+        "position": {
+          "x": 100,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "zero threshold",
+        "kind": "gate",
+        "position": {
+          "x": 81.25,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "probability",
+        "kind": "cv",
+        "position": {
+          "x": 118.75,
+          "y": 67.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "trigger",
+        "kind": "gate",
+        "position": {
+          "x": 100,
+          "y": 60,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "trigger mode",
+        "type": "integer"
+      },
+      {
+        "key": "freeze on disconnect",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/alefsbits/turnt/2.5.63/manifest.json",
+    "sourceCommit": "f6192a74f867be4338da7accde238b32c577ab3d",
+    "artifact": {
+      "sha256": "7753dcd71676f0e33e5a4b1cb5aaaabe72a69484cd155e154fa84f834c27bedc",
+      "size": 74977
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/alefsbits",
+    "commit": "f6192a74f867be4338da7accde238b32c577ab3d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:42:30.574Z"
+  }
+}

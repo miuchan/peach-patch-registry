@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sparkette/RGBMatrix",
+    "plugin": "Sparkette",
+    "model": "RGBMatrix",
+    "name": "RGB Matrix (32x32)",
+    "brand": "Sparkette's Stuff",
+    "version": "2.8.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sparkette/RGBMatrix",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/RGBMatrix.webp",
+    "wasmUrl": "packages/Sparkette/RGBMatrix/2.8.1/module.wasm",
+    "width": 540,
+    "description": "An array of RGB lights with built-in oscillators for generating and displaying patterns.",
+    "params": [
+      {
+        "id": 0,
+        "name": "X Polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 80.625,
+          "y": 77.215,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y Polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 80.625,
+          "y": 122.215,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Samples Per Pixel",
+        "min": 1,
+        "max": 30,
+        "default": 2,
+        "position": {
+          "x": 150,
+          "y": 122.215,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Red CV Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 97.187,
+          "y": 168.464,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Red Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 137.814,
+          "y": 168.464,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Green CV Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 97.187,
+          "y": 213.777,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Green Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 137.814,
+          "y": 213.777,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Blue CV Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 97.187,
+          "y": 258.151,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Blue Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 137.814,
+          "y": 258.151,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Frame Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 55.314,
+          "y": 309.715,
+          "centered": true,
+          "widget": "CKD6"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Red CV",
+        "kind": "cv",
+        "position": {
+          "x": 23.749,
+          "y": 167.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Green CV",
+        "kind": "cv",
+        "position": {
+          "x": 23.749,
+          "y": 213.777,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blue CV",
+        "kind": "cv",
+        "position": {
+          "x": 23.749,
+          "y": 260.029,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 23.749,
+          "y": 309.715,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X Signal",
+        "kind": "audio",
+        "position": {
+          "x": 23.749,
+          "y": 77.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "X Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 112.813,
+          "y": 77.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Y Signal",
+        "kind": "audio",
+        "position": {
+          "x": 23.749,
+          "y": 122.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Y Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 112.813,
+          "y": 122.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "End of Frame",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 77.215,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 157.5,
+          "y": 309.715,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "polyphonic",
+        "type": "boolean"
+      },
+      {
+        "key": "double_buffered",
+        "type": "boolean"
+      },
+      {
+        "key": "fade_lights",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sparkette/RGBMatrix/2.8.1/manifest.json",
+    "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+    "artifact": {
+      "sha256": "46355e4536ffe4b4b6959fbd174e2d2d06748e0cc4f13c07f13a9b9faff7fa12",
+      "size": 78126
+    }
+  },
+  "source": {
+    "url": "https://github.com/flarn2006/SparketteVCV",
+    "commit": "b90cd69589ac77f41f626ea4ecb3a49d57780239"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:47:11.932Z"
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/ADGenerator",
+    "plugin": "MADZINE",
+    "model": "ADGenerator",
+    "name": "AD Generator",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/ADGenerator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/ADGenerator.webp",
+    "wasmUrl": "packages/MADZINE/ADGenerator/2.5.3/module.wasm",
+    "width": 120,
+    "description": "Attack Decay envelope generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack All",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 50,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay All",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 65,
+          "y": 50,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Auto Route",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 98,
+          "y": 50,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.0020000000949949026,
+        "position": {
+          "x": 17,
+          "y": 92,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 17,
+          "y": 92,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 1 Curve",
+        "min": -0.9900000095367432,
+        "max": 0.9900000095367432,
+        "default": -0.7484400272369385,
+        "position": {
+          "x": 17,
+          "y": 92,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 1 BPF Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 92,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 1 BPF Frequency",
+        "min": 20,
+        "max": 8000,
+        "default": 200,
+        "position": {
+          "x": 17,
+          "y": 92,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 1 BPF Gain",
+        "min": 0.10000000149011612,
+        "max": 100,
+        "default": 3,
+        "position": {
+          "x": 17,
+          "y": 92,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 2 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 182,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 2 Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 17,
+          "y": 182,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Track 2 Curve",
+        "min": -0.9900000095367432,
+        "max": 0.9900000095367432,
+        "default": -0.8316001296043396,
+        "position": {
+          "x": 17,
+          "y": 182,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Track 2 BPF Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 182,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Track 2 BPF Frequency",
+        "min": 20,
+        "max": 8000,
+        "default": 1000,
+        "position": {
+          "x": 17,
+          "y": 182,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Track 2 BPF Gain",
+        "min": 0.10000000149011612,
+        "max": 100,
+        "default": 3,
+        "position": {
+          "x": 17,
+          "y": 182,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Track 3 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 272,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Track 3 Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 17,
+          "y": 272,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Track 3 Curve",
+        "min": -0.9900000095367432,
+        "max": 0.9900000095367432,
+        "default": -0.7306200861930847,
+        "position": {
+          "x": 17,
+          "y": 272,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Track 3 BPF Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 272,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Track 3 BPF Frequency",
+        "min": 20,
+        "max": 8000,
+        "default": 5000,
+        "position": {
+          "x": 17,
+          "y": 272,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Track 3 BPF Gain",
+        "min": 0.10000000149011612,
+        "max": 100,
+        "default": 3,
+        "position": {
+          "x": 17,
+          "y": 272,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Track 1 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 17,
+          "y": 92,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 17,
+          "y": 182,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 3 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 17,
+          "y": 272,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Track 1 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 358,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 358,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 3 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 358,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sum",
+        "kind": "cv",
+        "position": {
+          "x": 104,
+          "y": 358,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 98,
+          "y": 65,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 17,
+          "y": 107,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 17,
+          "y": 197,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 17,
+          "y": 287,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "autoRouteEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "bpfEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "bpfEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "bpfEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "bpfCutoffs",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "bpfCutoffs",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "bpfCutoffs",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "bpfGains",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "bpfGains",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "bpfGains",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/ADGenerator/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "b2f13369afef8bf5b6dcc1a4b569f90d29d93583dd327971b46bee694f1d3d50",
+      "size": 92234
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:48:50.489Z"
+  }
+}

@@ -1,0 +1,760 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/ALEXANDERPLATZ",
+    "plugin": "MADZINE",
+    "model": "ALEXANDERPLATZ",
+    "name": "ALEXANDERPLATZ",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/ALEXANDERPLATZ",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/ALEXANDERPLATZ.webp",
+    "wasmUrl": "packages/MADZINE/ALEXANDERPLATZ/2.5.3/module.wasm",
+    "width": 12,
+    "description": "4-track mixer with 8-band master EQ, level, duck and mute controls, Berlin U8 themed",
+    "params": [
+      {
+        "id": 0,
+        "name": "Track 1 Level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 123,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 Level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 90,
+          "y": 123,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 3 Level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 150,
+          "y": 123,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 4 Level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 210,
+          "y": 123,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Duck",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 216,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 2 Duck",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 216,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 3 Duck",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 216,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 4 Duck",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 216,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 1 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 15,
+          "y": 292,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 2 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 75,
+          "y": 292,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 3 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 135,
+          "y": 292,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Track 4 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 195,
+          "y": 292,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Track 1 Solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 45,
+          "y": 292,
+          "centered": true,
+          "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Track 2 Solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 105,
+          "y": 292,
+          "centered": true,
+          "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Track 3 Solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 165,
+          "y": 292,
+          "centered": true,
+          "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Track 4 Solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 225,
+          "y": 292,
+          "centered": true,
+          "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Eq Param +  0",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 38,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Eq Param +  1",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 28.857,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Eq Param +  2",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 19.714,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Eq Param +  3",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 10.571,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Eq Param +  4",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 1.429,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Eq Param +  5",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": -7.714,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Eq Param +  6",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": -16.857,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Eq Param +  7",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": -26,
+          "y": 355,
+          "centered": true,
+          "widget": "AlexEQFader"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Track 1 Left",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 Left",
+        "kind": "audio",
+        "position": {
+          "x": 75,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 3 Left",
+        "kind": "audio",
+        "position": {
+          "x": 135,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 4 Left",
+        "kind": "audio",
+        "position": {
+          "x": 195,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Right",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 2 Right",
+        "kind": "audio",
+        "position": {
+          "x": 105,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 3 Right",
+        "kind": "audio",
+        "position": {
+          "x": 165,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 4 Right",
+        "kind": "audio",
+        "position": {
+          "x": 225,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 1 Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 161,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 2 Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 161,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 3 Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 161,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Track 4 Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 210,
+          "y": 161,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Track 1 Duck",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 254,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Track 2 Duck",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 254,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Track 3 Duck",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 254,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Track 4 Duck",
+        "kind": "cv",
+        "position": {
+          "x": 210,
+          "y": 254,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Track 1 Mute Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Track 2 Mute Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Track 3 Mute Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Track 4 Mute Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 195,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Track 1 Solo Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Track 2 Solo Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 105,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Track 3 Solo Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 165,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "Track 4 Solo Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 225,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "name": "Chain Left",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "Chain Right",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mix Left",
+        "kind": "audio",
+        "position": {
+          "x": -3,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mix Right",
+        "kind": "audio",
+        "position": {
+          "x": -3,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 15,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 8
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 75,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 9
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 135,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 10
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 195,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 11
+      },
+      {
+        "id": 4,
+        "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 45,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 12
+      },
+      {
+        "id": 5,
+        "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 105,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 13
+      },
+      {
+        "id": 6,
+        "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 165,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 14
+      },
+      {
+        "id": 7,
+        "widget": "AlexExclusiveSoloButton<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 225,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 15
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "MADZINE/U8",
+            "symbol": "modelU8",
+            "index": 0
+          },
+          {
+            "key": "MADZINE/ALEXANDERPLATZ",
+            "symbol": "modelALEXANDERPLATZ",
+            "index": 1
+          },
+          {
+            "key": "MADZINE/SHINJUKU",
+            "symbol": "modelSHINJUKU",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/ALEXANDERPLATZ/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "59e988076e7484195c8320a2ee6fe12170b0c5e1ba128c58779e6dca03550a82",
+      "size": 87072
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:49:26.756Z"
+  }
+}

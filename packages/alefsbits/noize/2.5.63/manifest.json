@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "alefsbits/noize",
+    "plugin": "alefsbits",
+    "model": "noize",
+    "name": "noize",
+    "brand": "alef's bits",
+    "version": "2.5.63",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/alefsbits",
+    "libraryUrl": "https://library.vcvrack.com/alefsbits/noize",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/alefsbits/noize.webp",
+    "wasmUrl": "packages/alefsbits/noize/2.5.63/module.wasm",
+    "width": 60,
+    "description": "random noise generator with duration parameter and 0-10V cv input",
+    "params": [
+      {
+        "id": 0,
+        "name": "duration",
+        "min": 0,
+        "max": 0.0010000000474974513,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 76.937,
+          "centered": true,
+          "widget": "BitKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "duration cv",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 124.181,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "noize",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 322.612,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "randomMode",
+        "type": "integer"
+      },
+      {
+        "key": "deviation",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/alefsbits/noize/2.5.63/manifest.json",
+    "sourceCommit": "f6192a74f867be4338da7accde238b32c577ab3d",
+    "artifact": {
+      "sha256": "edb5bad2383d118ef840accadab62914d10b81ec379453f98f16aaaa70413cfc",
+      "size": 75377
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/alefsbits",
+    "commit": "f6192a74f867be4338da7accde238b32c577ab3d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:42:23.509Z"
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "alefsbits/steps",
+    "plugin": "alefsbits",
+    "model": "steps",
+    "name": "steps",
+    "brand": "alef's bits",
+    "version": "2.5.63",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/alefsbits",
+    "libraryUrl": "https://library.vcvrack.com/alefsbits/steps",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/alefsbits/steps.webp",
+    "wasmUrl": "packages/alefsbits/steps/2.5.63/module.wasm",
+    "width": 135,
+    "description": "a simple 8 step sequencer with randomize trigger and eoc output",
+    "params": [
+      {
+        "id": 0,
+        "name": "steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 23.867,
+          "y": 104.014,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "step 1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 69.523,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "step 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 103.55,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "step 3",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 137.578,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "step 4",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 171.605,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "step 5",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 205.633,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "step 6",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 239.66,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "step 7",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 273.688,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "step 8",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62.3,
+          "y": 307.716,
+          "centered": true,
+          "widget": "SmallBitKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "randomize steps",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24.614,
+          "y": 188.976,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "clock",
+        "kind": "gate",
+        "position": {
+          "x": 24.614,
+          "y": 57.712,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "reset",
+        "kind": "gate",
+        "position": {
+          "x": 24.614,
+          "y": 215.755,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "random trigger",
+        "kind": "gate",
+        "position": {
+          "x": 24.614,
+          "y": 148.837,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "end of cycle",
+        "kind": "cv",
+        "position": {
+          "x": 24.614,
+          "y": 263.031,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "cv",
+        "kind": "cv",
+        "position": {
+          "x": 24.614,
+          "y": 303.765,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "step 1",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 69.523,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "step 2",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 103.55,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "step 3",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 137.578,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "step 4",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 171.605,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "step 5",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 205.633,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "step 6",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 239.66,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "step 7",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 273.688,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "step 8",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 307.716,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 69.523,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 103.55,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 137.578,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 171.605,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 205.633,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 239.66,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 273.688,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 82.677,
+          "y": 307.716,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "a",
+        "type": "real"
+      },
+      {
+        "key": "b",
+        "type": "real"
+      },
+      {
+        "key": "steps",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/alefsbits/steps/2.5.63/manifest.json",
+    "sourceCommit": "f6192a74f867be4338da7accde238b32c577ab3d",
+    "artifact": {
+      "sha256": "bf92177649a25069627a92f6beb98549759e5d9a3dd78a8c3717b7ef4fac5bf0",
+      "size": 76220
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/alefsbits",
+    "commit": "f6192a74f867be4338da7accde238b32c577ab3d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:42:23.396Z"
+  }
+}

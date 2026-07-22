@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/PPaTTTerning",
+    "plugin": "MADZINE",
+    "model": "PPaTTTerning",
+    "name": "PPaTTTerning",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/PPaTTTerning",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/PPaTTTerning.webp",
+    "wasmUrl": "packages/MADZINE/PPaTTTerning/2.5.3/module.wasm",
+    "width": 60,
+    "description": "Pattern-based CV sequencer with style and density control",
+    "params": [
+      {
+        "id": 0,
+        "name": "K1",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 97,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "K2",
+        "min": -10,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 85,
+          "y": 142,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "K3",
+        "min": -10,
+        "max": 10,
+        "default": 4,
+        "position": {
+          "x": 85,
+          "y": 187,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "K4",
+        "min": -10,
+        "max": 10,
+        "default": 6,
+        "position": {
+          "x": 85,
+          "y": 232,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "K5",
+        "min": -10,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 85,
+          "y": 277,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Style",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 97,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 115,
+          "y": 142,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 115,
+          "y": 187,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "CVD Time/Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 370,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Delay",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 315,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 55,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 55,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "CVD Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 370,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 232,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 277,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV2",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 345,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "TRIG2",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 345,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 115,
+          "y": 97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 15,
+          "y": 315,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "track2Delay",
+        "type": "integer"
+      },
+      {
+        "key": "styleMode",
+        "type": "integer"
+      },
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/PPaTTTerning/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "eb0ff87e211491ae20014515ffafba9aaf0fef0bdf5fbb29441eafdad27b2c2e",
+      "size": 79752
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:48:50.364Z"
+  }
+}

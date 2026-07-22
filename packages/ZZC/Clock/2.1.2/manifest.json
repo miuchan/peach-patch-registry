@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZZC/Clock",
+    "plugin": "ZZC",
+    "model": "Clock",
+    "name": "Clock",
+    "brand": "ZZC",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/zezic/ZZC",
+    "libraryUrl": "https://library.vcvrack.com/ZZC/Clock",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZZC/Clock.webp",
+    "wasmUrl": "packages/ZZC/Clock/2.1.2/module.wasm",
+    "width": 150,
+    "description": "Clock & Phase Generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 0,
+        "max": 240,
+        "default": 120,
+        "position": {
+          "x": 41.5,
+          "y": 82.5,
+          "widget": "ZZC_BigKnobSnappy"
+        }
+      },
+      {
+        "id": 1,
+        "name": "x2 Swing",
+        "min": 1,
+        "max": 99,
+        "default": 50,
+        "position": {
+          "x": 13.5,
+          "y": 186,
+          "widget": "ZZC_Knob27Snappy"
+        }
+      },
+      {
+        "id": 2,
+        "name": "x4 Swing",
+        "min": 1,
+        "max": 99,
+        "default": 50,
+        "position": {
+          "x": 109.5,
+          "y": 186,
+          "widget": "ZZC_Knob27Snappy"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 47.3,
+          "y": 168,
+          "widget": "ZZC_LEDBezelDark"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 81.3,
+          "y": 168,
+          "widget": "ZZC_LEDBezelDark"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reverse",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 116.3,
+          "y": 53,
+          "widget": "ZZC_LEDBezelDark"
+        }
+      },
+      {
+        "id": 6,
+        "name": "External CV Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 10.8,
+          "y": 41,
+          "widget": "ZZC_VBPSVOCTSwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Vbps",
+        "kind": "cv",
+        "position": {
+          "x": 10.8,
+          "y": 52
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ext Run",
+        "kind": "gate",
+        "position": {
+          "x": 10.8,
+          "y": 145
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ext Reset",
+        "kind": "gate",
+        "position": {
+          "x": 114.8,
+          "y": 145
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 45.5,
+          "y": 224
+        }
+      },
+      {
+        "id": 4,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 224
+        }
+      },
+      {
+        "id": 5,
+        "name": "Swing 8ths",
+        "kind": "cv",
+        "position": {
+          "x": 10.8,
+          "y": 224
+        }
+      },
+      {
+        "id": 6,
+        "name": "Swing 16ths",
+        "kind": "cv",
+        "position": {
+          "x": 114.8,
+          "y": 224
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 45.5,
+          "y": 272
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 272
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock 8ths",
+        "kind": "gate",
+        "position": {
+          "x": 10.8,
+          "y": 272
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock 16ths",
+        "kind": "gate",
+        "position": {
+          "x": 114.8,
+          "y": 272
+        }
+      },
+      {
+        "id": 4,
+        "name": "Vbps",
+        "kind": "cv",
+        "position": {
+          "x": 10.8,
+          "y": 320
+        }
+      },
+      {
+        "id": 5,
+        "name": "Vspb",
+        "kind": "cv",
+        "position": {
+          "x": 114.8,
+          "y": 320
+        }
+      },
+      {
+        "id": 6,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 45.5,
+          "y": 320
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 5,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 33,
+          "y": 52
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LedLight<ZZC_YellowLight>",
+        "position": {
+          "x": 118.1,
+          "y": 54.7
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<ZZC_YellowLight>",
+        "position": {
+          "x": 72,
+          "y": 66.75
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 111.5,
+          "y": 83
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 67.5,
+          "y": 224
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 102,
+          "y": 224
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LedLight<ZZC_YellowLight>",
+        "position": {
+          "x": 49.1,
+          "y": 169.7
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LedLight<ZZC_YellowLight>",
+        "position": {
+          "x": 83.1,
+          "y": 169.7
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "integer"
+      },
+      {
+        "key": "reverse",
+        "type": "integer"
+      },
+      {
+        "key": "baseClockGateMode",
+        "type": "boolean"
+      },
+      {
+        "key": "x2ClockGateMode",
+        "type": "boolean"
+      },
+      {
+        "key": "x4ClockGateMode",
+        "type": "boolean"
+      },
+      {
+        "key": "resetOnStart",
+        "type": "boolean"
+      },
+      {
+        "key": "resetOnStop",
+        "type": "boolean"
+      },
+      {
+        "key": "runInputIsGate",
+        "type": "boolean"
+      },
+      {
+        "key": "runOutputIsGate",
+        "type": "boolean"
+      },
+      {
+        "key": "phaseOutputOffset",
+        "type": "real"
+      },
+      {
+        "key": "useCompatibleBPMCV",
+        "type": "boolean"
+      },
+      {
+        "key": "snapCV",
+        "type": "boolean"
+      },
+      {
+        "key": "externalClockPPQN",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ZZC/Divider",
+            "symbol": "modelDivider",
+            "index": 0
+          },
+          {
+            "key": "ZZC/Div",
+            "symbol": "modelDiv",
+            "index": 1
+          },
+          {
+            "key": "ZZC/DivExp",
+            "symbol": "modelDivExp",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZZC/Clock/2.1.2/manifest.json",
+    "sourceCommit": "5a9d37487026133e54b1af3004851fb8362a3d52",
+    "artifact": {
+      "sha256": "958d128f540c1e78fb513b929df592f950032366de7c97e14a9fb41df85c6663",
+      "size": 82838
+    }
+  },
+  "source": {
+    "url": "https://github.com/zezic/ZZC",
+    "commit": "5a9d37487026133e54b1af3004851fb8362a3d52"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:46:38.123Z"
+  }
+}

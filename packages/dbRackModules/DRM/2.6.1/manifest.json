@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackModules/DRM",
+    "plugin": "dbRackModules",
+    "model": "DRM",
+    "name": "DRM",
+    "brand": "docB",
+    "version": "2.6.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackModules",
+    "libraryUrl": "https://library.vcvrack.com/dbRackModules/DRM",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackModules/DRM.webp",
+    "wasmUrl": "packages/dbRackModules/DRM/2.6.1/module.wasm",
+    "width": 60,
+    "description": "Diode Ring Modulator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 38.091,
+          "y": 23.622,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "In Polarity",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 26.575,
+          "y": 23.622,
+          "widget": "SelectParam"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Carrier level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 38.091,
+          "y": 56.102,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Carrier Polarity",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 26.575,
+          "y": 56.102,
+          "widget": "SelectParam"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Carrier offset",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 5.61,
+          "y": 97.441,
+          "widget": "TrimbotWhite9"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Offset CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 38.091,
+          "y": 91.535,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Diode forward-bias voltage (Vb)",
+        "min": 1.1920928955078125e-7,
+        "max": 5,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 5.61,
+          "y": 97.441,
+          "widget": "TrimbotWhite9"
+        }
+      },
+      {
+        "id": 7,
+        "name": "VB CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 38.091,
+          "y": 91.535,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Diode voltage beyond which the function is linear - Vb",
+        "min": 1.1920928955078125e-7,
+        "max": 5,
+        "default": 0.5,
+        "position": {
+          "x": 5.61,
+          "y": 97.441,
+          "widget": "TrimbotWhite9"
+        }
+      },
+      {
+        "id": 9,
+        "name": "VL-VB CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 38.091,
+          "y": 91.535,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Diode slope of the linear section",
+        "min": 0,
+        "max": 1,
+        "default": 0.8999999761581421,
+        "position": {
+          "x": 5.61,
+          "y": 97.441,
+          "widget": "TrimbotWhite9"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Gain CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 38.091,
+          "y": 91.535,
+          "widget": "TrimbotWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "In",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 23.622
+        }
+      },
+      {
+        "id": 1,
+        "name": "Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 56.102
+        }
+      },
+      {
+        "id": 2,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": 38.091,
+          "y": 112.205
+        }
+      },
+      {
+        "id": 3,
+        "name": "VB",
+        "kind": "cv",
+        "position": {
+          "x": 38.091,
+          "y": 112.205
+        }
+      },
+      {
+        "id": 4,
+        "name": "VL-VB",
+        "kind": "cv",
+        "position": {
+          "x": 38.091,
+          "y": 112.205
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gain",
+        "kind": "cv",
+        "position": {
+          "x": 38.091,
+          "y": 112.205
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ring",
+        "kind": "cv",
+        "position": {
+          "x": 20.669,
+          "y": 320.374
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sum",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 292.323
+        }
+      },
+      {
+        "id": 2,
+        "name": "Diff",
+        "kind": "cv",
+        "position": {
+          "x": 38.091,
+          "y": 292.323
+        }
+      },
+      {
+        "id": 3,
+        "name": "Min",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 342.52
+        }
+      },
+      {
+        "id": 4,
+        "name": "Max",
+        "kind": "cv",
+        "position": {
+          "x": 38.091,
+          "y": 342.52
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "dc",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackModules/DRM/2.6.1/manifest.json",
+    "sourceCommit": "16df93fee43b631efc347f97542cf00a7a56e96a",
+    "artifact": {
+      "sha256": "ab9ad0c83c2da5bb2b9e538538c0181f4ff4b6c3b7aaaac10a8705a8e76e8cd3",
+      "size": 82658
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackModules",
+    "commit": "16df93fee43b631efc347f97542cf00a7a56e96a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:34:07.907Z"
+  }
+}

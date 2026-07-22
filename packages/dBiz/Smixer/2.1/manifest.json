@@ -1,0 +1,1033 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dBiz/Smixer",
+    "plugin": "dBiz",
+    "model": "Smixer",
+    "name": "Smixer",
+    "brand": "dBiz",
+    "version": "2.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/dBiz/dBiz",
+    "libraryUrl": "https://library.vcvrack.com/dBiz/Smixer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dBiz/Smixer.webp",
+    "wasmUrl": "packages/dBiz/Smixer/2.1/module.wasm",
+    "width": 255,
+    "description": "Automatically isolated from the dBiz/Smixer Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 165,
+          "y": 254,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 130,
+          "y": 254,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Running",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 65,
+          "y": 254,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Start Index",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 310,
+          "widget": "RoundWhySnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Num Step",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 160,
+          "y": 310,
+          "widget": "RoundWhySnapKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clock",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 40,
+          "y": 252.5,
+          "widget": "Trim"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Output Vol",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 340,
+          "widget": "Trim"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Output Vol",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 340,
+          "widget": "Trim"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Output Vol",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225,
+          "y": 340,
+          "widget": "Trim"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Param 15",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Param 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Param 17",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 80,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 110,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 140,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 170,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 200,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Output Selector",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 230,
+          "y": 188,
+          "widget": "MCKSSS"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 44.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 74.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 104.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 134.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 164.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 194.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Buttons",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 224.5,
+          "y": 154,
+          "widget": "LEDLightBezel<BlueLight>"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 43,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 133,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 163,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 193,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 223,
+          "y": 20,
+          "widget": "LEDLightSliderFixed<BlueLight>"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clk Input",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 250
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset Input",
+        "kind": "gate",
+        "position": {
+          "x": 100.5,
+          "y": 250
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch Input",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv",
+        "position": {
+          "x": 40.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "position": {
+          "x": 70.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "position": {
+          "x": 100.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 6,
+        "name": "IN 7",
+        "kind": "cv",
+        "position": {
+          "x": 130.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "position": {
+          "x": 160.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 8,
+        "name": "IN 9",
+        "kind": "cv",
+        "position": {
+          "x": 190.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 9,
+        "name": "IN 10",
+        "kind": "cv",
+        "position": {
+          "x": 220.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ch CV Input",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 217
+        }
+      },
+      {
+        "id": 11,
+        "name": "IN 12",
+        "kind": "cv",
+        "position": {
+          "x": 40.5,
+          "y": 217
+        }
+      },
+      {
+        "id": 12,
+        "name": "IN 13",
+        "kind": "cv",
+        "position": {
+          "x": 70.5,
+          "y": 217
+        }
+      },
+      {
+        "id": 13,
+        "name": "IN 14",
+        "kind": "cv",
+        "position": {
+          "x": 100.5,
+          "y": 217
+        }
+      },
+      {
+        "id": 14,
+        "name": "IN 15",
+        "kind": "cv",
+        "position": {
+          "x": 130.5,
+          "y": 217
+        }
+      },
+      {
+        "id": 15,
+        "name": "IN 16",
+        "kind": "cv",
+        "position": {
+          "x": 160.5,
+          "y": 217
+        }
+      },
+      {
+        "id": 16,
+        "name": "IN 17",
+        "kind": "cv",
+        "position": {
+          "x": 190.5,
+          "y": 217
+        }
+      },
+      {
+        "id": 17,
+        "name": "IN 18",
+        "kind": "cv",
+        "position": {
+          "x": 220.5,
+          "y": 217
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ch Output",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 310
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 115.5,
+          "y": 310
+        }
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "position": {
+          "x": 220.5,
+          "y": 310
+        }
+      }
+    ],
+    "lights": 30,
+    "lightWidgets": [
+      {
+        "id": 14,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 18,
+          "y": 105
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 48,
+          "y": 105
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 78,
+          "y": 105
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 108,
+          "y": 105
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 138,
+          "y": 105
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 168,
+          "y": 105
+        }
+      },
+      {
+        "id": 20,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 198,
+          "y": 105
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 228,
+          "y": 105
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 192,
+          "y": 260
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 205,
+          "y": 260
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 218,
+          "y": 260
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 231,
+          "y": 260
+        }
+      },
+      {
+        "id": 22,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 13,
+          "y": 20
+        },
+        "paramId": 33
+      },
+      {
+        "id": 23,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 43,
+          "y": 20
+        },
+        "paramId": 34
+      },
+      {
+        "id": 24,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 73,
+          "y": 20
+        },
+        "paramId": 35
+      },
+      {
+        "id": 25,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 103,
+          "y": 20
+        },
+        "paramId": 36
+      },
+      {
+        "id": 26,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 133,
+          "y": 20
+        },
+        "paramId": 37
+      },
+      {
+        "id": 27,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 163,
+          "y": 20
+        },
+        "paramId": 38
+      },
+      {
+        "id": 28,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 193,
+          "y": 20
+        },
+        "paramId": 39
+      },
+      {
+        "id": 29,
+        "widget": "LEDLightSliderFixed<BlueLight>",
+        "position": {
+          "x": 223,
+          "y": 20
+        },
+        "paramId": 40
+      },
+      {
+        "id": 6,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 14.5,
+          "y": 154
+        },
+        "paramId": 25
+      },
+      {
+        "id": 7,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 44.5,
+          "y": 154
+        },
+        "paramId": 26
+      },
+      {
+        "id": 8,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 74.5,
+          "y": 154
+        },
+        "paramId": 27
+      },
+      {
+        "id": 9,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 104.5,
+          "y": 154
+        },
+        "paramId": 28
+      },
+      {
+        "id": 10,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 134.5,
+          "y": 154
+        },
+        "paramId": 29
+      },
+      {
+        "id": 11,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 164.5,
+          "y": 154
+        },
+        "paramId": 30
+      },
+      {
+        "id": 12,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 194.5,
+          "y": 154
+        },
+        "paramId": 31
+      },
+      {
+        "id": 13,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 224.5,
+          "y": 154
+        },
+        "paramId": 32
+      },
+      {
+        "id": 5,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 65,
+          "y": 254
+        },
+        "paramId": 2
+      },
+      {
+        "id": 4,
+        "widget": "LEDLightBezel<BlueLight>",
+        "position": {
+          "x": 130,
+          "y": 254
+        },
+        "paramId": 1
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "states",
+        "type": "boolean"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dBiz/Smixer/2.1/manifest.json",
+    "sourceCommit": "ec7bcd9fecd21db4bb4a809b17ffaef7d5fb8125",
+    "artifact": {
+      "sha256": "d018dff6ae2589b98702c501e351a798ac178b4718397f62fb5a54ba96315857",
+      "size": 83876
+    }
+  },
+  "source": {
+    "url": "https://github.com/dBiz/dBiz",
+    "commit": "ec7bcd9fecd21db4bb4a809b17ffaef7d5fb8125"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:32:22.452Z"
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/U8",
+    "plugin": "MADZINE",
+    "model": "U8",
+    "name": "U8",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/U8",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/U8.webp",
+    "wasmUrl": "packages/MADZINE/U8/2.5.3/module.wasm",
+    "width": 60,
+    "description": "4HP channel processor with gain/saturation, duck control and mute",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 123,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Duck Level",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 216,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 15,
+          "y": 292,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 45,
+          "y": 292,
+          "centered": true,
+          "widget": "ExclusiveSoloButton<MediumSimpleLight<GreenLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left Audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 59,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Duck Signal",
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 254,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 161,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mute Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Solo Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Chain Left",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Chain Right",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 15,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 1,
+        "widget": "ExclusiveSoloButton<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 45,
+          "y": 292,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "MADZINE/U8",
+            "symbol": "modelU8",
+            "index": 0
+          },
+          {
+            "key": "MADZINE/ALEXANDERPLATZ",
+            "symbol": "modelALEXANDERPLATZ",
+            "index": 1
+          },
+          {
+            "key": "MADZINE/SHINJUKU",
+            "symbol": "modelSHINJUKU",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/U8/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "5f351f6295bbaf98a780294caf6f935e2c0e340fb02b1ae4d4c93dce49c19488",
+      "size": 79117
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:49:01.161Z"
+  }
+}

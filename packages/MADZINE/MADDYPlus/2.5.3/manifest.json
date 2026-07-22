@@ -1,0 +1,680 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/MADDYPlus",
+    "plugin": "MADZINE",
+    "model": "MADDYPlus",
+    "name": "MADDY Plus",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/MADDYPlus",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/MADDYPlus.webp",
+    "wasmUrl": "packages/MADZINE/MADDYPlus/2.5.3/module.wasm",
+    "width": 26,
+    "description": "Extended MADDY sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -3,
+        "max": 7,
+        "default": 2.8073549270629883,
+        "position": {
+          "x": 98,
+          "y": 52,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Swing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 85,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Length",
+        "min": 1,
+        "max": 48,
+        "default": 32,
+        "position": {
+          "x": 20,
+          "y": 52,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 20,
+          "y": 85,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "T1 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 100,
+        "position": {
+          "x": 20,
+          "y": 127,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "T1 Div/Mult",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 160,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "T2 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 100,
+        "position": {
+          "x": 20,
+          "y": 203,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "T2 Div/Mult",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 236,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "T3 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 100,
+        "position": {
+          "x": 20,
+          "y": 279,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "T3 Div/Mult",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 312,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "K1",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 122,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "K2",
+        "min": -10,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 60,
+          "y": 167,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "K3",
+        "min": -10,
+        "max": 10,
+        "default": 4,
+        "position": {
+          "x": 60,
+          "y": 212,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "K4",
+        "min": -10,
+        "max": 10,
+        "default": 6,
+        "position": {
+          "x": 60,
+          "y": 257,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "K5",
+        "min": -10,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 60,
+          "y": 302,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Mode",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 98,
+          "y": 116,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 98,
+          "y": 154,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 194,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Clock Source",
+        "min": 0,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 98,
+          "y": 308,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Manual Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 72,
+          "y": 50,
+          "widget": "MADDYPlusClickableLight"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Ch2 Clock Source",
+        "min": 0,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 135,
+          "y": 50,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Ch2 Mode",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 135,
+          "y": 95,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Ch2 Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 165,
+          "y": 70,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Ch2 CVD Time/Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135,
+          "y": 140,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Ch2 Step Delay",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 165,
+          "y": 115,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Ch3 Clock Source",
+        "min": 0,
+        "max": 6,
+        "default": 3,
+        "position": {
+          "x": 135,
+          "y": 197,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Ch3 Mode",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 135,
+          "y": 242,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Ch3 Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 165,
+          "y": 217,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Ch3 CVD Time/Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135,
+          "y": 287,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Ch3 Step Delay",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 165,
+          "y": 267,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Clock CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 42,
+          "y": 17,
+          "centered": true,
+          "widget": "madzine::widgets::SmallWhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock CV",
+        "kind": "gate",
+        "position": {
+          "x": 16,
+          "y": 17,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 160,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 312,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 98,
+          "y": 85,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 52,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "T1 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 24,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "T2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 64,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "T3 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 102,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Chain 1+2",
+        "kind": "cv",
+        "position": {
+          "x": 24,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Chain 2+3",
+        "kind": "cv",
+        "position": {
+          "x": 64,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Chain 1+2+3",
+        "kind": "cv",
+        "position": {
+          "x": 102,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 98,
+          "y": 234,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 98,
+          "y": 274,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ch2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 135,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Ch2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 135,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Ch3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Ch3 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 165,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "modeValue",
+        "type": "integer"
+      },
+      {
+        "key": "clockSourceValue",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "attackTimes",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "attackTimes",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "attackTimes",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "shifts",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "shifts",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "shifts",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "customPattern",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "customPattern",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "customPattern",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/MADDYPlus/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "12e345d55c76db2b54026933af3aaf9c53486ff52789610bd3089cb84574c6f0",
+      "size": 104593
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:49:12.645Z"
+  }
+}

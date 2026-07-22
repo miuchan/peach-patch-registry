@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sparkette/HSV2RGB",
+    "plugin": "Sparkette",
+    "model": "HSV2RGB",
+    "name": "Color Wheel",
+    "brand": "Sparkette's Stuff",
+    "version": "2.8.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sparkette/HSV2RGB",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/HSV2RGB.webp",
+    "wasmUrl": "packages/Sparkette/HSV2RGB/2.8.1/module.wasm",
+    "width": 45,
+    "description": "Converts a color from HSV format to RGB values.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Hue CV Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 12.602,
+          "y": 77.215,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Hue Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 32.398,
+          "y": 77.215,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Saturation CV Scale",
+        "min": -1,
+        "max": 1,
+        "default": -1,
+        "position": {
+          "x": 12.602,
+          "y": 137.215,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Saturation Offset",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 32.398,
+          "y": 137.215,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Value CV Scale",
+        "min": -1,
+        "max": 1,
+        "default": -1,
+        "position": {
+          "x": 12.602,
+          "y": 197.215,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Value Offset",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 32.398,
+          "y": 197.215,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Hue",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 51.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Saturation",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 111.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Value",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 171.591,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Red",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 245.758,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Green",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 282.839,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blue",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 319.612,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<TrueRGBLight>",
+        "position": {
+          "x": 22.5,
+          "y": 219.715,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sparkette/HSV2RGB/2.8.1/manifest.json",
+    "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+    "artifact": {
+      "sha256": "8caa8f6bc1de4f48550e8ee9bd5f96b2be77ac5a00e80133112e34ac027a0f61",
+      "size": 74851
+    }
+  },
+  "source": {
+    "url": "https://github.com/flarn2006/SparketteVCV",
+    "commit": "b90cd69589ac77f41f626ea4ecb3a49d57780239"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:47:11.693Z"
+  }
+}

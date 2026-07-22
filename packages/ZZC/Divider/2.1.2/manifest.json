@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ZZC/Divider",
+    "plugin": "ZZC",
+    "model": "Divider",
+    "name": "Divider",
+    "brand": "ZZC",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/zezic/ZZC",
+    "libraryUrl": "https://library.vcvrack.com/ZZC/Divider",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ZZC/Divider.webp",
+    "wasmUrl": "packages/ZZC/Divider/2.1.2/module.wasm",
+    "width": 75,
+    "description": "Phase Clock Divider (Scaler)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Ratio Numerator",
+        "min": 1,
+        "max": 99,
+        "default": 1,
+        "position": {
+          "x": 12.5,
+          "y": 39.5,
+          "widget": "ZZC_CrossKnobSnappy"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ratio Denominator",
+        "min": 1,
+        "max": 99,
+        "default": 1,
+        "position": {
+          "x": 12.5,
+          "y": 123.5,
+          "widget": "ZZC_CrossKnobSnappy"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Swing",
+        "min": 1,
+        "max": 99,
+        "default": 50,
+        "position": {
+          "x": 42.5,
+          "y": 191,
+          "widget": "ZZC_Knob25"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 233
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 233
+        }
+      },
+      {
+        "id": 2,
+        "name": "Swing",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 191
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 275
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 42.5,
+          "y": 275
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 8,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 30,
+          "y": 275
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "gateMode",
+        "type": "boolean"
+      },
+      {
+        "key": "tickOnStart",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ZZC/Divider",
+            "symbol": "modelDivider",
+            "index": 0
+          },
+          {
+            "key": "ZZC/Div",
+            "symbol": "modelDiv",
+            "index": 1
+          },
+          {
+            "key": "ZZC/DivExp",
+            "symbol": "modelDivExp",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ZZC/Divider/2.1.2/manifest.json",
+    "sourceCommit": "5a9d37487026133e54b1af3004851fb8362a3d52",
+    "artifact": {
+      "sha256": "bd1a51e87bfa01ef3cff734ec29da5e5126933bd91ae66e82574733525ff8111",
+      "size": 73986
+    }
+  },
+  "source": {
+    "url": "https://github.com/zezic/ZZC",
+    "commit": "5a9d37487026133e54b1af3004851fb8362a3d52"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:46:40.280Z"
+  }
+}

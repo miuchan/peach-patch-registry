@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "rackwindows/mv",
+    "plugin": "rackwindows",
+    "model": "mv",
+    "name": "MV",
+    "brand": "Rackwindows",
+    "version": "1.1.2",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/n0jo/rackwindows.git",
+    "libraryUrl": "https://library.vcvrack.com/rackwindows/mv",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/rackwindows/mv.webp",
+    "wasmUrl": "packages/rackwindows/mv/1.1.2/module.wasm",
+    "width": 150,
+    "description": "Dual-mono reverb",
+    "params": [
+      {
+        "id": 0,
+        "name": "Depth",
+        "min": 0.11999999731779099,
+        "max": 1,
+        "default": 0.5600000023841858,
+        "position": {
+          "x": 37.5,
+          "y": 75,
+          "centered": true,
+          "widget": "RwKnobLargeDark"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Regeneration",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 112.5,
+          "y": 75,
+          "centered": true,
+          "widget": "RwKnobLargeDark"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Brightness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 56.3,
+          "y": 140,
+          "centered": true,
+          "widget": "RwKnobMediumDark"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Dry/Wet",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 90,
+          "y": 190,
+          "centered": true,
+          "widget": "RwKnobSmallDark"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Depth CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 215,
+          "centered": true,
+          "widget": "RwKnobTrimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Brightness CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 56.25,
+          "y": 225,
+          "centered": true,
+          "widget": "RwKnobTrimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Dry/Wet CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 235,
+          "centered": true,
+          "widget": "RwKnobTrimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Regeneration CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 123.75,
+          "y": 245,
+          "centered": true,
+          "widget": "RwKnobTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Depth CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bright CV",
+        "kind": "audio",
+        "position": {
+          "x": 56.25,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Drywet CV",
+        "kind": "audio",
+        "position": {
+          "x": 90,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Regen CV",
+        "kind": "cv",
+        "position": {
+          "x": 123.75,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input L",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 325,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Input R",
+        "kind": "audio",
+        "position": {
+          "x": 56.25,
+          "y": 325,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output L",
+        "kind": "audio",
+        "position": {
+          "x": 90,
+          "y": 325,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output R",
+        "kind": "audio",
+        "position": {
+          "x": 123.75,
+          "y": 325,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "quality",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/rackwindows/mv/1.1.2/manifest.json",
+    "sourceCommit": "1b639e389aab543a0b1a4eaaee68b3be0f68b5d4",
+    "artifact": {
+      "sha256": "2b8df15effa04fcf4cf6435d3f843b697f9dd2635e03b80479dcd4cf01fa9466",
+      "size": 107332
+    }
+  },
+  "source": {
+    "url": "https://github.com/n0jo/rackwindows.git",
+    "commit": "1b639e389aab543a0b1a4eaaee68b3be0f68b5d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:38:27.469Z"
+  }
+}

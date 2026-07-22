@@ -1,0 +1,530 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sparkette/Busybox",
+    "plugin": "Sparkette",
+    "model": "Busybox",
+    "name": "Busybox",
+    "brand": "Sparkette's Stuff",
+    "version": "2.8.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sparkette/Busybox",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/Busybox.webp",
+    "wasmUrl": "packages/Sparkette/Busybox/2.8.1/module.wasm",
+    "width": 120,
+    "description": "Multipurpose module containing four LFO's, two ADSR+VCA envelopes, and a noise generator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "LFO 1 Frequency",
+        "min": -3,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 15,
+          "y": 39.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "LFO 2 Frequency",
+        "min": -3,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 15,
+          "y": 69.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "LFO 3 Frequency",
+        "min": -3,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 15,
+          "y": 99.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "LFO 4 Frequency",
+        "min": -3,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 15,
+          "y": 129.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "LFO 3 Pulse Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 56.102,
+          "y": 91.535,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "LFO Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 159.715,
+          "centered": true,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Envelope 1 Attack",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 219.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Envelope 1 Decay",
+        "min": 0,
+        "max": 4,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 219.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Envelope 1 Sustain",
+        "min": 0,
+        "max": 10,
+        "default": 7,
+        "position": {
+          "x": 45,
+          "y": 249.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Envelope 1 Release",
+        "min": 0,
+        "max": 4,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 249.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Envelope 2 Attack",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 287.215,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Envelope 2 Decay",
+        "min": 0,
+        "max": 4,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 287.215,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Envelope 2 Sustain",
+        "min": 0,
+        "max": 10,
+        "default": 7,
+        "position": {
+          "x": 45,
+          "y": 317.215,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Envelope 2 Release",
+        "min": 0,
+        "max": 4,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 317.215,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "LFO Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 159.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Envelope 1 Gate",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 219.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Envelope 1 VCA",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 249.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Envelope 2 Gate",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 287.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Envelope 2 VCA",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 317.215,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LFO 1",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 39.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "LFO 1 Inverted",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 39.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "LFO 2",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 69.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "LFO 2 Inverted",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 69.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "LFO 3",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 99.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "LFO 3 Inverted",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 99.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "LFO 4",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 129.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "LFO 4 Inverted",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 129.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 167.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Envelope 1",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 219.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Envelope 1 VCA",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 249.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Envelope 2",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 287.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Envelope 2 VCA",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 317.215,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 11,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 45,
+          "y": 39.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 45,
+          "y": 69.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 45,
+          "y": 99.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 45,
+          "y": 129.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<PurpleLight>",
+        "position": {
+          "x": 60,
+          "y": 234.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<PurpleLight>",
+        "position": {
+          "x": 60,
+          "y": 302.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinySimpleLight<RedLight>",
+        "position": {
+          "x": 90,
+          "y": 39.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinySimpleLight<YellowLight>",
+        "position": {
+          "x": 90,
+          "y": 69.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinySimpleLight<GreenLight>",
+        "position": {
+          "x": 90,
+          "y": 99.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TinySimpleLight<BlueLight>",
+        "position": {
+          "x": 90,
+          "y": 129.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "TinySimpleLight<PurpleLight>",
+        "position": {
+          "x": 90,
+          "y": 149.852,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "noise_bipolar",
+        "type": "boolean"
+      },
+      {
+        "key": "noise_channels",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        12
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sparkette/Busybox/2.8.1/manifest.json",
+    "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+    "artifact": {
+      "sha256": "e3642ebe4eac0622531b65da4c00b8924bc025025a354b204cf8e706acb13ec1",
+      "size": 89167
+    }
+  },
+  "source": {
+    "url": "https://github.com/flarn2006/SparketteVCV",
+    "commit": "b90cd69589ac77f41f626ea4ecb3a49d57780239"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:47:14.314Z"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuestionableDinner/DialecticFilter",
+    "plugin": "QuestionableDinner",
+    "model": "DialecticFilter",
+    "name": "Dead Meat",
+    "brand": "Questionable Dinner",
+    "version": "2.1.8",
+    "license": "Apache-2.0",
+    "sourceUrl": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "libraryUrl": "https://library.vcvrack.com/QuestionableDinner/DialecticFilter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuestionableDinner/DialecticFilter.webp",
+    "wasmUrl": "packages/QuestionableDinner/DialecticFilter/2.1.8/module.wasm",
+    "width": 180,
+    "description": "Precision chaos",
+    "params": [
+      {
+        "id": 0,
+        "name": "Cutoff",
+        "min": 2,
+        "max": 14.300000190734863,
+        "default": 9.149999618530273,
+        "position": {
+          "x": 30,
+          "y": 85.63,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bite",
+        "min": 0,
+        "max": 5,
+        "default": 2.5,
+        "position": {
+          "x": 75,
+          "y": 85.63,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Resonance",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 132.874,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bias",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 132.874,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bite x Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 52.5,
+          "y": 183.071,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Cutoff CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.75,
+          "y": 258.366,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bite CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 86.25,
+          "y": 258.366,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Resonance CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.75,
+          "y": 180.118,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Bias CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 86.25,
+          "y": 180.118,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 86.616,
+          "y": 41.339,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 18.75,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Cutoff CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.75,
+          "y": 296.752,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bite CV",
+        "kind": "cv",
+        "position": {
+          "x": 86.25,
+          "y": 296.752,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Resonance CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.75,
+          "y": 218.504,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bias CV",
+        "kind": "cv",
+        "position": {
+          "x": 86.25,
+          "y": 218.504,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 86.25,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Flips",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 248.031,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuestionableDinner/DialecticFilter/2.1.8/manifest.json",
+    "sourceCommit": "db0da92ece0c8c0f12136ce07a494d887be0428c",
+    "artifact": {
+      "sha256": "ed74565d87ee43b7710ebe10d9fc2c2b5cfab8dc91cf87793a7cb252073f9f1b",
+      "size": 81608
+    }
+  },
+  "source": {
+    "url": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "commit": "db0da92ece0c8c0f12136ce07a494d887be0428c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:44:51.404Z"
+  }
+}

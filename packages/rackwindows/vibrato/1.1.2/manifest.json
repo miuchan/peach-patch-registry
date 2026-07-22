@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "rackwindows/vibrato",
+    "plugin": "rackwindows",
+    "model": "vibrato",
+    "name": "Vibrato",
+    "brand": "Rackwindows",
+    "version": "1.1.2",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/n0jo/rackwindows.git",
+    "libraryUrl": "https://library.vcvrack.com/rackwindows/vibrato",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/rackwindows/vibrato.webp",
+    "wasmUrl": "packages/rackwindows/vibrato/1.1.2/module.wasm",
+    "width": 120,
+    "description": "FM vibrator o_O",
+    "params": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 65,
+          "centered": true,
+          "widget": "RwKnobMediumDark"
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM Speed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 65,
+          "centered": true,
+          "widget": "RwKnobMediumDark"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 125,
+          "centered": true,
+          "widget": "RwKnobMediumDark"
+        }
+      },
+      {
+        "id": 3,
+        "name": "FM Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 125,
+          "centered": true,
+          "widget": "RwKnobMediumDark"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Inv/Wet",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 60,
+          "y": 190,
+          "centered": true,
+          "widget": "RwKnobLargeDark"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Speed CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 245,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Depth CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fmspeed CV",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 245,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fmdepth CV",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Invwet CV",
+        "kind": "audio",
+        "position": {
+          "x": 60,
+          "y": 245,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 285,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "EOC",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 325,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 325,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "EOC FM",
+        "kind": "gate",
+        "position": {
+          "x": 97.5,
+          "y": 325,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 13,
+          "y": 37,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 107,
+          "y": 37,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "quality",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/rackwindows/vibrato/1.1.2/manifest.json",
+    "sourceCommit": "1b639e389aab543a0b1a4eaaee68b3be0f68b5d4",
+    "artifact": {
+      "sha256": "f84df3098122921b6ec176b1528117f226a375028993b52b5f362fb5d89d2a12",
+      "size": 89882
+    }
+  },
+  "source": {
+    "url": "https://github.com/n0jo/rackwindows.git",
+    "commit": "1b639e389aab543a0b1a4eaaee68b3be0f68b5d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:38:29.373Z"
+  }
+}

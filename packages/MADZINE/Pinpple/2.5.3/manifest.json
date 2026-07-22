@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/Pinpple",
+    "plugin": "MADZINE",
+    "model": "Pinpple",
+    "name": "Pinpple",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/Pinpple",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/Pinpple.webp",
+    "wasmUrl": "packages/MADZINE/Pinpple/2.5.3/module.wasm",
+    "width": 30,
+    "description": "A ping filter hihat synthesizer with dynamic FM modulation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 4.321928024291992,
+        "max": 14.287712097167969,
+        "default": 8.02790641784668,
+        "position": {
+          "x": 100,
+          "y": 84,
+          "centered": true,
+          "widget": "PinppleRandomizedKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.7670000791549683,
+        "position": {
+          "x": 100,
+          "y": 155,
+          "centered": true,
+          "widget": "PinppleRandomizedKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "FM Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.6654995083808899,
+        "position": {
+          "x": 100,
+          "y": 226,
+          "centered": true,
+          "widget": "PinppleRandomizedKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Freq CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 108,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Decay CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 179,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "FM AMT CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 292,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 85,
+          "y": 40,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 115,
+          "y": 40,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Noise Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 85,
+          "y": 265,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 265,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/Oct Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 108,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 179,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM AMT CV",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 292,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 115,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 85,
+          "y": 40,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "vcaAttackTime",
+        "type": "real"
+      },
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/Pinpple/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "32df5f07e43d7d857bd725ee2dde6efb2b2036f450528afcf34b640940334d9e",
+      "size": 87728
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:48:50.246Z"
+  }
+}

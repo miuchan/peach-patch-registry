@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuestionableDinner/Moxie",
+    "plugin": "QuestionableDinner",
+    "model": "Moxie",
+    "name": "Moxie",
+    "brand": "Questionable Dinner",
+    "version": "2.1.8",
+    "license": "Apache-2.0",
+    "sourceUrl": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "libraryUrl": "https://library.vcvrack.com/QuestionableDinner/Moxie",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuestionableDinner/Moxie.webp",
+    "wasmUrl": "packages/QuestionableDinner/Moxie/2.1.8/module.wasm",
+    "width": 135,
+    "description": "Power-hungry (un)dead oscillator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Bias",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 41.25,
+          "y": 112.205,
+          "centered": true,
+          "widget": "QKnob18mm"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bite",
+        "min": 0,
+        "max": 14,
+        "default": 12,
+        "position": {
+          "x": 105,
+          "y": 147.638,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Freq",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 100.394,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Morph",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 194.882,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82.5,
+          "y": 262.795,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 26.25,
+          "y": 165.354,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 6,
+        "name": "State",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 56.25,
+          "y": 165.354,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Change Model",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.5,
+          "y": 224.409,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Input Linearity",
+        "min": 0,
+        "max": 0.9999899864196777,
+        "default": 0,
+        "position": {
+          "x": 51.915,
+          "y": 35.433,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Power",
+        "kind": "cv",
+        "position": {
+          "x": 41.25,
+          "y": 202.264,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 262.795,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "v/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 262.795,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sync/Reset",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 262.795,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Up",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Down",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallSimpleLight<RedGreenBlueLight>",
+        "position": {
+          "x": 67.5,
+          "y": 203.74,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "clip",
+        "type": "boolean"
+      },
+      {
+        "key": "dc",
+        "type": "boolean"
+      },
+      {
+        "key": "old",
+        "type": "boolean"
+      },
+      {
+        "key": "model",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        2
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuestionableDinner/Moxie/2.1.8/manifest.json",
+    "sourceCommit": "db0da92ece0c8c0f12136ce07a494d887be0428c",
+    "artifact": {
+      "sha256": "65409fc15d27d31d7b572b354bc38a09e98a4f904c1835ffd4c8bf8e0ca41970",
+      "size": 100075
+    }
+  },
+  "source": {
+    "url": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "commit": "db0da92ece0c8c0f12136ce07a494d887be0428c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:44:50.954Z"
+  }
+}

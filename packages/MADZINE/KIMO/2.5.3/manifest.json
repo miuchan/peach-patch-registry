@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/KIMO",
+    "plugin": "MADZINE",
+    "model": "KIMO",
+    "name": "KIMO",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/KIMO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/KIMO.webp",
+    "wasmUrl": "packages/MADZINE/KIMO/2.5.3/module.wasm",
+    "width": 60,
+    "description": "Single-track Euclidean drum machine with bass drum synthesis",
+    "params": [
+      {
+        "id": 0,
+        "name": "Fill",
+        "min": 0,
+        "max": 100,
+        "default": 71.20001220703125,
+        "position": {
+          "x": 45,
+          "y": 63,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Accent",
+        "min": 1,
+        "max": 7,
+        "default": 3,
+        "position": {
+          "x": 15,
+          "y": 105,
+          "centered": true,
+          "widget": "TechnoSnapKnob30"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Accent Delay",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 0.5433198809623718,
+        "position": {
+          "x": 45,
+          "y": 105,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tune",
+        "min": 4.584962368011475,
+        "max": 8.965784072875977,
+        "default": 4.584962368011475,
+        "position": {
+          "x": 15,
+          "y": 147,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.12400007992982864,
+        "position": {
+          "x": 45,
+          "y": 147,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Punch Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.675000011920929,
+        "position": {
+          "x": 15,
+          "y": 189,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Decay",
+        "min": -4.605170249938965,
+        "max": 0.6931471824645996,
+        "default": -3.180246114730835,
+        "position": {
+          "x": 45,
+          "y": 189,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Shape",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0.11884991824626923,
+        "position": {
+          "x": 15,
+          "y": 231,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 63,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tune CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 272,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "FM CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 272,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Punch CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 308,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 308,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fill CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 231,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "VCA Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Accent Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/KIMO/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "521c860c4e156470e5bd21054d9e5e0ad4b62464e216a9cdb096bd6ba6d4464e",
+      "size": 85240
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:49:01.037Z"
+  }
+}

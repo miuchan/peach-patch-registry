@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/Portal",
+    "plugin": "MADZINE",
+    "model": "Portal",
+    "name": "Portal",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/Portal",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/Portal.webp",
+    "wasmUrl": "packages/MADZINE/Portal/2.5.3/module.wasm",
+    "width": 120,
+    "description": "8HP poly crossfader for UniRhythm with 3-band isolator, drive, DJ-style cue monitoring and curve selection",
+    "params": [
+      {
+        "id": 0,
+        "name": "Crossfader",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Cue A/B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Isolator Low",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 294,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Isolator Mid",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 294,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Isolator High",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 294,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Master Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 106,
+          "y": 294,
+          "centered": true,
+          "widget": "StandardBlackKnob26"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Deck A (16ch poly)",
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 258,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Deck B (16ch poly)",
+        "kind": "cv",
+        "position": {
+          "x": 99,
+          "y": 258,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Crossfader CV",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 258,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "GATE_TL_OUTPUT + 0",
+        "kind": "gate",
+        "position": {
+          "x": 61,
+          "y": 65,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "GATE_TL_OUTPUT + 1",
+        "kind": "gate",
+        "position": {
+          "x": 61,
+          "y": 160,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "GATE_TL_OUTPUT + 2",
+        "kind": "gate",
+        "position": {
+          "x": 99,
+          "y": 65,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "GATE_TL_OUTPUT + 3",
+        "kind": "gate",
+        "position": {
+          "x": 99,
+          "y": 160,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "PITCH_TL_OUTPUT + 0",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 91,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "PITCH_TL_OUTPUT + 1",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 186,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "PITCH_TL_OUTPUT + 2",
+        "kind": "cv",
+        "position": {
+          "x": 99,
+          "y": 91,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "PITCH_TL_OUTPUT + 3",
+        "kind": "cv",
+        "position": {
+          "x": 99,
+          "y": 186,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "VELENV_TL_OUTPUT + 0",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 117,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "VELENV_TL_OUTPUT + 1",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 212,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "VELENV_TL_OUTPUT + 2",
+        "kind": "cv",
+        "position": {
+          "x": 99,
+          "y": 117,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "VELENV_TL_OUTPUT + 3",
+        "kind": "cv",
+        "position": {
+          "x": 99,
+          "y": 212,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Master L",
+        "kind": "cv",
+        "position": {
+          "x": 102,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Master R",
+        "kind": "cv",
+        "position": {
+          "x": 102,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Cue L",
+        "kind": "cv",
+        "position": {
+          "x": 42,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Cue R",
+        "kind": "cv",
+        "position": {
+          "x": 42,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "curveType",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/Portal/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "eb29743442454c068f988f6d956e62483aa8c2bc7dc51de57c5551a442bfa2aa",
+      "size": 89181
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:49:32.541Z"
+  }
+}

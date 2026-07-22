@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/SwingLFO",
+    "plugin": "MADZINE",
+    "model": "SwingLFO",
+    "name": "SwingLFO",
+    "brand": "MADZINE",
+    "version": "2.5.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/SwingLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/SwingLFO.webp",
+    "wasmUrl": "packages/MADZINE/SwingLFO/2.5.3/module.wasm",
+    "width": 60,
+    "description": "A dual-waveform LFO with swing and shape control",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -3,
+        "max": 7,
+        "default": 1.5849624872207642,
+        "position": {
+          "x": 45,
+          "y": 59,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Swing",
+        "min": 0,
+        "max": 1,
+        "default": 0.2990000247955322,
+        "position": {
+          "x": 30,
+          "y": 136,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.12099999934434891,
+        "position": {
+          "x": 30,
+          "y": 214,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.3840000629425049,
+        "position": {
+          "x": 30,
+          "y": 289,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob26"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Freq CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 89,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Swing CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 166,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Shape CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 244,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mix CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 317,
+          "centered": true,
+          "widget": "madzine::widgets::MicrotuneKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 89,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Swing CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 166,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 244,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 65,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 317,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Saw Wave",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse Wave",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/SwingLFO/2.5.3/manifest.json",
+    "sourceCommit": "a68d3792787fb976acc9d5ac351c05154e4e5262",
+    "artifact": {
+      "sha256": "3c8dbd2a0bac210403ef8c6f43db3a8737853a735fdb1f9d502c5b0fe556ad23",
+      "size": 75074
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "a68d3792787fb976acc9d5ac351c05154e4e5262"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:44:28.802Z"
+  }
+}
