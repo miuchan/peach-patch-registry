@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/StereoStrip",
+    "plugin": "Befaco",
+    "model": "StereoStrip",
+    "name": "Stereo Strip",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/StereoStrip",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/StereoStrip.webp",
+    "wasmUrl": "packages/Befaco/StereoStrip/2.11.0/module.wasm",
+    "width": 90,
+    "description": "Stereo VCA, panning, and EQ",
+    "params": [
+      {
+        "id": 0,
+        "name": "Low shelf (125 Hz) gain",
+        "min": -20,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 8.158,
+          "y": 105.723,
+          "widget": "BefacoSlidePotSmall"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mid band (1200 Hz) gain",
+        "min": -12.5,
+        "max": 12.5,
+        "default": 0,
+        "position": {
+          "x": 37.845,
+          "y": 105.723,
+          "widget": "BefacoSlidePotSmall"
+        }
+      },
+      {
+        "id": 2,
+        "name": "High shelf (2000 Hz) gain",
+        "min": -15,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 67.503,
+          "y": 105.723,
+          "widget": "BefacoSlidePotSmall"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44.415,
+          "y": 218.829,
+          "centered": true,
+          "widget": "Davies1900hDarkGreyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mute",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 21.898,
+          "y": 269.421,
+          "centered": true,
+          "widget": "ThreeStateBefacoSwitchMomentary"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pan CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.447,
+          "y": 269.421,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gain",
+        "min": -60,
+        "max": 0,
+        "default": -60,
+        "position": {
+          "x": 44.451,
+          "y": 328.739,
+          "centered": true,
+          "widget": "Davies1900hLargeGreyKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "In boost",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 7.004,
+          "y": 213.478,
+          "widget": "CKSSNarrow"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Out cut",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 71.613,
+          "y": 213.478,
+          "widget": "CKSSNarrow"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 14.876,
+          "y": 43.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level (10 V normalled)",
+        "kind": "cv",
+        "position": {
+          "x": 44.359,
+          "y": 43.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Right (left normalled)",
+        "kind": "audio",
+        "position": {
+          "x": 14.876,
+          "y": 77.669,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pan CV (-5 V to +5 V)",
+        "kind": "cv",
+        "position": {
+          "x": 44.359,
+          "y": 77.669,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 74.023,
+          "y": 43.943,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 74.023,
+          "y": 77.708,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 11.959,
+          "y": 206.415,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 76.919,
+          "y": 206.415,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "applyHighpass",
+        "type": "boolean"
+      },
+      {
+        "key": "applyHighshelf",
+        "type": "boolean"
+      },
+      {
+        "key": "panningLaw",
+        "type": "integer"
+      },
+      {
+        "key": "applySoftClipping",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/StereoStrip/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "c43490a4a6cfa220b61187941072ba02c61b9102ed7797a222f8f910848d8631",
+      "size": 99537
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:27:35.123Z"
+  }
+}

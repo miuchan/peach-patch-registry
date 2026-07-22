@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/Bypass",
+    "plugin": "Befaco",
+    "model": "Bypass",
+    "name": "Bypass",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/Bypass",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/Bypass.webp",
+    "wasmUrl": "packages/Befaco/Bypass/2.11.0/module.wasm",
+    "width": 60,
+    "description": "A Stereo bypass module to gate control the send of your signals to your favorite effect!",
+    "params": [
+      {
+        "id": 0,
+        "name": "Return mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 19.783,
+          "y": 186.8,
+          "widget": "CKSSHoriz2"
+        }
+      },
+      {
+        "id": 1,
+        "name": "FX return gain",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 232.981,
+          "centered": true,
+          "widget": "BefacoTinyKnobWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Launch Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 40.748,
+          "y": 270.472,
+          "widget": "CKSSNarrow"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Launch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 29.528,
+          "y": 328.603,
+          "centered": true,
+          "widget": "RecordButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Slew time",
+        "min": 0.004999999888241291,
+        "max": 0.05000000074505806,
+        "default": 0.009999999776482582
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 44.339,
+          "y": 44.38,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "From FX L",
+        "kind": "cv",
+        "position": {
+          "x": 14.607,
+          "y": 120.747,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "From FX R",
+        "kind": "cv",
+        "position": {
+          "x": 44.294,
+          "y": 120.747,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Launch",
+        "kind": "cv",
+        "position": {
+          "x": 19.63,
+          "y": 280.594,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 14.607,
+          "y": 44.38,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "To FX L",
+        "kind": "cv",
+        "position": {
+          "x": 14.637,
+          "y": 82.562,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "To FX R",
+        "kind": "cv",
+        "position": {
+          "x": 44.164,
+          "y": 82.562,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 14.607,
+          "y": 158.994,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 44.164,
+          "y": 158.929,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "RecordButton",
+        "position": {
+          "x": 29.528,
+          "y": 328.603,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "applySaturation",
+        "type": "boolean"
+      },
+      {
+        "key": "active",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        4,
+        2
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/Bypass/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "743dca68d73310d86d3ea6771fb231443872ce43fa49eed5bfeed08bf9753b1e",
+      "size": 85331
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:27:43.898Z"
+  }
+}

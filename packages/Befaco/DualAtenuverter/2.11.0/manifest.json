@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/DualAtenuverter",
+    "plugin": "Befaco",
+    "model": "DualAtenuverter",
+    "name": "Dual Atenuverter",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/DualAtenuverter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/DualAtenuverter.webp",
+    "wasmUrl": "packages/Befaco/DualAtenuverter/2.11.0/module.wasm",
+    "width": 75,
+    "description": "Attenuates, inverts, and applies offset to a signal",
+    "params": [
+      {
+        "id": 0,
+        "name": "Ch 1 gain",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 33,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 1 offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 91,
+          "widget": "Davies1900hRedKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch 2 gain",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 201,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ch 2 offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 260,
+          "widget": "Davies1900hRedKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "In 1",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 152
+        }
+      },
+      {
+        "id": 1,
+        "name": "In 2",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 319
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out 1",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 152
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out 2",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 319
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 33,
+          "y": 143
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 33,
+          "y": 311
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/DualAtenuverter/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "c5ddba54b98e47727271bb2ddca4f1625c92c3cc1463d652028645ed5f3350d3",
+      "size": 73390
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:23:12.966Z"
+  }
+}

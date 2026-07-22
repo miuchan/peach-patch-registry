@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/SamplingModulator",
+    "plugin": "Befaco",
+    "model": "SamplingModulator",
+    "name": "Sampling Modulator",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/SamplingModulator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/SamplingModulator.webp",
+    "wasmUrl": "packages/Befaco/SamplingModulator/2.11.0/module.wasm",
+    "width": 120,
+    "description": "Multi-function module that lies somewhere between a VCO, a Sample & Hold, and an 8 step trigger sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 28.701,
+          "y": 112.261,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine tune",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 91.302,
+          "y": 112.261,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.979,
+          "y": 155.439,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 1",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 24.564,
+          "y": 170.554,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 2",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 24.564,
+          "y": 211.884,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 3",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 24.564,
+          "y": 253.255,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 4",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 24.564,
+          "y": 294.697,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 5",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 95.451,
+          "y": 170.554,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Step 6",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 95.451,
+          "y": 211.884,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Step 7",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 95.451,
+          "y": 253.255,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Step 8",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 95.451,
+          "y": 294.697,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 21.927,
+          "y": 49.42,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 59.979,
+          "y": 83.194,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Hold",
+        "kind": "gate",
+        "position": {
+          "x": 60.065,
+          "y": 330.006,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Raw",
+        "kind": "cv",
+        "position": {
+          "x": 21.927,
+          "y": 338.043,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 59.979,
+          "y": 42.57,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 98.102,
+          "y": 49.42,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sampled",
+        "kind": "cv",
+        "position": {
+          "x": 98.102,
+          "y": 338.043,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 49.964,
+          "y": 183.685,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 49.964,
+          "y": 215.584,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 49.964,
+          "y": 247.482,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 49.964,
+          "y": 279.381,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 70.045,
+          "y": 183.685,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 70.045,
+          "y": 215.584,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 70.045,
+          "y": 247.482,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 70.045,
+          "y": 279.381,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "removeDC",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/SamplingModulator/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "76b7e983747a4ba24503e6f58c905e73bba59dba146b4547a55c5bc85aee5064",
+      "size": 85845
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:27:23.316Z"
+  }
+}

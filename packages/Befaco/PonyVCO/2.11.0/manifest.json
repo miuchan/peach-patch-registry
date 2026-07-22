@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/PonyVCO",
+    "plugin": "Befaco",
+    "model": "PonyVCO",
+    "name": "PonyVCO",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/PonyVCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/PonyVCO.webp",
+    "wasmUrl": "packages/Befaco/PonyVCO/2.11.0/module.wasm",
+    "width": 60,
+    "description": "Pony VCO is a compact Thru-Zero (TZFM) oscillator with wavefolder and VCA",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 44.288,
+          "centered": true,
+          "widget": "Davies1900hDarkGreyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Range",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 16.234,
+          "y": 80.947,
+          "widget": "CKSSHoriz4"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Timbre",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.352,
+          "y": 109.252,
+          "widget": "BefacoSlidePotSmall"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Octave",
+        "min": 0,
+        "max": 6,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 11.22,
+          "y": 119.705,
+          "widget": "CKSSVert7"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Wave",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 16.775,
+          "y": 219.791,
+          "widget": "CKSSHoriz4"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Through-zero FM",
+        "kind": "cv",
+        "position": {
+          "x": 14.805,
+          "y": 258.233,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Timber (wavefolder/PWM)",
+        "kind": "cv",
+        "position": {
+          "x": 44.226,
+          "y": 258.233,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Volt per octave",
+        "kind": "cv",
+        "position": {
+          "x": 14.805,
+          "y": 296.495,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Hard sync",
+        "kind": "cv",
+        "position": {
+          "x": 44.226,
+          "y": 296.495,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "VCA",
+        "kind": "cv",
+        "position": {
+          "x": 14.805,
+          "y": 334.869,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Waveform",
+        "kind": "cv",
+        "position": {
+          "x": 44.291,
+          "y": 334.733,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "blockTZFMDC",
+        "type": "boolean"
+      },
+      {
+        "key": "removePulseDC",
+        "type": "boolean"
+      },
+      {
+        "key": "limitPW",
+        "type": "boolean"
+      },
+      {
+        "key": "oversamplingIndex",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/PonyVCO/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "ad0c9c240de77426e349e25545f3007138e25875f017c914e601f50e9d02008f",
+      "size": 100392
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:32:07.306Z"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackModules/OFS",
+    "plugin": "dbRackModules",
+    "model": "OFS",
+    "name": "OFS",
+    "brand": "docB",
+    "version": "2.6.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackModules",
+    "libraryUrl": "https://library.vcvrack.com/dbRackModules/OFS",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackModules/OFS.webp",
+    "wasmUrl": "packages/dbRackModules/OFS/2.6.1/module.wasm",
+    "width": 30,
+    "description": "CPU friendly polyphonic offset/scaler with polyphonic cv inputs and cv attenuators",
+    "params": [
+      {
+        "id": 0,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 5.61,
+          "y": 29.528,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5.61,
+          "y": 29.528,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 5.61,
+          "y": 118.11,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 5.61,
+          "y": 118.11,
+          "widget": "TrimbotWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 271.654
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 29.528
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 118.11
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clk",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 200.787
+        }
+      },
+      {
+        "id": 4,
+        "name": "QNT",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 236.22
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 5.61,
+          "y": 271.654
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trg",
+        "kind": "gate",
+        "position": {
+          "x": 5.61,
+          "y": 271.654
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "offsetThenScale",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackModules/OFS/2.6.1/manifest.json",
+    "sourceCommit": "16df93fee43b631efc347f97542cf00a7a56e96a",
+    "artifact": {
+      "sha256": "ced44f9b7eb4971313afe3dfaafe7075ce650025e8c569dfb03efcadc0083ebe",
+      "size": 78645
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackModules",
+    "commit": "16df93fee43b631efc347f97542cf00a7a56e96a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T22:38:05.853Z"
+  }
+}
