@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuantalAudio/DaisyMaster",
+    "plugin": "QuantalAudio",
+    "model": "DaisyMaster",
+    "name": "Daisy Mix Master MONO | 3HP",
+    "brand": "QuantalAudio",
+    "version": "2.2.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sumpygump/quantal-audio",
+    "libraryUrl": "https://library.vcvrack.com/QuantalAudio/DaisyMaster",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuantalAudio/DaisyMaster.webp",
+    "wasmUrl": "packages/QuantalAudio/DaisyMaster/2.2.2/module.wasm",
+    "width": 45,
+    "description": "Modular mixer master - legacy",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mix level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 4.5,
+          "y": 52,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 13.5,
+          "y": 206,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Level CV",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 96
+        }
+      },
+      {
+        "id": 1,
+        "name": "Daisy Channel",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 290.5
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 245
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 18,
+          "y": 210.25
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "muted",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuantalAudio/DaisyMaster/2.2.2/manifest.json",
+    "sourceCommit": "27a050936c0c802473f7828509e84b26bf6d55c7",
+    "artifact": {
+      "sha256": "2bbbe249a81848a78dbb1c6be20c16bbbf0d1533fe0f63de3a5d0f1e2a3bd0f2",
+      "size": 69242
+    }
+  },
+  "source": {
+    "url": "https://github.com/sumpygump/quantal-audio",
+    "commit": "27a050936c0c802473f7828509e84b26bf6d55c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:23:53.868Z"
+  }
+}

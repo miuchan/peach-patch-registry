@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ohmer/PolaritySwitch",
+    "plugin": "Ohmer",
+    "model": "PolaritySwitch",
+    "name": "Polarity Switch",
+    "brand": "Ohmer Modules",
+    "version": "2.6.12",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/DomiKamu/Ohmer.git",
+    "libraryUrl": "https://library.vcvrack.com/Ohmer/PolaritySwitch",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ohmer/PolaritySwitch.webp",
+    "wasmUrl": "packages/Ohmer/PolaritySwitch/2.6.12/module.wasm",
+    "width": 45,
+    "description": "Signal is routed to \"P\" if its input voltage is positive. Otherwise, it will be routed to \"N\" (but as positive equivalent, as absolute value)",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "IN1 voltage",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "IN2 voltage",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "IN2 >= 0: sent to this P1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "IN2 < 0: sent (absolute) to this N1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "IN2 >= 0: sent to this P2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "IN2 < 0: sent (absolute) to this N2",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Model",
+        "type": "integer"
+      },
+      {
+        "key": "UpperVoltage",
+        "type": "integer"
+      },
+      {
+        "key": "LowerVoltage",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ohmer/PolaritySwitch/2.6.12/manifest.json",
+    "sourceCommit": "d6e2f29b000335c630ff56a78483b01febafc65c",
+    "artifact": {
+      "sha256": "5af806900d22d31828e9f8c643d4ccb3add4e52f05a23cea7c585fff5f6c6a8d",
+      "size": 68950
+    }
+  },
+  "source": {
+    "url": "https://github.com/DomiKamu/Ohmer.git",
+    "commit": "d6e2f29b000335c630ff56a78483b01febafc65c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:18:35.853Z"
+  }
+}

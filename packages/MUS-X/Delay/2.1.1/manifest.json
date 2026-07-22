@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/Delay",
+    "plugin": "MUS-X",
+    "model": "Delay",
+    "name": "Delay",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/Delay",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/Delay.webp",
+    "wasmUrl": "packages/MUS-X/Delay/2.1.1/module.wasm",
+    "width": 180,
+    "description": "Bucket-brigade ping-pong delay.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay time",
+        "min": 0,
+        "max": 1,
+        "default": 0.6499999761581421,
+        "position": {
+          "x": 45,
+          "y": 71.144,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback",
+        "min": 0,
+        "max": 3,
+        "default": 0.5,
+        "position": {
+          "x": 135,
+          "y": 71.144,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tap tempo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 83.74,
+          "y": 94.857,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<BlueLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Low pass filter cutoff frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.6499999761581421,
+        "position": {
+          "x": 22.5,
+          "y": 189.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Low pass filter resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 67.5,
+          "y": 189.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Noise level",
+        "min": 0,
+        "max": 0.25,
+        "default": 0.02500000037252903,
+        "position": {
+          "x": 112.5,
+          "y": 166.001,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "BBD delay line size",
+        "min": 8,
+        "max": 14,
+        "default": 12,
+        "position": {
+          "x": 157.5,
+          "y": 166.001,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Low pass filter order",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 112.5,
+          "y": 213.428,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Compander low pass filter frequency",
+        "min": 0.10000000149011612,
+        "max": 40,
+        "default": 20,
+        "position": {
+          "x": 157.5,
+          "y": 213.428,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Delay input level",
+        "min": 0,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 260.858,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Stereo width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 67.5,
+          "y": 260.858,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "R wet signal = - L wet signal (Chorus mode)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 112.5,
+          "y": 260.858,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Dry-wet mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 157.5,
+          "y": 260.858,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Delay time CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 118.571,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 135,
+          "y": 118.571,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left / Mono",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 332.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 113.126,
+          "y": 332.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 158.126,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 8.858,
+          "y": 236.22
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<BlueLight>>",
+        "position": {
+          "x": 83.74,
+          "y": 94.857,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 112.5,
+          "y": 260.858,
+          "centered": true
+        },
+        "paramId": 11
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/Delay/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "4b0945370f14d9f8cf87fef50e8702d3bf8cdacdd871400a3fb0f38457360e12",
+      "size": 95453
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:20.610Z"
+  }
+}

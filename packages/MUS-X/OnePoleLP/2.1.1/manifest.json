@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/OnePoleLP",
+    "plugin": "MUS-X",
+    "model": "OnePoleLP",
+    "name": "OnePoleLP",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/OnePoleLP",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/OnePoleLP.webp",
+    "wasmUrl": "packages/MUS-X/OnePoleLP/2.1.1/module.wasm",
+    "width": 45,
+    "description": "Simple one-pole lowpass filter.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Low pass cutoff frequency",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 142.287,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Low pass cutoff frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 189.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 284.572,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Filtered",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/OnePoleLP/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "fb9d02b8dbb2019cb786ec1a9b2e241a26ddf85d937d2d12709fcae4065f09d0",
+      "size": 68884
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:21.838Z"
+  }
+}

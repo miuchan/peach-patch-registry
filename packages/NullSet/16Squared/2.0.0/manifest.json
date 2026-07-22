@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NullSet/16Squared",
+    "plugin": "NullSet",
+    "model": "16Squared",
+    "name": "16 Squared",
+    "brand": "Null Set",
+    "version": "2.0.0",
+    "license": "GPL-3.0",
+    "sourceUrl": "https://github.com/nicholas-j-denning/NullSet",
+    "libraryUrl": "https://library.vcvrack.com/NullSet/16Squared",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NullSet/16Squared.webp",
+    "wasmUrl": "packages/NullSet/16Squared/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Compact 16 step 16 channel sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Forward",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 37.335,
+          "y": 51.086,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Back",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 89.132,
+          "y": 51.086,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 140.929,
+          "y": 51.086,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Steps",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 37.686,
+          "y": 138.056,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Poly",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 89.483,
+          "y": 138.056,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "1",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 38.852,
+          "y": 252.735,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "2",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 73.149,
+          "y": 252.735,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "3",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 107.442,
+          "y": 252.735,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "4",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 141.738,
+          "y": 252.735,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "5",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 38.852,
+          "y": 287.029,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "6",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 73.149,
+          "y": 287.029,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "7",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 107.442,
+          "y": 287.029,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "8",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 141.738,
+          "y": 287.029,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "9",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 38.852,
+          "y": 321.325,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "10",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 73.149,
+          "y": 321.325,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "11",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 107.442,
+          "y": 321.325,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "12",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 141.738,
+          "y": 321.325,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "13",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 38.852,
+          "y": 355.618,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "14",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 73.149,
+          "y": 355.618,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "15",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 107.442,
+          "y": 355.618,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "16",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 141.738,
+          "y": 355.618,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Forward",
+        "kind": "cv",
+        "position": {
+          "x": 37.335,
+          "y": 82.426,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Back",
+        "kind": "cv",
+        "position": {
+          "x": 89.132,
+          "y": 82.426,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 140.929,
+          "y": 82.426,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 141.207,
+          "y": 138.452,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 16,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 59.274,
+          "y": 170.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 79.222,
+          "y": 170.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 99.168,
+          "y": 170.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 119.117,
+          "y": 170.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 59.274,
+          "y": 190.057,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 79.222,
+          "y": 190.057,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 99.168,
+          "y": 190.057,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 119.117,
+          "y": 190.057,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 59.274,
+          "y": 210.003,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 79.222,
+          "y": 210.003,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 99.168,
+          "y": 210.003,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 119.117,
+          "y": 210.003,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 59.274,
+          "y": 229.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 79.222,
+          "y": 229.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 99.168,
+          "y": 229.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 119.117,
+          "y": 229.949,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "step",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NullSet/16Squared/2.0.0/manifest.json",
+    "sourceCommit": "3637d33896d66c4aa0abb0e0e7e3e42f1fd3acb9",
+    "artifact": {
+      "sha256": "5851da85775dbe667b8e329d38c10cc90a444a7bf423cc258aae2866b07ea952",
+      "size": 80537
+    }
+  },
+  "source": {
+    "url": "https://github.com/nicholas-j-denning/NullSet",
+    "commit": "3637d33896d66c4aa0abb0e0e7e3e42f1fd3acb9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:17:27.735Z"
+  }
+}

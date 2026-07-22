@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/SplitStack",
+    "plugin": "MUS-X",
+    "model": "SplitStack",
+    "name": "Split/Stack",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/SplitStack",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/SplitStack.webp",
+    "wasmUrl": "packages/MUS-X/SplitStack/2.1.1/module.wasm",
+    "width": 135,
+    "description": "Utility for splitting or layering two synthesizer parts",
+    "params": [
+      {
+        "id": 0,
+        "name": "Stack A+B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 33.75,
+          "y": 47.427,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Split A/B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 101.25,
+          "y": 47.427,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Switch A↔B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 33.75,
+          "y": 85.482,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 151.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 196.24,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Velocity",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 240.546,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 284.849,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Retrigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 329.153,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/Oct A",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 151.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/Oct B",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 151.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate A",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 196.24,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate B",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 196.24,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Velocity A",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 240.546,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Velocity B",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 240.546,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Aftertouch A",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 284.849,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Aftertouch B",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 284.849,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Retrigger A",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 329.153,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Retrigger B",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 329.153,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 33.75,
+          "y": 47.427,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 101.25,
+          "y": 47.427,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 33.75,
+          "y": 85.482,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/SplitStack/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "81e7dd124765b1d46dca30f75310b94de967f738e58153e6e56d5d547fee13ad",
+      "size": 79736
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:25.879Z"
+  }
+}

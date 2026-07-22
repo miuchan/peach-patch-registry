@@ -1,0 +1,971 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Mog/Network",
+    "plugin": "Mog",
+    "model": "Network",
+    "name": "Network",
+    "brand": "Mog",
+    "version": "1.1.1",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/JustMog/Mog-VCV",
+    "libraryUrl": "https://library.vcvrack.com/Mog/Network",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Mog/Network.webp",
+    "wasmUrl": "packages/Mog/Network/1.1.1/module.wasm",
+    "width": 390,
+    "description": "Node-based polyphonic sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Node 1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 59.055,
+          "y": 332.185,
+          "centered": true,
+          "widget": "KnobTransparent"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Node 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Node 3",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "Node 4",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 4,
+        "name": "Node 5",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 5,
+        "name": "Node 6",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 6,
+        "name": "Node 7",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 7,
+        "name": "Node 8",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 8,
+        "name": "Node 9",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 9,
+        "name": "Node 10",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 10,
+        "name": "Node 11",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 11,
+        "name": "Node 12",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 12,
+        "name": "Node 13",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 13,
+        "name": "Node 14",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 14,
+        "name": "Node 15",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 15,
+        "name": "Node 16",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 16,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "CV Attenuversion",
+        "min": -1,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 156.496,
+          "y": 332.185,
+          "centered": true,
+          "widget": "KnobTransparentDotted"
+        }
+      },
+      {
+        "id": 19,
+        "name": "CV Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 128.336,
+          "y": 332.185,
+          "centered": true,
+          "widget": "RockerSwitchVertical"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 332.185,
+          "centered": true,
+          "widget": "PushButtonMomentaryLarge"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "IN 2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "IN 3",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "IN 7",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "IN 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "IN 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "IN 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "IN 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "IN 13",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "IN 14",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "IN 15",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "IN 16",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "IN 17",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "IN 18",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "IN 19",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "IN 20",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "IN 21",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "IN 22",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "IN 23",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "IN 24",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "IN 25",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "IN 26",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "IN 27",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "IN 28",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "IN 29",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "IN 30",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 30,
+        "name": "IN 31",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 31,
+        "name": "IN 32",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "Attenuversion",
+        "kind": "cv",
+        "position": {
+          "x": 138.78,
+          "y": 356.102,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "name": "Reset",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 34,
+        "name": "IN 35",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 35,
+        "name": "IN 36",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 36,
+        "name": "IN 37",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 37,
+        "name": "IN 38",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 38,
+        "name": "IN 39",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "OUT 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "OUT 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "OUT 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "OUT 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "OUT 13",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "OUT 14",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "OUT 15",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "OUT 16",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "OUT 17",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "OUT 18",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "OUT 19",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "OUT 20",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "OUT 21",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "OUT 22",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "OUT 23",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "OUT 24",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "OUT 25",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "OUT 26",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "OUT 27",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "OUT 28",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "OUT 29",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "OUT 30",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 30,
+        "name": "OUT 31",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 31,
+        "name": "OUT 32",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "OUT 33",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 33,
+        "name": "OUT 34",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 34,
+        "name": "OUT 35",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 35,
+        "name": "OUT 36",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 36,
+        "name": "OUT 37",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 37,
+        "name": "OUT 38",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 38,
+        "name": "OUT 39",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 39,
+        "name": "OUT 40",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 40,
+        "name": "OUT 41",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 41,
+        "name": "OUT 42",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 42,
+        "name": "OUT 43",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 43,
+        "name": "OUT 44",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 44,
+        "name": "OUT 45",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 45,
+        "name": "OUT 46",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 46,
+        "name": "OUT 47",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 47,
+        "name": "OUT 48",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 48,
+        "name": "OUT 49",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 49,
+        "name": "OUT 50",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 50,
+        "name": "OUT 51",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 51,
+        "name": "OUT 52",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 52,
+        "name": "OUT 53",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 53,
+        "name": "OUT 54",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 54,
+        "name": "OUT 55",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 55,
+        "name": "OUT 56",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 56,
+        "name": "OUT 57",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 57,
+        "name": "OUT 58",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 58,
+        "name": "OUT 59",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 59,
+        "name": "OUT 60",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 60,
+        "name": "OUT 61",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 61,
+        "name": "OUT 62",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 62,
+        "name": "OUT 63",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 63,
+        "name": "OUT 64",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 64,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 339.567,
+          "y": 317.421,
+          "centered": true
+        }
+      },
+      {
+        "id": 65,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 339.567,
+          "y": 346.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 66,
+        "name": "Retrig",
+        "kind": "gate",
+        "position": {
+          "x": 312.992,
+          "y": 332.185,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 18,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "KnobLight",
+        "position": {
+          "x": 59.055,
+          "y": 332.185,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "channels",
+        "type": "integer"
+      },
+      {
+        "key": "polyMode",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "nodeStates",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "nodeStates",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Mog/Network/1.1.1/manifest.json",
+    "sourceCommit": "6f6c6b27f211bc0e09ef6acf32ff3393d28f6dcf",
+    "artifact": {
+      "sha256": "4d8a7d46663d66d693207561273326a419a2db429231b866f073966206c475b5",
+      "size": 82770
+    }
+  },
+  "source": {
+    "url": "https://github.com/JustMog/Mog-VCV",
+    "commit": "6f6c6b27f211bc0e09ef6acf32ff3393d28f6dcf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:13:23.014Z"
+  }
+}

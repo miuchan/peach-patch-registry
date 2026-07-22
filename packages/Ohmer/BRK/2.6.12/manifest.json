@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ohmer/BRK",
+    "plugin": "Ohmer",
+    "model": "BRK",
+    "name": "BRK (\"Break\") expander for RKD",
+    "brand": "Ohmer Modules",
+    "version": "2.6.12",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/DomiKamu/Ohmer.git",
+    "libraryUrl": "https://library.vcvrack.com/Ohmer/BRK",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ohmer/BRK.webp",
+    "wasmUrl": "packages/Ohmer/BRK/2.6.12/module.wasm",
+    "width": 60,
+    "description": "BRK (\"Break\") expander to setup RKD jumpers (inspired from 4ms BO hardware)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Counting Up/Dn",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10.3,
+          "y": 64.2,
+          "widget": "RKDBRK_Switch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trig./Gate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10.3,
+          "y": 112.2,
+          "widget": "RKDBRK_Switch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Max Div 16",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 10.3,
+          "y": 206.2,
+          "widget": "RKDBRK_Switch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Max Div 32",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 10.3,
+          "y": 160.2,
+          "widget": "RKDBRK_Switch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Spread",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10.3,
+          "y": 256.2,
+          "widget": "RKDBRK_Switch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Auto-Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10.3,
+          "y": 304.2,
+          "widget": "RKDBRK_Switch"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Ohmer/RKD",
+            "symbol": "modelRKD",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ohmer/BRK/2.6.12/manifest.json",
+    "sourceCommit": "d6e2f29b000335c630ff56a78483b01febafc65c",
+    "artifact": {
+      "sha256": "54204a89201b80b42d14f14e3803568347dfc21e0d9042725a899b06948effd2",
+      "size": 66385
+    }
+  },
+  "source": {
+    "url": "https://github.com/DomiKamu/Ohmer.git",
+    "commit": "d6e2f29b000335c630ff56a78483b01febafc65c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:18:35.425Z"
+  }
+}

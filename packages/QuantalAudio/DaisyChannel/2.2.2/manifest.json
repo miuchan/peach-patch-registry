@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuantalAudio/DaisyChannel",
+    "plugin": "QuantalAudio",
+    "model": "DaisyChannel",
+    "name": "Daisy Mix Channel MONO | 2HP",
+    "brand": "QuantalAudio",
+    "version": "2.2.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sumpygump/quantal-audio",
+    "libraryUrl": "https://library.vcvrack.com/QuantalAudio/DaisyChannel",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuantalAudio/DaisyChannel.webp",
+    "wasmUrl": "packages/QuantalAudio/DaisyChannel/2.2.2/module.wasm",
+    "width": 30,
+    "description": "Modular mixer channel - legacy daisy chainable",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 4.5,
+          "y": 121.4,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 6,
+          "y": 206,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 89
+        }
+      },
+      {
+        "id": 2,
+        "name": "Daisy chain",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 290.5
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 245
+        }
+      },
+      {
+        "id": 1,
+        "name": "Daisy chain",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 10.5,
+          "y": 210.25
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "muted",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuantalAudio/DaisyChannel/2.2.2/manifest.json",
+    "sourceCommit": "27a050936c0c802473f7828509e84b26bf6d55c7",
+    "artifact": {
+      "sha256": "30b881e1c02df4c1ba3e2ccaca7231bb3758493e9d2bcbf0b29066629879b05e",
+      "size": 71378
+    }
+  },
+  "source": {
+    "url": "https://github.com/sumpygump/quantal-audio",
+    "commit": "27a050936c0c802473f7828509e84b26bf6d55c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:23:52.611Z"
+  }
+}

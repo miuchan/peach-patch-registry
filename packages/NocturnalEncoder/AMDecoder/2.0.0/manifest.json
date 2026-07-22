@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NocturnalEncoder/AMDecoder",
+    "plugin": "NocturnalEncoder",
+    "model": "AMDecoder",
+    "name": "NE-1 Decoder",
+    "brand": "Nocturnal Encoder",
+    "version": "2.0.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/djpeterso23662/NocturnalEncoder",
+    "libraryUrl": "https://library.vcvrack.com/NocturnalEncoder/AMDecoder",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NocturnalEncoder/AMDecoder.webp",
+    "wasmUrl": "packages/NocturnalEncoder/AMDecoder/2.0.0/module.wasm",
+    "width": 270,
+    "description": "Dual Amplitude Modulation Decoder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack CH1 envelope follower speed",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 14.119,
+          "y": 89.5,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack CH2 envelope follower speed",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 174.117,
+          "y": 89.5,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Release CH1 envelope follower speed",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 60.739,
+          "y": 89.5,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Release CH2 envelope follower speed",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 220.737,
+          "y": 89.5,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Attenuverter CH1 -1 to +1",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 37.749,
+          "y": 148.999,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Attenuverter CH2 -1 to +1",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 197.747,
+          "y": 148.999,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Offset CH1 -10v to +10v",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 37.749,
+          "y": 205.811,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Offset CH2 -10v to +10v",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 197.747,
+          "y": 205.811,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale CH1 1x to 3x",
+        "min": 1,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 37.749,
+          "y": 262.498,
+          "widget": "NocturnalWhiteKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scale CH2 1x to 3x",
+        "min": 1,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 197.747,
+          "y": 262.498,
+          "widget": "NocturnalWhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "IN 1",
+        "kind": "audio",
+        "position": {
+          "x": 42.749,
+          "y": 48.25
+        }
+      },
+      {
+        "id": 1,
+        "name": "IN 2",
+        "kind": "audio",
+        "position": {
+          "x": 202.747,
+          "y": 48.25
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT 1",
+        "kind": "cv",
+        "position": {
+          "x": 19.112,
+          "y": 326.25
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 179.11,
+          "y": 326.25
+        }
+      },
+      {
+        "id": 2,
+        "name": "GATE 1",
+        "kind": "gate",
+        "position": {
+          "x": 65.739,
+          "y": 326.25
+        }
+      },
+      {
+        "id": 3,
+        "name": "GATE 2",
+        "kind": "gate",
+        "position": {
+          "x": 225.737,
+          "y": 326.25
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 73.082,
+          "y": 55.267
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 26.952,
+          "y": 310.389
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 233.08,
+          "y": 55.267
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 186.95,
+          "y": 310.389
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NocturnalEncoder/AMDecoder/2.0.0/manifest.json",
+    "sourceCommit": "7008233b9990fa8bc2749857cdb76260313fe7c8",
+    "artifact": {
+      "sha256": "62f47410ff0e8f4b93c3a1b42cb1d6838326507fa50ccf18c613c4f695b2ca29",
+      "size": 71076
+    }
+  },
+  "source": {
+    "url": "https://github.com/djpeterso23662/NocturnalEncoder",
+    "commit": "7008233b9990fa8bc2749857cdb76260313fe7c8"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:15:41.640Z"
+  }
+}

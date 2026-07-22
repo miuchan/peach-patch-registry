@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Noise86/TransQuant",
+    "plugin": "Noise86",
+    "model": "TransQuant",
+    "name": "TransQuant",
+    "brand": "Noise86",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/spacejoey86/Noise86",
+    "libraryUrl": "https://library.vcvrack.com/Noise86/TransQuant",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Noise86/TransQuant.webp",
+    "wasmUrl": "packages/Noise86/TransQuant/2.1.0/module.wasm",
+    "width": 120,
+    "description": "Quantiser with triggers to transpose by a CV controleable interval",
+    "params": [
+      {
+        "id": 0,
+        "name": "Transpose",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 99.579,
+          "y": 106.996,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Interval",
+        "min": 0,
+        "max": 20,
+        "default": 5,
+        "position": {
+          "x": 99.579,
+          "y": 153.159,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 99.579,
+          "y": 199.544,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Transpose up trig",
+        "kind": "gate",
+        "position": {
+          "x": 20.421,
+          "y": 61.267,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Transpose down trig",
+        "kind": "gate",
+        "position": {
+          "x": 99.579,
+          "y": 61.267,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Transpose CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.421,
+          "y": 106.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Interval CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.421,
+          "y": 153.159,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mode CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.421,
+          "y": 199.544,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "CHNL 1",
+        "kind": "cv",
+        "position": {
+          "x": 20.421,
+          "y": 262.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "CHNL 2",
+        "kind": "cv",
+        "position": {
+          "x": 20.421,
+          "y": 302.347,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "CHNL 3",
+        "kind": "cv",
+        "position": {
+          "x": 20.421,
+          "y": 341.926,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CHNL 1 TRG",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 262.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "CHNL 2 TRG",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 302.347,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "CHNL 3 TRG",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 341.926,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "CHNL 1",
+        "kind": "cv",
+        "position": {
+          "x": 99.579,
+          "y": 262.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "CHNL 2",
+        "kind": "cv",
+        "position": {
+          "x": 99.579,
+          "y": 302.347,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "CHNL 3",
+        "kind": "cv",
+        "position": {
+          "x": 99.579,
+          "y": 341.926,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        7,
+        5
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Noise86/TransQuant/2.1.0/manifest.json",
+    "sourceCommit": "db673232944eea1d08f062990456c7b1697b370c",
+    "artifact": {
+      "sha256": "3562730ed4d4b29042aa1671883dae86360ea7cf1f6a7660ee84ee2a7164b255",
+      "size": 72525
+    }
+  },
+  "source": {
+    "url": "https://github.com/spacejoey86/Noise86",
+    "commit": "db673232944eea1d08f062990456c7b1697b370c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:16:10.645Z"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/OnePole",
+    "plugin": "MUS-X",
+    "model": "OnePole",
+    "name": "OnePole",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/OnePole",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/OnePole.webp",
+    "wasmUrl": "packages/MUS-X/OnePole/2.1.1/module.wasm",
+    "width": 45,
+    "description": "Simple one-pole highpass and lowpass filters.",
+    "params": [
+      {
+        "id": 0,
+        "name": "High pass cutoff frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 47.427,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Low pass cutoff frequency",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 142.287,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "High pass cutoff frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 94.857,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Low pass cutoff frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 189.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 284.572,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Filtered",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/OnePole/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "9daebc20e84388e14a5533cf5ab4412c0c26ae160c90ffb6aa7afe3e860a81c7",
+      "size": 70413
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:20.512Z"
+  }
+}

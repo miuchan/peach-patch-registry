@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/Tuner",
+    "plugin": "MUS-X",
+    "model": "Tuner",
+    "name": "Tuner",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/Tuner",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/Tuner.webp",
+    "wasmUrl": "packages/MUS-X/Tuner/2.1.1/module.wasm",
+    "width": 45,
+    "description": "Tune a V/Oct signal by octaves, semitones and cents.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Octave",
+        "min": -7,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 47.427,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Coarse tune",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 94.857,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fine tune",
+        "min": -0.0833333358168602,
+        "max": 0.0833333358168602,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 142.287,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 210.475,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 237.145,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "5V/Semi",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 284.572,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "octaveRange",
+        "type": "integer"
+      },
+      {
+        "key": "snapOctaves",
+        "type": "boolean"
+      },
+      {
+        "key": "semiRange",
+        "type": "integer"
+      },
+      {
+        "key": "snapSemitones",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/Tuner/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "dcbfcd89b7a12591c6c3d34920be9af2ffc66ad73ce6c221a7226649d6adbcd1",
+      "size": 70652
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:20.084Z"
+  }
+}

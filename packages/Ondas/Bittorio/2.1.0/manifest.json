@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ondas/Bittorio",
+    "plugin": "Ondas",
+    "model": "Bittorio",
+    "name": "Bittorio",
+    "brand": "Ondas",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/srsergiorodriguez/ondas",
+    "libraryUrl": "https://library.vcvrack.com/Ondas/Bittorio",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ondas/Bittorio.webp",
+    "wasmUrl": "packages/Ondas/Bittorio/2.1.0/module.wasm",
+    "width": 135,
+    "description": "Cellular-automaton-based gate generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rule select",
+        "min": 0,
+        "max": 255,
+        "default": 30,
+        "position": {
+          "x": 22.5,
+          "y": 196.875,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Random rule",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 239.063,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Seed select",
+        "min": 0,
+        "max": 65535,
+        "default": 256,
+        "position": {
+          "x": 82.5,
+          "y": 196.875,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Random seed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 82.5,
+          "y": 239.063,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Window select",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 52.5,
+          "y": 281.25,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 82.5,
+          "y": 309.375,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Next step",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 309.375,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rule select",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 196.875,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Random rule",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 239.063,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Seed select",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 196.875,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Random seed",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 239.063,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Window select",
+        "kind": "cv",
+        "position": {
+          "x": 82.5,
+          "y": 281.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset step",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 309.375,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Row0",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 343.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Row1",
+        "kind": "gate",
+        "position": {
+          "x": 52.5,
+          "y": 343.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Row2",
+        "kind": "gate",
+        "position": {
+          "x": 82.5,
+          "y": 343.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Row3",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 343.125,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ondas/Bittorio/2.1.0/manifest.json",
+    "sourceCommit": "05c07684b30bfe6aeed676063f9d2d3f971e7b40",
+    "artifact": {
+      "sha256": "d879517003318c71391e716d81aa6b3429783e12049ea01fb29bb59fd7d16480",
+      "size": 72969
+    }
+  },
+  "source": {
+    "url": "https://github.com/srsergiorodriguez/ondas",
+    "commit": "05c07684b30bfe6aeed676063f9d2d3f971e7b40"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:18:53.123Z"
+  }
+}

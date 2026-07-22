@@ -1,0 +1,592 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuestionableDinner/Convection",
+    "plugin": "QuestionableDinner",
+    "model": "Convection",
+    "name": "Convection",
+    "brand": "Questionable Dinner",
+    "version": "2.1.8",
+    "license": "Apache-2.0",
+    "sourceUrl": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "libraryUrl": "https://library.vcvrack.com/QuestionableDinner/Convection",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuestionableDinner/Convection.webp",
+    "wasmUrl": "packages/QuestionableDinner/Convection/2.1.8/module.wasm",
+    "width": 165,
+    "description": "Curve sequencer/quad lfo/quad envelope/rhythm generator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Segment 1 Type",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 69.39,
+          "centered": true,
+          "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Segment 2 Type",
+        "min": 0,
+        "max": 4,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 144.685,
+          "centered": true,
+          "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Segment 3 Type",
+        "min": 0,
+        "max": 4,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 219.98,
+          "centered": true,
+          "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Segment 4 Type",
+        "min": 0,
+        "max": 4,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 295.276,
+          "centered": true,
+          "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Segment 1 Length",
+        "min": -2,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 52.5,
+          "y": 69.39,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Segment 2 Length",
+        "min": -2,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 52.5,
+          "y": 144.685,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Segment 3 Length",
+        "min": -2,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 52.5,
+          "y": 219.98,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Segment 4 Length",
+        "min": -2,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 52.5,
+          "y": 295.276,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Segment 1 Completion",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 82.5,
+          "y": 69.39,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Segment 2 Completion",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 82.5,
+          "y": 144.685,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Segment 3 Completion",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 82.5,
+          "y": 219.98,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Segment 4 Completion",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 82.5,
+          "y": 295.276,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Segment 1 Trig Density",
+        "min": 1,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 112.5,
+          "y": 69.39,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Segment 2 Trig Density",
+        "min": 1,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 112.5,
+          "y": 144.685,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Segment 3 Trig Density",
+        "min": 1,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 112.5,
+          "y": 219.98,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Segment 4 Trig Density",
+        "min": 1,
+        "max": 8,
+        "default": 2,
+        "position": {
+          "x": 112.5,
+          "y": 295.276,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Segment 1 Skew",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 142.5,
+          "y": 69.39,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Segment 2 Skew",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 142.5,
+          "y": 144.685,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Segment 3 Skew",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 142.5,
+          "y": 219.98,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Segment 4 Skew",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 142.5,
+          "y": 295.276,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Trigger Distribution",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 112.5,
+          "y": 338.091,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Segment 1 Amp",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 67.5,
+          "y": 36.909,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Segment 2 Amp",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 67.5,
+          "y": 112.205,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Segment 3 Amp",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 67.5,
+          "y": 187.5,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Segment 4 Amp",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 67.5,
+          "y": 262.795,
+          "centered": true,
+          "widget": "QKnob6mm"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Time Scale",
+        "min": 6,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 52.5,
+          "y": 338.091,
+          "centered": true,
+          "widget": "QKnob8mm"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Segment 1 Trig",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Segment 2 Trig",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Segment 3 Trig",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 187.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Segment 4 Trig",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 262.795,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Segment 1 End-of-Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Segment 2 End-of-Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Segment 3 End-of-Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 187.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Segment 4 End-of-Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 262.795,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Segment 1 Exclusive CV",
+        "kind": "cv",
+        "position": {
+          "x": 142.5,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Segment 2 Exclusive CV",
+        "kind": "cv",
+        "position": {
+          "x": 142.5,
+          "y": 112.205,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Segment 3 Exclusive CV",
+        "kind": "cv",
+        "position": {
+          "x": 142.5,
+          "y": 187.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Segment 4 Exclusive CV",
+        "kind": "cv",
+        "position": {
+          "x": 142.5,
+          "y": 262.795,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Running CV",
+        "kind": "gate",
+        "position": {
+          "x": 82.5,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Trig",
+        "kind": "gate",
+        "position": {
+          "x": 142.5,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Scaled sum CV",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 69.39,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 144.685,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 219.98,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 9,
+        "widget": "VCVLightLatch<SmallSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 295.276,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuestionableDinner/Convection/2.1.8/manifest.json",
+    "sourceCommit": "db0da92ece0c8c0f12136ce07a494d887be0428c",
+    "artifact": {
+      "sha256": "f67f64983bd2742f0e3af3e72d1f88e7cdefa6a62c586a4ef6fae68d98f3bf95",
+      "size": 81448
+    }
+  },
+  "source": {
+    "url": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "commit": "db0da92ece0c8c0f12136ce07a494d887be0428c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:24:12.875Z"
+  }
+}

@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuestionableDinner/Pilfer",
+    "plugin": "QuestionableDinner",
+    "model": "Pilfer",
+    "name": "Pilfer",
+    "brand": "Questionable Dinner",
+    "version": "2.1.8",
+    "license": "Apache-2.0",
+    "sourceUrl": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "libraryUrl": "https://library.vcvrack.com/QuestionableDinner/Pilfer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuestionableDinner/Pilfer.webp",
+    "wasmUrl": "packages/QuestionableDinner/Pilfer/2.1.8/module.wasm",
+    "width": 210,
+    "description": "A moving particle attempts to follow input audio.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Acceleration",
+        "min": 1,
+        "max": 19.5,
+        "default": 10,
+        "position": {
+          "x": 48.75,
+          "y": 87.106,
+          "centered": true,
+          "widget": "QKnob18mm"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Friction",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 161.22,
+          "y": 87.106,
+          "centered": true,
+          "widget": "QKnob18mm"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger Distance",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 54.508,
+          "y": 166.831,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bounce",
+        "min": 0,
+        "max": 0.9800000190734863,
+        "default": 0,
+        "position": {
+          "x": 155.492,
+          "y": 166.831,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Acceleration CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 224.409,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Friction CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 180,
+          "y": 224.409,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Distance CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 224.409,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Bounce CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 142.5,
+          "y": 224.409,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Drive CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 224.409,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Shake Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 343.996,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Drive",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 114.375,
+          "y": 149.114,
+          "centered": true,
+          "widget": "QKnob10mm"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Range",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 87.608,
+          "y": 53.15,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Friction",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 122.392,
+          "y": 53.15,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Coordinates",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 105,
+          "y": 104.823,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Oversampling",
+        "min": 1,
+        "max": 16,
+        "default": 4,
+        "position": {
+          "x": 142.47,
+          "y": 26.575,
+          "widget": "QSegParam"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Acceleration CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 274.606,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Friction CV",
+        "kind": "cv",
+        "position": {
+          "x": 180,
+          "y": 274.606,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Distance CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bounce CV",
+        "kind": "cv",
+        "position": {
+          "x": 142.5,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Drive CV",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 265.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Shake",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 302.657,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Target X/R",
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Target Y/θ",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 327.756,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X Position",
+        "kind": "audio",
+        "position": {
+          "x": 142.5,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y Position",
+        "kind": "audio",
+        "position": {
+          "x": 180,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Velocity",
+        "kind": "cv",
+        "position": {
+          "x": 160.63,
+          "y": 300.591,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallSimpleLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 46.506,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallSimpleLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 59.793,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallSimpleLight<BlueLight>",
+        "position": {
+          "x": 67.411,
+          "y": 302.657,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallSimpleLight<YellowLight>",
+        "position": {
+          "x": 82.559,
+          "y": 310.039,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        6,
+        0
+      ],
+      [
+        7,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuestionableDinner/Pilfer/2.1.8/manifest.json",
+    "sourceCommit": "db0da92ece0c8c0f12136ce07a494d887be0428c",
+    "artifact": {
+      "sha256": "971571a094ed587fc659f07c1c540cbe0a68a10459124f0f8f02d7c68c68c981",
+      "size": 93114
+    }
+  },
+  "source": {
+    "url": "https://github.com/NullCodeMusic/Questionable-Dinner/",
+    "commit": "db0da92ece0c8c0f12136ce07a494d887be0428c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:24:04.569Z"
+  }
+}

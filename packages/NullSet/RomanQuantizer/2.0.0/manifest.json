@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NullSet/RomanQuantizer",
+    "plugin": "NullSet",
+    "model": "RomanQuantizer",
+    "name": "Roman Quantizer",
+    "brand": "Null Set",
+    "version": "2.0.0",
+    "license": "GPL-3.0",
+    "sourceUrl": "https://github.com/nicholas-j-denning/NullSet",
+    "libraryUrl": "https://library.vcvrack.com/NullSet/RomanQuantizer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NullSet/RomanQuantizer.webp",
+    "wasmUrl": "packages/NullSet/RomanQuantizer/2.0.0/module.wasm",
+    "width": 450,
+    "description": "Quantizer based on Roman numeral chord notation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Step",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 76.152,
+          "y": 50.622,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Steps",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 29.64,
+          "y": 114.254,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 76.152,
+          "y": 150.328,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Key",
+        "min": 1,
+        "max": 12,
+        "default": 1,
+        "position": {
+          "x": 29.64,
+          "y": 180.558,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pattern",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 76.152,
+          "y": 250.031,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "In",
+        "kind": "cv",
+        "position": {
+          "x": 29.64,
+          "y": 47.95,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step",
+        "kind": "cv",
+        "position": {
+          "x": 76.152,
+          "y": 81.963,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 76.152,
+          "y": 181.665,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Transpose",
+        "kind": "cv",
+        "position": {
+          "x": 29.64,
+          "y": 280.651,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pattern",
+        "kind": "cv",
+        "position": {
+          "x": 76.152,
+          "y": 281.371,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Root Note",
+        "kind": "cv",
+        "position": {
+          "x": 29.566,
+          "y": 347.35,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 76.429,
+          "y": 347.513,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 16,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 175.308,
+          "y": 100.373,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 256.423,
+          "y": 100.373,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 337.538,
+          "y": 100.373,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 418.654,
+          "y": 100.373,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 175.308,
+          "y": 181.485,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 256.423,
+          "y": 181.485,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 337.538,
+          "y": 181.485,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 418.654,
+          "y": 181.485,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 175.308,
+          "y": 262.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 256.423,
+          "y": 262.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 337.538,
+          "y": 262.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 418.654,
+          "y": 262.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 175.308,
+          "y": 343.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 256.423,
+          "y": 343.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 337.538,
+          "y": 343.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 418.654,
+          "y": 343.713,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "step",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NullSet/RomanQuantizer/2.0.0/manifest.json",
+    "sourceCommit": "3637d33896d66c4aa0abb0e0e7e3e42f1fd3acb9",
+    "artifact": {
+      "sha256": "0f2c2ab4dbea330b8fb68eb4a26709a549dcb85f58d67f44cae5ea5e0bef72b5",
+      "size": 79145
+    }
+  },
+  "source": {
+    "url": "https://github.com/nicholas-j-denning/NullSet",
+    "commit": "3637d33896d66c4aa0abb0e0e7e3e42f1fd3acb9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:17:30.090Z"
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MSM/MLFO",
+    "plugin": "MSM",
+    "model": "MLFO",
+    "name": "MLFO",
+    "brand": "MSM",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "libraryUrl": "https://library.vcvrack.com/MSM/MLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MSM/MLFO.webp",
+    "wasmUrl": "packages/MSM/MLFO/2.0.3/module.wasm",
+    "width": 240,
+    "description": "Low frequency oscillator with multiple waveform types",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Frequency",
+        "min": -9,
+        "max": 7,
+        "default": -1,
+        "position": {
+          "x": 100,
+          "y": 40,
+          "widget": "RedLargeKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "FM CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 11,
+          "y": 142,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulse Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 11,
+          "y": 207,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70,
+          "y": 150,
+          "widget": "VioM2Switch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Invert",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 70,
+          "y": 215,
+          "widget": "VioM2Switch"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Wave Type",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 50,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "FM CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 199,
+          "y": 142,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pulse Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 199,
+          "y": 207,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 162,
+          "y": 150,
+          "widget": "VioM2Switch"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Invert",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 162,
+          "y": 215,
+          "widget": "VioM2Switch"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Wave Type",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 175,
+          "y": 50,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Crossfeed",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 108,
+          "y": 105,
+          "widget": "GreenSmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "(A) FM",
+        "kind": "cv",
+        "position": {
+          "x": 40,
+          "y": 256
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pw  1",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 256
+        }
+      },
+      {
+        "id": 3,
+        "name": "(A) Wave Type Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 298
+        }
+      },
+      {
+        "id": 4,
+        "name": "(B) FM",
+        "kind": "cv",
+        "position": {
+          "x": 180,
+          "y": 256
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pw  2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "(B) Wave Type Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 206,
+          "y": 298
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mix Crossfeed Control Voltage",
+        "kind": "audio",
+        "position": {
+          "x": 140,
+          "y": 256
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "(A) Sin",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 338
+        }
+      },
+      {
+        "id": 1,
+        "name": "(A) Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 69,
+          "y": 338
+        }
+      },
+      {
+        "id": 2,
+        "name": "Saw",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Sqr",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Sin  2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Tri  2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "(B) Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 151,
+          "y": 338
+        }
+      },
+      {
+        "id": 7,
+        "name": "(B) Square",
+        "kind": "cv",
+        "position": {
+          "x": 185,
+          "y": 338
+        }
+      },
+      {
+        "id": 8,
+        "name": "(A) Master",
+        "kind": "cv",
+        "position": {
+          "x": 54,
+          "y": 298
+        }
+      },
+      {
+        "id": 9,
+        "name": "(B) Master",
+        "kind": "cv",
+        "position": {
+          "x": 162,
+          "y": 298
+        }
+      },
+      {
+        "id": 10,
+        "name": "Crossfeed",
+        "kind": "audio",
+        "position": {
+          "x": 110,
+          "y": 298
+        }
+      },
+      {
+        "id": 11,
+        "name": "(A) Random Staircase",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 338
+        }
+      },
+      {
+        "id": 12,
+        "name": "Sh  2",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MSM/MLFO/2.0.3/manifest.json",
+    "sourceCommit": "da38052ab9bc846a7d0ed40471a39f943bef89c2",
+    "artifact": {
+      "sha256": "e0156e932611110e9de8b748c20253568cfb34039a1f110a3352157066ced55a",
+      "size": 86330
+    }
+  },
+  "source": {
+    "url": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "commit": "da38052ab9bc846a7d0ed40471a39f943bef89c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:02.352Z"
+  }
+}

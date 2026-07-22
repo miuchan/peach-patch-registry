@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NonlinearCircuits/DivineCMOS",
+    "plugin": "NonlinearCircuits",
+    "model": "DivineCMOS",
+    "name": "Divine CMOS",
+    "brand": "Nonlinear Circuits",
+    "version": "2.4.0",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/nonlinearcircuits",
+    "libraryUrl": "https://library.vcvrack.com/NonlinearCircuits/DivineCMOS",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NonlinearCircuits/DivineCMOS.webp",
+    "wasmUrl": "packages/NonlinearCircuits/DivineCMOS/2.4.0/module.wasm",
+    "width": 100,
+    "description": "Waveform and clock divider with multiple divison outputs, slew, and a mixer.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Div 2 Gain",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 13.287,
+          "y": 51.673,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Div 4 Gain",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 13.287,
+          "y": 103.346,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Div 8 Gain",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 73.819,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Div 16 Gain",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 125.492,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Slew",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14,
+          "y": 173,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock 1",
+        "kind": "gate",
+        "position": {
+          "x": 4.429,
+          "y": 233.268
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock 2",
+        "kind": "gate",
+        "position": {
+          "x": 33.957,
+          "y": 233.268
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1",
+        "kind": "cv",
+        "position": {
+          "x": 3.691,
+          "y": 303.396
+        }
+      },
+      {
+        "id": 1,
+        "name": "2",
+        "kind": "cv",
+        "position": {
+          "x": 33.219,
+          "y": 303.396
+        }
+      },
+      {
+        "id": 2,
+        "name": "3",
+        "kind": "cv",
+        "position": {
+          "x": 62.746,
+          "y": 303.396
+        }
+      },
+      {
+        "id": 3,
+        "name": "4",
+        "kind": "cv",
+        "position": {
+          "x": 92.274,
+          "y": 303.396
+        }
+      },
+      {
+        "id": 4,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 92.274,
+          "y": 255.413
+        }
+      },
+      {
+        "id": 5,
+        "name": "Slew",
+        "kind": "cv",
+        "position": {
+          "x": 62.746,
+          "y": 255.413
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 13.287,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 42.815,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 72.343,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 101.87,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 85.25,
+          "y": 187.25
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NonlinearCircuits/DivineCMOS/2.4.0/manifest.json",
+    "sourceCommit": "2865e828b66047fc3ea63b5d690262fa6f4aad3e",
+    "artifact": {
+      "sha256": "c7c887c7acff5c0472e990387602f5f82b31e489f0950402a84cebefc80d09d8",
+      "size": 70877
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/nonlinearcircuits",
+    "commit": "2865e828b66047fc3ea63b5d690262fa6f4aad3e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:16:34.279Z"
+  }
+}

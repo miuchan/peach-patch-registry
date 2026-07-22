@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ohmer/Metriks",
+    "plugin": "Ohmer",
+    "model": "Metriks",
+    "name": "Metriks",
+    "brand": "Ohmer Modules",
+    "version": "2.6.12",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/DomiKamu/Ohmer.git",
+    "libraryUrl": "https://library.vcvrack.com/Ohmer/Metriks",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ohmer/Metriks.webp",
+    "wasmUrl": "packages/Ohmer/Metriks/2.6.12/module.wasm",
+    "width": 120,
+    "description": "Voltmeter",
+    "params": [
+      {
+        "id": 0,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 106,
+          "widget": "Ohmer_Encoder"
+        }
+      },
+      {
+        "id": 1,
+        "name": "OPTIONS",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94,
+          "y": 178,
+          "widget": "Ohmer_ButtonGold"
+        }
+      },
+      {
+        "id": 2,
+        "name": "PLAY/PAUSE",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27.4,
+          "y": 240,
+          "widget": "Ohmer_ButtonGold"
+        }
+      },
+      {
+        "id": 3,
+        "name": "RESET",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 75.4,
+          "y": 240,
+          "widget": "Ohmer_ButtonGold"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal to meter",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Play/Pause",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "INput thru",
+        "kind": "cv"
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 18,
+          "y": 252
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 83,
+          "y": 200.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "Model",
+        "type": "integer"
+      },
+      {
+        "key": "Mode",
+        "type": "integer"
+      },
+      {
+        "key": "lastVMin",
+        "type": "real"
+      },
+      {
+        "key": "lastVMax",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ohmer/Metriks/2.6.12/manifest.json",
+    "sourceCommit": "d6e2f29b000335c630ff56a78483b01febafc65c",
+    "artifact": {
+      "sha256": "1dfd0c2713410c7f521dd3f80f1fd0609f0188aad9c3fb065d3dfb9248a86e2d",
+      "size": 103948
+    }
+  },
+  "source": {
+    "url": "https://github.com/DomiKamu/Ohmer.git",
+    "commit": "d6e2f29b000335c630ff56a78483b01febafc65c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:18:36.326Z"
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NewtronAudio/sequence_enhancer",
+    "plugin": "NewtronAudio",
+    "model": "sequence_enhancer",
+    "name": "NW-01 Sequence Enhancer",
+    "brand": "Newtron Audio",
+    "version": "2.0.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/zebedeezac/NewtronAudio",
+    "libraryUrl": "https://library.vcvrack.com/NewtronAudio/sequence_enhancer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NewtronAudio/sequence_enhancer.webp",
+    "wasmUrl": "packages/NewtronAudio/sequence_enhancer/2.0.1/module.wasm",
+    "width": 135,
+    "description": "Spices up a incoming signal by varying pitch and gate length in real time",
+    "params": [
+      {
+        "id": 0,
+        "name": "Algorithm",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 48.183,
+          "y": 78.862,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 101.587,
+          "y": 125.601,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Speed",
+        "min": 0,
+        "max": 6,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 20.536,
+          "y": 169.857,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate Length",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 52.261,
+          "y": 169.857,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rhythm Amount",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 101.587,
+          "y": 208.344,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Speed CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20.835,
+          "y": 225.844,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52.358,
+          "y": 225.844,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Algorithm CV",
+        "kind": "cv",
+        "position": {
+          "x": 91.344,
+          "y": 54.995,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch Amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 101.587,
+          "y": 157.922,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rhythm Amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 101.587,
+          "y": 240.363,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.835,
+          "y": 262.541,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate Length CV",
+        "kind": "gate",
+        "position": {
+          "x": 52.261,
+          "y": 262.541,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 84.481,
+          "y": 301.624,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 20.835,
+          "y": 339.216,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 52.261,
+          "y": 339.216,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 84.481,
+          "y": 339.216,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 115.907,
+          "y": 301.624,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 115.907,
+          "y": 339.216,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NewtronAudio/sequence_enhancer/2.0.1/manifest.json",
+    "sourceCommit": "e6aebeace6f68fc71f83879b0abc4e82861185de",
+    "artifact": {
+      "sha256": "dd25bfb0aacb084e86a4e8b93e8674bb4c8ad4a492a3be1f309873e99c3027e8",
+      "size": 75093
+    }
+  },
+  "source": {
+    "url": "https://github.com/zebedeezac/NewtronAudio",
+    "commit": "e6aebeace6f68fc71f83879b0abc4e82861185de"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:14:48.957Z"
+  }
+}

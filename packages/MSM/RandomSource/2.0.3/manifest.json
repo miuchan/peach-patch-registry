@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MSM/RandomSource",
+    "plugin": "MSM",
+    "model": "RandomSource",
+    "name": "Random Source",
+    "brand": "MSM",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "libraryUrl": "https://library.vcvrack.com/MSM/RandomSource",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MSM/RandomSource.webp",
+    "wasmUrl": "packages/MSM/RandomSource/2.0.3/module.wasm",
+    "width": 120,
+    "description": "Random source that produces variable shape staircase waveforms",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sample Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 75,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sample Range CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73,
+          "y": 189,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Uni/Bi",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82.5,
+          "y": 65,
+          "widget": "VioMSwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Slew",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 65,
+          "y": 115,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 7,
+          "y": 165,
+          "widget": "GreenLargeKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 18,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sample",
+        "kind": "cv",
+        "position": {
+          "x": 18,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slew Magnitude Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 18,
+          "y": 251.5
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sample Input Attenuator Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 251.5
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sample & Hold",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 1,
+        "name": "Amplitude Slewed",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 327.5
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MSM/RandomSource/2.0.3/manifest.json",
+    "sourceCommit": "da38052ab9bc846a7d0ed40471a39f943bef89c2",
+    "artifact": {
+      "sha256": "8582de273682b916ba075716a400c62b0a88100ee73cc3c1171a7c08c295d49a",
+      "size": 71541
+    }
+  },
+  "source": {
+    "url": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "commit": "da38052ab9bc846a7d0ed40471a39f943bef89c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:06.289Z"
+  }
+}

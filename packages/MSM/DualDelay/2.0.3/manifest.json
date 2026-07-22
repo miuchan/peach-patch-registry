@@ -1,0 +1,514 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MSM/DualDelay",
+    "plugin": "MSM",
+    "model": "DualDelay",
+    "name": "Dual Delay",
+    "brand": "MSM",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "libraryUrl": "https://library.vcvrack.com/MSM/DualDelay",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MSM/DualDelay.webp",
+    "wasmUrl": "packages/MSM/DualDelay/2.0.3/module.wasm",
+    "width": 375,
+    "description": "Two independent delay lines with low/hi pass filters",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 33,
+          "y": 99,
+          "widget": "VioMSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 329,
+          "y": 99,
+          "widget": "VioMSwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time Delay",
+        "min": 0,
+        "max": 1,
+        "default": 0.6747999787330627,
+        "position": {
+          "x": 77,
+          "y": 32,
+          "widget": "BlueLargeKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Time Delay",
+        "min": 0,
+        "max": 1,
+        "default": 0.6747999787330627,
+        "position": {
+          "x": 250,
+          "y": 32,
+          "widget": "BlueLargeKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Feedback",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 106,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Feedback",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250,
+          "y": 106,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 60.5,
+          "y": 189.5,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 109,
+          "y": 189.5,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 235,
+          "y": 189.5,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 281,
+          "y": 189.5,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Dry/Wet",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 77,
+          "y": 261,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Dry/Wet",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 250,
+          "y": 261,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 145,
+          "y": 254,
+          "widget": "RedSmallKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 199,
+          "y": 254,
+          "widget": "RedSmallKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Crossfeed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 145,
+          "y": 105,
+          "widget": "RedSmallKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Crossfeed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 199,
+          "y": 105,
+          "widget": "RedSmallKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Clear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 33,
+          "centered": true,
+          "widget": "VCVLightBezel<RedLight>"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Clear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 325,
+          "y": 33,
+          "centered": true,
+          "widget": "VCVLightBezel<RedLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 174,
+          "y": 150
+        }
+      },
+      {
+        "id": 1,
+        "name": "Time Delay Control Voltage (A)",
+        "kind": "cv",
+        "position": {
+          "x": 148,
+          "y": 43
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time Delay Control Voltage (B)",
+        "kind": "cv",
+        "position": {
+          "x": 202,
+          "y": 43
+        }
+      },
+      {
+        "id": 3,
+        "name": "Feedback Control Voltage (A)",
+        "kind": "cv",
+        "position": {
+          "x": 26.5,
+          "y": 140
+        }
+      },
+      {
+        "id": 4,
+        "name": "Feedback Control Voltage (B)",
+        "kind": "cv",
+        "position": {
+          "x": 324.5,
+          "y": 140
+        }
+      },
+      {
+        "id": 5,
+        "name": "Low-Pass Cutoff Control Voltage (A)",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 192.5
+        }
+      },
+      {
+        "id": 6,
+        "name": "Hi-Pass Cutoff Control Voltage (A)",
+        "kind": "cv",
+        "position": {
+          "x": 147.5,
+          "y": 192.5
+        }
+      },
+      {
+        "id": 7,
+        "name": "Low-Pass Cutoff Control Voltage (B)",
+        "kind": "cv",
+        "position": {
+          "x": 200,
+          "y": 192.5
+        }
+      },
+      {
+        "id": 8,
+        "name": "Hi-pass Cutoff Control Voltage (B)",
+        "kind": "cv",
+        "position": {
+          "x": 327.5,
+          "y": 192.5
+        }
+      },
+      {
+        "id": 9,
+        "name": "Dry/Wet Control Voltage (A)",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 10,
+        "name": "Dry/Wet Control Voltage (B)",
+        "kind": "audio",
+        "position": {
+          "x": 327.5,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 11,
+        "name": "Master (A)",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 324.5
+        }
+      },
+      {
+        "id": 12,
+        "name": "Master (B)",
+        "kind": "cv",
+        "position": {
+          "x": 322,
+          "y": 324.5
+        }
+      },
+      {
+        "id": 13,
+        "name": "Level A CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Level B CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Clear (A)",
+        "kind": "gate",
+        "position": {
+          "x": 12,
+          "y": 20.5
+        }
+      },
+      {
+        "id": 16,
+        "name": "Clear (B)",
+        "kind": "gate",
+        "position": {
+          "x": 338,
+          "y": 20.5
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Master (A)",
+        "kind": "cv",
+        "position": {
+          "x": 88,
+          "y": 324.5
+        }
+      },
+      {
+        "id": 1,
+        "name": "Master (B)",
+        "kind": "cv",
+        "position": {
+          "x": 264,
+          "y": 324.5
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wet Only (A)",
+        "kind": "audio",
+        "position": {
+          "x": 148,
+          "y": 324.5
+        }
+      },
+      {
+        "id": 3,
+        "name": "Wet Only (B)",
+        "kind": "audio",
+        "position": {
+          "x": 204,
+          "y": 324.5
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 72.75,
+          "y": 201.75
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 121.25,
+          "y": 201.75
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 247.25,
+          "y": 201.75
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 293.25,
+          "y": 201.75
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightBezel<RedLight>",
+        "position": {
+          "x": 50,
+          "y": 33,
+          "centered": true
+        },
+        "paramId": 16
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightBezel<RedLight>",
+        "position": {
+          "x": 325,
+          "y": 33,
+          "centered": true
+        },
+        "paramId": 17
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "Theme",
+        "type": "integer"
+      },
+      {
+        "key": "DISPLAYA",
+        "type": "integer"
+      },
+      {
+        "key": "DISPLAYB",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 34078720,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MSM/DualDelay/2.0.3/manifest.json",
+    "sourceCommit": "da38052ab9bc846a7d0ed40471a39f943bef89c2",
+    "artifact": {
+      "sha256": "66e5a34e6aecd0baef700a41037f0dd9e5aae0196d7576e1b741dab30984618a",
+      "size": 82540
+    }
+  },
+  "source": {
+    "url": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "commit": "da38052ab9bc846a7d0ed40471a39f943bef89c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:05.153Z"
+  }
+}

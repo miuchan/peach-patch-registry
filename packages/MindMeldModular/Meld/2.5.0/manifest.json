@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MindMeldModular/Meld",
+    "plugin": "MindMeldModular",
+    "model": "Meld",
+    "name": "Meld",
+    "brand": "MindMeld",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/MindMeldModular",
+    "libraryUrl": "https://library.vcvrack.com/MindMeldModular/Meld",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MindMeldModular/Meld.webp",
+    "wasmUrl": "packages/MindMeldModular/Meld/2.5.0/module.wasm",
+    "width": 90,
+    "description": "8-track stereo merge for MixMaster",
+    "params": [
+      {
+        "id": 0,
+        "name": "Bypass 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 101.87,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bypass 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 133.907,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bypass 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 165.945,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bypass 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 197.982,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bypass 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 230.02,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bypass 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 262.057,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bypass 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 294.094,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Bypass 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79.518,
+          "y": 326.132,
+          "centered": true,
+          "widget": "LedButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Polyphonic",
+        "kind": "cv",
+        "position": {
+          "x": 20.197,
+          "y": 54.183,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 1 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 2 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 133.907,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 2 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 133.907,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 3 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 165.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 3 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 165.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 4 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 197.982,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 4 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 197.982,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 5 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 230.02,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 5 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 230.02,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Track 6 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 262.057,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Track 6 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 262.057,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Track 7 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 294.094,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Track 7 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 294.094,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Track 8 left",
+        "kind": "audio",
+        "position": {
+          "x": 30.502,
+          "y": 326.132,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Track 8 right",
+        "kind": "audio",
+        "position": {
+          "x": 59.498,
+          "y": 326.132,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Polyphonic",
+        "kind": "cv",
+        "position": {
+          "x": 69.803,
+          "y": 54.183,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 48,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 28.051,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 33.957,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 39.862,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 45.768,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 57.579,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 42.224,
+          "y": 69.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 28.051,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 33.957,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 39.862,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 45.768,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 57.579,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "TinyLight<MMWhiteBlueLight>",
+        "position": {
+          "x": 47.776,
+          "y": 69.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 133.907,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 165.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 197.982,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 230.02,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 262.057,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 294.094,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 79.518,
+          "y": 326.132,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "facePlate",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "bypassState2",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "bypassState2",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "bypassState2",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "bypassState2",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "bypassState2",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "bypassState2",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "bypassState2",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "bypassState2",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MindMeldModular/Meld/2.5.0/manifest.json",
+    "sourceCommit": "9f47a829e53acc7da5f40de21831917f932d928e",
+    "artifact": {
+      "sha256": "c32686f94c9f8e58223c852e1ea4913765662d26fcda0ab088c8896748a1a013",
+      "size": 77864
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/MindMeldModular",
+    "commit": "9f47a829e53acc7da5f40de21831917f932d928e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:12:21.904Z"
+  }
+}

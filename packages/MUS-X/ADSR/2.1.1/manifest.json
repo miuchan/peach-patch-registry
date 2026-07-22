@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/ADSR",
+    "plugin": "MUS-X",
+    "model": "ADSR",
+    "name": "ADSR",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/ADSR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/ADSR.webp",
+    "wasmUrl": "packages/MUS-X/ADSR/2.1.1/module.wasm",
+    "width": 90,
+    "description": "ADSR envelope generator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 22.5,
+          "y": 47.427,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 22.5,
+          "y": 94.857,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 142.287,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 22.5,
+          "y": 189.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Velocity scaling",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 47.427,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Polyphonic random scaling",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 94.857,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sustain CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 166.001,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Velocity CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 237.145,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sustain CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 237.145,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 284.572,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Retrigger",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 284.572,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Decay/Sustain stage",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 332.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "randomA",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "randomD",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "randomS",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "randomR",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "randomR",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/ADSR/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "ea3812be8c0c886d46d8041e14c5f0f5506ff581f3d500a9d6530e12b9ded5c0",
+      "size": 89269
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:17.897Z"
+  }
+}

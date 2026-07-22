@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuantalAudio/Mixer2",
+    "plugin": "QuantalAudio",
+    "model": "Mixer2",
+    "name": "Mixer 2 | Mono->Stereo | 5HP",
+    "brand": "QuantalAudio",
+    "version": "2.2.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sumpygump/quantal-audio",
+    "libraryUrl": "https://library.vcvrack.com/QuantalAudio/Mixer2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuantalAudio/Mixer2.webp",
+    "wasmUrl": "packages/QuantalAudio/Mixer2/2.2.2/module.wasm",
+    "width": 180,
+    "description": "Mono or stereo 2 channel mixer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mix level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 18.5,
+          "y": 52,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 30.5,
+          "y": 162,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 1 level",
+        "min": 0,
+        "max": 1.4142135381698608,
+        "default": 1,
+        "position": {
+          "x": 9.5,
+          "y": 130.4,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 2 level",
+        "min": 0,
+        "max": 1.4142135381698608,
+        "default": 1,
+        "position": {
+          "x": 44.5,
+          "y": 130.4,
+          "widget": "LEDSliderGreen"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 25,
+          "y": 96
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 1",
+        "kind": "cv",
+        "position": {
+          "x": 7.5,
+          "y": 232
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 2",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 232
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mix 1",
+        "kind": "audio",
+        "position": {
+          "x": 7.5,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mix 2",
+        "kind": "audio",
+        "position": {
+          "x": 42.5,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 1",
+        "kind": "cv",
+        "position": {
+          "x": 7.5,
+          "y": 276
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 2",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 276
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "level_slew",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuantalAudio/Mixer2/2.2.2/manifest.json",
+    "sourceCommit": "27a050936c0c802473f7828509e84b26bf6d55c7",
+    "artifact": {
+      "sha256": "de59f7258f43c55e49a7e26d9a17594ab1ad338132127924349c3d0a8e5e2671",
+      "size": 73441
+    }
+  },
+  "source": {
+    "url": "https://github.com/sumpygump/quantal-audio",
+    "commit": "27a050936c0c802473f7828509e84b26bf6d55c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:23:51.873Z"
+  }
+}

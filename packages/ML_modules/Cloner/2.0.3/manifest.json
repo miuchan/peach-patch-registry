@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ML_modules/Cloner",
+    "plugin": "ML_modules",
+    "model": "Cloner",
+    "name": "Cloner",
+    "brand": "ML Modules",
+    "version": "2.0.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/martin-lueders/ML_modules",
+    "libraryUrl": "https://library.vcvrack.com/ML_modules/Cloner",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ML_modules/Cloner.webp",
+    "wasmUrl": "packages/ML_modules/Cloner/2.0.3/module.wasm",
+    "width": 45,
+    "description": "Clone a signal to polyphonic channels",
+    "params": [
+      {
+        "id": 0,
+        "name": "number of channels",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 4.5,
+          "y": 73,
+          "widget": "RedSnapMLKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "spread",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 9,
+          "y": 155,
+          "widget": "SmallBlueMLKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Center",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 9,
+          "y": 225,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 264
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channels",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 111
+        }
+      },
+      {
+        "id": 2,
+        "name": "Spread",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 190
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 307
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "legacy",
+        "type": "integer"
+      },
+      {
+        "key": "clipping",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ML_modules/Cloner/2.0.3/manifest.json",
+    "sourceCommit": "05ac273285dca1da828deca5aba37c0b7df0fbbd",
+    "artifact": {
+      "sha256": "e092c563e0c0c659f4ce81a8f61d9515e2183c9fab8fc003e87154b8529c3461",
+      "size": 69090
+    }
+  },
+  "source": {
+    "url": "https://github.com/martin-lueders/ML_modules",
+    "commit": "05ac273285dca1da828deca5aba37c0b7df0fbbd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:10:42.634Z"
+  }
+}

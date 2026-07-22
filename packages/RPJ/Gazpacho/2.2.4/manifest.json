@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RPJ/Gazpacho",
+    "plugin": "RPJ",
+    "model": "Gazpacho",
+    "name": "Gazpacho",
+    "brand": "RPJ",
+    "version": "2.2.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/kockie69/RPJ",
+    "libraryUrl": "https://library.vcvrack.com/RPJ/Gazpacho",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RPJ/Gazpacho.webp",
+    "wasmUrl": "packages/RPJ/Gazpacho/2.2.4/module.wasm",
+    "width": 90,
+    "description": "Module with 2nd order Linkwitz-Riley LPF and HPF",
+    "params": [
+      {
+        "id": 0,
+        "name": "fc",
+        "min": -0.12905684113502502,
+        "max": 1.1290568113327026,
+        "default": 0.5,
+        "position": {
+          "x": 3,
+          "y": 50,
+          "widget": "RPJKnobBig"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Cutoff frequency CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 47,
+          "widget": "RPJKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Dry",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 275,
+          "widget": "RPJKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Wet",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 3,
+          "y": 275,
+          "widget": "RPJKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 3,
+          "y": 125,
+          "widget": "RPJKnobBig"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Drive CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 122,
+          "widget": "RPJKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 33.5,
+          "y": 278
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency Cutoff CV",
+        "kind": "cv",
+        "position": {
+          "x": 62,
+          "y": 78
+        }
+      },
+      {
+        "id": 2,
+        "name": "Drive CV",
+        "kind": "cv",
+        "position": {
+          "x": 62,
+          "y": 153
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Low Pass Filter",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 325
+        }
+      },
+      {
+        "id": 1,
+        "name": "High Pass Filter",
+        "kind": "cv",
+        "position": {
+          "x": 62,
+          "y": 325
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RPJ/Gazpacho/2.2.4/manifest.json",
+    "sourceCommit": "a8304468347219fed855ad418a196f7ad9ee6d16",
+    "artifact": {
+      "sha256": "fd96a90ebfe2b44f21eceefcda7bf9a1bd83f09600ee82da380f6de65a6d553b",
+      "size": 98122
+    }
+  },
+  "source": {
+    "url": "https://github.com/kockie69/RPJ",
+    "commit": "a8304468347219fed855ad418a196f7ad9ee6d16"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:25:16.445Z"
+  }
+}

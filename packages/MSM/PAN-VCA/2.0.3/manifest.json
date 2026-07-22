@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MSM/PAN-VCA",
+    "plugin": "MSM",
+    "model": "PAN-VCA",
+    "name": "PAN-VCA",
+    "brand": "MSM",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "libraryUrl": "https://library.vcvrack.com/MSM/PAN-VCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MSM/PAN-VCA.webp",
+    "wasmUrl": "packages/MSM/PAN-VCA/2.0.3/module.wasm",
+    "width": 120,
+    "description": "Stereo VCA/PAN combination",
+    "params": [
+      {
+        "id": 0,
+        "name": "Left Amp",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 10,
+          "y": 100,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Amp",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 64,
+          "y": 100,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 36,
+          "y": 175,
+          "widget": "GreenLargeKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Lin/Exp",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 10,
+          "y": 190,
+          "widget": "VioM2Switch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Lin/Exp",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 95,
+          "y": 190,
+          "widget": "VioM2Switch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Normal/Pan",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 53,
+          "y": 60,
+          "widget": "VioM2Switch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 8,
+          "y": 240
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 86,
+          "y": 240
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input P A",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Left Control Voltage",
+        "kind": "audio",
+        "position": {
+          "x": 8,
+          "y": 280
+        }
+      },
+      {
+        "id": 4,
+        "name": "Right Control Voltage",
+        "kind": "audio",
+        "position": {
+          "x": 86,
+          "y": 280
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pan Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 240
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 8,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 86,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "Outlp A",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Outrp A",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "L+R",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 280
+        }
+      },
+      {
+        "id": 5,
+        "name": "L-R",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MSM/PAN-VCA/2.0.3/manifest.json",
+    "sourceCommit": "da38052ab9bc846a7d0ed40471a39f943bef89c2",
+    "artifact": {
+      "sha256": "05927915935d8cfa1c33301f597c0c5decc5ade7698047a97e73a637c82d1ca0",
+      "size": 79319
+    }
+  },
+  "source": {
+    "url": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "commit": "da38052ab9bc846a7d0ed40471a39f943bef89c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:11:08.908Z"
+  }
+}

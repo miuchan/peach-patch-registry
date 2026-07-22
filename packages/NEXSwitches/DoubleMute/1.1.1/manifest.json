@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NEXSwitches/DoubleMute",
+    "plugin": "NEXSwitches",
+    "model": "DoubleMute",
+    "name": "Double Mute",
+    "brand": "NEX",
+    "version": "1.1.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/lkdjiin/SwitchesModules",
+    "libraryUrl": "https://library.vcvrack.com/NEXSwitches/DoubleMute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NEXSwitches/DoubleMute.webp",
+    "wasmUrl": "packages/NEXSwitches/DoubleMute/1.1.1/module.wasm",
+    "width": 90,
+    "description": "Mute two channels at once with fades",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mute channels",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 94.488,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fade-in time",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 45,
+          "y": 202.264,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fade-out time",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 45,
+          "y": 293.799,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fade-in scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 239.173,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fade-out scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 330.709,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 64.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input 2",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 124.016,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger Mute",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 153.543,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 64.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 124.016,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MuteLight<GreenLight>",
+        "position": {
+          "x": 45,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 67.5,
+          "y": 202.264,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 67.5,
+          "y": 293.799,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "state",
+        "type": "integer"
+      },
+      {
+        "key": "exponentialFade",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NEXSwitches/DoubleMute/1.1.1/manifest.json",
+    "sourceCommit": "6714d7933fc588ae4a395139827b80ed33332f8d",
+    "artifact": {
+      "sha256": "afc5b0cf88f9b97612c9b155605b6e4c0acf5d680ef3a29bd7b165a6761f325d",
+      "size": 71475
+    }
+  },
+  "source": {
+    "url": "https://github.com/lkdjiin/SwitchesModules",
+    "commit": "6714d7933fc588ae4a395139827b80ed33332f8d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:14:08.042Z"
+  }
+}
