@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "repelzen/reburst",
+    "plugin": "repelzen",
+    "model": "reburst",
+    "name": "re-burst",
+    "brand": "repelzen",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/wiqid/repelzen",
+    "libraryUrl": "https://library.vcvrack.com/repelzen/reburst",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/repelzen/reburst.webp",
+    "wasmUrl": "packages/repelzen/reburst/2.0.0/module.wasm",
+    "width": 120,
+    "description": "burst generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "manual burst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 39,
+          "y": 40,
+          "widget": "ReButtonL"
+        }
+      },
+      {
+        "id": 1,
+        "name": "time",
+        "min": 0.019999999552965164,
+        "max": 1,
+        "default": 0.5080000162124634,
+        "position": {
+          "x": 8,
+          "y": 161,
+          "widget": "ReKnobMYellow"
+        }
+      },
+      {
+        "id": 2,
+        "name": "repetitions",
+        "min": 0,
+        "max": 8,
+        "default": 4,
+        "position": {
+          "x": 83,
+          "y": 161,
+          "widget": "ReSnapKnobBlue"
+        }
+      },
+      {
+        "id": 3,
+        "name": "acceleration",
+        "min": 1,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 8,
+          "y": 106,
+          "widget": "ReKnobMGrey"
+        }
+      },
+      {
+        "id": 4,
+        "name": "jitter",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 83,
+          "y": 106,
+          "widget": "ReKnobMGrey"
+        }
+      },
+      {
+        "id": 5,
+        "name": "cv mode",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 45.5,
+          "y": 228,
+          "widget": "ReSnapKnobGreen"
+        }
+      },
+      {
+        "id": 6,
+        "name": "gate/trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 53.5,
+          "y": 291,
+          "widget": "ReSwitch2"
+        }
+      },
+      {
+        "id": 7,
+        "name": "repetition modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88,
+          "y": 213,
+          "widget": "ReKnobSBlue"
+        }
+      },
+      {
+        "id": 8,
+        "name": "time modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 213,
+          "widget": "ReKnobSYellow"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "gate",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 110
+        }
+      },
+      {
+        "id": 1,
+        "name": "clock",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 164
+        }
+      },
+      {
+        "id": 2,
+        "name": "repetition modulation",
+        "kind": "cv",
+        "position": {
+          "x": 85.5,
+          "y": 256
+        }
+      },
+      {
+        "id": 3,
+        "name": "time modulation",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 256
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "gate/trigger",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 323
+        }
+      },
+      {
+        "id": 1,
+        "name": "eoc",
+        "kind": "gate",
+        "position": {
+          "x": 85.5,
+          "y": 323
+        }
+      },
+      {
+        "id": 2,
+        "name": "cv",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 323
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/repelzen/reburst/2.0.0/manifest.json",
+    "sourceCommit": "78b1765eb9ccb9e4e2a1967ee02f4126b1846806",
+    "artifact": {
+      "sha256": "c1e276fa995bf9e7ac69a8f4ccaef03c9c217957ada8ea68f6a85672cd217dd7",
+      "size": 81004
+    }
+  },
+  "source": {
+    "url": "https://github.com/wiqid/repelzen",
+    "commit": "78b1765eb9ccb9e4e2a1967ee02f4126b1846806"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:16:04.940Z"
+  }
+}

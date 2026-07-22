@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "tnn1t1s-ghost/GhostCtrl",
+    "plugin": "tnn1t1s-ghost",
+    "model": "GhostCtrl",
+    "name": "GHOST CTRL",
+    "brand": "TNN1T1S",
+    "version": "2.1.2",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/tnn1t1s/tnn1t1s-ghost",
+    "libraryUrl": "https://library.vcvrack.com/tnn1t1s-ghost/GhostCtrl",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/tnn1t1s-ghost/GhostCtrl.webp",
+    "wasmUrl": "packages/tnn1t1s-ghost/GhostCtrl/2.1.2/module.wasm",
+    "width": 120,
+    "description": "Global state controller for the Ghost drum system. DEFAULT, ACCENT A, ACCENT B, and MASTER controls are broadcast to adjacent Ghost voices via the expander path. Hit-time events such as trigger and local/total accent gates are patched directly to each voice. Use GHOST CTRL to make the separate voices behave like one instrument.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Accent A amount",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Accent B amount",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Master volume",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Dynamic range",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Accent A amount CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Accent B amount CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Master volume CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/tnn1t1s-ghost/GhostCtrl/2.1.2/manifest.json",
+    "sourceCommit": "db01f822804f370fe2c801d610fd261a851c31b9",
+    "artifact": {
+      "sha256": "8e57ef7a10baedd0b971a2d2c318de03b34bb9da8db826ebb4d3949f74f80532",
+      "size": 67654
+    }
+  },
+  "source": {
+    "url": "https://github.com/tnn1t1s/tnn1t1s-ghost",
+    "commit": "db01f822804f370fe2c801d610fd261a851c31b9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:18:07.969Z"
+  }
+}

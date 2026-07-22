@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "forsitan/draen",
+    "plugin": "forsitan",
+    "model": "draen",
+    "name": "dræn",
+    "brand": "forsitan modulare",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gosub/forsitan-modulare",
+    "libraryUrl": "https://library.vcvrack.com/forsitan/draen",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/forsitan/draen.webp",
+    "wasmUrl": "packages/forsitan/draen/2.7.0/module.wasm",
+    "width": 120,
+    "description": "Drone synthesizer: two banks of 37 drone engines (dronecaster ports + hyf originals) played from fundamental (hz) and level (amp), with fading engine selection.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -5,
+        "max": 5,
+        "default": -1.25,
+        "position": {
+          "x": 33.957,
+          "y": 218.504,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 86.043,
+          "y": 218.504,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Engine",
+        "min": 0,
+        "max": 36,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 100.394,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 33.957,
+          "y": 265.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 86.043,
+          "y": 265.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Engine select CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 153.543,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 33.957,
+          "y": 314.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 86.043,
+          "y": 314.469,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 60,
+          "y": 314.469,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "hzMode",
+        "type": "integer"
+      },
+      {
+        "key": "fadeTime",
+        "type": "real"
+      },
+      {
+        "key": "bank",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/forsitan/draen/2.7.0/manifest.json",
+    "sourceCommit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf",
+    "artifact": {
+      "sha256": "8f6b73dc24728e18f642c7e8b4bf9f5a9f4f30f6e7ff6f8b826febe465cf9302",
+      "size": 483455
+    }
+  },
+  "source": {
+    "url": "https://github.com/gosub/forsitan-modulare",
+    "commit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:20.022Z"
+  }
+}

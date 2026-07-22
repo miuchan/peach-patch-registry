@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "kocmoc/TRG",
+    "plugin": "kocmoc",
+    "model": "TRG",
+    "name": "TRG",
+    "brand": "kocmoc",
+    "version": "2.0.8",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/janne808/kocmoc-rack-modules/",
+    "libraryUrl": "https://library.vcvrack.com/kocmoc/TRG",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/kocmoc/TRG.webp",
+    "wasmUrl": "packages/kocmoc/TRG/2.0.8/module.wasm",
+    "width": 90,
+    "description": "Trigger Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Seq length",
+        "min": 1,
+        "max": 32,
+        "default": 32,
+        "position": {
+          "x": 49.606,
+          "y": 311.811,
+          "widget": "RoundBlackSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 26.457,
+          "y": 59.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 63.425,
+          "y": 59.409,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 26.457,
+          "y": 326.811,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "step",
+        "type": "integer"
+      },
+      {
+        "key": "page",
+        "type": "integer"
+      },
+      {
+        "key": "followactivestep",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/kocmoc/TRG/2.0.8/manifest.json",
+    "sourceCommit": "9d36f53f629728e9de99698cef34cec382cc732c",
+    "artifact": {
+      "sha256": "ec18ee8c96609053055b4f76ce7b9d70dee289c3fe0c83a6c03407f28fcb4925",
+      "size": 69089
+    }
+  },
+  "source": {
+    "url": "https://github.com/janne808/kocmoc-rack-modules/",
+    "commit": "9d36f53f629728e9de99698cef34cec382cc732c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:08:26.196Z"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "forsitan/lustro",
+    "plugin": "forsitan",
+    "model": "lustro",
+    "name": "lustro",
+    "brand": "forsitan modulare",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gosub/forsitan-modulare",
+    "libraryUrl": "https://library.vcvrack.com/forsitan/lustro",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/forsitan/lustro.webp",
+    "wasmUrl": "packages/forsitan/lustro/2.7.0/module.wasm",
+    "width": 150,
+    "description": "Scanned filter: scando's mass-spring string drives the band gains of a 16-band resonant filterbank.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Stiffness",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 30.709,
+          "y": 59.055,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Damping",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 75,
+          "y": 59.055,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Update rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.75,
+        "position": {
+          "x": 119.291,
+          "y": 59.055,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Hammer shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.33000001311302185,
+        "position": {
+          "x": 30.709,
+          "y": 109.252,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Strength",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 109.252,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 119.291,
+          "y": 109.252,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Base frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 30.709,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Spread (octaves)",
+        "min": 0,
+        "max": 1,
+        "default": 0.6000000238418579,
+        "position": {
+          "x": 75,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Dry/wet mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 119.291,
+          "y": 159.449,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Excite (hammer hit)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 30.709,
+          "y": 268.701,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Damping CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.85,
+          "y": 215.551,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Update rate CV",
+        "kind": "cv",
+        "position": {
+          "x": 57.283,
+          "y": 215.551,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Base frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 92.717,
+          "y": 215.551,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Spread CV",
+        "kind": "cv",
+        "position": {
+          "x": 128.15,
+          "y": 215.551,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Excite (hammer hit) trigger",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 30.709,
+          "y": 314.469,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 119.291,
+          "y": 314.469,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 134.055,
+          "y": 305.61,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/forsitan/lustro/2.7.0/manifest.json",
+    "sourceCommit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf",
+    "artifact": {
+      "sha256": "cbaec064c22cbda4ea77910fc4504b556c49ecbdc780cc918ae567c79542ce60",
+      "size": 80774
+    }
+  },
+  "source": {
+    "url": "https://github.com/gosub/forsitan-modulare",
+    "commit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:16.468Z"
+  }
+}

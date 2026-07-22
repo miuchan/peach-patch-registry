@@ -1,0 +1,538 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "nullpath/supersaw",
+    "plugin": "nullpath",
+    "model": "supersaw",
+    "name": "Turbulence",
+    "brand": "NullPath",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/NullPath",
+    "libraryUrl": "https://library.vcvrack.com/nullpath/supersaw",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/nullpath/supersaw.webp",
+    "wasmUrl": "packages/nullpath/supersaw/2.0.1/module.wasm",
+    "width": 180,
+    "description": "A supersaw oscillator/synth voice, with noise and a built-in ADSR envelope",
+    "params": [
+      {
+        "id": 0,
+        "name": "Octave",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 27.351,
+          "y": 99.534,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 27.357,
+          "y": 155.681,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Middle Wave",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 26.241,
+          "y": 212.262,
+          "centered": true,
+          "widget": "WaveSwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fine 1",
+        "min": -0.019999999552965164,
+        "max": 0.019999999552965164,
+        "default": 0,
+        "position": {
+          "x": 87.818,
+          "y": 206.784,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fine 2",
+        "min": -0.019999999552965164,
+        "max": 0.019999999552965164,
+        "default": 0,
+        "position": {
+          "x": 132.833,
+          "y": 206.776,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fine 3",
+        "min": -0.019999999552965164,
+        "max": 0.019999999552965164,
+        "default": 0,
+        "position": {
+          "x": 177.839,
+          "y": 206.793,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Noise duration",
+        "min": 0,
+        "max": 0.0010000000474974513,
+        "default": 0,
+        "position": {
+          "x": 83.014,
+          "y": 103.187,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Noise mix",
+        "min": 0,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 182.9,
+          "y": 103.214,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "B width",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26.982,
+          "y": 269.241,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Attack time",
+        "min": 0.0010000000474974513,
+        "max": 5,
+        "default": 0.0010000000474974513,
+        "position": {
+          "x": 223.677,
+          "y": 99.537,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Decay time",
+        "min": 0.009999999776482582,
+        "max": 5,
+        "default": 0.009999999776482582,
+        "position": {
+          "x": 223.677,
+          "y": 156.086,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Sustain level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 223.677,
+          "y": 212.663,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Release time",
+        "min": 0.009999999776482582,
+        "max": 5,
+        "default": 0.009999999776482582,
+        "position": {
+          "x": 223.677,
+          "y": 269.241,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Wave 1 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 87.821,
+          "y": 264.611,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Wave 2 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 132.836,
+          "y": 264.611,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Wave 3 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 177.842,
+          "y": 264.629,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Final level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 102.608,
+          "y": 315.165,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Env -> Noise duration",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 111.865,
+          "y": 137.64,
+          "centered": true,
+          "widget": "NP::OrangeSwitch"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Env -> Noise mix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 139.76,
+          "y": 137.046,
+          "centered": true,
+          "widget": "NP::OrangeSwitch"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Env -> B width",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 61.104,
+          "y": 338.832,
+          "centered": true,
+          "widget": "NP::OrangeSwitch"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Env -> Noise duration amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90.691,
+          "y": 136.73,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Env -> Noise mix amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160.934,
+          "y": 136.134,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Env -> B width amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41.492,
+          "y": 337.919,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 31.633,
+          "y": 44.708,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack CV",
+        "kind": "cv",
+        "position": {
+          "x": 253.394,
+          "y": 99.18,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 253.394,
+          "y": 155.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sustain CV",
+        "kind": "cv",
+        "position": {
+          "x": 253.459,
+          "y": 212.037,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Release CV",
+        "kind": "cv",
+        "position": {
+          "x": 253.459,
+          "y": 268.615,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Wave 1 level CV",
+        "kind": "cv",
+        "position": {
+          "x": 87.824,
+          "y": 288.345,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Wave 2 level CV",
+        "kind": "cv",
+        "position": {
+          "x": 132.815,
+          "y": 288.133,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Wave 3 level CV",
+        "kind": "cv",
+        "position": {
+          "x": 177.8,
+          "y": 288.133,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Final level CV",
+        "kind": "cv",
+        "position": {
+          "x": 102.546,
+          "y": 340.249,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Noise duration CV",
+        "kind": "cv",
+        "position": {
+          "x": 114.966,
+          "y": 102.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "B width CV",
+        "kind": "gate",
+        "position": {
+          "x": 26.923,
+          "y": 304.739,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 240.121,
+          "y": 43.863,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Noise mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 150.632,
+          "y": 102.588,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 135.416,
+          "y": 333.936,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wave 1",
+        "kind": "cv",
+        "position": {
+          "x": 87.821,
+          "y": 182.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wave 2",
+        "kind": "cv",
+        "position": {
+          "x": 132.833,
+          "y": 182.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Wave 3",
+        "kind": "cv",
+        "position": {
+          "x": 177.853,
+          "y": 182.953,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 132.833,
+          "y": 53.711,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 235.031,
+          "y": 324.706,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/nullpath/supersaw/2.0.1/manifest.json",
+    "sourceCommit": "4385a3f0c14a5993bf37f9425934b1bb2212436c",
+    "artifact": {
+      "sha256": "568bada236c8dcf3da41f1cfc48bb3f86a64206b15e7dc57973bff1495d2a923",
+      "size": 86581
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/NullPath",
+    "commit": "4385a3f0c14a5993bf37f9425934b1bb2212436c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:13:52.580Z"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "wintoid/VortexMM",
+    "plugin": "wintoid",
+    "model": "VortexMM",
+    "name": "Vortex",
+    "brand": "wintoid",
+    "version": "2.0.1",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/wintocode/wintoid-vcv",
+    "libraryUrl": "https://library.vcvrack.com/wintoid/VortexMM",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/wintoid/VortexMM.webp",
+    "wasmUrl": "packages/wintoid/VortexMM/2.0.1/module.wasm",
+    "width": 180,
+    "description": "12-mode multi-mode filter with drive and CV control. Filter DSP by Yuriy Ivantsov (ivantsov-filters)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 11,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Cutoff",
+        "min": 20,
+        "max": 20000,
+        "default": 1000,
+        "position": {
+          "x": 45,
+          "y": 94.488,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 177.165,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 259.843,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Cutoff CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.128,
+          "y": 129.921,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Resonance CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.128,
+          "y": 212.598,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Drive CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.128,
+          "y": 295.276,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 26.575,
+          "y": 339.567,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Cutoff CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 129.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Resonance CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 212.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Drive CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 295.276,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 63.484,
+          "y": 339.567,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/wintoid/VortexMM/2.0.1/manifest.json",
+    "sourceCommit": "483baf72a4dba00bd286dbf2a075214307ce7051",
+    "artifact": {
+      "sha256": "e2979eb94cac3b01d279ed2fac0aebeb9080cfe885327b2a7d3151fb219a6fb5",
+      "size": 74615
+    }
+  },
+  "source": {
+    "url": "https://github.com/wintocode/wintoid-vcv",
+    "commit": "483baf72a4dba00bd286dbf2a075214307ce7051"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:21:10.041Z"
+  }
+}

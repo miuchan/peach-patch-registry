@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "forsitan/interea",
+    "plugin": "forsitan",
+    "model": "interea",
+    "name": "interea",
+    "brand": "forsitan modulare",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gosub/forsitan-modulare",
+    "libraryUrl": "https://library.vcvrack.com/forsitan/interea",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/forsitan/interea.webp",
+    "wasmUrl": "packages/forsitan/interea/2.7.0/module.wasm",
+    "width": 150,
+    "description": "Make a chord from a V/Oct input, with quality, voicing and inversion. Harmonize option.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -4.5,
+        "max": 4.5,
+        "default": 0,
+        "position": {
+          "x": 38.814,
+          "y": 57.443,
+          "centered": true,
+          "widget": "Rogan3PSWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Harmonize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 123.918,
+          "y": 57.443,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<BlueLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Voicing",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 65.767,
+          "y": 127.054,
+          "centered": true,
+          "widget": "Rogan2PWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Inversion",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 65.767,
+          "y": 191.117,
+          "centered": true,
+          "widget": "Rogan2PWhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Quality",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 65.767,
+          "y": 255.18,
+          "centered": true,
+          "widget": "Rogan2PWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct root pitch",
+        "kind": "cv",
+        "position": {
+          "x": 78.883,
+          "y": 79.512,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Voicing CV",
+        "kind": "cv",
+        "position": {
+          "x": 24.145,
+          "y": 142.013,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Inversion CV",
+        "kind": "cv",
+        "position": {
+          "x": 24.145,
+          "y": 206.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Quality CV",
+        "kind": "cv",
+        "position": {
+          "x": 24.145,
+          "y": 270.139,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/oct root pitch",
+        "kind": "cv",
+        "position": {
+          "x": 24.145,
+          "y": 314.404,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/oct third pitch",
+        "kind": "cv",
+        "position": {
+          "x": 58.048,
+          "y": 314.404,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "1V/oct fifth pitch",
+        "kind": "cv",
+        "position": {
+          "x": 91.952,
+          "y": 314.404,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "1V/oct seventh pitch",
+        "kind": "cv",
+        "position": {
+          "x": 125.855,
+          "y": 314.404,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 13,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 111.847,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 122.784,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 133.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 144.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 175.91,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 186.847,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 197.784,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 208.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 239.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 250.91,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 261.847,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 97.606,
+          "y": 272.784,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightButton<MediumSimpleLight<BlueLight>>",
+        "position": {
+          "x": 123.918,
+          "y": 57.443,
+          "centered": true
+        },
+        "paramId": 1
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "harmonize",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/forsitan/interea/2.7.0/manifest.json",
+    "sourceCommit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf",
+    "artifact": {
+      "sha256": "4bb3e6e94bca70d677de015505d4d3787794a9baea9869ac3bf335dd69ec5805",
+      "size": 72153
+    }
+  },
+  "source": {
+    "url": "https://github.com/gosub/forsitan-modulare",
+    "commit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:07.433Z"
+  }
+}

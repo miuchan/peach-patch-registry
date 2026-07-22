@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "noobhour/Normaliser",
+    "plugin": "noobhour",
+    "model": "Normaliser",
+    "name": "Normaliser",
+    "brand": "noobhour",
+    "version": "2.0.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/NicolasNeubauer/noobhour_modules",
+    "libraryUrl": "https://library.vcvrack.com/noobhour/Normaliser",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/noobhour/Normaliser.webp",
+    "wasmUrl": "packages/noobhour/Normaliser/2.0.0/module.wasm",
+    "width": 30,
+    "description": "An attenuator scaling values to an output range.",
+    "params": [
+      {
+        "id": 0,
+        "name": "minimum output value",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 82.652,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "maximum output value",
+        "min": -10,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 15,
+          "y": 127.797,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 181.95,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 3,
+        "name": "freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 209.621,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 4,
+        "name": "poly",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 237.161,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 37.119,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Currentmin",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 283.651,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Currentmax",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 314.82,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 346.366,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 15,
+          "y": 209.621,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 15,
+          "y": 237.161,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "freeze",
+        "type": "boolean"
+      },
+      {
+        "key": "poly",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "min",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "max",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "max",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/noobhour/Normaliser/2.0.0/manifest.json",
+    "sourceCommit": "fd172d0cd62ee6ca5612950ba22de0cca622d1ef",
+    "artifact": {
+      "sha256": "72ccfa482e129142e60334284c3ce21f28bf23e163fe72ddf4d0a39ddb836b1a",
+      "size": 86277
+    }
+  },
+  "source": {
+    "url": "https://github.com/NicolasNeubauer/noobhour_modules",
+    "commit": "fd172d0cd62ee6ca5612950ba22de0cca622d1ef"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:13:26.325Z"
+  }
+}

@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "nullpath/switch81",
+    "plugin": "nullpath",
+    "model": "switch81",
+    "name": "Collapse",
+    "brand": "NullPath",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/NullPath",
+    "libraryUrl": "https://library.vcvrack.com/nullpath/switch81",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/nullpath/switch81.webp",
+    "wasmUrl": "packages/nullpath/switch81/2.0.1/module.wasm",
+    "width": 180,
+    "description": "A 9-1 not-so-sequential switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 154.119,
+          "y": 241.072,
+          "centered": true,
+          "widget": "SwitchModeSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Randomize Steps",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.621,
+          "y": 297.499,
+          "centered": true,
+          "widget": "NP::Button"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Randomize Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 167.07,
+          "y": 201.653,
+          "centered": true,
+          "widget": "NP::Button"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 1 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 50.841,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 2 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 85.022,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 3 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 119.2,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 4 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 153.381,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 5 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 187.559,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Step 6 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 221.74,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Step 7 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 255.918,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Step 8 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 290.099,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step 9 Weight",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 68.22,
+          "y": 324.278,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Invert Weights",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 164.959,
+          "y": 341.941,
+          "centered": true,
+          "widget": "NP::Switch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 150.676,
+          "y": 58.181,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 150.676,
+          "y": 96.682,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Randomize Steps",
+        "kind": "cv",
+        "position": {
+          "x": 141.596,
+          "y": 297.499,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Randomize Mode",
+        "kind": "cv",
+        "position": {
+          "x": 142.042,
+          "y": 201.653,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 1 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 50.841,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 2 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 85.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 3 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 119.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 4 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 153.381,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Step 5 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 187.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Step 6 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 221.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Step 7 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 255.918,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step 8 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 290.099,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Step 9 Weight CV",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 324.278,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Step 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 50.841,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Step 2",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 85.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Step 3",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 119.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Step 4",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 153.381,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Step 5",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 187.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Step 6",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 221.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Step 7",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 255.918,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Step 8",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 290.099,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Step 9",
+        "kind": "cv",
+        "position": {
+          "x": 22.919,
+          "y": 324.278,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Invert Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 140.844,
+          "y": 341.719,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 158.737,
+          "y": 147.065,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 50.841,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 85.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 119.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 153.381,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 187.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 221.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 255.918,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 290.099,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<NP::TealLight>",
+        "position": {
+          "x": 44.147,
+          "y": 324.278,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "crossfade",
+        "type": "boolean"
+      },
+      {
+        "key": "fade_duration",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/nullpath/switch81/2.0.1/manifest.json",
+    "sourceCommit": "4385a3f0c14a5993bf37f9425934b1bb2212436c",
+    "artifact": {
+      "sha256": "fdcb13c0c94e75a8d1502e3c6398da63c43e762a7cef8e27009ff32b2db9e8c9",
+      "size": 82434
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/NullPath",
+    "commit": "4385a3f0c14a5993bf37f9425934b1bb2212436c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:13:52.270Z"
+  }
+}

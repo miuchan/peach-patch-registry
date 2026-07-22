@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "unless_modules/premuter",
+    "plugin": "unless_modules",
+    "model": "premuter",
+    "name": "pre-muter",
+    "brand": "unless games",
+    "version": "2.2.7",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://gitlab.com/unlessgames/unless_modules",
+    "libraryUrl": "https://library.vcvrack.com/unless_modules/premuter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/unless_modules/premuter.webp",
+    "wasmUrl": "packages/unless_modules/premuter/2.2.7/module.wasm",
+    "width": 180,
+    "description": "mute signals for 1 second on Rack launch to avoid noise bursts",
+    "params": [
+      {
+        "id": 0,
+        "name": "duration of pre-muting",
+        "min": 0,
+        "max": 15,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "left",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "right",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "left",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "right",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/unless_modules/premuter/2.2.7/manifest.json",
+    "sourceCommit": "0106e455400a9e8bf3bbbb0abde4418e7614c5aa",
+    "artifact": {
+      "sha256": "6113178dac1f7134f613309a210ae86097acdee6133c27588fa5e2b0c4051062",
+      "size": 67969
+    }
+  },
+  "source": {
+    "url": "https://gitlab.com/unlessgames/unless_modules",
+    "commit": "0106e455400a9e8bf3bbbb0abde4418e7614c5aa"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:19:46.421Z"
+  }
+}

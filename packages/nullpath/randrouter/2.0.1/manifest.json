@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "nullpath/randrouter",
+    "plugin": "nullpath",
+    "model": "randrouter",
+    "name": "Entangle",
+    "brand": "NullPath",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/NullPath",
+    "libraryUrl": "https://library.vcvrack.com/nullpath/randrouter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/nullpath/randrouter.webp",
+    "wasmUrl": "packages/nullpath/randrouter/2.0.1/module.wasm",
+    "width": 180,
+    "description": "9-9 random router",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channels",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Entropy",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Channels CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Mode CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Entropy CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Negative Entropy Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Low Entropy Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "High Entropy Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "Signal 7",
+        "kind": "audio"
+      },
+      {
+        "id": 9,
+        "name": "Signal 8",
+        "kind": "audio"
+      },
+      {
+        "id": 10,
+        "name": "Signal 9",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal 1",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Signal 2",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Signal 3",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Signal 4",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Signal 5",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Signal 6",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Signal 7",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Signal 8",
+        "kind": "audio"
+      },
+      {
+        "id": 8,
+        "name": "Signal 9",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "trigger_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "sequential_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "hold_last_value",
+        "type": "boolean"
+      },
+      {
+        "key": "crossfade",
+        "type": "boolean"
+      },
+      {
+        "key": "fade_duration",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/nullpath/randrouter/2.0.1/manifest.json",
+    "sourceCommit": "4385a3f0c14a5993bf37f9425934b1bb2212436c",
+    "artifact": {
+      "sha256": "9bf86f46c85c61dafc9249c71c873d39dc3cae620417a0a34c3d3ad064a1c0a3",
+      "size": 88937
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/NullPath",
+    "commit": "4385a3f0c14a5993bf37f9425934b1bb2212436c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:13:53.018Z"
+  }
+}

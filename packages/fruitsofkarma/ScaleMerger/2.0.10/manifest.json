@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "fruitsofkarma/ScaleMerger",
+    "plugin": "fruitsofkarma",
+    "model": "ScaleMerger",
+    "name": "Scale Merger",
+    "brand": "fruitsofkarma",
+    "version": "2.0.10",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/alexey-komarov/fruitsofkarma-vcvrack",
+    "libraryUrl": "https://library.vcvrack.com/fruitsofkarma/ScaleMerger",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/fruitsofkarma/ScaleMerger.webp",
+    "wasmUrl": "packages/fruitsofkarma/ScaleMerger/2.0.10/module.wasm",
+    "width": 600,
+    "description": "Transit from one scale or mode to another",
+    "params": [
+      {
+        "id": 0,
+        "name": "Probability of unique pitches in Scale 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 531,
+          "y": 77,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Probability of unique pitches in Scale 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 531,
+          "y": 148,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 81,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 175,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Key 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 84,
+          "y": 81,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Key 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 84,
+          "y": 175,
+          "widget": "RoundLargeBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scale 1",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 51
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale 2",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 145
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 265
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 317
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale 1 Prob",
+        "kind": "cv",
+        "position": {
+          "x": 537,
+          "y": 47
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale 2 Prob",
+        "kind": "cv",
+        "position": {
+          "x": 537,
+          "y": 191
+        }
+      },
+      {
+        "id": 6,
+        "name": "Key 1",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 51
+        }
+      },
+      {
+        "id": 7,
+        "name": "Key 2",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 145
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 537,
+          "y": 265
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "customScale1",
+        "type": "boolean"
+      },
+      {
+        "key": "customScale2",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/fruitsofkarma/ScaleMerger/2.0.10/manifest.json",
+    "sourceCommit": "c271274606f3fec79612aa825061e8c323af76e4",
+    "artifact": {
+      "sha256": "1e79b3994e9ba5ca2126edd0399d7925c64e034269163c28ccd3d7e77f1c99fa",
+      "size": 77055
+    }
+  },
+  "source": {
+    "url": "https://github.com/alexey-komarov/fruitsofkarma-vcvrack",
+    "commit": "c271274606f3fec79612aa825061e8c323af76e4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:29.390Z"
+  }
+}

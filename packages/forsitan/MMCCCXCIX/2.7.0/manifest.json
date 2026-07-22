@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "forsitan/MMCCCXCIX",
+    "plugin": "forsitan",
+    "model": "MMCCCXCIX",
+    "name": "MMCCCXCIX",
+    "brand": "forsitan modulare",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gosub/forsitan-modulare",
+    "libraryUrl": "https://library.vcvrack.com/forsitan/MMCCCXCIX",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/forsitan/MMCCCXCIX.webp",
+    "wasmUrl": "packages/forsitan/MMCCCXCIX/2.7.0/module.wasm",
+    "width": 150,
+    "description": "PT2399 delay chip emulation with feedback send/return loop.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay Time",
+        "min": 0,
+        "max": 1,
+        "default": 0.15000000596046448,
+        "position": {
+          "x": 45.089,
+          "y": 59.232,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1.7999999523162842,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 30.177,
+          "y": 128.858,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Dry/Wet",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 119.764,
+          "y": 128.858,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Brightness",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120.089,
+          "y": 60.354,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "FB Loop Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 74.882,
+          "y": 129.154,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 29.764,
+          "y": 329.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 52.559,
+          "y": 181.654,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 30.089,
+          "y": 226.506,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 119.705,
+          "y": 226.358,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Brightness CV",
+        "kind": "audio",
+        "position": {
+          "x": 98.415,
+          "y": 181.654,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "FB Loop Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 75.118,
+          "y": 226.27,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Feedback Loop Return",
+        "kind": "cv",
+        "position": {
+          "x": 104.38,
+          "y": 278.593,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 119.114,
+          "y": 330.266,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback Loop Send",
+        "kind": "cv",
+        "position": {
+          "x": 43.671,
+          "y": 278.917,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 75.738,
+          "y": 279.419,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "oversampling",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/forsitan/MMCCCXCIX/2.7.0/manifest.json",
+    "sourceCommit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf",
+    "artifact": {
+      "sha256": "27601298d5cbdf78938cd80c34ef2278aea1ef0356b03401e59730e523d27b67",
+      "size": 89021
+    }
+  },
+  "source": {
+    "url": "https://github.com/gosub/forsitan-modulare",
+    "commit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:11.471Z"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "rackwindows/golem",
+    "plugin": "rackwindows",
+    "model": "golem",
+    "name": "Golem",
+    "brand": "Rackwindows",
+    "version": "1.1.2",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/n0jo/rackwindows.git",
+    "libraryUrl": "https://library.vcvrack.com/rackwindows/golem",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/rackwindows/golem.webp",
+    "wasmUrl": "packages/rackwindows/golem/1.1.2/module.wasm",
+    "width": 105,
+    "description": "Micro-delayable crossfader",
+    "params": [
+      {
+        "id": 0,
+        "name": "Balance",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52.5,
+          "y": 155,
+          "centered": true,
+          "widget": "RwKnobLargeDark"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Balance CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 86.3,
+          "y": 190,
+          "centered": true,
+          "widget": "RwKnobTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52.5,
+          "y": 225,
+          "centered": true,
+          "widget": "RwKnobMediumDark"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.7,
+          "y": 260,
+          "centered": true,
+          "widget": "RwKnobTrimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Phase",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 52.5,
+          "y": 80,
+          "centered": true,
+          "widget": "RwSwitchThreeVert"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Balance CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.8,
+          "y": 190,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset CV",
+        "kind": "cv",
+        "position": {
+          "x": 86.3,
+          "y": 260,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input A",
+        "kind": "cv",
+        "position": {
+          "x": 18.8,
+          "y": 55,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input B",
+        "kind": "cv",
+        "position": {
+          "x": 86.3,
+          "y": 55,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output Position",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output Neg",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 325,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 52.5,
+          "y": 46.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 52.5,
+          "y": 113.3,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "quality",
+        "type": "integer"
+      },
+      {
+        "key": "delayMode",
+        "type": "integer"
+      },
+      {
+        "key": "balanceTrimRange",
+        "type": "integer"
+      },
+      {
+        "key": "offsetTrimRange",
+        "type": "integer"
+      },
+      {
+        "key": "offsetScaling",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/rackwindows/golem/1.1.2/manifest.json",
+    "sourceCommit": "1b639e389aab543a0b1a4eaaee68b3be0f68b5d4",
+    "artifact": {
+      "sha256": "ab52ee20744dfdbad89049617282a314e1ef01d1d031565fde3a628c0d9d3fe3",
+      "size": 79010
+    }
+  },
+  "source": {
+    "url": "https://github.com/n0jo/rackwindows.git",
+    "commit": "1b639e389aab543a0b1a4eaaee68b3be0f68b5d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:15:30.011Z"
+  }
+}

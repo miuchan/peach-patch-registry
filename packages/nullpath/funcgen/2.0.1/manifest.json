@@ -1,0 +1,523 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "nullpath/funcgen",
+    "plugin": "nullpath",
+    "model": "funcgen",
+    "name": "Cascade",
+    "brand": "NullPath",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alefnull/NullPath",
+    "libraryUrl": "https://library.vcvrack.com/nullpath/funcgen",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/nullpath/funcgen.webp",
+    "wasmUrl": "packages/nullpath/funcgen/2.0.1/module.wasm",
+    "width": 180,
+    "description": "A 4 channel envelope/function generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0.009999999776482582,
+        "max": 5,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 34.878,
+          "y": 108.239,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger all",
+        "min": 0.009999999776482582,
+        "max": 5,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 344.604,
+          "y": 108.239,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Cascade Re-Trigger",
+        "min": 0.009999999776482582,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 344.598,
+          "y": 305.144,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0.009999999776482582,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 34.878,
+          "y": 305.144,
+          "centered": true,
+          "widget": "NP::Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Cascade Loop",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 60.904,
+          "y": 95.74,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Cascade Speed",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 370.633,
+          "y": 95.74,
+          "centered": true,
+          "widget": "NP::SmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger all",
+        "kind": "gate",
+        "position": {
+          "x": 34.878,
+          "y": 45.664,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Cascade Re-Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 344.604,
+          "y": 45.664,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Cascade",
+        "kind": "cv",
+        "position": {
+          "x": 71.347,
+          "y": 45.664,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Minimum",
+        "kind": "cv",
+        "position": {
+          "x": 381.077,
+          "y": 45.664,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Maximum",
+        "kind": "cv",
+        "position": {
+          "x": 381.068,
+          "y": 242.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Average",
+        "kind": "cv",
+        "position": {
+          "x": 71.347,
+          "y": 242.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "A > B",
+        "kind": "cv",
+        "position": {
+          "x": 179.082,
+          "y": 70.199,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "A > C",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "A > D",
+        "kind": "cv",
+        "position": {
+          "x": 22.346,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "B > A",
+        "kind": "cv",
+        "position": {
+          "x": 272.832,
+          "y": 70.199,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "B > C",
+        "kind": "cv",
+        "position": {
+          "x": 333.924,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "B > D",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "C > A",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "C > B",
+        "kind": "cv",
+        "position": {
+          "x": 427.674,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "C > D",
+        "kind": "cv",
+        "position": {
+          "x": 178.497,
+          "y": 327.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "D > A",
+        "kind": "cv",
+        "position": {
+          "x": 116.096,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "D > B",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "D > C",
+        "kind": "cv",
+        "position": {
+          "x": 272.247,
+          "y": 327.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "10 - abs(A - B)",
+        "kind": "cv",
+        "position": {
+          "x": 210.331,
+          "y": 70.199,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "10 - abs(A - C)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "10 - abs(A - D)",
+        "kind": "cv",
+        "position": {
+          "x": 53.595,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "10 - abs(B - C)",
+        "kind": "cv",
+        "position": {
+          "x": 365.176,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "10 - abs(B - D)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "10 - abs(C - D)",
+        "kind": "cv",
+        "position": {
+          "x": 209.746,
+          "y": 327.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "abs(A - B)",
+        "kind": "cv",
+        "position": {
+          "x": 241.583,
+          "y": 70.199,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "abs(A - C)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "abs(B - C)",
+        "kind": "cv",
+        "position": {
+          "x": 396.425,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "abs(A - D)",
+        "kind": "cv",
+        "position": {
+          "x": 84.847,
+          "y": 198.632,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "name": "abs(B - D)",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "abs(C - D)",
+        "kind": "cv",
+        "position": {
+          "x": 240.998,
+          "y": 327.39,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "name": "Top 2 Average",
+        "kind": "cv",
+        "position": {
+          "x": 254.864,
+          "y": 258.856,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "name": "Bottom 2 Average",
+        "kind": "cv",
+        "position": {
+          "x": 197.049,
+          "y": 263.545,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "name": "Cascade Rising",
+        "kind": "cv",
+        "position": {
+          "x": 34.878,
+          "y": 73.624,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "name": "Cascade Falling",
+        "kind": "cv",
+        "position": {
+          "x": 344.604,
+          "y": 73.624,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "range_a",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_a",
+        "type": "boolean"
+      },
+      {
+        "key": "range_b",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_b",
+        "type": "boolean"
+      },
+      {
+        "key": "range_c",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_c",
+        "type": "boolean"
+      },
+      {
+        "key": "range_d",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_d",
+        "type": "boolean"
+      },
+      {
+        "key": "range_cascade",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_cascade",
+        "type": "boolean"
+      },
+      {
+        "key": "range_ab",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_ab",
+        "type": "boolean"
+      },
+      {
+        "key": "range_bc",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_bc",
+        "type": "boolean"
+      },
+      {
+        "key": "range_cd",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_cd",
+        "type": "boolean"
+      },
+      {
+        "key": "range_da",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_da",
+        "type": "boolean"
+      },
+      {
+        "key": "range_all",
+        "type": "integer"
+      },
+      {
+        "key": "unipolar_all",
+        "type": "boolean"
+      },
+      {
+        "key": "range_override",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/nullpath/funcgen/2.0.1/manifest.json",
+    "sourceCommit": "4385a3f0c14a5993bf37f9425934b1bb2212436c",
+    "artifact": {
+      "sha256": "0434188a8051bf4668671ac87c4b0cafa73aa57c21600062d0d58cd33df06fe8",
+      "size": 93832
+    }
+  },
+  "source": {
+    "url": "https://github.com/alefnull/NullPath",
+    "commit": "4385a3f0c14a5993bf37f9425934b1bb2212436c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:14:02.495Z"
+  }
+}

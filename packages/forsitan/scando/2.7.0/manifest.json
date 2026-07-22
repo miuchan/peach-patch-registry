@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "forsitan/scando",
+    "plugin": "forsitan",
+    "model": "scando",
+    "name": "scando",
+    "brand": "forsitan modulare",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gosub/forsitan-modulare",
+    "libraryUrl": "https://library.vcvrack.com/forsitan/scando",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/forsitan/scando.webp",
+    "wasmUrl": "packages/forsitan/scando/2.7.0/module.wasm",
+    "width": 240,
+    "description": "Scanned-synthesis oscillator: a vibrating mass-spring string scanned into an evolving wavetable.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine tune",
+        "min": -7,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 39.862,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mass",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 39.862,
+          "y": 112.205,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Stiffness",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 120,
+          "y": 112.205,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Damping",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 120,
+          "y": 171.26,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Centering",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 39.862,
+          "y": 171.26,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Hammer shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.33000001311302185,
+        "position": {
+          "x": 200.138,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Strength",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 200.138,
+          "y": 112.205,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Update rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.75,
+        "position": {
+          "x": 200.138,
+          "y": 171.26,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Inject level",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 39.862,
+          "y": 230.315,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Excite (hammer hit)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 120,
+          "y": 230.315,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Excite (hammer hit) trigger",
+        "kind": "gate",
+        "position": {
+          "x": 23.622,
+          "y": 292.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Inject audio",
+        "kind": "audio",
+        "position": {
+          "x": 62.008,
+          "y": 292.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mass CV",
+        "kind": "cv",
+        "position": {
+          "x": 62.008,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Stiffness CV",
+        "kind": "cv",
+        "position": {
+          "x": 100.394,
+          "y": 292.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Damping CV",
+        "kind": "cv",
+        "position": {
+          "x": 100.394,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Centering CV",
+        "kind": "cv",
+        "position": {
+          "x": 138.78,
+          "y": 292.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 138.78,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Strength CV",
+        "kind": "cv",
+        "position": {
+          "x": 215.551,
+          "y": 292.323,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Update rate CV",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 292.323,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 215.551,
+          "y": 333.661,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 230.315,
+          "y": 323.327,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/forsitan/scando/2.7.0/manifest.json",
+    "sourceCommit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf",
+    "artifact": {
+      "sha256": "cc25bd013a5822fc4aa98b79714e85337b169772fb6d990d96b0b6b94a1f2a1b",
+      "size": 81707
+    }
+  },
+  "source": {
+    "url": "https://github.com/gosub/forsitan-modulare",
+    "commit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:11.236Z"
+  }
+}

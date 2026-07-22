@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "forsitan/tabes",
+    "plugin": "forsitan",
+    "model": "tabes",
+    "name": "tabes",
+    "brand": "forsitan modulare",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gosub/forsitan-modulare",
+    "libraryUrl": "https://library.vcvrack.com/forsitan/tabes",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/forsitan/tabes.webp",
+    "wasmUrl": "packages/forsitan/tabes/2.7.0/module.wasm",
+    "width": 120,
+    "description": "Disintegration looper: the tape loop degrades a little more on every pass (HF loss, saturation, hiss, dropouts, wow).",
+    "params": [
+      {
+        "id": 0,
+        "name": "Decay per pass",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 60,
+          "y": 54.626,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wow/flutter",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 33.957,
+          "y": 112.205,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Record",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 33.957,
+          "y": 159.449,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Splice (restore pristine tape)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 86.043,
+          "y": 159.449,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 33.957,
+          "y": 259.843,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Record gate",
+        "kind": "gate",
+        "position": {
+          "x": 33.957,
+          "y": 203.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Splice trigger",
+        "kind": "gate",
+        "position": {
+          "x": 86.043,
+          "y": 203.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 86.043,
+          "y": 112.205,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 33.957,
+          "y": 314.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Age (0.1V per pass)",
+        "kind": "cv",
+        "position": {
+          "x": 86.043,
+          "y": 314.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "End of loop trigger",
+        "kind": "gate",
+        "position": {
+          "x": 86.043,
+          "y": 259.843,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 42.52,
+          "y": 150.886,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 100.807,
+          "y": 250.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 48.72,
+          "y": 305.61,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "monitorMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/forsitan/tabes/2.7.0/manifest.json",
+    "sourceCommit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf",
+    "artifact": {
+      "sha256": "5b6e6add0417cd4e316ccaffcd51ea0a1e2d01c264c22b7a57fc884a738f1c8c",
+      "size": 82781
+    }
+  },
+  "source": {
+    "url": "https://github.com/gosub/forsitan-modulare",
+    "commit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:15.694Z"
+  }
+}

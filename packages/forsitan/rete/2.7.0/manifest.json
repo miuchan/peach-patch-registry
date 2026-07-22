@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "forsitan/rete",
+    "plugin": "forsitan",
+    "model": "rete",
+    "name": "rete",
+    "brand": "forsitan modulare",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gosub/forsitan-modulare",
+    "libraryUrl": "https://library.vcvrack.com/forsitan/rete",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/forsitan/rete.webp",
+    "wasmUrl": "packages/forsitan/rete/2.7.0/module.wasm",
+    "width": 150,
+    "description": "Feedback integrator network: 8 nodes, random mixing matrix, self-oscillating chaos with per-node gain CVs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Node 1 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 21.85,
+          "y": 50.197,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Node 2 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 57.283,
+          "y": 50.197,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Node 3 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 92.717,
+          "y": 50.197,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Node 4 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 128.15,
+          "y": 50.197,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Node 5 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 21.85,
+          "y": 119.587,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Node 6 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 57.283,
+          "y": 119.587,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Node 7 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 92.717,
+          "y": 119.587,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Node 8 gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 128.15,
+          "y": 119.587,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Integrator leak",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 32.48,
+          "y": 209.646,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Matrix drive",
+        "min": 0,
+        "max": 1,
+        "default": 0.6700000166893005,
+        "position": {
+          "x": 75,
+          "y": 209.646,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Excite level",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117.52,
+          "y": 209.646,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Randomize matrix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 75,
+          "y": 268.701,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Node 1 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.85,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Node 2 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 57.283,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Node 3 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 92.717,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Node 4 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 128.15,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Node 5 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.85,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Node 6 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 57.283,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Node 7 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 92.717,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Node 8 gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 128.15,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Excite audio",
+        "kind": "audio",
+        "position": {
+          "x": 28.642,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Randomize matrix trigger",
+        "kind": "gate",
+        "position": {
+          "x": 121.358,
+          "y": 268.701,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 28.642,
+          "y": 314.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 75,
+          "y": 314.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Nodes (8-channel polyphonic)",
+        "kind": "cv",
+        "position": {
+          "x": 121.358,
+          "y": 314.469,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 43.406,
+          "y": 305.61,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 89.764,
+          "y": 305.61,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "seed",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/forsitan/rete/2.7.0/manifest.json",
+    "sourceCommit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf",
+    "artifact": {
+      "sha256": "b44a32f9a57702514ea481b7f59d4963ba2f0dd6f0c8cb536338039b96ca12e0",
+      "size": 76998
+    }
+  },
+  "source": {
+    "url": "https://github.com/gosub/forsitan-modulare",
+    "commit": "b53a30eca5e08af746dfbb48f38903ad9e4c34bf"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:12.269Z"
+  }
+}

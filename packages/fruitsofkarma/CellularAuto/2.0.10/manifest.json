@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "fruitsofkarma/CellularAuto",
+    "plugin": "fruitsofkarma",
+    "model": "CellularAuto",
+    "name": "CellularAuto",
+    "brand": "fruitsofkarma",
+    "version": "2.0.10",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/alexey-komarov/fruitsofkarma-vcvrack",
+    "libraryUrl": "https://library.vcvrack.com/fruitsofkarma/CellularAuto",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/fruitsofkarma/CellularAuto.webp",
+    "wasmUrl": "packages/fruitsofkarma/CellularAuto/2.0.10/module.wasm",
+    "width": 600,
+    "description": "64x256 sequencer with configurable zoomed active zone. Uses polyphony to split active zone to separate sequencer rows",
+    "params": [
+      {
+        "id": 0,
+        "name": "X",
+        "min": 0,
+        "max": 64,
+        "default": 0,
+        "position": {
+          "x": 300,
+          "y": 300,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "min": 0,
+        "max": 256,
+        "default": 0,
+        "position": {
+          "x": 340,
+          "y": 300,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Width",
+        "min": 0,
+        "max": 64,
+        "default": 64,
+        "position": {
+          "x": 380,
+          "y": 300,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Height",
+        "min": 0,
+        "max": 256,
+        "default": 256,
+        "position": {
+          "x": 420,
+          "y": 300,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Initialize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 181,
+          "y": 300,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rule",
+        "min": 0,
+        "max": 255,
+        "default": 30,
+        "position": {
+          "x": 220,
+          "y": 300,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 61,
+          "y": 300,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Iterations",
+        "min": 0,
+        "max": 1000,
+        "default": 0,
+        "position": {
+          "x": 260,
+          "y": 300,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Flip horizontally",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 101,
+          "y": 300,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Flip vertically",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 141,
+          "y": 300,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 20,
+          "y": 328
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 328
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fliph",
+        "kind": "cv",
+        "position": {
+          "x": 100,
+          "y": 328
+        }
+      },
+      {
+        "id": 3,
+        "name": "Flipv",
+        "kind": "cv",
+        "position": {
+          "x": 140,
+          "y": 328
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rotate",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 300,
+          "y": 328
+        }
+      },
+      {
+        "id": 6,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 340,
+          "y": 328
+        }
+      },
+      {
+        "id": 7,
+        "name": "W",
+        "kind": "cv",
+        "position": {
+          "x": 380,
+          "y": 328
+        }
+      },
+      {
+        "id": 8,
+        "name": "H",
+        "kind": "cv",
+        "position": {
+          "x": 420,
+          "y": 328
+        }
+      },
+      {
+        "id": 9,
+        "name": "Init",
+        "kind": "cv",
+        "position": {
+          "x": 180,
+          "y": 328
+        }
+      },
+      {
+        "id": 10,
+        "name": "Rule",
+        "kind": "cv",
+        "position": {
+          "x": 220,
+          "y": 328
+        }
+      },
+      {
+        "id": 11,
+        "name": "Iter",
+        "kind": "cv",
+        "position": {
+          "x": 260,
+          "y": 328
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Eos",
+        "kind": "cv",
+        "position": {
+          "x": 480,
+          "y": 328
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 520,
+          "y": 328
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 560,
+          "y": 328
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 3,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 64.3,
+          "y": 303.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 104.3,
+          "y": 303.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 144.3,
+          "y": 303.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 184.3,
+          "y": 303.5
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/fruitsofkarma/CellularAuto/2.0.10/manifest.json",
+    "sourceCommit": "c271274606f3fec79612aa825061e8c323af76e4",
+    "artifact": {
+      "sha256": "e156cae31af02f227073517cfc905a363fceaafd12981ec1b0baf04ec5b440a8",
+      "size": 76854
+    }
+  },
+  "source": {
+    "url": "https://github.com/alexey-komarov/fruitsofkarma-vcvrack",
+    "commit": "c271274606f3fec79612aa825061e8c323af76e4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:07:31.050Z"
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "stocaudio/Polyturing",
+    "plugin": "stocaudio",
+    "model": "Polyturing",
+    "name": "Polyturing",
+    "brand": "stocaudio",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/aptrn/stocaudio-modules",
+    "libraryUrl": "https://library.vcvrack.com/stocaudio/Polyturing",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/stocaudio/Polyturing.webp",
+    "wasmUrl": "packages/stocaudio/Polyturing/2.0.1/module.wasm",
+    "width": 120,
+    "description": "Turing Machine inspired polyphonic sampler/sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Lock sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 60.573,
+          "y": 126.534,
+          "centered": true,
+          "widget": "stocBigKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Lock CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45.313,
+          "y": 187.157,
+          "centered": true,
+          "widget": "stocAttn"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Amplitude scale",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 18.844,
+          "y": 242.262,
+          "centered": true,
+          "widget": "stocKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voltage offset",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 60.511,
+          "y": 242.262,
+          "centered": true,
+          "widget": "stocKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sequence steps",
+        "min": 1,
+        "max": 32,
+        "default": 16,
+        "position": {
+          "x": 100.887,
+          "y": 242.262,
+          "centered": true,
+          "widget": "stocSnapKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10.875,
+          "y": 267.836,
+          "centered": true,
+          "widget": "stocAttn"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Offset CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52.541,
+          "y": 267.836,
+          "centered": true,
+          "widget": "stocAttn"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Steps CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 92.917,
+          "y": 267.836,
+          "centered": true,
+          "widget": "stocAttn"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale sequence amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26.835,
+          "y": 280.116,
+          "centered": true,
+          "widget": "stocAttn"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Offset sequence amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 68.501,
+          "y": 280.116,
+          "centered": true,
+          "widget": "stocAttn"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Steps sequence amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 108.853,
+          "y": 280.116,
+          "centered": true,
+          "widget": "stocAttn"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sampled input",
+        "kind": "cv",
+        "position": {
+          "x": 22.228,
+          "y": 53.982,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock input",
+        "kind": "gate",
+        "position": {
+          "x": 98.811,
+          "y": 53.982,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Lock CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.844,
+          "y": 187.157,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.626,
+          "y": 301.408,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Offset CV",
+        "kind": "cv",
+        "position": {
+          "x": 60.292,
+          "y": 301.408,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Steps CV",
+        "kind": "cv",
+        "position": {
+          "x": 100.665,
+          "y": 301.408,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV output",
+        "kind": "cv",
+        "position": {
+          "x": 60.52,
+          "y": 353.253,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 60.322,
+          "y": 67.532,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "stocaudio/Polyturing",
+            "symbol": "modelPolyturing",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/stocaudio/Polyturing/2.0.1/manifest.json",
+    "sourceCommit": "ed5c85b0d9391c37f4ec4d9de4ef8aa30d94bcd6",
+    "artifact": {
+      "sha256": "0a593322503b8822a11d5332701ee023bb441e765dcacfe084b88f3f2181094f",
+      "size": 79093
+    }
+  },
+  "source": {
+    "url": "https://github.com/aptrn/stocaudio-modules",
+    "commit": "ed5c85b0d9391c37f4ec4d9de4ef8aa30d94bcd6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:17:22.643Z"
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "mscHack/Lorenz",
+    "plugin": "mscHack",
+    "model": "Lorenz",
+    "name": "Lorenz",
+    "brand": "mscHack",
+    "version": "2.0.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/baconpaul/mschack-VCV-Rack-Plugins",
+    "libraryUrl": "https://library.vcvrack.com/mscHack/Lorenz",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/mscHack/Lorenz.webp",
+    "wasmUrl": "packages/mscHack/Lorenz/2.0.0/module.wasm",
+    "width": 240,
+    "description": "Lorenz Attractor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level X-Axis (x10)",
+        "min": 0,
+        "max": 10,
+        "default": 0.5,
+        "position": {
+          "x": 214,
+          "y": 264,
+          "widget": "Lorenz_Knob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level Y-Axis (x10)",
+        "min": 0,
+        "max": 10,
+        "default": 0.5,
+        "position": {
+          "x": 214,
+          "y": 290,
+          "widget": "Lorenz_Knob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Level Z-Axix (x10)",
+        "min": 0,
+        "max": 10,
+        "default": 0.5,
+        "position": {
+          "x": 214,
+          "y": 316,
+          "widget": "Lorenz_Knob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Filter Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130,
+          "y": 282,
+          "widget": "Lorenz_Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Cutoff LFO Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 133,
+          "y": 326,
+          "widget": "Lorenz_AMT_Knob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Filter Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 168,
+          "y": 282,
+          "widget": "Lorenz_Knob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Resonance LFO Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 171,
+          "y": 326,
+          "widget": "Lorenz_AMT_Knob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 50,
+          "y": 248,
+          "widget": "Lorenz_Knob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 27,
+          "y": 248,
+          "widget": "Lorenz_AMT_Knob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "T1",
+        "min": 0,
+        "max": 1,
+        "default": 0.07000000029802322,
+        "position": {
+          "x": 50,
+          "y": 314,
+          "widget": "Lorenz_Knob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "T2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 27,
+          "y": 314,
+          "widget": "Lorenz_AMT_Knob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "T3",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "T3 LFO Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input P CV",
+        "kind": "cv",
+        "position": {
+          "x": 6,
+          "y": 249
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input T CV",
+        "kind": "cv",
+        "position": {
+          "x": 6,
+          "y": 315
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input Fcut CV",
+        "kind": "cv",
+        "position": {
+          "x": 132,
+          "y": 306
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input Rez CV",
+        "kind": "cv",
+        "position": {
+          "x": 170,
+          "y": 306
+        }
+      },
+      {
+        "id": 4,
+        "name": "ninputs",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output Audio",
+        "kind": "audio",
+        "position": {
+          "x": 214,
+          "y": 348
+        }
+      },
+      {
+        "id": 1,
+        "name": "noutputs",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/mscHack/Lorenz/2.0.0/manifest.json",
+    "sourceCommit": "42668cc2bc4c6b9ecd473586bdcddfa5e4174a0c",
+    "artifact": {
+      "sha256": "21e6fa5aa3d444362aca11a2aaaf20716ef8d557a68acda02dee9fb00cfba7d2",
+      "size": 73802
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/mschack-VCV-Rack-Plugins",
+    "commit": "42668cc2bc4c6b9ecd473586bdcddfa5e4174a0c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:13:17.524Z"
+  }
+}

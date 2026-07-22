@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackSequencer/Ant",
+    "plugin": "dbRackSequencer",
+    "model": "Ant",
+    "name": "Ant",
+    "brand": "docB",
+    "version": "2.6.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackSequencer",
+    "libraryUrl": "https://library.vcvrack.com/dbRackSequencer/Ant",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackSequencer/Ant.webp",
+    "wasmUrl": "packages/dbRackSequencer/Ant/2.6.3/module.wasm",
+    "width": 450,
+    "description": "Langton's-Ant Cellular Automaton",
+    "params": [
+      {
+        "id": 0,
+        "name": "Next Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 375,
+          "y": 47.244,
+          "widget": "MLEDM"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 428.15,
+          "y": 47.244,
+          "widget": "MLED"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 388.287,
+          "y": 124.016,
+          "widget": "MLEDM"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Next Step",
+        "kind": "cv",
+        "position": {
+          "x": 401.575,
+          "y": 47.244
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rule",
+        "kind": "cv",
+        "position": {
+          "x": 428.15,
+          "y": 88.583
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 414.862,
+          "y": 124.016
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rnd Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 428.15,
+          "y": 159.449
+        }
+      },
+      {
+        "id": 4,
+        "name": "Out scale factor",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 265.748
+        }
+      },
+      {
+        "id": 5,
+        "name": "Out voltage offset",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 301.181
+        }
+      },
+      {
+        "id": 6,
+        "name": "Save Grid",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 194.882
+        }
+      },
+      {
+        "id": 7,
+        "name": "Ants",
+        "kind": "cv",
+        "position": {
+          "x": 401.575,
+          "y": 88.583
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 388.287,
+          "y": 230.315
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 414.862,
+          "y": 230.315
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 428.15,
+          "y": 336.614
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 401.575,
+          "y": 336.614
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "posX",
+        "type": "integer"
+      },
+      {
+        "key": "posY",
+        "type": "integer"
+      },
+      {
+        "key": "state",
+        "type": "integer"
+      },
+      {
+        "key": "colorMode",
+        "type": "integer"
+      },
+      {
+        "key": "numAnts",
+        "type": "integer"
+      },
+      {
+        "key": "defaultRule",
+        "type": "integer"
+      },
+      {
+        "key": "outputClock",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackSequencer/Ant/2.6.3/manifest.json",
+    "sourceCommit": "a2eb63edb6011a549871f8502e27d811a0ae92f5",
+    "artifact": {
+      "sha256": "10ec911b75e62fb99da6cab994e23cefcd1d2446a4e91c3ad1aa70a5d7854aa4",
+      "size": 85400
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackSequencer",
+    "commit": "a2eb63edb6011a549871f8502e27d811a0ae92f5"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T21:06:29.453Z"
+  }
+}
