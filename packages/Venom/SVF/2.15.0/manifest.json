@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/SVF",
+    "plugin": "Venom",
+    "model": "SVF",
+    "name": "Multimode Filter",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/SVF",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/SVF.webp",
+    "wasmUrl": "packages/Venom/SVF/2.15.0/module.wasm",
+    "width": 135,
+    "description": "Stereo state variable filter for audio and low frequency use with some extra goodies",
+    "params": [
+      {
+        "id": 0,
+        "name": "FREQ",
+        "min": -4,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Slope",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Frequency range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Cutoff CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Resonance CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Gain",
+        "min": 0,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 7,
+        "name": "Gain CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "SPREAD",
+        "min": -2,
+        "max": 2,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Spread direction",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Spread mono mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Cutoff spread CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Feedback",
+        "min": -10,
+        "max": 0,
+        "default": -10
+      },
+      {
+        "id": 13,
+        "name": "Feedback CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Morph",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 15,
+        "name": "Morph mode",
+        "min": 0,
+        "max": 8,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 16,
+        "name": "Morph CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Gain VCA polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 18,
+        "name": "Input coupling",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Cutoff CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Resonance CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Gain CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Cutoff spread CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Feedback CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Morph CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Left",
+        "kind": "audio"
+      },
+      {
+        "id": 8,
+        "name": "Right",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left morph",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right morph",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Left low pass",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Right low pass",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Left high pass",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Right high pass",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Left band pass",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Right band pass",
+        "kind": "audio"
+      },
+      {
+        "id": 8,
+        "name": "Left notch",
+        "kind": "audio"
+      },
+      {
+        "id": 9,
+        "name": "Right notch",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "disableDCBlock",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "6a39b2ad3844e274119253b059876ce5c904c8fbd05d1d3e02433992b9fe7959",
+      "size": 92977
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b8e6f821d48a7d02",
+    "builtAt": "2026-07-18T06:42:13.645Z"
+  }
+}

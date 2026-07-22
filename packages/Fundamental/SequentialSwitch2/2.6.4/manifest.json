@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/SequentialSwitch2",
+    "plugin": "Fundamental",
+    "model": "SequentialSwitch2",
+    "name": "Sequential Switch 4 to 1",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/SequentialSwitch2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/SequentialSwitch2.webp",
+    "wasmUrl": "packages/Fundamental/SequentialSwitch2/2.6.4/module.wasm",
+    "width": 180,
+    "description": "Routes one of 4 inputs to 1 output",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "IN 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv"
+      }
+    ],
+    "lights": 8,
+    "stateKeys": [
+      {
+        "key": "declick",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "05f09066972ed3e7622bab238b34590cc87636f22720c1e92dffc50a2f896b95",
+      "size": 48071
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c028c37a6c11c425",
+    "builtAt": "2026-07-18T05:54:24.032Z"
+  }
+}

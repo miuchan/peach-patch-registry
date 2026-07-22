@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AudibleInstruments/Tides",
+    "plugin": "AudibleInstruments",
+    "model": "Tides",
+    "name": "Tidal Modulator",
+    "brand": "Audible Instruments",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/AudibleInstruments",
+    "libraryUrl": "https://library.vcvrack.com/AudibleInstruments/Tides",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AudibleInstruments/Tides.webp",
+    "wasmUrl": "packages/AudibleInstruments/Tides/2.0.0/module.wasm",
+    "width": 210,
+    "description": "Based on Mutable Instruments Tides",
+    "params": [
+      {
+        "id": 0,
+        "name": "Output mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19,
+          "y": 52,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19,
+          "y": 93,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Main frequency",
+        "min": -48,
+        "max": 48,
+        "default": 0,
+        "position": {
+          "x": 78,
+          "y": 60,
+          "widget": "Rogan3PSGreen"
+        }
+      },
+      {
+        "id": 3,
+        "name": "FM input attenuverter",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 156,
+          "y": 66,
+          "widget": "Rogan1PSGreen"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 155,
+          "widget": "Rogan1PSWhite"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Slope",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 155,
+          "widget": "Rogan1PSWhite"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Smoothness",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 156,
+          "y": 155,
+          "widget": "Rogan1PSWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Shape",
+        "kind": "cv",
+        "position": {
+          "x": 21,
+          "y": 219
+        }
+      },
+      {
+        "id": 1,
+        "name": "Slope",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 219
+        }
+      },
+      {
+        "id": 2,
+        "name": "Smoothness",
+        "kind": "cv",
+        "position": {
+          "x": 164,
+          "y": 219
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 21,
+          "y": 274
+        }
+      },
+      {
+        "id": 4,
+        "name": "Freeze",
+        "kind": "cv",
+        "position": {
+          "x": 57,
+          "y": 274
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pitch (1V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 274
+        }
+      },
+      {
+        "id": 6,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 274
+        }
+      },
+      {
+        "id": 7,
+        "name": "Level",
+        "kind": "cv",
+        "position": {
+          "x": 164,
+          "y": 274
+        }
+      },
+      {
+        "id": 8,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 21,
+          "y": 316
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "High tide",
+        "kind": "cv",
+        "position": {
+          "x": 57,
+          "y": 316
+        }
+      },
+      {
+        "id": 1,
+        "name": "Low tide",
+        "kind": "cv",
+        "position": {
+          "x": 93,
+          "y": 316
+        }
+      },
+      {
+        "id": 2,
+        "name": "Unipolar",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 316
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bipolar",
+        "kind": "cv",
+        "position": {
+          "x": 164,
+          "y": 316
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 56,
+          "y": 61
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 56,
+          "y": 82
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 56,
+          "y": 102
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "range",
+        "type": "integer"
+      },
+      {
+        "key": "sheep",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "e711961f304bb7addab6848264a60a8ecdf21d30c41c3e71d1350a1312ac4713",
+      "size": 231004
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/AudibleInstruments",
+    "commit": "a15554e33721c2f8f65bb6b0f59588307fb6e625"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "ce3ac61570c786a7",
+    "builtAt": "2026-07-19T08:37:04.469Z"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/lATe",
+    "plugin": "Bidoo",
+    "model": "lATe",
+    "name": "lATe",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/lATe",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/lATe.webp",
+    "wasmUrl": "packages/Bidoo/lATe/2.1.1/module.wasm",
+    "width": 45,
+    "description": "Clock Modulator, Takes a clock input\nand applies a delay on even ticks to\ncreate swing. Reset sets the next tick\nfor the incoming clock to odd.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Swing",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 8,
+          "y": 70
+        }
+      },
+      {
+        "id": 1,
+        "name": "Placeholder",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 105
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Swing",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 130
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 283
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 236
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "fce846e00e066669bf47006c2cd35a5bc32c10ba1eeb3210463a6ce2a9647462",
+      "size": 67820
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1c69ed0dbdc15429",
+    "builtAt": "2026-07-19T12:15:33.743Z"
+  }
+}

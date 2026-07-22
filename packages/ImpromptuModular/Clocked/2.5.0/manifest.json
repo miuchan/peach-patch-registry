@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Clocked",
+    "plugin": "ImpromptuModular",
+    "model": "Clocked",
+    "name": "Clocked",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Clocked",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Clocked.webp",
+    "wasmUrl": "packages/ImpromptuModular/Clocked/2.5.0/module.wasm",
+    "width": 101.6,
+    "description": "Chainable master clock with swing, clock delay and pulse width",
+    "params": [
+      {
+        "id": 0,
+        "name": "Master clock",
+        "min": 30,
+        "max": 300,
+        "default": 120
+      },
+      {
+        "id": 1,
+        "name": "Clk 1 ratio",
+        "min": -34,
+        "max": 34,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Clk 2 ratio",
+        "min": -34,
+        "max": 34,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Clk 3 ratio",
+        "min": -34,
+        "max": 34,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Swing clk",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Swing clk 1",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Swing clk 2",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Swing clk 3",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Pulse width clk",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 9,
+        "name": "Pulse width clk 1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 10,
+        "name": "Pulse width clk 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 11,
+        "name": "Pulse width clk 3",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 12,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 13,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 14,
+        "name": "Param 15",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "Delay clk 1",
+        "min": 0,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Delay clk 2",
+        "min": 0,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Delay clk 3",
+        "min": 0,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "Bpm mode prev",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 19,
+        "name": "Bpm mode next",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Unused 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Unused 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Unused 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Unused 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "BPM CV / Ext clock",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Master clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Clock 1",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Clock 2",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Clock 3",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Run",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "BPM CV / Ext clock thru",
+        "kind": "gate"
+      }
+    ],
+    "lights": 8,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "displayDelayNoteMode",
+        "type": "boolean"
+      },
+      {
+        "key": "bpmDetectionMode",
+        "type": "boolean"
+      },
+      {
+        "key": "resetOnStartStop",
+        "type": "integer"
+      },
+      {
+        "key": "ppqn",
+        "type": "integer"
+      },
+      {
+        "key": "resetClockOutputsHigh",
+        "type": "boolean"
+      },
+      {
+        "key": "momentaryRunInput",
+        "type": "boolean"
+      },
+      {
+        "key": "forceCvOnBpmOut",
+        "type": "boolean"
+      },
+      {
+        "key": "bpmInputScale",
+        "type": "real"
+      },
+      {
+        "key": "bpmInputOffset",
+        "type": "real"
+      },
+      {
+        "key": "clockMaster",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/AdaptiveQuantizer",
+            "symbol": "modelAdaptiveQuantizer",
+            "index": 0
+          },
+          {
+            "key": "ImpromptuModular/BigButtonSeq",
+            "symbol": "modelBigButtonSeq",
+            "index": 1
+          },
+          {
+            "key": "ImpromptuModular/BigButtonSeq2",
+            "symbol": "modelBigButtonSeq2",
+            "index": 2
+          },
+          {
+            "key": "ImpromptuModular/ChordKey",
+            "symbol": "modelChordKey",
+            "index": 3
+          },
+          {
+            "key": "ImpromptuModular/ChordKeyExpander",
+            "symbol": "modelChordKeyExpander",
+            "index": 4
+          },
+          {
+            "key": "ImpromptuModular/Clocked",
+            "symbol": "modelClocked",
+            "index": 5
+          },
+          {
+            "key": "ImpromptuModular/ClockedExpander",
+            "symbol": "modelClockedExpander",
+            "index": 6
+          },
+          {
+            "key": "ImpromptuModular/Clocked-Clkd",
+            "symbol": "modelClkd",
+            "index": 7
+          },
+          {
+            "key": "ImpromptuModular/CvPad",
+            "symbol": "modelCvPad",
+            "index": 8
+          },
+          {
+            "key": "ImpromptuModular/Foundry",
+            "symbol": "modelFoundry",
+            "index": 9
+          },
+          {
+            "key": "ImpromptuModular/FoundryExpander",
+            "symbol": "modelFoundryExpander",
+            "index": 10
+          },
+          {
+            "key": "ImpromptuModular/FourView",
+            "symbol": "modelFourView",
+            "index": 11
+          },
+          {
+            "key": "ImpromptuModular/GateSeq64",
+            "symbol": "modelGateSeq64",
+            "index": 12
+          },
+          {
+            "key": "ImpromptuModular/GateSeq64Expander",
+            "symbol": "modelGateSeq64Expander",
+            "index": 13
+          },
+          {
+            "key": "ImpromptuModular/Hotkey",
+            "symbol": "modelHotkey",
+            "index": 14
+          },
+          {
+            "key": "ImpromptuModular/NoteEcho",
+            "symbol": "modelNoteEcho",
+            "index": 15
+          },
+          {
+            "key": "ImpromptuModular/NoteFilter",
+            "symbol": "modelNoteFilter",
+            "index": 16
+          },
+          {
+            "key": "ImpromptuModular/NoteLoop",
+            "symbol": "modelNoteLoop",
+            "index": 17
+          },
+          {
+            "key": "ImpromptuModular/Part",
+            "symbol": "modelPart",
+            "index": 18
+          },
+          {
+            "key": "ImpromptuModular/PhraseSeq16",
+            "symbol": "modelPhraseSeq16",
+            "index": 19
+          },
+          {
+            "key": "ImpromptuModular/PhraseSeq32",
+            "symbol": "modelPhraseSeq32",
+            "index": 20
+          },
+          {
+            "key": "ImpromptuModular/PhraseSeqExpander",
+            "symbol": "modelPhraseSeqExpander",
+            "index": 21
+          },
+          {
+            "key": "ImpromptuModular/ProbKey",
+            "symbol": "modelProbKey",
+            "index": 22
+          },
+          {
+            "key": "ImpromptuModular/Sygen",
+            "symbol": "modelSygen",
+            "index": 23
+          },
+          {
+            "key": "ImpromptuModular/Tact",
+            "symbol": "modelTact",
+            "index": 24
+          },
+          {
+            "key": "ImpromptuModular/Tact1",
+            "symbol": "modelTact1",
+            "index": 25
+          },
+          {
+            "key": "ImpromptuModular/TactG",
+            "symbol": "modelTactG",
+            "index": 26
+          },
+          {
+            "key": "ImpromptuModular/TwelveKey",
+            "symbol": "modelTwelveKey",
+            "index": 27
+          },
+          {
+            "key": "ImpromptuModular/Variations",
+            "symbol": "modelVariations",
+            "index": 28
+          },
+          {
+            "key": "ImpromptuModular/WriteSeq32",
+            "symbol": "modelWriteSeq32",
+            "index": 29
+          },
+          {
+            "key": "ImpromptuModular/WriteSeq64",
+            "symbol": "modelWriteSeq64",
+            "index": 30
+          },
+          {
+            "key": "ImpromptuModular/BlankPanel",
+            "symbol": "modelBlankPanel",
+            "index": 31
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "178f59661a44db58275c0452d292e7217f97031388e638e243348d539df5db71",
+      "size": 87343
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "f8c171d0bea24a2a",
+    "builtAt": "2026-07-18T15:44:05.962Z"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-VCF",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-VCF",
+    "name": "VCF",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-VCF",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-VCF.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-VCF/2.6.47/module.wasm",
+    "width": 180,
+    "description": "Multimode filter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0.22360999882221222
+      },
+      {
+        "id": 1,
+        "name": "Frequency CV attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "FM",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Resonance / bandwidth",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Slope",
+        "min": 0,
+        "max": 1,
+        "default": 0.5222330093383789
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Cutoff CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Cutoff FM",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Cutoff pitch (1V/octave)",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Signal",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Resonance CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Slope CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "bandwidthMode",
+        "type": "string-enum",
+        "values": [
+          "linear",
+          "pitched"
+        ]
+      }
+    ],
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "4d96e968865b47146bcb05e2905def52ab8ca2af4830fa88c0ff1b688cb4a447",
+      "size": 87789
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "fb9a72a342e3f0fb",
+    "builtAt": "2026-07-18T12:04:24.357Z"
+  }
+}

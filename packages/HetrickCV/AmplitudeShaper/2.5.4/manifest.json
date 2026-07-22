@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCV/AmplitudeShaper",
+    "plugin": "HetrickCV",
+    "model": "AmplitudeShaper",
+    "name": "Amplitude Shaper",
+    "brand": "HetrickCV",
+    "version": "2.5.4",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCV/AmplitudeShaper",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/AmplitudeShaper.webp",
+    "wasmUrl": "packages/HetrickCV/AmplitudeShaper/2.5.4/module.wasm",
+    "width": 100,
+    "description": "Bipolar amplitude shaper.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Negative Amplitude",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Negative Amplitude CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Positive Amplitude",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Positive Amplitude CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "All Amplitude",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "All Amplitude CV Depth",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "DC Filter",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Negative Amplitude CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Positive Amplitude CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "All Amplitude CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Negative",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Positive",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Negative Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Positive Gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 2,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "612f38f9822443c98c5955b7de7b9f870d5af6994b0466bb2819c710a6128f1a",
+      "size": 78896
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/hetrickcv",
+    "commit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "49c43d4aa5ac1fc1",
+    "builtAt": "2026-07-18T17:31:38.567Z"
+  }
+}

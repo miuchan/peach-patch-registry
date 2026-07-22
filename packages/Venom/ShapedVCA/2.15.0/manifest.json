@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/ShapedVCA",
+    "plugin": "Venom",
+    "model": "ShapedVCA",
+    "name": "Shaped VCA",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/ShapedVCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/ShapedVCA.webp",
+    "wasmUrl": "packages/Venom/ShapedVCA/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Stereo VCA with a variable response curve, hard/soft clipping, ring modulation, and oversampling",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level Range",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "VCA Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Output Clipping",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Oversample",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Output offset",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Level CV bias",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Response curve",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Response curve",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Left",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Right",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "algo",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "bc266d56d386561f2eafad4d2a17027ed690498b3177aead7ecdf13f92319a78",
+      "size": 79864
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b8e6f821d48a7d02",
+    "builtAt": "2026-07-18T06:42:06.488Z"
+  }
+}

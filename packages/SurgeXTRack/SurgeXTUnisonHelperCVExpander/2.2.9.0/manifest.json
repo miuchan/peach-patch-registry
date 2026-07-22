@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SurgeXTRack/SurgeXTUnisonHelperCVExpander",
+    "plugin": "SurgeXTRack",
+    "model": "SurgeXTUnisonHelperCVExpander",
+    "name": "UnisonHelper CV Expander",
+    "brand": "Surge XT",
+    "version": "2.2.9.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/surge-synthesizer/surge-rack/",
+    "libraryUrl": "https://library.vcvrack.com/SurgeXTRack/SurgeXTUnisonHelperCVExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SurgeXTRack/SurgeXTUnisonHelperCVExpander.webp",
+    "wasmUrl": "packages/SurgeXTRack/SurgeXTUnisonHelperCVExpander/2.2.9.0/module.wasm",
+    "width": 180,
+    "description": "Expander for the Unison Helper which allows you to co-route CV",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV 1 to Sub VCO 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV 1 to Sub VCO 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "CV 1 to Sub VCO 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "CV 1 to Sub VCO 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "CV 2 to Sub VCO 1",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "CV 2 to Sub VCO 2",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "CV 2 to Sub VCO 3",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "CV 2 to Sub VCO 4",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "SurgeXTRack/SurgeXTUnisonHelper",
+            "symbol": "modelUnisonHelper",
+            "index": 0
+          },
+          {
+            "key": "SurgeXTRack/SurgeXTUnisonHelperCVExpander",
+            "symbol": "modelUnisonHelperCVExpander",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 20971520,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "a21bd1571a341e8d0dc90ac16e4eb3ee6104b612028fe6213f070a8c021efd01",
+      "size": 271518
+    }
+  },
+  "source": {
+    "url": "https://github.com/surge-synthesizer/surge-rack/",
+    "commit": "640153d4e70896a707bc3a7cbff1d375c44581b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "7656b924f28a30b2",
+    "builtAt": "2026-07-19T00:13:38.491Z"
+  }
+}

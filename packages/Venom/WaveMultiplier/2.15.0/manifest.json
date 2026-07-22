@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/WaveMultiplier",
+    "plugin": "Venom",
+    "model": "WaveMultiplier",
+    "name": "Wave Multiplier",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/WaveMultiplier",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/WaveMultiplier.webp",
+    "wasmUrl": "packages/Venom/WaveMultiplier/2.15.0/module.wasm",
+    "width": 195,
+    "description": "A polyphonic waveshaper inspired by the Doepfer A-137-2 coupled with integrated LFO modulation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Master LFO frequency",
+        "min": -4,
+        "max": 4,
+        "default": -4
+      },
+      {
+        "id": 1,
+        "name": "FREQ_PARAM+0",
+        "min": -1,
+        "max": 1,
+        "default": -0.7200000286102295
+      },
+      {
+        "id": 2,
+        "name": "FREQ_PARAM+1",
+        "min": -1,
+        "max": 1,
+        "default": -0.27000001072883606
+      },
+      {
+        "id": 3,
+        "name": "FREQ_PARAM+2",
+        "min": -1,
+        "max": 1,
+        "default": 0.1899999976158142
+      },
+      {
+        "id": 4,
+        "name": "FREQ_PARAM+3",
+        "min": -1,
+        "max": 1,
+        "default": 0.8799999952316284
+      },
+      {
+        "id": 5,
+        "name": "Shift depth",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Shift depth CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "SHIFT_CV_PARAM+0",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "SHIFT_CV_PARAM+1",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 9,
+        "name": "SHIFT_CV_PARAM+2",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 10,
+        "name": "SHIFT_CV_PARAM+3",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "SHIFT_PARAM+0",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "SHIFT_PARAM+1",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "SHIFT_PARAM+2",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "SHIFT_PARAM+3",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "DC Block",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 16,
+        "name": "Oversample",
+        "min": 0,
+        "max": 5,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 17,
+        "name": "MUTE_PARAM+0",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 18,
+        "name": "MUTE_PARAM+1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 19,
+        "name": "MUTE_PARAM+2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 20,
+        "name": "MUTE_PARAM+3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 21,
+        "name": "Mute input wave",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 22,
+        "name": "Mix output level CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 23,
+        "name": "Mix output level",
+        "min": 0,
+        "max": 1,
+        "default": 0.25
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Master LFO V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Shift depth CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "SHIFT_INPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "SHIFT_INPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "SHIFT_INPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "SHIFT_INPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Wave",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Mix output level CV",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "MOD_OUTPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "MOD_OUTPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "MOD_OUTPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "MOD_OUTPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "PULSE_OUTPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "PULSE_OUTPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "PULSE_OUTPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "PULSE_OUTPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "WAVE_OUTPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "WAVE_OUTPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "WAVE_OUTPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "WAVE_OUTPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Shifted wave mix",
+        "kind": "audio"
+      }
+    ],
+    "lights": 6,
+    "bypassRoutes": [
+      [
+        6,
+        12
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "02c8c6b6918bc13b47aed7acce172efcc89578c19026e03944e17185fae5edd7",
+      "size": 80246
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:14:22.142Z"
+  }
+}

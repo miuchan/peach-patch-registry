@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/DelayPlusFx",
+    "plugin": "AS",
+    "model": "DelayPlusFx",
+    "name": "Delay Plus Fx",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/DelayPlusFx",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/DelayPlusFx.webp",
+    "wasmUrl": "packages/AS/DelayPlusFx/2.0.6/module.wasm",
+    "width": 70,
+    "description": "Delay effect with MS digital display, wet signal send & return and bypass switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time",
+        "min": 0,
+        "max": 10,
+        "default": 0.3499999940395355,
+        "position": {
+          "x": 74,
+          "y": 78,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 74,
+          "y": 130,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Color",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 74,
+          "y": 180,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 74,
+          "y": 253,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 49.5,
+          "y": 290,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 85
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 135
+        }
+      },
+      {
+        "id": 2,
+        "name": "Color CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 185
+        }
+      },
+      {
+        "id": 3,
+        "name": "Color Return",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 224
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 260
+        }
+      },
+      {
+        "id": 5,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 310
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bypass CV",
+        "kind": "cv",
+        "position": {
+          "x": 49,
+          "y": 320
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Color Send",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 224
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 85,
+          "y": 310
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 51.7,
+          "y": 292
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 34078720,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "5608ae0c6304bb2ab9acc342adb3eb95d06cc38e56421e26bd738a42153c9e7c",
+      "size": 74772
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:46:21.684Z"
+  }
+}

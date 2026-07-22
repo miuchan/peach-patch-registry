@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/MixSend",
+    "plugin": "Venom",
+    "model": "MixSend",
+    "name": "Mix Aux Send Expander",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/MixSend",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/MixSend.webp",
+    "wasmUrl": "packages/Venom/MixSend/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Add aux send/return to any of the Mix modules",
+    "params": [
+      {
+        "id": 0,
+        "name": "SEND_PARAM+0",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "SEND_PARAM+1",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "SEND_PARAM+2",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "SEND_PARAM+3",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Return level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Send Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Chain mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left return",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right return",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left send",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right send",
+        "kind": "audio"
+      }
+    ],
+    "lights": 2,
+    "runtime": {
+      "expanderMode": "host-snapshot",
+      "expander": {
+        "family": "Venom::MixModule",
+        "role": "member",
+        "direction": "right",
+        "transport": "object-snapshot",
+        "type": 9,
+        "maxMembers": 16
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "0e5f794b8144616636e5a77ef8f04a73b3c613728044195d0cfe0d5dadf86f46",
+      "size": 57787
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b8e6f821d48a7d02",
+    "builtAt": "2026-07-18T06:40:23.171Z"
+  }
+}

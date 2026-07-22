@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/DelayPlusStereoFx",
+    "plugin": "AS",
+    "model": "DelayPlusStereoFx",
+    "name": "Delay Plus Stereo Fx",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/DelayPlusStereoFx",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/DelayPlusStereoFx.webp",
+    "wasmUrl": "packages/AS/DelayPlusStereoFx/2.0.6/module.wasm",
+    "width": 70,
+    "description": "Stereo Delay effect with MS digital display, wet signal send & return and bypass switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Left Time",
+        "min": 0,
+        "max": 10,
+        "default": 0.375,
+        "position": {
+          "x": 37,
+          "y": 78,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Left Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37,
+          "y": 130,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left Color",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37,
+          "y": 180,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right Time",
+        "min": 0,
+        "max": 10,
+        "default": 0.75,
+        "position": {
+          "x": 106,
+          "y": 78,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Right Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 106,
+          "y": 130,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Right Color",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 106,
+          "y": 180,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Link Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 145,
+          "widget": "as_CKSSwhite"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Link Color",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 82,
+          "y": 195,
+          "widget": "as_CKSSwhite"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 71,
+          "y": 253,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 79,
+          "y": 296,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Clear Left Buffer",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 36,
+          "y": 260,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Clear Right Buffer",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 124,
+          "y": 260,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time Left CV",
+        "kind": "audio",
+        "position": {
+          "x": 7,
+          "y": 87
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback Left CV",
+        "kind": "audio",
+        "position": {
+          "x": 7,
+          "y": 137
+        }
+      },
+      {
+        "id": 2,
+        "name": "Color Left CV",
+        "kind": "audio",
+        "position": {
+          "x": 7,
+          "y": 187
+        }
+      },
+      {
+        "id": 3,
+        "name": "Color Left Return",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 224
+        }
+      },
+      {
+        "id": 4,
+        "name": "Time Right CV",
+        "kind": "audio",
+        "position": {
+          "x": 150,
+          "y": 87
+        }
+      },
+      {
+        "id": 5,
+        "name": "Feedback Right CV",
+        "kind": "audio",
+        "position": {
+          "x": 150,
+          "y": 137
+        }
+      },
+      {
+        "id": 6,
+        "name": "Color Right CV",
+        "kind": "audio",
+        "position": {
+          "x": 150,
+          "y": 187
+        }
+      },
+      {
+        "id": 7,
+        "name": "Color Right Return",
+        "kind": "audio",
+        "position": {
+          "x": 140,
+          "y": 224
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mix CV",
+        "kind": "audio",
+        "position": {
+          "x": 58,
+          "y": 330
+        }
+      },
+      {
+        "id": 9,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 20,
+          "y": 300
+        }
+      },
+      {
+        "id": 10,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 20,
+          "y": 330
+        }
+      },
+      {
+        "id": 11,
+        "name": "Bypass CV",
+        "kind": "cv",
+        "position": {
+          "x": 96,
+          "y": 330
+        }
+      },
+      {
+        "id": 12,
+        "name": "Clear Left Buffer",
+        "kind": "gate",
+        "position": {
+          "x": 7,
+          "y": 258
+        }
+      },
+      {
+        "id": 13,
+        "name": "Clear Right Buffer",
+        "kind": "gate",
+        "position": {
+          "x": 150,
+          "y": 258
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Color Left Send",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 224
+        }
+      },
+      {
+        "id": 1,
+        "name": "Color Right Send",
+        "kind": "audio",
+        "position": {
+          "x": 105,
+          "y": 224
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 135,
+          "y": 300
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 135,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 81.2,
+          "y": 298
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 38.2,
+          "y": 262
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 126.2,
+          "y": 262
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 34078720,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "d0ffcfcc4b5415df65d394b91101d0fc62c27bb3f664258fb06322e097ee3580",
+      "size": 77971
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:46:34.064Z"
+  }
+}

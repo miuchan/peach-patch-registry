@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-LFO",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-LFO",
+    "name": "LFO",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-LFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-LFO.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-LFO/2.6.47/module.wasm",
+    "width": 180,
+    "description": "Low frequency oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -5,
+        "max": 8,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Slow",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Output sampling",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Pulse width",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 6,
+        "name": "Smoothing",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sample CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Pulse width CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Offset CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Scale CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ramp up",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Ramp down",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Square",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Triangle",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Sine",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Stepped",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "offset_scale",
+        "type": "real"
+      },
+      {
+        "key": "offset_cv_to_smoothing",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "d8741a733c133559285cc8910a6810cea3c9afa57e408e7b42c2af0ed33303f7",
+      "size": 81492
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "fb9a72a342e3f0fb",
+    "builtAt": "2026-07-18T12:04:32.534Z"
+  }
+}

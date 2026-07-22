@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/TiARE",
+    "plugin": "Bidoo",
+    "model": "TiARE",
+    "name": "TiARE",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/TiARE",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/TiARE.webp",
+    "wasmUrl": "packages/Bidoo/TiARE/2.1.1/module.wasm",
+    "width": 150,
+    "description": "Phase distortion oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 57,
+          "y": 45
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine frequency",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 114,
+          "y": 45
+        }
+      },
+      {
+        "id": 2,
+        "name": "Engine mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 15,
+          "y": 80
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sync mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 119,
+          "y": 80
+        }
+      },
+      {
+        "id": 4,
+        "name": "Frequency modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18,
+          "y": 45
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse width",
+        "min": 0.009999999776482582,
+        "max": 0.9900000095367432,
+        "default": 0.5
+      },
+      {
+        "id": 6,
+        "name": "Pulse width modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 283
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 283
+        }
+      },
+      {
+        "id": 2,
+        "name": "Dist X",
+        "kind": "cv",
+        "position": {
+          "x": 81.5,
+          "y": 283
+        }
+      },
+      {
+        "id": 3,
+        "name": "Dist Y",
+        "kind": "cv",
+        "position": {
+          "x": 118.5,
+          "y": 283
+        }
+      },
+      {
+        "id": 4,
+        "name": "Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 83
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse width modulation",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 81.5,
+          "y": 330
+        }
+      },
+      {
+        "id": 3,
+        "name": "Square",
+        "kind": "cv",
+        "position": {
+          "x": 118.5,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      },
+      {
+        "key": "phaseDistX",
+        "type": "real"
+      },
+      {
+        "key": "phaseDistY",
+        "type": "real"
+      },
+      {
+        "key": "freqFactor",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "d29f73c291dfb9b9af64260e67d5f8261f27facbf912b712774935a20b501212",
+      "size": 96005
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "00835bdf1c3e6d3d",
+    "builtAt": "2026-07-19T13:37:34.519Z"
+  }
+}

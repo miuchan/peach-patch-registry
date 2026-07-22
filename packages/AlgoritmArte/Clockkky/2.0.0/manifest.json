@@ -1,0 +1,762 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AlgoritmArte/Clockkky",
+    "plugin": "AlgoritmArte",
+    "model": "Clockkky",
+    "name": "Clockkky",
+    "brand": "AlgoritmArte",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "libraryUrl": "https://library.vcvrack.com/AlgoritmArte/Clockkky",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AlgoritmArte/Clockkky.webp",
+    "wasmUrl": "packages/AlgoritmArte/Clockkky/2.0.0/module.wasm",
+    "width": 120,
+    "description": "A simple clock and gate sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock tempo",
+        "min": -2,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 41.339,
+          "y": 26.575,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 7.211,
+          "y": 159.092,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19.193,
+          "y": 73.559,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 56.102,
+          "y": 73.819,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "T1 step 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23.622,
+          "y": 224.409,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "T1 step 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 224.409,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "T1 step 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 224.409,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "T1 step 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94.488,
+          "y": 224.409,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "T1 step 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 248.031,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "T1 step 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 248.203,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "T1 step 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 248.203,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "T1 step 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94.488,
+          "y": 248.203,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "T2 step 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 274.606,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "T2 step 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 274.952,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "T2 step 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 274.952,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "T2 step 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94.488,
+          "y": 274.952,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "T2 step 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 298.228,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "T2 step 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 298.228,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "T2 step 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 298.228,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "T2 step 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94.488,
+          "y": 298.228,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "T3 step 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 324.974,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "T3 step 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 324.803,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "T3 step 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 324.803,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "T3 step 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94.488,
+          "y": 324.803,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "T3 step 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 348.596,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "T3 step 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 348.596,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "T3 step 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70.866,
+          "y": 348.596,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "T3 step 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94.488,
+          "y": 348.596,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Track 1 steps",
+        "min": 0,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 41.339,
+          "y": 91.535,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Track 2 steps",
+        "min": 0,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 41.339,
+          "y": 132.874,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Track 3 steps",
+        "min": 0,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 41.339,
+          "y": 174.213,
+          "widget": "RoundBlackSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Extclock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 29.528
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rst",
+        "kind": "cv",
+        "position": {
+          "x": 5.906,
+          "y": 94.488
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 85.804,
+          "y": 29.395
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1",
+        "kind": "cv",
+        "position": {
+          "x": 85.63,
+          "y": 94.488
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 2",
+        "kind": "cv",
+        "position": {
+          "x": 85.801,
+          "y": 135.481
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 3",
+        "kind": "cv",
+        "position": {
+          "x": 85.63,
+          "y": 177.165
+        }
+      }
+    ],
+    "lights": 26,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 19.193,
+          "y": 73.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 56.102,
+          "y": 73.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 23.622,
+          "y": 224.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 47.244,
+          "y": 224.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 70.866,
+          "y": 224.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 94.488,
+          "y": 224.409,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 23.622,
+          "y": 248.203,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 47.244,
+          "y": 248.203,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 70.866,
+          "y": 248.203,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 94.488,
+          "y": 248.203,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 23.622,
+          "y": 274.952,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 47.244,
+          "y": 274.952,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 70.866,
+          "y": 274.952,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 94.488,
+          "y": 274.952,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 23.622,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 47.244,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 70.866,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 94.488,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 23.622,
+          "y": 324.803,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 47.244,
+          "y": 324.803,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 70.866,
+          "y": 324.803,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 94.488,
+          "y": 324.803,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 23.622,
+          "y": 348.596,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 47.244,
+          "y": 348.596,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 70.866,
+          "y": 348.596,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 94.488,
+          "y": 348.596,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "mode",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "numsteps",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "numsteps",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "numsteps",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "b853218b7daae662d736f55ba2b20799dab7d54440b46431f8c663ba63002706",
+      "size": 79742
+    }
+  },
+  "source": {
+    "url": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "commit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:52:16.701Z"
+  }
+}

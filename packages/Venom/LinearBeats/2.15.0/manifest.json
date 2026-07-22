@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/LinearBeats",
+    "plugin": "Venom",
+    "model": "LinearBeats",
+    "name": "Linear Beats",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/LinearBeats",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/LinearBeats.webp",
+    "wasmUrl": "packages/Venom/LinearBeats/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Convert multiple trigger/gate channels into a linear drumming pattern",
+    "params": [
+      {
+        "id": 0,
+        "name": "MODE_PARAM+0",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "MODE_PARAM+1",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "MODE_PARAM+2",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "MODE_PARAM+3",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "MODE_PARAM+4",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "MODE_PARAM+5",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "MODE_PARAM+6",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "MODE_PARAM+7",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "MODE_PARAM+8",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "IN_INPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "IN_INPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "IN_INPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "IN_INPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "IN_INPUT+4",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "IN_INPUT+5",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "IN_INPUT+6",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "IN_INPUT+7",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "IN_INPUT+8",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Clock",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT_OUTPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "OUT_OUTPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "OUT_OUTPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "OUT_OUTPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "OUT_OUTPUT+4",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "OUT_OUTPUT+5",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "OUT_OUTPUT+6",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "OUT_OUTPUT+7",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "OUT_OUTPUT+8",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "toggleCV",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        8,
+        8
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Venom/LinearBeats",
+            "symbol": "modelVenomLinearBeats",
+            "index": 0
+          },
+          {
+            "key": "Venom/LinearBeatsExpander",
+            "symbol": "modelVenomLinearBeatsExpander",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "fb3a7ffcbba9a304c6c060673ff4a67c53e3500351923b22f62024d0dfd17835",
+      "size": 69364
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "42cdb652b4bf0765",
+    "builtAt": "2026-07-18T08:14:56.423Z"
+  }
+}

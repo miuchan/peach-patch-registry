@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SurgeXTRack/SurgeXTDelayLineByFreq",
+    "plugin": "SurgeXTRack",
+    "model": "SurgeXTDelayLineByFreq",
+    "name": "Tuned Delay Line by Frequency",
+    "brand": "Surge XT",
+    "version": "2.2.9.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/surge-synthesizer/surge-rack/",
+    "libraryUrl": "https://library.vcvrack.com/SurgeXTRack/SurgeXTDelayLineByFreq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SurgeXTRack/SurgeXTDelayLineByFreq.webp",
+    "wasmUrl": "packages/SurgeXTRack/SurgeXTDelayLineByFreq/2.2.9.0/module.wasm",
+    "width": 90,
+    "description": "The Surge XT Delay Line, tuned by v/oct with sample offset for KS and so on",
+    "params": [
+      {
+        "id": 0,
+        "name": "V/Oct Center",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 82.677,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sample Correction",
+        "min": 0,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 153.543,
+          "centered": true
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "In Left",
+        "kind": "audio",
+        "position": {
+          "x": 24.331,
+          "y": 295.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "In Right",
+        "kind": "audio",
+        "position": {
+          "x": 65.669,
+          "y": 295.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delay Time as Frequency in v/oct",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 219.98,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out Left",
+        "kind": "audio",
+        "position": {
+          "x": 24.331,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out Right",
+        "kind": "audio",
+        "position": {
+          "x": 65.669,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 20971520,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "4441ceb530fa937b664960ef7740156784292cd719b3bbc947c2d9577fd70013",
+      "size": 105227
+    }
+  },
+  "source": {
+    "url": "https://github.com/surge-synthesizer/surge-rack/",
+    "commit": "640153d4e70896a707bc3a7cbff1d375c44581b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "feef3f19dcb36894",
+    "builtAt": "2026-07-19T11:12:11.294Z"
+  }
+}

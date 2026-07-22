@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/WinComp",
+    "plugin": "Venom",
+    "model": "WinComp",
+    "name": "WinComp",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/WinComp",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/WinComp.webp",
+    "wasmUrl": "packages/Venom/WinComp/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Windowed comparator, rectifier, and/or slope detector",
+    "params": [
+      {
+        "id": 0,
+        "name": "A offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "B offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Tolerance",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Tolerance",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Minimum",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Maximum",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "A Clamped",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "A Overflow",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "A=B",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "A<>B",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "A<=B",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "A>=B",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "A<B",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "A>B",
+        "kind": "cv"
+      }
+    ],
+    "lights": 23,
+    "stateKeys": [
+      {
+        "key": "absMin",
+        "type": "boolean"
+      },
+      {
+        "key": "absMax",
+        "type": "boolean"
+      },
+      {
+        "key": "absClamp",
+        "type": "boolean"
+      },
+      {
+        "key": "absOver",
+        "type": "boolean"
+      },
+      {
+        "key": "invMin",
+        "type": "boolean"
+      },
+      {
+        "key": "invMax",
+        "type": "boolean"
+      },
+      {
+        "key": "invClamp",
+        "type": "boolean"
+      },
+      {
+        "key": "invOver",
+        "type": "boolean"
+      },
+      {
+        "key": "oversample",
+        "type": "integer"
+      },
+      {
+        "key": "gateType",
+        "type": "integer"
+      },
+      {
+        "key": "bFromA",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "509bef30a764c396afac7d951ae689e14749073652a756be79f9749816cdf0b1",
+      "size": 84239
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:14:28.654Z"
+  }
+}

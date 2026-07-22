@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/Push",
+    "plugin": "Fundamental",
+    "model": "Push",
+    "name": "Push",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/Push",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Push.webp",
+    "wasmUrl": "packages/Fundamental/Push/2.6.4/module.wasm",
+    "width": 180,
+    "description": "Button with gate/trigger outputs and hold switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Hold",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Push",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "hold",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "ed9aa747ce103450d18ed5f25d57263ae8a992161cc54bef1b1c91576a1aa409",
+      "size": 13784
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "513c9ad14dc55403",
+    "builtAt": "2026-07-18T00:43:04.252Z"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/OUAIve",
+    "plugin": "Bidoo",
+    "model": "OUAIve",
+    "name": "OUAIve",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/OUAIve",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/OUAIve.webp",
+    "wasmUrl": "packages/Bidoo/OUAIve/2.1.1/module.wasm",
+    "width": 135,
+    "description": "Sample player with beat slicing grid",
+    "params": [
+      {
+        "id": 0,
+        "name": "Number of slices",
+        "min": 1,
+        "max": 128.00999450683594,
+        "default": 1,
+        "position": {
+          "x": 58,
+          "y": 250
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 9,
+          "y": 215
+        }
+      },
+      {
+        "id": 2,
+        "name": "Read Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 53,
+          "y": 215
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed",
+        "min": -0.05000000074505806,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 58,
+          "y": 275
+        }
+      },
+      {
+        "id": 4,
+        "name": "Slices CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 250
+        }
+      },
+      {
+        "id": 5,
+        "name": "Speed CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 275
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 7,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Position",
+        "kind": "cv",
+        "position": {
+          "x": 40,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "Number of slices",
+        "kind": "cv",
+        "position": {
+          "x": 106,
+          "y": 252
+        }
+      },
+      {
+        "id": 3,
+        "name": "Read Mode",
+        "kind": "cv",
+        "position": {
+          "x": 106,
+          "y": 222
+        }
+      },
+      {
+        "id": 4,
+        "name": "Speed",
+        "kind": "cv",
+        "position": {
+          "x": 106,
+          "y": 277
+        }
+      },
+      {
+        "id": 5,
+        "name": "Position reset",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 18
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output L",
+        "kind": "audio",
+        "position": {
+          "x": 90,
+          "y": 340
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output R",
+        "kind": "audio",
+        "position": {
+          "x": 112,
+          "y": 340
+        }
+      },
+      {
+        "id": 2,
+        "name": "EOC",
+        "kind": "gate",
+        "position": {
+          "x": 112,
+          "y": 18
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      },
+      {
+        "key": "trigMode",
+        "type": "integer"
+      },
+      {
+        "key": "readMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "d8b67bd4671080ea5469b99c1949ca5ee6178e040024bbada6ad0ffc6489dbaa",
+      "size": 74983
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "4c93b92980e06682",
+    "builtAt": "2026-07-19T12:59:58.389Z"
+  }
+}

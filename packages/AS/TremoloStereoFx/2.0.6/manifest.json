@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/TremoloStereoFx",
+    "plugin": "AS",
+    "model": "TremoloStereoFx",
+    "name": "Tremolo Stereo Fx",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/TremoloStereoFx",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/TremoloStereoFx.webp",
+    "wasmUrl": "packages/AS/TremoloStereoFx/2.0.6/module.wasm",
+    "width": 180,
+    "description": "Stereo Tremolo Fx with CV input for each parameter and bypass switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 43,
+          "y": 60,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Speed",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 43,
+          "y": 125,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blend",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 43,
+          "y": 190,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Shape Phase Invert",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 13,
+          "y": 100,
+          "widget": "as_CKSSwhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 61,
+          "y": 260,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wave CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 67
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 132
+        }
+      },
+      {
+        "id": 4,
+        "name": "Blend CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 197
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bypass CV",
+        "kind": "cv",
+        "position": {
+          "x": 33.5,
+          "y": 259
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 6,
+          "y": 259
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowRedLight>",
+        "position": {
+          "x": 39,
+          "y": 122
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 39,
+          "y": 187
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 63.2,
+          "y": 262.2
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "09954a5e0adc83d2c10c2890dc9d773e1743374b206341943167f1e0290ca4a9",
+      "size": 79286
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:47:11.477Z"
+  }
+}

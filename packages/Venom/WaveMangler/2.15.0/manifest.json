@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/WaveMangler",
+    "plugin": "Venom",
+    "model": "WaveMangler",
+    "name": "Wave Mangler",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/WaveMangler",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/WaveMangler.webp",
+    "wasmUrl": "packages/Venom/WaveMangler/2.15.0/module.wasm",
+    "width": 105,
+    "description": "A polyphonic distortion / waveshaper inspired by the Doepfer A-136 module",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input DC block",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Oversample",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Output clipping",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Output DC block",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Input offset CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Input offset",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Output offset CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Output offset",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "High amplifier CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "High amplifier",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "High threshold CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "High threshold",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Middle clipping",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Middle amplifier CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Middle amplifier",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "Low threshold CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Low threshold",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Low amplifier CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "Low amplifier",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input offset CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Output offset CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "High amplifier CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "High threshold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Middle amplifier CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Low threshold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Low amplifier CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Wave",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Wave",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        7,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "77165f0fea046a5feb58578dbeddff300a19f545e06e9473395b07d4d710d9bc",
+      "size": 79238
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b8e6f821d48a7d02",
+    "builtAt": "2026-07-18T06:42:20.009Z"
+  }
+}

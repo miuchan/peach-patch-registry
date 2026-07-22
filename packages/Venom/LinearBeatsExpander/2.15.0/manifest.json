@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/LinearBeatsExpander",
+    "plugin": "Venom",
+    "model": "LinearBeatsExpander",
+    "name": "Linear Beats Expander",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/LinearBeatsExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/LinearBeatsExpander.webp",
+    "wasmUrl": "packages/Venom/LinearBeatsExpander/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Add bypass and input/output mutes to the Linear Beats module",
+    "params": [
+      {
+        "id": 0,
+        "name": "MUTE_PARAM+0",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "MUTE_PARAM+1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "MUTE_PARAM+2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "MUTE_PARAM+3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "MUTE_PARAM+4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "MUTE_PARAM+5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "MUTE_PARAM+6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "MUTE_PARAM+7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "MUTE_PARAM+8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Linear beats",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "MUTE_INPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "MUTE_INPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "MUTE_INPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "MUTE_INPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "MUTE_INPUT+4",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "MUTE_INPUT+5",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "MUTE_INPUT+6",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "MUTE_INPUT+7",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "MUTE_INPUT+8",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Disable linear beats CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [],
+    "lights": 12,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Venom/LinearBeats",
+            "symbol": "modelVenomLinearBeats",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "b933d216c5e80d9dd9b9fc7308f285e7fbb2858e95d41183597915acf302b944",
+      "size": 61067
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "42cdb652b4bf0765",
+    "builtAt": "2026-07-18T08:15:03.132Z"
+  }
+}

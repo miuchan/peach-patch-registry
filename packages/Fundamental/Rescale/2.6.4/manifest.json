@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/Rescale",
+    "plugin": "Fundamental",
+    "model": "Rescale",
+    "name": "Rescale",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/Rescale",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Rescale.webp",
+    "wasmUrl": "packages/Fundamental/Rescale/2.6.4/module.wasm",
+    "width": 180,
+    "description": "Rescales voltages with gain, offset, and range limiting",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gain",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Maximum",
+        "min": -10,
+        "max": 10,
+        "default": 10
+      },
+      {
+        "id": 3,
+        "name": "Minimum",
+        "min": -10,
+        "max": 10,
+        "default": -10
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "multiplier",
+        "type": "real"
+      },
+      {
+        "key": "reflectMin",
+        "type": "boolean"
+      },
+      {
+        "key": "reflectMax",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "4918b3389522ad36648e4c6e2ffe2d1e4abf60eb1d005b9890829125d630f947",
+      "size": 15233
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c291dc7d80b55d77",
+    "builtAt": "2026-07-18T01:38:58.875Z"
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/DIKTAT",
+    "plugin": "Bidoo",
+    "model": "DIKTAT",
+    "name": "DIKTAT",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/DIKTAT",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/DIKTAT.webp",
+    "wasmUrl": "packages/Bidoo/DIKTAT/2.1.1/module.wasm",
+    "width": 150,
+    "description": "Authoritarian quantizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 7.5,
+          "y": 55
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 15.5,
+          "y": 115
+        }
+      },
+      {
+        "id": 2,
+        "name": "Root note",
+        "min": -1,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 55
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale",
+        "min": 0,
+        "max": 45,
+        "default": 1,
+        "position": {
+          "x": 82,
+          "y": 128
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 240
+        }
+      },
+      {
+        "id": 1,
+        "name": "Root note",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 62
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 135
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tonic",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 285
+        }
+      },
+      {
+        "id": 1,
+        "name": "Third",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 285
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fifth",
+        "kind": "cv",
+        "position": {
+          "x": 82,
+          "y": 285
+        }
+      },
+      {
+        "id": 3,
+        "name": "Seventh",
+        "kind": "cv",
+        "position": {
+          "x": 119,
+          "y": 285
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ninth",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 330
+        }
+      },
+      {
+        "id": 5,
+        "name": "Eleventh",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 330
+        }
+      },
+      {
+        "id": 6,
+        "name": "Thirteenth",
+        "kind": "cv",
+        "position": {
+          "x": 82,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      },
+      {
+        "key": "currentChannel",
+        "type": "integer"
+      },
+      {
+        "key": "globalMode",
+        "type": "boolean"
+      },
+      {
+        "key": "rootNote",
+        "type": "integer"
+      },
+      {
+        "key": "scale",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "dbd04668144f3a96aae87abdc05db37c00ab7bf0462b06bdca3f59eb1534ed8f",
+      "size": 84383
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "00835bdf1c3e6d3d",
+    "builtAt": "2026-07-19T13:37:34.460Z"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/VCF",
+    "plugin": "Fundamental",
+    "model": "VCF",
+    "name": "VCF",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/VCF",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/VCF.webp",
+    "wasmUrl": "packages/Fundamental/VCF/2.6.4/module.wasm",
+    "width": 105,
+    "description": "Voltage-controlled filter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Cutoff frequency",
+        "min": 0.006557560060173273,
+        "max": 0.9934424161911011,
+        "default": 0.5,
+        "position": {
+          "x": 51.93,
+          "y": 88.016,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26.265,
+          "y": 166.5,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Cutoff frequency CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20.657,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Drive",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 78.735,
+          "y": 166.5,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Resonance CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52.656,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Drive CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 84.656,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 20.657,
+          "y": 285.865,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Resonance",
+        "kind": "cv",
+        "position": {
+          "x": 52.656,
+          "y": 285.865,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Drive",
+        "kind": "cv",
+        "position": {
+          "x": 84.656,
+          "y": 285.865,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 20.657,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Lowpass filter",
+        "kind": "cv",
+        "position": {
+          "x": 52.656,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Highpass filter",
+        "kind": "cv",
+        "position": {
+          "x": 84.656,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "1b0a5b73873408d82d755b6c82a1ca0442010b3c9870fe6adf20721caa3e5409",
+      "size": 78425
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "87c7bd1ebf74487d",
+    "builtAt": "2026-07-19T08:41:04.637Z"
+  }
+}

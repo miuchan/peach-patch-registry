@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AudibleInstruments/Marbles",
+    "plugin": "AudibleInstruments",
+    "model": "Marbles",
+    "name": "Random Sampler",
+    "brand": "Audible Instruments",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/AudibleInstruments",
+    "libraryUrl": "https://library.vcvrack.com/AudibleInstruments/Marbles",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AudibleInstruments/Marbles.webp",
+    "wasmUrl": "packages/AudibleInstruments/Marbles/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Based on Mutable Instruments Marbles",
+    "params": [
+      {
+        "id": 0,
+        "name": "T deja vu",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "X deja vu",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Deja vu probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "Clock rate",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Probability distribution",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 5,
+        "name": "T mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "X mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Loop length",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Gate bias",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 9,
+        "name": "Distribution bias",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 10,
+        "name": "Clock range mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Output voltage range mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "External processing mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Randomness amount",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Smoothness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "T bias",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "X bias",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "T clock",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "T rate",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "T jitter",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Deja vu",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "X steps",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "X spread",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "X clock",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "T₁",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "T₂",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "T₃",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Y",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "X₁",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "X₂",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "X₃",
+        "kind": "cv"
+      }
+    ],
+    "lights": 18,
+    "stateKeys": [
+      {
+        "key": "t_deja_vu",
+        "type": "boolean"
+      },
+      {
+        "key": "x_deja_vu",
+        "type": "boolean"
+      },
+      {
+        "key": "t_mode",
+        "type": "integer"
+      },
+      {
+        "key": "x_mode",
+        "type": "integer"
+      },
+      {
+        "key": "t_range",
+        "type": "integer"
+      },
+      {
+        "key": "x_range",
+        "type": "integer"
+      },
+      {
+        "key": "external",
+        "type": "boolean"
+      },
+      {
+        "key": "x_scale",
+        "type": "integer"
+      },
+      {
+        "key": "y_divider_index",
+        "type": "integer"
+      },
+      {
+        "key": "x_clock_source_internal",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 1048576,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "4b694110f227d9a22e1cc6727dd15f4f6ed0d9373257946470d17826e29a81a3",
+      "size": 134268
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/AudibleInstruments",
+    "commit": "a15554e33721c2f8f65bb6b0f59588307fb6e625"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "49078faa0d659309",
+    "builtAt": "2026-07-18T03:57:41.512Z"
+  }
+}

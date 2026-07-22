@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/NullCable",
+    "plugin": "Venom",
+    "model": "NullCable",
+    "name": "Null Cable",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/NullCable",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/NullCable.webp",
+    "wasmUrl": "packages/Venom/NullCable/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Nullify a cable by setting it to 0 channels via manual or CV control",
+    "params": [
+      {
+        "id": 0,
+        "name": "GATE_PARAM+0",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "GATE_PARAM+1",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "GATE_PARAM+2",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "GATE_INPUT+0",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "GATE_INPUT+1",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "GATE_INPUT+2",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "SIGNAL_INPUT+0",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "SIGNAL_INPUT+1",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "SIGNAL_INPUT+2",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "SIGNAL_OUTPUT+0",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "SIGNAL_OUTPUT+1",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "SIGNAL_OUTPUT+2",
+        "kind": "audio"
+      }
+    ],
+    "lights": 6,
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "state",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "585a4d290b85596545214877000e9d5042693b0ffbbb0de0bd2d283e07fab6b7",
+      "size": 64129
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:12:28.637Z"
+  }
+}

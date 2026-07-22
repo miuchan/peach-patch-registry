@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/lIMbO",
+    "plugin": "Bidoo",
+    "model": "lIMbO",
+    "name": "lIMbO",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/lIMbO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/lIMbO.webp",
+    "wasmUrl": "packages/Bidoo/lIMbO/2.1.1/module.wasm",
+    "width": 120,
+    "description": "4th order stereo LP ladder filter.\nGain boosts the signal to compensate for\nglobal signal energy lose at high\nresonance. When non linear is selected gain is applied to each stage",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 32,
+          "y": 61
+        }
+      },
+      {
+        "id": 1,
+        "name": "Q",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 143
+        }
+      },
+      {
+        "id": 2,
+        "name": "Freq. Mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 208
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gain Boost",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 71,
+          "y": 143
+        }
+      },
+      {
+        "id": 4,
+        "name": "Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82.5,
+          "y": 217
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input L",
+        "kind": "audio",
+        "position": {
+          "x": 8,
+          "y": 340
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input R",
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 340
+        }
+      },
+      {
+        "id": 2,
+        "name": "Cutoff",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 283
+        }
+      },
+      {
+        "id": 3,
+        "name": "Q",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 283
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mug",
+        "kind": "cv",
+        "position": {
+          "x": 88.5,
+          "y": 283
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output L",
+        "kind": "audio",
+        "position": {
+          "x": 75,
+          "y": 340
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output R",
+        "kind": "audio",
+        "position": {
+          "x": 97,
+          "y": 340
+        }
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "0bb60b17b2f1153327981c0ed2144df900ab095016e98fe58beed52afe9d6756",
+      "size": 77441
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "90af39cbadb7ffdc",
+    "builtAt": "2026-07-19T12:34:03.845Z"
+  }
+}

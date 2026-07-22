@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/AD_ASR",
+    "plugin": "Venom",
+    "model": "AD_ASR",
+    "name": "AD/ASR Envelope Generator",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/AD_ASR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/AD_ASR.webp",
+    "wasmUrl": "packages/Venom/AD_ASR/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Hybrid polyphonic Attack,Decay and Attack,Sustain,Release envelope generator with looping capabilities",
+    "params": [
+      {
+        "id": 0,
+        "name": "Stage speed",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Gate button toggle mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Manual trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Manual gate",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Rise shape",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Fall shape",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Rise time",
+        "min": -8.5,
+        "max": 3.5,
+        "default": -3
+      },
+      {
+        "id": 8,
+        "name": "Fall time",
+        "min": -8.5,
+        "max": 3.5,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Rise time CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Fall time CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Rise output mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Fall output mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Sus output mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 14,
+        "name": "Env output mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rise time CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Fall time CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Gate",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Rise gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Fall gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Sustain gate",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Envelope",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "5648029beef0a540998d98478c0d674cd4bb430356fcd47c585a6c999dff5cd0",
+      "size": 71629
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:10:51.152Z"
+  }
+}

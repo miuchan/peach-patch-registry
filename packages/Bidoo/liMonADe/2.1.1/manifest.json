@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/liMonADe",
+    "plugin": "Bidoo",
+    "model": "liMonADe",
+    "name": "liMonADe",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/liMonADe",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/liMonADe.webp",
+    "wasmUrl": "packages/Bidoo/liMonADe/2.1.1/module.wasm",
+    "width": 450,
+    "description": "Wavetable oscillator station & additive synth",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Sync mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 352,
+          "y": 327
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 309,
+          "y": 219
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fine frequency",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 344,
+          "y": 219
+        }
+      },
+      {
+        "id": 4,
+        "name": "Frequency modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 379,
+          "y": 219
+        }
+      },
+      {
+        "id": 5,
+        "name": "Edited frame",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 230,
+          "y": 208
+        }
+      },
+      {
+        "id": 6,
+        "name": "Played frame",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 414,
+          "y": 219
+        }
+      },
+      {
+        "id": 7,
+        "name": "Played frame attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 420,
+          "y": 257
+        }
+      },
+      {
+        "id": 8,
+        "name": "Voices number",
+        "min": 1,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 274,
+          "y": 219
+        }
+      },
+      {
+        "id": 9,
+        "name": "Voices range",
+        "min": 0,
+        "max": 0.019999999552965164,
+        "default": 0,
+        "position": {
+          "x": 279,
+          "y": 262
+        }
+      },
+      {
+        "id": 10,
+        "name": "Rec. wavetable",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 254,
+          "y": 320
+        }
+      },
+      {
+        "id": 11,
+        "name": "Rec. frame",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 254,
+          "y": 340
+        }
+      },
+      {
+        "id": 12,
+        "name": "3D Wavetable display",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 355,
+          "y": 8
+        }
+      },
+      {
+        "id": 13,
+        "name": "Load wavetable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170,
+          "y": 240
+        }
+      },
+      {
+        "id": 14,
+        "name": "Load frame",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 240
+        }
+      },
+      {
+        "id": 15,
+        "name": "Load png",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 190,
+          "y": 240
+        }
+      },
+      {
+        "id": 16,
+        "name": "Morph wavetable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 170,
+          "y": 260
+        }
+      },
+      {
+        "id": 17,
+        "name": "Morph spectrum amplitude and phase",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190,
+          "y": 260
+        }
+      },
+      {
+        "id": 18,
+        "name": "Morph spectrum amplitude constant phase",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 210,
+          "y": 260
+        }
+      },
+      {
+        "id": 19,
+        "name": "Remove morphing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 230,
+          "y": 260
+        }
+      },
+      {
+        "id": 20,
+        "name": "Normalize wavetable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 210,
+          "y": 280
+        }
+      },
+      {
+        "id": 21,
+        "name": "Normalize frame",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 230,
+          "y": 280
+        }
+      },
+      {
+        "id": 22,
+        "name": "Normalize all frames",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 170,
+          "y": 280
+        }
+      },
+      {
+        "id": 23,
+        "name": "Remove DC offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190,
+          "y": 280
+        }
+      },
+      {
+        "id": 24,
+        "name": "Window (Blackman Harris) wavetable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 170,
+          "y": 300
+        }
+      },
+      {
+        "id": 25,
+        "name": "Window (Blackman Harris) frame",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 210,
+          "y": 300
+        }
+      },
+      {
+        "id": 26,
+        "name": "Smooth wavetable (decaying avg)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190,
+          "y": 300
+        }
+      },
+      {
+        "id": 27,
+        "name": "Smooth frame (decaying avg)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 230,
+          "y": 300
+        }
+      },
+      {
+        "id": 28,
+        "name": "Add frame",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 170,
+          "y": 320
+        }
+      },
+      {
+        "id": 29,
+        "name": "Remove frame",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190,
+          "y": 320
+        }
+      },
+      {
+        "id": 30,
+        "name": "Edited frame display",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 375,
+          "y": 8
+        }
+      },
+      {
+        "id": 31,
+        "name": "Played frame display",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 395,
+          "y": 8
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 312,
+          "y": 283
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 382,
+          "y": 283
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 347,
+          "y": 283
+        }
+      },
+      {
+        "id": 3,
+        "name": "Syncmode",
+        "kind": "cv",
+        "position": {
+          "x": 317,
+          "y": 330
+        }
+      },
+      {
+        "id": 4,
+        "name": "Wtindex",
+        "kind": "cv",
+        "position": {
+          "x": 417,
+          "y": 283
+        }
+      },
+      {
+        "id": 5,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 277,
+          "y": 330
+        }
+      },
+      {
+        "id": 6,
+        "name": "Unissonrange",
+        "kind": "cv",
+        "position": {
+          "x": 277,
+          "y": 283
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "audio",
+        "position": {
+          "x": 417,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      },
+      {
+        "key": "nFrames",
+        "type": "integer"
+      },
+      {
+        "key": "morphType",
+        "type": "integer"
+      },
+      {
+        "key": "displayMode",
+        "type": "integer"
+      },
+      {
+        "key": "displayEditedFrame",
+        "type": "integer"
+      },
+      {
+        "key": "displayPlayedFrame",
+        "type": "integer"
+      },
+      {
+        "key": "frameSize",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "28eaded7146c64c79146351e2224bf9dd81780a329a872cdc791b3fa8c1ba96e",
+      "size": 128973
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "3dd920a79e00f684",
+    "builtAt": "2026-07-19T14:21:51.719Z"
+  }
+}

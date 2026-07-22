@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/MixMute",
+    "plugin": "Venom",
+    "model": "MixMute",
+    "name": "Mix Mute Expander",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/MixMute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/MixMute.webp",
+    "wasmUrl": "packages/Venom/MixMute/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Add mutes to any of the Mix modules",
+    "params": [
+      {
+        "id": 0,
+        "name": "MUTE_PARAM+0",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "MUTE_PARAM+1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "MUTE_PARAM+2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "MUTE_PARAM+3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Mute Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "MUTE_INPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "MUTE_INPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "MUTE_INPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "MUTE_INPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Mute Mix",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [],
+    "lights": 6,
+    "runtime": {
+      "expanderMode": "host-snapshot",
+      "expander": {
+        "family": "Venom::MixModule",
+        "role": "member",
+        "direction": "right",
+        "transport": "object-snapshot",
+        "type": 6,
+        "maxMembers": 16
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "7a2a0d30dc742c002224421b01b4a7de95c1f53aba633439291186dc7e5fdfb2",
+      "size": 54980
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b8e6f821d48a7d02",
+    "builtAt": "2026-07-18T06:40:20.153Z"
+  }
+}

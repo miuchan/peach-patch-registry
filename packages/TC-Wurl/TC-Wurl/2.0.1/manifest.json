@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "TC-Wurl/TC-Wurl",
+    "plugin": "TC-Wurl",
+    "model": "TC-Wurl",
+    "name": "TC Wurl",
+    "brand": "Twisted Cable",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Eurikon/TC-Wurl",
+    "libraryUrl": "https://library.vcvrack.com/TC-Wurl/TC-Wurl",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/TC-Wurl/TC-Wurl.webp",
+    "wasmUrl": "packages/TC-Wurl/TC-Wurl/2.0.1/module.wasm",
+    "width": 180,
+    "description": "Physically-modeled electric piano",
+    "params": [
+      {
+        "id": 0,
+        "name": "Volume",
+        "min": 0,
+        "max": 1,
+        "default": 0.8500000238418579
+      },
+      {
+        "id": 1,
+        "name": "Bark",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Mod depth",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Env attack",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Env decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 5,
+        "name": "Env sustain",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071
+      },
+      {
+        "id": 6,
+        "name": "Env release",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 7,
+        "name": "Preamp drive",
+        "min": -12,
+        "max": 12,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Chorus rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.4537999927997589
+      },
+      {
+        "id": 9,
+        "name": "Chorus depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 10,
+        "name": "Chorus time",
+        "min": 0,
+        "max": 1,
+        "default": 0.6496999859809875
+      },
+      {
+        "id": 11,
+        "name": "Chorus mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.33000001311302185
+      },
+      {
+        "id": 12,
+        "name": "Tremolo depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 13,
+        "name": "Tremolo rate / clock div-mult",
+        "min": 0,
+        "max": 1,
+        "default": 0.5666999816894531
+      },
+      {
+        "id": 14,
+        "name": "Pan depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 15,
+        "name": "Pan rate / clock div-mult",
+        "min": 0,
+        "max": 1,
+        "default": 0.4332999885082245
+      },
+      {
+        "id": 16,
+        "name": "Filter cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 17,
+        "name": "Filter resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 18,
+        "name": "Filter keytrack",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 19,
+        "name": "Mod depth",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Velocity curve",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 21,
+        "name": "Reed drive",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 22,
+        "name": "Mod depth",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct (poly)",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate (poly)",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Velocity 0-10V (poly)",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Bark CV (±5 V, poly)",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Sustain pedal (gate)",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Pitchbend (±5V = ±range)",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Clock (trem/pan sync at x1 when connected)",
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Filter cutoff CV (±10 V → full sweep)",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "volumeSource",
+        "type": "integer"
+      },
+      {
+        "key": "bendRange",
+        "type": "integer"
+      },
+      {
+        "key": "barkEnvSource",
+        "type": "integer"
+      },
+      {
+        "key": "filtModSource",
+        "type": "integer"
+      },
+      {
+        "key": "velCurveType",
+        "type": "integer"
+      },
+      {
+        "key": "reedDriveModSource",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "527c6d2c8cea6e17c1d1f7d1cc1ec6c064baf4bb5c371a9834b71f035aa8f6ec",
+      "size": 150670
+    }
+  },
+  "source": {
+    "url": "https://github.com/Eurikon/TC-Wurl",
+    "commit": "5d573b7c3bdb2f20e8d98dab94ccd111d204513b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "47c43ae5f5a155bd",
+    "builtAt": "2026-07-18T09:19:31.071Z"
+  }
+}

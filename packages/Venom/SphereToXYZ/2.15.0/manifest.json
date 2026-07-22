@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/SphereToXYZ",
+    "plugin": "Venom",
+    "model": "SphereToXYZ",
+    "name": "Sphere To XYZ",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/SphereToXYZ",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/SphereToXYZ.webp",
+    "wasmUrl": "packages/Venom/SphereToXYZ/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Convert spherical coordinates r,theta, phi to cartesian coordinates x, y, z",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Oversample",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Radial distance r",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Polar angle θ (5V=180°)",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Azimuthal angle φ (5V=180°)",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Z",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "c475138e5f1a0283c31809396defb9ec182edd87e8bfcae400dfb8b0fea30df9",
+      "size": 73713
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:14:01.851Z"
+  }
+}

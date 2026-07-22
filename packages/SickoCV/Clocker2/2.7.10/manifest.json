@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/Clocker2",
+    "plugin": "SickoCV",
+    "model": "Clocker2",
+    "name": "clocker2",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/Clocker2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/Clocker2.webp",
+    "wasmUrl": "packages/SickoCV/Clocker2/2.7.10/module.wasm",
+    "width": 180,
+    "description": "Clock generator with 6 dividers/multipliers",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tempo",
+        "min": 300,
+        "max": 3000,
+        "default": 1200
+      },
+      {
+        "id": 1,
+        "name": "Pulse Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Mult/Div #1",
+        "min": 0,
+        "max": 44,
+        "default": 22
+      },
+      {
+        "id": 5,
+        "name": "Mult/Div #2",
+        "min": 0,
+        "max": 44,
+        "default": 22
+      },
+      {
+        "id": 6,
+        "name": "Mult/Div #3",
+        "min": 0,
+        "max": 44,
+        "default": 22
+      },
+      {
+        "id": 7,
+        "name": "Mult/Div #4",
+        "min": 0,
+        "max": 44,
+        "default": 22
+      },
+      {
+        "id": 8,
+        "name": "Mult/Div #5",
+        "min": 0,
+        "max": 44,
+        "default": 22
+      },
+      {
+        "id": 9,
+        "name": "Mult/Div #6",
+        "min": 0,
+        "max": 44,
+        "default": 22
+      },
+      {
+        "id": 10,
+        "name": "PW/Swing Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 11,
+        "name": "PW/Swing Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 12,
+        "name": "PW/Swing Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 13,
+        "name": "PW/Swing Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 14,
+        "name": "PW/Swing Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 15,
+        "name": "PW/Swing Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "External Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Run",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Div/Mult #1",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Div/Mult #2",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Div/Mult #3",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Div/Mult #4",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Div/Mult #5",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Div/Mult #6",
+        "kind": "cv"
+      }
+    ],
+    "lights": 8,
+    "stateKeys": [
+      {
+        "key": "outPulseOnReset",
+        "type": "boolean"
+      },
+      {
+        "key": "divControls",
+        "type": "boolean"
+      },
+      {
+        "key": "ppqn",
+        "type": "integer"
+      },
+      {
+        "key": "smooth",
+        "type": "integer"
+      },
+      {
+        "key": "extStop",
+        "type": "integer"
+      },
+      {
+        "key": "ResetOnRun",
+        "type": "boolean"
+      },
+      {
+        "key": "ResetPulseOnRun",
+        "type": "boolean"
+      },
+      {
+        "key": "ResetOnStop",
+        "type": "boolean"
+      },
+      {
+        "key": "ResetPulseOnStop",
+        "type": "boolean"
+      },
+      {
+        "key": "Swing1",
+        "type": "boolean"
+      },
+      {
+        "key": "Swing2",
+        "type": "boolean"
+      },
+      {
+        "key": "Swing3",
+        "type": "boolean"
+      },
+      {
+        "key": "Swing4",
+        "type": "boolean"
+      },
+      {
+        "key": "Swing5",
+        "type": "boolean"
+      },
+      {
+        "key": "Swing6",
+        "type": "boolean"
+      },
+      {
+        "key": "cvClockIn",
+        "type": "boolean"
+      },
+      {
+        "key": "cvClockOut",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 1048576,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "6b8f50b6396d2cd6bbbe0c8640de41702fd2c05bad4685a8f48d34707f91f6c9",
+      "size": 57877
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "35316f3edad00aca",
+    "builtAt": "2026-07-18T03:29:32.301Z"
+  }
+}

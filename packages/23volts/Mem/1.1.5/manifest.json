@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "23volts/Mem",
+    "plugin": "23volts",
+    "model": "Mem",
+    "name": "Mem",
+    "brand": "23volts",
+    "version": "1.1.5",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/23volts/23volts-vcv",
+    "libraryUrl": "https://library.vcvrack.com/23volts/Mem",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/23volts/Mem.webp",
+    "wasmUrl": "packages/23volts/Mem/1.1.5/module.wasm",
+    "width": 45,
+    "description": "Sample & Hold with replay/looping abilities",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clear",
+        "kind": "gate",
+        "position": {
+          "x": 22.736,
+          "y": 228.053,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 22.736,
+          "y": 185.309,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.736,
+          "y": 49.37,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 22.736,
+          "y": 271.246,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Write",
+        "kind": "cv",
+        "position": {
+          "x": 31.565,
+          "y": 151.27,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 22.736,
+          "y": 317.43,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 108.071
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 29.528,
+          "y": 119.291
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 29.528,
+          "y": 130.512
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "outputValue",
+        "type": "real"
+      },
+      {
+        "key": "position",
+        "type": "integer"
+      },
+      {
+        "key": "memorySize",
+        "type": "integer"
+      },
+      {
+        "key": "memoryByteSize",
+        "type": "integer"
+      },
+      {
+        "key": "isWriting",
+        "type": "boolean"
+      },
+      {
+        "key": "isReading",
+        "type": "boolean"
+      },
+      {
+        "key": "isRandomizing",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "ae5ea32393bef698952430d4dcb0e060c49bc3ab24306ebc7d969d9b89031425",
+      "size": 79944
+    }
+  },
+  "source": {
+    "url": "https://github.com/23volts/23volts-vcv",
+    "commit": "bf1f1c2cd93216b0dfd0d2483391c4a9eff2c0c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:42:26.966Z"
+  }
+}

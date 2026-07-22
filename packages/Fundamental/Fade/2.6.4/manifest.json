@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/Fade",
+    "plugin": "Fundamental",
+    "model": "Fade",
+    "name": "Fade",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/Fade",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Fade.webp",
+    "wasmUrl": "packages/Fundamental/Fade/2.6.4/module.wasm",
+    "width": 180,
+    "description": "Crossfades audio or CV",
+    "params": [
+      {
+        "id": 0,
+        "name": "Crossfade",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Crossfade CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Crossfade",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Ch 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Ch 2",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ch 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Ch 2",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panLaw",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "2401eaff3834b6f9c09e8228e9e43e2612400773106c2838db451dba92bb0ece",
+      "size": 46196
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c028c37a6c11c425",
+    "builtAt": "2026-07-18T05:53:16.682Z"
+  }
+}

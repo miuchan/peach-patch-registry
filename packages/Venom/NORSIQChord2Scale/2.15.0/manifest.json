@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/NORSIQChord2Scale",
+    "plugin": "Venom",
+    "model": "NORSIQChord2Scale",
+    "name": "NORSIQ Chord To Scale",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/NORSIQChord2Scale",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/NORSIQChord2Scale.webp",
+    "wasmUrl": "packages/Venom/NORSIQChord2Scale/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Convert a polyphonic chord into CV to generate a scale for the Non-Octave-Repeating Scale Intervallic Quantizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Fold at octaves",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Chord poly",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Scale root",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Scale length",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Scale intervals poly",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "77b062fdd4e6a0a6ccd83ad055a1ca12e2a0618599220c84491cee385f052e16",
+      "size": 60113
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:12:18.514Z"
+  }
+}

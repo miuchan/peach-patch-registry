@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/ADSR",
+    "plugin": "AS",
+    "model": "ADSR",
+    "name": "ADSR",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/ADSR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/ADSR.webp",
+    "wasmUrl": "packages/AS/ADSR/2.0.6/module.wasm",
+    "width": 120,
+    "description": "Generates an envelope with Attack/Decay/Sustain/Release",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 10,
+          "y": 90,
+          "widget": "as_SlidePot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 36,
+          "y": 90,
+          "widget": "as_SlidePot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 62,
+          "y": 90,
+          "widget": "as_SlidePot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 88,
+          "y": 90,
+          "widget": "as_SlidePot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Attack CV",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 217
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 217
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sustain CV",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 217
+        }
+      },
+      {
+        "id": 3,
+        "name": "Release CV",
+        "kind": "cv",
+        "position": {
+          "x": 87,
+          "y": 217
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 9,
+          "y": 310
+        }
+      },
+      {
+        "id": 5,
+        "name": "Retrigger",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 310
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 87,
+          "y": 310
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 19,
+          "y": 74
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 45,
+          "y": 74
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 71,
+          "y": 74
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 97,
+          "y": 74
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "4dceb70103a1e33f2ba148120dca0d102dc9c641de834e8a07268709b932ec31",
+      "size": 71085
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:37:33.821Z"
+  }
+}

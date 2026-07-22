@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/PolyPrune",
+    "plugin": "Venom",
+    "model": "PolyPrune",
+    "name": "Poly Prune",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/PolyPrune",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/PolyPrune.webp",
+    "wasmUrl": "packages/Venom/PolyPrune/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Remove selected channels and/or sort channels from a polyphonic input",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sort",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Start",
+        "min": 1,
+        "max": 16,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Count",
+        "min": -16,
+        "max": 16,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Select gates",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Start",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Count",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Poly",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "0f076dace644762f843f82a8597f1ee6225b2e4338db9f0c59f0edbe6c15ebe1",
+      "size": 66987
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:13:14.650Z"
+  }
+}

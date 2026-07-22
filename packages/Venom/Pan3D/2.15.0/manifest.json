@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/Pan3D",
+    "plugin": "Venom",
+    "model": "Pan3D",
+    "name": "Pan 3D",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/Pan3D",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/Pan3D.webp",
+    "wasmUrl": "packages/Venom/Pan3D/2.15.0/module.wasm",
+    "width": 135,
+    "description": "Pan 1 input to 8 outputs using X, Y, and Z axes",
+    "params": [
+      {
+        "id": 0,
+        "name": "X (left to right) panner",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Y (bottom to top) panner",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Z (front to back) panner",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "X CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Y CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Z CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Output level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 7,
+        "name": "Sum output polyphony to mono",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "X CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Y CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Z CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Pan",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Bottom left front",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Bottom right front",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Top left front",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Top right front",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Bottom left back",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Bottom right back",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Top left back",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Top right back",
+        "kind": "audio"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "cvScale",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "f50dd7af5af48e8c8d95e2ce96e51b3539281b67e72205eb093740a743c9f096",
+      "size": 63457
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:12:45.781Z"
+  }
+}

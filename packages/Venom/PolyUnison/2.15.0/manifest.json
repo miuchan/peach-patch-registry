@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/PolyUnison",
+    "plugin": "Venom",
+    "model": "PolyUnison",
+    "name": "Poly Unison",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/PolyUnison",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/PolyUnison.webp",
+    "wasmUrl": "packages/Venom/PolyUnison/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Replicate each channel of a polyphonic input with a variable detune spread, and merge the results into a single polyphonic output",
+    "params": [
+      {
+        "id": 0,
+        "name": "Unison count",
+        "min": 1,
+        "max": 16,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Detune spread",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Detune direction",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Detune range",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Output grouping",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Unison count",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Detune spread",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Poly",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv"
+      }
+    ],
+    "lights": 32,
+    "stateKeys": [
+      {
+        "key": "vOctDetuneCV",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "disconnected",
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "6f7e10f892706444b1865258eb2358e9ba539bfeced862211ffe143bc34c0990",
+      "size": 61954
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:13:31.977Z"
+  }
+}

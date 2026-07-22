@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "23volts/ClockM8",
+    "plugin": "23volts",
+    "model": "ClockM8",
+    "name": "ClockM8",
+    "brand": "23volts",
+    "version": "1.1.5",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/23volts/23volts-vcv",
+    "libraryUrl": "https://library.vcvrack.com/23volts/ClockM8",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/23volts/ClockM8.webp",
+    "wasmUrl": "packages/23volts/ClockM8/1.1.5/module.wasm",
+    "width": 100,
+    "description": "Polyphonic Clock Modulator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mod Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 2,
+          "y": 243,
+          "widget": "KnobDark26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Divide/Multiply",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 200,
+          "widget": "KnobWhite32"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Binary ratios",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 131,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Triplets ratios",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 141,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Odd ratios",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 161.5,
+          "widget": "LedButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Dotted ratios",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 25,
+          "y": 151.5,
+          "widget": "LedButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 10.5,
+          "y": 42
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 13,
+          "y": 89.5
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mod CV",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 274.5
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 10.5,
+          "y": 315
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "is_running",
+        "type": "boolean"
+      },
+      {
+        "key": "is_learning",
+        "type": "boolean"
+      },
+      {
+        "key": "is_ticking",
+        "type": "boolean"
+      },
+      {
+        "key": "sample_counter",
+        "type": "integer"
+      },
+      {
+        "key": "last_clock_tick",
+        "type": "integer"
+      },
+      {
+        "key": "duration",
+        "type": "integer"
+      },
+      {
+        "key": "next_expected_tick",
+        "type": "integer"
+      },
+      {
+        "key": "overdue_counter",
+        "type": "integer"
+      },
+      {
+        "key": "ratio",
+        "type": "real"
+      },
+      {
+        "key": "reset_tick",
+        "type": "real"
+      },
+      {
+        "key": "next_pulse",
+        "type": "integer"
+      },
+      {
+        "key": "tick_counter",
+        "type": "integer"
+      },
+      {
+        "key": "output_mode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "23volts/M8X",
+            "symbol": "modelM8X",
+            "index": 0
+          },
+          {
+            "key": "23volts/TransM8",
+            "symbol": "modelTransM8",
+            "index": 1
+          },
+          {
+            "key": "23volts/ClockM8",
+            "symbol": "modelClockM8",
+            "index": 2
+          },
+          {
+            "key": "23volts/TimeM8",
+            "symbol": "modelTimeM8",
+            "index": 3
+          },
+          {
+            "key": "23volts/DelayM8",
+            "symbol": "modelDelayM8",
+            "index": 4
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "e715cddded601b90b1dee542b31ca4524ae6013be66a2388cb740bd1a4bf0bda",
+      "size": 91357
+    }
+  },
+  "source": {
+    "url": "https://github.com/23volts/23volts-vcv",
+    "commit": "bf1f1c2cd93216b0dfd0d2483391c4a9eff2c0c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:43:00.802Z"
+  }
+}

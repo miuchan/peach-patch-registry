@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/PolyMute",
+    "plugin": "Venom",
+    "model": "PolyMute",
+    "name": "Poly Mute",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/PolyMute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/PolyMute.webp",
+    "wasmUrl": "packages/Venom/PolyMute/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Mute individual channels of a polyphonic input via buttons or CV",
+    "params": [
+      {
+        "id": 0,
+        "name": "MUTE_PARAM+0",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "MUTE_PARAM+1",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "MUTE_PARAM+2",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "MUTE_PARAM+3",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "MUTE_PARAM+4",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "MUTE_PARAM+5",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "MUTE_PARAM+6",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "MUTE_PARAM+7",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "MUTE_PARAM+8",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "MUTE_PARAM+9",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "MUTE_PARAM+10",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "MUTE_PARAM+11",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "MUTE_PARAM+12",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "MUTE_PARAM+13",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "MUTE_PARAM+14",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "MUTE_PARAM+15",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Soft switching",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 17,
+        "name": "Gate mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel gates",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Poly 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Poly 2",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Poly 2",
+        "kind": "cv"
+      }
+    ],
+    "lights": 32,
+    "stateKeys": [
+      {
+        "key": "channelsParam",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "state",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "state",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "9eabeaf1739271acb84112ae60bd087ff0e03fd82cbdbf1a596996f67e663ac5",
+      "size": 67894
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:13:03.389Z"
+  }
+}

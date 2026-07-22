@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AudibleInstruments/Plaits",
+    "plugin": "AudibleInstruments",
+    "model": "Plaits",
+    "name": "Macro Oscillator 2",
+    "brand": "Audible Instruments",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/AudibleInstruments",
+    "libraryUrl": "https://library.vcvrack.com/AudibleInstruments/Plaits",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AudibleInstruments/Plaits.webp",
+    "wasmUrl": "packages/AudibleInstruments/Plaits/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Based on Mutable Instruments Plaits",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitched models",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Noise/percussive models",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Frequency",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Harmonics",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 4,
+        "name": "Timbre",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 5,
+        "name": "Morph",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 6,
+        "name": "Timbre CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Frequency CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Morph CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Lowpass gate response",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 10,
+        "name": "Lowpass gate decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Model",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Timbre",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "FM",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Morph",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Harmonics",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Level",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Pitch (1V/oct)",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Auxiliary",
+        "kind": "cv"
+      }
+    ],
+    "lights": 16,
+    "stateKeys": [
+      {
+        "key": "lowCpu",
+        "type": "boolean"
+      },
+      {
+        "key": "model",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "969470bc0bc936ff47a9faffa19785e12d1eb70f40332216bed9623aaf5928c8",
+      "size": 250111
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/AudibleInstruments",
+    "commit": "a15554e33721c2f8f65bb6b0f59588307fb6e625"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c028c37a6c11c425",
+    "builtAt": "2026-07-18T05:58:50.894Z"
+  }
+}

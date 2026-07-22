@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/TriggersMKI",
+    "plugin": "AS",
+    "model": "TriggersMKI",
+    "name": "Triggers MKI",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/TriggersMKI",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/TriggersMKI.webp",
+    "wasmUrl": "packages/AS/TriggersMKI/2.0.6/module.wasm",
+    "width": 90,
+    "description": "Manual CV signal trigger with latch and temporary triggers + adjustable output voltage",
+    "params": [
+      {
+        "id": 0,
+        "name": "Volts",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 77,
+          "widget": "as_KnobBlack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Latch Switch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 182,
+          "widget": "BigLEDBezel"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Momentary Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 262,
+          "widget": "BigLEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV external trigger",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 145
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 55,
+          "y": 145
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "GiantLight<RedLight>",
+        "position": {
+          "x": 21,
+          "y": 188
+        }
+      },
+      {
+        "id": 1,
+        "widget": "GiantLight<RedLight>",
+        "position": {
+          "x": 21,
+          "y": 268
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "cc740e72c9c7350b2a165da3d7f80763a978776cf5781a64a289e1c62896e71c",
+      "size": 68136
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:46:08.785Z"
+  }
+}

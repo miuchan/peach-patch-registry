@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-AddrSeq",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-AddrSeq",
+    "name": "ADDR-SEQ",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-AddrSeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-AddrSeq.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-AddrSeq/2.6.47/module.wasm",
+    "width": 180,
+    "description": "Voltage-addressable 8-step sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 8,
+        "default": 8
+      },
+      {
+        "id": 1,
+        "name": "Direction",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Select step",
+        "min": 0,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Step 1",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Step 2",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Step 3",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Step 4",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Step 5",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Step 6",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Step 7",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Step 8",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Select CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sequence",
+        "kind": "cv"
+      }
+    ],
+    "lights": 8,
+    "stateKeys": [
+      {
+        "key": "poly_input",
+        "type": "integer"
+      },
+      {
+        "key": "select_on_clock",
+        "type": "boolean"
+      },
+      {
+        "key": "triggered_select",
+        "type": "boolean"
+      },
+      {
+        "key": "reverse_on_negative_clock",
+        "type": "boolean"
+      },
+      {
+        "key": "wrap_select_at_steps",
+        "type": "boolean"
+      },
+      {
+        "key": "range_offset",
+        "type": "real"
+      },
+      {
+        "key": "range_scale",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Bogaudio/AddrSeq",
+            "symbol": "modelAddrSeq",
+            "index": 0
+          },
+          {
+            "key": "Bogaudio/AddrSeqX",
+            "symbol": "modelAddrSeqX",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "9204d50683138308ab292418d93cf8d06dc1a7fcab491c7bbf3a5c6e10ff6170",
+      "size": 72484
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "299576f1908de2ba",
+    "builtAt": "2026-07-18T12:35:53.051Z"
+  }
+}

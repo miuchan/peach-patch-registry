@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-ADSR",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-ADSR",
+    "name": "ADSR",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-ADSR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-ADSR.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-ADSR/2.6.47/module.wasm",
+    "width": 180,
+    "description": "ADSR envelope generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.14142100512981415
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 2,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201
+      },
+      {
+        "id": 4,
+        "name": "Linear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv"
+      }
+    ],
+    "lights": 4,
+    "stateKeys": [
+      {
+        "key": "invert",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 1048576,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "87308343c8a524a3a8c4286659fd032a6c10ad47d97daad06c6ef3cb9e89eac7",
+      "size": 34311
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "35316f3edad00aca",
+    "builtAt": "2026-07-18T03:29:49.177Z"
+  }
+}

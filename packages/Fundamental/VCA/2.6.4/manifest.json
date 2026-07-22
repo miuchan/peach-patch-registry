@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/VCA",
+    "plugin": "Fundamental",
+    "model": "VCA",
+    "name": "VCA-2",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/VCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/VCA.webp",
+    "wasmUrl": "packages/Fundamental/VCA/2.6.4/module.wasm",
+    "width": 75,
+    "description": "2-channel voltage-controlled amplifier",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel 1 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 18.75,
+          "y": 56.449,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 2 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 18.75,
+          "y": 220.882,
+          "widget": "RoundLargeBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel 1 exponential CV",
+        "kind": "cv",
+        "position": {
+          "x": 7.65,
+          "y": 112.777
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 1 linear CV",
+        "kind": "cv",
+        "position": {
+          "x": 43.103,
+          "y": 112.777
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 1",
+        "kind": "cv",
+        "position": {
+          "x": 7.65,
+          "y": 155.924
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 2 exponential CV",
+        "kind": "cv",
+        "position": {
+          "x": 7.65,
+          "y": 276.184
+        }
+      },
+      {
+        "id": 4,
+        "name": "Channel 2 linear CV",
+        "kind": "cv",
+        "position": {
+          "x": 43.103,
+          "y": 276.184
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel 2",
+        "kind": "cv",
+        "position": {
+          "x": 7.65,
+          "y": 319.332
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel 1",
+        "kind": "cv",
+        "position": {
+          "x": 43.103,
+          "y": 155.924
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 2",
+        "kind": "cv",
+        "position": {
+          "x": 43.103,
+          "y": 319.332
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ],
+      [
+        5,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "bc4f1a7a31f2875e6342cd9f4fa1b1973287070153a084a2d585954981f1f7aa",
+      "size": 72907
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "ce3ac61570c786a7",
+    "builtAt": "2026-07-19T08:37:35.479Z"
+  }
+}

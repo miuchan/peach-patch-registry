@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/BenjolinOsc",
+    "plugin": "Venom",
+    "model": "BenjolinOsc",
+    "name": "Benjolin Oscillator",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/BenjolinOsc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/BenjolinOsc.webp",
+    "wasmUrl": "packages/Venom/BenjolinOsc/2.15.0/module.wasm",
+    "width": 165,
+    "description": "Complex chaotic oscillator emulating the oscillator and rungler components of a Benjolin",
+    "params": [
+      {
+        "id": 0,
+        "name": "Oversample",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Oscillator 1 frequency",
+        "min": -9.3,
+        "max": 9,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Oscillator 2 frequency",
+        "min": -9.3,
+        "max": 9,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Oscillator 1 rungler modulation amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Oscillator 2 rungler modulation amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Oscillator 1 CV modulation amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Oscillator 2 CV modulation amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Rungler cycle chance",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Maximum chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Double clock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Oscillator 1 CV modulation",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Oscillator 2 CV modulation",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Maximum chaos trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Double clock trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Clock",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Oscillator 1 triangle",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Oscillator 2 triangle",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Oscillator 1 pulse",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Oscillator 2 pulse",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "XOR",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "PWM",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Rungler",
+        "kind": "gate"
+      }
+    ],
+    "lights": 10,
+    "stateKeys": [
+      {
+        "key": "origNormScale",
+        "type": "boolean"
+      },
+      {
+        "key": "unipolarClock",
+        "type": "boolean"
+      },
+      {
+        "key": "dacMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Venom/BenjolinGatesExpander",
+            "symbol": "modelVenomBenjolinGatesExpander",
+            "index": 0
+          },
+          {
+            "key": "Venom/BenjolinVoltsExpander",
+            "symbol": "modelVenomBenjolinVoltsExpander",
+            "index": 1
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "df69ed3ce8142882b0795c051efa8e0b602aee5c98ae4cba0e8d9b37cb33191a",
+      "size": 93839
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "47c43ae5f5a155bd",
+    "builtAt": "2026-07-18T08:21:18.537Z"
+  }
+}

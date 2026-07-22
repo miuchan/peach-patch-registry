@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/RecurseStereo",
+    "plugin": "Venom",
+    "model": "RecurseStereo",
+    "name": "Recurse Stereo",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/RecurseStereo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/RecurseStereo.webp",
+    "wasmUrl": "packages/Venom/RecurseStereo/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Recursively process mono or stereo input via Send/Return, with built in scaling and offset cababilities",
+    "params": [
+      {
+        "id": 0,
+        "name": "Recursion Count",
+        "min": 1,
+        "max": 16,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "min": -10,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Modulation Timing",
+        "min": 0,
+        "max": 3,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Offset",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Left Return",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Right Return",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Left Signal",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Right Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left Send",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right Send",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Left Signal",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Right Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "orderOp",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        4,
+        2
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "058ec1fbf85553335b201acf765f262cc7f9b479cb84d4f9cbcc0d03dfadd461",
+      "size": 61285
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:13:55.667Z"
+  }
+}

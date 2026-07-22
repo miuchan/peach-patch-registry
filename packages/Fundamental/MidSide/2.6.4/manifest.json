@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/MidSide",
+    "plugin": "Fundamental",
+    "model": "MidSide",
+    "name": "Mid/Side",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/MidSide",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/MidSide.webp",
+    "wasmUrl": "packages/Fundamental/MidSide/2.6.4/module.wasm",
+    "width": 180,
+    "description": "Encodes/decodes between mid/side and left/right stereo signals",
+    "params": [
+      {
+        "id": 0,
+        "name": "Encoder width",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Decoder width",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Encoder width",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Encoder left",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Encoder right",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Decoder width",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Decoder mid",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Decoder side",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Encoder mid",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Encoder side",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Decoder left",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Decoder right",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "4ba943bde632cd36d2e3db5df7937bffddc137087438b216fd8102cb828f4d61",
+      "size": 44887
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c028c37a6c11c425",
+    "builtAt": "2026-07-18T05:53:48.572Z"
+  }
+}

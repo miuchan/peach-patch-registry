@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/PolyFade",
+    "plugin": "Venom",
+    "model": "PolyFade",
+    "name": "Poly Fade",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/PolyFade",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/PolyFade.webp",
+    "wasmUrl": "packages/Venom/PolyFade/2.15.0/module.wasm",
+    "width": 150,
+    "description": "Cross fade between channels of a polyphonic signal",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rise shape",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Rise CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Fall shape",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Fall CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Width",
+        "min": -4,
+        "max": 4,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Width CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Hold",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Hold CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Skew",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 9,
+        "name": "Skew CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Rate",
+        "min": -8,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Direction",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Channels",
+        "min": 0,
+        "max": 16,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Start channel",
+        "min": 0,
+        "max": 15,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 15,
+        "name": "Level CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Phasor input slew",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rise CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Fall CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Width CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Hold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Skew CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Rate CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Direction CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Channels CV",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Start channel CV",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Poly",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 12,
+        "name": "Level CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gates",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Poly",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Sum",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Phasor",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Envelopes",
+        "kind": "cv"
+      }
+    ],
+    "lights": 32,
+    "stateKeys": [
+      {
+        "key": "minimizeChannels",
+        "type": "boolean"
+      },
+      {
+        "key": "resetIfOff",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "153391d7876149f8b28739cc455d10b62f4560c9d585096bad83be588139841b",
+      "size": 73594
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:12:57.180Z"
+  }
+}

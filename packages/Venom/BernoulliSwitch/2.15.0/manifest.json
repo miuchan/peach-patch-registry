@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/BernoulliSwitch",
+    "plugin": "Venom",
+    "model": "BernoulliSwitch",
+    "name": "Bernoulli Switch",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/BernoulliSwitch",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/BernoulliSwitch.webp",
+    "wasmUrl": "packages/Venom/BernoulliSwitch/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Stochastically route two inputs to two outputs, with built in scaling and offset capabilities",
+    "params": [
+      {
+        "id": 0,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Manual 10V Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Probability Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Rise Threshold",
+        "min": -10,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Fall Threshold",
+        "min": -10,
+        "max": 10,
+        "default": 0.10000000149011612
+      },
+      {
+        "id": 5,
+        "name": "A Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "B Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "A Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 8,
+        "name": "B Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 9,
+        "name": "Normal value",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Probability",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv"
+      }
+    ],
+    "lights": 6,
+    "stateKeys": [
+      {
+        "key": "monitorChannel",
+        "type": "integer"
+      },
+      {
+        "key": "inputPolyControl",
+        "type": "boolean"
+      },
+      {
+        "key": "audioProc",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Venom/BernoulliSwitchExpander",
+            "symbol": "modelVenomBernoulliSwitchExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "96b5625866118a35e34db6bd8579b70b8f102bcea3153c775d082cb40ccf1178",
+      "size": 81421
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "42cdb652b4bf0765",
+    "builtAt": "2026-07-18T08:14:42.705Z"
+  }
+}

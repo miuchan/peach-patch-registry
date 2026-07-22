@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "voxglitch/looper",
+    "plugin": "voxglitch",
+    "model": "looper",
+    "name": "Looper",
+    "brand": "Voxglitch",
+    "version": "2.41.1",
+    "license": "GPL-3.0-or-later",
+    "runtime": {
+      "strategy": "browser-dsp-adapter",
+      "initialMemory": 16777216,
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 2
+      }
+    },
+    "sourceUrl": "https://github.com/clone45/voxglitch",
+    "libraryUrl": "https://library.vcvrack.com/voxglitch/looper",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/voxglitch/looper.webp",
+    "wasmUrl": "packages/voxglitch/looper/2.41.1/module.wasm",
+    "width": 45,
+    "description": "Stereo sample-loop playback adapter preserving Voxglitch reset, volume, and output indices; starts with an immediate built-in loop",
+    "params": [
+      {
+        "id": 0,
+        "name": "Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "RESET",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LEFT",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "RIGHT",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "artifact": {
+      "sha256": "d71495acb75ac637cd5e62d16ab604768741183c7d9d1e6f7ab7ef3d820745f4",
+      "size": 69846
+    }
+  },
+  "source": {
+    "url": "https://github.com/clone45/voxglitch",
+    "commit": null
+  },
+  "build": {
+    "strategy": "browser-dsp-adapter",
+    "fingerprint": null,
+    "builtAt": null
+  }
+}

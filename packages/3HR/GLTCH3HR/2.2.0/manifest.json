@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "3HR/GLTCH3HR",
+    "plugin": "3HR",
+    "model": "GLTCH3HR",
+    "name": "GLTCH3HR",
+    "brand": "3HR",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Geekachuqt/3HR",
+    "libraryUrl": "https://library.vcvrack.com/3HR/GLTCH3HR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/3HR/GLTCH3HR.webp",
+    "wasmUrl": "packages/3HR/GLTCH3HR/2.2.0/module.wasm",
+    "width": 90,
+    "description": "Threshold-controlled glitch loop generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "End CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 56.129,
+          "y": 122.87,
+          "centered": true,
+          "widget": "Tiny3HRCVPot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 33.85,
+          "y": 122.87,
+          "centered": true,
+          "widget": "Tiny3HRCVPot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "End",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 75.189,
+          "y": 130.854,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.79,
+          "y": 130.854,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Threshold",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 44.991,
+          "y": 228.502,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Smoothen",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 44.991,
+          "y": 266.888,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 44.991,
+          "y": 81.537,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "End CV",
+        "kind": "cv",
+        "position": {
+          "x": 56.046,
+          "y": 139.952,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Start CV",
+        "kind": "cv",
+        "position": {
+          "x": 33.933,
+          "y": 139.952,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Threshold signal",
+        "kind": "gate",
+        "position": {
+          "x": 44.991,
+          "y": 193.293,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 44.991,
+          "y": 328.769,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 44.991,
+          "y": 166.47,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "493194a497e1adc33dd2e38395a96bbf9dca830cb8707fa9a903423d40999d38",
+      "size": 70672
+    }
+  },
+  "source": {
+    "url": "https://github.com/Geekachuqt/3HR",
+    "commit": "4eb5fc12765b87dc605a8e6c1b2c03dffcecdb62"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:43:35.203Z"
+  }
+}

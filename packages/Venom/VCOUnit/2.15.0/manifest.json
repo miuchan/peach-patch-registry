@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/VCOUnit",
+    "plugin": "Venom",
+    "model": "VCOUnit",
+    "name": "VCO Unit",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/VCOUnit",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/VCOUnit.webp",
+    "wasmUrl": "packages/Venom/VCOUnit/2.15.0/module.wasm",
+    "width": 135,
+    "description": "A smaller version of VCO Lab with only one selectable waveform at a time, and no mixing capabilities",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency Mode",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Oversample",
+        "min": 0,
+        "max": 5,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "DC Block",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Frequency",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Waveform",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Octave",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Reset polyphony count",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Exponential FM",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Linear FM",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Shape Mode",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Shape",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Shape CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Phase",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Phase CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "Offset CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Level",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 17,
+        "name": "Level CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Exponential FM",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Linear FM",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Exponential FM depth",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Linear FM depth",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Hard Sync",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Soft sync",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Shape CV",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Phase CV",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Offset CV",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Level CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "VCO",
+        "kind": "cv"
+      }
+    ],
+    "lights": 20,
+    "stateKeys": [
+      {
+        "key": "audioDefaultOver",
+        "type": "integer"
+      },
+      {
+        "key": "unity5",
+        "type": "boolean"
+      },
+      {
+        "key": "bipolar",
+        "type": "boolean"
+      },
+      {
+        "key": "linDCCouple",
+        "type": "boolean"
+      },
+      {
+        "key": "linNoThru0",
+        "type": "boolean"
+      },
+      {
+        "key": "overParam",
+        "type": "integer"
+      },
+      {
+        "key": "clampLevel",
+        "type": "boolean"
+      },
+      {
+        "key": "disableDPW",
+        "type": "boolean"
+      },
+      {
+        "key": "syncAt0",
+        "type": "boolean"
+      },
+      {
+        "key": "shapeModeParam",
+        "type": "integer"
+      },
+      {
+        "key": "lfoAsBPM",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "2aaf6ea518cfd02c3ac5f8aad766f857bef7b497987875050eca4b447efdf8ea",
+      "size": 119632
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:14:15.147Z"
+  }
+}

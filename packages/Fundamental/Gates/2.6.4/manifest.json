@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/Gates",
+    "plugin": "Fundamental",
+    "model": "Gates",
+    "name": "Gates",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/Gates",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Gates.webp",
+    "wasmUrl": "packages/Fundamental/Gates/2.6.4/module.wasm",
+    "width": 180,
+    "description": "Gate processor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gate length",
+        "min": -9.965784284662087,
+        "max": 3.321928094887362,
+        "default": -3.321928024291992
+      },
+      {
+        "id": 1,
+        "name": "Reset flip/flop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate length",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Reset flip/flop",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Rising edge trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Falling edge trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Flip",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Flop",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Gate delay",
+        "kind": "gate"
+      }
+    ],
+    "lights": 13,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "3e014bbbd4a39210268148b922e6e936ca57ebc42831e092adbd2d21e7b63403",
+      "size": 47601
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c028c37a6c11c425",
+    "builtAt": "2026-07-18T05:53:25.231Z"
+  }
+}

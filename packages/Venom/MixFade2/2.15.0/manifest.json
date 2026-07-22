@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/MixFade2",
+    "plugin": "Venom",
+    "model": "MixFade2",
+    "name": "Mix Fade 2 Expander",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/MixFade2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/MixFade2.webp",
+    "wasmUrl": "packages/Venom/MixFade2/2.15.0/module.wasm",
+    "width": 60,
+    "description": "Add independent rise/fall fades for mute/solo to any of the Mix modules",
+    "params": [
+      {
+        "id": 0,
+        "name": "RISE_TIME_PARAM+0",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "RISE_TIME_PARAM+1",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "RISE_TIME_PARAM+2",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "RISE_TIME_PARAM+3",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "FALL_TIME_PARAM+0",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "FALL_TIME_PARAM+1",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "FALL_TIME_PARAM+2",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "FALL_TIME_PARAM+3",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Fade mix rise time",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Fade mix fall time",
+        "min": 0,
+        "max": 30,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "FADE2_SHAPE_PARAM+0",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "FADE2_SHAPE_PARAM+1",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "FADE2_SHAPE_PARAM+2",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "FADE2_SHAPE_PARAM+3",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Fade mix shape",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "FADE2_OUTPUT+0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "FADE2_OUTPUT+1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "FADE2_OUTPUT+2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "FADE2_OUTPUT+3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Fade mix level",
+        "kind": "audio"
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "expanderMode": "host-snapshot",
+      "expander": {
+        "family": "Venom::MixModule",
+        "role": "member",
+        "direction": "right",
+        "transport": "object-snapshot",
+        "type": 5,
+        "maxMembers": 16
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "2cced46cc4e960b0c3a061cf9890a71f67105862f08247abfaf72c30796781dd",
+      "size": 62664
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b8e6f821d48a7d02",
+    "builtAt": "2026-07-18T06:41:30.857Z"
+  }
+}

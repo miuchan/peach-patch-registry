@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/PolyClone",
+    "plugin": "Venom",
+    "model": "PolyClone",
+    "name": "Poly Clone",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/PolyClone",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/PolyClone.webp",
+    "wasmUrl": "packages/Venom/PolyClone/2.15.0/module.wasm",
+    "width": 45,
+    "description": "Clone each channel of a polyphonic input and merge the results into a single polyphonic output",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clone count",
+        "min": 1,
+        "max": 16,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Output grouping",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv"
+      }
+    ],
+    "lights": 32,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "disconnected",
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "94ae71238362575cf4e5bcb384c5e6aee9a453eac084535dea25aa3800eec41e",
+      "size": 58674
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:12:51.967Z"
+  }
+}

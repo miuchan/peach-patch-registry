@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AudibleInstruments/Streams",
+    "plugin": "AudibleInstruments",
+    "model": "Streams",
+    "name": "Dual Dynamics Gate",
+    "brand": "Audible Instruments",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/AudibleInstruments",
+    "libraryUrl": "https://library.vcvrack.com/AudibleInstruments/Streams",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AudibleInstruments/Streams.webp",
+    "wasmUrl": "packages/AudibleInstruments/Streams/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Based on Mutable Instruments Streams",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel 1 shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Channel 1 mod",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Channel 1 level mod",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "Channel 1 response",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 4,
+        "name": "Channel 2 shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 5,
+        "name": "Channel 2 mod",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 6,
+        "name": "Channel 2 level mod",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 7,
+        "name": "Channel 2 response",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 8,
+        "name": "Channel 1 function",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Channel 2 function",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Meter",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel 1 excite",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Channel 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Channel 1 level",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Channel 2 excite",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Channel 2",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Channel 2 level",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Channel 2",
+        "kind": "cv"
+      }
+    ],
+    "lights": 16,
+    "stateKeys": [
+      {
+        "key": "function1",
+        "type": "integer"
+      },
+      {
+        "key": "function2",
+        "type": "integer"
+      },
+      {
+        "key": "alternate1",
+        "type": "integer"
+      },
+      {
+        "key": "alternate2",
+        "type": "integer"
+      },
+      {
+        "key": "monitorMode",
+        "type": "integer"
+      },
+      {
+        "key": "linked",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        1,
+        0
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "25d7427c09cfe19fe7ab2a6b0344a5e3a972fe2215672cb2b0f8491250adf61c",
+      "size": 102475
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/AudibleInstruments",
+    "commit": "a15554e33721c2f8f65bb6b0f59588307fb6e625"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c028c37a6c11c425",
+    "builtAt": "2026-07-18T05:59:34.772Z"
+  }
+}

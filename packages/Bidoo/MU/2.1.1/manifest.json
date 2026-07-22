@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/MU",
+    "plugin": "Bidoo",
+    "model": "MU",
+    "name": "µ",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/MU",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/MU.webp",
+    "wasmUrl": "packages/Bidoo/MU/2.1.1/module.wasm",
+    "width": 75,
+    "description": "Synced pulse generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 0,
+        "max": 800,
+        "default": 117,
+        "position": {
+          "x": 14,
+          "y": 60
+        }
+      },
+      {
+        "id": 1,
+        "name": "BPM fine",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0,
+        "position": {
+          "x": 14,
+          "y": 83
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step length",
+        "min": 0,
+        "max": 1600,
+        "default": 100,
+        "position": {
+          "x": 41,
+          "y": 60
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step length fine",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 41,
+          "y": 83
+        }
+      },
+      {
+        "id": 4,
+        "name": "Note length",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14,
+          "y": 106
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 14,
+          "y": 145
+        }
+      },
+      {
+        "id": 6,
+        "name": "Alternate end probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41,
+          "y": 145
+        }
+      },
+      {
+        "id": 7,
+        "name": "Number of triggers",
+        "min": 1,
+        "max": 64,
+        "default": 1,
+        "position": {
+          "x": 14,
+          "y": 166
+        }
+      },
+      {
+        "id": 8,
+        "name": "Trigger distribution",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 41,
+          "y": 166
+        }
+      },
+      {
+        "id": 9,
+        "name": "CV",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 28,
+          "y": 125
+        }
+      },
+      {
+        "id": 10,
+        "name": "Start",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5,
+          "y": 5
+        }
+      },
+      {
+        "id": 11,
+        "name": "CV stack",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 34,
+          "y": 364
+        }
+      },
+      {
+        "id": 12,
+        "name": "Trigger stack",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 34,
+          "y": 340
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mute",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 52,
+          "y": 5
+        }
+      },
+      {
+        "id": 14,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41,
+          "y": 106
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Activate",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 215
+        }
+      },
+      {
+        "id": 1,
+        "name": "Inhibit",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 239
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate bridge",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 335
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV bridge",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 359
+        }
+      },
+      {
+        "id": 4,
+        "name": "BPM",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 191
+        }
+      },
+      {
+        "id": 5,
+        "name": "Note length",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 263
+        }
+      },
+      {
+        "id": 6,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 29,
+          "y": 287
+        }
+      },
+      {
+        "id": 7,
+        "name": "Number of triggers",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 311
+        }
+      },
+      {
+        "id": 8,
+        "name": "Trigger distribution",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 311
+        }
+      },
+      {
+        "id": 9,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 263
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "End of step",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 215
+        }
+      },
+      {
+        "id": 1,
+        "name": "Alternate end of step",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 239
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate bridge",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 335
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV bridge",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 359
+        }
+      },
+      {
+        "id": 4,
+        "name": "BPM",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 191
+        }
+      }
+    ],
+    "lights": 9,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "6e7348593cd7a6cdb0ee85e945b1d97b9eb75a5896c05b5766ba4818444d38d9",
+      "size": 77530
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "00835bdf1c3e6d3d",
+    "builtAt": "2026-07-19T13:35:42.814Z"
+  }
+}

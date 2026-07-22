@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/WaveShaperStereo",
+    "plugin": "AS",
+    "model": "WaveShaperStereo",
+    "name": "Wave Shaper Stereo",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/WaveShaperStereo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/WaveShaperStereo.webp",
+    "wasmUrl": "packages/AS/WaveShaperStereo/2.0.6/module.wasm",
+    "width": 90,
+    "description": "WaveShaper Stereo Fx with bypass switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 43,
+          "y": 60,
+          "widget": "as_FxKnobBlack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 43,
+          "y": 125,
+          "widget": "as_FxKnobBlack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 33,
+          "y": 220,
+          "widget": "as_CKSSH"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 55,
+          "y": 260,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 110
+        }
+      },
+      {
+        "id": 3,
+        "name": "Shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 67
+        }
+      },
+      {
+        "id": 4,
+        "name": "Wave Mod CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 152
+        }
+      },
+      {
+        "id": 5,
+        "name": "Range CV",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 182
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bypass CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 259
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 57.2,
+          "y": 262
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "ac896c99f8930db5591e2470501e9cc30fb86c01bd5f5ec839a41b82d7f8fcb2",
+      "size": 72129
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:47:19.510Z"
+  }
+}

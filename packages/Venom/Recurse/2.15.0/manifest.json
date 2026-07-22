@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/Recurse",
+    "plugin": "Venom",
+    "model": "Recurse",
+    "name": "Recurse",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/Recurse",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/Recurse.webp",
+    "wasmUrl": "packages/Venom/Recurse/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Recursively process an input via Send/Return, with built in scaling and offset cababilities",
+    "params": [
+      {
+        "id": 0,
+        "name": "Recursion Count",
+        "min": 1,
+        "max": 16,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "min": -10,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Modulation Timing",
+        "min": 0,
+        "max": 3,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Offset",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Return",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Send",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Signal",
+        "kind": "audio"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "orderOp",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        3,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "47e48e19371a2961b7add148afc1e843de8ecfdb73d881b82a73f9c34f2ec9d0",
+      "size": 60835
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:13:49.912Z"
+  }
+}

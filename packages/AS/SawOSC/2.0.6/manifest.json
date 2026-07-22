@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/SawOSC",
+    "plugin": "AS",
+    "model": "SawOSC",
+    "name": "TinySawish",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/SawOSC",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/SawOSC.webp",
+    "wasmUrl": "packages/AS/SawOSC/2.0.6/module.wasm",
+    "width": 60,
+    "description": "Simple Voltage-controlled saw oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Value",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 11,
+          "y": 60,
+          "widget": "as_KnobBlack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Base Frequency (Note)",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 18,
+          "y": 220,
+          "widget": "as_CKSSH"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Modulation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 11,
+          "y": 120,
+          "widget": "as_KnobBlack"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1 V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 18,
+          "y": 260
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mod CV",
+        "kind": "cv",
+        "position": {
+          "x": 18,
+          "y": 180
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Wave",
+        "kind": "cv",
+        "position": {
+          "x": 18,
+          "y": 310
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 7,
+          "y": 57
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "a394dbe210dfedd85e555badf67cdc4e46e71297b435e3911023930d1fc5b2e7",
+      "size": 77514
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:36:56.436Z"
+  }
+}

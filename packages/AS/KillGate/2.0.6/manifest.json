@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/KillGate",
+    "plugin": "AS",
+    "model": "KillGate",
+    "name": "KillGate",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/KillGate",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/KillGate.webp",
+    "wasmUrl": "packages/AS/KillGate/2.0.6/module.wasm",
+    "width": 90,
+    "description": "2 channel signal stop counter",
+    "params": [
+      {
+        "id": 0,
+        "name": "CH 1 Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 82,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CH 1 Count",
+        "min": 1,
+        "max": 64,
+        "default": 1,
+        "position": {
+          "x": 43,
+          "y": 73,
+          "widget": "as_KnobBlackSnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CH 2 Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 242,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CH 2 Count",
+        "min": 1,
+        "max": 64,
+        "default": 1,
+        "position": {
+          "x": 43,
+          "y": 233,
+          "widget": "as_KnobBlackSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CH 1",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 170
+        }
+      },
+      {
+        "id": 1,
+        "name": "CH 1 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 55,
+          "y": 125
+        }
+      },
+      {
+        "id": 2,
+        "name": "CH 1 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 125
+        }
+      },
+      {
+        "id": 3,
+        "name": "CH 2",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 330
+        }
+      },
+      {
+        "id": 4,
+        "name": "CH 2 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 55,
+          "y": 285
+        }
+      },
+      {
+        "id": 5,
+        "name": "CH 2 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 285
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CH 1",
+        "kind": "cv",
+        "position": {
+          "x": 55,
+          "y": 170
+        }
+      },
+      {
+        "id": 1,
+        "name": "CH 2",
+        "kind": "cv",
+        "position": {
+          "x": 55,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 13.2,
+          "y": 84.3
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 13.2,
+          "y": 244.3
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "6a4849ed614d52d54ef4ccc41580f9b34b7dc6b19a7ad6f5fff3c4e20a3d1d71",
+      "size": 71698
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:45:35.023Z"
+  }
+}

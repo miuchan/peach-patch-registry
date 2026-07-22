@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/Mix4Stereo",
+    "plugin": "Venom",
+    "model": "Mix4Stereo",
+    "name": "Mix 4 Stereo",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/Mix4Stereo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/Mix4Stereo.webp",
+    "wasmUrl": "packages/Venom/Mix4Stereo/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Stereo compact audio or CV mixer, attenuator, inverter, amplifier, and/or offset",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel 1 level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Channel 2 level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Channel 3 level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Channel 4 level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Mix level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Level Mode",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Mix Clipping",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Mix DC Block",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left channel 1",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Left channel 2",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Left channel 3",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Left channel 4",
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Right channel 1",
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Right channel 2",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Right channel 3",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Right channel 4",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left Mix",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right Mix",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "softMute",
+        "type": "boolean"
+      },
+      {
+        "key": "toggleMute",
+        "type": "boolean"
+      },
+      {
+        "key": "monoPanLaw",
+        "type": "integer"
+      },
+      {
+        "key": "stereoPanLaw",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "host-snapshot",
+      "expander": {
+        "family": "Venom::MixModule",
+        "role": "base",
+        "direction": "right",
+        "transport": "object-snapshot",
+        "type": 1,
+        "maxMembers": 16
+      },
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "ae862c1483feee427dc1cfe4334eaf03b48b65a33a0690f3214993697c947683",
+      "size": 106853
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b8e6f821d48a7d02",
+    "builtAt": "2026-07-18T06:41:13.853Z"
+  }
+}

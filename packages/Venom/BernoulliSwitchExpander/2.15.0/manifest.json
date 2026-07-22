@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/BernoulliSwitchExpander",
+    "plugin": "Venom",
+    "model": "BernoulliSwitchExpander",
+    "name": "Bernoulli Switch Expander",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/BernoulliSwitchExpander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/BernoulliSwitchExpander.webp",
+    "wasmUrl": "packages/Venom/BernoulliSwitchExpander/2.15.0/module.wasm",
+    "width": 75,
+    "description": "Additional CV inputs and attenuators for Bernoulli Switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Probability CV",
+        "min": -1,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Rise threshold CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Fall threshold CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "A Offset CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "B Offset CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "A scale CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "B scale CV",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Mode CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Rise Threshold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Fall Threshold CV",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "A Offset CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "B Offset CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "A Scale CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "B Scale CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [],
+    "lights": 1,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Venom/BernoulliSwitch",
+            "symbol": "modelVenomBernoulliSwitch",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "f76a2930917455944a425796b1bf94d0990282502a30af5d251f9307b943e7a5",
+      "size": 59648
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "42cdb652b4bf0765",
+    "builtAt": "2026-07-18T08:14:49.649Z"
+  }
+}

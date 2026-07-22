@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/VCO",
+    "plugin": "Fundamental",
+    "model": "VCO",
+    "name": "VCO",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/VCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/VCO.webp",
+    "wasmUrl": "packages/Fundamental/VCO/2.6.4/module.wasm",
+    "width": 135,
+    "description": "Voltage-controlled oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Sync mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 83.51,
+          "y": 238.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 67.633,
+          "y": 88.016,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Frequency modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.509,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse width",
+        "min": 0.009999999776482582,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 67.506,
+          "y": 166.5,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pulse width modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 115.506,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "FM mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 51.508,
+          "y": 238.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 51.508,
+          "y": 286.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 19.509,
+          "y": 286.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 83.51,
+          "y": 286.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulse width modulation",
+        "kind": "cv",
+        "position": {
+          "x": 115.6,
+          "y": 286.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 19.509,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Triangle",
+        "kind": "cv",
+        "position": {
+          "x": 51.508,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sawtooth",
+        "kind": "cv",
+        "position": {
+          "x": 83.51,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Square",
+        "kind": "cv",
+        "position": {
+          "x": 115.509,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 91.798,
+          "y": 48.508,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 51.508,
+          "y": 238.001,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 83.51,
+          "y": 238.001,
+          "centered": true
+        },
+        "paramId": 1
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "b807b1f33f064b6369ec7ab3332b60d55700000051be12268f79c5176c1cbd0e",
+      "size": 91842
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "87c7bd1ebf74487d",
+    "builtAt": "2026-07-19T08:41:04.712Z"
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/OAI",
+    "plugin": "Bidoo",
+    "model": "OAI",
+    "name": "oAï",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/OAI",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/OAI.webp",
+    "wasmUrl": "packages/Bidoo/OAI/2.1.1/module.wasm",
+    "width": 120,
+    "description": "Sample player",
+    "params": [
+      {
+        "id": 0,
+        "name": "Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 85
+        }
+      },
+      {
+        "id": 1,
+        "name": "Len",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 85
+        }
+      },
+      {
+        "id": 2,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.5,
+          "y": 190
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 83,
+          "y": 85
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 53,
+          "y": 190
+        }
+      },
+      {
+        "id": 5,
+        "name": "Q",
+        "min": 0.10000000149011612,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 83,
+          "y": 135
+        }
+      },
+      {
+        "id": 6,
+        "name": "Freq",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 135
+        }
+      },
+      {
+        "id": 7,
+        "name": "Filtertype",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 135
+        }
+      },
+      {
+        "id": 8,
+        "name": "Channel",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 35
+        }
+      },
+      {
+        "id": 9,
+        "name": "Kill",
+        "min": -1,
+        "max": 15,
+        "default": -1,
+        "position": {
+          "x": 83,
+          "y": 185
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 7,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 91.5,
+          "y": 283
+        }
+      },
+      {
+        "id": 2,
+        "name": "Start",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 236
+        }
+      },
+      {
+        "id": 3,
+        "name": "Len",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 236
+        }
+      },
+      {
+        "id": 4,
+        "name": "Loop",
+        "kind": "cv",
+        "position": {
+          "x": 91.5,
+          "y": 236
+        }
+      },
+      {
+        "id": 5,
+        "name": "Speed",
+        "kind": "cv",
+        "position": {
+          "x": 62.5,
+          "y": 236
+        }
+      },
+      {
+        "id": 6,
+        "name": "Q",
+        "kind": "cv",
+        "position": {
+          "x": 62.5,
+          "y": 283
+        }
+      },
+      {
+        "id": 7,
+        "name": "Freq",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 283
+        }
+      },
+      {
+        "id": 8,
+        "name": "Filtertype",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 283
+        }
+      },
+      {
+        "id": 9,
+        "name": "Kill",
+        "kind": "cv",
+        "position": {
+          "x": 47.5,
+          "y": 330
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "audio",
+        "position": {
+          "x": 88.5,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 3,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      },
+      {
+        "key": "currentChannel",
+        "type": "integer"
+      },
+      {
+        "key": "sampleChannels",
+        "type": "integer"
+      },
+      {
+        "key": "sampleRate",
+        "type": "integer"
+      },
+      {
+        "key": "totalSampleCount",
+        "type": "integer"
+      },
+      {
+        "key": "start",
+        "type": "real"
+      },
+      {
+        "key": "len",
+        "type": "real"
+      },
+      {
+        "key": "speed",
+        "type": "real"
+      },
+      {
+        "key": "loop",
+        "type": "boolean"
+      },
+      {
+        "key": "gate",
+        "type": "integer"
+      },
+      {
+        "key": "filterType",
+        "type": "integer"
+      },
+      {
+        "key": "q",
+        "type": "real"
+      },
+      {
+        "key": "freq",
+        "type": "real"
+      },
+      {
+        "key": "kill",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 2,
+        "slots": 16
+      },
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "538599f71c85dd524b550bb3bd07a30db785febb0ec12f1b65b0d5cfcb46a1ee",
+      "size": 94918
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c7f3dc42a1d1a2f9",
+    "builtAt": "2026-07-19T13:26:18.878Z"
+  }
+}

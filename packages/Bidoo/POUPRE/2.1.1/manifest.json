@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/POUPRE",
+    "plugin": "Bidoo",
+    "model": "POUPRE",
+    "name": "póUPrè",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/POUPRE",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/POUPRE.webp",
+    "wasmUrl": "packages/Bidoo/POUPRE/2.1.1/module.wasm",
+    "width": 75,
+    "description": "Sample player",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 23,
+          "y": 35
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41,
+          "y": 182
+        }
+      },
+      {
+        "id": 2,
+        "name": "Len",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 41,
+          "y": 229
+        }
+      },
+      {
+        "id": 3,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 139.5
+        }
+      },
+      {
+        "id": 4,
+        "name": "Speed",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 41,
+          "y": 276
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 49,
+          "y": 92.5
+        }
+      },
+      {
+        "id": 6,
+        "name": "Preset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 66,
+          "y": 20
+        }
+      },
+      {
+        "id": 7,
+        "name": "Preset Param+ 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 66,
+          "y": 30
+        }
+      },
+      {
+        "id": 8,
+        "name": "Preset Param+ 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 66,
+          "y": 62
+        }
+      },
+      {
+        "id": 9,
+        "name": "Preset Param+ 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 66,
+          "y": 72
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 7,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 7,
+          "y": 95
+        }
+      },
+      {
+        "id": 2,
+        "name": "Start",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 189
+        }
+      },
+      {
+        "id": 3,
+        "name": "Len",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 236
+        }
+      },
+      {
+        "id": 4,
+        "name": "Loop",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 142
+        }
+      },
+      {
+        "id": 5,
+        "name": "Speed",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 283
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "audio",
+        "position": {
+          "x": 43.5,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 7,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      },
+      {
+        "key": "currentChannel",
+        "type": "integer"
+      },
+      {
+        "key": "start",
+        "type": "real"
+      },
+      {
+        "key": "len",
+        "type": "real"
+      },
+      {
+        "key": "speed",
+        "type": "real"
+      },
+      {
+        "key": "loop",
+        "type": "boolean"
+      },
+      {
+        "key": "gate",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "792a2e45b84f47e6d0329b4d7dd18a1e882bf635239f795efb0ef9a5ae2081f8",
+      "size": 81493
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "a3f9f9fac080d25d",
+    "builtAt": "2026-07-19T13:07:45.041Z"
+  }
+}

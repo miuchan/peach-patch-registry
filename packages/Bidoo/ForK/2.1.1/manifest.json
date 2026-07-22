@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bidoo/ForK",
+    "plugin": "Bidoo",
+    "model": "ForK",
+    "name": "ForK",
+    "brand": "Bidoo",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sebastien-bouffier/Bidoo",
+    "libraryUrl": "https://library.vcvrack.com/Bidoo/ForK",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bidoo/ForK.webp",
+    "wasmUrl": "packages/Bidoo/ForK/2.1.1/module.wasm",
+    "width": 90,
+    "description": "Formant oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 40
+        }
+      },
+      {
+        "id": 2,
+        "name": "Preset",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 30,
+          "y": 274
+        }
+      },
+      {
+        "id": 3,
+        "name": "F",
+        "min": 190,
+        "max": 730,
+        "default": 190,
+        "position": {
+          "x": 32,
+          "y": 85
+        }
+      },
+      {
+        "id": 4,
+        "name": "F Param + 1.0f",
+        "min": 800,
+        "max": 2100,
+        "default": 1090,
+        "position": {
+          "x": 32,
+          "y": 133
+        }
+      },
+      {
+        "id": 5,
+        "name": "F Param +  2",
+        "min": 1500,
+        "max": 3100,
+        "default": 2440,
+        "position": {
+          "x": 32,
+          "y": 181
+        }
+      },
+      {
+        "id": 6,
+        "name": "F Param +  3",
+        "min": 3000,
+        "max": 4700,
+        "default": 3400,
+        "position": {
+          "x": 32,
+          "y": 229
+        }
+      },
+      {
+        "id": 7,
+        "name": "A",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 32,
+          "y": 105
+        }
+      },
+      {
+        "id": 8,
+        "name": "A Param +  1",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 32,
+          "y": 153
+        }
+      },
+      {
+        "id": 9,
+        "name": "A Param +  2",
+        "min": 0,
+        "max": 0.699999988079071,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 32,
+          "y": 201
+        }
+      },
+      {
+        "id": 10,
+        "name": "A Param +  3",
+        "min": 0,
+        "max": 0.30000001192092896,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 32,
+          "y": 249
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Formant Type",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "F",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 87
+        }
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 135
+        }
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 183
+        }
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 231
+        }
+      },
+      {
+        "id": 6,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 107
+        }
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 155
+        }
+      },
+      {
+        "id": 8,
+        "name": "IN 9",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 203
+        }
+      },
+      {
+        "id": 9,
+        "name": "IN 10",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 251
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 58.3,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "themeId",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "70e4cbbc848a4621f772ff0158bb47ea999fce2329a61cd4a67e4f8d344be711",
+      "size": 80312
+    }
+  },
+  "source": {
+    "url": "https://github.com/sebastien-bouffier/Bidoo",
+    "commit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1508520602b082ab",
+    "builtAt": "2026-07-19T13:39:55.923Z"
+  }
+}

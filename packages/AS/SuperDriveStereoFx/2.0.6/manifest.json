@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/SuperDriveStereoFx",
+    "plugin": "AS",
+    "model": "SuperDriveStereoFx",
+    "name": "SuperDrive Stereo Fx",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/SuperDriveStereoFx",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/SuperDriveStereoFx.webp",
+    "wasmUrl": "packages/AS/SuperDriveStereoFx/2.0.6/module.wasm",
+    "width": 180,
+    "description": "Stereo Overdrive FX with CV input for each parameter and bypass switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Drive",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 43,
+          "y": 60,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 43,
+          "y": 190,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 43,
+          "y": 125,
+          "widget": "as_FxKnobWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 55,
+          "y": 260,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 330
+        }
+      },
+      {
+        "id": 2,
+        "name": "Drive CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 67
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 197
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tone CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 132
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bypass CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 259
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 39,
+          "y": 57
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 39,
+          "y": 122
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 39,
+          "y": 187
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 57.2,
+          "y": 262
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "a8a9faa94fce7d9d2ea427ae4068075d4af3f72543d02cecc6b84b1977f711ef",
+      "size": 74171
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:47:01.062Z"
+  }
+}

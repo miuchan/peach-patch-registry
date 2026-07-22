@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/ADSR",
+    "plugin": "Fundamental",
+    "model": "ADSR",
+    "name": "ADSR EG",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/ADSR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/ADSR.webp",
+    "wasmUrl": "packages/Fundamental/ADSR/2.6.4/module.wasm",
+    "width": 135,
+    "description": "Generates an envelope with Attack/Decay/Sustain/Release",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 19.5,
+          "y": 163.742,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 51.499,
+          "y": 163.742,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 83.501,
+          "y": 163.742,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 115.5,
+          "y": 163.742,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Attack CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.5,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Decay CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 51.499,
+          "y": 238.081,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sustain CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 83.501,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Release CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 115.509,
+          "y": 238.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Push",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19.5,
+          "y": 334.001,
+          "centered": true,
+          "widget": "VCVLightBezel<WhiteLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 19.5,
+          "y": 286.069,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "kind": "cv",
+        "position": {
+          "x": 51.499,
+          "y": 286.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sustain",
+        "kind": "cv",
+        "position": {
+          "x": 83.501,
+          "y": 286.081,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Release",
+        "kind": "cv",
+        "position": {
+          "x": 115.509,
+          "y": 286.093,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 51.499,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Retrigger",
+        "kind": "gate",
+        "position": {
+          "x": 83.501,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 115.509,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 19.5,
+          "y": 163.742,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 51.499,
+          "y": 163.742,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 83.501,
+          "y": 163.742,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 115.5,
+          "y": 163.742,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightBezel<WhiteLight>",
+        "position": {
+          "x": 19.5,
+          "y": 334.001,
+          "centered": true
+        },
+        "paramId": 8
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "5e9e4638b92456f22e1324a28ccfee71c96e70d4fd7184977ed5860968d082ba",
+      "size": 75921
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "ce3ac61570c786a7",
+    "builtAt": "2026-07-19T08:37:16.852Z"
+  }
+}

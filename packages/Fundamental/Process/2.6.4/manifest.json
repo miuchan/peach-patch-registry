@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/Process",
+    "plugin": "Fundamental",
+    "model": "Process",
+    "name": "Process",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/Process",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Process.webp",
+    "wasmUrl": "packages/Fundamental/Process/2.6.4/module.wasm",
+    "width": 180,
+    "description": "CV processor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Slew",
+        "min": -9.965784284662087,
+        "max": 3.321928094887362,
+        "default": -9.965784072875977
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Slew",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Voltage",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sample & hold",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Sample & hold 2",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Track & hold",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Hold & track",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Slew",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Glide",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "fabe15bb924fdc1e24c0c0b37d172cc5f14d6894d6294f54a547ef869a0508dd",
+      "size": 44310
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "c028c37a6c11c425",
+    "builtAt": "2026-07-18T05:54:02.397Z"
+  }
+}

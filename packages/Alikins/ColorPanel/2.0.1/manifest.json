@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Alikins/ColorPanel",
+    "plugin": "Alikins",
+    "model": "ColorPanel",
+    "name": "Color Panel",
+    "brand": "Alikins",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/alikins/Alikins-rack-plugins",
+    "libraryUrl": "https://library.vcvrack.com/Alikins/ColorPanel",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Alikins/ColorPanel.webp",
+    "wasmUrl": "packages/Alikins/ColorPanel/2.0.1/module.wasm",
+    "width": 15,
+    "description": "Control the color of the panel with CV",
+    "params": [
+      {
+        "id": 0,
+        "name": "Red or Hue",
+        "min": 0,
+        "max": 1,
+        "default": 0.75
+      },
+      {
+        "id": 1,
+        "name": "Green or Saturation",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Blue or Lightness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Red",
+        "kind": "cv",
+        "position": {
+          "x": -11.803,
+          "y": 340
+        }
+      },
+      {
+        "id": 1,
+        "name": "Green",
+        "kind": "cv",
+        "position": {
+          "x": 1.066,
+          "y": 340
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blue",
+        "kind": "cv",
+        "position": {
+          "x": 13.934,
+          "y": 340
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "inputRange",
+        "type": "integer"
+      },
+      {
+        "key": "colorMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "632b7cfad0acdf40d0bbe988bfa0c918364c5714043cb56c310e964e77a7ead0",
+      "size": 66998
+    }
+  },
+  "source": {
+    "url": "https://github.com/alikins/Alikins-rack-plugins",
+    "commit": "c403f2c04e10dbb1513c9632c77801de6f8e9af2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:53:01.250Z"
+  }
+}

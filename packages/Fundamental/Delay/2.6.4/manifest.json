@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/Delay",
+    "plugin": "Fundamental",
+    "model": "Delay",
+    "name": "Delay",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/Delay",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Delay.webp",
+    "wasmUrl": "packages/Fundamental/Delay/2.6.4/module.wasm",
+    "width": 134.99999,
+    "description": "",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time",
+        "min": 0,
+        "max": 1,
+        "default": 0.6747425198554993,
+        "position": {
+          "x": 37.143,
+          "y": 78.977,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.143,
+          "y": 78.977,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37.143,
+          "y": 166.5,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.143,
+          "y": 166.5,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Time CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.503,
+          "y": 237.877,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Feedback CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 51.502,
+          "y": 237.877,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tone CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 83.498,
+          "y": 237.877,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mix CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 115.497,
+          "y": 237.877,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time",
+        "kind": "cv",
+        "position": {
+          "x": 19.503,
+          "y": 286.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback",
+        "kind": "cv",
+        "position": {
+          "x": 51.502,
+          "y": 286.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone",
+        "kind": "cv",
+        "position": {
+          "x": 83.498,
+          "y": 285.883,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 115.497,
+          "y": 285.883,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 19.503,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 51.502,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 115.497,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wet",
+        "kind": "audio",
+        "position": {
+          "x": 83.498,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 67.14,
+          "y": 48.508,
+          "centered": true
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 21037056,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "f51b391fdf195265757a0a3c5db2f8cb8a3fc065c16152b0b9261af6a649a681",
+      "size": 74141
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "eb634d210602c76b",
+    "builtAt": "2026-07-19T08:39:33.925Z"
+  }
+}

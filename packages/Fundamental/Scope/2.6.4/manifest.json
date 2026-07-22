@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Fundamental/Scope",
+    "plugin": "Fundamental",
+    "model": "Scope",
+    "name": "Scope",
+    "brand": "VCV",
+    "version": "2.6.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Fundamental",
+    "libraryUrl": "https://library.vcvrack.com/Fundamental/Scope",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Scope.webp",
+    "wasmUrl": "packages/Fundamental/Scope/2.6.4/module.wasm",
+    "width": 195,
+    "description": "Inspect waveforms with an oscilloscope",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gain 1",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 73.515,
+          "y": 237.847,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset 1",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 73.515,
+          "y": 285.794,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gain 2",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 121.497,
+          "y": 237.847,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset 2",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 121.497,
+          "y": 285.871,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Time",
+        "min": -5.643856048583984,
+        "max": 7.643856048583984,
+        "default": 1,
+        "position": {
+          "x": 25.521,
+          "y": 285.883,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scope mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 25.521,
+          "y": 238.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trigger threshold",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 169.479,
+          "y": 285.871,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 169.479,
+          "y": 237.759,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ch 1",
+        "kind": "cv",
+        "position": {
+          "x": 25.521,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 2",
+        "kind": "cv",
+        "position": {
+          "x": 97.509,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "External trigger",
+        "kind": "gate",
+        "position": {
+          "x": 169.479,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ch 1",
+        "kind": "cv",
+        "position": {
+          "x": 61.515,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 2",
+        "kind": "cv",
+        "position": {
+          "x": 133.5,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 25.521,
+          "y": 238.001,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 169.479,
+          "y": 237.759,
+          "centered": true
+        },
+        "paramId": 7
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "kind": "scope",
+          "inputs": [
+            0,
+            1
+          ],
+          "x": 0,
+          "y": 38.5,
+          "width": 195,
+          "height": 165
+        }
+      ]
+    },
+    "artifact": {
+      "sha256": "52e841f526bb9c06e39fbba418ac48d5306c0da4cc722484e2dcf189eb45688f",
+      "size": 73085
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Fundamental",
+    "commit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "ce3ac61570c786a7",
+    "builtAt": "2026-07-19T08:37:35.518Z"
+  }
+}

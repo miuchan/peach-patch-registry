@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Venom/NORS_IQ",
+    "plugin": "Venom",
+    "model": "NORS_IQ",
+    "name": "Non-Octave-Repeating Scale Intervallic Quantizer",
+    "brand": "",
+    "version": "2.15.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/DaveBenham/VenomModules",
+    "libraryUrl": "https://library.vcvrack.com/Venom/NORS_IQ",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Venom/NORS_IQ.webp",
+    "wasmUrl": "packages/Venom/NORS_IQ/2.15.0/module.wasm",
+    "width": 405,
+    "description": "Quantizer for any scale defined by up to 13 intervals between notes",
+    "params": [
+      {
+        "id": 0,
+        "name": "Interval unit",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Pseudo-octave interval",
+        "min": 0,
+        "max": 4,
+        "default": 1
+      },
+      {
+        "id": 2,
+        "name": "Equal divisions per pseudo-octave",
+        "min": 1,
+        "max": 100,
+        "default": 12
+      },
+      {
+        "id": 3,
+        "name": "Scale length",
+        "min": 1,
+        "max": 1,
+        "default": 12
+      },
+      {
+        "id": 4,
+        "name": "Scale root",
+        "min": -4,
+        "max": 4,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Scale root unit",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Round algorithm",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Equi-likely",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Equal Interval Divisions",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pseudo-octave interval CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Equal divisions per pseudo-octave CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Scale length CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Scale root CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Polyphonic intervals",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Pseudo-octave",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "bypassRoutes": [
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "8142e0ffe1df9ad194594ecd347a19b138056a722fe9ad4b6363e49175345b6c",
+      "size": 64892
+    }
+  },
+  "source": {
+    "url": "https://github.com/DaveBenham/VenomModules",
+    "commit": "f0c7fd2af1da6e8232afd7fa84295a9d368631d4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "1280a04564ef6abb",
+    "builtAt": "2026-07-18T07:12:23.558Z"
+  }
+}

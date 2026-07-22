@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "VCV-Recorder/Recorder",
+    "plugin": "VCV-Recorder",
+    "model": "Recorder",
+    "name": "Recorder",
+    "brand": "VCV Recorder",
+    "version": "2.0.3",
+    "license": "GPL-3.0-or-later",
+    "runtime": {
+      "strategy": "browser-dsp-adapter",
+      "capture": {
+        "format": "wav",
+        "channels": "input-dependent"
+      }
+    },
+    "sourceUrl": "https://github.com/VCVRack/Recorder",
+    "libraryUrl": "https://library.vcvrack.com/VCV-Recorder/Recorder",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/VCV-Recorder/Recorder.webp",
+    "wasmUrl": "packages/VCV-Recorder/Recorder/2.0.3/module.wasm",
+    "width": 120,
+    "description": "VCV Recorder translated to browser-safe PCM capture with Rack-compatible gate, trigger, gain, mono/stereo, VU, and downloadable WAV output",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Record",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Left/mono",
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Right",
+        "kind": "audio"
+      }
+    ],
+    "outputs": [],
+    "lights": 13,
+    "artifact": {
+      "sha256": "349766b696918038e4579dc201f1b5d2ff9f59454405c41d6a5c303a0fe47231",
+      "size": 67430
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Recorder",
+    "commit": null
+  },
+  "build": {
+    "strategy": "browser-dsp-adapter",
+    "fingerprint": null,
+    "builtAt": null
+  }
+}

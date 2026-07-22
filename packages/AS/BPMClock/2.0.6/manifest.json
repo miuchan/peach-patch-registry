@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AS/BPMClock",
+    "plugin": "AS",
+    "model": "BPMClock",
+    "name": "BPM Clock",
+    "brand": "AS",
+    "version": "2.0.6",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/AScustomWorks/AS",
+    "libraryUrl": "https://library.vcvrack.com/AS/BPMClock",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AS/BPMClock.webp",
+    "wasmUrl": "packages/AS/BPMClock/2.0.6/module.wasm",
+    "width": 90,
+    "description": "BPM Clock",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tempo",
+        "min": 30,
+        "max": 300,
+        "default": 120,
+        "position": {
+          "x": 8,
+          "y": 69,
+          "widget": "as_KnobBlackSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode: Regular/Extended",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 67,
+          "y": 77,
+          "widget": "as_CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time Signature Top",
+        "min": 2,
+        "max": 15,
+        "default": 4,
+        "position": {
+          "x": 8,
+          "y": 110,
+          "widget": "as_Knob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Time Signature Bottom",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 8,
+          "y": 150,
+          "widget": "as_Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 33.5,
+          "y": 241,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 33.5,
+          "y": 202,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Run CV",
+        "kind": "gate",
+        "position": {
+          "x": 6,
+          "y": 200
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset CV",
+        "kind": "gate",
+        "position": {
+          "x": 6,
+          "y": 240
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Beat",
+        "kind": "cv",
+        "position": {
+          "x": 59,
+          "y": 280
+        }
+      },
+      {
+        "id": 1,
+        "name": "Eights",
+        "kind": "cv",
+        "position": {
+          "x": 6,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sixteenths",
+        "kind": "cv",
+        "position": {
+          "x": 59,
+          "y": 320
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bar",
+        "kind": "cv",
+        "position": {
+          "x": 6,
+          "y": 280
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 59,
+          "y": 240
+        }
+      },
+      {
+        "id": 5,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 59,
+          "y": 200
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 35.7,
+          "y": 204.3
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<RedLight>",
+        "position": {
+          "x": 35.7,
+          "y": 243.2
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "6f2695044c05ad4534fbed056b86c065d14bc37658f17568227e613fb8b21615",
+      "size": 72060
+    }
+  },
+  "source": {
+    "url": "https://github.com/AScustomWorks/AS",
+    "commit": "d90eed32afe6745454ef6ac6e391e0d5dc90ec4b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T18:39:12.657Z"
+  }
+}
