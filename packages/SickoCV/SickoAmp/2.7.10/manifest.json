@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/SickoAmp",
+    "plugin": "SickoCV",
+    "model": "SickoAmp",
+    "name": "sickoAmp",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/SickoAmp",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/SickoAmp.webp",
+    "wasmUrl": "packages/SickoCV/SickoAmp/2.7.10/module.wasm",
+    "width": 45,
+    "description": "Stereo VCA up to 200% with limiter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Base Level",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 197.539,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level CV",
+        "min": -1,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.5,
+          "y": 132.579,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Limit",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 241.24,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Limit Voltage",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 22.5,
+          "y": 270.768,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "IN 2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Level",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 164.764,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 241.24,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "PolyOuts",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/SickoAmp/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "addcbb8fcb680fbdc9226a795d059112f3a6ea3c7f493df1cf27cc9754584633",
+      "size": 71027
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:33:10.447Z"
+  }
+}

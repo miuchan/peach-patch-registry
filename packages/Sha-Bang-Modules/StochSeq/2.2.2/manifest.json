@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/StochSeq",
+    "plugin": "Sha-Bang-Modules",
+    "model": "StochSeq",
+    "name": "Stochastic Sequencer 1",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/StochSeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/StochSeq.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/StochSeq/2.2.2/module.wasm",
+    "width": 100,
+    "description": "Probabilistic sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 71.4,
+          "y": 256.8,
+          "centered": true,
+          "widget": "TinyBlueButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pattern",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 140.5,
+          "y": 228.7,
+          "centered": true,
+          "widget": "BlueInvertKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Randomize pattern",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 175,
+          "y": 228.7,
+          "centered": true,
+          "widget": "DefaultButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Invert pattern",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 209.5,
+          "y": 228.7,
+          "centered": true,
+          "widget": "DefaultButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Diminish pattern",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 244.1,
+          "y": 228.7,
+          "centered": true,
+          "widget": "DefaultButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Seq length",
+        "min": 1,
+        "max": 32,
+        "default": 32,
+        "position": {
+          "x": 105.9,
+          "y": 228.7,
+          "centered": true,
+          "widget": "BlueInvertKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Volt scale",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 451.7,
+          "y": 256.8,
+          "centered": true,
+          "widget": "BlueKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Root note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 282,
+          "y": 228.7,
+          "centered": true,
+          "widget": "BlueNoteKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale",
+        "min": 0,
+        "max": 32,
+        "default": 0,
+        "position": {
+          "x": 282,
+          "y": 256.8,
+          "centered": true,
+          "widget": "BlueScaleKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Randomize pattern",
+        "kind": "cv",
+        "position": {
+          "x": 175,
+          "y": 256.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Invert pattern",
+        "kind": "cv",
+        "position": {
+          "x": 209.5,
+          "y": 256.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Diminish pattern",
+        "kind": "cv",
+        "position": {
+          "x": 244.1,
+          "y": 256.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 36.9,
+          "y": 228.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 36.9,
+          "y": 256.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Memory Bank CV",
+        "kind": "cv",
+        "position": {
+          "x": 71.4,
+          "y": 228.7,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gates",
+        "kind": "gate",
+        "position": {
+          "x": 44.2,
+          "y": 295.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gates",
+        "kind": "gate",
+        "position": {
+          "x": 360.7,
+          "y": 228.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Not Gates",
+        "kind": "gate",
+        "position": {
+          "x": 397.1,
+          "y": 228.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Inverted Pitch (V/OCT)",
+        "kind": "cv",
+        "position": {
+          "x": 433.5,
+          "y": 228.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pitch (V/OCT)",
+        "kind": "cv",
+        "position": {
+          "x": 469.9,
+          "y": 228.7,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 4,
+        "widget": "SmallLight<JeremyPurpleLight>",
+        "position": {
+          "x": 238.1,
+          "y": 340.2
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<JeremyBlueLight>",
+        "position": {
+          "x": 250.7,
+          "y": 340.2
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<JeremyAquaLight>",
+        "position": {
+          "x": 238.1,
+          "y": 352.3
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<JeremyRedLight>",
+        "position": {
+          "x": 250.7,
+          "y": 352.3
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "currentPattern",
+        "type": "integer"
+      },
+      {
+        "key": "currentMemBank",
+        "type": "integer"
+      },
+      {
+        "key": "percentages",
+        "type": "boolean"
+      },
+      {
+        "key": "kbshortcuts",
+        "type": "boolean"
+      },
+      {
+        "key": "gateMode",
+        "type": "integer"
+      },
+      {
+        "key": "voltMode",
+        "type": "integer"
+      },
+      {
+        "key": "voltRange",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/StochSeq/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "5ead4e860ea6a6a9745c251aa48a73f1548b2c91189316c377b05c6e0e5f8b8f",
+      "size": 94035
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:24.935Z"
+  }
+}

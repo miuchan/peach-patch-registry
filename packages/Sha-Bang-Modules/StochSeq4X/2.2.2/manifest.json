@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/StochSeq4X",
+    "plugin": "Sha-Bang-Modules",
+    "model": "StochSeq4X",
+    "name": "Stochastic Sequencer 4 Expander",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/StochSeq4X",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/StochSeq4X.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/StochSeq4X/2.2.2/module.wasm",
+    "width": 100,
+    "description": "Expander for the StochSeq4",
+    "params": [
+      {
+        "id": 0,
+        "name": "Outputs",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 60,
+          "y": 83.1,
+          "centered": true,
+          "widget": "BlueInvertKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Freq",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gates",
+        "kind": "gate",
+        "position": {
+          "x": 19.9,
+          "y": 76.7,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Sha-Bang-Modules/StochSeq4",
+            "symbol": "modelStochSeq4",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/StochSeq4X/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "a0f6306b1b36acb4bb7e22e25a506e76dd0d4932e2be17d76ffcd63c9395c918",
+      "size": 71398
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:25.949Z"
+  }
+}

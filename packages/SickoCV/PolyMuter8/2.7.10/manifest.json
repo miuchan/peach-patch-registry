@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/PolyMuter8",
+    "plugin": "SickoCV",
+    "model": "PolyMuter8",
+    "name": "polyMuter8",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/PolyMuter8",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/PolyMuter8.webp",
+    "wasmUrl": "packages/SickoCV/PolyMuter8/2.7.10/module.wasm",
+    "width": 60,
+    "description": "Mutes up to 8 single channels of a poly-cable",
+    "params": [
+      {
+        "id": 0,
+        "name": "Fade",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 29.823,
+          "y": 88.583,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mute #1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 19.193,
+          "y": 125.492,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<RedLight>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mute #1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 41.339,
+          "y": 149.114,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<RedLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mute #2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Mute #3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Mute #4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Mute #5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Mute #6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Mute #7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv",
+        "position": {
+          "x": 19.193,
+          "y": 50.197,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv",
+        "position": {
+          "x": 29.823,
+          "y": 342.52,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightBezelLatch<RedLight>",
+        "position": {
+          "x": 19.193,
+          "y": 125.492,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightBezelLatch<RedLight>",
+        "position": {
+          "x": 41.339,
+          "y": 149.114,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "showOut",
+        "type": "boolean"
+      },
+      {
+        "key": "shrink",
+        "type": "boolean"
+      },
+      {
+        "key": "shrink10v",
+        "type": "boolean"
+      },
+      {
+        "key": "initStart",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/PolyMuter8/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "7c0fab84589a43ed804b2e1cb10ce44fedd12cc060fb9bfa43d8174279ed3501",
+      "size": 75111
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:33:01.005Z"
+  }
+}

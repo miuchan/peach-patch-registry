@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/Switcher",
+    "plugin": "SickoCV",
+    "model": "Switcher",
+    "name": "switcher",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/Switcher",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/Switcher.webp",
+    "wasmUrl": "packages/SickoCV/Switcher/2.7.10/module.wasm",
+    "width": 45,
+    "description": "2>1 switch, 1>2 router, 2 signal swapper, mute, flip flop, toggle gate",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 11.811,
+          "y": 33.514,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fade Time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 244.783,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trig/Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 115.157,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "IN 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 163.878,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "IN 2",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 190.453,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fade Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 273.13,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 321.85,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 348.425,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 153.543,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 180.118,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 311.516,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 338.091,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "InitStart",
+        "type": "boolean"
+      },
+      {
+        "key": "routeAndHold",
+        "type": "boolean"
+      },
+      {
+        "key": "holdValue0",
+        "type": "real"
+      },
+      {
+        "key": "holdValue1",
+        "type": "real"
+      },
+      {
+        "key": "holdValue2",
+        "type": "real"
+      },
+      {
+        "key": "holdValue3",
+        "type": "real"
+      },
+      {
+        "key": "holdValue4",
+        "type": "real"
+      },
+      {
+        "key": "holdValue5",
+        "type": "real"
+      },
+      {
+        "key": "holdValue6",
+        "type": "real"
+      },
+      {
+        "key": "holdValue7",
+        "type": "real"
+      },
+      {
+        "key": "holdValue8",
+        "type": "real"
+      },
+      {
+        "key": "holdValue9",
+        "type": "real"
+      },
+      {
+        "key": "holdValue10",
+        "type": "real"
+      },
+      {
+        "key": "holdValue11",
+        "type": "real"
+      },
+      {
+        "key": "holdValue12",
+        "type": "real"
+      },
+      {
+        "key": "holdValue13",
+        "type": "real"
+      },
+      {
+        "key": "holdValue14",
+        "type": "real"
+      },
+      {
+        "key": "holdValue15",
+        "type": "real"
+      },
+      {
+        "key": "State",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/Switcher/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "5311ddb44997a9152f70ad7a01f279e733c55b3e402934457d7eb535a2299c2e",
+      "size": 95992
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:33:23.703Z"
+  }
+}

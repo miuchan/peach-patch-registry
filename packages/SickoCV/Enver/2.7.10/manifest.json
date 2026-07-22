@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/Enver",
+    "plugin": "SickoCV",
+    "model": "Enver",
+    "name": "enver",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/Enver",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/Enver.webp",
+    "wasmUrl": "packages/SickoCV/Enver/2.7.10/module.wasm",
+    "width": 150,
+    "description": "Envelope generator with stereo VCA",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gate/Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.146,
+          "y": 54.626,
+          "centered": true,
+          "widget": "VCVLightBezel<YellowLight>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 74.855,
+          "y": 49.217,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 121.063,
+          "y": 51.599,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Shape CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 128.359,
+          "y": 85.63,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 138.883,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Attack CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 173.622,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 58.465,
+          "y": 138.883,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Decay CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 58.465,
+          "y": 173.622,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sustain",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 93.307,
+          "y": 138.883,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Sustain CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 93.307,
+          "y": 173.622,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 128.15,
+          "y": 138.883,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Release CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 128.15,
+          "y": 173.622,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Inv. Strength",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 97.441,
+          "y": 244.783,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 73.819,
+          "y": 318.898,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate/Trig",
+        "kind": "gate",
+        "position": {
+          "x": 22.146,
+          "y": 85.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Retrig",
+        "kind": "gate",
+        "position": {
+          "x": 48.72,
+          "y": 85.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shape",
+        "kind": "cv",
+        "position": {
+          "x": 100.394,
+          "y": 85.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 200.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Decay",
+        "kind": "cv",
+        "position": {
+          "x": 58.465,
+          "y": 200.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sustain",
+        "kind": "cv",
+        "position": {
+          "x": 93.307,
+          "y": 200.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Release",
+        "kind": "cv",
+        "position": {
+          "x": 128.15,
+          "y": 200.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 26.575,
+          "y": 317.421,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 26.575,
+          "y": 345.472,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Level",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 345.472,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "EoA",
+        "kind": "cv",
+        "position": {
+          "x": 28.051,
+          "y": 239.173,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "EoD",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 239.173,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "EoS",
+        "kind": "cv",
+        "position": {
+          "x": 28.051,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "EoR",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 128.445,
+          "y": 256.89,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Inv.Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 97.441,
+          "y": 268.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 124.016,
+          "y": 317.421,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 124.016,
+          "y": 345.472,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightBezel<YellowLight>",
+        "position": {
+          "x": 22.146,
+          "y": 54.626,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/Enver/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "11174e92de94337e149b1cf4473fa65c73ab57e76048c3a274dd70aefa614cc5",
+      "size": 90816
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:52.073Z"
+  }
+}

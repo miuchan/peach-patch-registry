@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/Modulator",
+    "plugin": "SickoCV",
+    "model": "Modulator",
+    "name": "modulator",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/Modulator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/Modulator.webp",
+    "wasmUrl": "packages/SickoCV/Modulator/2.7.10/module.wasm",
+    "width": 75,
+    "description": "triangle/ramp LFOs with sync feature (mod)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 23.622,
+          "y": 46.949,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 64.665,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 21.555,
+          "y": 128.445,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<GreenLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulses per Cycle",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 53.74,
+          "y": 165.945,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37.5,
+          "y": 193.996,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 25.098,
+          "y": 234.744,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 57.579,
+          "y": 234.744,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54.626,
+          "y": 312.402,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 21.555,
+          "y": 276.083,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 79.724,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 21.555,
+          "y": 165.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync Toggle",
+        "kind": "cv",
+        "position": {
+          "x": 54.626,
+          "y": 128.445,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 54.626,
+          "y": 276.083,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 21.555,
+          "y": 312.402,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT",
+        "kind": "cv",
+        "position": {
+          "x": 54.626,
+          "y": 346.654,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightBezelLatch<GreenLight>",
+        "position": {
+          "x": 21.555,
+          "y": 128.445,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 57.579,
+          "y": 234.744,
+          "centered": true
+        },
+        "paramId": 6
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "wait2ndClock",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/Modulator/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "dcb8ab820660732d45a1725c8d102c0b5429337dd1486ff8e38782198cc9ad7a",
+      "size": 74252
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:56.144Z"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sparkette/VoltageRange",
+    "plugin": "Sparkette",
+    "model": "VoltageRange",
+    "name": "Voltage Range",
+    "brand": "Sparkette's Stuff",
+    "version": "2.8.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sparkette/VoltageRange",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/VoltageRange.webp",
+    "wasmUrl": "packages/Sparkette/VoltageRange/2.8.1/module.wasm",
+    "width": 45,
+    "description": "Generates a smooth range of values between and including two specified voltages on a polyphonic output.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel count",
+        "min": 2,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 22.5,
+          "y": 41.277,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start voltage",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 92.215,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Start voltage modulation",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 118.465,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "End voltage",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 189.715,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "End voltage modulation",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 215.965,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Start voltage CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 144.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "End voltage CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 242.215,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Delta",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 287.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Range",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 332.528,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sparkette/VoltageRange/2.8.1/manifest.json",
+    "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+    "artifact": {
+      "sha256": "807d4e36182cf9205928e06291bda7c0295377a18a5b35b77c8ed750e4fc7c1e",
+      "size": 69129
+    }
+  },
+  "source": {
+    "url": "https://github.com/flarn2006/SparketteVCV",
+    "commit": "b90cd69589ac77f41f626ea4ecb3a49d57780239"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:35:16.198Z"
+  }
+}

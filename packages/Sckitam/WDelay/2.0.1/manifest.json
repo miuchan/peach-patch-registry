@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sckitam/WDelay",
+    "plugin": "Sckitam",
+    "model": "WDelay",
+    "name": "WaveguideDelay",
+    "brand": "Sckitam",
+    "version": "2.0.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/philippesalembier/SckitamVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sckitam/WDelay",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sckitam/WDelay.webp",
+    "wasmUrl": "packages/Sckitam/WDelay/2.0.1/module.wasm",
+    "width": 90,
+    "description": "High precision delay. Building block for waveguide, Karplus-Strong synthesis, Flanger and Chorus",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay adjustment (samples)",
+        "min": -16,
+        "max": 0,
+        "default": 0,
+        "position": {
+          "x": 22.503,
+          "y": 72.844,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 67.14,
+          "y": 72.844,
+          "centered": true,
+          "widget": "RoundGreenKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.14,
+          "y": 72.844,
+          "centered": true,
+          "widget": "RoundBlueKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pickup position",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.503,
+          "y": 137.197,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pickup modulation amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.503,
+          "y": 168.407,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Feedback amount",
+        "min": 0,
+        "max": 0.9990000128746033,
+        "default": 0,
+        "position": {
+          "x": 31.352,
+          "y": 332.973,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Plus or Minus",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 3.543,
+          "y": 306.791,
+          "widget": "ScButton1"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Delay value",
+        "kind": "cv",
+        "position": {
+          "x": 67.14,
+          "y": 116.474,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pickup position CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.503,
+          "y": 193.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 22.503,
+          "y": 244.615,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Feedback",
+        "kind": "cv",
+        "position": {
+          "x": 68.536,
+          "y": 332.064,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pickup",
+        "kind": "cv",
+        "position": {
+          "x": 67.122,
+          "y": 193.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Delay",
+        "kind": "cv",
+        "position": {
+          "x": 67.122,
+          "y": 244.615,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 20.374,
+          "y": 303.839
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 20.374,
+          "y": 312.697
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "delaySpec",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sckitam/WDelay/2.0.1/manifest.json",
+    "sourceCommit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d",
+    "artifact": {
+      "sha256": "9884627ab93d6587c2fc0f60ab0b3e6dd18c85f04485caa5ec58852b3322d2ac",
+      "size": 79518
+    }
+  },
+  "source": {
+    "url": "https://github.com/philippesalembier/SckitamVCV",
+    "commit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:31:41.871Z"
+  }
+}

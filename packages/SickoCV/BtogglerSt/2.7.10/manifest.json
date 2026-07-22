@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/BtogglerSt",
+    "plugin": "SickoCV",
+    "model": "BtogglerSt",
+    "name": "bToggler",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/BtogglerSt",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/BtogglerSt.webp",
+    "wasmUrl": "packages/SickoCV/BtogglerSt/2.7.10/module.wasm",
+    "width": 135,
+    "description": "Buffered stereo signal toggle switch router, with VCA and ASR envelope generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 25.039,
+          "y": 177.165,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 25.039,
+          "y": 211.122,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sustain Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 67.323,
+          "y": 177.165,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sustain CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.323,
+          "y": 211.122,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.197,
+          "y": 177.165,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Release CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110.197,
+          "y": 211.122,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 46.299,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Arm",
+        "kind": "cv",
+        "position": {
+          "x": 36.909,
+          "y": 110.728,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 97.441,
+          "y": 110.728,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "L",
+        "kind": "cv",
+        "position": {
+          "x": 20.669,
+          "y": 321.26,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "R",
+        "kind": "cv",
+        "position": {
+          "x": 48.72,
+          "y": 321.26,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 25.039,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sustain",
+        "kind": "cv",
+        "position": {
+          "x": 67.323,
+          "y": 237.697,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Release",
+        "kind": "cv",
+        "position": {
+          "x": 110.197,
+          "y": 237.697,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "L",
+        "kind": "cv",
+        "position": {
+          "x": 85.63,
+          "y": 304.724,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "R",
+        "kind": "cv",
+        "position": {
+          "x": 115.748,
+          "y": 304.724,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 100.394,
+          "y": 343.996,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 121.654,
+          "y": 338.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 121.654,
+          "y": 350.492,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "InitStart",
+        "type": "boolean"
+      },
+      {
+        "key": "DisableUnarm",
+        "type": "boolean"
+      },
+      {
+        "key": "TrigOnGateOut",
+        "type": "boolean"
+      },
+      {
+        "key": "State",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/BtogglerSt/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "66ff11c3f86f819c5fec869e890c1d14a46893d227eb26265c11392204bda14f",
+      "size": 77184
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:38.366Z"
+  }
+}

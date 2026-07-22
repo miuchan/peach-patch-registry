@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Rigatoni/RigatoniModular-ThruZero",
+    "plugin": "Rigatoni",
+    "model": "RigatoniModular-ThruZero",
+    "name": "Thru Zero",
+    "brand": "Rigatoni Modular",
+    "version": "2.2.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/ianjhoffman/RigatoniModular",
+    "libraryUrl": "https://library.vcvrack.com/Rigatoni/RigatoniModular-ThruZero",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Rigatoni/RigatoniModular-ThruZero.webp",
+    "wasmUrl": "packages/Rigatoni/RigatoniModular-ThruZero/2.2.0/module.wasm",
+    "width": 180,
+    "description": "A small waveshaping utility that mimics soft oscillator sync for input ramp waves and acts as a through zero FM helper",
+    "params": [
+      {
+        "id": 0,
+        "name": "Thru-zero threshold",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 120.8,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input ramp level",
+        "min": -2,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 190.166,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Enable spike smoothing",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 18.366,
+          "y": 47.601,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Enable classic XWY flavor",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 42.162,
+          "y": 47.601,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input level CV",
+        "kind": "cv",
+        "position": {
+          "x": 14.935,
+          "y": 241.388,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Threshold CV",
+        "kind": "gate",
+        "position": {
+          "x": 14.935,
+          "y": 270.915,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "1V/oct CV input",
+        "kind": "cv",
+        "position": {
+          "x": 14.935,
+          "y": 300.443,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ramp input",
+        "kind": "cv",
+        "position": {
+          "x": 14.935,
+          "y": 329.97,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Forward direction gate",
+        "kind": "gate",
+        "position": {
+          "x": 43.707,
+          "y": 241.388,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/oct CV output",
+        "kind": "cv",
+        "position": {
+          "x": 43.707,
+          "y": 270.915,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sine output",
+        "kind": "cv",
+        "position": {
+          "x": 43.707,
+          "y": 300.443,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ramp output",
+        "kind": "cv",
+        "position": {
+          "x": 43.707,
+          "y": 329.97,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 41.719,
+          "y": 82.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 18.281,
+          "y": 82.028,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Rigatoni/RigatoniModular-ThruZero/2.2.0/manifest.json",
+    "sourceCommit": "878b3e93bd3e6ce646d90001aadc5960a9bba8ce",
+    "artifact": {
+      "sha256": "2921527667ae237817a43126bbd7daff25a068db6ee1594c8718e99ea98273ec",
+      "size": 69707
+    }
+  },
+  "source": {
+    "url": "https://github.com/ianjhoffman/RigatoniModular",
+    "commit": "878b3e93bd3e6ce646d90001aadc5960a9bba8ce"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:28:52.756Z"
+  }
+}

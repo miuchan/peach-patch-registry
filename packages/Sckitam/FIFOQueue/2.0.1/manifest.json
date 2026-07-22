@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sckitam/FIFOQueue",
+    "plugin": "Sckitam",
+    "model": "FIFOQueue",
+    "name": "FIFOQueue",
+    "brand": "Sckitam",
+    "version": "2.0.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/philippesalembier/SckitamVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sckitam/FIFOQueue",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sckitam/FIFOQueue.webp",
+    "wasmUrl": "packages/Sckitam/FIFOQueue/2.0.1/module.wasm",
+    "width": 75,
+    "description": "First-in First-out Queue",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger to write in the queue,",
+        "kind": "gate",
+        "position": {
+          "x": 19.031,
+          "y": 56.17,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger to retrieve from the queue,",
+        "kind": "gate",
+        "position": {
+          "x": 19.031,
+          "y": 102.582,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Loop on/off,",
+        "kind": "cv",
+        "position": {
+          "x": 19.031,
+          "y": 148.993,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Empty the queue,",
+        "kind": "gate",
+        "position": {
+          "x": 19.031,
+          "y": 201.653,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Value to store in the first queue,",
+        "kind": "cv",
+        "position": {
+          "x": 19.031,
+          "y": 256.89,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Value to store in the second queue,",
+        "kind": "cv",
+        "position": {
+          "x": 19.031,
+          "y": 287.894,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Value to store in the third queue,",
+        "kind": "cv",
+        "position": {
+          "x": 19.031,
+          "y": 318.898,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger each time a value is actually retrieved form the queue,",
+        "kind": "gate",
+        "position": {
+          "x": 55.317,
+          "y": 148.993,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Indicate whether the queue is empty (10V) or not (0V),",
+        "kind": "cv",
+        "position": {
+          "x": 55.317,
+          "y": 201.653,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Value retrieved from the first queue,",
+        "kind": "cv",
+        "position": {
+          "x": 55.317,
+          "y": 256.89,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Value retrieved from the second queue,",
+        "kind": "cv",
+        "position": {
+          "x": 55.317,
+          "y": 287.894,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Value retrieved from the third queue,",
+        "kind": "cv",
+        "position": {
+          "x": 55.317,
+          "y": 318.898,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 10,
+    "lightWidgets": [
+      {
+        "id": 9,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 55.317,
+          "y": 62.864,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 55.317,
+          "y": 69.36,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 55.317,
+          "y": 75.856,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 55.317,
+          "y": 82.352,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 55.317,
+          "y": 88.848,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 55.317,
+          "y": 95.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 55.317,
+          "y": 101.841,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 55.317,
+          "y": 108.337,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 55.317,
+          "y": 114.833,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 55.317,
+          "y": 121.329,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sckitam/FIFOQueue/2.0.1/manifest.json",
+    "sourceCommit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d",
+    "artifact": {
+      "sha256": "03bff3bf59b8c857d5f842be38fdbe69b14dacd3fc1ccf3b66b1fc7b6fb389ec",
+      "size": 72973
+    }
+  },
+  "source": {
+    "url": "https://github.com/philippesalembier/SckitamVCV",
+    "commit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:31:37.269Z"
+  }
+}

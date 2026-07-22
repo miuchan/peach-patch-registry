@@ -1,0 +1,822 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/Modulator7",
+    "plugin": "SickoCV",
+    "model": "Modulator7",
+    "name": "modulator7",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/Modulator7",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/Modulator7.webp",
+    "wasmUrl": "packages/SickoCV/Modulator7/2.7.10/module.wasm",
+    "width": 210,
+    "description": "7 triangle/ramp LFOs with sync feature (mod7)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 35.433,
+          "y": 62.008,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 55.512,
+          "y": 94.488,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 91.535,
+          "y": 88.583,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<BlueLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulses per Cycle",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 141.732,
+          "y": 94.488,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Poly Chans",
+        "min": 1,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 187.5,
+          "y": 87.697,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 123.13,
+          "y": 53.74,
+          "centered": true,
+          "widget": "VCVLightBezel<YellowLight>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.555,
+          "y": 168.307,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.555,
+          "y": 197.835,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.555,
+          "y": 227.362,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.555,
+          "y": 256.89,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.555,
+          "y": 286.417,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.555,
+          "y": 315.945,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Phase Rst",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.555,
+          "y": 345.472,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.055,
+          "y": 168.307,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.055,
+          "y": 197.835,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.055,
+          "y": 227.362,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.055,
+          "y": 256.89,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.055,
+          "y": 286.417,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.055,
+          "y": 315.945,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 59.055,
+          "y": 345.472,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 20,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.26,
+          "y": 168.307,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.26,
+          "y": 197.835,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 22,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.26,
+          "y": 227.362,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 23,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.26,
+          "y": 256.89,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 24,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.26,
+          "y": 286.417,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 25,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.26,
+          "y": 315.945,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 26,
+        "name": "xRate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.26,
+          "y": 345.472,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.016,
+          "y": 168.307,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.016,
+          "y": 197.835,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.016,
+          "y": 227.362,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.016,
+          "y": 256.89,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.016,
+          "y": 286.417,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.016,
+          "y": 315.945,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.016,
+          "y": 345.472,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.362,
+          "y": 168.307,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.362,
+          "y": 197.835,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.362,
+          "y": 227.362,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.362,
+          "y": 256.89,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.362,
+          "y": 286.417,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.362,
+          "y": 315.945,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.362,
+          "y": 345.472,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "kind": "cv",
+        "position": {
+          "x": 32.48,
+          "y": 115.157,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 90.059,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync Toggle",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 115.157,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 155.61,
+          "y": 53.74,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 188.091,
+          "y": 168.307,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 188.091,
+          "y": 197.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 188.091,
+          "y": 227.362,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 188.091,
+          "y": 256.89,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 188.091,
+          "y": 286.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 188.091,
+          "y": 315.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 188.091,
+          "y": 345.472,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 188.091,
+          "y": 44.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Poly",
+        "kind": "cv",
+        "position": {
+          "x": 187.5,
+          "y": 115.157,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightBezelLatch<BlueLight>",
+        "position": {
+          "x": 91.535,
+          "y": 88.583,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightBezel<YellowLight>",
+        "position": {
+          "x": 123.13,
+          "y": 53.74,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 124.016,
+          "y": 168.307,
+          "centered": true
+        },
+        "paramId": 27
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 124.016,
+          "y": 197.835,
+          "centered": true
+        },
+        "paramId": 28
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 124.016,
+          "y": 227.362,
+          "centered": true
+        },
+        "paramId": 29
+      },
+      {
+        "id": 5,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 124.016,
+          "y": 256.89,
+          "centered": true
+        },
+        "paramId": 30
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 124.016,
+          "y": 286.417,
+          "centered": true
+        },
+        "paramId": 31
+      },
+      {
+        "id": 7,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 124.016,
+          "y": 315.945,
+          "centered": true
+        },
+        "paramId": 32
+      },
+      {
+        "id": 8,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 124.016,
+          "y": 345.472,
+          "centered": true
+        },
+        "paramId": 33
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "wait2ndClock",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/Modulator7/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "dc7a5788f2f63dfaa7cf2af37be1a7753b2eb6e617fd0679590edc2b5eb33814",
+      "size": 78073
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:56.393Z"
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/PolyrhythmClock",
+    "plugin": "Sha-Bang-Modules",
+    "model": "PolyrhythmClock",
+    "name": "Polyrhythm Clock",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/PolyrhythmClock",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/PolyrhythmClock.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/PolyrhythmClock/2.2.2/module.wasm",
+    "width": 100,
+    "description": "Clock with 3 layers of embedded rhythms and randomization",
+    "params": [
+      {
+        "id": 0,
+        "name": "Toggle clock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 54,
+          "centered": true,
+          "widget": "TinyPurpleButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tempo",
+        "min": -2,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 76.7,
+          "centered": true,
+          "widget": "PurpleKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tuplet 1 rhythm",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 19.9,
+          "y": 173.6,
+          "centered": true,
+          "widget": "BlueInvertKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tuplet 1 duration",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 70.1,
+          "y": 173.6,
+          "centered": true,
+          "widget": "BlueInvertKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tuplet 2 rhythm",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 19.9,
+          "y": 249,
+          "centered": true,
+          "widget": "AquaInvertKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tuplet 2 duration",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 70.1,
+          "y": 249,
+          "centered": true,
+          "widget": "AquaInvertKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tuplet 3 rhythm",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 19.9,
+          "y": 322.1,
+          "centered": true,
+          "widget": "RedInvertKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tuplet 3 duration",
+        "min": 1,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 70.1,
+          "y": 322.1,
+          "centered": true,
+          "widget": "RedInvertKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 174.2,
+          "centered": true,
+          "widget": "TinyBlueKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 249.6,
+          "centered": true,
+          "widget": "TinyAquaKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 322.7,
+          "centered": true,
+          "widget": "TinyRedKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 19.9,
+          "y": 76.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "External clock",
+        "kind": "gate",
+        "position": {
+          "x": 70.1,
+          "y": 76.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tuplet 1 rhythm",
+        "kind": "cv",
+        "position": {
+          "x": 19.9,
+          "y": 195.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tuplet 1 duration",
+        "kind": "cv",
+        "position": {
+          "x": 70.1,
+          "y": 195.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tuplet 2 rhythm",
+        "kind": "cv",
+        "position": {
+          "x": 19.9,
+          "y": 271.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tuplet 2 duration",
+        "kind": "cv",
+        "position": {
+          "x": 70.1,
+          "y": 271.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tuplet 3 rhythm",
+        "kind": "cv",
+        "position": {
+          "x": 19.9,
+          "y": 344.3,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tuplet 3 duration",
+        "kind": "cv",
+        "position": {
+          "x": 70.1,
+          "y": 344.3,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main pulse",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 119.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tuplet 1",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 195.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tuplet 2",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 271.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tuplet 3",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 344.3,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<JeremyAquaLight>",
+        "position": {
+          "x": 26.59,
+          "y": 50.79
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "clockOn",
+        "type": "boolean"
+      },
+      {
+        "key": "extmode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/PolyrhythmClock/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "11e9e1275d421028a43f9b2d9cf086e60766fbc28c09e6d72db5cde8f7a33638",
+      "size": 78135
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:22.507Z"
+  }
+}

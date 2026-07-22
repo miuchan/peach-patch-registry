@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/StochSeq4",
+    "plugin": "Sha-Bang-Modules",
+    "model": "StochSeq4",
+    "name": "Stochastic Sequencer 4",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/StochSeq4",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/StochSeq4.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/StochSeq4/2.2.2/module.wasm",
+    "width": 100,
+    "description": "Probabilistic sequencer with four independent voices",
+    "params": [
+      {
+        "id": 0,
+        "name": "Root note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 26.3,
+          "y": 321,
+          "centered": true,
+          "widget": "PurpleNoteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "min": 0,
+        "max": 32,
+        "default": 0,
+        "position": {
+          "x": 26.3,
+          "y": 349.6,
+          "centered": true,
+          "widget": "PurpleScaleKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 184,
+          "y": 63.8,
+          "centered": true,
+          "widget": "TinyBlueButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 8,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Master clock",
+        "kind": "gate",
+        "position": {
+          "x": 119.4,
+          "y": 63.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clocks",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 151.7,
+          "y": 63.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Random",
+        "kind": "cv",
+        "position": {
+          "x": 119.4,
+          "y": 124.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Invert",
+        "kind": "cv",
+        "position": {
+          "x": 119.4,
+          "y": 182.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Diminution",
+        "kind": "cv",
+        "position": {
+          "x": 119.4,
+          "y": 239.4,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Or",
+        "kind": "cv",
+        "position": {
+          "x": 226.4,
+          "y": 345.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Xor",
+        "kind": "cv",
+        "position": {
+          "x": 254.9,
+          "y": 345.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gates",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Not Gates",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Volts",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Inv Volts",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "mclkOverride",
+        "type": "boolean"
+      },
+      {
+        "key": "percentages",
+        "type": "boolean"
+      },
+      {
+        "key": "kbshortcuts",
+        "type": "boolean"
+      },
+      {
+        "key": "focusId",
+        "type": "integer"
+      },
+      {
+        "key": "gateMode",
+        "type": "integer"
+      },
+      {
+        "key": "voltMode",
+        "type": "integer"
+      },
+      {
+        "key": "voltRange",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Sha-Bang-Modules/StochSeq4X",
+            "symbol": "modelStochSeq4X",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/StochSeq4/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "444c9a0bd7eaaa5dd264c31825a1aac7d9f3f43089f502313e44d18eddf29b73",
+      "size": 99534
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:25.560Z"
+  }
+}

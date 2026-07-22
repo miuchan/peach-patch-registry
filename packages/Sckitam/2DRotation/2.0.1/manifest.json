@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sckitam/2DRotation",
+    "plugin": "Sckitam",
+    "model": "2DRotation",
+    "name": "2DRotation",
+    "brand": "Sckitam",
+    "version": "2.0.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/philippesalembier/SckitamVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sckitam/2DRotation",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sckitam/2DRotation.webp",
+    "wasmUrl": "packages/Sckitam/2DRotation/2.0.1/module.wasm",
+    "width": 60,
+    "description": "2D Rotation of 2 input signals",
+    "params": [
+      {
+        "id": 0,
+        "name": "Deg.",
+        "min": -180,
+        "max": 180,
+        "default": 0,
+        "position": {
+          "x": 16.219,
+          "y": 92.471,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Angle Modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 16.219,
+          "y": 138.272,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Velocity",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 43.568,
+          "y": 92.471,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Velocity Modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 43.568,
+          "y": 138.272,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "High or Low Velocity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 34.547,
+          "y": 110.138,
+          "widget": "ScButton1"
+        }
+      },
+      {
+        "id": 5,
+        "name": "X_Offset (Pre-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 8.014,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Y_Offset (Pre-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 37.541,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 7,
+        "name": "X_Offset (Post-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.778,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<BlueLight>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Y_Offset (Post-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 52.305,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<BlueLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rotation CV: +/-5V -> +/-Pi",
+        "kind": "cv",
+        "position": {
+          "x": 16.219,
+          "y": 167.088,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rotation velocity CV",
+        "kind": "cv",
+        "position": {
+          "x": 43.568,
+          "y": 167.088,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input 1",
+        "kind": "cv",
+        "position": {
+          "x": 16.219,
+          "y": 319.606,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input 2",
+        "kind": "cv",
+        "position": {
+          "x": 43.568,
+          "y": 319.606,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 16.219,
+          "y": 348.561,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "cv",
+        "position": {
+          "x": 43.568,
+          "y": 348.561,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 45.768,
+          "y": 105.709
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 45.768,
+          "y": 114.567
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LEDLightSlider<GreenLight>",
+        "position": {
+          "x": 8.014,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 1,
+        "widget": "LEDLightSlider<GreenLight>",
+        "position": {
+          "x": 37.541,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 6
+      },
+      {
+        "id": 2,
+        "widget": "LEDLightSlider<BlueLight>",
+        "position": {
+          "x": 22.778,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 3,
+        "widget": "LEDLightSlider<BlueLight>",
+        "position": {
+          "x": 52.305,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 8
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sckitam/2DRotation/2.0.1/manifest.json",
+    "sourceCommit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d",
+    "artifact": {
+      "sha256": "7afc1c103a5ef34708f9b4c6025c5d79ba63a982c83787bf2f3d5643d8e99313",
+      "size": 77509
+    }
+  },
+  "source": {
+    "url": "https://github.com/philippesalembier/SckitamVCV",
+    "commit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:31:34.374Z"
+  }
+}

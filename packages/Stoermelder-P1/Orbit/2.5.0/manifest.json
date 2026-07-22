@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Stoermelder-P1/Orbit",
+    "plugin": "Stoermelder-P1",
+    "model": "Orbit",
+    "name": "ORBIT",
+    "brand": "stoermelder",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stoermelder/vcvrack-packone.git",
+    "libraryUrl": "https://library.vcvrack.com/Stoermelder-P1/Orbit",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Stoermelder-P1/Orbit.webp",
+    "wasmUrl": "packages/Stoermelder-P1/Orbit/2.5.0/module.wasm",
+    "width": 100,
+    "description": "Polyphonic stereo field spreader.\nRandomly positions each polyphonic channel within a configurable spread, with optional drift to gradually move voices toward or away from the centre.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Maximum stereo spread",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37.5,
+          "y": 60.6,
+          "centered": true,
+          "widget": "StoermelderSmallKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Stereo drift",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 133.9,
+          "centered": true,
+          "widget": "StoermelderSmallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output level",
+        "min": 0,
+        "max": 1.4142135381698608,
+        "default": 1,
+        "position": {
+          "x": 37.5,
+          "y": 300,
+          "centered": true,
+          "widget": "StoermelderTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Spread amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 87.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Distribution",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 221.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 23.5,
+          "y": 266.9,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Stereo spread trigger",
+        "kind": "gate",
+        "position": {
+          "x": 51.5,
+          "y": 266.9,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left channel",
+        "kind": "audio",
+        "position": {
+          "x": 23.5,
+          "y": 327.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right channel",
+        "kind": "audio",
+        "position": {
+          "x": 51.5,
+          "y": 327.7,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "polyOut",
+        "type": "boolean"
+      },
+      {
+        "key": "dist",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Stoermelder-P1/Orbit/2.5.0/manifest.json",
+    "sourceCommit": "d02f0b6d79e792416c5876e369adf2e69f5513bc",
+    "artifact": {
+      "sha256": "1f62ce5e85322aba68b686e2ebdd7479e26fdac27bcca6d0715a7772486865b1",
+      "size": 78287
+    }
+  },
+  "source": {
+    "url": "https://github.com/stoermelder/vcvrack-packone.git",
+    "commit": "d02f0b6d79e792416c5876e369adf2e69f5513bc"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:40:12.594Z"
+  }
+}

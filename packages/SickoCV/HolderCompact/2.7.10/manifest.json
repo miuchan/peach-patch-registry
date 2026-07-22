@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/HolderCompact",
+    "plugin": "SickoCV",
+    "model": "HolderCompact",
+    "name": "holder Compact",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/HolderCompact",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/HolderCompact.webp",
+    "wasmUrl": "packages/SickoCV/HolderCompact/2.7.10/module.wasm",
+    "width": 45,
+    "description": "Sample & Hold or Track & Hold with noise generator, probability and range in a compact form factor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 48.425,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<BlueLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 180.118,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 219.98,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 261.909,
+          "centered": true,
+          "widget": "SickoSmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trig/Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 85.039,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 134.35,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 307.382,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 346.949,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<BlueLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 48.425,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "noiseType",
+        "type": "boolean"
+      },
+      {
+        "key": "sampleOnGate",
+        "type": "integer"
+      },
+      {
+        "key": "gateOnTH",
+        "type": "boolean"
+      },
+      {
+        "key": "trigOnStart",
+        "type": "boolean"
+      },
+      {
+        "key": "trigOnEnd",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/HolderCompact/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "8ad4d99ebb43cdeb642713cda0ac32110dfd04d77447748e0ed7de8de279536f",
+      "size": 85979
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:53.054Z"
+  }
+}

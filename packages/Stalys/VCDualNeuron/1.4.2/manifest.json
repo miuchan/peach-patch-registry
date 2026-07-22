@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Stalys/VCDualNeuron",
+    "plugin": "Stalys",
+    "model": "VCDualNeuron",
+    "name": "VC Dual Neuron",
+    "brand": "Stalys",
+    "version": "1.4.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/denischevalier/StalysVCVPlugin",
+    "libraryUrl": "https://library.vcvrack.com/Stalys/VCDualNeuron",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Stalys/VCDualNeuron.webp",
+    "wasmUrl": "packages/Stalys/VCDualNeuron/1.4.2/module.wasm",
+    "width": 630,
+    "description": "Voltage-controlled neural network module",
+    "params": [
+      {
+        "id": 0,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 75,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202.5,
+          "y": 75,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 120,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202.5,
+          "y": 120,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 165,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202.5,
+          "y": 165,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sense level",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 75,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Response level",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 292.5,
+          "y": 165,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 210,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202.5,
+          "y": 210,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 255,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202.5,
+          "y": 255,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 300,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 202.5,
+          "y": 300,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Sense level",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 210,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Response level",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 292.5,
+          "y": 300,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.5,
+          "y": 120,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 472.5,
+          "y": 120,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Carrier level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.5,
+          "y": 255,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Offset level",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 472.5,
+          "y": 255,
+          "centered": true,
+          "widget": "smallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A Signal",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "A Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "A Offset",
+        "kind": "cv",
+        "position": {
+          "x": 249.375,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "B Signal",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "B Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "B Offset",
+        "kind": "cv",
+        "position": {
+          "x": 249.375,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "C Signal",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 165,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "C Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 165,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "C Offset",
+        "kind": "cv",
+        "position": {
+          "x": 249.375,
+          "y": 165,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "A Sense",
+        "kind": "cv",
+        "position": {
+          "x": 337.5,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "A Response",
+        "kind": "cv",
+        "position": {
+          "x": 337.5,
+          "y": 165,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "D Signal",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "D Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "D Offset",
+        "kind": "cv",
+        "position": {
+          "x": 247.5,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "E Signal",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "E Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "E Offset",
+        "kind": "cv",
+        "position": {
+          "x": 247.5,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "F Signal",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 300,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "F Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 300,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "F Offset",
+        "kind": "cv",
+        "position": {
+          "x": 247.5,
+          "y": 300,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "B Sense",
+        "kind": "cv",
+        "position": {
+          "x": 337.5,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "B Response",
+        "kind": "cv",
+        "position": {
+          "x": 337.5,
+          "y": 300,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "G Signal",
+        "kind": "audio",
+        "position": {
+          "x": 337.5,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "G Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 427.5,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "name": "G Offset",
+        "kind": "cv",
+        "position": {
+          "x": 517.5,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "H Signal",
+        "kind": "audio",
+        "position": {
+          "x": 337.5,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "name": "H Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 427.5,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "name": "H Offset",
+        "kind": "cv",
+        "position": {
+          "x": 517.5,
+          "y": 255,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A Output",
+        "kind": "cv",
+        "position": {
+          "x": 292.5,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "B Output",
+        "kind": "cv",
+        "position": {
+          "x": 292.5,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Diffrect Position",
+        "kind": "cv",
+        "position": {
+          "x": 562.5,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Max",
+        "kind": "cv",
+        "position": {
+          "x": 562.5,
+          "y": 120,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sum",
+        "kind": "cv",
+        "position": {
+          "x": 562.5,
+          "y": 165,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Inv",
+        "kind": "cv",
+        "position": {
+          "x": 562.5,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Min",
+        "kind": "cv",
+        "position": {
+          "x": 562.5,
+          "y": 255,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Diffrect Neg",
+        "kind": "cv",
+        "position": {
+          "x": 562.5,
+          "y": 300,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Stalys/VCDualNeuron/1.4.2/manifest.json",
+    "sourceCommit": "0d2a2f64c7fd53c8685f3a87c2fb9048e3551aee",
+    "artifact": {
+      "sha256": "1f1a1cf98feed436452d2b5d8e3c5a33ae84118a7819fac9d7f5045e5ebf2517",
+      "size": 74008
+    }
+  },
+  "source": {
+    "url": "https://github.com/denischevalier/StalysVCVPlugin",
+    "commit": "0d2a2f64c7fd53c8685f3a87c2fb9048e3551aee"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:35:30.175Z"
+  }
+}

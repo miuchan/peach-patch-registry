@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SLM/the-tailor",
+    "plugin": "SLM",
+    "model": "the-tailor",
+    "name": "The Tailor",
+    "brand": "SLM",
+    "version": "1.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/salvolm84/SLM-vcv-rack",
+    "libraryUrl": "https://library.vcvrack.com/SLM/the-tailor",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SLM/the-tailor.webp",
+    "wasmUrl": "packages/SLM/the-tailor/1.1.0/module.wasm",
+    "width": 150,
+    "description": "waveforms morphing tool",
+    "params": [
+      {
+        "id": 0,
+        "name": "Window Center",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 19,
+          "y": 138,
+          "widget": "SLMBigKnobGreen"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Window Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 93,
+          "y": 138,
+          "widget": "SLMBigKnobRed"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Window Center CV Attenuerter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 190,
+          "widget": "SLMTrimmer"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Window Width CV Attenuerter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 116,
+          "y": 190,
+          "widget": "SLMTrimmer"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ch 1",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 228
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 2",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 228
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 62,
+          "y": 272
+        }
+      },
+      {
+        "id": 3,
+        "name": "Window Center CV",
+        "kind": "cv",
+        "position": {
+          "x": 19,
+          "y": 272
+        }
+      },
+      {
+        "id": 4,
+        "name": "Window Width CV",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 272
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 62,
+          "y": 310
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<SLMRedLight>",
+        "position": {
+          "x": 71,
+          "y": 133
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SLM/the-tailor/1.1.0/manifest.json",
+    "sourceCommit": "d3d69e01ec22f221e82156ada51fb83e5fc3c5a8",
+    "artifact": {
+      "sha256": "a25204cc27538196a98002b5be4e83b3d6379eeb89d644f24306314b1f80316d",
+      "size": 67876
+    }
+  },
+  "source": {
+    "url": "https://github.com/salvolm84/SLM-vcv-rack",
+    "commit": "d3d69e01ec22f221e82156ada51fb83e5fc3c5a8"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:29:11.217Z"
+  }
+}

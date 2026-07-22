@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/CVmeter",
+    "plugin": "SickoCV",
+    "model": "CVmeter",
+    "name": "cvMeter",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/CVmeter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/CVmeter.webp",
+    "wasmUrl": "packages/SickoCV/CVmeter/2.7.10/module.wasm",
+    "width": 120,
+    "description": "Shows input voltage, v/oct note, midi values, bpm and sample distance between two triggers or cv change from two different inputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode A",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 26.28,
+          "y": 90.65,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode B",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 93.307,
+          "y": 90.65,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 280.512,
+          "y": 62.008,
+          "centered": true,
+          "widget": "VCVLightBezel<WhiteLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 50.197,
+          "y": 295.276,
+          "centered": true,
+          "widget": "VCVLightBezel<YellowLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 20.079,
+          "y": 62.008,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 99.508,
+          "y": 62.008,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 60.531,
+          "y": 91.535,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Freeze",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 295.276,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightBezel<WhiteLight>",
+        "position": {
+          "x": 280.512,
+          "y": 62.008,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightBezel<YellowLight>",
+        "position": {
+          "x": 50.197,
+          "y": 295.276,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/CVmeter/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "08a12b4781dd232b77de46adecd9af4da083106f17c23cf064d910059603bf28",
+      "size": 79036
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:41.901Z"
+  }
+}

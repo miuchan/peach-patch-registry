@@ -1,0 +1,1877 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sckitam/MarkovSeq",
+    "plugin": "Sckitam",
+    "model": "MarkovSeq",
+    "name": "MarkovSeq",
+    "brand": "Sckitam",
+    "version": "2.0.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/philippesalembier/SckitamVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sckitam/MarkovSeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sckitam/MarkovSeq.webp",
+    "wasmUrl": "packages/Sckitam/MarkovSeq/2.0.1/module.wasm",
+    "width": 450,
+    "description": "Sequencer/Switch based on Markov chain",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 81.782,
+          "y": 28.884,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output Gain",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 285.523,
+          "y": 28.884,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slew",
+        "min": 0,
+        "max": 0.9990000128746033,
+        "default": 0,
+        "position": {
+          "x": 130.512,
+          "y": 28.884,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 66.741,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 107.002,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 147.26,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 187.521,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 227.781,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 268.039,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 308.3,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 61.45,
+          "y": 348.561,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 381.957,
+          "y": 82.095,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.234,
+          "y": 122.356,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.234,
+          "y": 162.614,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Param 15",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.234,
+          "y": 202.875,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Param 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.234,
+          "y": 243.136,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Param 17",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.234,
+          "y": 283.394,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Param 18",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.234,
+          "y": 323.655,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Param 19",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 382.234,
+          "y": 363.915,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Param 20",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81.788,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "P1->2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 96.579,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Param 22",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 111.366,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Param 23",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126.156,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Param 24",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 140.944,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Param 25",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 155.734,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Param 26",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170.522,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Param 27",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 185.312,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Param 28",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 206.59,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Param 29",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 221.377,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "P2->3",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 236.167,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Param 31",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250.955,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Param 32",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 265.745,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Param 33",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280.532,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Param 34",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295.323,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Param 35",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 310.11,
+          "y": 57.106,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Param 36",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81.788,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Param 37",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 96.579,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Param 38",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 111.366,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 38,
+        "name": "P3->4",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 126.156,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Param 40",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 140.944,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Param 41",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 155.734,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Param 42",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170.522,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Param 43",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 185.312,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Param 44",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 206.59,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Param 45",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 221.377,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Param 46",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 236.167,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Param 47",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250.955,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 47,
+        "name": "P4->5",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 265.745,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Param 49",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280.532,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Param 50",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295.323,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Param 51",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 310.11,
+          "y": 137.575,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Param 52",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81.788,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Param 53",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 96.579,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Param 54",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 111.366,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Param 55",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126.156,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Param 56",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 140.944,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 56,
+        "name": "P5->6",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 155.734,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Param 58",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170.522,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Param 59",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 185.312,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Param 60",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 206.59,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Param 61",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 221.377,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Param 62",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 236.167,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Param 63",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250.955,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 63,
+        "name": "Param 64",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 265.745,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 64,
+        "name": "Param 65",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280.532,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 65,
+        "name": "P6->7",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 295.323,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Param 67",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 310.11,
+          "y": 218.046,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 67,
+        "name": "Param 68",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81.788,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 68,
+        "name": "Param 69",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 96.579,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 69,
+        "name": "Param 70",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 111.366,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 70,
+        "name": "Param 71",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126.156,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 71,
+        "name": "Param 72",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 140.944,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 72,
+        "name": "Param 73",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 155.734,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 73,
+        "name": "Param 74",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170.522,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 74,
+        "name": "P7->8",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 185.312,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 75,
+        "name": "P8->1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 206.59,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 76,
+        "name": "Param 77",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 221.377,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 77,
+        "name": "Param 78",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 236.167,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 78,
+        "name": "Param 79",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 250.955,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 79,
+        "name": "Param 80",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 265.745,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 80,
+        "name": "Param 81",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280.532,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 81,
+        "name": "Param 82",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295.323,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 82,
+        "name": "Param 83",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 310.11,
+          "y": 298.518,
+          "widget": "MarkovSeqVUKnob"
+        }
+      },
+      {
+        "id": 83,
+        "name": "Param 84",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.205,
+          "y": 48.72,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 84,
+        "name": "Param 85",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 237.697,
+          "y": 48.72,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 85,
+        "name": "Param 86",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.205,
+          "y": 128.74,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 86,
+        "name": "Param 87",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 237.697,
+          "y": 128.74,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 87,
+        "name": "Param 88",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.205,
+          "y": 209.35,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 88,
+        "name": "Param 89",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 237.697,
+          "y": 209.35,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 89,
+        "name": "Param 90",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.205,
+          "y": 290.256,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 90,
+        "name": "Param 91",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 237.697,
+          "y": 290.256,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 91,
+        "name": "Param 92",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103.346,
+          "y": 48.72,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 92,
+        "name": "Param 93",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 228.839,
+          "y": 48.72,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 93,
+        "name": "Param 94",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103.346,
+          "y": 128.74,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 94,
+        "name": "Param 95",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 228.839,
+          "y": 128.74,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 95,
+        "name": "Param 96",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103.346,
+          "y": 209.35,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 96,
+        "name": "Param 97",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 228.839,
+          "y": 209.35,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 97,
+        "name": "Param 98",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103.346,
+          "y": 290.256,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 98,
+        "name": "Param 99",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 228.839,
+          "y": 290.256,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 99,
+        "name": "Param 100",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 169.783,
+          "y": 48.72,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 100,
+        "name": "Param 101",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295.276,
+          "y": 48.72,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 101,
+        "name": "Param 102",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 169.783,
+          "y": 128.74,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 102,
+        "name": "Param 103",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295.276,
+          "y": 128.74,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 103,
+        "name": "Param 104",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 169.783,
+          "y": 209.35,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 104,
+        "name": "Param 105",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295.276,
+          "y": 209.35,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 105,
+        "name": "Param 106",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 169.783,
+          "y": 290.256,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 106,
+        "name": "Param 107",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295.276,
+          "y": 290.256,
+          "widget": "ScButtonPlus"
+        }
+      },
+      {
+        "id": 107,
+        "name": "Param 108",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160.925,
+          "y": 48.72,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 108,
+        "name": "Param 109",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 286.417,
+          "y": 48.72,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 109,
+        "name": "Param 110",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160.925,
+          "y": 128.74,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 110,
+        "name": "Param 111",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 286.417,
+          "y": 128.74,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 111,
+        "name": "Param 112",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160.925,
+          "y": 209.35,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 112,
+        "name": "Param 113",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 286.417,
+          "y": 209.35,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 113,
+        "name": "Param 114",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160.925,
+          "y": 290.256,
+          "widget": "ScButtonMinus"
+        }
+      },
+      {
+        "id": 114,
+        "name": "Param 115",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 286.417,
+          "y": 290.256,
+          "widget": "ScButtonMinus"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 24.523,
+          "y": 28.884,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input Inputs",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 66.032,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "IN 3",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 106.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 146.755,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 187.116,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 227.477,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "IN 7",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 267.839,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 308.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "IN 9",
+        "kind": "cv",
+        "position": {
+          "x": 24.523,
+          "y": 348.561,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gforce Inputs",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 66.032,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "IN 11",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 106.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "IN 12",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 146.755,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "IN 13",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 187.116,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "IN 14",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 227.477,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "IN 15",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 267.839,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "IN 16",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 308.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "IN 17",
+        "kind": "cv",
+        "position": {
+          "x": 399.673,
+          "y": 348.561,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output value of the current state,",
+        "kind": "cv",
+        "position": {
+          "x": 315.171,
+          "y": 28.884,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Current state,",
+        "kind": "cv",
+        "position": {
+          "x": 371.091,
+          "y": 28.884,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger State",
+        "kind": "gate",
+        "position": {
+          "x": 431.693,
+          "y": 66.032,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 431.693,
+          "y": 106.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "position": {
+          "x": 431.693,
+          "y": 146.755,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "position": {
+          "x": 431.693,
+          "y": 187.116,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "position": {
+          "x": 431.693,
+          "y": 227.477,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "position": {
+          "x": 431.693,
+          "y": 267.839,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "OUT 9",
+        "kind": "cv",
+        "position": {
+          "x": 431.693,
+          "y": 308.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "OUT 10",
+        "kind": "cv",
+        "position": {
+          "x": 431.693,
+          "y": 348.561,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 17,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<GreenLight>",
+        "position": {
+          "x": 81.782,
+          "y": 28.884,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 66.499,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 66.499,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 106.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 106.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 147.21,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 147.21,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 187.565,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 187.565,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 227.92,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 227.92,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 268.276,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 268.276,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 308.631,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 308.631,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 345.915,
+          "y": 348.986,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 370.423,
+          "y": 348.986,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "zeroSum",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sckitam/MarkovSeq/2.0.1/manifest.json",
+    "sourceCommit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d",
+    "artifact": {
+      "sha256": "a08bfdc3a5e947dc52fa5a65e711319ea6b6c41f030fadda5fddb8d97cd801b6",
+      "size": 85906
+    }
+  },
+  "source": {
+    "url": "https://github.com/philippesalembier/SckitamVCV",
+    "commit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:31:38.269Z"
+  }
+}

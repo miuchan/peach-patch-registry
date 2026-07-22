@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SphericalSoundSocietyFree/GlitchStorm",
+    "plugin": "SphericalSoundSocietyFree",
+    "model": "GlitchStorm",
+    "name": "GlitchStorm",
+    "brand": "Spherical Sound Society",
+    "version": "2.0.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/spherical-sound-society/VCV-Free",
+    "libraryUrl": "https://library.vcvrack.com/SphericalSoundSocietyFree/GlitchStorm",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SphericalSoundSocietyFree/GlitchStorm.webp",
+    "wasmUrl": "packages/SphericalSoundSocietyFree/GlitchStorm/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Bytebeat synthesizer, hardware clone",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "min": 3072,
+        "max": 44100,
+        "default": 8000,
+        "position": {
+          "x": 141.732,
+          "y": 67.913,
+          "centered": true,
+          "widget": "BipolarModRingKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Program",
+        "min": 0,
+        "max": 20,
+        "default": 6,
+        "position": {
+          "x": 38.386,
+          "y": 67.913,
+          "centered": true,
+          "widget": "BipolarModRingKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "A",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 50.197,
+          "y": 221.457,
+          "centered": true,
+          "widget": "BipolarModRingKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "B",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 112.205,
+          "y": 221.457,
+          "centered": true,
+          "widget": "BipolarModRingKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "C",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 174.213,
+          "y": 221.457,
+          "centered": true,
+          "widget": "BipolarModRingKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Atte A",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 48.72,
+          "y": 256.89,
+          "centered": true,
+          "widget": "TinyAttenuverterKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Atte B",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.205,
+          "y": 256.89,
+          "centered": true,
+          "widget": "TinyAttenuverterKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Atte C",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 174.213,
+          "y": 256.89,
+          "centered": true,
+          "widget": "TinyAttenuverterKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sine Switch",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 124.016,
+          "y": 183.071,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Oscilloscope On",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 23.622,
+          "y": 183.071,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A CV",
+        "kind": "cv",
+        "position": {
+          "x": 50.197,
+          "y": 286.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "B CV",
+        "kind": "cv",
+        "position": {
+          "x": 112.205,
+          "y": 286.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "C CV",
+        "kind": "cv",
+        "position": {
+          "x": 174.213,
+          "y": 286.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Program CV",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 70.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rate CV",
+        "kind": "gate",
+        "position": {
+          "x": 188.976,
+          "y": 70.866,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "T input",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Sync clock",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 72.343,
+          "y": 346.949,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mono",
+        "kind": "audio",
+        "position": {
+          "x": 190.453,
+          "y": 346.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 110.728,
+          "y": 346.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 152.067,
+          "y": 346.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 33.957,
+          "y": 346.949,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SphericalSoundSocietyFree/GlitchStorm/2.0.0/manifest.json",
+    "sourceCommit": "f086c411a8889aea2e4b42d1c18182fb651e4875",
+    "artifact": {
+      "sha256": "4821c4189d5f56c44d1d32f454e44f5f2c09747ade113d911e7b14c227a50399",
+      "size": 82230
+    }
+  },
+  "source": {
+    "url": "https://github.com/spherical-sound-society/VCV-Free",
+    "commit": "f086c411a8889aea2e4b42d1c18182fb651e4875"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:35:22.983Z"
+  }
+}

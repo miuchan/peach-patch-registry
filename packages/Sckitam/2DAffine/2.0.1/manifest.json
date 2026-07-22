@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sckitam/2DAffine",
+    "plugin": "Sckitam",
+    "model": "2DAffine",
+    "name": "2DAffine",
+    "brand": "Sckitam",
+    "version": "2.0.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/philippesalembier/SckitamVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sckitam/2DAffine",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sckitam/2DAffine.webp",
+    "wasmUrl": "packages/Sckitam/2DAffine/2.0.1/module.wasm",
+    "width": 75,
+    "description": "2D Affine transform of 2 input signals",
+    "params": [
+      {
+        "id": 0,
+        "name": "Deg.",
+        "min": -180,
+        "max": 180,
+        "default": 0,
+        "position": {
+          "x": 37.394,
+          "y": 86.566,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.394,
+          "y": 123.508,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 16.724,
+          "y": 101.33,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV amout",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 16.724,
+          "y": 138.272,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Shear",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 58.063,
+          "y": 101.33,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 58.063,
+          "y": 138.272,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "X_Offset (Pre-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 15.514,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Y_Offset (Pre-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 45.041,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "X_Offset (Post-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 30.278,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<BlueLight>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Y_Offset (Post-transform)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 59.805,
+          "y": 238.754,
+          "centered": true,
+          "widget": "LEDLightSlider<BlueLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rotation CV: +/-5V -> +/-Pi",
+        "kind": "cv",
+        "position": {
+          "x": 37.394,
+          "y": 152.324,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Shearing CV (Horizontal)",
+        "kind": "cv",
+        "position": {
+          "x": 16.724,
+          "y": 167.088,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Shearing CV (Vertical)",
+        "kind": "cv",
+        "position": {
+          "x": 58.063,
+          "y": 167.088,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.243,
+          "y": 319.606,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input 2",
+        "kind": "cv",
+        "position": {
+          "x": 52.544,
+          "y": 319.606,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.243,
+          "y": 348.561,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "cv",
+        "position": {
+          "x": 52.544,
+          "y": 348.561,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDLightSlider<GreenLight>",
+        "position": {
+          "x": 15.514,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 6
+      },
+      {
+        "id": 1,
+        "widget": "LEDLightSlider<GreenLight>",
+        "position": {
+          "x": 45.041,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 2,
+        "widget": "LEDLightSlider<BlueLight>",
+        "position": {
+          "x": 30.278,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 8
+      },
+      {
+        "id": 3,
+        "widget": "LEDLightSlider<BlueLight>",
+        "position": {
+          "x": 59.805,
+          "y": 238.754,
+          "centered": true
+        },
+        "paramId": 9
+      }
+    ],
+    "bypassRoutes": [
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sckitam/2DAffine/2.0.1/manifest.json",
+    "sourceCommit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d",
+    "artifact": {
+      "sha256": "2cd98d195776b26af342c90328110933674fcee34a09629ec43e9fd75af6b53a",
+      "size": 77646
+    }
+  },
+  "source": {
+    "url": "https://github.com/philippesalembier/SckitamVCV",
+    "commit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:31:36.980Z"
+  }
+}

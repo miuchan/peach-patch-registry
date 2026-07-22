@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/Slewer",
+    "plugin": "SickoCV",
+    "model": "Slewer",
+    "name": "slewer",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/Slewer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/Slewer.webp",
+    "wasmUrl": "packages/SickoCV/Slewer/2.7.10/module.wasm",
+    "width": 75,
+    "description": "Slew Limiter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 38.091,
+          "y": 59.498,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 53.15,
+          "y": 90.508,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 38.091,
+          "y": 170.226,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 53.15,
+          "y": 139.819,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Curve",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 26.132,
+          "y": 224.114,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Curve CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 53.15,
+          "y": 260.882,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Symmetric",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 56.102,
+          "y": 224.114,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<BlueLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 20.669,
+          "y": 90.059,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "kind": "cv",
+        "position": {
+          "x": 20.669,
+          "y": 139.37,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Curve",
+        "kind": "cv",
+        "position": {
+          "x": 20.669,
+          "y": 261.319,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 19.193,
+          "y": 346.949,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 55.512,
+          "y": 346.949,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "EoA",
+        "kind": "cv",
+        "position": {
+          "x": 18.307,
+          "y": 305.61,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "EoD",
+        "kind": "cv",
+        "position": {
+          "x": 54.626,
+          "y": 305.61,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 31.004,
+          "y": 296.752,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 67.323,
+          "y": 296.752,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<BlueLight>>",
+        "position": {
+          "x": 56.102,
+          "y": 224.114,
+          "centered": true
+        },
+        "paramId": 6
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "slewKnobs",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/Slewer/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "691521f91ebb5aa6fdfe492fbbc4052dc9877243acccc5c0a3fbe5b38c71de65",
+      "size": 78221
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:33:18.253Z"
+  }
+}

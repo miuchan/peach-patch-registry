@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sckitam/PolygonalVCO",
+    "plugin": "Sckitam",
+    "model": "PolygonalVCO",
+    "name": "PolygonalVCO",
+    "brand": "Sckitam",
+    "version": "2.0.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/philippesalembier/SckitamVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sckitam/PolygonalVCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sckitam/PolygonalVCO.webp",
+    "wasmUrl": "packages/Sckitam/PolygonalVCO/2.0.1/module.wasm",
+    "width": 90,
+    "description": "Polygonal VCO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitch (Octave)",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 25.621,
+          "y": 79.745,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 66.31,
+          "y": 81.582,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Number of polygon sides",
+        "min": 2.0999999046325684,
+        "max": 20,
+        "default": 4,
+        "position": {
+          "x": 25.621,
+          "y": 216.204,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Teeth value",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 66.31,
+          "y": 216.204,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV amount for N",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 25.621,
+          "y": 252.475,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "CV amount for T",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 66.31,
+          "y": 252.475,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 25.621,
+          "y": 125.956,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM (LTZ)",
+        "kind": "cv",
+        "position": {
+          "x": 66.31,
+          "y": 125.956,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Number of polygon sides CV",
+        "kind": "cv",
+        "position": {
+          "x": 25.621,
+          "y": 282.96,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Teeth value CV",
+        "kind": "cv",
+        "position": {
+          "x": 66.31,
+          "y": 282.96,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "VCO X",
+        "kind": "cv",
+        "position": {
+          "x": 25.621,
+          "y": 341.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "VCO Y",
+        "kind": "cv",
+        "position": {
+          "x": 66.31,
+          "y": 341.091,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "nPolyQuant",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sckitam/PolygonalVCO/2.0.1/manifest.json",
+    "sourceCommit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d",
+    "artifact": {
+      "sha256": "d0f5de37a494f04d597f4a01c6868431017f8eec170f6e9e9a13b592ca611295",
+      "size": 82350
+    }
+  },
+  "source": {
+    "url": "https://github.com/philippesalembier/SckitamVCV",
+    "commit": "5bf0ca542be9fe010a53a30a4b6e2e28770d690d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:31:37.330Z"
+  }
+}

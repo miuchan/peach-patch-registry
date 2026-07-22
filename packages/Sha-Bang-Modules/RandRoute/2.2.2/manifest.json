@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/RandRoute",
+    "plugin": "Sha-Bang-Modules",
+    "model": "RandRoute",
+    "name": "Random Route Switch",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/RandRoute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/RandRoute.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/RandRoute/2.2.2/module.wasm",
+    "width": 100,
+    "description": "Randomly routes one input to 4 possible outputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Weight",
+        "min": 0,
+        "max": 4,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 156.1,
+          "centered": true,
+          "widget": "BlueInvertKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Weight probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 34,
+          "y": 139.7,
+          "centered": true,
+          "widget": "NanoBlueKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 79.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Main",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 119.8,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Purple",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 200.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Blue",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Aqua",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Red",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<JeremyPurpleLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<JeremyBlueLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<JeremyAquaLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<JeremyRedLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/RandRoute/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "ca24c05b22d3c0869cb4803a35e4938445b66e67e355f8d9e634d82e1554e08b",
+      "size": 70413
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:23.856Z"
+  }
+}

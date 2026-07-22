@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/Talea",
+    "plugin": "Sha-Bang-Modules",
+    "model": "Talea",
+    "name": "Talea",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/Talea",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/Talea.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/Talea/2.2.2/module.wasm",
+    "width": 100,
+    "description": "A unique arpeggiator with polyrhythmic capabilities",
+    "params": [
+      {
+        "id": 0,
+        "name": "toggle clock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 34,
+          "y": 54,
+          "centered": true,
+          "widget": "TinyBlueButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tempo",
+        "min": -2,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 21.9,
+          "y": 76.7,
+          "centered": true,
+          "widget": "BlueKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Octaves",
+        "min": 1,
+        "max": 5,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 124.7,
+          "centered": true,
+          "widget": "NanoBlueButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pattern Mode",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 158.7,
+          "centered": true,
+          "widget": "TaleaNS::TaleaModeKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Polyrhythm Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 137.2,
+          "centered": true,
+          "widget": "NanoBlueButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Hold Pattern",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 34,
+          "y": 97,
+          "centered": true,
+          "widget": "NanoBlueButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate length",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 11,
+          "y": 97,
+          "centered": true,
+          "widget": "TinyBlueKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "External clock",
+        "kind": "gate",
+        "position": {
+          "x": 11,
+          "y": 54,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch (V/OCT)",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 212.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 250.2,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch (V/OCT)",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 293,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 331,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<DisplayAquaLight>",
+        "position": {
+          "x": 31,
+          "y": 37.3
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<JeremyAquaLight>",
+        "position": {
+          "x": 31,
+          "y": 94
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<JeremyAquaLight>",
+        "position": {
+          "x": 8,
+          "y": 134.2
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "clockOn",
+        "type": "boolean"
+      },
+      {
+        "key": "polyrhythmMode",
+        "type": "boolean"
+      },
+      {
+        "key": "fixedMode",
+        "type": "boolean"
+      },
+      {
+        "key": "extmode",
+        "type": "integer"
+      },
+      {
+        "key": "octaveCount",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/Talea/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "c2c564cbb6bb170fa66a2e244cbf0e4a0d8b997df6991d1729663306f81c9e84",
+      "size": 81422
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:27.121Z"
+  }
+}

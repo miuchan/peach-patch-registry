@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/RandGates",
+    "plugin": "Sha-Bang-Modules",
+    "model": "RandGates",
+    "name": "Random Gate Switch",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/RandGates",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/RandGates.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/RandGates/2.2.2/module.wasm",
+    "width": 100,
+    "description": "Randomly routes one of 4 inputs to the output",
+    "params": [
+      {
+        "id": 0,
+        "name": "Weight",
+        "min": 0,
+        "max": 4,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 281.6,
+          "centered": true,
+          "widget": "BlueInvertKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Weight probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 34,
+          "y": 265.2,
+          "centered": true,
+          "widget": "NanoBlueKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 79.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Purple",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 119.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blue",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Aqua",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Red",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 322.1,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<JeremyPurpleLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<JeremyBlueLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<JeremyAquaLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<JeremyRedLight>",
+        "position": {
+          "x": 19.29,
+          "y": 337.69
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/RandGates/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "ce5c3671c22e59ab99d24a2e386a15bcf15f3e5003bc4dc96c41387589c6ccad",
+      "size": 70406
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:23.558Z"
+  }
+}

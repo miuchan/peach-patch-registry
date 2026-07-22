@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SmarTAZZStudio-Free/Pulse-VCO",
+    "plugin": "SmarTAZZStudio-Free",
+    "model": "Pulse-VCO",
+    "name": "Pulse-VCO",
+    "brand": "Sm@rTAZZ Studio",
+    "version": "2.4.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mlaban64/STS-Free",
+    "libraryUrl": "https://library.vcvrack.com/SmarTAZZStudio-Free/Pulse-VCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SmarTAZZStudio-Free/Pulse-VCO.webp",
+    "wasmUrl": "packages/SmarTAZZStudio-Free/Pulse-VCO/2.4.1/module.wasm",
+    "width": 75,
+    "description": "A pulse wave VCO with pulse-width, phase, volume and frequency modulation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attenuation for frequency modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54.626,
+          "y": 84.154,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attenuation for phase modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54.626,
+          "y": 118.11,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Attenuation for volume modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54.626,
+          "y": 152.067,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Attenuation for pulse-width modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54.626,
+          "y": 186.024,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fixed pitch",
+        "min": 10,
+        "max": 20000,
+        "default": 261.6255798339844,
+        "position": {
+          "x": 22.146,
+          "y": 228.839,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Phase shift",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 51.673,
+          "y": 258.366,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Output volume",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.146,
+          "y": 287.894,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Pulse Width",
+        "min": 1,
+        "max": 99,
+        "default": 50,
+        "position": {
+          "x": 51.673,
+          "y": 317.421,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch (V//Oct)",
+        "kind": "cv",
+        "position": {
+          "x": 20.669,
+          "y": 41.339,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 19.193,
+          "y": 84.154,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Phase modulation",
+        "kind": "cv",
+        "position": {
+          "x": 19.193,
+          "y": 118.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Volume modulation",
+        "kind": "cv",
+        "position": {
+          "x": 19.193,
+          "y": 152.067,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse-width modulation",
+        "kind": "gate",
+        "position": {
+          "x": 19.193,
+          "y": 186.024,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio Out",
+        "kind": "audio",
+        "position": {
+          "x": 54.626,
+          "y": 41.339,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Band",
+        "type": "integer"
+      },
+      {
+        "key": "Harmonics",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SmarTAZZStudio-Free/Pulse-VCO/2.4.1/manifest.json",
+    "sourceCommit": "55aa54239a503ed8270de34a822906ec53e666fb",
+    "artifact": {
+      "sha256": "7a3139fc13d76e35eff38aa7956f27af98bde92de266c419f684a56a685e17b7",
+      "size": 78292
+    }
+  },
+  "source": {
+    "url": "https://github.com/mlaban64/STS-Free",
+    "commit": "55aa54239a503ed8270de34a822906ec53e666fb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:34:31.632Z"
+  }
+}

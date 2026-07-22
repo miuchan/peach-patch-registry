@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RexAudio/FMtool",
+    "plugin": "RexAudio",
+    "model": "FMtool",
+    "name": "FM Tool",
+    "brand": "Rex Audio",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/RexAudio/VCV",
+    "libraryUrl": "https://library.vcvrack.com/RexAudio/FMtool",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RexAudio/FMtool.webp",
+    "wasmUrl": "packages/RexAudio/FMtool/2.0.1/module.wasm",
+    "width": 180,
+    "description": "DX-style FM/PM effect with audio input",
+    "params": [
+      {
+        "id": 0,
+        "name": "FM Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 76.801,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV Depth Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 217.795,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Carrier",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 132.254,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Modulator",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 182.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Depth CV",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 262.618,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 37.5,
+          "y": 317.037,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RexAudio/FMtool/2.0.1/manifest.json",
+    "sourceCommit": "4e86832625eab68c1a1017c6adb9c415b6ef1953",
+    "artifact": {
+      "sha256": "2ae35d084fa58dc6b5684285fbe6ebaf2122803017c48c36d7366e7c8cd62f95",
+      "size": 67868
+    }
+  },
+  "source": {
+    "url": "https://github.com/RexAudio/VCV",
+    "commit": "4e86832625eab68c1a1017c6adb9c415b6ef1953"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:28:40.847Z"
+  }
+}

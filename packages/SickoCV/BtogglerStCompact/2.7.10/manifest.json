@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/BtogglerStCompact",
+    "plugin": "SickoCV",
+    "model": "BtogglerStCompact",
+    "name": "bToggler Compact",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/BtogglerStCompact",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/BtogglerStCompact.webp",
+    "wasmUrl": "packages/SickoCV/BtogglerStCompact/2.7.10/module.wasm",
+    "width": 60,
+    "description": "Buffered stereo signal toggle switch router, with VCA and ASR envelope generator, in a compact form factor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.661,
+          "y": 183.071,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sustain Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 42.283,
+          "y": 215.551,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.661,
+          "y": 248.031,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 42.815,
+          "y": 32.776,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Arm",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 72.343,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 106.89,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "L",
+        "kind": "cv",
+        "position": {
+          "x": 18.307,
+          "y": 155.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "R",
+        "kind": "cv",
+        "position": {
+          "x": 42.815,
+          "y": 155.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Attack CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.661,
+          "y": 203.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sustain CV",
+        "kind": "cv",
+        "position": {
+          "x": 42.283,
+          "y": 236.22,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Release CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.661,
+          "y": 268.701,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "L",
+        "kind": "cv",
+        "position": {
+          "x": 18.307,
+          "y": 317.421,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "R",
+        "kind": "cv",
+        "position": {
+          "x": 42.815,
+          "y": 317.421,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 351.378,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 48.72,
+          "y": 344.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 48.72,
+          "y": 357.283,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "InitStart",
+        "type": "boolean"
+      },
+      {
+        "key": "DisableUnarm",
+        "type": "boolean"
+      },
+      {
+        "key": "TrigOnGateOut",
+        "type": "boolean"
+      },
+      {
+        "key": "State",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/BtogglerStCompact/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "daf6719b0cfa165bcb0768894307d1eb17c02aa717dd2fe40bbea7c22376bdce",
+      "size": 76442
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:38.899Z"
+  }
+}

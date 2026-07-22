@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SillySounds/Sesame",
+    "plugin": "SillySounds",
+    "model": "Sesame",
+    "name": "Sesame",
+    "brand": "Silly Sounds",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/loparcog/SillySounds",
+    "libraryUrl": "https://library.vcvrack.com/SillySounds/Sesame",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SillySounds/Sesame.webp",
+    "wasmUrl": "packages/SillySounds/Sesame/2.1.1/module.wasm",
+    "width": 90,
+    "description": "A clock modulator for adding signal repeat and swing to a clock signal. Swing affects all channels while repetition triggering is polyphonic",
+    "params": [
+      {
+        "id": 0,
+        "name": "Swing amount",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 173.631,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mod influence",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 222.833,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Amount of repetition when triggered",
+        "min": 1,
+        "max": 8,
+        "default": 1,
+        "position": {
+          "x": 66.378,
+          "y": 133.101,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mod influence",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 66.378,
+          "y": 182.483,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Swap main swing beat",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 291.056,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Global clock",
+        "kind": "gate",
+        "position": {
+          "x": 61.949,
+          "y": 41.339,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Swing amount mod",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 252.36,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Repeat trigger",
+        "kind": "gate",
+        "position": {
+          "x": 66.378,
+          "y": 252.83,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Repeat frequency mod",
+        "kind": "cv",
+        "position": {
+          "x": 66.378,
+          "y": 212.011,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 28.051,
+          "y": 352.854,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 66.765,
+          "y": 94.831,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 23.622,
+          "y": 133.361,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SillySounds/Sesame/2.1.1/manifest.json",
+    "sourceCommit": "9e8a8485a2ef77c1668ac7fce1faed208e4ab013",
+    "artifact": {
+      "sha256": "a9341900414860169b304e1155a5c70e1cee9ed925568d9a7522b32726765530",
+      "size": 69929
+    }
+  },
+  "source": {
+    "url": "https://github.com/loparcog/SillySounds",
+    "commit": "9e8a8485a2ef77c1668ac7fce1faed208e4ab013"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:33:56.407Z"
+  }
+}

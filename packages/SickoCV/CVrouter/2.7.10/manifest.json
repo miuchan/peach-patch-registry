@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/CVrouter",
+    "plugin": "SickoCV",
+    "model": "CVrouter",
+    "name": "cvRouter",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/CVrouter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/CVrouter.webp",
+    "wasmUrl": "packages/SickoCV/CVrouter/2.7.10/module.wasm",
+    "width": 45,
+    "description": "1>2 voltage controlled switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "min": -10,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 94.488,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Threshold CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 123.425,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fade Time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 244.783,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 50.197,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Threshold",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 146.161,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "IN 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 191.929,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fade Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 273.13,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT 1",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 321.85,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 346.949,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 311.516,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 35.433,
+          "y": 336.614,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/CVrouter/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "ed81365e03db16daa2bd7590d27480459d99c9b6b5fc308542bbdf84fd810bed",
+      "size": 76211
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:32:42.005Z"
+  }
+}

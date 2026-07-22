@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "StochasticTelegraph/Distribute",
+    "plugin": "StochasticTelegraph",
+    "model": "Distribute",
+    "name": "Distribute",
+    "brand": "Stochastic Telegraph",
+    "version": "2.0.27",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mahlenmorris/VCVRack",
+    "libraryUrl": "https://library.vcvrack.com/StochasticTelegraph/Distribute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/StochasticTelegraph/Distribute.webp",
+    "wasmUrl": "packages/StochasticTelegraph/Distribute/2.0.27/module.wasm",
+    "width": 90,
+    "description": "Tunable random voltage generator, with a large variety of random distributions.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Upper limit for randomization",
+        "min": -10,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 70.769,
+          "y": 61.134,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Affects how random outputs for the squares are chosen.",
+        "min": 0,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 16.279,
+          "y": 179.167,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Lower limit for randomization",
+        "min": -10,
+        "max": 10,
+        "default": -10,
+        "position": {
+          "x": 70.769,
+          "y": 96.387,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "(Both only) Biases the random outputs towards the lower or upper limit.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.721,
+          "y": 179.167,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Section",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 45,
+          "y": 167.356,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ignore trigger and continuously outputs random numbers.",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 21.233,
+          "y": 307.087,
+          "centered": true,
+          "widget": "VCVLightLatch<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Triggers here will cause a new random number to be sent to the output.",
+        "kind": "gate",
+        "position": {
+          "x": 21.233,
+          "y": 348.425,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Emits random voltages according to the distribution and limits.",
+        "kind": "cv",
+        "position": {
+          "x": 65.717,
+          "y": 327.756,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 21.233,
+          "y": 307.087,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/StochasticTelegraph/Distribute/2.0.27/manifest.json",
+    "sourceCommit": "f8c8c1a765a7cdf609fd82eb9ba9aca0a83bfe77",
+    "artifact": {
+      "sha256": "18d3e2a0564fde7f8c39c7f09ce91a1a4230dfdf6ea9546a701c9e8e2365c4b3",
+      "size": 76362
+    }
+  },
+  "source": {
+    "url": "https://github.com/mahlenmorris/VCVRack",
+    "commit": "f8c8c1a765a7cdf609fd82eb9ba9aca0a83bfe77"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:38:54.198Z"
+  }
+}

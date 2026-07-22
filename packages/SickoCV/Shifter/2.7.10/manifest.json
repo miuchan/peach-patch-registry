@@ -1,0 +1,459 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SickoCV/Shifter",
+    "plugin": "SickoCV",
+    "model": "Shifter",
+    "name": "shifter",
+    "brand": "Sickozell",
+    "version": "2.7.10",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sickozell/SickoCV",
+    "libraryUrl": "https://library.vcvrack.com/SickoCV/Shifter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SickoCV/Shifter.webp",
+    "wasmUrl": "packages/SickoCV/Shifter/2.7.10/module.wasm",
+    "width": 45,
+    "description": "64 selectable stages shift register",
+    "params": [
+      {
+        "id": 0,
+        "name": "Trigger Delay (samples)",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 106.594,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Register Stage",
+        "min": 1,
+        "max": 64,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 186.909,
+          "centered": true,
+          "widget": "SickoKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Stage CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 224.409,
+          "centered": true,
+          "widget": "SickoTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trig",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 53.15,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "IN",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 297.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Stage",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 249.508,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "OUT",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 346.654,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "InitStart",
+        "type": "boolean"
+      },
+      {
+        "key": "CurrentStep",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 16,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 17,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 18,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 19,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 20,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 21,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 22,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 23,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 24,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 25,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 26,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 27,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 28,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 29,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 30,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 31,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 32,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 33,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 34,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 35,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 36,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 37,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 38,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 39,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 40,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 41,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 42,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 43,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 44,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 45,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 46,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 47,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 48,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 49,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 50,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 51,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 52,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 53,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 54,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 55,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 56,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 57,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 58,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 59,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 60,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 61,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 62,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 63,
+        "key": "Register",
+        "type": "real"
+      },
+      {
+        "index": 64,
+        "key": "Register",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SickoCV/Shifter/2.7.10/manifest.json",
+    "sourceCommit": "b3504b2c41f22454379823faa980606d35d83f70",
+    "artifact": {
+      "sha256": "dddc4aeabf5701df0e74a1c4acc6f48e656518da76ed0ff48023e3c107481194",
+      "size": 81014
+    }
+  },
+  "source": {
+    "url": "https://github.com/sickozell/SickoCV",
+    "commit": "b3504b2c41f22454379823faa980606d35d83f70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-22T20:33:08.916Z"
+  }
+}
