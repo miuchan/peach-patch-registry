@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4ms-XOXDrums/HiHat",
+    "plugin": "4ms-XOXDrums",
+    "model": "HiHat",
+    "name": "HiHat",
+    "brand": "4ms",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/XOXDrums/",
+    "libraryUrl": "https://library.vcvrack.com/4ms-XOXDrums/HiHat",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4ms-XOXDrums/HiHat.webp",
+    "wasmUrl": "packages/4ms-XOXDrums/HiHat/2.1.2/module.wasm",
+    "width": 150,
+    "description": "Hi-hat inspired by XOX style",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "default": 0.5,
+        "position": {
+          "x": 39.427,
+          "y": 60.261,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "default": 0,
+        "position": {
+          "x": 110.834,
+          "y": 60.261,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Choke Switch",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 75.684,
+          "y": 104.369,
+          "centered": true,
+          "widget": "CKSS"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Brightness",
+        "default": 1,
+        "position": {
+          "x": 39.427,
+          "y": 157.105,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Thickness",
+        "default": 1,
+        "position": {
+          "x": 110.834,
+          "y": 157.105,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "CH Trigger",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 30.74,
+          "y": 206.71,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "OH Trigger",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 119.521,
+          "y": 206.71,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Closed HiHat Trigger In",
+        "position": {
+          "x": 30.74,
+          "y": 241.772,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Pitch CV In",
+        "position": {
+          "x": 74.688,
+          "y": 241.772,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Open HiHat Trigger In",
+        "position": {
+          "x": 119.521,
+          "y": 241.772,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Decay CV In",
+        "position": {
+          "x": 30.74,
+          "y": 283.574,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Brightness CV In",
+        "position": {
+          "x": 74.688,
+          "y": 283.574,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Thickness CV In",
+        "position": {
+          "x": 119.521,
+          "y": 283.574,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Closed HiHat Audio Out",
+        "position": {
+          "x": 30.698,
+          "y": 326.919,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Open HiHat Audio Out",
+        "position": {
+          "x": 119.563,
+          "y": 326.919,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 5,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 30.74,
+          "y": 206.71,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 6,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 119.521,
+          "y": 206.71,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4ms-XOXDrums/HiHat/2.1.2/manifest.json",
+    "sourceCommit": "5b823273337648ab0882a041b5f548c6ead931b1",
+    "artifact": {
+      "sha256": "bd654d23c148aa13cd8a9cd4b8215ffb3b9a2c38e5b7e9e62a80bf168dcb7f56",
+      "size": 92122
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/XOXDrums/",
+    "commit": "5b823273337648ab0882a041b5f548c6ead931b1"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T13:50:03.140Z"
+  }
+}

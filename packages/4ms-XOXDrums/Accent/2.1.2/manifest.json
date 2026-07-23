@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4ms-XOXDrums/Accent",
+    "plugin": "4ms-XOXDrums",
+    "model": "Accent",
+    "name": "Accent",
+    "brand": "4ms",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/XOXDrums/",
+    "libraryUrl": "https://library.vcvrack.com/4ms-XOXDrums/Accent",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4ms-XOXDrums/Accent.webp",
+    "wasmUrl": "packages/4ms-XOXDrums/Accent/2.1.2/module.wasm",
+    "width": 60,
+    "description": "A drum utility for adding dynamics to drums.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Amount",
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 57.323,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 29.875,
+          "y": 173.491,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Amount CV In",
+        "position": {
+          "x": 30,
+          "y": 107.52,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Trigger In",
+        "position": {
+          "x": 30,
+          "y": 216.67,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Audio In",
+        "position": {
+          "x": 29.875,
+          "y": 266.857,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Accented Out",
+        "position": {
+          "x": 29.875,
+          "y": 317.691,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 1,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 29.875,
+          "y": 173.491,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4ms-XOXDrums/Accent/2.1.2/manifest.json",
+    "sourceCommit": "5b823273337648ab0882a041b5f548c6ead931b1",
+    "artifact": {
+      "sha256": "cb7a40ab1b3deea624b4340b2d358d31db4573dadaed54b521afbd4bf222c499",
+      "size": 74927
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/XOXDrums/",
+    "commit": "5b823273337648ab0882a041b5f548c6ead931b1"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T13:49:48.265Z"
+  }
+}
