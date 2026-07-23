@@ -1,0 +1,556 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AlgoritmArte/MusiMath",
+    "plugin": "AlgoritmArte",
+    "model": "MusiMath",
+    "name": "MusiMath",
+    "brand": "AlgoritmArte",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "libraryUrl": "https://library.vcvrack.com/AlgoritmArte/MusiMath",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AlgoritmArte/MusiMath.webp",
+    "wasmUrl": "packages/AlgoritmArte/MusiMath/2.0.0/module.wasm",
+    "width": 120,
+    "description": "Music meets math, an arithmetic driven sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Add A Low nibble",
+        "min": 0,
+        "max": 63,
+        "default": 5,
+        "position": {
+          "x": 85.63,
+          "y": 67.913,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Add A High nibble",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 67.913,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Add B Low nibble",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "position": {
+          "x": 85.63,
+          "y": 115.157,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Add B High nibble",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 115.157,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Base",
+        "min": 1,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 88.583,
+          "y": 239.173,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mirror scale",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 2.953,
+          "y": 333.661,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Scale length",
+        "min": 1,
+        "max": 24,
+        "default": 8,
+        "position": {
+          "x": 50.197,
+          "y": 162.402,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mode",
+        "min": 1,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 50.197,
+          "y": 312.992,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Offset (1V/oct)",
+        "min": -24,
+        "max": 24,
+        "default": 0,
+        "position": {
+          "x": 50.197,
+          "y": 239.173,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88.583,
+          "y": 162.402,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14.764,
+          "y": 310.039,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Start Low nibble",
+        "min": 0,
+        "max": 63,
+        "default": 8,
+        "position": {
+          "x": 85.63,
+          "y": 20.669,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Start High nibble",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 20.669,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 29.528,
+          "y": 206.522,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "C#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.764,
+          "y": 191.758,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "D",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 176.994,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "D#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.764,
+          "y": 162.23,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "E",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 147.467,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "F",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 118.11,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "F#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.764,
+          "y": 103.346,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "G",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 88.583,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "G#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.764,
+          "y": 73.819,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 59.055,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "A#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.764,
+          "y": 44.291,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 29.528,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Offset relative to scale",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 41.339,
+          "y": 268.701,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 2.953,
+          "y": 239.173
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": 50.197,
+          "y": 271.654
+        }
+      },
+      {
+        "id": 2,
+        "name": "Prob",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 194.882
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rst",
+        "kind": "cv",
+        "position": {
+          "x": 2.953,
+          "y": 271.654
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 321.85
+        }
+      }
+    ],
+    "lights": 14,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 206.522,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 191.758,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 176.994,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 162.23,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 118.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 103.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 88.583,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 73.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 44.291,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 29.528,
+          "y": 29.528,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 310.039,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 41.339,
+          "y": 268.701,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "rel",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AlgoritmArte/MusiMath/2.0.0/manifest.json",
+    "sourceCommit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4",
+    "artifact": {
+      "sha256": "ebeea1069a730c1935263252f73d0de3ce06338f4097faa8ca93538e807035e8",
+      "size": 80050
+    }
+  },
+  "source": {
+    "url": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "commit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T07:20:59.548Z"
+  }
+}

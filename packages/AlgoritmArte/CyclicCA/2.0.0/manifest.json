@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AlgoritmArte/CyclicCA",
+    "plugin": "AlgoritmArte",
+    "model": "CyclicCA",
+    "name": "CyclicCA",
+    "brand": "AlgoritmArte",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "libraryUrl": "https://library.vcvrack.com/AlgoritmArte/CyclicCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AlgoritmArte/CyclicCA.webp",
+    "wasmUrl": "packages/AlgoritmArte/CyclicCA/2.0.0/module.wasm",
+    "width": 480,
+    "description": "Cyclic Cellular Automata visualizer and sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Random block size",
+        "min": 1,
+        "max": 50,
+        "default": 10,
+        "position": {
+          "x": 448.819,
+          "y": 141.732,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Cell size",
+        "min": 1,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 413.386,
+          "y": 91.535,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sample color",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23.622,
+          "y": 253.937,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Number of states",
+        "min": 2,
+        "max": 26,
+        "default": 18,
+        "position": {
+          "x": 428.15,
+          "y": 38.386,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Create random block",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23.622,
+          "y": 188.976,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Random rule",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23.622,
+          "y": 126.969,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23.622,
+          "y": 64.961,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Speed",
+        "min": 0,
+        "max": 31,
+        "default": 25,
+        "position": {
+          "x": 448.819,
+          "y": 91.535,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 8,
+        "name": "First neighbor",
+        "min": 0,
+        "max": 48,
+        "default": 17,
+        "position": {
+          "x": 413.386,
+          "y": 191.929,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Second neighbor",
+        "min": 0,
+        "max": 48,
+        "default": 23,
+        "position": {
+          "x": 448.819,
+          "y": 191.929,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Third neighbor",
+        "min": 0,
+        "max": 48,
+        "default": 25,
+        "position": {
+          "x": 413.386,
+          "y": 227.362,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Fourth neighbor",
+        "min": 0,
+        "max": 48,
+        "default": 31,
+        "position": {
+          "x": 448.819,
+          "y": 227.362,
+          "widget": "RoundSmallBlackKnobZnap"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Shape (diamond/square)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 413.386,
+          "y": 144.685,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Colch",
+        "kind": "cv",
+        "position": {
+          "x": 11.811,
+          "y": 268.701
+        }
+      },
+      {
+        "id": 1,
+        "name": "Colcl",
+        "kind": "cv",
+        "position": {
+          "x": 11.811,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 2,
+        "name": "Colcs",
+        "kind": "cv",
+        "position": {
+          "x": 11.811,
+          "y": 301.181
+        }
+      },
+      {
+        "id": 3,
+        "name": "Colsample",
+        "kind": "cv",
+        "position": {
+          "x": 11.811,
+          "y": 215.551
+        }
+      },
+      {
+        "id": 4,
+        "name": "Randblock",
+        "kind": "cv",
+        "position": {
+          "x": 11.811,
+          "y": 150.591
+        }
+      },
+      {
+        "id": 5,
+        "name": "Randrule",
+        "kind": "cv",
+        "position": {
+          "x": 11.811,
+          "y": 88.583
+        }
+      },
+      {
+        "id": 6,
+        "name": "Rst",
+        "kind": "cv",
+        "position": {
+          "x": 11.811,
+          "y": 26.575
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 430.4,
+          "y": 280.512
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "cv",
+        "position": {
+          "x": 430.4,
+          "y": 327.756
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AlgoritmArte/CyclicCA/2.0.0/manifest.json",
+    "sourceCommit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4",
+    "artifact": {
+      "sha256": "7f8c3af1fa0fd72925bcacb600adff9eb2541b4c18e26fcb173ea72141bcacd4",
+      "size": 77707
+    }
+  },
+  "source": {
+    "url": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "commit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T07:20:56.642Z"
+  }
+}
