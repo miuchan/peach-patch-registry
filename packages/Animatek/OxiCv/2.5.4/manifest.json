@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Animatek/OxiCv",
+    "plugin": "Animatek",
+    "model": "OxiCv",
+    "name": "ONE",
+    "brand": "Animatek",
+    "version": "2.5.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/animatek/UZZ-VCV-RACK",
+    "libraryUrl": "https://library.vcvrack.com/Animatek/OxiCv",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Animatek/OxiCv.webp",
+    "wasmUrl": "packages/Animatek/OxiCv/2.5.4/module.wasm",
+    "width": 120,
+    "description": "6HP MIDI-to-CV for Oxi One. V/Oct, Gate, Velocity, 8x CC, Clock, CLK/n (divisions), Run. Supports Mono, Poly, Chord, Multitrack and Matriceal modes.",
+    "params": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/Oct (Pitch)",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Velocity (0–10 V)",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Cc 1",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Cc 2",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Cc 3",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Cc 4",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Cc 5",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Cc 6",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Cc 7",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Cc 8",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Clock (24 PPQN tick)",
+        "kind": "gate"
+      },
+      {
+        "id": 12,
+        "name": "Clock divided",
+        "kind": "gate"
+      },
+      {
+        "id": 13,
+        "name": "Run / Start-Stop Gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "playMode",
+        "type": "integer"
+      },
+      {
+        "key": "clkDivIdx",
+        "type": "integer"
+      },
+      {
+        "key": "pitchBendRange",
+        "type": "integer"
+      },
+      {
+        "key": "chordUnisonGate",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Animatek/OxiCvExp",
+            "symbol": "modelOxiCvExp",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Animatek/OxiCv/2.5.4/manifest.json",
+    "sourceCommit": "6598dd67a84c398317b405c88e58d0277ba0412d",
+    "artifact": {
+      "sha256": "07d413334727b0fd0d173dfe4ca5254e01166c33c43649d61a2d1d895e8af523",
+      "size": 89227
+    }
+  },
+  "source": {
+    "url": "https://github.com/animatek/UZZ-VCV-RACK",
+    "commit": "6598dd67a84c398317b405c88e58d0277ba0412d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:29:25.280Z"
+  }
+}

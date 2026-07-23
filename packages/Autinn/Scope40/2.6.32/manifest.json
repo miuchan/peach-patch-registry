@@ -1,0 +1,712 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Autinn/Scope40",
+    "plugin": "Autinn",
+    "model": "Scope40",
+    "name": "Scope",
+    "brand": "Autinn",
+    "version": "2.6.32",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/NikolaiVChr/Autinn",
+    "libraryUrl": "https://library.vcvrack.com/Autinn/Scope40",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Autinn/Scope40.webp",
+    "wasmUrl": "packages/Autinn/Scope40/2.6.32/module.wasm",
+    "width": 600,
+    "description": "Oscilloscope with auto-time",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel A Pos",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 0,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel B Pos",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 0,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel C Pos",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 0,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel D Pos",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 0,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Time / Div",
+        "min": -5,
+        "max": 0,
+        "default": -3,
+        "position": {
+          "x": 285,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundMediumAutinnKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger holdoff",
+        "min": -4,
+        "max": 1,
+        "default": -3,
+        "position": {
+          "x": 360,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trigger threshold",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 420,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trigger source",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 474.331,
+          "y": 280.512,
+          "centered": true,
+          "widget": "RoundCycleButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Trigger mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 474.331,
+          "y": 315.945,
+          "centered": true,
+          "widget": "RoundCycleButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Trigger on edge",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 474.331,
+          "y": 351.378,
+          "centered": true,
+          "widget": "RoundCycleButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 420,
+          "y": 333.661,
+          "centered": true,
+          "widget": "RoundButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Auto time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 285,
+          "y": 333.661,
+          "centered": true,
+          "widget": "RoundButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Cycle stats",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 360,
+          "y": 333.661,
+          "centered": true,
+          "widget": "RoundButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Channel A Scale",
+        "min": -1,
+        "max": 11,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 0,
+          "y": 320.374,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Channel B Scale",
+        "min": -1,
+        "max": 11,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 0,
+          "y": 320.374,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Channel C Scale",
+        "min": -1,
+        "max": 11,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 0,
+          "y": 320.374,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Channel D Scale",
+        "min": -1,
+        "max": 11,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 0,
+          "y": 320.374,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Toggle CV or audio input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": -14,
+          "y": 347.661,
+          "centered": true,
+          "widget": "RoundCVButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Toggle CV or audio input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": -14,
+          "y": 347.661,
+          "centered": true,
+          "widget": "RoundCVButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Toggle CV or audio input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": -14,
+          "y": 347.661,
+          "centered": true,
+          "widget": "RoundCVButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Toggle CV or audio input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": -14,
+          "y": 347.661,
+          "centered": true,
+          "widget": "RoundCVButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 21,
+        "name": "DEBUG STROKE",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 322.5,
+          "y": 333.661,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "DEBUG ALPHA",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 390,
+          "y": 333.661,
+          "centered": true,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel A",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 347.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel B",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 347.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel C",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 347.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel D",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 347.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ext. trigger",
+        "kind": "gate",
+        "position": {
+          "x": 570,
+          "y": 333.661,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 570,
+          "y": 280.512,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 18,
+    "lightWidgets": [
+      {
+        "id": 14,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": -8,
+          "y": 359.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": -8,
+          "y": 359.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": -8,
+          "y": 359.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": -8,
+          "y": 359.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 396.25,
+          "y": 299.512,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 408,
+          "y": 345.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 273,
+          "y": 345.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<RedGreenBlueLight>",
+        "position": {
+          "x": 495,
+          "y": 280.512,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 495,
+          "y": 305.61,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 495,
+          "y": 315.945,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 495,
+          "y": 326.28,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 495,
+          "y": 336.614,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 495,
+          "y": 351.378,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 495,
+          "y": 361.713,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "autoTimeMode",
+        "type": "boolean"
+      },
+      {
+        "key": "showStats",
+        "type": "integer"
+      },
+      {
+        "key": "showGrid",
+        "type": "boolean"
+      },
+      {
+        "key": "showCenterline",
+        "type": "boolean"
+      },
+      {
+        "key": "showBaselines",
+        "type": "boolean"
+      },
+      {
+        "key": "autoTimePeriods",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "acCoupling",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "acCoupling",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "acCoupling",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "acCoupling",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "renderModes",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "renderModes",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "renderModes",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "renderModes",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "xySourceX",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "xySourceX",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "xySourceX",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "xySourceX",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "xySourceY",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "xySourceY",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "xySourceY",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "xySourceY",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "polyTrig",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "polyTrig",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "polyTrig",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "polyTrig",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "viewPoly",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "viewPoly",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "viewPoly",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "viewPoly",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "scope",
+          "inputs": [
+            0,
+            1
+          ],
+          "x": 0,
+          "y": 38.5,
+          "width": 600,
+          "height": 165
+        }
+      ],
+      "initialMemory": 33554432,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Autinn/Scope40/2.6.32/manifest.json",
+    "sourceCommit": "eff448f818f7ca94c6a893b69a907fcf45f0a639",
+    "artifact": {
+      "sha256": "f685a14ebe83ad2d00ee484d109b1297e36cd755e8f2315abe5b2f98246e0de4",
+      "size": 110341
+    }
+  },
+  "source": {
+    "url": "https://github.com/NikolaiVChr/Autinn",
+    "commit": "eff448f818f7ca94c6a893b69a907fcf45f0a639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:25:17.196Z"
+  }
+}

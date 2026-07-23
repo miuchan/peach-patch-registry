@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ondas/Ktick",
+    "plugin": "Ondas",
+    "model": "Ktick",
+    "name": "Ktick",
+    "brand": "Ondas",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/srsergiorodriguez/ondas",
+    "libraryUrl": "https://library.vcvrack.com/Ondas/Ktick",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ondas/Ktick.webp",
+    "wasmUrl": "packages/Ondas/Ktick/2.1.0/module.wasm",
+    "width": 60,
+    "description": "Clock divider expander for Klok",
+    "params": [
+      {
+        "id": 0,
+        "name": "Division factor 0",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 84.375,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Division factor 1",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 160.313,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Division factor 2",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 236.25,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Division factor 3",
+        "min": 1,
+        "max": 256,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 312.188,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Division 0",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 112.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Division 1",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 188.438,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Division 2",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 264.375,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Division 3",
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 340.313,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Ondas/Klok",
+            "symbol": "modelKlok",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ondas/Ktick/2.1.0/manifest.json",
+    "sourceCommit": "05c07684b30bfe6aeed676063f9d2d3f971e7b40",
+    "artifact": {
+      "sha256": "54751005f0bcc49e1f6c6a173948f6da2765929bccc8155eeacb4f8fd94fc0c1",
+      "size": 71846
+    }
+  },
+  "source": {
+    "url": "https://github.com/srsergiorodriguez/ondas",
+    "commit": "05c07684b30bfe6aeed676063f9d2d3f971e7b40"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:29:08.262Z"
+  }
+}

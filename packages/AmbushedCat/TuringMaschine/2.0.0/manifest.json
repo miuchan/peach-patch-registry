@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmbushedCat/TuringMaschine",
+    "plugin": "AmbushedCat",
+    "model": "TuringMaschine",
+    "name": "TuringMaschineRythm",
+    "brand": "AmbushedCat",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/LegitCodeRed/AmbushedCat",
+    "libraryUrl": "https://library.vcvrack.com/AmbushedCat/TuringMaschine",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmbushedCat/TuringMaschine.webp",
+    "wasmUrl": "packages/AmbushedCat/TuringMaschine/2.0.0/module.wasm",
+    "width": 90,
+    "description": "A probabilistic CV sequencer inspired by the original Music Thing Turing Machine. Generates semi-random looping sequences with adjustable probability and loop length.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Change",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 177.351,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 1,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 45,
+          "y": 147.824,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bias",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 206.879,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Write",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 120.502,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Generate Seed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 90.974,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 291.475,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 15.472,
+          "y": 321.003,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Change CV",
+        "kind": "cv",
+        "position": {
+          "x": 15.472,
+          "y": 261.948,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 261.948,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bias CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.528,
+          "y": 261.948,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sequence",
+        "kind": "cv",
+        "position": {
+          "x": 74.528,
+          "y": 321.003,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 74.528,
+          "y": 291.475,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 321.003,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 17,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 45,
+          "y": 76.211,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "bitsLow",
+        "type": "integer"
+      },
+      {
+        "key": "bitsHigh",
+        "type": "integer"
+      },
+      {
+        "key": "seedLow",
+        "type": "integer"
+      },
+      {
+        "key": "seedHigh",
+        "type": "integer"
+      },
+      {
+        "key": "pitchMode",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "writeMode",
+        "type": "integer"
+      },
+      {
+        "key": "pulseMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmbushedCat/TuringMaschine/2.0.0/manifest.json",
+    "sourceCommit": "6bf67cd62a34bbcead43fb4f4f8510c4c04ac4d1",
+    "artifact": {
+      "sha256": "1903f352ddf8974040e6cff3bdd954d4df2c10b4d090f8e3c91304818745e95e",
+      "size": 80599
+    }
+  },
+  "source": {
+    "url": "https://github.com/LegitCodeRed/AmbushedCat",
+    "commit": "6bf67cd62a34bbcead43fb4f4f8510c4c04ac4d1"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:28:40.655Z"
+  }
+}

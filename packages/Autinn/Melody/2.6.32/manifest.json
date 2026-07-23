@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Autinn/Melody",
+    "plugin": "Autinn",
+    "model": "Melody",
+    "name": "Fluencerator",
+    "brand": "Autinn",
+    "version": "2.6.32",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/NikolaiVChr/Autinn",
+    "libraryUrl": "https://library.vcvrack.com/Autinn/Melody",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Autinn/Melody.webp",
+    "wasmUrl": "packages/Autinn/Melody/2.6.32/module.wasm",
+    "width": 180,
+    "description": "Random melody sequencer with special constraints that make it sound more pleasant for the ear",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tonic",
+        "min": 60,
+        "max": 71,
+        "default": 62,
+        "snap": true,
+        "position": {
+          "x": 65.2,
+          "y": 71,
+          "widget": "RoundSmallAutinnSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 12,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 144.4,
+          "y": 71,
+          "widget": "RoundSmallAutinnSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Generate new phrase from settings (will start when current phrase ends)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 71.7,
+          "y": 232.5,
+          "widget": "RoundButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phrase length",
+        "min": 4,
+        "max": 32,
+        "default": 8,
+        "position": {
+          "x": 65.2,
+          "y": 126,
+          "widget": "RoundSmallAutinnSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Expression",
+        "min": 0,
+        "max": 3,
+        "default": 2.5,
+        "snap": true,
+        "position": {
+          "x": 144.4,
+          "y": 126,
+          "widget": "RoundSmallAutinnKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Each note's chance of accent",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "position": {
+          "x": 65.2,
+          "y": 176,
+          "widget": "RoundSmallAutinnSnapKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Each note's chance of glide",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "position": {
+          "x": 144.4,
+          "y": 176,
+          "widget": "RoundSmallAutinnSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Clock cycle rests before starting next phrase",
+        "min": 0,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 144.4,
+          "y": 226,
+          "widget": "RoundSmallAutinnSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ext. Clock",
+        "kind": "gate",
+        "position": {
+          "x": 20.21,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger Generate",
+        "kind": "gate",
+        "position": {
+          "x": 20.21,
+          "y": 224.21
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tonic CV ±5V",
+        "kind": "cv",
+        "position": {
+          "x": 20.21,
+          "y": 69.21
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mode CV ±5V",
+        "kind": "cv",
+        "position": {
+          "x": 188.21,
+          "y": 69.21
+        }
+      },
+      {
+        "id": 4,
+        "name": "Length CV ±5V",
+        "kind": "cv",
+        "position": {
+          "x": 20.21,
+          "y": 124.21
+        }
+      },
+      {
+        "id": 5,
+        "name": "Expression CV ±5V",
+        "kind": "cv",
+        "position": {
+          "x": 188.21,
+          "y": 124.21
+        }
+      },
+      {
+        "id": 6,
+        "name": "Accents CV ±5V",
+        "kind": "cv",
+        "position": {
+          "x": 20.21,
+          "y": 174.21
+        }
+      },
+      {
+        "id": 7,
+        "name": "Glides CV ±5V",
+        "kind": "cv",
+        "position": {
+          "x": 188.21,
+          "y": 174.21
+        }
+      },
+      {
+        "id": 8,
+        "name": "Rest CV ±5V",
+        "kind": "cv",
+        "position": {
+          "x": 188.21,
+          "y": 224.21
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 68.21,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 164.21,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "Accent",
+        "kind": "cv",
+        "position": {
+          "x": 116.21,
+          "y": 320
+        }
+      },
+      {
+        "id": 3,
+        "name": "Starting new phrase",
+        "kind": "cv",
+        "position": {
+          "x": 164.21,
+          "y": 270
+        }
+      },
+      {
+        "id": 4,
+        "name": "Starting phrase",
+        "kind": "cv",
+        "position": {
+          "x": 116.21,
+          "y": 270
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "gateOnWhenGliding",
+        "type": "boolean"
+      },
+      {
+        "key": "only1stepBeforeGlide",
+        "type": "boolean"
+      },
+      {
+        "key": "immediate",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Autinn/Melody/2.6.32/manifest.json",
+    "sourceCommit": "eff448f818f7ca94c6a893b69a907fcf45f0a639",
+    "artifact": {
+      "sha256": "0708d1d8b54ea82e7b2fbdfe60915e430a96da6ff94e66f072b421873e4689f9",
+      "size": 102489
+    }
+  },
+  "source": {
+    "url": "https://github.com/NikolaiVChr/Autinn",
+    "commit": "eff448f818f7ca94c6a893b69a907fcf45f0a639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:22:51.412Z"
+  }
+}

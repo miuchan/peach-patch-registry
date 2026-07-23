@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ondas/Klok",
+    "plugin": "Ondas",
+    "model": "Klok",
+    "name": "Klok",
+    "brand": "Ondas",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/srsergiorodriguez/ondas",
+    "libraryUrl": "https://library.vcvrack.com/Ondas/Klok",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ondas/Klok.webp",
+    "wasmUrl": "packages/Ondas/Klok/2.1.0/module.wasm",
+    "width": 60,
+    "description": "Clock generator with modulo outputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Run clock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 64.961,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Set tempo",
+        "min": 30,
+        "max": 360,
+        "default": 120,
+        "position": {
+          "x": 30,
+          "y": 112.205,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 40.5,
+          "y": 64.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Modulo 0",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Modulo 1",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 191.929,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Modulo 2",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 218.504,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Modulo 3",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 245.079,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Modulo 4",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 271.654,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Modulo 5",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Modulo 6",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 324.803,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Modulo 7",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 351.378,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 24.478,
+          "y": 22.5,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Ondas/Ktick",
+            "symbol": "modelKtick",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ondas/Klok/2.1.0/manifest.json",
+    "sourceCommit": "05c07684b30bfe6aeed676063f9d2d3f971e7b40",
+    "artifact": {
+      "sha256": "f2b31a60cc95a84b8fe3a765f5c7d6b7e3571c1f0520bc9d66544d456ef1c2e8",
+      "size": 71466
+    }
+  },
+  "source": {
+    "url": "https://github.com/srsergiorodriguez/ondas",
+    "commit": "05c07684b30bfe6aeed676063f9d2d3f971e7b40"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:29:03.625Z"
+  }
+}
