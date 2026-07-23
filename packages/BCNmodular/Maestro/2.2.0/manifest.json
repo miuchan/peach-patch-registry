@@ -1,0 +1,723 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BCNmodular/Maestro",
+    "plugin": "BCNmodular",
+    "model": "Maestro",
+    "name": "Maestro",
+    "brand": "BCNmodular",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/santifort-commits/BCNmodular",
+    "libraryUrl": "https://library.vcvrack.com/BCNmodular/Maestro",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BCNmodular/Maestro.webp",
+    "wasmUrl": "packages/BCNmodular/Maestro/2.2.0/module.wasm",
+    "width": 270,
+    "description": "Probabilistic Voice Router, Arranger, Mixer, Sequencer & Trigger Generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Active tracks",
+        "min": 1,
+        "max": 6,
+        "default": 6,
+        "position": {
+          "x": 64.961,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track density",
+        "min": 0,
+        "max": 6,
+        "default": 3,
+        "position": {
+          "x": 100.394,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track Density CV crossfade (Knob↔CV)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Randomness",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 206.693,
+          "y": 53.15,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Length",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 64.961,
+          "y": 100.394,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Skip probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 100.394,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Fade In",
+        "min": 0,
+        "max": 10,
+        "default": 0.05000000074505806,
+        "position": {
+          "x": 206.693,
+          "y": 100.394,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Fade Out",
+        "min": 0,
+        "max": 10,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 242.126,
+          "y": 100.394,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.441,
+          "y": 150.591,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.441,
+          "y": 188.976,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.441,
+          "y": 227.362,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.441,
+          "y": 265.748,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.441,
+          "y": 304.134,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 97.441,
+          "y": 342.52,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Prob CV crossfade (Knob↔CV)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 150.591,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Prob CV crossfade (Knob↔CV)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 188.976,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Prob CV crossfade (Knob↔CV)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 227.362,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Prob CV crossfade (Knob↔CV)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 265.748,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Prob CV crossfade (Knob↔CV)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 304.134,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Prob CV crossfade (Knob↔CV)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135.827,
+          "y": 342.52,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 206.693,
+          "y": 150.591,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 206.693,
+          "y": 188.976,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 206.693,
+          "y": 227.362,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 206.693,
+          "y": 265.748,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 206.693,
+          "y": 304.134,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 206.693,
+          "y": 342.52,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 53.15,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset / Force evaluate",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Density CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 53.15,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 100.394,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Skip CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 100.394,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Prob CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Prob CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 188.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Prob CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 227.362,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Prob CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 265.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Prob CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 304.134,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Prob CV",
+        "kind": "cv",
+        "position": {
+          "x": 171.26,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 188.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 227.362,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 265.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 304.134,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 64.961,
+          "y": 342.52,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 188.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 227.362,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 265.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 304.134,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Active voices CV",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 53.15,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 18,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 221.457,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 221.457,
+          "y": 188.976,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 221.457,
+          "y": 227.362,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 221.457,
+          "y": 265.748,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 221.457,
+          "y": 304.134,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 221.457,
+          "y": 342.52,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "minVoices",
+        "type": "integer"
+      },
+      {
+        "key": "beatsPerBar",
+        "type": "integer"
+      },
+      {
+        "key": "voiceSelectMode",
+        "type": "integer"
+      },
+      {
+        "key": "defaultInputVoltage",
+        "type": "real"
+      },
+      {
+        "key": "activeOutProportional",
+        "type": "boolean"
+      },
+      {
+        "key": "skipBinary",
+        "type": "boolean"
+      },
+      {
+        "key": "skipPerChannel",
+        "type": "boolean"
+      },
+      {
+        "key": "resetForceEval",
+        "type": "boolean"
+      },
+      {
+        "key": "triggerDuration",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BCNmodular/Maestro/2.2.0/manifest.json",
+    "sourceCommit": "4371a43a909aa81ff0feb13f96e9f20b787c625b",
+    "artifact": {
+      "sha256": "00576373fe0e79394c1c5b996eb4894d644d9d7de3b98d5b3896eadb318cb09f",
+      "size": 88034
+    }
+  },
+  "source": {
+    "url": "https://github.com/santifort-commits/BCNmodular",
+    "commit": "4371a43a909aa81ff0feb13f96e9f20b787c625b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T21:31:53.718Z"
+  }
+}
