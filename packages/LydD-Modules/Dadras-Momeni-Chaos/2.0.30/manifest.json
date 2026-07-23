@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LydD-Modules/Dadras-Momeni-Chaos",
+    "plugin": "LydD-Modules",
+    "model": "Dadras-Momeni-Chaos",
+    "name": "Mom-and-Dad",
+    "brand": "LydD Modules",
+    "version": "2.0.30",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lydian-Des/LydD_Modules",
+    "libraryUrl": "https://library.vcvrack.com/LydD-Modules/Dadras-Momeni-Chaos",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LydD-Modules/Dadras-Momeni-Chaos.webp",
+    "wasmUrl": "packages/LydD-Modules/Dadras-Momeni-Chaos/2.0.30/module.wasm",
+    "width": 180,
+    "description": "Chaotic Attractors",
+    "params": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 158,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Separate",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 162,
+          "y": 200,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time Phase",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 202,
+          "y": 200,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed Shift",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 205,
+          "y": 120,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Synchronize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 11,
+          "y": 119.5,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 11,
+          "y": 60.5,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Axis",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 208,
+          "y": 32,
+          "widget": "PurpleSwitch"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Wander",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 84,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Fathers Influence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 118,
+          "y": 205,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mothers Influence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81,
+          "y": 205,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Force",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 156,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Split",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 186,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Dwell",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 216,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Throw",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 246,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "EDIT - conditions",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 165,
+          "y": 162,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "kind": "cv",
+        "position": {
+          "x": 130,
+          "y": 160
+        }
+      },
+      {
+        "id": 1,
+        "name": "Separation",
+        "kind": "cv",
+        "position": {
+          "x": 166,
+          "y": 242
+        }
+      },
+      {
+        "id": 2,
+        "name": "Phase",
+        "kind": "cv",
+        "position": {
+          "x": 204,
+          "y": 242
+        }
+      },
+      {
+        "id": 3,
+        "name": "Difference",
+        "kind": "cv",
+        "position": {
+          "x": 209,
+          "y": 162
+        }
+      },
+      {
+        "id": 4,
+        "name": "Dad's Influence",
+        "kind": "cv",
+        "position": {
+          "x": 118,
+          "y": 242
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mom's Influence",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 242
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sync Lines (To Child)",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 90
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 9,
+          "y": 31
+        }
+      },
+      {
+        "id": 8,
+        "name": "Force",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 156
+        }
+      },
+      {
+        "id": 9,
+        "name": "Split",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 186
+        }
+      },
+      {
+        "id": 10,
+        "name": "Dwell",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 216
+        }
+      },
+      {
+        "id": 11,
+        "name": "Hold",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 246
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mom-X",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 282
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mom-Y",
+        "kind": "cv",
+        "position": {
+          "x": 52,
+          "y": 282
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mom-Z",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 320
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mom-W",
+        "kind": "cv",
+        "position": {
+          "x": 52,
+          "y": 320
+        }
+      },
+      {
+        "id": 4,
+        "name": "Spawn-X",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 282
+        }
+      },
+      {
+        "id": 5,
+        "name": "Spawn-Y",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 282
+        }
+      },
+      {
+        "id": 6,
+        "name": "Spawn-Z",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 320
+        }
+      },
+      {
+        "id": 7,
+        "name": "Spawn-W",
+        "kind": "cv",
+        "position": {
+          "x": 128,
+          "y": 320
+        }
+      },
+      {
+        "id": 8,
+        "name": "Dad-X",
+        "kind": "cv",
+        "position": {
+          "x": 166,
+          "y": 282
+        }
+      },
+      {
+        "id": 9,
+        "name": "Dad-Y",
+        "kind": "cv",
+        "position": {
+          "x": 204,
+          "y": 282
+        }
+      },
+      {
+        "id": 10,
+        "name": "Dad-Z",
+        "kind": "cv",
+        "position": {
+          "x": 166,
+          "y": 320
+        }
+      },
+      {
+        "id": 11,
+        "name": "Dad-W",
+        "kind": "cv",
+        "position": {
+          "x": 204,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 212,
+          "y": 74,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LydD-Modules/Dadras-Momeni-Chaos/2.0.30/manifest.json",
+    "sourceCommit": "71e0bcbed9bf52498b42ffac86775e7043d2069a",
+    "artifact": {
+      "sha256": "47a09fa0959f1e67ebbaa52303825f9866acf1bbf0e73ae05df8272c060f6094",
+      "size": 89039
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lydian-Des/LydD_Modules",
+    "commit": "71e0bcbed9bf52498b42ffac86775e7043d2069a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T07:49:04.369Z"
+  }
+}

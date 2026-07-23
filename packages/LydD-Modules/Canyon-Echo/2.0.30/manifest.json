@@ -1,0 +1,417 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LydD-Modules/Canyon-Echo",
+    "plugin": "LydD-Modules",
+    "model": "Canyon-Echo",
+    "name": "Canyon",
+    "brand": "LydD Modules",
+    "version": "2.0.30",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lydian-Des/LydD_Modules",
+    "libraryUrl": "https://library.vcvrack.com/LydD-Modules/Canyon-Echo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LydD-Modules/Canyon-Echo.webp",
+    "wasmUrl": "packages/LydD-Modules/Canyon-Echo/2.0.30/module.wasm",
+    "width": 180,
+    "description": "Dual/Stereo Delay",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay Param +  0",
+        "min": 0.10000000149011612,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 10,
+          "y": 50.5,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Delay Param +  1",
+        "min": 0.10000000149011612,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 92.5,
+          "y": 50.5,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delay CV Param +  0",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52.5,
+          "y": 93,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Delay CV Param +  1",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 79,
+          "y": 93,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Stone Param +  0",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 27,
+          "y": 115.5,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Stone Param +  1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 91.5,
+          "y": 115.5,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Stone CV Param +  0",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 3.5,
+          "y": 107,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Stone CV Param +  1",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 128,
+          "y": 107,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 119,
+          "y": 233,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pitch",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 11,
+          "y": 169,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Scatter",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 63.5,
+          "y": 195.5,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Freeze Delay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 120,
+          "y": 162,
+          "widget": "LilButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Reverse Delay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 120,
+          "y": 202,
+          "widget": "LilButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Dry Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 8.5,
+          "y": 226.5,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Wet Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 41.5,
+          "y": 226.5,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Delay Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 64.5,
+          "y": 153.5,
+          "widget": "LilButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "DELAY_INPUT + 0",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 1,
+        "name": "DELAY_INPUT + 1",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 2,
+        "name": "STONE_INPUT + 0",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 305
+        }
+      },
+      {
+        "id": 3,
+        "name": "STONE_INPUT + 1",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 305
+        }
+      },
+      {
+        "id": 4,
+        "name": "Feedback",
+        "kind": "cv",
+        "position": {
+          "x": 90.5,
+          "y": 305
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 90.5,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 6,
+        "name": "Scatter",
+        "kind": "cv",
+        "position": {
+          "x": 61.5,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 7,
+        "name": "Freeze Gate",
+        "kind": "gate",
+        "position": {
+          "x": 118.5,
+          "y": 272.5
+        }
+      },
+      {
+        "id": 8,
+        "name": "Reverse Gate",
+        "kind": "gate",
+        "position": {
+          "x": 118.5,
+          "y": 305
+        }
+      },
+      {
+        "id": 9,
+        "name": "Dry Mix",
+        "kind": "audio",
+        "position": {
+          "x": 61.5,
+          "y": 305
+        }
+      },
+      {
+        "id": 10,
+        "name": "Wet Mix",
+        "kind": "audio",
+        "position": {
+          "x": 61.5,
+          "y": 337
+        }
+      },
+      {
+        "id": 11,
+        "name": "AUDIO_INPUT + 0",
+        "kind": "audio",
+        "position": {
+          "x": 5,
+          "y": 338
+        }
+      },
+      {
+        "id": 12,
+        "name": "AUDIO_INPUT + 1",
+        "kind": "audio",
+        "position": {
+          "x": 33,
+          "y": 338
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "AUDIO_OUTPUT + 0",
+        "kind": "audio",
+        "position": {
+          "x": 90,
+          "y": 338
+        }
+      },
+      {
+        "id": 1,
+        "name": "AUDIO_OUTPUT + 1",
+        "kind": "audio",
+        "position": {
+          "x": 118.5,
+          "y": 338
+        }
+      }
+    ],
+    "lights": 15,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "CanButtonLight",
+        "position": {
+          "x": 120,
+          "y": 162
+        }
+      },
+      {
+        "id": 3,
+        "widget": "CanButtonLight",
+        "position": {
+          "x": 120,
+          "y": 202
+        }
+      },
+      {
+        "id": 6,
+        "widget": "CanButtonLight",
+        "position": {
+          "x": 64.5,
+          "y": 153.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "CanyonLLight",
+        "position": {
+          "x": 0,
+          "y": 138.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "CanyonRLight",
+        "position": {
+          "x": 96.5,
+          "y": 138.5
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LydD-Modules/Canyon-Echo/2.0.30/manifest.json",
+    "sourceCommit": "71e0bcbed9bf52498b42ffac86775e7043d2069a",
+    "artifact": {
+      "sha256": "ce9edb262c4c1b890ffca28b082a5b2c12065a100458c0d8248c22041842f03a",
+      "size": 98077
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lydian-Des/LydD_Modules",
+    "commit": "71e0bcbed9bf52498b42ffac86775e7043d2069a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T07:50:08.239Z"
+  }
+}

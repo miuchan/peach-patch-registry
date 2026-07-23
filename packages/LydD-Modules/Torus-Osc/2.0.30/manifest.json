@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LydD-Modules/Torus-Osc",
+    "plugin": "LydD-Modules",
+    "model": "Torus-Osc",
+    "name": "Torus",
+    "brand": "LydD Modules",
+    "version": "2.0.30",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lydian-Des/LydD_Modules",
+    "libraryUrl": "https://library.vcvrack.com/LydD-Modules/Torus-Osc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LydD-Modules/Torus-Osc.webp",
+    "wasmUrl": "packages/LydD-Modules/Torus-Osc/2.0.30/module.wasm",
+    "width": 180,
+    "description": "Toroidal Oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Big Circle",
+        "min": -60,
+        "max": 60,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 165,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Little Circle",
+        "min": -60,
+        "max": 60,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 240,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Equation",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 74,
+          "widget": "PurpleSwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "LFO->2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 134,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "LFO->1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 134,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Big Windings",
+        "min": 1,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 151,
+          "y": 230,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Little Windings",
+        "min": 1,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 199,
+          "y": 238,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 162,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Radial Difference",
+        "min": -10,
+        "max": 42,
+        "default": 10,
+        "position": {
+          "x": 185,
+          "y": 192,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Drive",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 228,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Drive Type",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 119,
+          "y": 202,
+          "widget": "PurpleSwitch"
+        }
+      },
+      {
+        "id": 11,
+        "name": " Little Pitch Follow",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 79,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Detune",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 145,
+          "y": 162,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Big-Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 300
+        }
+      },
+      {
+        "id": 1,
+        "name": "Little-Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 332
+        }
+      },
+      {
+        "id": 2,
+        "name": "Big Windings",
+        "kind": "cv",
+        "position": {
+          "x": 168,
+          "y": 322
+        }
+      },
+      {
+        "id": 3,
+        "name": "Little Windings",
+        "kind": "cv",
+        "position": {
+          "x": 205,
+          "y": 332
+        }
+      },
+      {
+        "id": 4,
+        "name": "Phase Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 288
+        }
+      },
+      {
+        "id": 5,
+        "name": "Little Radius (inverted)",
+        "kind": "cv",
+        "position": {
+          "x": 205,
+          "y": 300
+        }
+      },
+      {
+        "id": 6,
+        "name": "Drive",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 322
+        }
+      },
+      {
+        "id": 7,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 168,
+          "y": 288
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X-Axis",
+        "kind": "cv",
+        "position": {
+          "x": 88,
+          "y": 288
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y-Axis",
+        "kind": "cv",
+        "position": {
+          "x": 130,
+          "y": 288
+        }
+      },
+      {
+        "id": 2,
+        "name": "Z-Axis",
+        "kind": "cv",
+        "position": {
+          "x": 108.5,
+          "y": 332
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 14,
+          "y": 126,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 214,
+          "y": 126,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 214,
+          "y": 71,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LydD-Modules/Torus-Osc/2.0.30/manifest.json",
+    "sourceCommit": "71e0bcbed9bf52498b42ffac86775e7043d2069a",
+    "artifact": {
+      "sha256": "867185bcd4eb3a5fe171a1e88810f18107022baec9eb0c43b790bdf5bb7d59c7",
+      "size": 115008
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lydian-Des/LydD_Modules",
+    "commit": "71e0bcbed9bf52498b42ffac86775e7043d2069a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T07:49:09.469Z"
+  }
+}

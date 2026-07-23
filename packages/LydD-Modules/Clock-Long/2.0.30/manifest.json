@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LydD-Modules/Clock-Long",
+    "plugin": "LydD-Modules",
+    "model": "Clock-Long",
+    "name": "Concierge",
+    "brand": "LydD Modules",
+    "version": "2.0.30",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Lydian-Des/LydD_Modules",
+    "libraryUrl": "https://library.vcvrack.com/LydD-Modules/Clock-Long",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LydD-Modules/Clock-Long.webp",
+    "wasmUrl": "packages/LydD-Modules/Clock-Long/2.0.30/module.wasm",
+    "width": 180,
+    "description": "Clock Generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": -4,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 57.5,
+          "y": 133.5,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Beats per measure",
+        "min": 2,
+        "max": 16,
+        "default": 4,
+        "position": {
+          "x": 14,
+          "y": 140,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Quaver type",
+        "min": 2,
+        "max": 16,
+        "default": 4,
+        "position": {
+          "x": 110,
+          "y": 140,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Swing",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 66.5,
+          "y": 263,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Curve",
+        "min": -0.9900000095367432,
+        "max": 0.9900000095367432,
+        "default": 0,
+        "position": {
+          "x": 66.5,
+          "y": 325,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse Width",
+        "min": 0.009999999776482582,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 86,
+          "y": 176,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 121,
+          "y": 105,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 58,
+          "y": 76,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "BPM CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 64
+        }
+      },
+      {
+        "id": 1,
+        "name": "External Gate",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 95
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 88,
+          "y": 75
+        }
+      },
+      {
+        "id": 3,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 56,
+          "y": 100
+        }
+      },
+      {
+        "id": 4,
+        "name": "PulseWidth",
+        "kind": "gate",
+        "position": {
+          "x": 116,
+          "y": 184
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Run Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 88,
+          "y": 100
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 118,
+          "y": 75
+        }
+      },
+      {
+        "id": 2,
+        "name": "Thru / Quarter Note",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 184
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sixteenth Note",
+        "kind": "cv",
+        "position": {
+          "x": 21.792,
+          "y": 209
+        }
+      },
+      {
+        "id": 4,
+        "name": "Eighth Note",
+        "kind": "cv",
+        "position": {
+          "x": 49.979,
+          "y": 209
+        }
+      },
+      {
+        "id": 5,
+        "name": "Dotted Eighth Note",
+        "kind": "cv",
+        "position": {
+          "x": 13.803,
+          "y": 234.791
+        }
+      },
+      {
+        "id": 6,
+        "name": "Offbeat Quarter Note",
+        "kind": "cv",
+        "position": {
+          "x": 41.989,
+          "y": 234.791
+        }
+      },
+      {
+        "id": 7,
+        "name": "Triplet Quaver",
+        "kind": "cv",
+        "position": {
+          "x": 5.814,
+          "y": 260.582
+        }
+      },
+      {
+        "id": 8,
+        "name": "Triplet Measure",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 260.582
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mid-Measure",
+        "kind": "cv",
+        "position": {
+          "x": 78,
+          "y": 209
+        }
+      },
+      {
+        "id": 10,
+        "name": "Measure",
+        "kind": "cv",
+        "position": {
+          "x": 106.186,
+          "y": 209
+        }
+      },
+      {
+        "id": 11,
+        "name": "Four Measures",
+        "kind": "cv",
+        "position": {
+          "x": 85.989,
+          "y": 234.791
+        }
+      },
+      {
+        "id": 12,
+        "name": "Beats Measures",
+        "kind": "cv",
+        "position": {
+          "x": 114.176,
+          "y": 234.791
+        }
+      },
+      {
+        "id": 13,
+        "name": "Sixteen Measures",
+        "kind": "cv",
+        "position": {
+          "x": 93.979,
+          "y": 260.582
+        }
+      },
+      {
+        "id": 14,
+        "name": "Beats by Quaver Measures",
+        "kind": "cv",
+        "position": {
+          "x": 122.165,
+          "y": 260.582
+        }
+      },
+      {
+        "id": 15,
+        "name": "Mid Measure Phase",
+        "kind": "cv",
+        "position": {
+          "x": 79.001,
+          "y": 286.945
+        }
+      },
+      {
+        "id": 16,
+        "name": "Measure Phase",
+        "kind": "cv",
+        "position": {
+          "x": 107.187,
+          "y": 286.945
+        }
+      },
+      {
+        "id": 17,
+        "name": "Four Measure Phase",
+        "kind": "cv",
+        "position": {
+          "x": 85.989,
+          "y": 313.025
+        }
+      },
+      {
+        "id": 18,
+        "name": "Beats Measure Phase",
+        "kind": "cv",
+        "position": {
+          "x": 114.175,
+          "y": 313.025
+        }
+      },
+      {
+        "id": 19,
+        "name": "Sixteen Measure Phase",
+        "kind": "cv",
+        "position": {
+          "x": 92.977,
+          "y": 339.105
+        }
+      },
+      {
+        "id": 20,
+        "name": "Beats by Quaver Measure Phase",
+        "kind": "cv",
+        "position": {
+          "x": 121.164,
+          "y": 339.105
+        }
+      },
+      {
+        "id": 21,
+        "name": "Dotted Sixteenth Note (Measure-Bound)",
+        "kind": "cv",
+        "position": {
+          "x": 20.791,
+          "y": 286.945
+        }
+      },
+      {
+        "id": 22,
+        "name": "Dotted Eighth Note (Measure - Bound)",
+        "kind": "cv",
+        "position": {
+          "x": 48.977,
+          "y": 286.945
+        }
+      },
+      {
+        "id": 23,
+        "name": "Half Note (Measure - Bound)",
+        "kind": "cv",
+        "position": {
+          "x": 6.815,
+          "y": 339.105
+        }
+      },
+      {
+        "id": 24,
+        "name": "Triplet Quaver (Measure - Bound)",
+        "kind": "cv",
+        "position": {
+          "x": 13.803,
+          "y": 313.025
+        }
+      },
+      {
+        "id": 25,
+        "name": "Dotted Quarter Note (Measure - Bound)",
+        "kind": "cv",
+        "position": {
+          "x": 41.989,
+          "y": 313.025
+        }
+      }
+    ],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 49,
+          "y": 93,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 104.7,
+          "y": 306.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 133.7,
+          "y": 306.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 110.3,
+          "y": 332.3,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 139.3,
+          "y": 332.3,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 117.6,
+          "y": 358.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 145.6,
+          "y": 358.4,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LydD-Modules/Clock-Long/2.0.30/manifest.json",
+    "sourceCommit": "71e0bcbed9bf52498b42ffac86775e7043d2069a",
+    "artifact": {
+      "sha256": "15ef6a81cc82d88273cb8138ff3cd3c418c62d0cd3c17050ccf61fd2129e4d39",
+      "size": 92206
+    }
+  },
+  "source": {
+    "url": "https://github.com/Lydian-Des/LydD_Modules",
+    "commit": "71e0bcbed9bf52498b42ffac86775e7043d2069a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T07:46:42.748Z"
+  }
+}
