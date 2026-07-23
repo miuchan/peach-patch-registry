@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "TheXOR/Uncertain",
+    "plugin": "TheXOR",
+    "model": "Uncertain",
+    "name": "Uncertain",
+    "brand": "TheXOR",
+    "version": "1.1.1",
+    "license": "CC0-1.0",
+    "sourceUrl": "https://github.com/The-XOR/RackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/TheXOR/Uncertain",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/TheXOR/Uncertain.webp",
+    "wasmUrl": "packages/TheXOR/Uncertain/1.1.1/module.wasm",
+    "width": 180,
+    "description": "uncertain, buchla-esque voltages",
+    "params": [
+      {
+        "id": 0,
+        "name": "Fluctuate",
+        "min": -10,
+        "max": 10,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Quantized Amount",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Stored Amount",
+        "min": 2.5,
+        "max": 7.5,
+        "default": 5
+      },
+      {
+        "id": 3,
+        "name": "Sigma",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock Fluct",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Input Fluct",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Clock Quantized",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Input Quantized",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Clock Stored",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Input Stored",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Input Curveamp",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output Fluct",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Output Quantized N 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Output Quantized 2n",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Output Stored Rnd",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Output Stored Bell",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/TheXOR/Uncertain/1.1.1/manifest.json",
+    "sourceCommit": "168a32e1331f7eb355b1522ae0550186bebba45a",
+    "artifact": {
+      "sha256": "0db0acb9ac05af54b4b8da0142a80582d4e81926e9fed306df055bec283ef311",
+      "size": 80961
+    }
+  },
+  "source": {
+    "url": "https://github.com/The-XOR/RackPlugins",
+    "commit": "168a32e1331f7eb355b1522ae0550186bebba45a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:02:48.606Z"
+  }
+}

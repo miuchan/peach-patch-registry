@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "s-ol/WrapComp",
+    "plugin": "s-ol",
+    "model": "WrapComp",
+    "name": "Wrapping Comparator",
+    "brand": "s-ol",
+    "version": "1.0.0",
+    "license": "MIT",
+    "sourceUrl": "https://git.s-ol.nu/vcvmods",
+    "libraryUrl": "https://library.vcvrack.com/s-ol/WrapComp",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/s-ol/WrapComp.webp",
+    "wasmUrl": "packages/s-ol/WrapComp/1.0.0/module.wasm",
+    "width": 90,
+    "description": "compares a voltage against a window in a circular space",
+    "params": [
+      {
+        "id": 0,
+        "name": "A Output",
+        "min": -8,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": -25,
+          "y": 280,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "B Output",
+        "min": -8,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 280,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Window Offset",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 135,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Window Size",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 25,
+          "y": 210,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 0,
+          "y": 70
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": -25,
+          "y": 135
+        }
+      },
+      {
+        "id": 2,
+        "name": "Range",
+        "kind": "cv",
+        "position": {
+          "x": -25,
+          "y": 210
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 0,
+          "y": 315
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": -15,
+          "y": 255
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 15,
+          "y": 255
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/s-ol/WrapComp/1.0.0/manifest.json",
+    "sourceCommit": "17f7b134791972c0f37a2c4812f73111ea736072",
+    "artifact": {
+      "sha256": "bffeeb15b70e4a7a2c875d5611969cce94497405d995b9d2bc6f8b214937e345",
+      "size": 70123
+    }
+  },
+  "source": {
+    "url": "https://git.s-ol.nu/vcvmods",
+    "commit": "17f7b134791972c0f37a2c4812f73111ea736072"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:09:43.975Z"
+  }
+}
