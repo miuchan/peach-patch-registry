@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AaronKarp-EarthTones/PolarCV",
+    "plugin": "AaronKarp-EarthTones",
+    "model": "PolarCV",
+    "name": "PolarCV",
+    "brand": "EarthTones",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/aaronkarp123/EarthTones",
+    "libraryUrl": "https://library.vcvrack.com/AaronKarp-EarthTones/PolarCV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AaronKarp-EarthTones/PolarCV.webp",
+    "wasmUrl": "packages/AaronKarp-EarthTones/PolarCV/2.0.1/module.wasm",
+    "width": 195,
+    "description": "CV Generator for polar equations",
+    "params": [
+      {
+        "id": 0,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 25.001,
+          "y": 255,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 97.5,
+          "y": 255,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 169.999,
+          "y": 255,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed",
+        "min": 0.00009999999747378752,
+        "max": 0.019999999552965164,
+        "default": 0.009999999776482582,
+        "position": {
+          "x": 73.335,
+          "y": 294.983,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "A",
+        "min": 0,
+        "max": 20,
+        "default": 1,
+        "position": {
+          "x": 121.665,
+          "y": 294.983,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "B",
+        "min": 0,
+        "max": 20,
+        "default": 1,
+        "position": {
+          "x": 169.999,
+          "y": 294.983,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Cur Eq",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Cur Time Mult Idx",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV for Speed",
+        "kind": "cv",
+        "position": {
+          "x": 25.001,
+          "y": 294.983,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "R",
+        "kind": "cv",
+        "position": {
+          "x": 61.515,
+          "y": 340.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 340.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 133.5,
+          "y": 340.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 25.001,
+          "y": 255,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 97.5,
+          "y": 255,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 169.999,
+          "y": 255,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AaronKarp-EarthTones/PolarCV/2.0.1/manifest.json",
+    "sourceCommit": "6b34e199d95417527671755e02af5dbe3b226333",
+    "artifact": {
+      "sha256": "1689fae2ce4c7cb29e67f05c62aaec8b651e561f339dca2c2f9ed0bdd2c0c5dd",
+      "size": 81072
+    }
+  },
+  "source": {
+    "url": "https://github.com/aaronkarp123/EarthTones",
+    "commit": "6b34e199d95417527671755e02af5dbe3b226333"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:59:12.915Z"
+  }
+}
