@@ -1,0 +1,542 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "matrix-sequencer/matrix-sequencer",
+    "plugin": "matrix-sequencer",
+    "model": "matrix-sequencer",
+    "name": "matrix-sequencer",
+    "brand": "Matrix Sequencer",
+    "version": "2.0.0",
+    "license": "AGPL-3.0-only",
+    "sourceUrl": "https://github.com/Retr0-code/Matrix-Sequncer",
+    "libraryUrl": "https://library.vcvrack.com/matrix-sequencer/matrix-sequencer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/matrix-sequencer/matrix-sequencer.webp",
+    "wasmUrl": "packages/matrix-sequencer/matrix-sequencer/2.0.0/module.wasm",
+    "width": 480,
+    "description": "Simple matrix sequencer for VCV Rack 2 with three different playback algorithms.",
+    "params": [
+      {
+        "id": 0,
+        "name": "(1; 1)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 127.5,
+          "y": 60,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "(2; 1)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 60,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "(3; 1)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 60,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "(4; 1)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 375,
+          "y": 60,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "(1; 2)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 127.5,
+          "y": 127.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "(2; 2)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 127.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "(3; 2)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 127.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "(4; 2)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 375,
+          "y": 127.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "(1; 3)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 127.5,
+          "y": 195,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "(2; 3)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 195,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "(3; 3)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 195,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "(4; 3)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 375,
+          "y": 195,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "(1; 4)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 127.5,
+          "y": 262.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "(2; 4)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 262.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "(3; 4)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 292.5,
+          "y": 262.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "(4; 4)",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 375,
+          "y": 262.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Algorithm",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 262.5,
+          "centered": true,
+          "widget": "RoundHugeBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 75,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start sequence",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 127.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset sequence",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Control algorithms",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 217.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out Y:1",
+        "kind": "cv",
+        "position": {
+          "x": 427.5,
+          "y": 60,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out Y:2",
+        "kind": "cv",
+        "position": {
+          "x": 427.5,
+          "y": 127.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Out Y:3",
+        "kind": "cv",
+        "position": {
+          "x": 427.5,
+          "y": 195,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Out Y:4",
+        "kind": "cv",
+        "position": {
+          "x": 427.5,
+          "y": 262.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Out X:1",
+        "kind": "cv",
+        "position": {
+          "x": 127.5,
+          "y": 352.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Out X:2",
+        "kind": "cv",
+        "position": {
+          "x": 210,
+          "y": 352.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Out X:3",
+        "kind": "cv",
+        "position": {
+          "x": 292.5,
+          "y": 352.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Out X:4",
+        "kind": "cv",
+        "position": {
+          "x": 375,
+          "y": 352.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sequence output",
+        "kind": "cv",
+        "position": {
+          "x": 427.5,
+          "y": 352.5,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 16,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 127.5,
+          "y": 93.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 210,
+          "y": 93.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 292.5,
+          "y": 93.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 375,
+          "y": 93.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 127.5,
+          "y": 161.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 210,
+          "y": 161.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 292.5,
+          "y": 161.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 375,
+          "y": 161.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 127.5,
+          "y": 228.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 210,
+          "y": 228.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 292.5,
+          "y": 228.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 375,
+          "y": 228.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 127.5,
+          "y": 296.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 210,
+          "y": 296.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 292.5,
+          "y": 296.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 375,
+          "y": 296.25,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/matrix-sequencer/matrix-sequencer/2.0.0/manifest.json",
+    "sourceCommit": "b6424e57608690e9b165af9e7532f2b6c37e566b",
+    "artifact": {
+      "sha256": "3772554fbae7924ff065f1c55685c7c27b6c70062671677b253222d5d32d35da",
+      "size": 78065
+    }
+  },
+  "source": {
+    "url": "https://github.com/Retr0-code/Matrix-Sequncer",
+    "commit": "b6424e57608690e9b165af9e7532f2b6c37e566b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T02:22:47.902Z"
+  }
+}
