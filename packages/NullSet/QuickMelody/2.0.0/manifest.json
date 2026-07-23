@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NullSet/QuickMelody",
+    "plugin": "NullSet",
+    "model": "QuickMelody",
+    "name": "Quick Melody",
+    "brand": "Null Set",
+    "version": "2.0.0",
+    "license": "GPL-3.0",
+    "sourceUrl": "https://github.com/nicholas-j-denning/NullSet",
+    "libraryUrl": "https://library.vcvrack.com/NullSet/QuickMelody",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NullSet/QuickMelody.webp",
+    "wasmUrl": "packages/NullSet/QuickMelody/2.0.0/module.wasm",
+    "width": 60,
+    "description": "Generate melodies using an aliasing algorithm",
+    "params": [
+      {
+        "id": 0,
+        "name": "New Pattern",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30.847,
+          "y": 109.057,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Max",
+        "min": -10,
+        "max": 10,
+        "default": -5,
+        "position": {
+          "x": 30.847,
+          "y": 192.626,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Min",
+        "min": -10,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 30.847,
+          "y": 276.345,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 30.847,
+          "y": 56.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "New Pattern",
+        "kind": "cv",
+        "position": {
+          "x": 30.847,
+          "y": 141.508,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Max",
+        "kind": "cv",
+        "position": {
+          "x": 30.847,
+          "y": 223.172,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Min",
+        "kind": "cv",
+        "position": {
+          "x": 30.847,
+          "y": 308.826,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sequence",
+        "kind": "cv",
+        "position": {
+          "x": 30.847,
+          "y": 359.805,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "freq",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NullSet/QuickMelody/2.0.0/manifest.json",
+    "sourceCommit": "3637d33896d66c4aa0abb0e0e7e3e42f1fd3acb9",
+    "artifact": {
+      "sha256": "0e59631171fb249bbf92ef08e0d8e6166c926299e73d6816f5c51b56772f37d3",
+      "size": 73128
+    }
+  },
+  "source": {
+    "url": "https://github.com/nicholas-j-denning/NullSet",
+    "commit": "3637d33896d66c4aa0abb0e0e7e3e42f1fd3acb9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:59:04.246Z"
+  }
+}
