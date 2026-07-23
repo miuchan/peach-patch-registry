@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CaptainsSounds/VBNO",
+    "plugin": "CaptainsSounds",
+    "model": "VBNO",
+    "name": "VBNO - Voice By Note Oscillator",
+    "brand": "Captain's Sounds",
+    "version": "1.0.7",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/mikeallisonJS/vcv-CaptainsSounds",
+    "libraryUrl": "https://library.vcvrack.com/CaptainsSounds/VBNO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CaptainsSounds/VBNO.webp",
+    "wasmUrl": "packages/CaptainsSounds/VBNO/1.0.7/module.wasm",
+    "width": 45,
+    "description": "Oscillator with locked pitch by octave & note. Also allows for v/oct overrides rounding voltage to nearest octave or note.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Octave",
+        "min": -5,
+        "max": 3,
+        "default": -1
+      },
+      {
+        "id": 1,
+        "name": "Base note",
+        "min": 0,
+        "max": 11,
+        "default": 3
+      },
+      {
+        "id": 2,
+        "name": "Wave shape",
+        "min": 0,
+        "max": 3,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Note",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Octave",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Sync",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Wave",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "CaptainsSounds/DBug",
+            "symbol": "modelDBug",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CaptainsSounds/VBNO/1.0.7/manifest.json",
+    "sourceCommit": "22cd09d1ae90ab72df5596e8d99e14ea85a02b40",
+    "artifact": {
+      "sha256": "a56789dd2abacc8ef6d41e2bd74a9b9f45a0b22a17c9cf209d9447f7b66b7d7e",
+      "size": 77498
+    }
+  },
+  "source": {
+    "url": "https://github.com/mikeallisonJS/vcv-CaptainsSounds",
+    "commit": "22cd09d1ae90ab72df5596e8d99e14ea85a02b40"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T09:01:29.226Z"
+  }
+}

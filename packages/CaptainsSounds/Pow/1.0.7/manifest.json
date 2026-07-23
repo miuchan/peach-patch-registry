@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CaptainsSounds/Pow",
+    "plugin": "CaptainsSounds",
+    "model": "Pow",
+    "name": "Pow",
+    "brand": "Captain's Sounds",
+    "version": "1.0.7",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/mikeallisonJS/vcv-CaptainsSounds",
+    "libraryUrl": "https://library.vcvrack.com/CaptainsSounds/Pow",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CaptainsSounds/Pow.webp",
+    "wasmUrl": "packages/CaptainsSounds/Pow/1.0.7/module.wasm",
+    "width": 30,
+    "description": "Uni-polar and Bi-polar voltage generator and attenuator",
+    "params": [
+      {
+        "id": 0,
+        "name": "10V Uni-polar Voltage",
+        "min": 0,
+        "max": 10,
+        "default": 10
+      },
+      {
+        "id": 1,
+        "name": "5V Bi-polar Voltage",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Uni",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Bi",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Uni",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Bi",
+        "kind": "cv"
+      }
+    ],
+    "lights": 3,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "CaptainsSounds/DBug",
+            "symbol": "modelDBug",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CaptainsSounds/Pow/1.0.7/manifest.json",
+    "sourceCommit": "22cd09d1ae90ab72df5596e8d99e14ea85a02b40",
+    "artifact": {
+      "sha256": "aa561f0531966127dfd71a863b545d4ccd38fd5cfff1ab23d99d73e5caf8d3b6",
+      "size": 72543
+    }
+  },
+  "source": {
+    "url": "https://github.com/mikeallisonJS/vcv-CaptainsSounds",
+    "commit": "22cd09d1ae90ab72df5596e8d99e14ea85a02b40"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T09:01:11.300Z"
+  }
+}
