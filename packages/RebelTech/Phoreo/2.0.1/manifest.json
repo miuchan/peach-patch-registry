@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RebelTech/Phoreo",
+    "plugin": "RebelTech",
+    "model": "Phoreo",
+    "name": "Phoreo",
+    "brand": "RebelTech",
+    "version": "2.0.1",
+    "license": "GPL-2.0-or-later",
+    "sourceUrl": "https://github.com/hemmer/rebel-tech-vcv",
+    "libraryUrl": "https://library.vcvrack.com/RebelTech/Phoreo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RebelTech/Phoreo.webp",
+    "wasmUrl": "packages/RebelTech/Phoreo/2.0.1/module.wasm",
+    "width": 150,
+    "description": "Trigger modulator, multiplier and repeater",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pulse width",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 37.155,
+          "y": 77.501,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse width CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.155,
+          "y": 77.501,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock multiplication factor",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 37.155,
+          "y": 133.748,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock multiplication CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.155,
+          "y": 133.748,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Number of repetions",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 37.155,
+          "y": 189.998,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Number of repetions CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.155,
+          "y": 189.998,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Modulated clock",
+        "kind": "gate",
+        "position": {
+          "x": 37.131,
+          "y": 246.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulsewidth CV",
+        "kind": "gate",
+        "position": {
+          "x": 74.631,
+          "y": 246.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Multiplied clock (normalled to above clock)",
+        "kind": "gate",
+        "position": {
+          "x": 37.131,
+          "y": 283.538,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Multiplier CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.631,
+          "y": 283.538,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trigger repetitions clock (normalled to above clocks)",
+        "kind": "gate",
+        "position": {
+          "x": 37.131,
+          "y": 321.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Repetition CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.631,
+          "y": 321.038,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulsewidth modulated clock",
+        "kind": "gate",
+        "position": {
+          "x": 112.131,
+          "y": 246.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Multiplied clock",
+        "kind": "gate",
+        "position": {
+          "x": 112.131,
+          "y": 283.538,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Repeated clock",
+        "kind": "gate",
+        "position": {
+          "x": 112.131,
+          "y": 321.038,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 55.881,
+          "y": 264.788,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 93.381,
+          "y": 302.288,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RebelTech/Phoreo/2.0.1/manifest.json",
+    "sourceCommit": "2c2691f261916e2e749750fb0838fc13d4d0784b",
+    "artifact": {
+      "sha256": "d0f6345e116d5db213d45dabf3a8872e69fab6efa6cecc692b50f57825aa73a9",
+      "size": 76376
+    }
+  },
+  "source": {
+    "url": "https://github.com/hemmer/rebel-tech-vcv",
+    "commit": "2c2691f261916e2e749750fb0838fc13d4d0784b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:09:02.862Z"
+  }
+}

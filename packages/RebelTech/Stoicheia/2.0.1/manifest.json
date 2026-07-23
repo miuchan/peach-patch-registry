@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RebelTech/Stoicheia",
+    "plugin": "RebelTech",
+    "model": "Stoicheia",
+    "name": "Stoicheia",
+    "brand": "RebelTech",
+    "version": "2.0.1",
+    "license": "GPL-2.0-or-later",
+    "sourceUrl": "https://github.com/hemmer/rebel-tech-vcv",
+    "libraryUrl": "https://library.vcvrack.com/RebelTech/Stoicheia",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RebelTech/Stoicheia.webp",
+    "wasmUrl": "packages/RebelTech/Stoicheia/2.0.1/module.wasm",
+    "width": 150,
+    "description": "Dual Euclidean Sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Offset A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.113,
+          "y": 77.285,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Offset B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.119,
+          "y": 77.285,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Length A",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 37.113,
+          "y": 133.978,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Length B",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 112.119,
+          "y": 133.978,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fill density A",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37.113,
+          "y": 190.671,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fill density B",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 112.119,
+          "y": 190.671,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sequence mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 74.631,
+          "y": 246.041,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mode A",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 36.458,
+          "y": 283.541,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mode B",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 112.134,
+          "y": 283.541,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 74.631,
+          "y": 283.541,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 18.378,
+          "y": 321,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sequence A",
+        "kind": "cv",
+        "position": {
+          "x": 55.881,
+          "y": 321,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sequence B",
+        "kind": "cv",
+        "position": {
+          "x": 93.381,
+          "y": 321,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock thru",
+        "kind": "gate",
+        "position": {
+          "x": 130.884,
+          "y": 321,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 74.631,
+          "y": 208.538,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 37.128,
+          "y": 245.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 112.134,
+          "y": 246.041,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RebelTech/Stoicheia/2.0.1/manifest.json",
+    "sourceCommit": "2c2691f261916e2e749750fb0838fc13d4d0784b",
+    "artifact": {
+      "sha256": "c9154c3765bbcfc88558baa598270e90334e20223005639c938cffcb5ef46fc9",
+      "size": 79523
+    }
+  },
+  "source": {
+    "url": "https://github.com/hemmer/rebel-tech-vcv",
+    "commit": "2c2691f261916e2e749750fb0838fc13d4d0784b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:08:50.775Z"
+  }
+}

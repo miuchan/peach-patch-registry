@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RebelTech/CLK",
+    "plugin": "RebelTech",
+    "model": "CLK",
+    "name": "CLK",
+    "brand": "RebelTech",
+    "version": "2.0.1",
+    "license": "GPL-2.0-or-later",
+    "sourceUrl": "https://github.com/hemmer/rebel-tech-vcv",
+    "libraryUrl": "https://library.vcvrack.com/RebelTech/CLK",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RebelTech/CLK.webp",
+    "wasmUrl": "packages/RebelTech/CLK/2.0.1/module.wasm",
+    "width": 60,
+    "description": "Triple clock generator that produces synchronised clock signals",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 40,
+        "max": 200,
+        "default": 120,
+        "position": {
+          "x": 26.528,
+          "y": 58.465,
+          "centered": true,
+          "widget": "RebelTechSmallPot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Multiplication/division",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 26.528,
+          "y": 114.715,
+          "centered": true,
+          "widget": "RebelTechSmallPot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Multiplication/division",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "position": {
+          "x": 26.528,
+          "y": 170.965,
+          "centered": true,
+          "widget": "RebelTechSmallPot"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main clock",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 233.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Multiplied/divided clock #1",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 280.34,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Multiplied/divided clock #2",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 327.215,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 24.278,
+          "y": 210.964,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 24.278,
+          "y": 257.84,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 24.278,
+          "y": 304.715,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "multiplier",
+        "type": "integer"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RebelTech/CLK/2.0.1/manifest.json",
+    "sourceCommit": "2c2691f261916e2e749750fb0838fc13d4d0784b",
+    "artifact": {
+      "sha256": "f5e3e4de3683139a0a604e8329e5cde48308b11315e6aa1f2336a3e574df36ee",
+      "size": 74018
+    }
+  },
+  "source": {
+    "url": "https://github.com/hemmer/rebel-tech-vcv",
+    "commit": "2c2691f261916e2e749750fb0838fc13d4d0784b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:08:56.699Z"
+  }
+}

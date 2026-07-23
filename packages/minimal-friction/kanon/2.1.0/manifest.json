@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "minimal-friction/kanon",
+    "plugin": "minimal-friction",
+    "model": "kanon",
+    "name": "Kanon",
+    "brand": "Minimal Friction",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/ab9st8/minimal-friction",
+    "libraryUrl": "https://library.vcvrack.com/minimal-friction/kanon",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/minimal-friction/kanon.webp",
+    "wasmUrl": "packages/minimal-friction/kanon/2.1.0/module.wasm",
+    "width": 144,
+    "description": "Single-pitch input polyphonic oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitch (1V/octave)",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 94.872,
+          "centered": true,
+          "widget": "MF_JumboKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.167,
+          "y": 197.48,
+          "centered": true,
+          "widget": "MF_MediumKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sine",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 78.691,
+          "y": 229.281,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Triangle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95.817,
+          "y": 229.281,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Square",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 113.533,
+          "y": 229.281,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sawtooth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 131.25,
+          "y": 229.281,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "\"Kanon\" mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 78.691,
+          "y": 179.085,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Forward-forward mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 95.817,
+          "y": 179.085,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Forward-backward mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 113.533,
+          "y": 179.085,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Random mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 131.25,
+          "y": 179.085,
+          "centered": true,
+          "widget": "MF_MiniButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/octave",
+        "kind": "cv",
+        "position": {
+          "x": 35.167,
+          "y": 319.813,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Voice 1",
+        "kind": "cv",
+        "position": {
+          "x": 86.427,
+          "y": 277.411,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Voice 2",
+        "kind": "cv",
+        "position": {
+          "x": 122.894,
+          "y": 277.411,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Voice 3",
+        "kind": "cv",
+        "position": {
+          "x": 86.427,
+          "y": 319.813,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voice 4",
+        "kind": "cv",
+        "position": {
+          "x": 122.894,
+          "y": 319.813,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 78.691,
+          "y": 229.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 95.817,
+          "y": 229.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 113.533,
+          "y": 229.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 131.25,
+          "y": 229.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 78.691,
+          "y": 179.085,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 95.817,
+          "y": 179.085,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 113.533,
+          "y": 179.085,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 131.25,
+          "y": 179.085,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "waveshape",
+        "type": "integer"
+      },
+      {
+        "key": "coarse",
+        "type": "real"
+      },
+      {
+        "key": "fine",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/minimal-friction/kanon/2.1.0/manifest.json",
+    "sourceCommit": "0dd3ae30ebef03855aaecf217a8405af6f6ae1a5",
+    "artifact": {
+      "sha256": "aa2d2ed99b7fbc600b03b50b51e071cd4869e21d7fea55f3add4a80d03c5bbef",
+      "size": 86526
+    }
+  },
+  "source": {
+    "url": "https://github.com/ab9st8/minimal-friction",
+    "commit": "0dd3ae30ebef03855aaecf217a8405af6f6ae1a5"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:01:02.107Z"
+  }
+}

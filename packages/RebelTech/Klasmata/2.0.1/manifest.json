@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RebelTech/Klasmata",
+    "plugin": "RebelTech",
+    "model": "Klasmata",
+    "name": "Klasmata",
+    "brand": "RebelTech",
+    "version": "2.0.1",
+    "license": "GPL-2.0-or-later",
+    "sourceUrl": "https://github.com/hemmer/rebel-tech-vcv",
+    "libraryUrl": "https://library.vcvrack.com/RebelTech/Klasmata",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RebelTech/Klasmata.webp",
+    "wasmUrl": "packages/RebelTech/Klasmata/2.0.1/module.wasm",
+    "width": 120,
+    "description": "Voltage controlled Euclidean sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.057,
+          "y": 77.528,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "position": {
+          "x": 37.057,
+          "y": 133.778,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 97.072,
+          "y": 133.538,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fill Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 37.057,
+          "y": 190.028,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Length CV Attenution",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.057,
+          "y": 246.278,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Density CV Attenution",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.057,
+          "y": 302.528,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 97.072,
+          "y": 171.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 97.072,
+          "y": 246.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Density CV",
+        "kind": "cv",
+        "position": {
+          "x": 97.072,
+          "y": 283.538,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 97.072,
+          "y": 321.038,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Euclidean sequence",
+        "kind": "cv",
+        "position": {
+          "x": 97.072,
+          "y": 208.538,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 67.072,
+          "y": 208.538,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 67.072,
+          "y": 321.038,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RebelTech/Klasmata/2.0.1/manifest.json",
+    "sourceCommit": "2c2691f261916e2e749750fb0838fc13d4d0784b",
+    "artifact": {
+      "sha256": "91c5b48760f66630dca814a6e78bfb51241dd8990010fa35ad9962d3d2d7980e",
+      "size": 76317
+    }
+  },
+  "source": {
+    "url": "https://github.com/hemmer/rebel-tech-vcv",
+    "commit": "2c2691f261916e2e749750fb0838fc13d4d0784b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:06:34.258Z"
+  }
+}

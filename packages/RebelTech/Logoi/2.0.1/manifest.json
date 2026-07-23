@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RebelTech/Logoi",
+    "plugin": "RebelTech",
+    "model": "Logoi",
+    "name": "Logoi",
+    "brand": "RebelTech",
+    "version": "2.0.1",
+    "license": "GPL-2.0-or-later",
+    "sourceUrl": "https://github.com/hemmer/rebel-tech-vcv",
+    "libraryUrl": "https://library.vcvrack.com/RebelTech/Logoi",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RebelTech/Logoi.webp",
+    "wasmUrl": "packages/RebelTech/Logoi/2.0.1/module.wasm",
+    "width": 150,
+    "description": "Voltage controlled clock divider, counter, and delay",
+    "params": [
+      {
+        "id": 0,
+        "name": "Divider",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.007,
+          "y": 77.102,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Counter/Delay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.007,
+          "y": 77.102,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Divider CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 37.007,
+          "y": 133.352,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Counter/Delay CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.007,
+          "y": 133.352,
+          "centered": true,
+          "widget": "RebelTechBigPot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 74.483,
+          "y": 208.11,
+          "centered": true,
+          "widget": "BefacoSwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Divider CV",
+        "kind": "cv",
+        "position": {
+          "x": 36.983,
+          "y": 245.61,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Counter/Delay CV",
+        "kind": "cv",
+        "position": {
+          "x": 111.983,
+          "y": 245.61,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 74.483,
+          "y": 283.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 36.983,
+          "y": 320.61,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Divider",
+        "kind": "cv",
+        "position": {
+          "x": 36.983,
+          "y": 283.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Counter/Delay",
+        "kind": "cv",
+        "position": {
+          "x": 111.983,
+          "y": 283.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Combined Output",
+        "kind": "cv",
+        "position": {
+          "x": 74.483,
+          "y": 320.61,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock thru",
+        "kind": "gate",
+        "position": {
+          "x": 111.983,
+          "y": 320.61,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 74.483,
+          "y": 170.61,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 36.983,
+          "y": 208.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 112.131,
+          "y": 208.538,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RebelTech/Logoi/2.0.1/manifest.json",
+    "sourceCommit": "2c2691f261916e2e749750fb0838fc13d4d0784b",
+    "artifact": {
+      "sha256": "05697b3544cb66c7469166c8b8c14c2f5e05863d31d0ed17920229d0f9fbc9af",
+      "size": 78268
+    }
+  },
+  "source": {
+    "url": "https://github.com/hemmer/rebel-tech-vcv",
+    "commit": "2c2691f261916e2e749750fb0838fc13d4d0784b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:08:59.718Z"
+  }
+}
