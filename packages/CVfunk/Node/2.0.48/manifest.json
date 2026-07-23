@@ -1,0 +1,635 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Node",
+    "plugin": "CVfunk",
+    "model": "Node",
+    "name": "Node",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Node",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Node.webp",
+    "wasmUrl": "packages/CVfunk/Node/2.0.48/module.wasm",
+    "width": 120,
+    "description": "A two-channel stereo crossfading mixer.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Chan. I Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70.485,
+          "y": 309.407,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Chan. II Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70.485,
+          "y": 87.204,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gain I (0-10x)",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 51.378,
+          "y": 283.934,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gain II (0-10x)",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 51.378,
+          "y": 112.68,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 61.284,
+          "y": 199.013,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Crossfader (-1=I, 1=II)",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 21.254,
+          "y": 197.846,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Chan. I L",
+        "kind": "cv",
+        "position": {
+          "x": 32.669,
+          "y": 320.731,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Chan. I R",
+        "kind": "cv",
+        "position": {
+          "x": 32.669,
+          "y": 355.406,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Chan. II L",
+        "kind": "cv",
+        "position": {
+          "x": 32.669,
+          "y": 41.206,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Chan. II R",
+        "kind": "cv",
+        "position": {
+          "x": 32.669,
+          "y": 75.88,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV I",
+        "kind": "cv",
+        "position": {
+          "x": 70.175,
+          "y": 336.301,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "CV II",
+        "kind": "cv",
+        "position": {
+          "x": 70.175,
+          "y": 60.313,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Cr.fader CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.254,
+          "y": 245.988,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output L",
+        "kind": "audio",
+        "position": {
+          "x": 100.751,
+          "y": 179.908,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output R",
+        "kind": "audio",
+        "position": {
+          "x": 100.751,
+          "y": 214.583,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 83,
+    "lightWidgets": [
+      {
+        "id": 82,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 70.485,
+          "y": 87.204,
+          "centered": true
+        }
+      },
+      {
+        "id": 81,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 70.485,
+          "y": 309.407,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 125.79,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 116.192,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 106.593,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 96.994,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 87.395,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 77.797,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 68.198,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 58.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 49,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 39.402,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 125.79,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 116.192,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 106.593,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 96.994,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 87.395,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 77.797,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 68.198,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 58.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 49,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 39.402,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 358.589,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 348.334,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 338.079,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 327.824,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 317.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 307.314,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 297.059,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 286.804,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 276.549,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 96.366,
+          "y": 266.294,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 358.589,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 348.334,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 338.079,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 327.824,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 317.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 307.314,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 297.059,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 286.804,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 276.549,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 102.272,
+          "y": 266.294,
+          "centered": true
+        }
+      },
+      {
+        "id": 80,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 21.254,
+          "y": 197.846,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "polyOutput",
+        "type": "boolean"
+      },
+      {
+        "key": "polySum",
+        "type": "boolean"
+      },
+      {
+        "key": "transitionTime",
+        "type": "real"
+      },
+      {
+        "key": "transitionSamples",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "muteState",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "muteState",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Node/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "bb0caee7819081764f12e21aa2a34c72a3c5d96be9324f31bc007a1f58047b20",
+      "size": 80861
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T05:46:21.977Z"
+  }
+}
