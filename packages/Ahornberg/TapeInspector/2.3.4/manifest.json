@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ahornberg/TapeInspector",
+    "plugin": "Ahornberg",
+    "model": "TapeInspector",
+    "name": "Tape Inspector",
+    "brand": "Ahornberg",
+    "version": "2.3.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Ahornberg/TapeInspector",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ahornberg/TapeInspector.webp",
+    "wasmUrl": "packages/Ahornberg/TapeInspector/2.3.4/module.wasm",
+    "width": 60,
+    "description": "visualizes audio on tape",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time",
+        "min": 0.4000000059604645,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 40,
+          "y": 30,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Amplitude",
+        "min": 0.5,
+        "max": 1.5,
+        "default": 1,
+        "position": {
+          "x": 20,
+          "y": 60,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "tape-stripe",
+        "type": "integer"
+      },
+      {
+        "key": "audio-file-path",
+        "type": "string-enum",
+        "values": [
+          "tape.wav"
+        ]
+      },
+      {
+        "key": "track-count",
+        "type": "integer"
+      },
+      {
+        "key": "tape-length",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Ahornberg/TapeRecorder",
+            "symbol": "modelTapeRecorder",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ahornberg/TapeInspector/2.3.4/manifest.json",
+    "sourceCommit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad",
+    "artifact": {
+      "sha256": "d07d6f399b93b2eb92d0b9c7c5b3501f1e6066f409ecdb061f645ae697a50ed6",
+      "size": 69626
+    }
+  },
+  "source": {
+    "url": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "commit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T16:13:45.407Z"
+  }
+}

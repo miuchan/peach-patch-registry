@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ahornberg/TapeRecorder",
+    "plugin": "Ahornberg",
+    "model": "TapeRecorder",
+    "name": "Tape Recorder",
+    "brand": "Ahornberg",
+    "version": "2.3.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Ahornberg/TapeRecorder",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ahornberg/TapeRecorder.webp",
+    "wasmUrl": "packages/Ahornberg/TapeRecorder/2.3.4/module.wasm",
+    "width": 120,
+    "description": "micro cassette recorder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pause",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94,
+          "y": 218.5,
+          "widget": "PauseSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Play",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94,
+          "y": 238,
+          "widget": "PlayForwardsSwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Play Reverse",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94,
+          "y": 199,
+          "widget": "PlayBackwardsSwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fast Forward",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94,
+          "y": 261.5,
+          "widget": "CueForwardsSwitch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rewind",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94,
+          "y": 179.5,
+          "widget": "CueBackwardsSwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fast Speed",
+        "min": 0.25,
+        "max": 20,
+        "default": 3,
+        "position": {
+          "x": 42,
+          "y": 334.5,
+          "widget": "KnobScrew"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Motor Power",
+        "min": 1,
+        "max": 20,
+        "default": 15,
+        "position": {
+          "x": 61,
+          "y": 330,
+          "widget": "KnobScrew"
+        }
+      },
+      {
+        "id": 7,
+        "name": "BPM",
+        "min": 1,
+        "max": 360,
+        "default": 120,
+        "position": {
+          "x": 43,
+          "y": 42,
+          "widget": "KnobBig"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Beats / Bar",
+        "min": 1,
+        "max": 48,
+        "default": 4,
+        "position": {
+          "x": 10,
+          "y": 50,
+          "widget": "KnobSmallSnap"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Loop Start on Bar",
+        "min": 0,
+        "max": 99,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 118,
+          "widget": "KnobSmallSnap"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Loop End on Bar",
+        "min": 0,
+        "max": 99,
+        "default": 0,
+        "position": {
+          "x": 46,
+          "y": 118,
+          "widget": "KnobSmallSnap"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Loop Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Left Wheel",
+        "min": -12.399999618530273,
+        "max": 11.600000381469727,
+        "default": 0,
+        "position": {
+          "x": 32,
+          "y": 244,
+          "widget": "KnobWheel"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Right Wheel",
+        "min": -11.899999618530273,
+        "max": 12.100000381469727,
+        "default": 0,
+        "position": {
+          "x": 32,
+          "y": 178,
+          "widget": "KnobWheel"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Loop Start on Tape Position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18,
+          "y": 126,
+          "widget": "RoundSwitchRed"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Loop End on Tape Position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54,
+          "y": 126,
+          "widget": "RoundSwitchRed"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 4,
+          "y": 311
+        }
+      },
+      {
+        "id": 1,
+        "name": "Loop Start",
+        "kind": "cv",
+        "position": {
+          "x": 94,
+          "y": 149
+        }
+      },
+      {
+        "id": 2,
+        "name": "Loop End",
+        "kind": "cv",
+        "position": {
+          "x": 94,
+          "y": 122
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed (1V/Octave)",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 62
+        }
+      },
+      {
+        "id": 4,
+        "name": "Transport Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 94,
+          "y": 287
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 4,
+          "y": 338
+        }
+      },
+      {
+        "id": 1,
+        "name": "Speed (1V/Octave)",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 89
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tempo Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 94,
+          "y": 29
+        }
+      },
+      {
+        "id": 3,
+        "name": "Transport",
+        "kind": "cv",
+        "position": {
+          "x": 94,
+          "y": 314
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "tape-stripe",
+        "type": "integer"
+      },
+      {
+        "key": "audio-file-path",
+        "type": "string-enum",
+        "values": [
+          "tape.wav"
+        ]
+      },
+      {
+        "key": "track-count",
+        "type": "integer"
+      },
+      {
+        "key": "tape-length",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        3
+      ]
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 4
+      },
+      "initialMemory": 33554432,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ahornberg/TapeRecorder/2.3.4/manifest.json",
+    "sourceCommit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad",
+    "artifact": {
+      "sha256": "e0620a7c197aa586e6cebb855fdc5c7f719101c2c40aed3f3d3343f5c1b88d9e",
+      "size": 101142
+    }
+  },
+  "source": {
+    "url": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "commit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T16:12:20.091Z"
+  }
+}
