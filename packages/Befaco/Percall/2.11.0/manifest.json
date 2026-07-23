@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/Percall",
+    "plugin": "Befaco",
+    "model": "Percall",
+    "name": "Percall",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/Percall",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/Percall.webp",
+    "wasmUrl": "packages/Befaco/Percall/2.11.0/module.wasm",
+    "width": 180,
+    "description": "Percussive Envelope Generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel 1 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 23.764,
+          "y": 121.845,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 2 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 67.556,
+          "y": 121.845,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 3 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 111.345,
+          "y": 121.845,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 4 level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 155.138,
+          "y": 121.845,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Channel 1 decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15.901,
+          "y": 159.189,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel 2 decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 59.917,
+          "y": 159.189,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Channel 3 decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103.857,
+          "y": 159.189,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Channel 4 decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 147.599,
+          "y": 159.189,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Choke 1 to 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 39.464,
+          "y": 173.244,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Choke 3 to 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 126.948,
+          "y": 173.244,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel 1",
+        "kind": "cv",
+        "position": {
+          "x": 21.112,
+          "y": 38.105,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 2",
+        "kind": "cv",
+        "position": {
+          "x": 59.935,
+          "y": 38.105,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 3",
+        "kind": "cv",
+        "position": {
+          "x": 118.896,
+          "y": 38.105,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 4",
+        "kind": "cv",
+        "position": {
+          "x": 157.786,
+          "y": 38.105,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Overall gain (also affects Env Outs)",
+        "kind": "cv",
+        "position": {
+          "x": 89.415,
+          "y": 53.802,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel 1 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 21.112,
+          "y": 73.308,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Channel 2 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 54.591,
+          "y": 70.692,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Channel 3 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 124.521,
+          "y": 70.719,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Channel 4 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 157.786,
+          "y": 73.308,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Channel 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 14.873,
+          "y": 300.72,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Channel 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 44.761,
+          "y": 300.72,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Channel 3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.646,
+          "y": 300.72,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Channel 4 CV",
+        "kind": "cv",
+        "position": {
+          "x": 104.533,
+          "y": 300.72,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel 1",
+        "kind": "cv",
+        "position": {
+          "x": 134.421,
+          "y": 300.72,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 2",
+        "kind": "cv",
+        "position": {
+          "x": 164.306,
+          "y": 300.72,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 3",
+        "kind": "cv",
+        "position": {
+          "x": 134.421,
+          "y": 335.923,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 4",
+        "kind": "cv",
+        "position": {
+          "x": 164.306,
+          "y": 335.923,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Channel 1 envelope",
+        "kind": "cv",
+        "position": {
+          "x": 14.873,
+          "y": 335.923,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel 2 envelope",
+        "kind": "cv",
+        "position": {
+          "x": 44.761,
+          "y": 335.923,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Channel 3 envelope",
+        "kind": "cv",
+        "position": {
+          "x": 74.646,
+          "y": 335.923,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Channel 4 envelope",
+        "kind": "cv",
+        "position": {
+          "x": 104.533,
+          "y": 335.923,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 23.938,
+          "y": 145.338,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 67.719,
+          "y": 145.338,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 111.502,
+          "y": 145.338,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 155.282,
+          "y": 145.338,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/Percall/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "a924388884a45d4dc4b26b5ee2401933298c0679b4a9dfbf295bacbf1ebc5104",
+      "size": 76424
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T05:53:35.028Z"
+  }
+}
