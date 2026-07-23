@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Autinn/Saw2",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Autinn/Saw2.webp",
     "wasmUrl": "packages/Autinn/Saw2/2.6.32/module.wasm",
-    "width": 180,
+    "width": 150,
     "description": "Oscillator with an old analog sound",
     "params": [
       {
@@ -21,14 +21,26 @@
         "name": "Frequency",
         "min": -4,
         "max": 4,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 144,
+          "centered": true,
+          "widget": "RoundMediumAutinnKnob"
+        }
       },
       {
         "id": 1,
         "name": "Age",
         "min": 0,
         "max": 40,
-        "default": 15
+        "default": 15,
+        "position": {
+          "x": 37.5,
+          "y": 94,
+          "centered": true,
+          "widget": "AutinnArcMidKnob"
+        }
       },
       {
         "id": 2,
@@ -37,34 +49,89 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 112.5,
+          "y": 133,
+          "centered": true,
+          "widget": "RoundButtonSmallAutinn"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "1V/Oct CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 37.5,
+          "y": 215.79,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Type trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 215.79,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "4 Years/V CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 94,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Audio",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 37.5,
+          "y": 315.79,
+          "centered": true
+        }
       }
     ],
     "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75,
+          "y": 50,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 90,
+          "y": 162,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 90,
+          "y": 177,
+          "centered": true
+        }
+      }
+    ],
     "stateKeys": [
       {
         "key": "square",
@@ -78,8 +145,8 @@
     "manifestUrl": "packages/Autinn/Saw2/2.6.32/manifest.json",
     "sourceCommit": "eff448f818f7ca94c6a893b69a907fcf45f0a639",
     "artifact": {
-      "sha256": "81bbf53a4f63aa29ce4e3d55ba1e52b0c10144bb9f9bcef5832566a42bfe4b73",
-      "size": 87974
+      "sha256": "0ac29236f29d847bf09e4cf410845f7433ad37b8869623c567c488fe41e3bbb4",
+      "size": 89833
     }
   },
   "source": {
@@ -89,6 +156,6 @@
   "build": {
     "strategy": "direct-rack-source-adapter",
     "fingerprint": null,
-    "builtAt": "2026-07-23T04:11:04.330Z"
+    "builtAt": "2026-07-23T21:17:58.872Z"
   }
 }
