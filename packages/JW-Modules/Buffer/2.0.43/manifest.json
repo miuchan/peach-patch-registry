@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/Buffer",
+    "plugin": "JW-Modules",
+    "model": "Buffer",
+    "name": "Buffer",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/Buffer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/Buffer.webp",
+    "wasmUrl": "packages/JW-Modules/Buffer/2.0.43/module.wasm",
+    "width": 45,
+    "description": "Automatically isolated from the JW-Modules/Buffer Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Loop End",
+        "min": 0.0010000000474974513,
+        "max": 2,
+        "default": 0.5,
+        "position": {
+          "x": 25,
+          "y": 50,
+          "widget": "JwTinyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Loop Start",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 50,
+          "widget": "JwTinyKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Dry/Wet",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 9,
+          "y": 252,
+          "widget": "SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Freeze Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 25,
+          "y": 179,
+          "widget": "TinyButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Start/End Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 13,
+          "y": 130,
+          "widget": "JwHorizontalSwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Wet on Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 226,
+          "widget": "JwHorizontalSwitch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Freeze Chance",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 14,
+          "y": 196,
+          "widget": "JwTinyKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Freeze Gate",
+        "kind": "gate",
+        "position": {
+          "x": 5,
+          "y": 179
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 105
+        }
+      },
+      {
+        "id": 3,
+        "name": "End CV",
+        "kind": "cv",
+        "position": {
+          "x": 25,
+          "y": 69
+        }
+      },
+      {
+        "id": 4,
+        "name": "Start CV",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 69
+        }
+      },
+      {
+        "id": 5,
+        "name": "Dry/Wet CV",
+        "kind": "audio",
+        "position": {
+          "x": 14,
+          "y": 280
+        }
+      },
+      {
+        "id": 6,
+        "name": "Audio R IN",
+        "kind": "audio",
+        "position": {
+          "x": 5,
+          "y": 327
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Audio R OUT (Delayed)",
+        "kind": "audio",
+        "position": {
+          "x": 25,
+          "y": 327
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 18,
+          "y": 168
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "maxBufferSeconds",
+        "type": "real"
+      },
+      {
+        "key": "freezeMode",
+        "type": "integer"
+      },
+      {
+        "key": "freezeLatched",
+        "type": "integer"
+      },
+      {
+        "key": "wetOnFreeze",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        6,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/Buffer/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "7fe16068acbe72b8f8dc0af4d063277701ab387b0c3b556374f3c4906b7c77c7",
+      "size": 92522
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T09:48:53.421Z"
+  }
+}
