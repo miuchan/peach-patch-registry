@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ahornberg/TapeRecorderMixer",
+    "plugin": "Ahornberg",
+    "model": "TapeRecorderMixer",
+    "name": "Tape Recorder Mixer",
+    "brand": "Ahornberg",
+    "version": "2.3.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Ahornberg/TapeRecorderMixer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ahornberg/TapeRecorderMixer.webp",
+    "wasmUrl": "packages/Ahornberg/TapeRecorderMixer/2.3.4/module.wasm",
+    "width": 60,
+    "description": "mixer for micro cassette recorder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Record",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 17,
+          "y": 140,
+          "centered": true,
+          "widget": "RoundSwitchMediumRed"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bypass Insert",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 43,
+          "y": 147,
+          "centered": true,
+          "widget": "RoundSwitchMedium"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tape Ducking",
+        "min": 0,
+        "max": 1.4125375747680664,
+        "default": 1,
+        "position": {
+          "x": 17,
+          "y": 195,
+          "centered": true,
+          "widget": "KnobTiny"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tape Erase Amount",
+        "min": 0,
+        "max": 1.4125375747680664,
+        "default": 1,
+        "position": {
+          "x": 43,
+          "y": 202,
+          "centered": true,
+          "widget": "KnobTiny"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Solo",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 17,
+          "y": 250,
+          "centered": true,
+          "widget": "RoundSwitchMedium"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 43,
+          "y": 257,
+          "centered": true,
+          "widget": "RoundSwitchMedium"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Input Volume",
+        "min": 0,
+        "max": 1.4125375747680664,
+        "default": 1,
+        "position": {
+          "x": 21,
+          "y": 299,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Input Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 21,
+          "y": 299,
+          "centered": true,
+          "widget": "RoundSwitch"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Input Mute Enabled",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Link To Left Module",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 346,
+          "centered": true,
+          "widget": "RoundSwitchMediumLink"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Delay in samples",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 71,
+          "centered": true,
+          "widget": "KnobScrewSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 32,
+          "y": 15,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "FX return",
+        "kind": "audio",
+        "position": {
+          "x": 28,
+          "y": 66,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bus to TapeRecorder",
+        "kind": "gate",
+        "position": {
+          "x": 12,
+          "y": 335,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bus from TapeRecorder",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 357,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Record Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 17,
+          "y": 161,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bypass FX Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 43,
+          "y": 168,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Ducking",
+        "kind": "cv",
+        "position": {
+          "x": 17,
+          "y": 216,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Erase",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 223,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Solo Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 17,
+          "y": 271,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mute Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 43,
+          "y": 278,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Volume",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 312,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 33,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "FX send",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bus from TapeRecorder",
+        "kind": "gate",
+        "position": {
+          "x": 12,
+          "y": 357,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bus to TapeRecorder",
+        "kind": "gate",
+        "position": {
+          "x": 48,
+          "y": 335,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ahornberg/TapeRecorderMixer/2.3.4/manifest.json",
+    "sourceCommit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad",
+    "artifact": {
+      "sha256": "32e271a324d3161b756f427e78f49bda9d87fb3c3346e299c7f33671dd90a261",
+      "size": 78215
+    }
+  },
+  "source": {
+    "url": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "commit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:38:51.339Z"
+  }
+}

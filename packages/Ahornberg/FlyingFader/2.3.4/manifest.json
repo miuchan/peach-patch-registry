@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ahornberg/FlyingFader",
+    "plugin": "Ahornberg",
+    "model": "FlyingFader",
+    "name": "Flying Fader",
+    "brand": "Ahornberg",
+    "version": "2.3.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Ahornberg/FlyingFader",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ahornberg/FlyingFader.webp",
+    "wasmUrl": "packages/Ahornberg/FlyingFader/2.3.4/module.wasm",
+    "width": 60,
+    "description": "cv-controlled fader",
+    "params": [
+      {
+        "id": 0,
+        "name": "Volume",
+        "min": 0,
+        "max": 1.4125375747680664,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 18,
+          "y": 40.5,
+          "widget": "MotorizedFader"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV Input Was Connected",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Fader Value Before Connected",
+        "min": 0,
+        "max": 1.4125375747680664,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Audio Poly Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "CV Scale Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 44.5,
+          "y": 349.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 15.5,
+          "y": 357,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 44.5,
+          "y": 23,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 15.5,
+          "y": 330,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "fader-cap-color",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ahornberg/FlyingFader/2.3.4/manifest.json",
+    "sourceCommit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad",
+    "artifact": {
+      "sha256": "ea5f1e654539a381aad2c730c6c53b611c24f15575dfcb6a4a28421f8f59c7af",
+      "size": 74838
+    }
+  },
+  "source": {
+    "url": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "commit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:37:04.194Z"
+  }
+}

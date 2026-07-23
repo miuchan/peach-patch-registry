@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "VostokInstruments/Trace",
+    "plugin": "VostokInstruments",
+    "model": "Trace",
+    "name": "Trace",
+    "brand": "Vostok Instruments",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Vostok-Instruments/Vostok_VCVRack",
+    "libraryUrl": "https://library.vcvrack.com/VostokInstruments/Trace",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/VostokInstruments/Trace.webp",
+    "wasmUrl": "packages/VostokInstruments/Trace/2.1.0/module.wasm",
+    "width": 60,
+    "description": "Analog Morphing Scanner",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scan",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.727,
+          "y": 154.323,
+          "widget": "VostokSlider"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV Attenuator Polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 20.669,
+          "y": 286.603,
+          "widget": "CKSSHoriz2"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scan CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.891,
+          "y": 324.815,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scan",
+        "kind": "cv",
+        "position": {
+          "x": 15.694,
+          "y": 44.891,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch. 1",
+        "kind": "cv",
+        "position": {
+          "x": 15.694,
+          "y": 121.662,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch. 2",
+        "kind": "cv",
+        "position": {
+          "x": 44.336,
+          "y": 121.662,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ch. 3",
+        "kind": "cv",
+        "position": {
+          "x": 15.694,
+          "y": 83.15,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ch. 4",
+        "kind": "cv",
+        "position": {
+          "x": 44.336,
+          "y": 83.277,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 44.336,
+          "y": 44.891,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VostokOrangeNumberLed<1>",
+        "position": {
+          "x": 7.63,
+          "y": 243.735
+        }
+      },
+      {
+        "id": 1,
+        "widget": "VostokOrangeNumberLed<2>",
+        "position": {
+          "x": 38.061,
+          "y": 214.039
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VostokOrangeNumberLed<3>",
+        "position": {
+          "x": 4.606,
+          "y": 185.043
+        }
+      },
+      {
+        "id": 3,
+        "widget": "VostokOrangeNumberLed<4>",
+        "position": {
+          "x": 37.087,
+          "y": 154.984
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "clipOutput",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/VostokInstruments/Trace/2.1.0/manifest.json",
+    "sourceCommit": "fd2d76a4d51caea4d873758261b9f98b924a8414",
+    "artifact": {
+      "sha256": "58209cb1befd99d802aaf306c21b0c2b74d94afa4d26e501109d9511d23c43ad",
+      "size": 74018
+    }
+  },
+  "source": {
+    "url": "https://github.com/Vostok-Instruments/Vostok_VCVRack",
+    "commit": "fd2d76a4d51caea4d873758261b9f98b924a8414"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:44:01.464Z"
+  }
+}
