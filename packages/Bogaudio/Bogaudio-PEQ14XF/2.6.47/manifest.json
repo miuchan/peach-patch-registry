@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-PEQ14XF",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-PEQ14XF",
+    "name": "PEQ14XF",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-PEQ14XF",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-PEQ14XF.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-PEQ14XF/2.6.47/module.wasm",
+    "width": 75,
+    "description": "PEQ14 envelope followers expander",
+    "params": [
+      {
+        "id": 0,
+        "name": "Envelope follower smoothing",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 1,
+        "name": "Envelope follower gain",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Damp CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gain CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Envelope 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Envelope 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Envelope 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Envelope 5",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Envelope 6",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Envelope 7",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Envelope 8",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Envelope 9",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Envelope 10",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Envelope 11",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Envelope 12",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Envelope 13",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Envelope 14",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Bogaudio/Bogaudio-PEQ14",
+            "symbol": "modelPEQ14",
+            "index": 0
+          },
+          {
+            "key": "Bogaudio/Bogaudio-PEQ14XF",
+            "symbol": "modelPEQ14XF",
+            "index": 1
+          },
+          {
+            "key": "Bogaudio/PEQ14XR",
+            "symbol": "modelPEQ14XR",
+            "index": 2
+          },
+          {
+            "key": "Bogaudio/PEQ14XV",
+            "symbol": "modelPEQ14XV",
+            "index": 3
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-PEQ14XF/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "f930943da59a355ecd9bc22eac77e555f78a9098f4f9d8f7b443d4a7e2c52bcb",
+      "size": 96044
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T05:04:53.935Z"
+  }
+}

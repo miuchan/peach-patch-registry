@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-PEQ6XF",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-PEQ6XF",
+    "name": "PEQ6XF",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-PEQ6XF",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-PEQ6XF.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-PEQ6XF/2.6.47/module.wasm",
+    "width": 45,
+    "description": "PEQ6 envelope followers expander",
+    "params": [
+      {
+        "id": 0,
+        "name": "Envelope follower smoothing",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 1,
+        "name": "Envelope follower gain",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Envelope 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Envelope 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Envelope 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Envelope 5",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Envelope 6",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Bogaudio/Bogaudio-PEQ6",
+            "symbol": "modelPEQ6",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-PEQ6XF/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "9e1a9808010d9cd379b6d0b594cfe4a08a1b8ec965483d66e6dffaa8d00a12f0",
+      "size": 89631
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T05:04:52.804Z"
+  }
+}
