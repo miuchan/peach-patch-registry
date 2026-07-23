@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "vanTies/Sjang",
+    "plugin": "vanTies",
+    "model": "Sjang",
+    "name": "Sjang",
+    "brand": "",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/matthiassars/vanTies",
+    "libraryUrl": "https://library.vcvrack.com/vanTies/Sjang",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/vanTies/Sjang.webp",
+    "wasmUrl": "packages/vanTies/Sjang/2.7.0/module.wasm",
+    "width": 120,
+    "description": "dynamic stochastic oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "pitch",
+        "min": 0,
+        "max": 6,
+        "default": 4
+      },
+      {
+        "id": 1,
+        "name": "time randomness",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "amp randomness",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "destruct pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "destruct amp",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "number of segments",
+        "min": 3,
+        "max": 64,
+        "default": 16
+      },
+      {
+        "id": 6,
+        "name": "time randomness modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "amp randomness modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "randomize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/oct",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "time randomness",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "amp randomness",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "destruct pitch",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "destruct shape",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "reset",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "randomize",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "left",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "right",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "pitchQuant",
+        "type": "integer"
+      },
+      {
+        "key": "refWaveform",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/vanTies/Sjang/2.7.0/manifest.json",
+    "sourceCommit": "a20ff3bb4960f7c2e78e1a8eacdcf58cd4400f79",
+    "artifact": {
+      "sha256": "ac1d53322fc563c2944f0530912ca6034e29b823dc6508f84484f9f7c85f6a8a",
+      "size": 88962
+    }
+  },
+  "source": {
+    "url": "https://github.com/matthiassars/vanTies",
+    "commit": "a20ff3bb4960f7c2e78e1a8eacdcf58cd4400f79"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:42:07.881Z"
+  }
+}
