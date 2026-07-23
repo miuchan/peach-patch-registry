@@ -1,0 +1,723 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/Tapo",
+    "plugin": "4msCompany",
+    "model": "Tapo",
+    "name": "Tapographic Delay [Tapo]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/Tapo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/Tapo.webp",
+    "wasmUrl": "packages/4msCompany/Tapo/2.2.0/module.wasm",
+    "width": 270,
+    "description": "MetaModule DSP core adapted from 4msCompany/Tapo",
+    "params": [
+      {
+        "id": 0,
+        "name": "Level",
+        "default": 0.75,
+        "position": {
+          "x": 36.146,
+          "y": 101.573,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Time",
+        "default": 0.5,
+        "position": {
+          "x": 36.656,
+          "y": 162.323,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Feedback",
+        "default": 0.25,
+        "position": {
+          "x": 97.885,
+          "y": 129.146,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Modulation",
+        "default": 0,
+        "position": {
+          "x": 171.594,
+          "y": 129.146,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Dry Wet",
+        "default": 0.5,
+        "position": {
+          "x": 233.208,
+          "y": 162.323,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Morph",
+        "default": 0,
+        "position": {
+          "x": 233.208,
+          "y": 101.573,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Button 1",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 40.885,
+          "y": 64.385,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Button 2",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 78.323,
+          "y": 64.385,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Button 3",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 115.885,
+          "y": 64.385,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Button 4",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 153.385,
+          "y": 64.385,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "Button 5",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 190.885,
+          "y": 64.385,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "Button 6",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 228.073,
+          "y": 64.385,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "ADD OFF INS",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 33.469,
+          "y": 330.214,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Repeat",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 67.219,
+          "y": 309.156,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 14,
+        "name": "Tap Sensor",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 134.51,
+          "y": 329.073,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 15,
+        "name": "Delete",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 202.219,
+          "y": 309.552,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 16,
+        "name": "RES AMP LPF",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 235.26,
+          "y": 330.214,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 17,
+        "name": "Velocity",
+        "default": 0.5,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 135.683,
+          "y": 50.385,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 18,
+        "name": "Bank",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 154.178,
+          "y": 42.594,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 19,
+        "name": "Pan",
+        "default": 1,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 173.191,
+          "y": 34.801,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 20,
+        "name": "Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 192.085,
+          "y": 27.009,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time Jack",
+        "position": {
+          "x": 22.219,
+          "y": 232.021,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Feedback Jack",
+        "position": {
+          "x": 67.219,
+          "y": 223.365,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Modulation Jack",
+        "position": {
+          "x": 112.146,
+          "y": 205.25,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Dry Wet Jack",
+        "position": {
+          "x": 157.125,
+          "y": 205.25,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Audio In",
+        "position": {
+          "x": 22.104,
+          "y": 275.802,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Repeat Jack",
+        "position": {
+          "x": 66.979,
+          "y": 267.271,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Tap",
+        "position": {
+          "x": 111.99,
+          "y": 256.771,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Velocity",
+        "position": {
+          "x": 157.271,
+          "y": 256.771,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Ext Clock",
+        "position": {
+          "x": 201.979,
+          "y": 267.271,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate Out",
+        "position": {
+          "x": 201.979,
+          "y": 223.365,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Audio Out 1",
+        "position": {
+          "x": 247.219,
+          "y": 232.26,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Audio Out 2",
+        "position": {
+          "x": 247.219,
+          "y": 275.927,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 26,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 40.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 40.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 40.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 78.323,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "paramId": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 78.323,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "paramId": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 78.323,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "paramId": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 115.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "paramId": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 115.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "paramId": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 115.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "paramId": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 153.385,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "paramId": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 153.385,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "paramId": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 153.385,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "paramId": 10,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 190.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "paramId": 10,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 190.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "paramId": 10,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 190.885,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "paramId": 11,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 228.073,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "paramId": 11,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 228.073,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "paramId": 11,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 228.073,
+          "y": 64.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "paramId": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 67.219,
+          "y": 309.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "paramId": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 67.219,
+          "y": 309.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "paramId": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 67.219,
+          "y": 309.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "paramId": 14,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 134.51,
+          "y": 329.073,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "paramId": 15,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 202.219,
+          "y": 309.552,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "paramId": 15,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 202.219,
+          "y": 309.552,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "paramId": 15,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 202.219,
+          "y": 309.552,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 134.688,
+          "y": 279.802,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 16777216,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/Tapo/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "6f3ff240821d8e42292e2601f0c6dff76def22f329b61f920c5d9163f5133e20",
+      "size": 167096
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:11:33.310Z"
+  }
+}

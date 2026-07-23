@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/DLD",
+    "plugin": "4msCompany",
+    "model": "DLD",
+    "name": "Dual Looping Delay [DLD]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/DLD",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/DLD.webp",
+    "wasmUrl": "packages/4msCompany/DLD/2.2.0/module.wasm",
+    "width": 300,
+    "description": "MetaModule DSP core adapted from 4msCompany/DLD",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time A",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 35.75,
+          "y": 55.76,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Time Mult A",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 87.615,
+          "y": 53.599,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Ping Button",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 129.198,
+          "y": 44.281,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Time Mult B",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 213.906,
+          "y": 53.599,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Time B",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 264.76,
+          "y": 55.615,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Feedback A",
+        "default": 0.375,
+        "position": {
+          "x": 35.594,
+          "y": 124.01,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Reverse A",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 85.26,
+          "y": 128.24,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Hold A",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 123.375,
+          "y": 141.396,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Hold B",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 176.729,
+          "y": 141.396,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Reverse B",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 214.667,
+          "y": 128.24,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "Feedback B",
+        "default": 0.375,
+        "position": {
+          "x": 265.198,
+          "y": 124.01,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "Delay Feed A",
+        "default": 1,
+        "position": {
+          "x": 45.271,
+          "y": 191.708,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "Mix A",
+        "default": 0.5,
+        "position": {
+          "x": 116.208,
+          "y": 186.292,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Mix B",
+        "default": 0.5,
+        "position": {
+          "x": 184.396,
+          "y": 186.365,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 14,
+        "name": "Delay Feed B",
+        "default": 1,
+        "position": {
+          "x": 255.406,
+          "y": 191.438,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 15,
+        "name": "Soft Clip A",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 30.208,
+          "y": 13.542,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 16,
+        "name": "Soft Clip B",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 238.542,
+          "y": 13.542,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 17,
+        "name": "AutoMute A",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 12.5,
+          "y": 13.542,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 18,
+        "name": "AutoMute B",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 220.833,
+          "y": 13.542,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 19,
+        "name": "Ping Method",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 174.573,
+          "y": 44.281,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 20,
+        "name": "Hold A",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 127.615,
+          "y": 293.219,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 21,
+        "name": "Hold B",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 172.896,
+          "y": 293.219,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 22,
+        "name": "Rev. A",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 127.615,
+          "y": 252.188,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 23,
+        "name": "Rev. B",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 172.896,
+          "y": 252.188,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 24,
+        "name": "DelayFeed A Taper",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 45.271,
+          "y": 191.708,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 25,
+        "name": "DelayFeed B Taper",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 255.406,
+          "y": 191.438,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 26,
+        "name": "Time A Auto-UnQ",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 26.646,
+          "y": 335.448,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 27,
+        "name": "Time B Auto-UnQ",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 273.677,
+          "y": 335.448,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 28,
+        "name": "Stereo Mode A",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 74.125,
+          "y": 252.188,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 29,
+        "name": "Stereo Mode B",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 226.198,
+          "y": 252.188,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 30,
+        "name": "Crossfade A",
+        "default": 0.5,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 35.75,
+          "y": 55.76,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 31,
+        "name": "Crossfade B",
+        "default": 0.5,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 264.76,
+          "y": 55.615,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ping Jack",
+        "position": {
+          "x": 174.573,
+          "y": 44.281,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "In A",
+        "position": {
+          "x": 29.25,
+          "y": 252.188,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Return A",
+        "position": {
+          "x": 74.125,
+          "y": 252.188,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Reverse A Jack",
+        "position": {
+          "x": 127.615,
+          "y": 252.188,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Reverse B Jack",
+        "position": {
+          "x": 172.896,
+          "y": 252.188,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Return B",
+        "position": {
+          "x": 226.198,
+          "y": 252.188,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "In B",
+        "position": {
+          "x": 271.021,
+          "y": 252.188,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Hold A Jack",
+        "position": {
+          "x": 127.615,
+          "y": 293.219,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "Hold B Jack",
+        "position": {
+          "x": 172.896,
+          "y": 293.219,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 9,
+        "name": "Time A Jack",
+        "position": {
+          "x": 26.646,
+          "y": 335.448,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Feedback A Jack",
+        "position": {
+          "x": 75.917,
+          "y": 335.448,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Delay Feed A Jack",
+        "position": {
+          "x": 125.177,
+          "y": 335.448,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Delay Feed B Jack",
+        "position": {
+          "x": 174.833,
+          "y": 335.448,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Feedback B Jack",
+        "position": {
+          "x": 224.24,
+          "y": 335.448,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "Time B Jack",
+        "position": {
+          "x": 273.677,
+          "y": 335.448,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Loop A",
+        "position": {
+          "x": 112.76,
+          "y": 84.833,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Clock Out",
+        "position": {
+          "x": 150.167,
+          "y": 97.375,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Loop B",
+        "position": {
+          "x": 187.896,
+          "y": 84.833,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Out A",
+        "position": {
+          "x": 29.25,
+          "y": 293.219,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "Send A",
+        "position": {
+          "x": 74.125,
+          "y": 293.219,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Send B",
+        "position": {
+          "x": 226.198,
+          "y": 293.219,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Out B",
+        "position": {
+          "x": 271.021,
+          "y": 293.219,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 2,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 129.198,
+          "y": 44.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 6,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 85.26,
+          "y": 128.24,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 7,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 123.375,
+          "y": 141.396,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 8,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 176.729,
+          "y": 141.396,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "paramId": 9,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 214.667,
+          "y": 128.24,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 68.781,
+          "y": 36.396,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 231.458,
+          "y": 36.396,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 33554432,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/DLD/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "50b5ac50b3a27b9eef1ffc63a4ebce2b290f5041c12f54b3f361adee0b1663a4",
+      "size": 189751
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:13:22.469Z"
+  }
+}

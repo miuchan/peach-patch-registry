@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/SCM",
+    "plugin": "4msCompany",
+    "model": "SCM",
+    "name": "Shuffling Clock Multiplier [SCM]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/SCM",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/SCM.webp",
+    "wasmUrl": "packages/4msCompany/SCM/2.2.0/module.wasm",
+    "width": 180,
+    "description": "MetaModule DSP core adapted from 4msCompany/SCM",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rotate",
+        "default": 0,
+        "position": {
+          "x": 154.156,
+          "y": 56.375,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Slip",
+        "default": 0.5,
+        "position": {
+          "x": 154.156,
+          "y": 108.427,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Shuffle",
+        "default": 0,
+        "position": {
+          "x": 154.156,
+          "y": 160.49,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Skip",
+        "default": 0,
+        "position": {
+          "x": 154.156,
+          "y": 212.542,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "PW",
+        "default": 0.5,
+        "position": {
+          "x": 154.156,
+          "y": 264.594,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "4x Fast",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 155.042,
+          "y": 304.01,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Mute",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 155.042,
+          "y": 339.031,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clk In",
+        "position": {
+          "x": 48.417,
+          "y": 58.646,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Resync",
+        "position": {
+          "x": 84.844,
+          "y": 57.406,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Rotate Jack",
+        "position": {
+          "x": 84.844,
+          "y": 93.875,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Slip Jack",
+        "position": {
+          "x": 84.844,
+          "y": 131.375,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Shuffle Jack",
+        "position": {
+          "x": 84.844,
+          "y": 168.875,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Skip Jack",
+        "position": {
+          "x": 84.844,
+          "y": 206.375,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "PW Jack",
+        "position": {
+          "x": 84.844,
+          "y": 243.875,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "4x Fast Jack",
+        "position": {
+          "x": 84.844,
+          "y": 281.375,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "Mute Jack",
+        "position": {
+          "x": 84.844,
+          "y": 318.875,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "x1",
+        "position": {
+          "x": 48.417,
+          "y": 91.573,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "x2",
+        "position": {
+          "x": 48.417,
+          "y": 124.5,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "S3",
+        "position": {
+          "x": 48.417,
+          "y": 157.427,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "S4",
+        "position": {
+          "x": 48.417,
+          "y": 190.344,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "S5",
+        "position": {
+          "x": 48.417,
+          "y": 223.271,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "S6",
+        "position": {
+          "x": 48.417,
+          "y": 256.198,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "S8",
+        "position": {
+          "x": 48.417,
+          "y": 289.125,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "x8",
+        "position": {
+          "x": 48.417,
+          "y": 322.052,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "lights": 11,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 5,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 155.042,
+          "y": 304.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 6,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 155.042,
+          "y": 339.031,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 18.021,
+          "y": 58.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 18.021,
+          "y": 91.573,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 18.021,
+          "y": 124.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 18.021,
+          "y": 157.427,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 18.021,
+          "y": 190.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 18.021,
+          "y": 223.271,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 18.021,
+          "y": 256.198,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 18.021,
+          "y": 289.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 18.021,
+          "y": 322.052,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/SCM/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "f9569d7a05769b4580b0549adc69c47ae9177b87b04ffb613b2c02d597c5c168",
+      "size": 91970
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:14:53.499Z"
+  }
+}

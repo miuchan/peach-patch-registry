@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/QPLFO",
+    "plugin": "4msCompany",
+    "model": "QPLFO",
+    "name": "Quad Pingable LFO [QPLFO]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/QPLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/QPLFO.webp",
+    "wasmUrl": "packages/4msCompany/QPLFO/2.2.0/module.wasm",
+    "width": 180,
+    "description": "MetaModule DSP core adapted from 4msCompany/QPLFO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Skew 1",
+        "default": 0.5,
+        "position": {
+          "x": 118.781,
+          "y": 62.167,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Ping 1",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 44.979,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "On 1",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 84.438,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Skew 2",
+        "default": 0.5,
+        "position": {
+          "x": 118.781,
+          "y": 140.917,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Ping 2",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 123.729,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "On 2",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 163.188,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Skew 3",
+        "default": 0.5,
+        "position": {
+          "x": 118.781,
+          "y": 219.667,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Ping 3",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 202.479,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "On 3",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 241.938,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Skew 4",
+        "default": 0.5,
+        "position": {
+          "x": 118.781,
+          "y": 298.417,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "Ping 4",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 281.229,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "On 4",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 161.24,
+          "y": 320.688,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "Fire On Unmute ch1",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 161.24,
+          "y": 44.979,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Fire On Unmute ch2",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 161.24,
+          "y": 123.729,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 14,
+        "name": "Fire On Unmute ch3",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 161.24,
+          "y": 202.479,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 15,
+        "name": "Fire On Unmute ch4",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 161.24,
+          "y": 281.229,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 16,
+        "name": "Output Range",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 157.56,
+          "y": 17.718,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ping 1 Jack",
+        "position": {
+          "x": 23.51,
+          "y": 43.938,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Skew 1 CV",
+        "position": {
+          "x": 70.771,
+          "y": 61.938,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Reset 1",
+        "position": {
+          "x": 70.771,
+          "y": 97.938,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Ping 2 Jack",
+        "position": {
+          "x": 23.51,
+          "y": 122.688,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Skew 2 Jack",
+        "position": {
+          "x": 70.771,
+          "y": 140.688,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Reset 2",
+        "position": {
+          "x": 70.771,
+          "y": 176.688,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Ping 3 Jack",
+        "position": {
+          "x": 23.51,
+          "y": 201.438,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Skew 3 Jack",
+        "position": {
+          "x": 70.771,
+          "y": 219.438,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Reset 3",
+        "position": {
+          "x": 70.771,
+          "y": 255.438,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 9,
+        "name": "Ping 4 Jack",
+        "position": {
+          "x": 23.51,
+          "y": 280.188,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 10,
+        "name": "Skew 4 Jack",
+        "position": {
+          "x": 70.771,
+          "y": 298.188,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Reset 4",
+        "position": {
+          "x": 70.771,
+          "y": 334.188,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out 1",
+        "position": {
+          "x": 23.51,
+          "y": 79.938,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Out 2",
+        "position": {
+          "x": 23.51,
+          "y": 158.688,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Out 3",
+        "position": {
+          "x": 23.51,
+          "y": 237.438,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Out 4",
+        "position": {
+          "x": 23.51,
+          "y": 316.188,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 1,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 161.24,
+          "y": 44.979,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 2,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 161.24,
+          "y": 84.438,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 4,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 161.24,
+          "y": 123.729,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 5,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 161.24,
+          "y": 163.188,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "paramId": 7,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 161.24,
+          "y": 202.479,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "paramId": 8,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 161.24,
+          "y": 241.938,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "paramId": 10,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 161.24,
+          "y": 281.229,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "paramId": 11,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 161.24,
+          "y": 320.688,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 47.115,
+          "y": 80.156,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 47.115,
+          "y": 158.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 47.115,
+          "y": 237.656,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 47.115,
+          "y": 316.406,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/QPLFO/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "a0ede90cb2d588331c49119bd4d2cb0dedbb96a2826fb9a8f05a9c781520568a",
+      "size": 118149
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:43:16.536Z"
+  }
+}

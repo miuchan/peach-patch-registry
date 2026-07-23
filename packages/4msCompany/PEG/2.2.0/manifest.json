@@ -1,0 +1,795 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/PEG",
+    "plugin": "4msCompany",
+    "model": "PEG",
+    "name": "Pingable Envelope Generator [PEG]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/PEG",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/PEG.webp",
+    "wasmUrl": "packages/4msCompany/PEG/2.2.0/module.wasm",
+    "width": 75,
+    "description": "Clock-synced envelopes and LFOs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Ping Red",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 70.896,
+          "y": 47.458,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Cycle Red",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 125.938,
+          "y": 43.708,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Ping Div Mult Red",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 35.625,
+          "y": 110.479,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Scale Red",
+        "default": 1,
+        "position": {
+          "x": 35.583,
+          "y": 177.792,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Skew Red",
+        "default": 0.5,
+        "position": {
+          "x": 99.865,
+          "y": 157.781,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Curve Red",
+        "default": 0.5,
+        "position": {
+          "x": 111.115,
+          "y": 224.385,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Bi-polar Red",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.458,
+          "y": 222.906,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Ping Blue",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 229.75,
+          "y": 47.458,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Cycle Blue",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 174.458,
+          "y": 43.646,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Ping Div Mult Blue",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 264.917,
+          "y": 110.438,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "Scale Blue",
+        "default": 1,
+        "position": {
+          "x": 265.365,
+          "y": 177.938,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "Skew Blue",
+        "default": 0.5,
+        "position": {
+          "x": 200.948,
+          "y": 157.781,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "Curve Blue",
+        "default": 0.5,
+        "position": {
+          "x": 190.115,
+          "y": 224.385,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Bi-polar Blue",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 278.167,
+          "y": 222.906,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 14,
+        "name": "Async Red Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 125.833,
+          "y": 112.188,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 15,
+        "name": "Async Blue Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 174.542,
+          "y": 112.188,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 16,
+        "name": "Free-Running Ping Red",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 70.896,
+          "y": 47.458,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 17,
+        "name": "Free-Running Ping Blue",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 229.75,
+          "y": 47.458,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 18,
+        "name": "Skew Limit Red",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 50.583,
+          "y": 259.229,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 19,
+        "name": "Skew Limit Blue",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 249.75,
+          "y": 259.229,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 20,
+        "name": "EOF Red Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 115.74,
+          "y": 292.844,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 21,
+        "name": "EOF Blue Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 184.896,
+          "y": 292.844,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 22,
+        "name": "EOR Red Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 72.25,
+          "y": 292.844,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 23,
+        "name": "Half-R Blue Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 228.188,
+          "y": 292.698,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ping Red Jack",
+        "position": {
+          "x": 22.469,
+          "y": 47.448,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Ping Blue Jack",
+        "position": {
+          "x": 278.177,
+          "y": 47.448,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Qnt Red",
+        "position": {
+          "x": 101.635,
+          "y": 77.115,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Toggle",
+        "position": {
+          "x": 150.323,
+          "y": 77.115,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Qnt Blue",
+        "position": {
+          "x": 198.813,
+          "y": 77.115,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Async Red",
+        "position": {
+          "x": 125.833,
+          "y": 112.188,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Async Blue",
+        "position": {
+          "x": 174.542,
+          "y": 112.188,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Div Red Jack",
+        "position": {
+          "x": 28.854,
+          "y": 330.292,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Skew Red Jack",
+        "position": {
+          "x": 72.25,
+          "y": 330.292,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Curve Red Jack",
+        "position": {
+          "x": 115.74,
+          "y": 330.292,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Curve Blue Jack",
+        "position": {
+          "x": 184.896,
+          "y": 330.292,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Skew Blue Jack",
+        "position": {
+          "x": 228.188,
+          "y": 330.292,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Div Blue Jack",
+        "position": {
+          "x": 271.677,
+          "y": 330.292,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Env Red",
+        "position": {
+          "x": 50.583,
+          "y": 259.229,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Env Blue",
+        "position": {
+          "x": 249.75,
+          "y": 259.229,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "+5V Env Red",
+        "position": {
+          "x": 28.854,
+          "y": 292.844,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "EOR Red",
+        "position": {
+          "x": 72.25,
+          "y": 292.844,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "EOF Red",
+        "position": {
+          "x": 115.74,
+          "y": 292.844,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "OR",
+        "position": {
+          "x": 150.229,
+          "y": 312.365,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "EOF Blue",
+        "position": {
+          "x": 184.896,
+          "y": 292.844,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Half R Blue",
+        "position": {
+          "x": 228.188,
+          "y": 292.698,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "+5V Env Blue",
+        "position": {
+          "x": 271.677,
+          "y": 292.698,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "lights": 20,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 70.896,
+          "y": 47.458,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 70.896,
+          "y": 47.458,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 70.896,
+          "y": 47.458,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 1,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 125.938,
+          "y": 43.708,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "paramId": 1,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 125.938,
+          "y": 43.708,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "paramId": 1,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 125.938,
+          "y": 43.708,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "paramId": 6,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 22.458,
+          "y": 222.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "paramId": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 229.75,
+          "y": 47.458,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "paramId": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 229.75,
+          "y": 47.458,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "paramId": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 229.75,
+          "y": 47.458,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "paramId": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 174.458,
+          "y": 43.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "paramId": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 174.458,
+          "y": 43.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "paramId": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 174.458,
+          "y": 43.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "paramId": 13,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 278.167,
+          "y": 222.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 49.896,
+          "y": 222.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 249.75,
+          "y": 222.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 76.052,
+          "y": 269.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 115.74,
+          "y": 269.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 184.896,
+          "y": 269.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 224.438,
+          "y": 269.125,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/PEG/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "6e9342041ac72414e239a4ed86022c7bb8cb524072154d67719d0626ff2db938",
+      "size": 176978
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:25:54.480Z"
+  }
+}

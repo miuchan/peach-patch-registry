@@ -1,0 +1,662 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/QCD",
+    "plugin": "4msCompany",
+    "model": "QCD",
+    "name": "Quad Clock Distributor [QCD]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/QCD",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/QCD.webp",
+    "wasmUrl": "packages/4msCompany/QCD/2.2.0/module.wasm",
+    "width": 330,
+    "description": "MetaModule DSP core adapted from 4msCompany/QCD",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tap Tempo",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 200.625,
+          "y": 38.302,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Gate PW Att 1",
+        "default": 1,
+        "position": {
+          "x": 69.927,
+          "y": 60.979,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Gate PW 1",
+        "default": 0.5,
+        "position": {
+          "x": 113.167,
+          "y": 62.104,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Inv Mode 1",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 159.979,
+          "y": 43.641,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Div Mult CV 1",
+        "default": 1,
+        "position": {
+          "x": 159.74,
+          "y": 84.563,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Div Mult 1",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 210.729,
+          "y": 88.469,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Gate PW Att 2",
+        "default": 1,
+        "position": {
+          "x": 69.927,
+          "y": 139.729,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Gate PW 2",
+        "default": 0.5,
+        "position": {
+          "x": 113.167,
+          "y": 140.958,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Inv Mode 2",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 159.979,
+          "y": 115.464,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Div Mult CV 2",
+        "default": 1,
+        "position": {
+          "x": 159.74,
+          "y": 157.042,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "Div Mult 2",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 210.729,
+          "y": 160.469,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "Gate PW Att 3",
+        "default": 1,
+        "position": {
+          "x": 69.927,
+          "y": 218.479,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "Gate PW 3",
+        "default": 0.5,
+        "position": {
+          "x": 113.167,
+          "y": 219.813,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Inv Mode 3",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 159.979,
+          "y": 187.807,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 14,
+        "name": "Div Mult CV 3",
+        "default": 1,
+        "position": {
+          "x": 159.74,
+          "y": 229.625,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 15,
+        "name": "Div Mult 3",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 210.729,
+          "y": 232.469,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 16,
+        "name": "Gate PW Att 4",
+        "default": 1,
+        "position": {
+          "x": 69.927,
+          "y": 297.229,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 17,
+        "name": "Gate PW 4",
+        "default": 0.5,
+        "position": {
+          "x": 113.167,
+          "y": 298.667,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 18,
+        "name": "Inv Mode 4",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 159.979,
+          "y": 259.161,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 19,
+        "name": "Div Mult CV 4",
+        "default": 1,
+        "position": {
+          "x": 159.74,
+          "y": 300.875,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 20,
+        "name": "Div Mult 4",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 210.729,
+          "y": 304.469,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate PW CV 1",
+        "position": {
+          "x": 24.229,
+          "y": 57.167,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Div Mult CV 1 Jack",
+        "position": {
+          "x": 259.854,
+          "y": 79.771,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Clk In 1",
+        "position": {
+          "x": 308.542,
+          "y": 43.948,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Reset 1",
+        "position": {
+          "x": 259.854,
+          "y": 115.771,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Gate PW CV 2",
+        "position": {
+          "x": 24.229,
+          "y": 135.917,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Div Mult CV 2 Jack",
+        "position": {
+          "x": 259.854,
+          "y": 151.771,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Clk In 2",
+        "position": {
+          "x": 308.542,
+          "y": 122.698,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Reset 2",
+        "position": {
+          "x": 259.854,
+          "y": 187.771,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "Gate PW CV 3",
+        "position": {
+          "x": 24.229,
+          "y": 214.667,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Div Mult CV 3 Jack",
+        "position": {
+          "x": 259.854,
+          "y": 223.771,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Clk In 3",
+        "position": {
+          "x": 308.542,
+          "y": 201.448,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 11,
+        "name": "Reset 3",
+        "position": {
+          "x": 259.854,
+          "y": 259.771,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 12,
+        "name": "Gate PW CV 4",
+        "position": {
+          "x": 24.229,
+          "y": 293.417,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Div Mult CV 4 Jack",
+        "position": {
+          "x": 259.854,
+          "y": 295.771,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "Clk In 4",
+        "position": {
+          "x": 308.542,
+          "y": 280.198,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 15,
+        "name": "Reset 4",
+        "position": {
+          "x": 259.854,
+          "y": 331.771,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tap Out",
+        "position": {
+          "x": 255.552,
+          "y": 38.344,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Inv Out 1",
+        "position": {
+          "x": 24.229,
+          "y": 93.167,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Out 1",
+        "position": {
+          "x": 308.542,
+          "y": 79.948,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Inv Out 2",
+        "position": {
+          "x": 24.229,
+          "y": 171.917,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Out 2",
+        "position": {
+          "x": 308.542,
+          "y": 158.698,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Inv Out 3",
+        "position": {
+          "x": 24.229,
+          "y": 250.667,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Out 3",
+        "position": {
+          "x": 308.542,
+          "y": 237.448,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Inv Out 4",
+        "position": {
+          "x": 24.229,
+          "y": 329.417,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "Out 4",
+        "position": {
+          "x": 308.542,
+          "y": 316.198,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 0,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 200.625,
+          "y": 38.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 49.938,
+          "y": 93.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 284.729,
+          "y": 80.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 49.938,
+          "y": 172.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 284.729,
+          "y": 158.896,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 49.542,
+          "y": 250.885,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 284.729,
+          "y": 237.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 49.74,
+          "y": 329.781,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 284.729,
+          "y": 316.396,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/QCD/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "211d12f9dce9015e202f5684dee4a702ea63ad13f1bd8487f27fd7ecb8bde70e",
+      "size": 104788
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:14:45.069Z"
+  }
+}

@@ -1,0 +1,444 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/MPEG",
+    "plugin": "4msCompany",
+    "model": "MPEG",
+    "name": "Mini Pingable Envelope Generator [MPEG]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/MPEG",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/MPEG.webp",
+    "wasmUrl": "packages/4msCompany/MPEG/2.2.0/module.wasm",
+    "width": 120,
+    "description": "MetaModule DSP core adapted from 4msCompany/MPEG",
+    "params": [
+      {
+        "id": 0,
+        "name": "Div/Mult",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 37.969,
+          "y": 91.427,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Shape",
+        "default": 0.5,
+        "position": {
+          "x": 38.906,
+          "y": 161.167,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "default": 1,
+        "position": {
+          "x": 94.938,
+          "y": 138.885,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Offset",
+        "default": 1,
+        "position": {
+          "x": 94.938,
+          "y": 196.396,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Ping",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 31.792,
+          "y": 43.302,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Cycle",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 95.99,
+          "y": 84.531,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Sync Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 31.792,
+          "y": 43.302,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Shift",
+        "default": 0.5,
+        "hidden": true,
+        "position": {
+          "x": 94.938,
+          "y": 196.396,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Skew Limit",
+        "default": 1,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 59.5,
+          "y": 233.708,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Free-running Ping",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 83.552,
+          "y": 43.302,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "EOF Jack Type",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 24.031,
+          "y": 255.042,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "EOF Jack Mode",
+        "default": 0.3333333432674408,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 24.031,
+          "y": 255.042,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "Cycle Jack Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 95.406,
+          "y": 299.625,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Trig Jack Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 23.969,
+          "y": 299.625,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ping Jack",
+        "position": {
+          "x": 83.552,
+          "y": 43.302,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "position": {
+          "x": 23.969,
+          "y": 299.625,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Shape CV",
+        "position": {
+          "x": 59.771,
+          "y": 279,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Cycle Trig",
+        "position": {
+          "x": 95.406,
+          "y": 299.625,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Div/Mult CV",
+        "position": {
+          "x": 59.771,
+          "y": 324,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "ENV Out",
+        "position": {
+          "x": 59.5,
+          "y": 233.708,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "EOF",
+        "position": {
+          "x": 24.031,
+          "y": 255.042,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "5V ENV Out",
+        "position": {
+          "x": 95.521,
+          "y": 255.146,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 13,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 4,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 31.792,
+          "y": 43.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 4,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 31.792,
+          "y": 43.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 4,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 31.792,
+          "y": 43.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 5,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 95.99,
+          "y": 84.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "paramId": 5,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 95.99,
+          "y": 84.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "paramId": 5,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 95.99,
+          "y": 84.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 15.177,
+          "y": 229.167,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 59.792,
+          "y": 208.438,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 59.792,
+          "y": 208.438,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 59.792,
+          "y": 208.438,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 103.823,
+          "y": 229.167,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 103.823,
+          "y": 229.167,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 103.823,
+          "y": 229.167,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/MPEG/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "14b249804daa40f56d7d7a7a0c0de6da29ea3ce202a965b64878038a238e47f0",
+      "size": 168900
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:36:37.617Z"
+  }
+}

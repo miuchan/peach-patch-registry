@@ -1,0 +1,499 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/EnOsc",
+    "plugin": "4msCompany",
+    "model": "EnOsc",
+    "name": "Ensemble Oscillator [EnOsc]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/EnOsc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/EnOsc.webp",
+    "wasmUrl": "packages/4msCompany/EnOsc/2.2.0/module.wasm",
+    "width": 240,
+    "description": "The Ensemble Oscillator (EnOsc) is a unified polyphonic voice of sixteen complex oscillators combining additive, FM, phase-distortion and wavefolding synthesis techniques in new unorthodox ways.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "default": 0.453125,
+        "snap": true,
+        "position": {
+          "x": 56.354,
+          "y": 81.333,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Spread",
+        "default": 0.375,
+        "position": {
+          "x": 120.073,
+          "y": 64.188,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Pitch",
+        "default": 0.5,
+        "position": {
+          "x": 184.333,
+          "y": 81.323,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Balance",
+        "default": 0.5,
+        "position": {
+          "x": 34.083,
+          "y": 150.146,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Root",
+        "default": 0.5,
+        "position": {
+          "x": 120.375,
+          "y": 146.802,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Cross FM",
+        "default": 0,
+        "position": {
+          "x": 206.49,
+          "y": 150.146,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Twist",
+        "default": 0,
+        "position": {
+          "x": 64.344,
+          "y": 216.885,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Detune",
+        "default": 0,
+        "position": {
+          "x": 120.302,
+          "y": 216.521,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Warp",
+        "default": 0,
+        "position": {
+          "x": 175.906,
+          "y": 216.885,
+          "centered": true,
+          "widget": "Davies1900hWhiteKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Scale Switch",
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 17.635,
+          "y": 107.318,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "Cross FM Switch",
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 223.156,
+          "y": 107.234,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "Twist Switch",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 17.635,
+          "y": 224.026,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "Warp Switch",
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 223.156,
+          "y": 210.13,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Learn",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 22.531,
+          "y": 44.302,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 14,
+        "name": "Freeze",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 218.292,
+          "y": 44.302,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 15,
+        "name": "FreezeSplit",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 64.344,
+          "y": 216.885,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 16,
+        "name": "StereoSplit",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 175.906,
+          "y": 216.885,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 17,
+        "name": "Crossfade",
+        "default": 0.5,
+        "hidden": true,
+        "position": {
+          "x": 34.083,
+          "y": 150.146,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 18,
+        "name": "NumOsc",
+        "default": 1,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 120.073,
+          "y": 64.188,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 19,
+        "name": "FineTune",
+        "default": 0.5,
+        "hidden": true,
+        "position": {
+          "x": 184.333,
+          "y": 81.323,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch 1v/Oct",
+        "position": {
+          "x": 22.792,
+          "y": 273.729,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Root 1v/Oct",
+        "position": {
+          "x": 22.792,
+          "y": 318.656,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Scale CV",
+        "position": {
+          "x": 61.896,
+          "y": 287.354,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Spread CV",
+        "position": {
+          "x": 100.917,
+          "y": 273.729,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Cross FM CV",
+        "position": {
+          "x": 139.875,
+          "y": 273.729,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Learn CV",
+        "position": {
+          "x": 178.906,
+          "y": 287.354,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Balance CV",
+        "position": {
+          "x": 61.896,
+          "y": 332.292,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Twist CV",
+        "position": {
+          "x": 100.917,
+          "y": 318.677,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Warp CV",
+        "position": {
+          "x": 139.875,
+          "y": 318.677,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Freeze CV",
+        "position": {
+          "x": 178.906,
+          "y": 332.323,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out A",
+        "position": {
+          "x": 217.833,
+          "y": 273.729,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Out B",
+        "position": {
+          "x": 217.833,
+          "y": 318.656,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 22.531,
+          "y": 44.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 22.531,
+          "y": 44.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 22.531,
+          "y": 44.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 14,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 218.292,
+          "y": 44.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "paramId": 14,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 218.292,
+          "y": 44.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "paramId": 14,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 218.292,
+          "y": 44.302,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/EnOsc/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "7b95ad46752fcc51c0292b401f9995f84951b55c282773fd67567ca8f8648296",
+      "size": 161803
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:08:24.784Z"
+  }
+}

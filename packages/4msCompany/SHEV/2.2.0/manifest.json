@@ -1,0 +1,843 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/SHEV",
+    "plugin": "4msCompany",
+    "model": "SHEV",
+    "name": "Shaped Dual EnvVCA [SHEV]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/SHEV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/SHEV.webp",
+    "wasmUrl": "packages/4msCompany/SHEV/2.2.0/module.wasm",
+    "width": 300,
+    "description": "Variable waveshape dual AD envelope + VCA",
+    "params": [
+      {
+        "id": 0,
+        "name": "Cycle A",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.042,
+          "y": 43.635,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Rise A Switch",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 98.104,
+          "y": 43.005,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Fall A Switch",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 132.354,
+          "y": 42.995,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Rise B Switch",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 166.615,
+          "y": 42.995,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Fall B Switch",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 200.865,
+          "y": 43.005,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Cycle B",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 279.052,
+          "y": 43.281,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Level A",
+        "default": 1,
+        "position": {
+          "x": 24.573,
+          "y": 89.688,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Trig Mode A",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 64.146,
+          "y": 100.661,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Rise A Slider",
+        "default": 0.5,
+        "position": {
+          "x": 98.609,
+          "y": 109.146,
+          "centered": true,
+          "control": "slider",
+          "widget": "LEDSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 9,
+        "name": "Fall A Slider",
+        "default": 0.5,
+        "position": {
+          "x": 132.359,
+          "y": 109.146,
+          "centered": true,
+          "control": "slider",
+          "widget": "LEDSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 10,
+        "name": "Rise B Slider",
+        "default": 0.5,
+        "position": {
+          "x": 166.609,
+          "y": 109.146,
+          "centered": true,
+          "control": "slider",
+          "widget": "LEDSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 11,
+        "name": "Fall B Slider",
+        "default": 0.5,
+        "position": {
+          "x": 200.359,
+          "y": 109.146,
+          "centered": true,
+          "control": "slider",
+          "widget": "LEDSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 12,
+        "name": "Trig Mode B",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 234.823,
+          "y": 100.661,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 13,
+        "name": "Level B",
+        "default": 1,
+        "position": {
+          "x": 274.604,
+          "y": 89.635,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 14,
+        "name": "Offset A",
+        "default": 0.5,
+        "position": {
+          "x": 24.656,
+          "y": 138.208,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 15,
+        "name": "Offset B",
+        "default": 0.5,
+        "position": {
+          "x": 274.396,
+          "y": 138.156,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 16,
+        "name": "Shape A",
+        "default": 1,
+        "position": {
+          "x": 24.573,
+          "y": 186.677,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 17,
+        "name": "Shape A Slider",
+        "default": 0.5,
+        "position": {
+          "x": 97.25,
+          "y": 175.536,
+          "centered": true,
+          "control": "slider",
+          "widget": "HorizontalSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 18,
+        "name": "Shape B Slider",
+        "default": 0.5,
+        "position": {
+          "x": 201.719,
+          "y": 175.536,
+          "centered": true,
+          "control": "slider",
+          "widget": "HorizontalSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 19,
+        "name": "Shape B",
+        "default": 1,
+        "position": {
+          "x": 274.427,
+          "y": 186.677,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 20,
+        "name": "Rise A",
+        "default": 1,
+        "position": {
+          "x": 71.604,
+          "y": 215.333,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 21,
+        "name": "Fall A",
+        "default": 1,
+        "position": {
+          "x": 122.771,
+          "y": 215.333,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 22,
+        "name": "Rise B",
+        "default": 1,
+        "position": {
+          "x": 176.198,
+          "y": 215.333,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 23,
+        "name": "Fall B",
+        "default": 1,
+        "position": {
+          "x": 227.354,
+          "y": 215.333,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trig A",
+        "position": {
+          "x": 61.698,
+          "y": 43.26,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Trig B",
+        "position": {
+          "x": 237.26,
+          "y": 43.26,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Shape CV A",
+        "position": {
+          "x": 24.573,
+          "y": 233.823,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Shape CV B",
+        "position": {
+          "x": 274.396,
+          "y": 233.823,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Follow A",
+        "position": {
+          "x": 56.99,
+          "y": 262,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Time CV A",
+        "position": {
+          "x": 105.823,
+          "y": 259.479,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Time CV B",
+        "position": {
+          "x": 193.146,
+          "y": 259.479,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Follow B",
+        "position": {
+          "x": 241.979,
+          "y": 262,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Audio A In",
+        "position": {
+          "x": 23.052,
+          "y": 292.354,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 9,
+        "name": "Audio B In",
+        "position": {
+          "x": 275.917,
+          "y": 292.354,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 10,
+        "name": "VCA CV A",
+        "position": {
+          "x": 64.833,
+          "y": 336.521,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "VCA CV B",
+        "position": {
+          "x": 234.135,
+          "y": 336.521,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "EOR A",
+        "position": {
+          "x": 80.698,
+          "y": 298.01,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Env A Out",
+        "position": {
+          "x": 126.583,
+          "y": 298.083,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Env B Out",
+        "position": {
+          "x": 172.375,
+          "y": 298.083,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "EOF B",
+        "position": {
+          "x": 218.271,
+          "y": 298.01,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Out A",
+        "position": {
+          "x": 23.052,
+          "y": 336.521,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 5,
+        "name": "Lin 5V A",
+        "position": {
+          "x": 107.156,
+          "y": 336.521,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "OR",
+        "position": {
+          "x": 149.479,
+          "y": 336.521,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Lin 5V B",
+        "position": {
+          "x": 191.802,
+          "y": 336.521,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Out B",
+        "position": {
+          "x": 275.917,
+          "y": 336.521,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 28,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 0,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 22.042,
+          "y": 43.635,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 5,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 279.052,
+          "y": 43.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 8,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 98.609,
+          "y": 109.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 9,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 132.359,
+          "y": 109.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "paramId": 10,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 166.609,
+          "y": 109.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "paramId": 11,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 200.359,
+          "y": 109.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "paramId": 17,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 97.25,
+          "y": 175.536,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "paramId": 18,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 201.719,
+          "y": 175.536,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 55.229,
+          "y": 156.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 55.229,
+          "y": 156.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 55.229,
+          "y": 156.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 245.302,
+          "y": 157.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 245.302,
+          "y": 157.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 245.302,
+          "y": 157.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 92.563,
+          "y": 204.521,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 92.563,
+          "y": 204.521,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 102.156,
+          "y": 228.219,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 102.156,
+          "y": 228.219,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 196.802,
+          "y": 204.521,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 196.802,
+          "y": 204.521,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 206.406,
+          "y": 228.219,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 206.406,
+          "y": 228.219,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 139.156,
+          "y": 274.021,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 139.156,
+          "y": 274.021,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 159.802,
+          "y": 274.021,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 159.802,
+          "y": 274.021,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 53.115,
+          "y": 287.281,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 245.844,
+          "y": 287.281,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/SHEV/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "d149fe9eecd0db4f3a9735328fe9022eb996d841f58e963180c71de67a5eedab",
+      "size": 106184
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:13:45.251Z"
+  }
+}

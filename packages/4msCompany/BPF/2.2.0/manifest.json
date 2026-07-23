@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/BPF",
+    "plugin": "4msCompany",
+    "model": "BPF",
+    "name": "BPF",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/BPF",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/BPF.webp",
+    "wasmUrl": "packages/4msCompany/BPF/2.2.0/module.wasm",
+    "width": 60,
+    "description": "Band-pass filter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Cutoff",
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 48.719,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Q",
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 98.917,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 30.304,
+          "y": 179.374,
+          "centered": true,
+          "widget": "CKSS"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Cutoff CV In",
+        "position": {
+          "x": 30,
+          "y": 225.885,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Audio In",
+        "position": {
+          "x": 30,
+          "y": 276.083,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Bandpass Out",
+        "position": {
+          "x": 30,
+          "y": 326.281,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/BPF/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "3bcecf9da0fdc985122e31ae440e8ea86afccd57f96a218a5f59d33327f79da2",
+      "size": 127337
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:24:04.151Z"
+  }
+}

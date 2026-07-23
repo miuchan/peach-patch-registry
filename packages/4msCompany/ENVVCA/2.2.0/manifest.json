@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/ENVVCA",
+    "plugin": "4msCompany",
+    "model": "ENVVCA",
+    "name": "EnvVCA",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/ENVVCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/ENVVCA.webp",
+    "wasmUrl": "packages/4msCompany/ENVVCA/2.2.0/module.wasm",
+    "width": 120,
+    "description": "A compact envelope generator with a built-in exponential VCA.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rise Range",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 24.156,
+          "y": 45.109,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Fall Range",
+        "default": 0.5,
+        "snap": true,
+        "position": {
+          "x": 59.719,
+          "y": 45.109,
+          "centered": true,
+          "widget": "CKSSThree"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Cycle",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 96.01,
+          "y": 43.385,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Rise",
+        "default": 0.5,
+        "position": {
+          "x": 24.151,
+          "y": 113.344,
+          "centered": true,
+          "control": "slider",
+          "widget": "LEDSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Fall",
+        "default": 0.5,
+        "position": {
+          "x": 59.714,
+          "y": 113.563,
+          "centered": true,
+          "control": "slider",
+          "widget": "LEDSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Env Level",
+        "default": 1,
+        "position": {
+          "x": 95.318,
+          "y": 113.344,
+          "centered": true,
+          "control": "slider",
+          "widget": "LEDSlider"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Rise CV",
+        "default": 1,
+        "position": {
+          "x": 22.594,
+          "y": 185.677,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Fall CV",
+        "default": 1,
+        "position": {
+          "x": 96.719,
+          "y": 185.677,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time CV In",
+        "position": {
+          "x": 59.635,
+          "y": 212.01,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Trigger In",
+        "position": {
+          "x": 23.229,
+          "y": 236.521,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Cycle",
+        "position": {
+          "x": 59.635,
+          "y": 264.844,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Follow In",
+        "position": {
+          "x": 23.229,
+          "y": 290.344,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Audio In",
+        "position": {
+          "x": 37.365,
+          "y": 335.906,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Env Out",
+        "position": {
+          "x": 95.865,
+          "y": 236.521,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "EOR Out",
+        "position": {
+          "x": 95.865,
+          "y": 290.344,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Audio Out",
+        "position": {
+          "x": 81.844,
+          "y": 335.938,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 2,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 96.01,
+          "y": 43.385,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 3,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 24.151,
+          "y": 113.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 4,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 59.714,
+          "y": 113.563,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 5,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 95.318,
+          "y": 113.344,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 46.99,
+          "y": 182.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 46.99,
+          "y": 182.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 72.229,
+          "y": 182.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<RedBlueLight>",
+        "position": {
+          "x": 72.229,
+          "y": 182.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 110.844,
+          "y": 267.292,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/ENVVCA/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "0494d55c0f8053af695bcf3cc4a52ffd6bd9c275c8c9d31cf396571c0a269072",
+      "size": 90118
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:14:01.907Z"
+  }
+}

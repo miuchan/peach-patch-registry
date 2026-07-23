@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/BWAVP",
+    "plugin": "4msCompany",
+    "model": "BWAVP",
+    "name": "Basic WAV Player",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/BWAVP",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/BWAVP.webp",
+    "wasmUrl": "packages/4msCompany/BWAVP/2.2.0/module.wasm",
+    "width": 90,
+    "description": "Simple streaming .wav player optimized for microSD cards and USB drives",
+    "params": [
+      {
+        "id": 0,
+        "name": "Play",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 27.288,
+          "y": 159.996,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Loop",
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 64.028,
+          "y": 159.996,
+          "centered": true,
+          "widget": "LEDButton"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Play Retrig Mode",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 69.239,
+          "y": 50.48,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Waveform Zoom",
+        "default": 0.1015625,
+        "hidden": true,
+        "position": {
+          "x": 53.986,
+          "y": 50.48,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Playback Buffer Threshold",
+        "default": 0.25,
+        "hidden": true,
+        "position": {
+          "x": 37.788,
+          "y": 50.48,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Max Buffer Size",
+        "default": 0.27272728085517883,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 31.537,
+          "y": 50.48,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Buffer Strategy",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 31.537,
+          "y": 50.48,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Startup Delay (sec)",
+        "default": 0,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 31.537,
+          "y": 50.48,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 8,
+        "name": "Load Sample...",
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "hidden": true,
+        "position": {
+          "x": 24.452,
+          "y": 50.48,
+          "centered": true
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Play Trig",
+        "position": {
+          "x": 26.178,
+          "y": 206.299,
+          "centered": true
+        },
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Loop Gate",
+        "position": {
+          "x": 63.827,
+          "y": 206.299,
+          "centered": true
+        },
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left Out",
+        "position": {
+          "x": 26.178,
+          "y": 306.811,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right Out",
+        "position": {
+          "x": 63.827,
+          "y": 307.106,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Play Gate Out",
+        "position": {
+          "x": 25.713,
+          "y": 259.881,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "End Out",
+        "position": {
+          "x": 63.827,
+          "y": 259.881,
+          "centered": true
+        },
+        "kind": "audio"
+      }
+    ],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 27.288,
+          "y": 159.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "paramId": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 27.288,
+          "y": 159.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "paramId": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 27.288,
+          "y": 159.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "paramId": 1,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 64.028,
+          "y": 159.996,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 9.619,
+          "y": 60.548,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<WhiteLight>",
+        "position": {
+          "x": 9.433,
+          "y": 35.977,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 45.003,
+          "y": 139.696,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 16777216,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/BWAVP/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "b366817d52964697bb7f444983096ccfe4e517c262a96e0c5b6306c9bf2ff928",
+      "size": 142796
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:34:15.601Z"
+  }
+}

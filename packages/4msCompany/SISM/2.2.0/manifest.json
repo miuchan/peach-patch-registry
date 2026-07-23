@@ -1,0 +1,397 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4msCompany/SISM",
+    "plugin": "4msCompany",
+    "model": "SISM",
+    "name": "Shifting Inverting Signal Mingler [SISM]",
+    "brand": "4ms",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/4ms-vcv/",
+    "libraryUrl": "https://library.vcvrack.com/4msCompany/SISM",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4msCompany/SISM.webp",
+    "wasmUrl": "packages/4msCompany/SISM/2.2.0/module.wasm",
+    "width": 180,
+    "description": "MetaModule DSP core adapted from 4msCompany/SISM",
+    "params": [
+      {
+        "id": 0,
+        "name": "Ch. 1 Scale",
+        "default": 1,
+        "position": {
+          "x": 66.927,
+          "y": 48.583,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 1,
+        "name": "Ch. 1 Shift",
+        "default": 0.5,
+        "position": {
+          "x": 111.927,
+          "y": 48.583,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 2,
+        "name": "Ch. 2 Scale",
+        "default": 1,
+        "position": {
+          "x": 66.927,
+          "y": 116.083,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 3,
+        "name": "Ch. 2 Shift",
+        "default": 0.5,
+        "position": {
+          "x": 111.927,
+          "y": 116.083,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 4,
+        "name": "Ch. 3 Scale",
+        "default": 1,
+        "position": {
+          "x": 66.927,
+          "y": 183.583,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 5,
+        "name": "Ch. 3 Shift",
+        "default": 0.5,
+        "position": {
+          "x": 111.927,
+          "y": 183.583,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 6,
+        "name": "Ch. 4 Scale",
+        "default": 1,
+        "position": {
+          "x": 66.927,
+          "y": 251.083,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": 7,
+        "name": "Ch. 4 Shift",
+        "default": 0.5,
+        "position": {
+          "x": 111.927,
+          "y": 251.083,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ch. 1 In",
+        "position": {
+          "x": 22.677,
+          "y": 55.042,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Ch. 2 In",
+        "position": {
+          "x": 22.677,
+          "y": 122.542,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Ch. 3 In",
+        "position": {
+          "x": 22.677,
+          "y": 190.042,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Ch. 4 In",
+        "position": {
+          "x": 22.677,
+          "y": 257.542,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ch. 1 Out",
+        "position": {
+          "x": 156.792,
+          "y": 55.104,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Ch. 2 Out",
+        "position": {
+          "x": 156.792,
+          "y": 122.604,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Ch. 3 Out",
+        "position": {
+          "x": 156.792,
+          "y": 190.104,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 3,
+        "name": "Ch. 4 Out",
+        "position": {
+          "x": 156.792,
+          "y": 257.604,
+          "centered": true
+        },
+        "kind": "audio"
+      },
+      {
+        "id": 4,
+        "name": "+ Slice",
+        "position": {
+          "x": 21.979,
+          "y": 325.167,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "- Slice",
+        "position": {
+          "x": 66.927,
+          "y": 325.167,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Mix (SW)",
+        "position": {
+          "x": 111.927,
+          "y": 325.167,
+          "centered": true
+        },
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Mix",
+        "position": {
+          "x": 156.979,
+          "y": 325.167,
+          "centered": true
+        },
+        "kind": "cv"
+      }
+    ],
+    "lights": 14,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 152.802,
+          "y": 30.729,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 164.802,
+          "y": 30.729,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 151.031,
+          "y": 97.479,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 163.021,
+          "y": 97.479,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 151.063,
+          "y": 165.052,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 163.063,
+          "y": 165.052,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 151.156,
+          "y": 232.635,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 163.156,
+          "y": 232.635,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 21.792,
+          "y": 301.073,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 66.938,
+          "y": 300.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 106.583,
+          "y": 301.229,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 118.396,
+          "y": 301.229,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 151.729,
+          "y": 301.073,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 163.542,
+          "y": 301.073,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "metamodule-core-adapter"
+    },
+    "manifestUrl": "packages/4msCompany/SISM/2.2.0/manifest.json",
+    "sourceCommit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d",
+    "artifact": {
+      "sha256": "3d256136f16234d3cf17e67354ed4876413f5da760a0c7793673acd5d1c76a6b",
+      "size": 87795
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/4ms-vcv/",
+    "commit": "7d1bd0b07536b563d00a387634fbee1cf11fae0d"
+  },
+  "build": {
+    "strategy": "metamodule-core-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T14:15:28.160Z"
+  }
+}
