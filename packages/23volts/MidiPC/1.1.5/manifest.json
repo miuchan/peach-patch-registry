@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "23volts/MidiPC",
+    "plugin": "23volts",
+    "model": "MidiPC",
+    "name": "MidiPC",
+    "brand": "23volts",
+    "version": "1.1.5",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/23volts/23volts-vcv",
+    "libraryUrl": "https://library.vcvrack.com/23volts/MidiPC",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/23volts/MidiPC.webp",
+    "wasmUrl": "packages/23volts/MidiPC/1.1.5/module.wasm",
+    "width": 5,
+    "description": "Sends and receive midi program change",
+    "params": [
+      {
+        "id": 0,
+        "name": "MIDI Program",
+        "min": 0,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 31,
+          "y": 208,
+          "widget": "KnobDark26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34.5,
+          "y": 115.5,
+          "widget": "MomentaryLedButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41,
+          "y": 264,
+          "widget": "LedButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Program CV",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 212
+        }
+      },
+      {
+        "id": 1,
+        "name": "Send Pc Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 34,
+          "y": 141
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Program CV",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 312
+        }
+      },
+      {
+        "id": 1,
+        "name": "Change Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 31,
+          "y": 312
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "current_program",
+        "type": "integer"
+      },
+      {
+        "key": "target_program",
+        "type": "integer"
+      },
+      {
+        "key": "send_on_load",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/23volts/MidiPC/1.1.5/manifest.json",
+    "sourceCommit": "bf1f1c2cd93216b0dfd0d2483391c4a9eff2c0c7",
+    "artifact": {
+      "sha256": "7ac0654beb34b36ef78169168c6f60f7414374acc3bcd875a28c8a8071ed2ca4",
+      "size": 87477
+    }
+  },
+  "source": {
+    "url": "https://github.com/23volts/23volts-vcv",
+    "commit": "bf1f1c2cd93216b0dfd0d2483391c4a9eff2c0c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T01:08:35.683Z"
+  }
+}
