@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SanguineMonsters/Sanguine-Crucible",
+    "plugin": "SanguineMonsters",
+    "model": "Sanguine-Crucible",
+    "name": "Crucible",
+    "brand": "Sanguine Monsters",
+    "version": "2.4.5",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Bloodbat/SanguineMonsters",
+    "libraryUrl": "https://library.vcvrack.com/SanguineMonsters/Sanguine-Crucible",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SanguineMonsters/Sanguine-Crucible.webp",
+    "wasmUrl": "packages/SanguineMonsters/Sanguine-Crucible/2.4.5/module.wasm",
+    "width": 180,
+    "description": "Expander for Alchemist: adds global and per channel CV and manual  Mute control; Mute exclusive mode; global and per channel CV and manual Solo control, and Solo exclusive mode",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mute all",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12.7,
+          "y": 25.243,
+          "centered": true,
+          "widget": "SanguineBezel115"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mute exclusive",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 20.259,
+          "y": 51.499,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<RedLight>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Solo all",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 12.7,
+          "y": 86.616,
+          "centered": true,
+          "widget": "SanguineBezel115"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Solo exclusive",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 20.259,
+          "y": 112.872,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<GreenLight>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Mute all",
+        "kind": "cv",
+        "position": {
+          "x": 12.7,
+          "y": 38.979,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mute channels",
+        "kind": "cv",
+        "position": {
+          "x": 5.664,
+          "y": 51.499,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Solo all",
+        "kind": "cv",
+        "position": {
+          "x": 12.7,
+          "y": 100.352,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Solo channels",
+        "kind": "cv",
+        "position": {
+          "x": 5.664,
+          "y": 112.872,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Inputs Count",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Outputs Count",
+        "kind": "cv"
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<OrangeLight>",
+        "position": {
+          "x": 22.8,
+          "y": 5.573,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SanguineBezelLight115<RedLight>",
+        "position": {
+          "x": 12.7,
+          "y": 25.243,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SanguineBezelLight115<GreenLight>",
+        "position": {
+          "x": 12.7,
+          "y": 86.616,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightBezelLatch<RedLight>",
+        "position": {
+          "x": 20.259,
+          "y": 51.499,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightBezelLatch<GreenLight>",
+        "position": {
+          "x": 20.259,
+          "y": 112.872,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "SanguineMonsters/Sanguine-Alchemist",
+            "symbol": "modelAlchemist",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SanguineMonsters/Sanguine-Crucible/2.4.5/manifest.json",
+    "sourceCommit": "15092a84076d3aeee03404f5e8df2fc7dca40798",
+    "artifact": {
+      "sha256": "535399461443e2584352b32bea8263c5c88415872d3cdcac1bc28a8f6df4ea52",
+      "size": 73576
+    }
+  },
+  "source": {
+    "url": "https://github.com/Bloodbat/SanguineMonsters",
+    "commit": "15092a84076d3aeee03404f5e8df2fc7dca40798"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T02:34:20.605Z"
+  }
+}

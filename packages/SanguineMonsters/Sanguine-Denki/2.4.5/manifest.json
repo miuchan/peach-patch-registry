@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SanguineMonsters/Sanguine-Denki",
+    "plugin": "SanguineMonsters",
+    "model": "Sanguine-Denki",
+    "name": "Denki",
+    "brand": "Sanguine Monsters",
+    "version": "2.4.5",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Bloodbat/SanguineMonsters",
+    "libraryUrl": "https://library.vcvrack.com/SanguineMonsters/Sanguine-Denki",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SanguineMonsters/Sanguine-Denki.webp",
+    "wasmUrl": "packages/SanguineMonsters/Sanguine-Denki/2.4.5/module.wasm",
+    "width": 180,
+    "description": "Expander for Kitsune providing gain and offset CV control for every channel",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "INPUT_GAIN_CV + 0",
+        "kind": "cv",
+        "position": {
+          "x": 6.76,
+          "y": 29.571,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "INPUT_GAIN_CV + 1",
+        "kind": "cv",
+        "position": {
+          "x": 6.76,
+          "y": 55.204,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "INPUT_GAIN_CV + 2",
+        "kind": "cv",
+        "position": {
+          "x": 6.76,
+          "y": 80.798,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "INPUT_GAIN_CV + 3",
+        "kind": "cv",
+        "position": {
+          "x": 6.76,
+          "y": 106.419,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "INPUT_OFFSET_CV + 0",
+        "kind": "cv",
+        "position": {
+          "x": 23.72,
+          "y": 29.571,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "INPUT_OFFSET_CV + 1",
+        "kind": "cv",
+        "position": {
+          "x": 23.72,
+          "y": 55.204,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "INPUT_OFFSET_CV + 2",
+        "kind": "cv",
+        "position": {
+          "x": 23.72,
+          "y": 80.798,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "INPUT_OFFSET_CV + 3",
+        "kind": "cv",
+        "position": {
+          "x": 23.72,
+          "y": 106.419,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Inputs Count",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Outputs Count",
+        "kind": "cv"
+      }
+    ],
+    "lights": 26,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<OrangeLight>",
+        "position": {
+          "x": 2.769,
+          "y": 5.573,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 6.76,
+          "y": 36.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 23.72,
+          "y": 36.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 6.76,
+          "y": 62.202,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 23.72,
+          "y": 62.202,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 6.76,
+          "y": 87.796,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 23.72,
+          "y": 87.796,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 6.76,
+          "y": 113.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 23.72,
+          "y": 113.417,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "SanguineMonsters/Sanguine-Kitsune",
+            "symbol": "modelKitsune",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SanguineMonsters/Sanguine-Denki/2.4.5/manifest.json",
+    "sourceCommit": "15092a84076d3aeee03404f5e8df2fc7dca40798",
+    "artifact": {
+      "sha256": "f3b8d630e4370743eff2ee6b43a80cb027e7b6ec9c5a5809c22217c056942655",
+      "size": 74326
+    }
+  },
+  "source": {
+    "url": "https://github.com/Bloodbat/SanguineMonsters",
+    "commit": "15092a84076d3aeee03404f5e8df2fc7dca40798"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T02:34:17.238Z"
+  }
+}
