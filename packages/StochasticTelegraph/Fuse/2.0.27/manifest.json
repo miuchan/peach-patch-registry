@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "StochasticTelegraph/Fuse",
+    "plugin": "StochasticTelegraph",
+    "model": "Fuse",
+    "name": "Fuse",
+    "brand": "Stochastic Telegraph",
+    "version": "2.0.27",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mahlenmorris/VCVRack",
+    "libraryUrl": "https://library.vcvrack.com/StochasticTelegraph/Fuse",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/StochasticTelegraph/Fuse.webp",
+    "wasmUrl": "packages/StochasticTelegraph/Fuse/2.0.27/module.wasm",
+    "width": 90,
+    "description": "Counts triggers and blocks/allows a signal after hitting a limit. Useful for timed composition changes, simulating components that break with overuse, or scaling a value based on the number of triggers.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Number of TRIGGER events until fuse blows",
+        "min": 1,
+        "max": 1000,
+        "default": 10,
+        "position": {
+          "x": 61.922,
+          "y": 94.488,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Value of OUT as count -> LIMIT",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 23.693,
+          "y": 94.488,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Press to reset count of triggers to zero",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 61.922,
+          "y": 236.22,
+          "centered": true,
+          "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Press to add one to the count",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 61.922,
+          "y": 141.732,
+          "centered": true,
+          "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rise/fall time for amplitude changes",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 23.693,
+          "y": 283.465,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Press to subtract one from the count",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 61.922,
+          "y": 188.976,
+          "centered": true,
+          "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Count is reset to zero when a trigger enters",
+        "kind": "gate",
+        "position": {
+          "x": 23.693,
+          "y": 236.22,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Adds one to the count each time a trigger enters",
+        "kind": "gate",
+        "position": {
+          "x": 23.693,
+          "y": 141.732,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "In",
+        "kind": "cv",
+        "position": {
+          "x": 23.693,
+          "y": 330.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Subtracts one from the count each time a trigger enters",
+        "kind": "gate",
+        "position": {
+          "x": 23.693,
+          "y": 188.976,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Outputs a trigger when count hits LIMIT",
+        "kind": "gate",
+        "position": {
+          "x": 61.922,
+          "y": 283.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 61.922,
+          "y": 330.709,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 61.922,
+          "y": 141.732,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 61.922,
+          "y": 188.976,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 61.922,
+          "y": 236.22,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "default_in",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/StochasticTelegraph/Fuse/2.0.27/manifest.json",
+    "sourceCommit": "f8c8c1a765a7cdf609fd82eb9ba9aca0a83bfe77",
+    "artifact": {
+      "sha256": "ac6ebb57e142337414e56362fa1853add48b615324752d3ce57b581bb7a57688",
+      "size": 75184
+    }
+  },
+  "source": {
+    "url": "https://github.com/mahlenmorris/VCVRack",
+    "commit": "f8c8c1a765a7cdf609fd82eb9ba9aca0a83bfe77"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T05:11:06.878Z"
+  }
+}

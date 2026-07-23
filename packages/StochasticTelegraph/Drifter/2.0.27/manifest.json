@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "StochasticTelegraph/Drifter",
+    "plugin": "StochasticTelegraph",
+    "model": "Drifter",
+    "name": "Drifter",
+    "brand": "Stochastic Telegraph",
+    "version": "2.0.27",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mahlenmorris/VCVRack",
+    "libraryUrl": "https://library.vcvrack.com/StochasticTelegraph/Drifter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/StochasticTelegraph/Drifter.webp",
+    "wasmUrl": "packages/StochasticTelegraph/Drifter/2.0.27/module.wasm",
+    "width": 135,
+    "description": "Varying linear function generator. Makes sequences that change in small (or large) ways. A line defined by X/Y points, each doing a random walk.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 109.913,
+          "y": 141.732,
+          "centered": true,
+          "widget": "VCVLightLatch<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Line Type",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 109.913,
+          "y": 268.701,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Press to reset curve to initial shape (see menu)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 66.803,
+          "y": 283.465,
+          "centered": true,
+          "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Press to drift once",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 66.803,
+          "y": 212.598,
+          "centered": true,
+          "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Plus the Total Drift input value = the maximum total drift distance per drift event",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 66.803,
+          "y": 177.165,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Number of sections in the curve upon next RESET event",
+        "min": 1,
+        "max": 32,
+        "default": 8,
+        "position": {
+          "x": 109.913,
+          "y": 224.409,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Endpoints are",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 109.913,
+          "y": 183.071,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Plus the X Drift input value = the maximum x_axis drift distance per drift event",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 66.803,
+          "y": 141.732,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Press to undrift (towards reset shape) once",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 66.803,
+          "y": 248.031,
+          "centered": true,
+          "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Added to the OUT signal",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 82.677,
+          "y": 315.945,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Attenuverter on OUT before BIAS is added",
+        "min": -2,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 119.268,
+          "y": 315.945,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Line is reset to initial shape when a trigger enters",
+        "kind": "gate",
+        "position": {
+          "x": 23.693,
+          "y": 283.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "The curve drifts when a trigger enters",
+        "kind": "gate",
+        "position": {
+          "x": 23.693,
+          "y": 212.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "The X position on the curve",
+        "kind": "cv",
+        "position": {
+          "x": 27.844,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Added to knob value -> the maximum total drift distance per drift event",
+        "kind": "cv",
+        "position": {
+          "x": 23.693,
+          "y": 177.165,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Added to knob value -> the maximum x-axis drift distance per drift event",
+        "kind": "cv",
+        "position": {
+          "x": 23.693,
+          "y": 141.732,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "The curve drifts towards reset shape when a trigger enters",
+        "kind": "gate",
+        "position": {
+          "x": 23.693,
+          "y": 248.031,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "The Y position on the curve at IN.",
+        "kind": "cv",
+        "position": {
+          "x": 107.156,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger each time IN changes which segment it is in.",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 342.52,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 109.913,
+          "y": 141.732,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 66.803,
+          "y": 212.598,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 66.803,
+          "y": 248.031,
+          "centered": true
+        },
+        "paramId": 8
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightButton<\n             MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 66.803,
+          "y": 283.465,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "saveCurve",
+        "type": "integer"
+      },
+      {
+        "key": "start_y",
+        "type": "real"
+      },
+      {
+        "key": "end_y",
+        "type": "real"
+      },
+      {
+        "key": "reset_shape",
+        "type": "integer"
+      },
+      {
+        "key": "reset_type",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/StochasticTelegraph/Drifter/2.0.27/manifest.json",
+    "sourceCommit": "f8c8c1a765a7cdf609fd82eb9ba9aca0a83bfe77",
+    "artifact": {
+      "sha256": "553619b1e763bad78aedaf64ca9241e9bb42d9882a63acb329d62dd2ddc00a5f",
+      "size": 93330
+    }
+  },
+  "source": {
+    "url": "https://github.com/mahlenmorris/VCVRack",
+    "commit": "f8c8c1a765a7cdf609fd82eb9ba9aca0a83bfe77"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T05:11:07.222Z"
+  }
+}
