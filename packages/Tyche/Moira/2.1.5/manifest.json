@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Tyche/Moira",
+    "plugin": "Tyche",
+    "model": "Moira",
+    "name": "Moira",
+    "brand": "Tyche",
+    "version": "2.1.5",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/denolehov/VCVTyche",
+    "libraryUrl": "https://library.vcvrack.com/Tyche/Moira",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Tyche/Moira.webp",
+    "wasmUrl": "packages/Tyche/Moira/2.1.5/module.wasm",
+    "width": 135,
+    "description": "A probabilistic voltage selector, which outputs one of the three user-defined voltages based on relative probabilities.",
+    "params": [
+      {
+        "id": 0,
+        "name": "X Relative probability",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 22.58,
+          "y": 70.866,
+          "centered": true,
+          "widget": "VCVLightSlider<RedGreenBlueLight>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y Relative probability",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 67.5,
+          "y": 70.866,
+          "centered": true,
+          "widget": "VCVLightSlider<RedGreenBlueLight>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Z Relative probability",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 112.42,
+          "y": 70.866,
+          "centered": true,
+          "widget": "VCVLightSlider<RedGreenBlueLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "X",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.58,
+          "y": 158.711,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Y",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 158.711,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Z",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 112.42,
+          "y": 158.711,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Variant",
+        "min": 1,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 22.58,
+          "y": 284.941,
+          "centered": true,
+          "widget": "RoundSmallBlackSnapKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Fade duration",
+        "min": 0,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 67.013,
+          "y": 284.941,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "X Probability",
+        "kind": "cv",
+        "position": {
+          "x": 22.58,
+          "y": 128.445,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y Probability",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 128.445,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Z Probability",
+        "kind": "cv",
+        "position": {
+          "x": 112.42,
+          "y": 128.445,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 22.58,
+          "y": 189.018,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 189.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Z",
+        "kind": "cv",
+        "position": {
+          "x": 112.42,
+          "y": 189.038,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 337.302,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 67.013,
+          "y": 337.302,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X chosen trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.58,
+          "y": 220.84,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y chosen trigger",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 220.84,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Z chosen trigger",
+        "kind": "gate",
+        "position": {
+          "x": 112.42,
+          "y": 220.84,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "AUX",
+        "kind": "cv",
+        "position": {
+          "x": 111.083,
+          "y": 284.941,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 111.083,
+          "y": 337.302,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 22.58,
+          "y": 70.866,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 67.5,
+          "y": 70.866,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 112.42,
+          "y": 70.866,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Tyche/Moira/2.1.5/manifest.json",
+    "sourceCommit": "fdb7bf6d667dd2991910ccc3faaa91669833a3f8",
+    "artifact": {
+      "sha256": "e72e67e0384b985fa523871f0652bb885df3794f4d3bfb82a4d9a19dd559d14c",
+      "size": 88882
+    }
+  },
+  "source": {
+    "url": "https://github.com/denolehov/VCVTyche",
+    "commit": "fdb7bf6d667dd2991910ccc3faaa91669833a3f8"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:51:31.510Z"
+  }
+}

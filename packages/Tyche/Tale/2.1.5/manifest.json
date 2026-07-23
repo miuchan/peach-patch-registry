@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Tyche/Tale",
+    "plugin": "Tyche",
+    "model": "Tale",
+    "name": "Tale",
+    "brand": "Tyche",
+    "version": "2.1.5",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/denolehov/VCVTyche",
+    "libraryUrl": "https://library.vcvrack.com/Tyche/Tale",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Tyche/Tale.webp",
+    "wasmUrl": "packages/Tyche/Tale/2.1.5/module.wasm",
+    "width": 45,
+    "description": "A random-walk CV source",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pace",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22.58,
+          "y": 70.866,
+          "centered": true,
+          "widget": "VCVLightSlider<RedGreenBlueLight>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Variant",
+        "min": 1,
+        "max": 128,
+        "default": 1,
+        "position": {
+          "x": 22.58,
+          "y": 177.165,
+          "centered": true,
+          "widget": "RoundSmallBlackSnapKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pace",
+        "kind": "cv",
+        "position": {
+          "x": 22.58,
+          "y": 128.445,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "S&H",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 230.315,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 337.302,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 22.58,
+          "y": 284.941,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 22.58,
+          "y": 70.866,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Tyche/Tale/2.1.5/manifest.json",
+    "sourceCommit": "fdb7bf6d667dd2991910ccc3faaa91669833a3f8",
+    "artifact": {
+      "sha256": "8276c320518221ebb038f8b169f0ebc5ed08249d83b01e2da8e945656f8ad13e",
+      "size": 76268
+    }
+  },
+  "source": {
+    "url": "https://github.com/denolehov/VCVTyche",
+    "commit": "fdb7bf6d667dd2991910ccc3faaa91669833a3f8"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:51:28.302Z"
+  }
+}
