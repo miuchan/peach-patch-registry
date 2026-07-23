@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/Generative",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "Generative",
+    "name": "Generative",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/Generative",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/Generative.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/Generative/2.0.1/module.wasm",
+    "width": 240,
+    "description": "A toolkit of functions intended to support generative music creation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -8,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 19.548,
+          "y": 77.759,
+          "centered": true,
+          "widget": "gui::AHBigKnobNoSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Waveform",
+        "min": 0,
+        "max": 4,
+        "default": 1.5,
+        "position": {
+          "x": 51.713,
+          "y": 137.056,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency Modulation CV",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 85.419,
+          "y": 107.275,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Amplitude Modulation Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 118.202,
+          "y": 107.275,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Noise Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 184.69,
+          "y": 107.275,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clock tempo",
+        "min": -2,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 51.713,
+          "y": 213.493,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Clock-tick probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 86.134,
+          "y": 243.493,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Delay length",
+        "min": 1,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 133.713,
+          "y": 213.493,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Delay length spread",
+        "min": 1,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 161.713,
+          "y": 213.493,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gate length",
+        "min": 1,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 133.713,
+          "y": 271.493,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Gate length spread",
+        "min": 1,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 161.713,
+          "y": 271.493,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Slope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44.308,
+          "y": 338.04,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Inertia",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 81.485,
+          "y": 338.04,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 155.839,
+          "y": 338.685,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Wave",
+        "kind": "cv",
+        "position": {
+          "x": 19.548,
+          "y": 137.131,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 85.419,
+          "y": 70.477,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "AM",
+        "kind": "cv",
+        "position": {
+          "x": 118.202,
+          "y": 71.401,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 184.69,
+          "y": 143.504,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sample",
+        "kind": "cv",
+        "position": {
+          "x": 19.548,
+          "y": 273.131,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 19.548,
+          "y": 213.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Prob",
+        "kind": "cv",
+        "position": {
+          "x": 86.134,
+          "y": 213.569,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Hold",
+        "kind": "gate",
+        "position": {
+          "x": 118.662,
+          "y": 338.116,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LFO",
+        "kind": "cv",
+        "position": {
+          "x": 150.523,
+          "y": 107.18,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mixed",
+        "kind": "audio",
+        "position": {
+          "x": 218.858,
+          "y": 107.18,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 184.69,
+          "y": 71.231,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 193.016,
+          "y": 337.946,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 218.858,
+          "y": 243.399,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 197.512,
+          "y": 243.493,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/Generative/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "e5119b3a8baddebcd94904ab1efd8489017d4e5ccb0c291cfb93fa010f4d88bc",
+      "size": 93784
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:21:24.353Z"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/Arp32",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "Arp32",
+    "name": "Arp 3.2 - Pattern",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/Arp32",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/Arp32.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/Arp32/2.0.1/module.wasm",
+    "width": 100,
+    "description": "Pattern arpeggios",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pattern",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 28.302,
+          "y": 52.157,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Number of steps in the pattern",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 66.865,
+          "y": 52.157,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step size",
+        "min": -24,
+        "max": 24,
+        "default": 1,
+        "position": {
+          "x": 105.07,
+          "y": 52.24,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 53.816,
+          "y": 173.705,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Start offset",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.637,
+          "y": 173.705,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 103.309,
+          "y": 327.111,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/oct pitch (Poly)",
+        "kind": "cv",
+        "position": {
+          "x": 36.028,
+          "y": 327.111,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pattern selection",
+        "kind": "cv",
+        "position": {
+          "x": 28.302,
+          "y": 90.94,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Length",
+        "kind": "cv",
+        "position": {
+          "x": 66.865,
+          "y": 90.94,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step size",
+        "kind": "cv",
+        "position": {
+          "x": 105.07,
+          "y": 90.94,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger: Hold arpeggio",
+        "kind": "gate",
+        "position": {
+          "x": 116.173,
+          "y": 173.561,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trigger: Randomize arpeggio pitch order",
+        "kind": "gate",
+        "position": {
+          "x": 84.995,
+          "y": 173.705,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 69.745,
+          "y": 278.811,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger: On pitch change",
+        "kind": "gate",
+        "position": {
+          "x": 36.028,
+          "y": 228.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger: On end of pattern",
+        "kind": "gate",
+        "position": {
+          "x": 103.309,
+          "y": 228.311,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/Arp32/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "c2ad22e2d84c7504ea7d05613c1142c0e02af5ff3e9def183f2455f2fea76dc1",
+      "size": 191249
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:17:27.699Z"
+  }
+}

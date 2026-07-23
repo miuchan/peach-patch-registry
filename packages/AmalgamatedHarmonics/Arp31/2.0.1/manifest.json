@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/Arp31",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "Arp31",
+    "name": "Arp 3.1 - Chord",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/Arp31",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/Arp31.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/Arp31/2.0.1/module.wasm",
+    "width": 100,
+    "description": "Arpeggios over a chord",
+    "params": [
+      {
+        "id": 0,
+        "name": "Arpeggio",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 21.69,
+          "y": 46.093,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start offset",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 109.147,
+          "y": 172.019,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 103.309,
+          "y": 327.111,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "1V/oct pitch (Poly)",
+        "kind": "cv",
+        "position": {
+          "x": 36.028,
+          "y": 327.111,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Active channel mask (Poly)",
+        "kind": "gate",
+        "position": {
+          "x": 68.403,
+          "y": 139.48,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Arpeggio selection",
+        "kind": "cv",
+        "position": {
+          "x": 113.31,
+          "y": 46.093,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trigger: Hold arpeggio",
+        "kind": "gate",
+        "position": {
+          "x": 33.394,
+          "y": 96.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger: Randomize arpeggio pitch order",
+        "kind": "gate",
+        "position": {
+          "x": 102.335,
+          "y": 97.701,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 69.745,
+          "y": 278.811,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger: On pitch change",
+        "kind": "gate",
+        "position": {
+          "x": 36.028,
+          "y": 228.311,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger: On end of arpeggio",
+        "kind": "gate",
+        "position": {
+          "x": 103.309,
+          "y": 228.311,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/Arp31/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "67b75fbcf7671c29aad795b8ab515a2ce29d2c48cca2f2f4600f50210adde147",
+      "size": 199400
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:17:14.680Z"
+  }
+}

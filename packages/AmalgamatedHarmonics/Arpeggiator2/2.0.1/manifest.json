@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/Arpeggiator2",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "Arpeggiator2",
+    "name": "Arpeggiator MkII (deprecated)",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/Arpeggiator2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/Arpeggiator2.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/Arpeggiator2/2.0.1/module.wasm",
+    "width": 240,
+    "description": "A multi-input arpeggiator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input lock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 65.085,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger one sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 213.104,
+          "y": 158.235,
+          "centered": true,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pattern",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 66.955,
+          "y": 229.808,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Arpeggio",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 221.792,
+          "y": 281.223,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Length",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 221.792,
+          "y": 229.808,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pattern steps",
+        "min": -24,
+        "max": 24,
+        "default": 0,
+        "position": {
+          "x": 143.654,
+          "y": 229.891,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step size",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 102.248,
+          "y": 279.733,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 66.955,
+          "y": 279.733,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 25.55,
+          "y": 279.733,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 35,
+          "y": 335.938,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv",
+        "position": {
+          "x": 69,
+          "y": 335.938,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "position": {
+          "x": 103,
+          "y": 335.938,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "position": {
+          "x": 137,
+          "y": 335.938,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "IN 7",
+        "kind": "cv",
+        "position": {
+          "x": 171,
+          "y": 335.938,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "position": {
+          "x": 205,
+          "y": 335.938,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Patt",
+        "kind": "cv",
+        "position": {
+          "x": 25.55,
+          "y": 228.913,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Arp",
+        "kind": "cv",
+        "position": {
+          "x": 180.386,
+          "y": 280.328,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Length",
+        "kind": "cv",
+        "position": {
+          "x": 180.386,
+          "y": 228.913,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Trans",
+        "kind": "cv",
+        "position": {
+          "x": 102.248,
+          "y": 228.997,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 24,
+          "y": 65.085,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 71.997,
+          "y": 65.085,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "EOC",
+        "kind": "gate",
+        "position": {
+          "x": 168.143,
+          "y": 65.085,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Eos",
+        "kind": "cv",
+        "position": {
+          "x": 215.995,
+          "y": 65.085,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 120,
+          "y": 65.085,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/Arpeggiator2/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "cd90058ce8e73236768b851573b81bb504a456cd7946b62f820deff456fef768",
+      "size": 199841
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:17:50.663Z"
+  }
+}

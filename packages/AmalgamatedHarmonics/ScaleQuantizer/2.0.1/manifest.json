@@ -1,0 +1,648 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/ScaleQuantizer",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "ScaleQuantizer",
+    "name": "Scale Quantizer (legacy)",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/ScaleQuantizer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/ScaleQuantizer.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/ScaleQuantizer/2.0.1/module.wasm",
+    "width": 240,
+    "description": "Scale-aware quantizer",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 31.293,
+          "y": 342.279,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Key",
+        "kind": "cv",
+        "position": {
+          "x": 76.127,
+          "y": 342.279,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 122.31,
+          "y": 342.279,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 214.675,
+          "y": 342.279,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 168.493,
+          "y": 342.279,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30.955,
+          "y": 101.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 46.295,
+          "y": 74.987,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "position": {
+          "x": 61.635,
+          "y": 101.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "position": {
+          "x": 76.975,
+          "y": 74.987,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "position": {
+          "x": 92.315,
+          "y": 101.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "position": {
+          "x": 122.994,
+          "y": 101.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "OUT 9",
+        "kind": "cv",
+        "position": {
+          "x": 138.334,
+          "y": 74.987,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "OUT 10",
+        "kind": "cv",
+        "position": {
+          "x": 153.674,
+          "y": 101.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "OUT 11",
+        "kind": "cv",
+        "position": {
+          "x": 169.014,
+          "y": 74.987,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "OUT 12",
+        "kind": "cv",
+        "position": {
+          "x": 184.354,
+          "y": 101.557,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "OUT 13",
+        "kind": "cv",
+        "position": {
+          "x": 199.694,
+          "y": 74.987,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "OUT 14",
+        "kind": "cv",
+        "position": {
+          "x": 215.034,
+          "y": 101.557,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 48,
+    "lightWidgets": [
+      {
+        "id": 36,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 30.955,
+          "y": 115.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 46.295,
+          "y": 88.828,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 61.635,
+          "y": 115.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 76.975,
+          "y": 88.828,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 92.315,
+          "y": 115.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 122.994,
+          "y": 115.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 138.334,
+          "y": 88.828,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 153.674,
+          "y": 115.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 169.014,
+          "y": 88.828,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 184.354,
+          "y": 115.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 199.694,
+          "y": 88.828,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 215.034,
+          "y": 115.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 103.072,
+          "y": 148.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 123.889,
+          "y": 148.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 165.523,
+          "y": 148.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 186.34,
+          "y": 148.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 207.156,
+          "y": 148.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 92.664,
+          "y": 166.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 113.481,
+          "y": 166.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 134.297,
+          "y": 166.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 155.114,
+          "y": 166.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 175.931,
+          "y": 166.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 196.748,
+          "y": 166.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 217.565,
+          "y": 166.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 21.616,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 32.024,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 42.432,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 52.841,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 63.249,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 84.066,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 94.475,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 104.883,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 115.291,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 125.7,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 136.108,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 146.517,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 29.355,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 45.834,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 62.313,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 78.791,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 95.27,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 111.749,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 128.228,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 144.706,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 161.185,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 177.664,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 194.143,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 210.621,
+          "y": 282.658,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/ScaleQuantizer/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "f7b1019dae6de3d9efc98b79b3e4932eb962a2ff7ac440065e74fc3bb7554aa9",
+      "size": 73011
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:17:52.242Z"
+  }
+}

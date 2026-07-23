@@ -1,0 +1,756 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/ScaleQuantizer2",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "ScaleQuantizer2",
+    "name": "Scale Quantizer MkII",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/ScaleQuantizer2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/ScaleQuantizer2.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/ScaleQuantizer2/2.0.1/module.wasm",
+    "width": 180,
+    "description": "Scale-aware quantizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Key",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 77.041,
+          "y": 340.23,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 172.041,
+          "y": 340.23,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 16.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 50.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 84.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 118.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 152.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 186.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 220.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Octave shift",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 254.308,
+          "y": 107.756,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Global transposition",
+        "min": -11,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 267.041,
+          "y": 340.23,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 16.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "IN 2",
+        "kind": "cv",
+        "position": {
+          "x": 50.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "IN 3",
+        "kind": "cv",
+        "position": {
+          "x": 84.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv",
+        "position": {
+          "x": 118.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "position": {
+          "x": 152.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "position": {
+          "x": 186.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "IN 7",
+        "kind": "cv",
+        "position": {
+          "x": 220.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "position": {
+          "x": 254.308,
+          "y": 41.04,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Key",
+        "kind": "cv",
+        "position": {
+          "x": 35.635,
+          "y": 339.336,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scale",
+        "kind": "cv",
+        "position": {
+          "x": 130.635,
+          "y": 339.336,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Trans",
+        "kind": "cv",
+        "position": {
+          "x": 225.635,
+          "y": 339.336,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Hold",
+        "kind": "gate",
+        "position": {
+          "x": 16.308,
+          "y": 74.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "IN 13",
+        "kind": "cv",
+        "position": {
+          "x": 50.308,
+          "y": 74.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "IN 14",
+        "kind": "cv",
+        "position": {
+          "x": 84.308,
+          "y": 74.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "IN 15",
+        "kind": "cv",
+        "position": {
+          "x": 118.308,
+          "y": 74.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "IN 16",
+        "kind": "cv",
+        "position": {
+          "x": 152.308,
+          "y": 74.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "IN 17",
+        "kind": "cv",
+        "position": {
+          "x": 186.308,
+          "y": 74.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "IN 18",
+        "kind": "cv",
+        "position": {
+          "x": 220.308,
+          "y": 74.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "IN 19",
+        "kind": "cv",
+        "position": {
+          "x": 254.308,
+          "y": 74.436,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 16.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 50.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "position": {
+          "x": 84.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 118.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "position": {
+          "x": 152.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "position": {
+          "x": 186.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "position": {
+          "x": 220.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "position": {
+          "x": 254.308,
+          "y": 141.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 16.308,
+          "y": 174.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "OUT 10",
+        "kind": "cv",
+        "position": {
+          "x": 50.308,
+          "y": 174.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "OUT 11",
+        "kind": "cv",
+        "position": {
+          "x": 84.308,
+          "y": 174.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "OUT 12",
+        "kind": "cv",
+        "position": {
+          "x": 118.308,
+          "y": 174.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "OUT 13",
+        "kind": "cv",
+        "position": {
+          "x": 152.308,
+          "y": 174.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "OUT 14",
+        "kind": "cv",
+        "position": {
+          "x": 186.308,
+          "y": 174.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "OUT 15",
+        "kind": "cv",
+        "position": {
+          "x": 220.308,
+          "y": 174.471,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "OUT 16",
+        "kind": "cv",
+        "position": {
+          "x": 254.308,
+          "y": 174.471,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 24,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 21.616,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 32.024,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 42.432,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 52.841,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 63.249,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 84.066,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 94.475,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 104.883,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 115.291,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 125.7,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 136.108,
+          "y": 214.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 146.517,
+          "y": 232.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 29.355,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 45.834,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 62.313,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 78.791,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 95.27,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 111.749,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 128.228,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 144.706,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 161.185,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 177.664,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 194.143,
+          "y": 282.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 210.621,
+          "y": 282.658,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/ScaleQuantizer2/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "d320ef10f08a5df57cee92649116973903a0fe79df41d15eeeaa68fc5d79cc04",
+      "size": 76252
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:17:39.858Z"
+  }
+}
