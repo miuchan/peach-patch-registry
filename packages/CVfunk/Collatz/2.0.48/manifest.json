@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Collatz",
+    "plugin": "CVfunk",
+    "model": "Collatz",
+    "name": "Collatz",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Collatz",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Collatz.webp",
+    "wasmUrl": "packages/CVfunk/Collatz/2.0.48/module.wasm",
+    "width": 120,
+    "description": "Clock-synchronized trigger burst generator, based on sequences of the Collatz conjecture.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Starting Number",
+        "min": 2,
+        "max": 1000,
+        "default": 5,
+        "position": {
+          "x": 29.528,
+          "y": 107.002,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Starting Number Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 144.08,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 236.22,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Beat Modulus",
+        "min": 1,
+        "max": 100,
+        "default": 24,
+        "position": {
+          "x": 88.583,
+          "y": 107.002,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Beat Modulus Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88.583,
+          "y": 144.08,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 88.583,
+          "y": 236.22,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock CV",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 269.07,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Starting Number CV",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 171.833,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Beat Modulus CV",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 171.833,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset CV",
+        "kind": "gate",
+        "position": {
+          "x": 59.055,
+          "y": 269.07,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Start CV",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 269.07,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 331.594,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Accent",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 331.594,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sequence End",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 331.594,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 88.583,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 59.055,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 29.528,
+          "y": 312.599,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 88.583,
+          "y": 215.551,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Collatz/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "681b021afa3ba9243b124a2f2ea7de76be7370130c0e0cbdaade39e9af5de58a",
+      "size": 77305
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T06:44:19.866Z"
+  }
+}
