@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sha-Bang-Modules/QubitCrusher",
+    "plugin": "Sha-Bang-Modules",
+    "model": "QubitCrusher",
+    "name": "QubitCrusher",
+    "brand": "Sha#Bang! Modules",
+    "version": "2.2.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Sha-Bang-Modules/QubitCrusher",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sha-Bang-Modules/QubitCrusher.webp",
+    "wasmUrl": "packages/Sha-Bang-Modules/QubitCrusher/2.2.2/module.wasm",
+    "width": 100,
+    "description": "Bit crusher and downsampler with randomization",
+    "params": [
+      {
+        "id": 0,
+        "name": "Bit rate",
+        "min": 1,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 22.5,
+          "y": 79.4,
+          "centered": true,
+          "widget": "BlueKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bit rate modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 115.1,
+          "centered": true,
+          "widget": "BlueKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Downsampling",
+        "min": 0.000009999999747378752,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 181.5,
+          "centered": true,
+          "widget": "PurpleKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sample rate modulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 217.2,
+          "centered": true,
+          "widget": "PurpleKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Bit rate modulation",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 143.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Randomize bit rate",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 143.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sample rate modulation",
+        "kind": "gate",
+        "position": {
+          "x": 34,
+          "y": 245.3,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Randomize sample rate",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 245.3,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 281.6,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 322.1,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        4,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sha-Bang-Modules/QubitCrusher/2.2.2/manifest.json",
+    "sourceCommit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6",
+    "artifact": {
+      "sha256": "1d618f2c973eb8a395af2c6ccf54979d1be3ef7347ffba2c63ae9db2df3c6b28",
+      "size": 78153
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremymuller/Sha-Bang-Modules",
+    "commit": "bb65e3b40880317e61ca1d9c62af33566ab9a1b6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:23:11.197Z"
+  }
+}
