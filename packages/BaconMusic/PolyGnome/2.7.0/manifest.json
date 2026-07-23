@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BaconMusic/PolyGnome",
+    "plugin": "BaconMusic",
+    "model": "PolyGnome",
+    "name": "PolyGnome",
+    "brand": "Bacon Music",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/baconpaul/BaconPlugs/",
+    "libraryUrl": "https://library.vcvrack.com/BaconMusic/PolyGnome",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BaconMusic/PolyGnome.webp",
+    "wasmUrl": "packages/BaconMusic/PolyGnome/2.7.0/module.wasm",
+    "width": 240,
+    "description": "A poly-rhythmic clock generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock tempo",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 7,
+          "y": 40,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Denominator 1",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Denominator 2",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Denominator 3",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Denominator 4",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Denominator 5",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Numerator 1",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Numerator 2",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Numerator 3",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Numerator 4",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Numerator 5",
+        "min": 1,
+        "max": 32,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Pulse Width 1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Pulse Width 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Pulse Width 3",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Pulse Width 4",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Pulse Width 5",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 12,
+          "y": 108,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 35,
+          "y": 104,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Self Reset Every",
+        "min": 0,
+        "max": 64,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 167,
+          "y": 104
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 204,
+          "y": 104
+        }
+      },
+      {
+        "id": 2,
+        "name": "BPM CV",
+        "kind": "cv",
+        "position": {
+          "x": 130,
+          "y": 104
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Base Clock Gate",
+        "kind": "gate",
+        "position": {
+          "x": 93,
+          "y": 45
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock 1 Gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Clock 2 Gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Clock 3 Gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Clock 4 Gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Clock 5 Gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Base BPM CV",
+        "kind": "gate",
+        "position": {
+          "x": 130,
+          "y": 45
+        }
+      },
+      {
+        "id": 7,
+        "name": "BPM 1 CV",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "BPM 2 CV",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "BPM 3 CV",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "BPM 4 CV",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "BPM 5 CV",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 167,
+          "y": 45
+        }
+      },
+      {
+        "id": 13,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 204,
+          "y": 45
+        }
+      }
+    ],
+    "lights": 13,
+    "bypassRoutes": [
+      [
+        0,
+        12
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BaconMusic/PolyGnome/2.7.0/manifest.json",
+    "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
+    "artifact": {
+      "sha256": "cd4689ef2a71f5711d8f0c53cb47a208089de2b78701ba4bb573c359ea3b1f1f",
+      "size": 83219
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/BaconPlugs/",
+    "commit": "2886a282a0f8518e0515b549e426428db332378c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T23:28:06.680Z"
+  }
+}

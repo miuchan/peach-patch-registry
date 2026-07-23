@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BaconMusic/Open303",
+    "plugin": "BaconMusic",
+    "model": "Open303",
+    "name": "Open303",
+    "brand": "Bacon Music",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/baconpaul/BaconPlugs/",
+    "libraryUrl": "https://library.vcvrack.com/BaconMusic/Open303",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BaconMusic/Open303.webp",
+    "wasmUrl": "packages/BaconMusic/Open303/2.7.0/module.wasm",
+    "width": 435,
+    "description": "A rack wrapper around Robin Schmidt's open-303 codebase",
+    "params": [
+      {
+        "id": 0,
+        "name": "Waveform Knob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tuning Knob",
+        "min": 400,
+        "max": 480,
+        "default": 440,
+        "position": {
+          "x": 65.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Frequency",
+        "min": 0,
+        "max": 2,
+        "default": 0.5,
+        "position": {
+          "x": 110.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Resonance Knob",
+        "min": 0,
+        "max": 1,
+        "default": 0.7070000171661377,
+        "position": {
+          "x": 155.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Envmod Knob",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 200.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Decay Time",
+        "min": 200,
+        "max": 2000,
+        "default": 400,
+        "position": {
+          "x": 245.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 290.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Volume",
+        "min": -60,
+        "max": 0,
+        "default": 0,
+        "position": {
+          "x": 335.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Filter Type Knob",
+        "min": 0,
+        "max": 16,
+        "default": 15,
+        "position": {
+          "x": 380.5,
+          "y": 45,
+          "widget": "rack::RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Amp Sustain Knob",
+        "min": -60,
+        "max": 0,
+        "default": -60,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Pre Filter Hpf Knob",
+        "min": 10,
+        "max": 500,
+        "default": 44.5,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Feedback Hpf Knob",
+        "min": 10,
+        "max": 500,
+        "default": 150,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Post Filter Hpf Knob",
+        "min": 10,
+        "max": 500,
+        "default": 24,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Square Phase Shift Knob",
+        "min": 0,
+        "max": 360,
+        "default": 189,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Run Sequencer",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 130,
+          "widget": "rack::CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Note Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 322
+        }
+      },
+      {
+        "id": 1,
+        "name": "Note Gate",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 322
+        }
+      },
+      {
+        "id": 2,
+        "name": "Note Vel",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 322
+        }
+      },
+      {
+        "id": 3,
+        "name": "Waveform CV",
+        "kind": "cv",
+        "position": {
+          "x": 20.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tuning CV",
+        "kind": "cv",
+        "position": {
+          "x": 65.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 5,
+        "name": "Cutoff CV",
+        "kind": "cv",
+        "position": {
+          "x": 110.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 6,
+        "name": "Resonance CV",
+        "kind": "cv",
+        "position": {
+          "x": 155.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 7,
+        "name": "Envmod CV",
+        "kind": "cv",
+        "position": {
+          "x": 200.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 8,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 245.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 9,
+        "name": "Accent CV",
+        "kind": "cv",
+        "position": {
+          "x": 290.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 10,
+        "name": "Volume CV",
+        "kind": "cv",
+        "position": {
+          "x": 335.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 11,
+        "name": "Filter Type CV",
+        "kind": "cv",
+        "position": {
+          "x": 380.5,
+          "y": 73
+        }
+      },
+      {
+        "id": 12,
+        "name": "Amp Sustain CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Pre Filter Hpf CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Feedback Hpf CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Post Filter Hpf CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Square Phase Shift CV",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 115,
+          "y": 322
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BaconMusic/Open303/2.7.0/manifest.json",
+    "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
+    "artifact": {
+      "sha256": "b093a3b16d95ee679e50515a9251c9b528b759845d1057ea301a325f74d8a84a",
+      "size": 124656
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/BaconPlugs/",
+    "commit": "2886a282a0f8518e0515b549e426428db332378c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T23:28:35.795Z"
+  }
+}

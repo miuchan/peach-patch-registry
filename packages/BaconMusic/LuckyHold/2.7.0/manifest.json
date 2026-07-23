@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BaconMusic/LuckyHold",
+    "plugin": "BaconMusic",
+    "model": "LuckyHold",
+    "name": "LuckyHold",
+    "brand": "Bacon Music",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/baconpaul/BaconPlugs/",
+    "libraryUrl": "https://library.vcvrack.com/BaconMusic/LuckyHold",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BaconMusic/LuckyHold.webp",
+    "wasmUrl": "packages/BaconMusic/LuckyHold/2.7.0/module.wasm",
+    "width": 135,
+    "description": "A polymult + chances + sample&hold + noise",
+    "params": [
+      {
+        "id": 0,
+        "name": "Polyphony",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 60,
+          "y": 50,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "A (-1) or B (1) chance?",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 95,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Random CV Scale",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 65,
+          "y": 137,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Random CV Center",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 137,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Latch vs Passthrough",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 115,
+          "y": 98,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 43,
+          "y": 326
+        }
+      },
+      {
+        "id": 1,
+        "name": "Chance",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 95,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A Clock",
+        "kind": "gate",
+        "position": {
+          "x": 35,
+          "y": 212
+        }
+      },
+      {
+        "id": 1,
+        "name": "A Sample and Hold Random CV",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 212
+        }
+      },
+      {
+        "id": 2,
+        "name": "B Clock",
+        "kind": "gate",
+        "position": {
+          "x": 35,
+          "y": 250
+        }
+      },
+      {
+        "id": 3,
+        "name": "B Sample and Hold Random CV",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 250
+        }
+      },
+      {
+        "id": 4,
+        "name": "U Clock",
+        "kind": "gate",
+        "position": {
+          "x": 35,
+          "y": 288
+        }
+      },
+      {
+        "id": 5,
+        "name": "Clocked UnChanced Sample and Hold Random CV",
+        "kind": "gate",
+        "position": {
+          "x": 95,
+          "y": 288
+        }
+      }
+    ],
+    "lights": 17,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BaconMusic/LuckyHold/2.7.0/manifest.json",
+    "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
+    "artifact": {
+      "sha256": "89c055f6f8defed6528a1099de6dacab4c219a2bc15eb0edac15a9a915cd49eb",
+      "size": 77067
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/BaconPlugs/",
+    "commit": "2886a282a0f8518e0515b549e426428db332378c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T23:28:15.013Z"
+  }
+}

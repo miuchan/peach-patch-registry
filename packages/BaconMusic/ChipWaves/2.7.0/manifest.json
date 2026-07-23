@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BaconMusic/ChipWaves",
+    "plugin": "BaconMusic",
+    "model": "ChipWaves",
+    "name": "ChipWaves",
+    "brand": "Bacon Music",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/baconpaul/BaconPlugs/",
+    "libraryUrl": "https://library.vcvrack.com/BaconMusic/ChipWaves",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BaconMusic/ChipWaves.webp",
+    "wasmUrl": "packages/BaconMusic/ChipWaves/2.7.0/module.wasm",
+    "width": 90,
+    "description": "A recreation of the NES oscillators",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 50,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "NES Pulse Wave Duty Cycle",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 19.5,
+          "y": 218,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency in v/oct CV",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 140
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulse-Wave Output",
+        "kind": "gate",
+        "position": {
+          "x": 55,
+          "y": 322
+        }
+      },
+      {
+        "id": 1,
+        "name": "Triangle-Wave Output",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 322
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SevenSegmentLight<BlueLight, 2>",
+        "position": {
+          "x": 55.5,
+          "y": 220
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BaconMusic/ChipWaves/2.7.0/manifest.json",
+    "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
+    "artifact": {
+      "sha256": "626922acbb5c5089e6bb06750459b607ea2a529f4b9f7ec21feb31469319285e",
+      "size": 76561
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/BaconPlugs/",
+    "commit": "2886a282a0f8518e0515b549e426428db332378c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T23:28:28.715Z"
+  }
+}

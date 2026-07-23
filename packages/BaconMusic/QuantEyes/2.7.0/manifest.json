@@ -1,0 +1,1930 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BaconMusic/QuantEyes",
+    "plugin": "BaconMusic",
+    "model": "QuantEyes",
+    "name": "QuantEyes",
+    "brand": "Bacon Music",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/baconpaul/BaconPlugs/",
+    "libraryUrl": "https://library.vcvrack.com/BaconMusic/QuantEyes",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BaconMusic/QuantEyes.webp",
+    "wasmUrl": "packages/BaconMusic/QuantEyes/2.7.0/module.wasm",
+    "width": 180,
+    "description": "Quantize your signals to notes on a 12 tone scale",
+    "params": [
+      {
+        "id": 0,
+        "name": "The root in 1/12 of a volt",
+        "min": 0,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 16,
+          "y": 318,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19,
+          "y": 272,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 27,
+          "y": 250,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 36,
+          "y": 228,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 206,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 53,
+          "y": 184,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 61,
+          "y": 162,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70,
+          "y": 140,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 78,
+          "y": 118,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 87,
+          "y": 96,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 95,
+          "y": 74,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 104,
+          "y": 52,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112,
+          "y": 30,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct Input",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 320
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Quantized Output",
+        "kind": "cv",
+        "position": {
+          "x": 147,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger on Change",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 205,
+    "lightWidgets": [
+      {
+        "id": 193,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 23,
+          "y": 276
+        }
+      },
+      {
+        "id": 194,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 31,
+          "y": 254
+        }
+      },
+      {
+        "id": 195,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 40,
+          "y": 232
+        }
+      },
+      {
+        "id": 196,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 48,
+          "y": 210
+        }
+      },
+      {
+        "id": 197,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 57,
+          "y": 188
+        }
+      },
+      {
+        "id": 198,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 65,
+          "y": 166
+        }
+      },
+      {
+        "id": 199,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 74,
+          "y": 144
+        }
+      },
+      {
+        "id": 200,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 82,
+          "y": 122
+        }
+      },
+      {
+        "id": 201,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 91,
+          "y": 100
+        }
+      },
+      {
+        "id": 202,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 99,
+          "y": 78
+        }
+      },
+      {
+        "id": 203,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 108,
+          "y": 56
+        }
+      },
+      {
+        "id": 204,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 116,
+          "y": 34
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 39.6,
+          "y": 278
+        }
+      },
+      {
+        "id": 13,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 44.1,
+          "y": 278
+        }
+      },
+      {
+        "id": 25,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 48.6,
+          "y": 278
+        }
+      },
+      {
+        "id": 37,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 53.1,
+          "y": 278
+        }
+      },
+      {
+        "id": 49,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 57.6,
+          "y": 278
+        }
+      },
+      {
+        "id": 61,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 62.1,
+          "y": 278
+        }
+      },
+      {
+        "id": 73,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 66.6,
+          "y": 278
+        }
+      },
+      {
+        "id": 85,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 71.1,
+          "y": 278
+        }
+      },
+      {
+        "id": 97,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 39.6,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 109,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 44.1,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 121,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 48.6,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 133,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 53.1,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 145,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 57.6,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 157,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 62.1,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 169,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 66.6,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 181,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 71.1,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 39.85,
+          "y": 278
+        }
+      },
+      {
+        "id": 14,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 44.35,
+          "y": 278
+        }
+      },
+      {
+        "id": 26,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 48.85,
+          "y": 278
+        }
+      },
+      {
+        "id": 38,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 53.35,
+          "y": 278
+        }
+      },
+      {
+        "id": 50,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 57.85,
+          "y": 278
+        }
+      },
+      {
+        "id": 62,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 62.35,
+          "y": 278
+        }
+      },
+      {
+        "id": 74,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 66.85,
+          "y": 278
+        }
+      },
+      {
+        "id": 86,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 71.35,
+          "y": 278
+        }
+      },
+      {
+        "id": 98,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 39.85,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 110,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 44.35,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 122,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 48.85,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 134,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 53.35,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 146,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 57.85,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 158,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 62.35,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 170,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 66.85,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 182,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 71.35,
+          "y": 282.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 48.35,
+          "y": 256
+        }
+      },
+      {
+        "id": 15,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 52.85,
+          "y": 256
+        }
+      },
+      {
+        "id": 27,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 57.35,
+          "y": 256
+        }
+      },
+      {
+        "id": 39,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 61.85,
+          "y": 256
+        }
+      },
+      {
+        "id": 51,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 66.35,
+          "y": 256
+        }
+      },
+      {
+        "id": 63,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 70.85,
+          "y": 256
+        }
+      },
+      {
+        "id": 75,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 75.35,
+          "y": 256
+        }
+      },
+      {
+        "id": 87,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 79.85,
+          "y": 256
+        }
+      },
+      {
+        "id": 99,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 48.35,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 111,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 52.85,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 123,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 57.35,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 135,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 61.85,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 147,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 66.35,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 159,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 70.85,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 171,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 75.35,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 183,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 79.85,
+          "y": 260.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 56.85,
+          "y": 234
+        }
+      },
+      {
+        "id": 16,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 61.35,
+          "y": 234
+        }
+      },
+      {
+        "id": 28,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 65.85,
+          "y": 234
+        }
+      },
+      {
+        "id": 40,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 70.35,
+          "y": 234
+        }
+      },
+      {
+        "id": 52,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 74.85,
+          "y": 234
+        }
+      },
+      {
+        "id": 64,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 79.35,
+          "y": 234
+        }
+      },
+      {
+        "id": 76,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 83.85,
+          "y": 234
+        }
+      },
+      {
+        "id": 88,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 88.35,
+          "y": 234
+        }
+      },
+      {
+        "id": 100,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 56.85,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 112,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 61.35,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 124,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 65.85,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 136,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 70.35,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 148,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 74.85,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 160,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 79.35,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 172,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 83.85,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 184,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 88.35,
+          "y": 238.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 65.35,
+          "y": 212
+        }
+      },
+      {
+        "id": 17,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 69.85,
+          "y": 212
+        }
+      },
+      {
+        "id": 29,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 74.35,
+          "y": 212
+        }
+      },
+      {
+        "id": 41,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 78.85,
+          "y": 212
+        }
+      },
+      {
+        "id": 53,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 83.35,
+          "y": 212
+        }
+      },
+      {
+        "id": 65,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 87.85,
+          "y": 212
+        }
+      },
+      {
+        "id": 77,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 92.35,
+          "y": 212
+        }
+      },
+      {
+        "id": 89,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 96.85,
+          "y": 212
+        }
+      },
+      {
+        "id": 101,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 65.35,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 113,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 69.85,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 125,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 74.35,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 137,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 78.85,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 149,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 83.35,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 161,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 87.85,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 173,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 92.35,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 185,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 96.85,
+          "y": 216.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 73.85,
+          "y": 190
+        }
+      },
+      {
+        "id": 18,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 78.35,
+          "y": 190
+        }
+      },
+      {
+        "id": 30,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 82.85,
+          "y": 190
+        }
+      },
+      {
+        "id": 42,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 87.35,
+          "y": 190
+        }
+      },
+      {
+        "id": 54,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 91.85,
+          "y": 190
+        }
+      },
+      {
+        "id": 66,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 96.35,
+          "y": 190
+        }
+      },
+      {
+        "id": 78,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 100.85,
+          "y": 190
+        }
+      },
+      {
+        "id": 90,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 105.35,
+          "y": 190
+        }
+      },
+      {
+        "id": 102,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 73.85,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 114,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 78.35,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 126,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 82.85,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 138,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 87.35,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 150,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 91.85,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 162,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 96.35,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 174,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 100.85,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 186,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 105.35,
+          "y": 194.5
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 82.35,
+          "y": 168
+        }
+      },
+      {
+        "id": 19,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 86.85,
+          "y": 168
+        }
+      },
+      {
+        "id": 31,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 91.35,
+          "y": 168
+        }
+      },
+      {
+        "id": 43,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 95.85,
+          "y": 168
+        }
+      },
+      {
+        "id": 55,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 100.35,
+          "y": 168
+        }
+      },
+      {
+        "id": 67,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 104.85,
+          "y": 168
+        }
+      },
+      {
+        "id": 79,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 109.35,
+          "y": 168
+        }
+      },
+      {
+        "id": 91,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 113.85,
+          "y": 168
+        }
+      },
+      {
+        "id": 103,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 82.35,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 115,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 86.85,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 127,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 91.35,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 139,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 95.85,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 151,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 100.35,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 163,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 104.85,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 175,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 109.35,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 187,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 113.85,
+          "y": 172.5
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 90.85,
+          "y": 146
+        }
+      },
+      {
+        "id": 20,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 95.35,
+          "y": 146
+        }
+      },
+      {
+        "id": 32,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 99.85,
+          "y": 146
+        }
+      },
+      {
+        "id": 44,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 104.35,
+          "y": 146
+        }
+      },
+      {
+        "id": 56,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 108.85,
+          "y": 146
+        }
+      },
+      {
+        "id": 68,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 113.35,
+          "y": 146
+        }
+      },
+      {
+        "id": 80,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 117.85,
+          "y": 146
+        }
+      },
+      {
+        "id": 92,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 122.35,
+          "y": 146
+        }
+      },
+      {
+        "id": 104,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 90.85,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 116,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 95.35,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 128,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 99.85,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 140,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 104.35,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 152,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 108.85,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 164,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 113.35,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 176,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 117.85,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 188,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 122.35,
+          "y": 150.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 99.35,
+          "y": 124
+        }
+      },
+      {
+        "id": 21,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 103.85,
+          "y": 124
+        }
+      },
+      {
+        "id": 33,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 108.35,
+          "y": 124
+        }
+      },
+      {
+        "id": 45,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 112.85,
+          "y": 124
+        }
+      },
+      {
+        "id": 57,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 117.35,
+          "y": 124
+        }
+      },
+      {
+        "id": 69,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 121.85,
+          "y": 124
+        }
+      },
+      {
+        "id": 81,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 126.35,
+          "y": 124
+        }
+      },
+      {
+        "id": 93,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 130.85,
+          "y": 124
+        }
+      },
+      {
+        "id": 105,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 99.35,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 117,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 103.85,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 129,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 108.35,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 141,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 112.85,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 153,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 117.35,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 165,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 121.85,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 177,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 126.35,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 189,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 130.85,
+          "y": 128.5
+        }
+      },
+      {
+        "id": 10,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 107.85,
+          "y": 102
+        }
+      },
+      {
+        "id": 22,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 112.35,
+          "y": 102
+        }
+      },
+      {
+        "id": 34,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 116.85,
+          "y": 102
+        }
+      },
+      {
+        "id": 46,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 121.35,
+          "y": 102
+        }
+      },
+      {
+        "id": 58,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 125.85,
+          "y": 102
+        }
+      },
+      {
+        "id": 70,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 130.35,
+          "y": 102
+        }
+      },
+      {
+        "id": 82,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 134.85,
+          "y": 102
+        }
+      },
+      {
+        "id": 94,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 139.35,
+          "y": 102
+        }
+      },
+      {
+        "id": 106,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 107.85,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 118,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 112.35,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 130,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 116.85,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 142,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 121.35,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 154,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 125.85,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 166,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 130.35,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 178,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 134.85,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 190,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 139.35,
+          "y": 106.5
+        }
+      },
+      {
+        "id": 11,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 116.35,
+          "y": 80
+        }
+      },
+      {
+        "id": 23,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 120.85,
+          "y": 80
+        }
+      },
+      {
+        "id": 35,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 125.35,
+          "y": 80
+        }
+      },
+      {
+        "id": 47,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 129.85,
+          "y": 80
+        }
+      },
+      {
+        "id": 59,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 134.35,
+          "y": 80
+        }
+      },
+      {
+        "id": 71,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 138.85,
+          "y": 80
+        }
+      },
+      {
+        "id": 83,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 143.35,
+          "y": 80
+        }
+      },
+      {
+        "id": 95,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 147.85,
+          "y": 80
+        }
+      },
+      {
+        "id": 107,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 116.35,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 119,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 120.85,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 131,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 125.35,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 143,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 129.85,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 155,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 134.35,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 167,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 138.85,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 179,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 143.35,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 191,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 147.85,
+          "y": 84.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 124.85,
+          "y": 58
+        }
+      },
+      {
+        "id": 24,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 129.35,
+          "y": 58
+        }
+      },
+      {
+        "id": 36,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 133.85,
+          "y": 58
+        }
+      },
+      {
+        "id": 48,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 138.35,
+          "y": 58
+        }
+      },
+      {
+        "id": 60,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 142.85,
+          "y": 58
+        }
+      },
+      {
+        "id": 72,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 147.35,
+          "y": 58
+        }
+      },
+      {
+        "id": 84,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 151.85,
+          "y": 58
+        }
+      },
+      {
+        "id": 96,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 156.35,
+          "y": 58
+        }
+      },
+      {
+        "id": 108,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 124.85,
+          "y": 62.5
+        }
+      },
+      {
+        "id": 120,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 129.35,
+          "y": 62.5
+        }
+      },
+      {
+        "id": 132,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 133.85,
+          "y": 62.5
+        }
+      },
+      {
+        "id": 144,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 138.35,
+          "y": 62.5
+        }
+      },
+      {
+        "id": 156,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 142.85,
+          "y": 62.5
+        }
+      },
+      {
+        "id": 168,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 147.35,
+          "y": 62.5
+        }
+      },
+      {
+        "id": 180,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 151.85,
+          "y": 62.5
+        }
+      },
+      {
+        "id": 192,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 156.35,
+          "y": 62.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "scaleState",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "scaleState",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BaconMusic/QuantEyes/2.7.0/manifest.json",
+    "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
+    "artifact": {
+      "sha256": "147ce66cc000451f573180d0f2de8c5185b0ba22f6424e9c06a9d6919cf4b258",
+      "size": 80922
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/BaconPlugs/",
+    "commit": "2886a282a0f8518e0515b549e426428db332378c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T23:28:09.443Z"
+  }
+}

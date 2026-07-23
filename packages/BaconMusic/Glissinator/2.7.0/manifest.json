@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BaconMusic/Glissinator",
+    "plugin": "BaconMusic",
+    "model": "Glissinator",
+    "name": "Glissinator",
+    "brand": "Bacon Music",
+    "version": "2.7.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/baconpaul/BaconPlugs/",
+    "libraryUrl": "https://library.vcvrack.com/BaconMusic/Glissinator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BaconMusic/Glissinator.webp",
+    "wasmUrl": "packages/BaconMusic/Glissinator/2.7.0/module.wasm",
+    "width": 75,
+    "description": "Do a constant time gliss over a changing input signal",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time to gliss, in seconds",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 23,
+          "y": 23,
+          "widget": "GraduatedFader<188>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input to Slew/Gliss",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 322
+        }
+      },
+      {
+        "id": 1,
+        "name": "Modify Input Time: +/-5v for full range",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 224
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Slewed/Glissed Output",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 322
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate at end of Gliss",
+        "kind": "gate",
+        "position": {
+          "x": 42.5,
+          "y": 266
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 33.5,
+          "y": 276
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BaconMusic/Glissinator/2.7.0/manifest.json",
+    "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
+    "artifact": {
+      "sha256": "cc6ce693dc0bdc0818f32f41123bd2c097a77c7371b53c8c31b3c198921363f9",
+      "size": 73068
+    }
+  },
+  "source": {
+    "url": "https://github.com/baconpaul/BaconPlugs/",
+    "commit": "2886a282a0f8518e0515b549e426428db332378c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T23:28:03.923Z"
+  }
+}
