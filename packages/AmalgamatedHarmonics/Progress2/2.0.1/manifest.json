@@ -1,0 +1,584 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/Progress2",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "Progress2",
+    "name": "Progress MkII",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/Progress2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/Progress2.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/Progress2/2.0.1/module.wasm",
+    "width": 345,
+    "description": "A chord sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock tempo",
+        "min": -2,
+        "max": 6,
+        "default": 2,
+        "position": {
+          "x": 31.755,
+          "y": 57.727,
+          "centered": true,
+          "widget": "gui::AHKnobNoSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.49,
+          "y": 57.727,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 101.583,
+          "y": 57.727,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 136.583,
+          "y": 57.727,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Key",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 171.696,
+          "y": 57.727,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mode",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "position": {
+          "x": 206.696,
+          "y": 57.727,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 68.661,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 104.774,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 139.569,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 174.866,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 209.682,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 244.664,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 279.883,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Gate active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 314.603,
+          "y": 319.431,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Part",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 241.696,
+          "y": 57.644,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Copy a part to here",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 312.495,
+          "y": 97.931,
+          "centered": true,
+          "widget": "gui::AHButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Source part to copy from",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 277.492,
+          "y": 97.931,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Key",
+        "kind": "cv",
+        "position": {
+          "x": 171.696,
+          "y": 98.015,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "kind": "cv",
+        "position": {
+          "x": 206.696,
+          "y": 98.015,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 31.755,
+          "y": 98.015,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ext Clock",
+        "kind": "gate",
+        "position": {
+          "x": 67.49,
+          "y": 98.015,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 101.583,
+          "y": 98.015,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Steps",
+        "kind": "cv",
+        "position": {
+          "x": 136.583,
+          "y": 98.015,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Part",
+        "kind": "cv",
+        "position": {
+          "x": 241.696,
+          "y": 97.931,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step",
+        "kind": "cv",
+        "position": {
+          "x": 29.184,
+          "y": 345.74,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gates",
+        "kind": "gate",
+        "position": {
+          "x": 277.492,
+          "y": 64.126,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 312.495,
+          "y": 65.18,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate 1",
+        "kind": "gate",
+        "position": {
+          "x": 68.411,
+          "y": 345.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 104.524,
+          "y": 345.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate 3",
+        "kind": "gate",
+        "position": {
+          "x": 139.319,
+          "y": 345.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate 4",
+        "kind": "gate",
+        "position": {
+          "x": 174.616,
+          "y": 345.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate 5",
+        "kind": "gate",
+        "position": {
+          "x": 209.432,
+          "y": 345.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate 6",
+        "kind": "gate",
+        "position": {
+          "x": 244.414,
+          "y": 345.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate 7",
+        "kind": "gate",
+        "position": {
+          "x": 279.633,
+          "y": 345.645,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gate 8",
+        "kind": "gate",
+        "position": {
+          "x": 314.353,
+          "y": 345.645,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 20,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 265.124,
+          "y": 51.94,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 67.49,
+          "y": 57.727,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 101.583,
+          "y": 57.727,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 312.495,
+          "y": 97.931,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 68.661,
+          "y": 319.431,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 104.774,
+          "y": 319.431,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 139.569,
+          "y": 319.431,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 174.866,
+          "y": 319.431,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 209.682,
+          "y": 319.431,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 244.664,
+          "y": 319.431,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 279.883,
+          "y": 319.431,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 314.603,
+          "y": 319.431,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/Progress2/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "d29122adb2464c24ff8c4fb2f45022073877198a611b282aa4379ee582ded7dd",
+      "size": 212034
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T17:10:45.325Z"
+  }
+}
