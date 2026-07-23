@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AetrionModular/ChordVault",
+    "plugin": "AetrionModular",
+    "model": "ChordVault",
+    "name": "ChordVault",
+    "brand": "aetrion",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/aetrion-music/aetrion-modular",
+    "libraryUrl": "https://library.vcvrack.com/AetrionModular/ChordVault",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AetrionModular/ChordVault.webp",
+    "wasmUrl": "packages/AetrionModular/ChordVault/2.1.0/module.wasm",
+    "width": 105,
+    "description": "Record polyphonic cv/gate pairs into up to 16 steps and choose from a one of 8 sequencing modes.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Step Select",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 53.448,
+          "y": 102.035,
+          "centered": true,
+          "widget": "RotarySwitch<CurStepKnob>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Play/Record",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24.726,
+          "y": 55.279,
+          "centered": true,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step Length",
+        "min": 1,
+        "max": 16,
+        "default": 4,
+        "position": {
+          "x": 53.448,
+          "y": 207.945,
+          "centered": true,
+          "widget": "RotarySwitch<LargeKnob>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 17.12,
+          "y": 253.391,
+          "centered": true,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sequence Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 17.218,
+          "y": 148.054,
+          "centered": true,
+          "widget": "SmallButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 83.418,
+          "y": 55.279,
+          "centered": true,
+          "widget": "SmallButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Step CV",
+        "kind": "cv",
+        "position": {
+          "x": 87.351,
+          "y": 100.721,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 17.167,
+          "y": 274.993,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 17.362,
+          "y": 326.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gates",
+        "kind": "gate",
+        "position": {
+          "x": 53.572,
+          "y": 274.993,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "V/octs",
+        "kind": "cv",
+        "position": {
+          "x": 86.962,
+          "y": 274.993,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Length cv",
+        "kind": "cv",
+        "position": {
+          "x": 86.962,
+          "y": 208.733,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gates",
+        "kind": "gate",
+        "position": {
+          "x": 53.33,
+          "y": 326.288,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/octs",
+        "kind": "cv",
+        "position": {
+          "x": 86.835,
+          "y": 326.288,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 11,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 32.454,
+          "y": 48.053,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 70.32,
+          "y": 48.053,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<BlueRedLight>",
+        "position": {
+          "x": 30.514,
+          "y": 145.193,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<BlueRedLight>",
+        "position": {
+          "x": 46.919,
+          "y": 145.19,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<BlueRedLight>",
+        "position": {
+          "x": 63.425,
+          "y": 145.193,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinyLight<BlueRedLight>",
+        "position": {
+          "x": 79.831,
+          "y": 145.193,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 96.49,
+          "y": 55.279,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "vault_pos",
+        "type": "integer"
+      },
+      {
+        "key": "playMode",
+        "type": "integer"
+      },
+      {
+        "key": "cvRange",
+        "type": "integer"
+      },
+      {
+        "key": "cvOrder",
+        "type": "integer"
+      },
+      {
+        "key": "channels",
+        "type": "integer"
+      },
+      {
+        "key": "shuffle_index",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AetrionModular/ChordVault/2.1.0/manifest.json",
+    "sourceCommit": "b57a8fba6d091bdc6ffc78dc54e92ebeaed07a53",
+    "artifact": {
+      "sha256": "d03d86a4c6fe70f158c066e428377f9ce5e754ba6282a0623983a17f3b15bcc4",
+      "size": 102046
+    }
+  },
+  "source": {
+    "url": "https://github.com/aetrion-music/aetrion-modular",
+    "commit": "b57a8fba6d091bdc6ffc78dc54e92ebeaed07a53"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T15:06:15.099Z"
+  }
+}
