@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Hutara/FmOperator",
+    "plugin": "Hutara",
+    "model": "FmOperator",
+    "name": "Hutara PsyOperator",
+    "brand": "Hutara",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/hutara/Hutara-modules",
+    "libraryUrl": "https://library.vcvrack.com/Hutara/FmOperator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Hutara/FmOperator.webp",
+    "wasmUrl": "packages/Hutara/FmOperator/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Psychedelic Synthesizer,VCO with FM Synthesis, Resample and Waveshaper ",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sine Pitch",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 50.906,
+          "y": 112.205,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Saw Pitch",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 23.622,
+          "y": 150.777,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangle Pitch",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 42.047,
+          "y": 68.099,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "SQUARE Pitch",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 189.162,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM Input",
+        "min": -0.699999988079071,
+        "max": 1.2300000190734863,
+        "default": 0,
+        "position": {
+          "x": 83.386,
+          "y": 271.816,
+          "centered": true,
+          "widget": "SynthTechAlco"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sine Waveshaper",
+        "min": -0.5,
+        "max": 1.5,
+        "default": 0,
+        "position": {
+          "x": 222.165,
+          "y": 118.296,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Saw Psychedelic",
+        "min": -0.5,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 195.591,
+          "y": 162.588,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Triangle Psychedelic",
+        "min": -0.5,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 195.591,
+          "y": 59.241,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Psychedelic CV ",
+        "min": -0.5,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 127.677,
+          "y": 89.271,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "FM Amount",
+        "min": -0.5,
+        "max": 0.6000000238418579,
+        "default": 0,
+        "position": {
+          "x": 177.874,
+          "y": 252.165,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Sine Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 83.386,
+          "y": 321.003,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Saw Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 121.772,
+          "y": 320.079,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Triangle Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 320.079,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "SQUARE Volume",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 160.157,
+          "y": 320.079,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Wavefolding",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 207.402,
+          "y": 218.69,
+          "centered": true,
+          "widget": "Rogan2PWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sine Pitch CV",
+        "kind": "cv",
+        "position": {
+          "x": 83.386,
+          "y": 118.11,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Saw Pitch CV",
+        "kind": "cv",
+        "position": {
+          "x": 53.858,
+          "y": 150.591,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangle Pitch CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.528,
+          "y": 73.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "SQUARE Pitch CV",
+        "kind": "cv",
+        "position": {
+          "x": 74.528,
+          "y": 183.071,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM CV",
+        "kind": "cv",
+        "position": {
+          "x": 127.677,
+          "y": 284.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "FM Amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 177.874,
+          "y": 284.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Saw Psychedelic CV",
+        "kind": "cv",
+        "position": {
+          "x": 225.886,
+          "y": 173.365,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "CV_INPUT_FOR_All",
+        "kind": "cv",
+        "position": {
+          "x": 127.677,
+          "y": 118.887,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Triangle Psychedelic CV",
+        "kind": "cv",
+        "position": {
+          "x": 225.886,
+          "y": 61.16,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Square Wavefold CV Input",
+        "kind": "cv",
+        "position": {
+          "x": 180.118,
+          "y": 227.362,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine Output",
+        "kind": "cv",
+        "position": {
+          "x": 83.386,
+          "y": 350.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Saw Output",
+        "kind": "cv",
+        "position": {
+          "x": 121.772,
+          "y": 350.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangle Output",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 350.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "SQUARE Output",
+        "kind": "cv",
+        "position": {
+          "x": 160.157,
+          "y": 350.531,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Final Output",
+        "kind": "cv",
+        "position": {
+          "x": 201.496,
+          "y": 341.672,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Hutara/FmOperator/2.0.0/manifest.json",
+    "sourceCommit": "00321012f9b84060637754cb8b4e9f774ee7100f",
+    "artifact": {
+      "sha256": "33811921d25035452f3ab74c3ec30670cd02a6541baabb1ca925c6a580bf14ba",
+      "size": 88448
+    }
+  },
+  "source": {
+    "url": "https://github.com/hutara/Hutara-modules",
+    "commit": "00321012f9b84060637754cb8b4e9f774ee7100f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T06:35:15.838Z"
+  }
+}
