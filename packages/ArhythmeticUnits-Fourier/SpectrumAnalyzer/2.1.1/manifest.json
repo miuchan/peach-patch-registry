@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ArhythmeticUnits-Fourier/SpectrumAnalyzer",
+    "plugin": "ArhythmeticUnits-Fourier",
+    "model": "SpectrumAnalyzer",
+    "name": "Fourier (Spectrum Analyzer)",
+    "brand": "ArhythmeticUnits",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/ArhythmeticUnits-Fourier",
+    "libraryUrl": "https://library.vcvrack.com/ArhythmeticUnits-Fourier/SpectrumAnalyzer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ArhythmeticUnits-Fourier/SpectrumAnalyzer.webp",
+    "wasmUrl": "packages/ArhythmeticUnits-Fourier/SpectrumAnalyzer/2.1.1/module.wasm",
+    "width": 720,
+    "description": "Tune-able spectrum analyzer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Red Gain",
+        "min": 0,
+        "max": 3.981071949005127,
+        "default": 1,
+        "position": {
+          "x": 13,
+          "y": 66,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Green Gain",
+        "min": 0,
+        "max": 3.981071949005127,
+        "default": 1,
+        "position": {
+          "x": 13,
+          "y": 141,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blue Gain",
+        "min": 0,
+        "max": 3.981071949005127,
+        "default": 1,
+        "position": {
+          "x": 13,
+          "y": 216,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Yellow Gain",
+        "min": 0,
+        "max": 3.981071949005127,
+        "default": 1,
+        "position": {
+          "x": 13,
+          "y": 291,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23,
+          "y": 346,
+          "centered": true,
+          "widget": "PB61303"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Window",
+        "min": 0,
+        "max": 14,
+        "default": 14,
+        "snap": true,
+        "position": {
+          "x": 50,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Length",
+        "min": 7,
+        "max": 14,
+        "default": 11,
+        "position": {
+          "x": 116,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Hop",
+        "min": 0.004999999888241291,
+        "max": 0.30000001192092896,
+        "default": 0.029999999329447746,
+        "position": {
+          "x": 182,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "X Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 248,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Y Scale",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 314,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Average",
+        "min": 0,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 380,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Smooth",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 446,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "LO Freq",
+        "min": 0,
+        "max": 24000,
+        "default": 0,
+        "position": {
+          "x": 512,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "HI Freq",
+        "min": 0,
+        "max": 24000,
+        "default": 24000,
+        "position": {
+          "x": 578,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Slope",
+        "min": -9,
+        "max": 9,
+        "default": 4.5,
+        "position": {
+          "x": 644,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Red",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 30
+        }
+      },
+      {
+        "id": 1,
+        "name": "Green",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 105
+        }
+      },
+      {
+        "id": 2,
+        "name": "Blue",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 180
+        }
+      },
+      {
+        "id": 3,
+        "name": "Yellow",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 255
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "PB61303Light<WhiteLight>",
+        "position": {
+          "x": 23,
+          "y": 346,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "is_running",
+        "type": "boolean"
+      },
+      {
+        "key": "is_fill_enabled",
+        "type": "boolean"
+      },
+      {
+        "key": "is_bezier_enabled",
+        "type": "boolean"
+      },
+      {
+        "key": "is_ac_coupled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "spectrum-analyzer",
+          "inputs": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "x": 45,
+          "y": 15,
+          "width": 660,
+          "height": 350
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ArhythmeticUnits-Fourier/SpectrumAnalyzer/2.1.1/manifest.json",
+    "sourceCommit": "19de25db1214cfb8a6eb85d6db08d307a4e2bf70",
+    "artifact": {
+      "sha256": "b64c0ec5331a75ba1accc51f56c014e57c66ba03dd5d92c1bf2885be313b07da",
+      "size": 102129
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/ArhythmeticUnits-Fourier",
+    "commit": "19de25db1214cfb8a6eb85d6db08d307a4e2bf70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T18:46:06.995Z"
+  }
+}

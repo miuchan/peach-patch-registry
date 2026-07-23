@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ArhythmeticUnits-Fourier/Spectrogram",
+    "plugin": "ArhythmeticUnits-Fourier",
+    "model": "Spectrogram",
+    "name": "Spectre (Spectrogram Visualizer)",
+    "brand": "ArhythmeticUnits",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/ArhythmeticUnits-Fourier",
+    "libraryUrl": "https://library.vcvrack.com/ArhythmeticUnits-Fourier/Spectrogram",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ArhythmeticUnits-Fourier/Spectrogram.webp",
+    "wasmUrl": "packages/ArhythmeticUnits-Fourier/Spectrogram/2.1.1/module.wasm",
+    "width": 525,
+    "description": "Tune-able spectrogram visualizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input Gain",
+        "min": 0,
+        "max": 3.981071949005127,
+        "default": 1.9952623844146729,
+        "position": {
+          "x": 13,
+          "y": 66,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 23,
+          "y": 346,
+          "centered": true,
+          "widget": "PB61303"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Window",
+        "min": 0,
+        "max": 14,
+        "default": 14,
+        "snap": true,
+        "position": {
+          "x": 50,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Y Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 116,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Average",
+        "min": 0,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 182,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Smooth",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 248,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "LO Freq",
+        "min": 0,
+        "max": 24000,
+        "default": 0,
+        "position": {
+          "x": 314,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "HI Freq",
+        "min": 0,
+        "max": 24000,
+        "default": 24000,
+        "position": {
+          "x": 380,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Slope",
+        "min": -9,
+        "max": 9,
+        "default": 4.5,
+        "position": {
+          "x": 446,
+          "y": 330,
+          "widget": "TextKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "TODO",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 30
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "PB61303Light<WhiteLight>",
+        "position": {
+          "x": 23,
+          "y": 346,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "is_running",
+        "type": "boolean"
+      },
+      {
+        "key": "is_ac_coupled",
+        "type": "boolean"
+      },
+      {
+        "key": "color_map",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "spectrogram",
+          "inputs": [
+            0
+          ],
+          "x": 45,
+          "y": 15,
+          "width": 465,
+          "height": 350
+        }
+      ],
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ArhythmeticUnits-Fourier/Spectrogram/2.1.1/manifest.json",
+    "sourceCommit": "19de25db1214cfb8a6eb85d6db08d307a4e2bf70",
+    "artifact": {
+      "sha256": "8c83d0aea8306b43969dc57d78810c9d56c3550dd51999cb0112b444d7921838",
+      "size": 95055
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/ArhythmeticUnits-Fourier",
+    "commit": "19de25db1214cfb8a6eb85d6db08d307a4e2bf70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T18:46:15.948Z"
+  }
+}
