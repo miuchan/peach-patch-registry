@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ahornberg/MIDIPolyExpression",
+    "plugin": "Ahornberg",
+    "model": "MIDIPolyExpression",
+    "name": "MIDI Poly Expression",
+    "brand": "Ahornberg",
+    "version": "2.3.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "libraryUrl": "https://library.vcvrack.com/Ahornberg/MIDIPolyExpression",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ahornberg/MIDIPolyExpression.webp",
+    "wasmUrl": "packages/Ahornberg/MIDIPolyExpression/2.3.4/module.wasm",
+    "width": 30,
+    "description": "MIDI MPE to CV",
+    "params": [
+      {
+        "id": 0,
+        "name": "First MIDI Channel",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 108,
+          "centered": true,
+          "widget": "KnobTinySnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Number Of MIDI Channels",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 15,
+          "y": 132,
+          "centered": true,
+          "widget": "KnobTinySnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate Velocity Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Decay",
+        "min": 0,
+        "max": 40,
+        "default": 8,
+        "position": {
+          "x": 8.3,
+          "y": 324.25,
+          "centered": true,
+          "widget": "KnobScrew"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Release",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 21.7,
+          "y": 320.75,
+          "centered": true,
+          "widget": "KnobScrew"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pitch Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 8.3,
+          "y": 192.75,
+          "centered": true,
+          "widget": "KnobScrew"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Volume Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 8.3,
+          "y": 155.25,
+          "centered": true,
+          "widget": "KnobScrew"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Decay increase on Y",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 8.3,
+          "y": 310,
+          "centered": true,
+          "widget": "KnobScrew"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Preserve Pitch after Note-Off",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 15,
+          "y": 174,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Volume",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch (1V/Octave)",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 211.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 291,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Note Pitch (1V/Octave)",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 236.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pitch-Bend (1V/Octave)",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 261.5,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 5,
+          "y": 355,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ahornberg/MIDIPolyExpression/2.3.4/manifest.json",
+    "sourceCommit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad",
+    "artifact": {
+      "sha256": "d6b3962be34ce7da55d1e2053beae2a82baed38f4d0e5cc32d414068a470adfe",
+      "size": 100850
+    }
+  },
+  "source": {
+    "url": "https://github.com/Ahornberg/Ahornberg-VCV-Modules",
+    "commit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:48:48.566Z"
+  }
+}
