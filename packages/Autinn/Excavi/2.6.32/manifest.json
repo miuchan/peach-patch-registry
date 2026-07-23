@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Autinn/Excavi",
+    "plugin": "Autinn",
+    "model": "Excavi",
+    "name": "Excavi",
+    "brand": "Autinn",
+    "version": "2.6.32",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/NikolaiVChr/Autinn",
+    "libraryUrl": "https://library.vcvrack.com/Autinn/Excavi",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Autinn/Excavi.webp",
+    "wasmUrl": "packages/Autinn/Excavi/2.6.32/module.wasm",
+    "width": 300,
+    "description": "A polyphonic complex oscillator featuring morphing waveforms, Through-Zero FM, screaming hard sync, and vintage analog degradation and drift",
+    "params": [
+      {
+        "id": 0,
+        "name": "Master Frequency",
+        "min": -4,
+        "max": 6,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 137.5,
+          "centered": true,
+          "widget": "RoundMediumAutinnKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Slave Frequency",
+        "min": -4,
+        "max": 6,
+        "default": 0,
+        "position": {
+          "x": 240,
+          "y": 137.5,
+          "centered": true,
+          "widget": "RoundMediumAutinnKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Age",
+        "min": 0,
+        "max": 40,
+        "default": 15,
+        "position": {
+          "x": 150,
+          "y": 137.5,
+          "centered": true,
+          "widget": "AutinnArcMidKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Master gain",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 60,
+          "y": 190,
+          "centered": true,
+          "widget": "AutinnArcSmallKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Slave gain",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 240,
+          "y": 190,
+          "centered": true,
+          "widget": "AutinnArcSmallKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Osc Master Shape",
+        "min": 0,
+        "max": 5,
+        "default": 2,
+        "position": {
+          "x": 60,
+          "y": 85,
+          "centered": true,
+          "widget": "AutinnArcMidKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Osc Slave Shape",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 240,
+          "y": 85,
+          "centered": true,
+          "widget": "AutinnArcMidKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Toggle sync mode (master -> slave)",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 150,
+          "y": 190,
+          "centered": true,
+          "widget": "RoundCycleButtonSmallAutinn"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Cross modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 85,
+          "centered": true,
+          "widget": "AutinnArcMidKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Master 1V/Oct CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Slave 1V/Oct CV",
+        "kind": "cv",
+        "position": {
+          "x": 240,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Master gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Slave gain CV",
+        "kind": "cv",
+        "position": {
+          "x": 240,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ext. sync master (hard) CV",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "1V/decade age CV",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Switch sync mode (master -> slave) CV",
+        "kind": "cv",
+        "position": {
+          "x": 195,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Cross modulation CV",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 240,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "1V/shape CV (master)",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "1V/shape CV (slave)",
+        "kind": "cv",
+        "position": {
+          "x": 195,
+          "y": 280,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main audio",
+        "kind": "audio",
+        "position": {
+          "x": 195,
+          "y": 330,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ring modulation audio",
+        "kind": "audio",
+        "position": {
+          "x": 105,
+          "y": 330,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Master audio",
+        "kind": "audio",
+        "position": {
+          "x": 60,
+          "y": 330,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Slave audio",
+        "kind": "audio",
+        "position": {
+          "x": 240,
+          "y": 330,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 172.5,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 172.5,
+          "y": 190,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 172.5,
+          "y": 200,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Autinn/Excavi/2.6.32/manifest.json",
+    "sourceCommit": "eff448f818f7ca94c6a893b69a907fcf45f0a639",
+    "artifact": {
+      "sha256": "af8052180ab0b96dbac665a9580b475a2521d3836f10728001b23b99c9e6ed16",
+      "size": 102823
+    }
+  },
+  "source": {
+    "url": "https://github.com/NikolaiVChr/Autinn",
+    "commit": "eff448f818f7ca94c6a893b69a907fcf45f0a639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T04:11:12.671Z"
+  }
+}
