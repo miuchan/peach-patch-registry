@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "kocmoc/DDLY",
+    "plugin": "kocmoc",
+    "model": "DDLY",
+    "name": "DDLY",
+    "brand": "kocmoc",
+    "version": "2.0.8",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/janne808/kocmoc-rack-modules/",
+    "libraryUrl": "https://library.vcvrack.com/kocmoc/DDLY",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/kocmoc/DDLY.webp",
+    "wasmUrl": "packages/kocmoc/DDLY/2.0.8/module.wasm",
+    "width": 90,
+    "description": "Digital Delay",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 44.882,
+          "y": 52.087,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 44.882,
+          "y": 126.555,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13.169,
+          "y": 49.134,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13.169,
+          "y": 123.484,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Dry/Wet",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 53.031,
+          "y": 244.488,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.998,
+          "y": 83.622,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.998,
+          "y": 157.972,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 26.457,
+          "y": 254.823,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Return",
+        "kind": "cv",
+        "position": {
+          "x": 64.019,
+          "y": 202.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input",
+        "kind": "cv",
+        "position": {
+          "x": 26.457,
+          "y": 309.154,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Send",
+        "kind": "cv",
+        "position": {
+          "x": 26.457,
+          "y": 202.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Delay",
+        "kind": "cv",
+        "position": {
+          "x": 64.019,
+          "y": 309.154,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "fade_state",
+        "type": "integer"
+      },
+      {
+        "key": "fade0_time",
+        "type": "real"
+      },
+      {
+        "key": "fade1_time",
+        "type": "real"
+      },
+      {
+        "key": "time2",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        4,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/kocmoc/DDLY/2.0.8/manifest.json",
+    "sourceCommit": "9d36f53f629728e9de99698cef34cec382cc732c",
+    "artifact": {
+      "sha256": "6ead9f015226a199d0499184ac2df882607233631a1e2b4bfeafd7a125efce63",
+      "size": 77038
+    }
+  },
+  "source": {
+    "url": "https://github.com/janne808/kocmoc-rack-modules/",
+    "commit": "9d36f53f629728e9de99698cef34cec382cc732c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:28:26.276Z"
+  }
+}

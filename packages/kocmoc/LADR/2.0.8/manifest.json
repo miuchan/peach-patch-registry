@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "kocmoc/LADR",
+    "plugin": "kocmoc",
+    "model": "LADR",
+    "name": "LADR",
+    "brand": "kocmoc",
+    "version": "2.0.8",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/janne808/kocmoc-rack-modules/",
+    "libraryUrl": "https://library.vcvrack.com/kocmoc/LADR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/kocmoc/LADR.webp",
+    "wasmUrl": "packages/kocmoc/LADR/2.0.8/module.wasm",
+    "width": 90,
+    "description": "4-pole Ladder Filter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Cutoff frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 26.102,
+          "y": 40.276,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 33.189,
+          "y": 99.98,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 14.557,
+          "y": 249.154,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 58.48,
+          "y": 248.3,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 17.303,
+          "y": 152.126,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "CV Amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54.983,
+          "y": 152.126,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Linear CV",
+        "kind": "cv",
+        "position": {
+          "x": 26.457,
+          "y": 193.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Exponential CV",
+        "kind": "cv",
+        "position": {
+          "x": 64.019,
+          "y": 193.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 26.457,
+          "y": 309.154,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Filter",
+        "kind": "cv",
+        "position": {
+          "x": 64.019,
+          "y": 309.154,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "oversampling",
+        "type": "integer"
+      },
+      {
+        "key": "decimatorOrder",
+        "type": "integer"
+      },
+      {
+        "key": "integrationMethod",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/kocmoc/LADR/2.0.8/manifest.json",
+    "sourceCommit": "9d36f53f629728e9de99698cef34cec382cc732c",
+    "artifact": {
+      "sha256": "b50274494ff2173fc30cf147236906e451acd97e70bb84df7eed2692debe7a26",
+      "size": 89292
+    }
+  },
+  "source": {
+    "url": "https://github.com/janne808/kocmoc-rack-modules/",
+    "commit": "9d36f53f629728e9de99698cef34cec382cc732c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:28:17.585Z"
+  }
+}

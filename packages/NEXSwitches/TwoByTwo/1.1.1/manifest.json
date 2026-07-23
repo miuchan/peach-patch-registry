@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NEXSwitches/TwoByTwo",
+    "plugin": "NEXSwitches",
+    "model": "TwoByTwo",
+    "name": "2 x 2 Mute",
+    "brand": "NEX",
+    "version": "1.1.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/lkdjiin/SwitchesModules",
+    "libraryUrl": "https://library.vcvrack.com/NEXSwitches/TwoByTwo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NEXSwitches/TwoByTwo.webp",
+    "wasmUrl": "packages/NEXSwitches/TwoByTwo/1.1.1/module.wasm",
+    "width": 180,
+    "description": "Mute/unmute 2 groups of 2 inputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mute channels",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 124.016,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fade-in/out time",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 45,
+          "y": 293.799,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fade-in/out scale",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 330.709,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input Inputs",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 64.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "IN 2",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "IN 3",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 183.071,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "IN 4",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 212.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trigger Mute",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 153.543,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output Outputs",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 64.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 183.071,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 212.598,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MuteLight<GreenLight>",
+        "position": {
+          "x": 45,
+          "y": 124.016,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 45,
+          "y": 270.177,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 45,
+          "y": 79.724,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 45,
+          "y": 197.835,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "state",
+        "type": "integer"
+      },
+      {
+        "key": "exponentialFade",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NEXSwitches/TwoByTwo/1.1.1/manifest.json",
+    "sourceCommit": "6714d7933fc588ae4a395139827b80ed33332f8d",
+    "artifact": {
+      "sha256": "88b2f7108acc8787e6ecfd2907e86c004f92aa3fadfbfb32db61a6a4a9cacec9",
+      "size": 74189
+    }
+  },
+  "source": {
+    "url": "https://github.com/lkdjiin/SwitchesModules",
+    "commit": "6714d7933fc588ae4a395139827b80ed33332f8d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:27:33.212Z"
+  }
+}
