@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AnimatedCircuits/ACLFold",
+    "plugin": "AnimatedCircuits",
+    "model": "ACLFold",
+    "name": "LFold",
+    "brand": "Animated Circuits",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/AnimatedCircuits/RackModules",
+    "libraryUrl": "https://library.vcvrack.com/AnimatedCircuits/ACLFold",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AnimatedCircuits/ACLFold.webp",
+    "wasmUrl": "packages/AnimatedCircuits/ACLFold/2.2.0/module.wasm",
+    "width": 75,
+    "description": "Folded LFO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sine LFO Frequency",
+        "min": 0.009999999776482582,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 37.5,
+          "y": 76,
+          "centered": true,
+          "widget": "BigGreyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Folding Depth",
+        "min": 1,
+        "max": 10,
+        "default": 2.5,
+        "position": {
+          "x": 37.5,
+          "y": 165,
+          "centered": true,
+          "widget": "BigBlueKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Folding Offset",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 232,
+          "centered": true,
+          "widget": "BigWhiteKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Folding Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 37.5,
+          "y": 113,
+          "centered": true,
+          "widget": "TriSineSwitch"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 13.5,
+          "y": 267,
+          "widget": "BipolarSwitch"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Output",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 49,
+          "y": 267,
+          "widget": "BipolarSwitch"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input to Wavefolder (normalled to built-in LFO)",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 298
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ext Clock",
+        "kind": "gate",
+        "position": {
+          "x": 11,
+          "y": 330
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Folded built-in LFO signal",
+        "kind": "audio",
+        "position": {
+          "x": 47,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Folded Input Signal (or built-in LFO)",
+        "kind": "audio",
+        "position": {
+          "x": 47,
+          "y": 298
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AnimatedCircuits/ACLFold/2.2.0/manifest.json",
+    "sourceCommit": "6577880b5680c0b6487ff981de468bfe117a6f0a",
+    "artifact": {
+      "sha256": "93ec6c3d5808caac8082f351a4d970338d576bbc26307f915b01beaf1b23169a",
+      "size": 81734
+    }
+  },
+  "source": {
+    "url": "https://github.com/AnimatedCircuits/RackModules",
+    "commit": "6577880b5680c0b6487ff981de468bfe117a6f0a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T17:41:07.556Z"
+  }
+}

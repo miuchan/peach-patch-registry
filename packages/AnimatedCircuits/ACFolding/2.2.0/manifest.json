@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AnimatedCircuits/ACFolding",
+    "plugin": "AnimatedCircuits",
+    "model": "ACFolding",
+    "name": "Folding",
+    "brand": "Animated Circuits",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/AnimatedCircuits/RackModules",
+    "libraryUrl": "https://library.vcvrack.com/AnimatedCircuits/ACFolding",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AnimatedCircuits/ACFolding.webp",
+    "wasmUrl": "packages/AnimatedCircuits/ACFolding/2.2.0/module.wasm",
+    "width": 75,
+    "description": "Wavefolder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 37.5,
+          "y": 41.5,
+          "centered": true,
+          "widget": "TriSineSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Folding Depth",
+        "min": 1,
+        "max": 10,
+        "default": 2.5,
+        "position": {
+          "x": 37.5,
+          "y": 93.9,
+          "centered": true,
+          "widget": "BigBlueKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV Depth range",
+        "min": 0,
+        "max": 40,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 138.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 13.5,
+          "y": 267,
+          "widget": "BipolarSwitch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Folding Offset",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 204.4,
+          "centered": true,
+          "widget": "BigWhiteKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "CV Offset range",
+        "min": 0,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 249.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "CV Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 48.5,
+          "y": 267,
+          "widget": "BipolarSwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 330
+        }
+      },
+      {
+        "id": 1,
+        "name": "Folding Depth CV",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 298
+        }
+      },
+      {
+        "id": 2,
+        "name": "Folding Offset CV",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 298
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 47,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 0,
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AnimatedCircuits/ACFolding/2.2.0/manifest.json",
+    "sourceCommit": "6577880b5680c0b6487ff981de468bfe117a6f0a",
+    "artifact": {
+      "sha256": "0d73a9c1618b53fbd1226d61a8dbc24ad6bd2aedf8651525e46205411cf72b17",
+      "size": 80380
+    }
+  },
+  "source": {
+    "url": "https://github.com/AnimatedCircuits/RackModules",
+    "commit": "6577880b5680c0b6487ff981de468bfe117a6f0a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T17:41:05.159Z"
+  }
+}
