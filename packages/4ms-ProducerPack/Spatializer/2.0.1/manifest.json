@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4ms-ProducerPack/Spatializer",
+    "plugin": "4ms-ProducerPack",
+    "model": "Spatializer",
+    "name": "Spatializer",
+    "brand": "4ms",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/ProducerPack/",
+    "libraryUrl": "https://library.vcvrack.com/4ms-ProducerPack/Spatializer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4ms-ProducerPack/Spatializer.webp",
+    "wasmUrl": "packages/4ms-ProducerPack/Spatializer/2.0.1/module.wasm",
+    "width": 180,
+    "description": "Exploitation of the Haas effect + mid/side processing techniques",
+    "params": [
+      {
+        "id": 0,
+        "name": "Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 27.183,
+          "y": 56.327,
+          "centered": true,
+          "widget": "Switch2Pos"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 39.883,
+          "y": 121.999,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Width",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 140.321,
+          "y": 121.999,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mid/Side",
+        "min": 0,
+        "max": 1,
+        "default": 0.33000001311302185,
+        "position": {
+          "x": 90.1,
+          "y": 58.338,
+          "centered": true,
+          "widget": "Davies_large"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 39.936,
+          "y": 178.807,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Width CV",
+        "kind": "cv",
+        "position": {
+          "x": 140.51,
+          "y": 178.807,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mid/Side",
+        "kind": "cv",
+        "position": {
+          "x": 90.224,
+          "y": 178.807,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Audio Left",
+        "kind": "audio",
+        "position": {
+          "x": 23.959,
+          "y": 328.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Audio Right",
+        "kind": "audio",
+        "position": {
+          "x": 67.975,
+          "y": 328.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Return Left",
+        "kind": "audio",
+        "position": {
+          "x": 23.959,
+          "y": 286.969,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Return Mid",
+        "kind": "cv",
+        "position": {
+          "x": 90.224,
+          "y": 286.969,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Return Right",
+        "kind": "audio",
+        "position": {
+          "x": 156.78,
+          "y": 286.969,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Send Left",
+        "kind": "audio",
+        "position": {
+          "x": 23.959,
+          "y": 239.489,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Send Mid",
+        "kind": "cv",
+        "position": {
+          "x": 90.224,
+          "y": 239.489,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Send Right",
+        "kind": "audio",
+        "position": {
+          "x": 156.78,
+          "y": 239.489,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Audio Left",
+        "kind": "audio",
+        "position": {
+          "x": 112.878,
+          "y": 328.346,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Audio Right",
+        "kind": "audio",
+        "position": {
+          "x": 156.78,
+          "y": 328.346,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 23.959,
+          "y": 206.619,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 90.224,
+          "y": 206.619,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 156.78,
+          "y": 206.619,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/4ms-ProducerPack/Spatializer/2.0.1/manifest.json",
+    "sourceCommit": "a60748e41b0d4b7221debc4abb4e77be5265df05",
+    "artifact": {
+      "sha256": "1d432fd45de3ca15a40a1708f0a3e465e98680abc3d3ef33c7b7e2401cf5545e",
+      "size": 80778
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/ProducerPack/",
+    "commit": "a60748e41b0d4b7221debc4abb4e77be5265df05"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T12:02:36.774Z"
+  }
+}
