@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "rcm/rcm-duck",
+    "plugin": "rcm",
+    "model": "rcm-duck",
+    "name": "Duck",
+    "brand": "RCM",
+    "version": "2.0.0",
+    "license": "GPL-2.0-or-later",
+    "sourceUrl": "https://github.com/Rcomian/rcm-modules",
+    "libraryUrl": "https://library.vcvrack.com/rcm/rcm-duck",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/rcm/rcm-duck.webp",
+    "wasmUrl": "packages/rcm/rcm-duck/2.0.0/module.wasm",
+    "width": 180,
+    "description": "Basic audio ducking",
+    "params": [
+      {
+        "id": 0,
+        "name": "Amount",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 10,
+          "y": 65,
+          "widget": "Davies1900hLargeWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Recovery",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 166,
+          "widget": "Davies1900hLargeWhiteKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left Over Audio",
+        "kind": "audio",
+        "position": {
+          "x": 12,
+          "y": 257
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Over Audio",
+        "kind": "audio",
+        "position": {
+          "x": 40,
+          "y": 257
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left Under Audio",
+        "kind": "audio",
+        "position": {
+          "x": 12,
+          "y": 295
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right Under Audio",
+        "kind": "audio",
+        "position": {
+          "x": 40,
+          "y": 295
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 12,
+          "y": 338
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 40,
+          "y": 338
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "backgroundHue",
+        "type": "real"
+      },
+      {
+        "key": "backgroundSaturation",
+        "type": "real"
+      },
+      {
+        "key": "backgroundLuminosity",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/rcm/rcm-duck/2.0.0/manifest.json",
+    "sourceCommit": "f77e233c8b6612f5f2ece514b2252dc294bd20e5",
+    "artifact": {
+      "sha256": "37b8bc634a713d865fec3d4496364df4edaebf416062a45cdb61eafad5edd7ec",
+      "size": 73212
+    }
+  },
+  "source": {
+    "url": "https://github.com/Rcomian/rcm-modules",
+    "commit": "f77e233c8b6612f5f2ece514b2252dc294bd20e5"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:52:01.079Z"
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ChortlingHamsterModules/Bitwise",
+    "plugin": "ChortlingHamsterModules",
+    "model": "Bitwise",
+    "name": "Bitwise",
+    "brand": "Chortling Hamster Modules",
+    "version": "2.0.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/chortlinghamster/modules",
+    "libraryUrl": "https://library.vcvrack.com/ChortlingHamsterModules/Bitwise",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ChortlingHamsterModules/Bitwise.webp",
+    "wasmUrl": "packages/ChortlingHamsterModules/Bitwise/2.0.0/module.wasm",
+    "width": 210,
+    "description": "Bitwise is four sample and hold circuits whose triggers can be affected by CV controlled patterns.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Row select",
+        "min": 1,
+        "max": 16,
+        "default": 1,
+        "position": {
+          "x": 41.409,
+          "y": 76.627,
+          "centered": true,
+          "widget": "CHMRoundLargeSnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Row select CV attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 19.063,
+          "y": 113.111,
+          "centered": true,
+          "widget": "CHMRoundSmallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pattern select",
+        "min": 1,
+        "max": 8,
+        "default": 1,
+        "position": {
+          "x": 169.453,
+          "y": 76.627,
+          "centered": true,
+          "widget": "CHMRoundLargeSnapKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pattern select CV attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 190.937,
+          "y": 113.111,
+          "centered": true,
+          "widget": "CHMRoundSmallKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Global voltage output attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 105,
+          "y": 346.462,
+          "centered": true,
+          "widget": "CHMRoundLargeKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Block A voltage",
+        "kind": "cv",
+        "position": {
+          "x": 19.063,
+          "y": 208.258,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Block B voltage",
+        "kind": "cv",
+        "position": {
+          "x": 62.031,
+          "y": 208.258,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Block C voltage",
+        "kind": "cv",
+        "position": {
+          "x": 147.969,
+          "y": 208.258,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Block D voltage",
+        "kind": "cv",
+        "position": {
+          "x": 190.937,
+          "y": 208.258,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Block A trigger",
+        "kind": "gate",
+        "position": {
+          "x": 19.063,
+          "y": 248.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Block B trigger",
+        "kind": "gate",
+        "position": {
+          "x": 62.031,
+          "y": 248.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Block C trigger",
+        "kind": "gate",
+        "position": {
+          "x": 147.969,
+          "y": 248.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Block D trigger",
+        "kind": "gate",
+        "position": {
+          "x": 190.937,
+          "y": 248.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Trigger all",
+        "kind": "gate",
+        "position": {
+          "x": 105,
+          "y": 248.598,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Row select CV",
+        "kind": "cv",
+        "position": {
+          "x": 41.409,
+          "y": 113.111,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Pattern select CV",
+        "kind": "cv",
+        "position": {
+          "x": 169.453,
+          "y": 113.111,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Block A voltage",
+        "kind": "cv",
+        "position": {
+          "x": 19.063,
+          "y": 296.749,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Block B voltage",
+        "kind": "cv",
+        "position": {
+          "x": 62.031,
+          "y": 296.749,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Block C voltage",
+        "kind": "cv",
+        "position": {
+          "x": 147.969,
+          "y": 296.749,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Block D voltage",
+        "kind": "cv",
+        "position": {
+          "x": 190.937,
+          "y": 296.749,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Block A pulse",
+        "kind": "gate",
+        "position": {
+          "x": 19.063,
+          "y": 346.462,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Block B pulse",
+        "kind": "gate",
+        "position": {
+          "x": 62.031,
+          "y": 346.462,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Block C pulse",
+        "kind": "gate",
+        "position": {
+          "x": 147.969,
+          "y": 346.462,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Block D pulse",
+        "kind": "gate",
+        "position": {
+          "x": 190.937,
+          "y": 346.462,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Polyphonic (x4) voltage",
+        "kind": "cv",
+        "position": {
+          "x": 105,
+          "y": 296.749,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 72,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 19.063,
+          "y": 173.223,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 62.031,
+          "y": 173.223,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 147.969,
+          "y": 173.223,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 190.937,
+          "y": 173.223,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 19.063,
+          "y": 365.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 62.031,
+          "y": 365.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 147.969,
+          "y": 365.436,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 190.937,
+          "y": 365.436,
+          "centered": true
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ChortlingHamsterModules/Bitwise/2.0.0/manifest.json",
+    "sourceCommit": "ed72dd18180b6bed4dcc9b14f947d20299123ae6",
+    "artifact": {
+      "sha256": "d4b0e8609119eb4767970b9a300616a7a8a852dafe69b757458312f75cc07187",
+      "size": 76417
+    }
+  },
+  "source": {
+    "url": "https://github.com/chortlinghamster/modules",
+    "commit": "ed72dd18180b6bed4dcc9b14f947d20299123ae6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:52:51.343Z"
+  }
+}

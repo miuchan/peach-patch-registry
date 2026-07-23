@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/DrunkenRampage",
+    "plugin": "FrozenWasteland",
+    "model": "DrunkenRampage",
+    "name": "Drunken Rampage",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/DrunkenRampage",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/DrunkenRampage.webp",
+    "wasmUrl": "packages/FrozenWasteland/DrunkenRampage/2.1.2/module.wasm",
+    "width": 360,
+    "description": "Probalistic Dual ramp generator. Inspired by Befaco Rampage.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Ch 1 range",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 133,
+          "y": 32,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 2 range",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 192,
+          "y": 32,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch 1 shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 27,
+          "y": 90,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ch 2 shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 305,
+          "y": 90,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ch 1 trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 117,
+          "y": 82,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ch 2 trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 215,
+          "y": 82,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Ch 1 rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 16,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Ch 2 rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 287,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Ch 1 fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 57,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Ch 2 fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 328,
+          "y": 135,
+          "widget": "BefacoSlidePot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ch 1 cycle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 146,
+          "y": 238,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Ch 2 cycle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 186,
+          "y": 238,
+          "widget": "BefacoSwitch"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Balance",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 162,
+          "y": 76,
+          "widget": "Davies1900hWhiteKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Ch 1 BAC",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 97,
+          "y": 130,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Ch 2 BAC",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 235,
+          "y": 130,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Ch 1 awareness",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Ch 2 awareness",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ch 1",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 30
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 2",
+        "kind": "cv",
+        "position": {
+          "x": 319,
+          "y": 30
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch 1 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 97,
+          "y": 37
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ch 2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 237,
+          "y": 37
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ch 1 Rise CV",
+        "kind": "cv",
+        "position": {
+          "x": 7,
+          "y": 268
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ch 2 Rise CV",
+        "kind": "cv",
+        "position": {
+          "x": 266,
+          "y": 268
+        }
+      },
+      {
+        "id": 6,
+        "name": "Ch 1 Fall CV",
+        "kind": "cv",
+        "position": {
+          "x": 67,
+          "y": 268
+        }
+      },
+      {
+        "id": 7,
+        "name": "Ch 2 Fall CV",
+        "kind": "cv",
+        "position": {
+          "x": 327,
+          "y": 268
+        }
+      },
+      {
+        "id": 8,
+        "name": "Ch 1 Timing",
+        "kind": "cv",
+        "position": {
+          "x": 39,
+          "y": 297
+        }
+      },
+      {
+        "id": 9,
+        "name": "Ch 2 Timing",
+        "kind": "cv",
+        "position": {
+          "x": 297,
+          "y": 297
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ch 1 Cycle Mode",
+        "kind": "cv",
+        "position": {
+          "x": 147,
+          "y": 290
+        }
+      },
+      {
+        "id": 11,
+        "name": "Ch 2 Cycle Mode",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 290
+        }
+      },
+      {
+        "id": 12,
+        "name": "Ch 1 BAC %",
+        "kind": "cv",
+        "position": {
+          "x": 109,
+          "y": 297
+        }
+      },
+      {
+        "id": 13,
+        "name": "Ch 2 BAC %",
+        "kind": "cv",
+        "position": {
+          "x": 227,
+          "y": 297
+        }
+      },
+      {
+        "id": 14,
+        "name": "Ch 1 Awareness",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Ch 2 Awareness",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Ch 1 Rising",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 326
+        }
+      },
+      {
+        "id": 1,
+        "name": "Ch 2 Rising",
+        "kind": "cv",
+        "position": {
+          "x": 267,
+          "y": 326
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ch 1 Falling",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 326
+        }
+      },
+      {
+        "id": 3,
+        "name": "Ch 2 Falling",
+        "kind": "cv",
+        "position": {
+          "x": 327,
+          "y": 326
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ch 1 EOC",
+        "kind": "gate",
+        "position": {
+          "x": 149,
+          "y": 326
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ch 2 EOC",
+        "kind": "gate",
+        "position": {
+          "x": 185,
+          "y": 326
+        }
+      },
+      {
+        "id": 6,
+        "name": "Ch 1",
+        "kind": "cv",
+        "position": {
+          "x": 147,
+          "y": 195
+        }
+      },
+      {
+        "id": 7,
+        "name": "Ch 2",
+        "kind": "cv",
+        "position": {
+          "x": 187,
+          "y": 195
+        }
+      },
+      {
+        "id": 8,
+        "name": "Comparator",
+        "kind": "cv",
+        "position": {
+          "x": 167,
+          "y": 133
+        }
+      },
+      {
+        "id": 9,
+        "name": "Max",
+        "kind": "cv",
+        "position": {
+          "x": 134,
+          "y": 157
+        }
+      },
+      {
+        "id": 10,
+        "name": "Min",
+        "kind": "cv",
+        "position": {
+          "x": 200,
+          "y": 157
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 176,
+          "y": 167
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 168,
+          "y": 174
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 186,
+          "y": 174
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 171,
+          "y": 185
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 183,
+          "y": 185
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 16.5,
+          "y": 312
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 76.5,
+          "y": 312
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 275.5,
+          "y": 312
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 335.5,
+          "y": 312
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/DrunkenRampage/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "482ef7994327bda02400da70970c2ef22a224fa737165eeaa556714471beb769",
+      "size": 82059
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T03:56:01.041Z"
+  }
+}
