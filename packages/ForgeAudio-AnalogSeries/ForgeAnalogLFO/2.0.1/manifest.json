@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ForgeAudio-AnalogSeries/ForgeAnalogLFO",
+    "plugin": "ForgeAudio-AnalogSeries",
+    "model": "ForgeAnalogLFO",
+    "name": "Analog LFO",
+    "brand": "Forge Audio",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Photep/ForgeAudio-AnalogSeries",
+    "libraryUrl": "https://library.vcvrack.com/ForgeAudio-AnalogSeries/ForgeAnalogLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ForgeAudio-AnalogSeries/ForgeAnalogLFO.webp",
+    "wasmUrl": "packages/ForgeAudio-AnalogSeries/ForgeAnalogLFO/2.0.1/module.wasm",
+    "width": 180,
+    "description": "Sub-audio oscillator with waveform morphing, analog character, and drift modeling",
+    "params": [
+      {
+        "id": 0,
+        "name": "Morph",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135,
+          "y": 180.118,
+          "centered": true,
+          "widget": "ForgeKnobHero"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Character",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 53.15,
+          "y": 256.89,
+          "centered": true,
+          "widget": "ForgeKnobSecondary"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Drift",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 107.008,
+          "y": 256.89,
+          "centered": true,
+          "widget": "ForgeKnobSecondary"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rate",
+        "min": 0.009999999776482582,
+        "max": 20,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 160.866,
+          "y": 256.89,
+          "centered": true,
+          "widget": "ForgeKnobSecondary"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Morph CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.736,
+          "y": 320.374,
+          "centered": true,
+          "widget": "ForgeTrimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Character CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 54.803,
+          "y": 320.374,
+          "centered": true,
+          "widget": "ForgeTrimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Drift CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 86.9,
+          "y": 320.374,
+          "centered": true,
+          "widget": "ForgeTrimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase Offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 214.724,
+          "y": 256.89,
+          "centered": true,
+          "widget": "ForgeKnobSecondary"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Phase Offset CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 151.033,
+          "y": 320.374,
+          "centered": true,
+          "widget": "ForgeTrimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "FM Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 118.967,
+          "y": 320.374,
+          "centered": true,
+          "widget": "ForgeTrimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Morph CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.736,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Drift CV",
+        "kind": "cv",
+        "position": {
+          "x": 86.9,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Character CV",
+        "kind": "cv",
+        "position": {
+          "x": 54.803,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 183.1,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 215.197,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Phase Offset CV",
+        "kind": "cv",
+        "position": {
+          "x": 151.033,
+          "y": 352.854,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 118.967,
+          "y": 352.854,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LFO",
+        "kind": "cv",
+        "position": {
+          "x": 247.264,
+          "y": 352.854,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "swingIndex",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ForgeAudio-AnalogSeries/ForgeAnalogLFO/2.0.1/manifest.json",
+    "sourceCommit": "8f50bfa599a06aa161d2a4b621e606022ccf5c16",
+    "artifact": {
+      "sha256": "16e90801a4b249da4c8da2cd297f611d93b9175bb1a6f2ee84fad4d5f8c5afc5",
+      "size": 91759
+    }
+  },
+  "source": {
+    "url": "https://github.com/Photep/ForgeAudio-AnalogSeries",
+    "commit": "8f50bfa599a06aa161d2a4b621e606022ccf5c16"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T02:44:07.079Z"
+  }
+}
