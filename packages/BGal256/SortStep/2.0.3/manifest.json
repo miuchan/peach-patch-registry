@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BGal256/SortStep",
+    "plugin": "BGal256",
+    "model": "SortStep",
+    "name": "SortStep",
+    "brand": "BGAL256",
+    "version": "2.0.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Shtrompel/BGal256",
+    "libraryUrl": "https://library.vcvrack.com/BGal256/SortStep",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BGal256/SortStep.webp",
+    "wasmUrl": "packages/BGal256/SortStep/2.0.3/module.wasm",
+    "width": 360,
+    "description": "Sorting Algorithms to CV",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Shuffle Array",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 3,
+        "name": "Recalculate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Global Step",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Shuffle Step",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Sort Step",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Traverse Step",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Randomize",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Recalculate",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Algorithm Select",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Array Size",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Index CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Value CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "On End Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "On Shuffle End Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "On Sort End Trigger",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "On Traverse End Trigger",
+        "kind": "gate"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "arraySize",
+        "type": "integer"
+      },
+      {
+        "key": "shuffleSkip",
+        "type": "integer"
+      },
+      {
+        "key": "traverseSkip",
+        "type": "integer"
+      },
+      {
+        "key": "eventIndex",
+        "type": "integer"
+      },
+      {
+        "key": "shuffleIndex",
+        "type": "integer"
+      },
+      {
+        "key": "traversalIndex",
+        "type": "integer"
+      },
+      {
+        "key": "shuffleFrames",
+        "type": "integer"
+      },
+      {
+        "key": "traverseFrames",
+        "type": "integer"
+      },
+      {
+        "key": "keyOffset",
+        "type": "integer"
+      },
+      {
+        "key": "currentType",
+        "type": "integer"
+      },
+      {
+        "key": "section",
+        "type": "integer"
+      },
+      {
+        "key": "enableKeyOutput",
+        "type": "boolean"
+      },
+      {
+        "key": "tDone",
+        "type": "boolean"
+      },
+      {
+        "key": "tShuffle",
+        "type": "boolean"
+      },
+      {
+        "key": "tSort",
+        "type": "boolean"
+      },
+      {
+        "key": "tTraverse",
+        "type": "boolean"
+      },
+      {
+        "key": "recalcOnChange",
+        "type": "boolean"
+      },
+      {
+        "key": "lastAlgorithm",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BGal256/SortStep/2.0.3/manifest.json",
+    "sourceCommit": "d74602e148e7f3e9025981ffbb83679458d48a09",
+    "artifact": {
+      "sha256": "07a99cf60e83d250bbbde7f3b1d7f91f4cbd68e1a7382d41623d562ef40ae7af",
+      "size": 149687
+    }
+  },
+  "source": {
+    "url": "https://github.com/Shtrompel/BGal256",
+    "commit": "d74602e148e7f3e9025981ffbb83679458d48a09"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T22:20:18.479Z"
+  }
+}

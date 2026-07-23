@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BGal256/DressMeUp",
+    "plugin": "BGal256",
+    "model": "DressMeUp",
+    "name": "DressMeUp",
+    "brand": "BGAL256",
+    "version": "2.0.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Shtrompel/BGal256",
+    "libraryUrl": "https://library.vcvrack.com/BGal256/DressMeUp",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BGal256/DressMeUp.webp",
+    "wasmUrl": "packages/BGal256/DressMeUp/2.0.3/module.wasm",
+    "width": 300,
+    "description": "4 step programmable sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Step count",
+        "min": 1,
+        "max": 4,
+        "default": 4,
+        "position": {
+          "x": 27.286,
+          "y": 305.61,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step input range mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 188.976,
+          "y": 279.035,
+          "centered": true,
+          "widget": "rack::componentlibrary::CKSSThree"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Value range mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 186.024,
+          "y": 351.8,
+          "centered": true,
+          "widget": "rack::componentlibrary::CKSSThree"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output Range",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 258.555,
+          "y": 310.039,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Smooth Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 186.185,
+          "y": 310.039,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Quantize Values",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 168.71,
+          "y": 352.274,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 25.345,
+          "y": 266.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Previous Step",
+        "kind": "cv",
+        "position": {
+          "x": 95.544,
+          "y": 266.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Set Step From Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 169.419,
+          "y": 279.168,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "IN 6",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "IN 7",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "IN 8",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "IN 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "IN 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Step A Value",
+        "kind": "cv",
+        "position": {
+          "x": 29.184,
+          "y": 352.274,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Step B Value",
+        "kind": "cv",
+        "position": {
+          "x": 54.678,
+          "y": 352.274,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Step C Value",
+        "kind": "cv",
+        "position": {
+          "x": 80.175,
+          "y": 352.274,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Step D Value",
+        "kind": "cv",
+        "position": {
+          "x": 105.672,
+          "y": 352.274,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Set Value Of Current Step",
+        "kind": "cv",
+        "position": {
+          "x": 139.079,
+          "y": 352.274,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Next Step",
+        "kind": "gate",
+        "position": {
+          "x": 95.544,
+          "y": 301.853,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 258.557,
+          "y": 274.606,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step Output",
+        "kind": "cv",
+        "position": {
+          "x": 243.793,
+          "y": 348.425,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sum Output",
+        "kind": "cv",
+        "position": {
+          "x": 273.32,
+          "y": 348.425,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 186.185,
+          "y": 310.039,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 168.71,
+          "y": 352.274,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "stepIndex",
+        "type": "integer"
+      },
+      {
+        "key": "step",
+        "type": "real"
+      },
+      {
+        "key": "lastValue",
+        "type": "real"
+      },
+      {
+        "key": "enableShader",
+        "type": "boolean"
+      },
+      {
+        "key": "enableOutputFilter",
+        "type": "boolean"
+      },
+      {
+        "key": "spotWidth",
+        "type": "real"
+      },
+      {
+        "key": "spotHeight",
+        "type": "real"
+      },
+      {
+        "key": "colorBoost",
+        "type": "real"
+      },
+      {
+        "key": "inputGamma",
+        "type": "real"
+      },
+      {
+        "key": "outputGamma",
+        "type": "real"
+      },
+      {
+        "key": "effectScale",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BGal256/DressMeUp/2.0.3/manifest.json",
+    "sourceCommit": "d74602e148e7f3e9025981ffbb83679458d48a09",
+    "artifact": {
+      "sha256": "4911b61eba33805a48c821e120ca6a3e371e5f6eb3a0e238f35dbd06e004b8f8",
+      "size": 85295
+    }
+  },
+  "source": {
+    "url": "https://github.com/Shtrompel/BGal256",
+    "commit": "d74602e148e7f3e9025981ffbb83679458d48a09"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T22:20:15.110Z"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BGal256/BufferSludgerTransposer",
+    "plugin": "BGal256",
+    "model": "BufferSludgerTransposer",
+    "name": "BufferSludgerTransposer",
+    "brand": "BGAL256",
+    "version": "2.0.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Shtrompel/BGal256",
+    "libraryUrl": "https://library.vcvrack.com/BGal256/BufferSludgerTransposer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BGal256/BufferSludgerTransposer.webp",
+    "wasmUrl": "packages/BGal256/BufferSludgerTransposer/2.0.3/module.wasm",
+    "width": 60,
+    "description": "Real time transposer for the BufferSludger module",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reverse mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.528,
+          "y": 118.11,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.528,
+          "y": 221.457,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 29.528,
+          "y": 162.402,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 295.276,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 29.528,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 14.764,
+          "y": 119.587,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "masterLength",
+        "type": "real"
+      },
+      {
+        "key": "lmasterLength",
+        "type": "real"
+      },
+      {
+        "key": "timeSinceStep",
+        "type": "real"
+      },
+      {
+        "key": "phaseOut",
+        "type": "real"
+      },
+      {
+        "key": "lastPhaseIn",
+        "type": "real"
+      },
+      {
+        "key": "diffAdd",
+        "type": "real"
+      },
+      {
+        "key": "lastAutomationIn",
+        "type": "real"
+      },
+      {
+        "key": "automationPhase",
+        "type": "real"
+      },
+      {
+        "key": "lautomationPhase",
+        "type": "real"
+      },
+      {
+        "key": "fadeGain",
+        "type": "real"
+      },
+      {
+        "key": "lastOutputL",
+        "type": "real"
+      },
+      {
+        "key": "lastOutputR",
+        "type": "real"
+      },
+      {
+        "key": "rampSamplesMs",
+        "type": "real"
+      },
+      {
+        "key": "automationMode",
+        "type": "integer"
+      },
+      {
+        "key": "interpolationMode",
+        "type": "integer"
+      },
+      {
+        "key": "lastResizeFrame",
+        "type": "integer"
+      },
+      {
+        "key": "visualMode",
+        "type": "integer"
+      },
+      {
+        "key": "fadeCounter",
+        "type": "integer"
+      },
+      {
+        "key": "recordingIndex",
+        "type": "integer"
+      },
+      {
+        "key": "outputIndex",
+        "type": "integer"
+      },
+      {
+        "key": "lastOutputIndex",
+        "type": "integer"
+      },
+      {
+        "key": "firstBeat",
+        "type": "boolean"
+      },
+      {
+        "key": "enableOutputFilter",
+        "type": "boolean"
+      },
+      {
+        "key": "enableSpeedChange",
+        "type": "boolean"
+      },
+      {
+        "key": "antiClickFilter",
+        "type": "boolean"
+      },
+      {
+        "key": "isStereo",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BGal256/BufferSludgerTransposer/2.0.3/manifest.json",
+    "sourceCommit": "d74602e148e7f3e9025981ffbb83679458d48a09",
+    "artifact": {
+      "sha256": "3d64ee0acd367a21bb7b9a1baf04da3c746e8fc7c3674f8de338c14ff1088770",
+      "size": 75671
+    }
+  },
+  "source": {
+    "url": "https://github.com/Shtrompel/BGal256",
+    "commit": "d74602e148e7f3e9025981ffbb83679458d48a09"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T22:20:12.723Z"
+  }
+}

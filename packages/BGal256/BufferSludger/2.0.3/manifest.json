@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BGal256/BufferSludger",
+    "plugin": "BGal256",
+    "model": "BufferSludger",
+    "name": "BufferSludger",
+    "brand": "BGAL256",
+    "version": "2.0.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Shtrompel/BGal256",
+    "libraryUrl": "https://library.vcvrack.com/BGal256/BufferSludger",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BGal256/BufferSludger.webp",
+    "wasmUrl": "packages/BGal256/BufferSludger/2.0.3/module.wasm",
+    "width": 285,
+    "description": "Real time audio playback manipulation",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 1,
+        "max": 400,
+        "default": 120,
+        "position": {
+          "x": 29.914,
+          "y": 48.437,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Playback Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 217.527,
+          "y": 52.649,
+          "centered": true,
+          "widget": "JwHorizontalSwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "External BPM",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 126.464,
+          "y": 47.953,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Dry/Wet Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 251.722,
+          "y": 103.515,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock Step",
+        "kind": "gate",
+        "position": {
+          "x": 32.857,
+          "y": 101.73,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset Clock",
+        "kind": "gate",
+        "position": {
+          "x": 77.821,
+          "y": 101.73,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock Phase",
+        "kind": "gate",
+        "position": {
+          "x": 126.374,
+          "y": 101.73,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clear Buffer",
+        "kind": "gate",
+        "position": {
+          "x": 141.731,
+          "y": 148.685,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV Audio Input",
+        "kind": "audio",
+        "position": {
+          "x": 48.914,
+          "y": 345.255,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Playback Automation",
+        "kind": "cv",
+        "position": {
+          "x": 141.7,
+          "y": 344.005,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Dry/Wet Mix",
+        "kind": "audio",
+        "position": {
+          "x": 219.182,
+          "y": 101.73,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "CV Audio Right Input",
+        "kind": "audio",
+        "position": {
+          "x": 76.138,
+          "y": 345.255,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV Audio Output",
+        "kind": "audio",
+        "position": {
+          "x": 210.323,
+          "y": 345.255,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV Audio Right Output",
+        "kind": "audio",
+        "position": {
+          "x": 236.361,
+          "y": 345.255,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 223.085,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 126.464,
+          "y": 47.953,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "masterLength",
+        "type": "real"
+      },
+      {
+        "key": "lmasterLength",
+        "type": "real"
+      },
+      {
+        "key": "timeSinceStep",
+        "type": "real"
+      },
+      {
+        "key": "phaseOut",
+        "type": "real"
+      },
+      {
+        "key": "lastPhaseIn",
+        "type": "real"
+      },
+      {
+        "key": "diffAdd",
+        "type": "real"
+      },
+      {
+        "key": "lastAutomationIn",
+        "type": "real"
+      },
+      {
+        "key": "automationPhase",
+        "type": "real"
+      },
+      {
+        "key": "lautomationPhase",
+        "type": "real"
+      },
+      {
+        "key": "fadeGain",
+        "type": "real"
+      },
+      {
+        "key": "lastOutputL",
+        "type": "real"
+      },
+      {
+        "key": "lastOutputR",
+        "type": "real"
+      },
+      {
+        "key": "rampSamplesMs",
+        "type": "real"
+      },
+      {
+        "key": "automationMode",
+        "type": "integer"
+      },
+      {
+        "key": "interpolationMode",
+        "type": "integer"
+      },
+      {
+        "key": "lastResizeFrame",
+        "type": "integer"
+      },
+      {
+        "key": "visualMode",
+        "type": "integer"
+      },
+      {
+        "key": "fadeCounter",
+        "type": "integer"
+      },
+      {
+        "key": "recordingIndex",
+        "type": "integer"
+      },
+      {
+        "key": "outputIndex",
+        "type": "integer"
+      },
+      {
+        "key": "lastOutputIndex",
+        "type": "integer"
+      },
+      {
+        "key": "firstBeat",
+        "type": "boolean"
+      },
+      {
+        "key": "enableOutputFilter",
+        "type": "boolean"
+      },
+      {
+        "key": "enableSpeedChange",
+        "type": "boolean"
+      },
+      {
+        "key": "antiClickFilter",
+        "type": "boolean"
+      },
+      {
+        "key": "isStereo",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BGal256/BufferSludger/2.0.3/manifest.json",
+    "sourceCommit": "d74602e148e7f3e9025981ffbb83679458d48a09",
+    "artifact": {
+      "sha256": "84db4e120febb058c4d27af36f42fafeb4c1d8ef32d9f33246eabf3cc5fde5b7",
+      "size": 106541
+    }
+  },
+  "source": {
+    "url": "https://github.com/Shtrompel/BGal256",
+    "commit": "d74602e148e7f3e9025981ffbb83679458d48a09"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T22:20:08.891Z"
+  }
+}
