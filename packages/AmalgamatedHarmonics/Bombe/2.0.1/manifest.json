@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AmalgamatedHarmonics/Bombe",
+    "plugin": "AmalgamatedHarmonics",
+    "model": "Bombe",
+    "name": "Bombe",
+    "brand": "Amalgamated Harmonics",
+    "version": "2.0.1",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "libraryUrl": "https://library.vcvrack.com/AmalgamatedHarmonics/Bombe",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AmalgamatedHarmonics/Bombe.webp",
+    "wasmUrl": "packages/AmalgamatedHarmonics/Bombe/2.0.1/module.wasm",
+    "width": 240,
+    "description": "A semi-random shift-register chord generator and looper",
+    "params": [
+      {
+        "id": 0,
+        "name": "Key",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 62.082,
+          "y": 288.735,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "position": {
+          "x": 142.041,
+          "y": 288.735,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Length of loop",
+        "min": 2,
+        "max": 16,
+        "default": 4,
+        "position": {
+          "x": 222,
+          "y": 288.735,
+          "centered": true,
+          "widget": "gui::AHKnobSnap"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Update probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 67.451,
+          "y": 192.829,
+          "centered": true,
+          "widget": "gui::AHHugeKnobNoSnap"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Deviation probability",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 172.402,
+          "y": 192.829,
+          "centered": true,
+          "widget": "gui::AHHugeKnobNoSnap"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 180.594,
+          "y": 288.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Key",
+        "kind": "cv",
+        "position": {
+          "x": 20.676,
+          "y": 288.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "kind": "cv",
+        "position": {
+          "x": 100.635,
+          "y": 288.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Freeze",
+        "kind": "cv",
+        "position": {
+          "x": 18.776,
+          "y": 166.853,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 221.078,
+          "y": 166.853,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 30.838,
+          "y": 341.02,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 67.373,
+          "y": 340.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "position": {
+          "x": 103.909,
+          "y": 340.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 140.444,
+          "y": 341.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "position": {
+          "x": 176.979,
+          "y": 341.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "position": {
+          "x": 213.515,
+          "y": 341.028,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 99.104,
+          "y": 224.482,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AmalgamatedHarmonics/Bombe/2.0.1/manifest.json",
+    "sourceCommit": "bf74c2b7674c610cfc57421157d814c98bd92438",
+    "artifact": {
+      "sha256": "eea2c191211b715a7b9a183b8e6c69981da918fcf01902309bb04b30885e8240",
+      "size": 208844
+    }
+  },
+  "source": {
+    "url": "https://github.com/jhoar/AmalgamatedHarmonics",
+    "commit": "bf74c2b7674c610cfc57421157d814c98bd92438"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T08:07:25.559Z"
+  }
+}
