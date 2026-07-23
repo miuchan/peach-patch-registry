@@ -1,0 +1,1019 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AlgoritmArte/Zefiro",
+    "plugin": "AlgoritmArte",
+    "model": "Zefiro",
+    "name": "Zefiro",
+    "brand": "AlgoritmArte",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "libraryUrl": "https://library.vcvrack.com/AlgoritmArte/Zefiro",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AlgoritmArte/Zefiro.webp",
+    "wasmUrl": "packages/AlgoritmArte/Zefiro/2.0.0/module.wasm",
+    "width": 525,
+    "description": "A full synthesizer inspired by the iconic Buchla Music Easel",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel A gain",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 445.866,
+          "y": 126.969,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel B gain",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 488.681,
+          "y": 126.969,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Internal clock tempo",
+        "min": -2,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 86.675,
+          "y": 10.335,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Attack time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 271.654,
+          "y": 72.343,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sustain time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 317.421,
+          "y": 72.343,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Decay time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 363.189,
+          "y": 72.343,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Envelope mode (Self/Transient/Sustained)",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "position": {
+          "x": 323.327,
+          "y": 14.593,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Envelope trigger source (Sequencer/Pulser/Keyb)",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "position": {
+          "x": 271.654,
+          "y": 14.764,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Modulator frequency",
+        "min": -54,
+        "max": 33,
+        "default": -5,
+        "position": {
+          "x": 82.677,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Modulator fine tune",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 93.012,
+          "y": 174.213,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Modulator keyboard tracking",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 50.197,
+          "y": 130.093,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Modulator LO/HI frequency",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 50.197,
+          "y": 177.165,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Modulator frequency modulation amount",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Modulator type (FM/AM/OFF)",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 129.921,
+          "y": 174.384,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Modulator quantize",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 97.441,
+          "y": 129.921,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Modulator wave type (Triangle/Square/Saw)",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 129.921,
+          "y": 126.969,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Gate 1 mode (VCA/Combo/LoPass",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 312.992,
+          "y": 126.969,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Gate 2 mode (VCA/Combo/LoPass",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 373.524,
+          "y": 127.14,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Gate 2 source (Gate1/Modulator/Preamp)",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 312.992,
+          "y": 174.384,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Gate 1 level",
+        "min": 0,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 345.472,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Gate 1 modulation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 318.898,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Gate 2 level",
+        "min": 0,
+        "max": 10,
+        "default": 6,
+        "position": {
+          "x": 407.48,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Gate 2 modulation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 380.906,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Moduation amount",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 138.78,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Modulation of modulation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 112.205,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Noise hold trigger source (Sequencer/Pulser/Keyb)",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "position": {
+          "x": 5.906,
+          "y": 255.499,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Pitch frequency",
+        "min": -54,
+        "max": 33,
+        "default": 0,
+        "position": {
+          "x": 215.551,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Pitch fine tune",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225.886,
+          "y": 174.213,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Pitch keyboard tracking",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 183.071,
+          "y": 129.921,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Pitch modulation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 188.976,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Pitch modulation polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 177.165,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Pitch quantize",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 230.315,
+          "y": 129.921,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Preamp source (Noise/Feedback/Ext",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 389.764,
+          "y": 174.041,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Period modulation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 488.681,
+          "y": 72.343,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Pulser mode (Triggered/Self)",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 428.15,
+          "y": 19.193,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Period time",
+        "min": 0,
+        "max": 1,
+        "default": 0.6480000019073486,
+        "position": {
+          "x": 434.055,
+          "y": 72.343,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Pulser trigger source (Sequencer/Clock/Keyb)",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "position": {
+          "x": 376.391,
+          "y": 14.764,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Rerverb feedback",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 488.681,
+          "y": 183.071,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Reverb dry/wet",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "position": {
+          "x": 488.681,
+          "y": 222.933,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Reverb time",
+        "min": 5,
+        "max": 1500,
+        "default": 200,
+        "position": {
+          "x": 445.866,
+          "y": 183.071,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Step 1 voltage",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 50.197,
+          "y": 50.197,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Step 2 voltage",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 91.535,
+          "y": 50.197,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Step 3 voltage",
+        "min": 0,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 132.874,
+          "y": 50.197,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Step 4 voltage",
+        "min": 0,
+        "max": 10,
+        "default": 3,
+        "position": {
+          "x": 174.213,
+          "y": 50.197,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Step 5 voltage",
+        "min": 0,
+        "max": 10,
+        "default": 4,
+        "position": {
+          "x": 215.551,
+          "y": 50.197,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Number of steps (3/4/5)",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "position": {
+          "x": 215.551,
+          "y": 14.764,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Step 1 on/off",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 50.197,
+          "y": 85.63,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Step 2 on/off",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 91.535,
+          "y": 85.63,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Step 3 on/off",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 132.874,
+          "y": 85.63,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Step 4 on/off",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 174.213,
+          "y": 85.63,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Step 5 on/off",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 215.551,
+          "y": 85.63,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Sequencer trigger source (Clock/Pulser/Keyb)",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 152.067,
+          "y": 14.764,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Timbre",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 271.654,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Timbre wave + sine mix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 271.654,
+          "y": 126.969,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Timbre modulation",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 245.079,
+          "y": 221.457,
+          "widget": "LEDSliderGreenLong"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Timbre waveform (Triangle/Square/Saw)",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 262.795,
+          "y": 174.213,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 445.866,
+          "y": 277.559,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Ext",
+        "kind": "cv",
+        "position": {
+          "x": 406.004,
+          "y": 128.445
+        }
+      },
+      {
+        "id": 1,
+        "name": "Extclk",
+        "kind": "cv",
+        "position": {
+          "x": 54.626,
+          "y": 10.335
+        }
+      },
+      {
+        "id": 2,
+        "name": "Freqmod",
+        "kind": "cv",
+        "position": {
+          "x": 53.15,
+          "y": 345.472
+        }
+      },
+      {
+        "id": 3,
+        "name": "Inverter",
+        "kind": "cv",
+        "position": {
+          "x": 448.819,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 4,
+        "name": "Keyb",
+        "kind": "cv",
+        "position": {
+          "x": 5.906,
+          "y": 32.48
+        }
+      },
+      {
+        "id": 5,
+        "name": "Keybgate",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 76.772
+        }
+      },
+      {
+        "id": 6,
+        "name": "Lev1mod",
+        "kind": "cv",
+        "position": {
+          "x": 315.945,
+          "y": 345.472
+        }
+      },
+      {
+        "id": 7,
+        "name": "Lev2mod",
+        "kind": "cv",
+        "position": {
+          "x": 377.953,
+          "y": 345.472
+        }
+      },
+      {
+        "id": 8,
+        "name": "Modmod",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 345.472
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pitchmod",
+        "kind": "cv",
+        "position": {
+          "x": 186.024,
+          "y": 345.472
+        }
+      },
+      {
+        "id": 10,
+        "name": "Pulsemod",
+        "kind": "gate",
+        "position": {
+          "x": 491.634,
+          "y": 39.862
+        }
+      },
+      {
+        "id": 11,
+        "name": "Reverbtimemod",
+        "kind": "cv",
+        "position": {
+          "x": 448.819,
+          "y": 225.886
+        }
+      },
+      {
+        "id": 12,
+        "name": "Timbremod",
+        "kind": "cv",
+        "position": {
+          "x": 242.126,
+          "y": 345.472
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "ENV",
+        "kind": "cv",
+        "position": {
+          "x": 5.906,
+          "y": 171.26
+        }
+      },
+      {
+        "id": 1,
+        "name": "Inverter",
+        "kind": "cv",
+        "position": {
+          "x": 491.548,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mod",
+        "kind": "cv",
+        "position": {
+          "x": 141.732,
+          "y": 345.472
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise",
+        "kind": "cv",
+        "position": {
+          "x": 5.906,
+          "y": 304.134
+        }
+      },
+      {
+        "id": 4,
+        "name": "Noise 2",
+        "kind": "cv",
+        "position": {
+          "x": 5.906,
+          "y": 333.661
+        }
+      },
+      {
+        "id": 5,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 491.548,
+          "y": 283.465
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 215.38
+        }
+      },
+      {
+        "id": 7,
+        "name": "Seq",
+        "kind": "cv",
+        "position": {
+          "x": 5.906,
+          "y": 126.797
+        }
+      }
+    ],
+    "lights": 11,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 119.587,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 307.087,
+          "y": 64.961,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 318.898,
+          "y": 214.075,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 380.906,
+          "y": 214.075,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 41.339,
+          "y": 298.228,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 425.976,
+          "y": 65.153,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.295,
+          "y": 88.583,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 117.195,
+          "y": 88.789,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 157.972,
+          "y": 88.583,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 199.311,
+          "y": 88.583,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 240.65,
+          "y": 88.583,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AlgoritmArte/Zefiro/2.0.0/manifest.json",
+    "sourceCommit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4",
+    "artifact": {
+      "sha256": "635302b3ad05149e98cde92fe1f4ab5fb9cdbaf40e87e9951629076a2fd3ff0a",
+      "size": 100180
+    }
+  },
+  "source": {
+    "url": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "commit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T15:52:02.543Z"
+  }
+}

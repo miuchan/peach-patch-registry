@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AlgoritmArte/HoldMeTight",
+    "plugin": "AlgoritmArte",
+    "model": "HoldMeTight",
+    "name": "HoldMeTight",
+    "brand": "AlgoritmArte",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "libraryUrl": "https://library.vcvrack.com/AlgoritmArte/HoldMeTight",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AlgoritmArte/HoldMeTight.webp",
+    "wasmUrl": "packages/AlgoritmArte/HoldMeTight/2.0.0/module.wasm",
+    "width": 90,
+    "description": "Triple sample and hold with an integrated quantizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Quantize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 41.339,
+          "y": 47.073,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Quantize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41.339,
+          "y": 130.093,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Quantize",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41.339,
+          "y": 203.911,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Quantize mode (clamp, nearest, proportional)",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "position": {
+          "x": 67.913,
+          "y": 262.624,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Note C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14.764,
+          "y": 312.992,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Note C#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.433,
+          "y": 312.992,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Note D",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 312.992,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Note Eb",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 312.992,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Note E",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.764,
+          "y": 333.49,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Note F",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.433,
+          "y": 333.661,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Note F#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 333.661,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Note G",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 333.661,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Note Ab",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.764,
+          "y": 354.331,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Note A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 35.433,
+          "y": 354.331,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Note Bb",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 56.102,
+          "y": 354.331,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Note B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 354.331,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Hold 0",
+        "kind": "gate",
+        "position": {
+          "x": 2.953,
+          "y": 35.262
+        }
+      },
+      {
+        "id": 1,
+        "name": "Hold 1",
+        "kind": "gate",
+        "position": {
+          "x": 2.953,
+          "y": 118.11
+        }
+      },
+      {
+        "id": 2,
+        "name": "Hold 2",
+        "kind": "gate",
+        "position": {
+          "x": 2.953,
+          "y": 191.929
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input 0",
+        "kind": "cv",
+        "position": {
+          "x": 2.953,
+          "y": 64.789
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input 1",
+        "kind": "cv",
+        "position": {
+          "x": 2.953,
+          "y": 147.638
+        }
+      },
+      {
+        "id": 5,
+        "name": "Input 2",
+        "kind": "cv",
+        "position": {
+          "x": 2.953,
+          "y": 221.457
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 0",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 64.789
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 1",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 147.809
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output 2",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 221.628
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulse 0",
+        "kind": "gate",
+        "position": {
+          "x": 56.102,
+          "y": 35.262
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse 1",
+        "kind": "gate",
+        "position": {
+          "x": 56.102,
+          "y": 118.281
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse 2",
+        "kind": "gate",
+        "position": {
+          "x": 56.102,
+          "y": 192.1
+        }
+      },
+      {
+        "id": 6,
+        "name": "Test",
+        "kind": "cv",
+        "position": {
+          "x": 23.622,
+          "y": 118.11
+        }
+      },
+      {
+        "id": 7,
+        "name": "Test 2",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 118.11
+        }
+      },
+      {
+        "id": 8,
+        "name": "Test 3",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 147.638
+        }
+      },
+      {
+        "id": 9,
+        "name": "Test 4",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 177.165
+        }
+      },
+      {
+        "id": 10,
+        "name": "Test 5",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 206.693
+        }
+      },
+      {
+        "id": 11,
+        "name": "Test 6",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 236.22
+        }
+      }
+    ],
+    "lights": 15,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 312.992,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 312.992,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 56.102,
+          "y": 312.992,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 76.772,
+          "y": 312.992,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 56.102,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 76.772,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.764,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 35.433,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 56.102,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 76.772,
+          "y": 354.331,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 41.339,
+          "y": 47.073,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 41.339,
+          "y": 130.093,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 41.339,
+          "y": 203.911,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AlgoritmArte/HoldMeTight/2.0.0/manifest.json",
+    "sourceCommit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4",
+    "artifact": {
+      "sha256": "7d023627c5dc4ac3ce7a30fea8609cc30feb7aff299b658e12c6beed4c5d237b",
+      "size": 80390
+    }
+  },
+  "source": {
+    "url": "https://github.com/algoritmarte/AlgoritmarteVCVPlugin",
+    "commit": "ca18fd721f73afc4ae6988bb4c24f061691f24c4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T15:52:08.112Z"
+  }
+}
