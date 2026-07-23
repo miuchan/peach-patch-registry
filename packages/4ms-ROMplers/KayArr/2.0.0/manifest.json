@@ -1,0 +1,546 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4ms-ROMplers/KayArr",
+    "plugin": "4ms-ROMplers",
+    "model": "KayArr",
+    "name": "KayArr",
+    "brand": "4ms",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/ROMplers/",
+    "libraryUrl": "https://library.vcvrack.com/4ms-ROMplers/KayArr",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4ms-ROMplers/KayArr.webp",
+    "wasmUrl": "packages/4ms-ROMplers/KayArr/2.0.0/module.wasm",
+    "width": 180,
+    "description": "KR55 samples with playback speed, sample length, and looping.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 92.271,
+          "y": 45.771,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 33.189,
+          "y": 45.771,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Main Volume",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 146.844,
+          "y": 45.771,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Kick Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 20.666,
+          "y": 124.022,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Snare Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 55.364,
+          "y": 124.022,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Closed Hat Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 90.062,
+          "y": 124.022,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Open Hat Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.751,
+          "y": 124.022,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Low Tom Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 159.449,
+          "y": 124.022,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Conga Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 20.666,
+          "y": 250.981,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Clave Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 55.364,
+          "y": 250.981,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Rimshot Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 90.062,
+          "y": 250.981,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Cowbell Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 124.751,
+          "y": 250.981,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Cymbal Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 159.449,
+          "y": 250.981,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Speed CV",
+        "kind": "cv",
+        "position": {
+          "x": 92.271,
+          "y": 90.948,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 33.189,
+          "y": 90.948,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Kick Trig",
+        "kind": "gate",
+        "position": {
+          "x": 20.666,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Snare Trig",
+        "kind": "gate",
+        "position": {
+          "x": 55.364,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Closed Hat Trig",
+        "kind": "gate",
+        "position": {
+          "x": 90.062,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Open Hat Trig",
+        "kind": "gate",
+        "position": {
+          "x": 124.751,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Low Tom Trig",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Conga Trig",
+        "kind": "gate",
+        "position": {
+          "x": 20.666,
+          "y": 292.326,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Clave Trig",
+        "kind": "gate",
+        "position": {
+          "x": 55.364,
+          "y": 292.326,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Rimshot Trig",
+        "kind": "gate",
+        "position": {
+          "x": 90.062,
+          "y": 292.326,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Cowbell Trig",
+        "kind": "gate",
+        "position": {
+          "x": 124.751,
+          "y": 292.326,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Cymbal Trig",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 292.326,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Kick",
+        "kind": "cv",
+        "position": {
+          "x": 20.666,
+          "y": 206.699,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Snare",
+        "kind": "cv",
+        "position": {
+          "x": 55.364,
+          "y": 206.699,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Closed Hat",
+        "kind": "cv",
+        "position": {
+          "x": 90.062,
+          "y": 206.699,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Open Hat",
+        "kind": "cv",
+        "position": {
+          "x": 124.751,
+          "y": 206.699,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Low Tom",
+        "kind": "cv",
+        "position": {
+          "x": 159.449,
+          "y": 206.699,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Conga",
+        "kind": "cv",
+        "position": {
+          "x": 20.666,
+          "y": 333.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Clave",
+        "kind": "cv",
+        "position": {
+          "x": 55.364,
+          "y": 333.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Rimshot",
+        "kind": "cv",
+        "position": {
+          "x": 90.062,
+          "y": 333.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Cowbell",
+        "kind": "cv",
+        "position": {
+          "x": 124.751,
+          "y": 333.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Cymbal",
+        "kind": "cv",
+        "position": {
+          "x": 159.449,
+          "y": 333.658,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Sum",
+        "kind": "cv",
+        "position": {
+          "x": 146.844,
+          "y": 90.948,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 10,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 20.666,
+          "y": 124.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 55.364,
+          "y": 124.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 90.062,
+          "y": 124.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 124.751,
+          "y": 124.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 159.449,
+          "y": 124.022,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 20.666,
+          "y": 250.981,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 55.364,
+          "y": 250.981,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 90.062,
+          "y": 250.981,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 124.751,
+          "y": 250.981,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 159.449,
+          "y": 250.981,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/4ms-ROMplers/KayArr/2.0.0/manifest.json",
+    "sourceCommit": "fe440b88ea7a096be87b34fa134f53089e553a70",
+    "artifact": {
+      "sha256": "85afeae5bc0dc6c4efe12eb3870f777457b3efb6d292e1eca800e5648be35e9f",
+      "size": 186652
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/ROMplers/",
+    "commit": "fe440b88ea7a096be87b34fa134f53089e553a70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T13:03:56.755Z"
+  }
+}

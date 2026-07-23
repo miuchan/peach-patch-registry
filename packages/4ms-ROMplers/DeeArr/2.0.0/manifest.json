@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "4ms-ROMplers/DeeArr",
+    "plugin": "4ms-ROMplers",
+    "model": "DeeArr",
+    "name": "DeeArr",
+    "brand": "4ms",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/4ms/ROMplers/",
+    "libraryUrl": "https://library.vcvrack.com/4ms-ROMplers/DeeArr",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/4ms-ROMplers/DeeArr.webp",
+    "wasmUrl": "packages/4ms-ROMplers/DeeArr/2.0.0/module.wasm",
+    "width": 150,
+    "description": "DR-55 samples with playback speed, sample length, looping, and direct outs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 56.105,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 28.792,
+          "y": 86.22,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Main Volume",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 121.801,
+          "y": 86.22,
+          "centered": true,
+          "widget": "Davies1900hBlack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Kick Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.887,
+          "y": 197.835,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Snare Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.887,
+          "y": 242.126,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Hat Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.887,
+          "y": 286.417,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Rim Trig",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.887,
+          "y": 330.709,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Speed CV",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 107.773,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length CV",
+        "kind": "cv",
+        "position": {
+          "x": 28.792,
+          "y": 138.782,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Kick Trig",
+        "kind": "gate",
+        "position": {
+          "x": 94.488,
+          "y": 197.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Snare Trig",
+        "kind": "gate",
+        "position": {
+          "x": 94.488,
+          "y": 242.126,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Hat Trig",
+        "kind": "gate",
+        "position": {
+          "x": 94.488,
+          "y": 286.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rim Trig",
+        "kind": "gate",
+        "position": {
+          "x": 94.488,
+          "y": 330.709,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Kick",
+        "kind": "cv",
+        "position": {
+          "x": 129.915,
+          "y": 197.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Snare",
+        "kind": "cv",
+        "position": {
+          "x": 129.915,
+          "y": 242.126,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Hat",
+        "kind": "cv",
+        "position": {
+          "x": 129.915,
+          "y": 286.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rim",
+        "kind": "cv",
+        "position": {
+          "x": 129.915,
+          "y": 330.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sum",
+        "kind": "cv",
+        "position": {
+          "x": 121.801,
+          "y": 138.782,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 22.887,
+          "y": 197.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 22.887,
+          "y": 242.126,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 22.887,
+          "y": 286.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LEDBezelLight<WhiteLight>",
+        "position": {
+          "x": 22.887,
+          "y": 330.709,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/4ms-ROMplers/DeeArr/2.0.0/manifest.json",
+    "sourceCommit": "fe440b88ea7a096be87b34fa134f53089e553a70",
+    "artifact": {
+      "sha256": "3be93e7da9bae465163fa8fc67d9015b9f94ad154e39162a682d912f3b8a23ba",
+      "size": 99678
+    }
+  },
+  "source": {
+    "url": "https://github.com/4ms/ROMplers/",
+    "commit": "fe440b88ea7a096be87b34fa134f53089e553a70"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T13:15:34.931Z"
+  }
+}
