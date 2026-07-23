@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Big-Button-Seq",
+    "plugin": "ImpromptuModular",
+    "model": "Big-Button-Seq",
+    "name": "BigButtonSeq",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Big-Button-Seq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Big-Button-Seq.webp",
+    "wasmUrl": "packages/ImpromptuModular/Big-Button-Seq/2.5.0/module.wasm",
+    "width": 180,
+    "description": "6-channel, 64-step trigger sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel",
+        "min": 0,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 0,
+        "max": 63,
+        "default": 31
+      },
+      {
+        "id": 2,
+        "name": "Random",
+        "min": 0,
+        "max": 100,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 4,
+        "name": "Clear",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Bank",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "Delete",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Fill",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Big button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Write fill",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Quantize big button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Channel select",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Big button",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Length",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Random",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 6,
+        "name": "Clear",
+        "kind": "gate"
+      },
+      {
+        "id": 7,
+        "name": "Bank select",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Delete",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Fill",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel 1 gate",
+        "kind": "gate"
+      },
+      {
+        "id": 1,
+        "name": "Channel 2 gate",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Channel 3 gate",
+        "kind": "gate"
+      },
+      {
+        "id": 3,
+        "name": "Channel 4 gate",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "Channel 5 gate",
+        "kind": "gate"
+      },
+      {
+        "id": 5,
+        "name": "Channel 6 gate",
+        "kind": "gate"
+      }
+    ],
+    "lights": 18,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "indexStep",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "bank",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "bank",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "bank",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "bank",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "bank",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "bank",
+        "type": "integer"
+      },
+      {
+        "key": "metronomeDiv",
+        "type": "integer"
+      },
+      {
+        "key": "writeFillsToMemory",
+        "type": "boolean"
+      },
+      {
+        "key": "quantizeBig",
+        "type": "boolean"
+      },
+      {
+        "key": "retrigGatesOnReset2",
+        "type": "integer"
+      },
+      {
+        "key": "nextStepHits",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Big-Button-Seq/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "a7f0cc26f05dc2adbfbda8acdd48c3fe464c521469c65c6264776d4c9df66ec4",
+      "size": 92827
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T02:51:36.204Z"
+  }
+}

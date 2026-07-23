@@ -1,0 +1,702 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HoyerHoppes/scanning_clock_multiplier_v2",
+    "plugin": "HoyerHoppes",
+    "model": "scanning_clock_multiplier_v2",
+    "name": "Scanning Clock Multiplier",
+    "brand": "HoyerHoppes",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/jakulley/HoyerHoppes",
+    "libraryUrl": "https://library.vcvrack.com/HoyerHoppes/scanning_clock_multiplier_v2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HoyerHoppes/scanning_clock_multiplier_v2.webp",
+    "wasmUrl": "packages/HoyerHoppes/scanning_clock_multiplier_v2/2.0.1/module.wasm",
+    "width": 240,
+    "description": "Create a list of clock ratios, then scan through the list.",
+    "params": [
+      {
+        "id": 0,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 49.459,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "1 to 700 bpm. cv in overrides",
+        "min": 1,
+        "max": 700,
+        "default": 120,
+        "position": {
+          "x": 30.827,
+          "y": 70.394,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 63.1,
+          "y": 70.394,
+          "centered": true,
+          "widget": "BefacoPush"
+        }
+      },
+      {
+        "id": 3,
+        "name": "adds exponential or logarithmic curve to output",
+        "min": 0.10999999940395355,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 109.252,
+          "y": 64.4,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "scan active ratios. sums with cv in",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 158.12,
+          "y": 88.036,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "recieve phase directly from input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 30.827,
+          "y": 45.177,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 28.051,
+          "y": 146.235,
+          "centered": true,
+          "widget": "_1_1Button"
+        }
+      },
+      {
+        "id": 7,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 70.128,
+          "y": 146.235,
+          "centered": true,
+          "widget": "_8_5Button"
+        }
+      },
+      {
+        "id": 8,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 111.909,
+          "y": 146.235,
+          "centered": true,
+          "widget": "_2_1Button"
+        }
+      },
+      {
+        "id": 9,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 153.839,
+          "y": 146.235,
+          "centered": true,
+          "widget": "_8_3Button"
+        }
+      },
+      {
+        "id": 10,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 28.051,
+          "y": 205.29,
+          "centered": true,
+          "widget": "_3_1Button"
+        }
+      },
+      {
+        "id": 11,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 70.128,
+          "y": 205.29,
+          "centered": true,
+          "widget": "_16_5Button"
+        }
+      },
+      {
+        "id": 12,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 111.909,
+          "y": 205.29,
+          "centered": true,
+          "widget": "_4_1Button"
+        }
+      },
+      {
+        "id": 13,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 153.839,
+          "y": 205.29,
+          "centered": true,
+          "widget": "_5_1Button"
+        }
+      },
+      {
+        "id": 14,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 28.051,
+          "y": 264.345,
+          "centered": true,
+          "widget": "_16_3Button"
+        }
+      },
+      {
+        "id": 15,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 70.128,
+          "y": 264.345,
+          "centered": true,
+          "widget": "_6_1Button"
+        }
+      },
+      {
+        "id": 16,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 111.909,
+          "y": 264.345,
+          "centered": true,
+          "widget": "_32_5Button"
+        }
+      },
+      {
+        "id": 17,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 153.839,
+          "y": 264.345,
+          "centered": true,
+          "widget": "_7_1Button"
+        }
+      },
+      {
+        "id": 18,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 28.051,
+          "y": 323.401,
+          "centered": true,
+          "widget": "_8_1Button"
+        }
+      },
+      {
+        "id": 19,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 70.128,
+          "y": 323.401,
+          "centered": true,
+          "widget": "_32_3Button"
+        }
+      },
+      {
+        "id": 20,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 111.909,
+          "y": 323.401,
+          "centered": true,
+          "widget": "_16_1Button"
+        }
+      },
+      {
+        "id": 21,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 153.839,
+          "y": 323.401,
+          "centered": true,
+          "widget": "_32_1Button"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "expects 0-10v",
+        "kind": "cv",
+        "position": {
+          "x": 131.752,
+          "y": 48.898,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "",
+        "kind": "cv",
+        "position": {
+          "x": 30.827,
+          "y": 99.508,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "kind": "gate",
+        "position": {
+          "x": 63.1,
+          "y": 99.508,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "expects 0-10v",
+        "kind": "cv",
+        "position": {
+          "x": 123.071,
+          "y": 112.736,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "expects 0-10v",
+        "kind": "cv",
+        "position": {
+          "x": 205.128,
+          "y": 63.839,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 28.051,
+          "y": 175.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 70.128,
+          "y": 174.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 111.909,
+          "y": 175.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 153.839,
+          "y": 175.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 28.051,
+          "y": 234.065,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 70.128,
+          "y": 234.065,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 111.909,
+          "y": 234.065,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 153.839,
+          "y": 234.065,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 28.051,
+          "y": 292.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 70.128,
+          "y": 292.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 111.909,
+          "y": 293.12,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 153.839,
+          "y": 292.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 28.051,
+          "y": 351.874,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 70.128,
+          "y": 351.874,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 111.909,
+          "y": 352.175,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "inverts button value",
+        "kind": "cv",
+        "position": {
+          "x": 153.839,
+          "y": 351.874,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "rate pass-thru",
+        "kind": "cv",
+        "position": {
+          "x": 188.533,
+          "y": 161.368,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "reset pass-thru",
+        "kind": "gate",
+        "position": {
+          "x": 63.189,
+          "y": 45.177,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "0-10v phasor based on rate",
+        "kind": "cv",
+        "position": {
+          "x": 221.457,
+          "y": 161.368,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "trigs calculated by scanner and skew",
+        "kind": "gate",
+        "position": {
+          "x": 188.533,
+          "y": 195.62,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "phasor calculated by scanner and skew",
+        "kind": "cv",
+        "position": {
+          "x": 221.457,
+          "y": 195.62,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "reflects scan value around .5",
+        "kind": "cv",
+        "position": {
+          "x": 221.457,
+          "y": 234.744,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "trigs based on the highest active ratio",
+        "kind": "gate",
+        "position": {
+          "x": 188.533,
+          "y": 310.778,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "outputs the phase of the highest active ratio",
+        "kind": "cv",
+        "position": {
+          "x": 221.457,
+          "y": 310.778,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "reflects scan value around .5",
+        "kind": "cv",
+        "position": {
+          "x": 188.533,
+          "y": 234.744,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "trigs based on the lowest active ratio",
+        "kind": "gate",
+        "position": {
+          "x": 188.533,
+          "y": 272.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "outputs the phase of the lowest active ratio",
+        "kind": "cv",
+        "position": {
+          "x": 221.457,
+          "y": 272.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "trigs based on the ratio active when scan is at noon",
+        "kind": "gate",
+        "position": {
+          "x": 188.533,
+          "y": 347.746,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "outputs the phase of the ratio active when scan is at noon",
+        "kind": "cv",
+        "position": {
+          "x": 221.457,
+          "y": 347.746,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 30.827,
+          "y": 45.177,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HoyerHoppes/scanning_clock_multiplier_v2/2.0.1/manifest.json",
+    "sourceCommit": "9158d234902ce8efff3aa125386d4a243a82ca83",
+    "artifact": {
+      "sha256": "98bfb5926b65f2c95bff7a7dd953eb295c330bb3b6aa1be819cd1552b22486f4",
+      "size": 87258
+    }
+  },
+  "source": {
+    "url": "https://github.com/jakulley/HoyerHoppes",
+    "commit": "9158d234902ce8efff3aa125386d4a243a82ca83"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T02:50:48.604Z"
+  }
+}
