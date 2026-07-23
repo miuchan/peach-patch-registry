@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Animatek/UnitDistanceSeq",
+    "plugin": "Animatek",
+    "model": "UnitDistanceSeq",
+    "name": "UNIT-D",
+    "brand": "Animatek",
+    "version": "2.5.4",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/animatek/UZZ-VCV-RACK",
+    "libraryUrl": "https://library.vcvrack.com/Animatek/UnitDistanceSeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Animatek/UnitDistanceSeq.webp",
+    "wasmUrl": "packages/Animatek/UnitDistanceSeq/2.5.4/module.wasm",
+    "width": 180,
+    "description": "Compact deterministic polyphonic generative sequencer based on unit-distance graph walks. Seeded 2D nodes create graph transitions, with musical density, gate-density and bipolar 16/32-step gradual lock controls, quantized minor-scale pitch, gate, accent, X CV and Y CV outputs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Seed",
+        "min": 0,
+        "max": 999,
+        "default": 1,
+        "position": {
+          "x": 44.291,
+          "y": 174.213,
+          "centered": true,
+          "widget": "Davies1900hLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Nodes",
+        "min": 8,
+        "max": 64,
+        "default": 16,
+        "position": {
+          "x": 132.874,
+          "y": 174.213,
+          "centered": true,
+          "widget": "Davies1900hLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Unit radius",
+        "min": 0.25,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 44.291,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Davies1900hLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tolerance fine",
+        "min": 0.009999999776482582,
+        "max": 0.20000000298023224,
+        "default": 0.03999999910593033,
+        "position": {
+          "x": 20.669,
+          "y": 299.705,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.3499999940395355,
+        "position": {
+          "x": 132.874,
+          "y": 248.031,
+          "centered": true,
+          "widget": "Davies1900hLargeBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Walk mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 54.626,
+          "y": 299.705,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pitch range",
+        "min": 1,
+        "max": 4,
+        "default": 2,
+        "position": {
+          "x": 90.059,
+          "y": 299.705,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Gate length",
+        "min": 0.05000000074505806,
+        "max": 0.949999988079071,
+        "default": 0.44999998807907104,
+        "position": {
+          "x": 125.492,
+          "y": 299.705,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate density",
+        "min": 0.15000000596046448,
+        "max": 1,
+        "default": 0.75,
+        "position": {
+          "x": 159.449,
+          "y": 299.705,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Lock",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88.583,
+          "y": 205.217,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 26.575,
+          "y": 32.48,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 67.913,
+          "y": 32.48,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Seed CV",
+        "kind": "cv",
+        "position": {
+          "x": 109.252,
+          "y": 32.48,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Density CV",
+        "kind": "cv",
+        "position": {
+          "x": 150.591,
+          "y": 32.48,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "V/oct",
+        "kind": "cv",
+        "position": {
+          "x": 20.669,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 56.102,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Accent",
+        "kind": "cv",
+        "position": {
+          "x": 91.535,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "X CV",
+        "kind": "cv",
+        "position": {
+          "x": 126.969,
+          "y": 333.661,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Y CV",
+        "kind": "cv",
+        "position": {
+          "x": 162.402,
+          "y": 333.661,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Animatek/UnitDistanceSeq/2.5.4/manifest.json",
+    "sourceCommit": "6598dd67a84c398317b405c88e58d0277ba0412d",
+    "artifact": {
+      "sha256": "ecc242ba15714515c17a73cd7908bf1a5e05c4fb950247379b54917460b7d5c8",
+      "size": 99231
+    }
+  },
+  "source": {
+    "url": "https://github.com/animatek/UZZ-VCV-RACK",
+    "commit": "6598dd67a84c398317b405c88e58d0277ba0412d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:55:50.702Z"
+  }
+}
