@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AlteredStateMachines/Aristotle",
+    "plugin": "AlteredStateMachines",
+    "model": "Aristotle",
+    "name": "Aristotle",
+    "brand": "Altered State Machines",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://codeberg.org/alteredstatemachines/alteredstatemachines-vcv",
+    "libraryUrl": "https://library.vcvrack.com/AlteredStateMachines/Aristotle",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AlteredStateMachines/Aristotle.webp",
+    "wasmUrl": "packages/AlteredStateMachines/Aristotle/2.0.1/module.wasm",
+    "width": 150,
+    "description": "Nonlinear 2 Channel Counterpoint Voltage Sequencer (Aristotle hardware clone)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel A Wider Voltage Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Channel B Wider Voltage Range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Channel A Stage 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.012,
+          "y": 171.85,
+          "centered": true,
+          "widget": "VCVLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel A Stage 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 55.659,
+          "y": 171.85,
+          "centered": true,
+          "widget": "VCVLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Channel A Stage 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 93.602,
+          "y": 171.85,
+          "centered": true,
+          "widget": "VCVLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel A Stage 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 131.398,
+          "y": 171.85,
+          "centered": true,
+          "widget": "VCVLightSlider<GreenLight>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Channel B Stage 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 18.012,
+          "y": 287.598,
+          "centered": true,
+          "widget": "VCVLightSlider<RedLight>"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Channel B Stage 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 55.659,
+          "y": 287.598,
+          "centered": true,
+          "widget": "VCVLightSlider<RedLight>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Channel B Stage 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 93.602,
+          "y": 287.598,
+          "centered": true,
+          "widget": "VCVLightSlider<RedLight>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Channel B Stage 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 131.398,
+          "y": 287.598,
+          "centered": true,
+          "widget": "VCVLightSlider<RedLight>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset A",
+        "kind": "gate",
+        "position": {
+          "x": 17.421,
+          "y": 52.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset B",
+        "kind": "gate",
+        "position": {
+          "x": 55.659,
+          "y": 52.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger 1",
+        "kind": "gate",
+        "position": {
+          "x": 17.717,
+          "y": 90.65,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger 2",
+        "kind": "gate",
+        "position": {
+          "x": 55.659,
+          "y": 90.65,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trigger 3",
+        "kind": "gate",
+        "position": {
+          "x": 93.75,
+          "y": 90.65,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Trigger 4",
+        "kind": "gate",
+        "position": {
+          "x": 131.988,
+          "y": 90.65,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel A Output V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 93.602,
+          "y": 52.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel B Output V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 131.988,
+          "y": 52.028,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 10,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 76.181,
+          "y": 39.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 112.146,
+          "y": 39.921,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightSlider<GreenLight>",
+        "position": {
+          "x": 18.012,
+          "y": 171.85,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightSlider<GreenLight>",
+        "position": {
+          "x": 55.659,
+          "y": 171.85,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightSlider<GreenLight>",
+        "position": {
+          "x": 93.602,
+          "y": 171.85,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 5,
+        "widget": "VCVLightSlider<GreenLight>",
+        "position": {
+          "x": 131.398,
+          "y": 171.85,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightSlider<RedLight>",
+        "position": {
+          "x": 18.012,
+          "y": 287.598,
+          "centered": true
+        },
+        "paramId": 6
+      },
+      {
+        "id": 7,
+        "widget": "VCVLightSlider<RedLight>",
+        "position": {
+          "x": 55.659,
+          "y": 287.598,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 8,
+        "widget": "VCVLightSlider<RedLight>",
+        "position": {
+          "x": 93.602,
+          "y": 287.598,
+          "centered": true
+        },
+        "paramId": 8
+      },
+      {
+        "id": 9,
+        "widget": "VCVLightSlider<RedLight>",
+        "position": {
+          "x": 131.398,
+          "y": 287.598,
+          "centered": true
+        },
+        "paramId": 9
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AlteredStateMachines/Aristotle/2.0.1/manifest.json",
+    "sourceCommit": "2000f2e118074cdcadfb84b529b64cd60ac532c0",
+    "artifact": {
+      "sha256": "84ed4199af4ef1fd635e243285768a89a99ac46480b450c55744f9e58d20df57",
+      "size": 81016
+    }
+  },
+  "source": {
+    "url": "https://codeberg.org/alteredstatemachines/alteredstatemachines-vcv",
+    "commit": "2000f2e118074cdcadfb84b529b64cd60ac532c0"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T16:48:51.253Z"
+  }
+}
