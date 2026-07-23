@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/MiniBoss",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "MiniBoss",
+    "name": "Mini Boss",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/MiniBoss",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/MiniBoss.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/MiniBoss/2.0.0/module.wasm",
+    "width": 240,
+    "description": "An emulation of the Yamaha YM2612 FM synthesis chip from the Sega Mega Drive and Sega Genesis.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Attack Rate",
+        "min": 1,
+        "max": 31,
+        "default": 31
+      },
+      {
+        "id": 1,
+        "name": "Total Level",
+        "min": 0,
+        "max": 100,
+        "default": 100
+      },
+      {
+        "id": 2,
+        "name": "Decay Rate",
+        "min": 0,
+        "max": 31,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Sustain Level",
+        "min": 0,
+        "max": 15,
+        "default": 15
+      },
+      {
+        "id": 4,
+        "name": "Sustain Rate",
+        "min": 0,
+        "max": 31,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Release Rate",
+        "min": 0,
+        "max": 15,
+        "default": 15
+      },
+      {
+        "id": 6,
+        "name": "Looping Envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 209,
+          "y": 43,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Rate Scaling",
+        "min": 0,
+        "max": 3,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Frequency",
+        "min": -5,
+        "max": 5,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Param LFO",
+        "min": 0,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Param Fms",
+        "min": 0,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 11,
+        "name": "Param Ams",
+        "min": 0,
+        "max": 3,
+        "default": 0
+      },
+      {
+        "id": 12,
+        "name": "Frequency Modulation",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Param Mul",
+        "min": 0,
+        "max": 15,
+        "default": 1
+      },
+      {
+        "id": 14,
+        "name": "Feedback",
+        "min": 0,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 15,
+        "name": "Output Volume",
+        "min": 0,
+        "max": 127,
+        "default": 127
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Attack Rate",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 288
+        }
+      },
+      {
+        "id": 1,
+        "name": "Total Level",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 288
+        }
+      },
+      {
+        "id": 2,
+        "name": "1st Decay Rate",
+        "kind": "cv",
+        "position": {
+          "x": 87,
+          "y": 288
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sustain Level",
+        "kind": "cv",
+        "position": {
+          "x": 124,
+          "y": 288
+        }
+      },
+      {
+        "id": 4,
+        "name": "2nd Decay Rate",
+        "kind": "cv",
+        "position": {
+          "x": 161,
+          "y": 288
+        }
+      },
+      {
+        "id": 5,
+        "name": "Release Rate",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 288
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 13,
+          "y": 331
+        }
+      },
+      {
+        "id": 7,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 50,
+          "y": 331
+        }
+      },
+      {
+        "id": 8,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 87,
+          "y": 331
+        }
+      },
+      {
+        "id": 9,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 124,
+          "y": 331
+        }
+      },
+      {
+        "id": 10,
+        "name": "Volume",
+        "kind": "cv",
+        "position": {
+          "x": 161,
+          "y": 331
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 198,
+          "y": 331
+        }
+      }
+    ],
+    "lights": 18,
+    "stateKeys": [
+      {
+        "key": "prevent_clicks",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/MiniBoss/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "c6994d379943db964d7f1a7a64ab70036205832d5bea3cf41858a32c0ff35e18",
+      "size": 103458
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T07:09:13.067Z"
+  }
+}
