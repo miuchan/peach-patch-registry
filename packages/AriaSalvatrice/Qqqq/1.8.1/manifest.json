@@ -1,0 +1,708 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "AriaSalvatrice/Qqqq",
+    "plugin": "AriaSalvatrice",
+    "model": "Qqqq",
+    "name": "Quatherina's Quality Quad Quantizer",
+    "brand": "Aria Salvatrice",
+    "version": "1.8.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/AriaSalvatrice/AriaVCVModules",
+    "libraryUrl": "https://library.vcvrack.com/AriaSalvatrice/Qqqq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/AriaSalvatrice/Qqqq.webp",
+    "wasmUrl": "packages/AriaSalvatrice/Qqqq/1.8.1/module.wasm",
+    "width": 300,
+    "description": "Quatherina the Quantum Duck's Quantizer with custom & Poly External Scales, 16 scenes, offset, sample and hold,\ntransposition, lead sheet chords parsing, 4 polyphonic quantizer columns, and a licensed illustration of Quatherina",
+    "params": [
+      {
+        "id": 0,
+        "name": "C",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "C#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "D",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "D#",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "E",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "F",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "F#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "G",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "G#",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "A#",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Scaling",
+        "min": -100,
+        "max": 300,
+        "default": 100,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Scaling",
+        "min": -100,
+        "max": 300,
+        "default": 100,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Scaling",
+        "min": -100,
+        "max": 300,
+        "default": 100,
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Scaling",
+        "min": -100,
+        "max": 300,
+        "default": 100,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Transpose",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Transpose",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Transpose",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Transpose",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Transpose Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "Transpose Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "Transpose Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "Transpose Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "S&H / T&H Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "S&H / T&H Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 30,
+        "name": "S&H / T&H Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 31,
+        "name": "S&H / T&H Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "Visualize on Piano",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 33,
+        "name": "Visualize on Piano",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 34,
+        "name": "Visualize on Piano",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 35,
+        "name": "Visualize on Piano",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 36,
+        "name": "Scene #1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 37,
+        "name": "Param 38",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 38,
+        "name": "Param 39",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 39,
+        "name": "Param 40",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 40,
+        "name": "Param 41",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 41,
+        "name": "Param 42",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 42,
+        "name": "Param 43",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 43,
+        "name": "Param 44",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 44,
+        "name": "Param 45",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 45,
+        "name": "Param 46",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 46,
+        "name": "Param 47",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 47,
+        "name": "Param 48",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 48,
+        "name": "Param 49",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 49,
+        "name": "Param 50",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 50,
+        "name": "Param 51",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 51,
+        "name": "Param 52",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 52,
+        "name": "Key",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 73.819,
+          "y": 85.63,
+          "widget": "QqqqWidgets::ScaleKnob"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Scale",
+        "min": 0,
+        "max": 16,
+        "default": 2,
+        "position": {
+          "x": 103.346,
+          "y": 85.63,
+          "widget": "QqqqWidgets::ScaleKnob"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Param 55",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 245.079,
+          "y": 196.358,
+          "widget": "QqqqWidgets::PushButtonKeyboard"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "CV 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "CV 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Sh 1",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Sh 2",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Sh 3",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Sh 4",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Ext Scale",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Scene",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "CV 3",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "CV 4",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Ext Scale",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Debug 1",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Debug 2",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Debug 3",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Debug 4",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "W::StatusLightInput",
+        "position": {
+          "x": 4.134,
+          "y": 369.685
+        }
+      },
+      {
+        "id": 1,
+        "widget": "W::StatusLightOutput",
+        "position": {
+          "x": 289.665,
+          "y": 369.685
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "sceneTrigSelection",
+        "type": "boolean"
+      },
+      {
+        "key": "scene",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "scene",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "scene",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "AriaSalvatrice/Qqqq",
+            "symbol": "modelQqqq",
+            "index": 0
+          },
+          {
+            "key": "AriaSalvatrice/Quack",
+            "symbol": "modelQuack",
+            "index": 1
+          },
+          {
+            "key": "AriaSalvatrice/Q",
+            "symbol": "modelQ",
+            "index": 2
+          },
+          {
+            "key": "AriaSalvatrice/Quale",
+            "symbol": "modelQuale",
+            "index": 3
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/AriaSalvatrice/Qqqq/1.8.1/manifest.json",
+    "sourceCommit": "6db2f4ab46de3efb7b9da1ec1024f01a6d90cd18",
+    "artifact": {
+      "sha256": "0ae42d49b7007ad8303c32eb79747087ab9d275848248c9bb8458abd3cfe99c4",
+      "size": 107217
+    }
+  },
+  "source": {
+    "url": "https://github.com/AriaSalvatrice/AriaVCVModules",
+    "commit": "6db2f4ab46de3efb7b9da1ec1024f01a6d90cd18"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T20:08:12.124Z"
+  }
+}
