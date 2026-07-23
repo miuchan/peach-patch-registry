@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Stoermelder-P1/IntermixGate",
+    "plugin": "Stoermelder-P1",
+    "model": "IntermixGate",
+    "name": "INTERMIX-GATE",
+    "brand": "stoermelder",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stoermelder/vcvrack-packone.git",
+    "libraryUrl": "https://library.vcvrack.com/Stoermelder-P1/IntermixGate",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Stoermelder-P1/IntermixGate.webp",
+    "wasmUrl": "packages/Stoermelder-P1/IntermixGate/2.5.0/module.wasm",
+    "width": 100,
+    "description": "Expander for INTERMIX outputting a gate-signal for each active row.\nLights up a dedicated gate output as soon as a row has at least one active connection, perfect for visualising or sequencing your matrix.",
+    "params": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "OUT 2",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "OUT 3",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OUT 4",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUT 5",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUT 6",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "OUT 7",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "OUT 8",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 53,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Stoermelder-P1/Intermix",
+            "symbol": "modelIntermix",
+            "index": 0
+          },
+          {
+            "key": "Stoermelder-P1/IntermixGate",
+            "symbol": "modelIntermixGate",
+            "index": 1
+          },
+          {
+            "key": "Stoermelder-P1/IntermixEnv",
+            "symbol": "modelIntermixEnv",
+            "index": 2
+          },
+          {
+            "key": "Stoermelder-P1/IntermixFade",
+            "symbol": "modelIntermixFade",
+            "index": 3
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Stoermelder-P1/IntermixGate/2.5.0/manifest.json",
+    "sourceCommit": "d02f0b6d79e792416c5876e369adf2e69f5513bc",
+    "artifact": {
+      "sha256": "7cbb746de0a98305e3cbd4e7ee96bcfc04da6c9bad5dea4e0d87cf87e5a332cf",
+      "size": 70382
+    }
+  },
+  "source": {
+    "url": "https://github.com/stoermelder/vcvrack-packone.git",
+    "commit": "d02f0b6d79e792416c5876e369adf2e69f5513bc"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:30:58.986Z"
+  }
+}

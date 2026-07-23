@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Stoermelder-P1/Spin",
+    "plugin": "Stoermelder-P1",
+    "model": "Spin",
+    "name": "SPIN",
+    "brand": "stoermelder",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stoermelder/vcvrack-packone.git",
+    "libraryUrl": "https://library.vcvrack.com/Stoermelder-P1/Spin",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Stoermelder-P1/Spin.webp",
+    "wasmUrl": "packages/Stoermelder-P1/Spin/2.5.0/module.wasm",
+    "width": 100,
+    "description": "Utility for converting mouse-wheel movement into triggers, also handles middle-click of mouse, useful for SAIL.\nOutputs increment and decrement triggers from scrolling and gates from the middle button, with configurable keyboard modifiers.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Only active while parameter-hovering",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 332.9,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mouse wheel down trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 290.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mouse wheel up trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 254.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Middle mouse button trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 218.4,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "mods",
+        "type": "integer"
+      },
+      {
+        "key": "clickMode",
+        "type": "integer"
+      },
+      {
+        "key": "clickHigh",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Stoermelder-P1/Spin/2.5.0/manifest.json",
+    "sourceCommit": "d02f0b6d79e792416c5876e369adf2e69f5513bc",
+    "artifact": {
+      "sha256": "06495fa88b29e6ffb0be98b7ff45e136bd4324a0aa45f504990f7bb2001571f9",
+      "size": 72706
+    }
+  },
+  "source": {
+    "url": "https://github.com/stoermelder/vcvrack-packone.git",
+    "commit": "d02f0b6d79e792416c5876e369adf2e69f5513bc"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-23T00:35:11.823Z"
+  }
+}
