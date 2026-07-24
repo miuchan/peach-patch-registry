@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Meter",
+    "plugin": "SignalFunctionSet",
+    "model": "Meter",
+    "name": "Meter",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Meter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Meter.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Meter/2.16.3/module.wasm",
+    "width": 270,
+    "description": "Time-signature-aware musical clock with bar/quarter/eighth/sixteenth/triplet outputs, CV-controllable time signature, and external clock sync",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 30,
+        "max": 300,
+        "default": 120,
+        "position": {
+          "x": 29.705,
+          "y": 149.97,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Numerator",
+        "min": 1,
+        "max": 16,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 262.47,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Denominator",
+        "min": 0,
+        "max": 5,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 60,
+          "y": 262.47,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Run / Stop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 29.557,
+          "y": 360,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 149.97,
+          "y": 360,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bar Swing",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Quarter Swing",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 149.97,
+          "y": 179.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Eighth Swing",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 149.97,
+          "y": 209.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sixteenth Swing",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 149.97,
+          "y": 239.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Quarter Triplet Swing",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 149.97,
+          "y": 269.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Eighth Triplet Swing",
+        "min": -0.5,
+        "max": 0.5,
+        "default": 0,
+        "position": {
+          "x": 149.97,
+          "y": 299.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "BPM CV (additive ~27 BPM/V, or absolute 0.01V/BPM via menu)",
+        "kind": "cv",
+        "position": {
+          "x": 59.705,
+          "y": 149.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Numerator CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 299.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Denominator CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 299.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Run gate",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "External clock",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 209.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bar Swing CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Quarter Swing CV",
+        "kind": "cv",
+        "position": {
+          "x": 179.97,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Eighth Swing CV",
+        "kind": "cv",
+        "position": {
+          "x": 179.97,
+          "y": 209.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sixteenth Swing CV",
+        "kind": "cv",
+        "position": {
+          "x": 179.97,
+          "y": 239.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Quarter Triplet Swing CV",
+        "kind": "cv",
+        "position": {
+          "x": 179.97,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Eighth Triplet Swing CV",
+        "kind": "cv",
+        "position": {
+          "x": 179.97,
+          "y": 299.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Reset (resets bar/position, forwards to Reset OUT)",
+        "kind": "gate",
+        "position": {
+          "x": 179.97,
+          "y": 360,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Bar",
+        "kind": "gate",
+        "position": {
+          "x": 239.97,
+          "y": 329.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Quarter note (swung)",
+        "kind": "gate",
+        "position": {
+          "x": 209.97,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Eighth note (swung)",
+        "kind": "gate",
+        "position": {
+          "x": 209.97,
+          "y": 209.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sixteenth note (swung)",
+        "kind": "gate",
+        "position": {
+          "x": 209.97,
+          "y": 239.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Quarter triplet (swung)",
+        "kind": "gate",
+        "position": {
+          "x": 209.97,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Eighth triplet (swung)",
+        "kind": "gate",
+        "position": {
+          "x": 209.97,
+          "y": 299.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset (fires on Reset button or Reset IN)",
+        "kind": "gate",
+        "position": {
+          "x": 239.97,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Quarter note (grid, no swing)",
+        "kind": "gate",
+        "position": {
+          "x": 239.97,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Eighth note (grid, no swing)",
+        "kind": "gate",
+        "position": {
+          "x": 239.97,
+          "y": 209.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Sixteenth note (grid, no swing)",
+        "kind": "gate",
+        "position": {
+          "x": 239.97,
+          "y": 239.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Quarter triplet (grid)",
+        "kind": "gate",
+        "position": {
+          "x": 239.97,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Eighth triplet (grid)",
+        "kind": "gate",
+        "position": {
+          "x": 239.97,
+          "y": 299.97,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 29.557,
+          "y": 360,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "extClockPpqnIndex",
+        "type": "integer"
+      },
+      {
+        "key": "applyTimeSigImmediately",
+        "type": "boolean"
+      },
+      {
+        "key": "resetOnPlay",
+        "type": "boolean"
+      },
+      {
+        "key": "bpmCvAbsolute",
+        "type": "boolean"
+      },
+      {
+        "key": "barsSinceReset",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "SignalFunctionSet/MeterExpander",
+            "symbol": "modelMeterExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Meter/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "e3322f67d72b50aa00bde4c380ebd1ff8e27df68b090dcd7f17c252066bbbb5a",
+      "size": 88022
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T16:14:11.264Z"
+  }
+}
