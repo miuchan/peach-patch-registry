@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Befaco/ChoppingKinky",
+    "plugin": "Befaco",
+    "model": "ChoppingKinky",
+    "name": "Chopping Kinky",
+    "brand": "Befaco",
+    "version": "2.11.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/VCVRack/Befaco",
+    "libraryUrl": "https://library.vcvrack.com/Befaco/ChoppingKinky",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/ChoppingKinky.webp",
+    "wasmUrl": "packages/Befaco/ChoppingKinky/2.11.0/module.wasm",
+    "width": 120,
+    "description": "Voltage controllable, dual channel wavefolder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Gain/shape control for channel A",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 76.922,
+          "y": 64.958,
+          "centered": true,
+          "widget": "Davies1900hLargeWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gain/shape control for channel B",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 76.922,
+          "y": 185.339,
+          "centered": true,
+          "widget": "Davies1900hLargeWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel A CV control attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30.313,
+          "y": 245.956,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel A CV control attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 89.401,
+          "y": 245.956,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 18.092,
+          "y": 82.214,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 18.024,
+          "y": 166.482,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Chopp",
+        "kind": "gate",
+        "position": {
+          "x": 76.94,
+          "y": 124.689,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV A (with attenuator)",
+        "kind": "cv",
+        "position": {
+          "x": 15.381,
+          "y": 290.844,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV A",
+        "kind": "cv",
+        "position": {
+          "x": 45.056,
+          "y": 290.844,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "CV B (with attenuator)",
+        "kind": "cv",
+        "position": {
+          "x": 74.728,
+          "y": 290.844,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "CV B",
+        "kind": "cv",
+        "position": {
+          "x": 104.404,
+          "y": 290.844,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Chopp",
+        "kind": "cv",
+        "position": {
+          "x": 59.734,
+          "y": 323.826,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "A",
+        "kind": "cv",
+        "position": {
+          "x": 28.314,
+          "y": 327.097,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "B",
+        "kind": "cv",
+        "position": {
+          "x": 91.804,
+          "y": 327.009,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 76.94,
+          "y": 98.347,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 76.94,
+          "y": 152.156,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "filterDC",
+        "type": "boolean"
+      },
+      {
+        "key": "oversamplingIndex",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Befaco/ChoppingKinky/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
+    "artifact": {
+      "sha256": "4b962afe0ab3844c06c94b038cb5e8f774ee556da796ecca45c546b91db41675",
+      "size": 112152
+    }
+  },
+  "source": {
+    "url": "https://github.com/VCVRack/Befaco",
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T00:48:34.422Z"
+  }
+}

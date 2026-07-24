@@ -9,15 +9,12 @@
     "brand": "Befaco",
     "version": "2.11.0",
     "license": "GPL-3.0-or-later",
-    "runtime": {
-      "strategy": "browser-dsp-adapter"
-    },
     "sourceUrl": "https://github.com/VCVRack/Befaco",
     "libraryUrl": "https://library.vcvrack.com/Befaco/SpringReverb",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/SpringReverb.webp",
     "wasmUrl": "packages/Befaco/SpringReverb/2.11.0/module.wasm",
     "width": 120,
-    "description": "Dispersive feedback-network web adapter replacing the native spring IR convolver",
+    "description": "Spring reverb tank driver",
     "params": [
       {
         "id": 0,
@@ -33,7 +30,7 @@
       },
       {
         "id": 1,
-        "name": "Level 1",
+        "name": "In 1 level",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -45,7 +42,7 @@
       },
       {
         "id": 2,
-        "name": "Level 2",
+        "name": "In 2 level",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -57,7 +54,7 @@
       },
       {
         "id": 3,
-        "name": "HPF",
+        "name": "High pass filter cutoff",
         "min": 0,
         "max": 1,
         "default": 0.5,
@@ -89,7 +86,7 @@
       },
       {
         "id": 2,
-        "name": "IN 1",
+        "name": "In 1",
         "kind": "audio",
         "position": {
           "x": 27,
@@ -98,7 +95,7 @@
       },
       {
         "id": 3,
-        "name": "IN 2",
+        "name": "In 2",
         "kind": "audio",
         "position": {
           "x": 67,
@@ -107,7 +104,7 @@
       },
       {
         "id": 4,
-        "name": "MIX CV",
+        "name": "Mix CV",
         "kind": "cv",
         "position": {
           "x": 47,
@@ -118,7 +115,7 @@
     "outputs": [
       {
         "id": 0,
-        "name": "MIX",
+        "name": "Mix",
         "kind": "audio",
         "position": {
           "x": 7,
@@ -127,7 +124,7 @@
       },
       {
         "id": 1,
-        "name": "WET",
+        "name": "Wet",
         "kind": "audio",
         "position": {
           "x": 88,
@@ -202,19 +199,24 @@
         }
       }
     ],
+    "runtime": {
+      "initialMemory": 18939904,
+      "strategy": "direct-rack-source-adapter"
+    },
     "manifestUrl": "packages/Befaco/SpringReverb/2.11.0/manifest.json",
+    "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
     "artifact": {
-      "sha256": "532827b6b8d1c0af816f033021bd3742f104cc88eec798a5057c12799dcc4eb5",
-      "size": 73872
+      "sha256": "c40fc56feca8c8d60384de7970bb96cae818b9d795db8965f08819cab420b494",
+      "size": 1526542
     }
   },
   "source": {
     "url": "https://github.com/VCVRack/Befaco",
-    "commit": null
+    "commit": "637e42c1589d212ff70eee1ffa35236e72ac78c6"
   },
   "build": {
-    "strategy": "browser-dsp-adapter",
+    "strategy": "direct-rack-source-adapter",
     "fingerprint": null,
-    "builtAt": null
+    "builtAt": "2026-07-24T00:59:28.652Z"
   }
 }

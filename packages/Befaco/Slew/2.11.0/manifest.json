@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Befaco/Slew",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Befaco/Slew.webp",
     "wasmUrl": "packages/Befaco/Slew/2.11.0/module.wasm",
-    "width": 180,
+    "width": 60,
     "description": "Voltage-controlled lag processor and slope detector",
     "params": [
       {
@@ -21,7 +21,13 @@
         "name": "Shape",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 29.04,
+          "y": 89.309,
+          "centered": true,
+          "widget": "BefacoTinyKnobDarkGrey"
+        }
       },
       {
         "id": 1,
@@ -29,21 +35,36 @@
         "min": 0,
         "max": 2,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 15.966,
+          "y": 112.509,
+          "widget": "CKSSThreeHorizontal"
+        }
       },
       {
         "id": 2,
         "name": "Rise",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 7.031,
+          "y": 142.586,
+          "widget": "BefacoSlidePot"
+        }
       },
       {
         "id": 3,
         "name": "Fall",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 37.5,
+          "y": 142.586,
+          "widget": "BefacoSlidePot"
+        }
       },
       {
         "id": 4,
@@ -51,39 +72,89 @@
         "min": 0,
         "max": 2,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 39.422,
+          "y": 320.781,
+          "widget": "CKSSNarrow3"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "In",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 14.699,
+          "y": 45.664,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 14.699,
+          "y": 331.394,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Out",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 43.828,
+          "y": 45.729,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Rising",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 14.699,
+          "y": 293.501,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Falling",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 44.498,
+          "y": 293.501,
+          "centered": true
+        }
       }
     ],
     "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 44.646,
+          "y": 266.92,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 14.699,
+          "y": 268.698,
+          "centered": true
+        }
+      }
+    ],
     "runtime": {
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
@@ -91,8 +162,8 @@
     "manifestUrl": "packages/Befaco/Slew/2.11.0/manifest.json",
     "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
     "artifact": {
-      "sha256": "6ca6c5167789a159f21ab6547aa85091d16524c4b77209b1fb12653fb2d6e3f0",
-      "size": 56596
+      "sha256": "7545d0e31f8039726b7628f723865b5dd0471ef35ff38275b23090ce5349307f",
+      "size": 85838
     }
   },
   "source": {
@@ -101,7 +172,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": "c028c37a6c11c425",
-    "builtAt": "2026-07-18T05:53:08.886Z"
+    "fingerprint": null,
+    "builtAt": "2026-07-24T00:53:40.309Z"
   }
 }
