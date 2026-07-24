@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "OkaySynthesizer/lowstepper",
+    "plugin": "OkaySynthesizer",
+    "model": "lowstepper",
+    "name": "lowstepper",
+    "brand": "Okay Synthesizer",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/rafkhan/okay-synthesizer-vcvrack",
+    "libraryUrl": "https://library.vcvrack.com/OkaySynthesizer/lowstepper",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/OkaySynthesizer/lowstepper.webp",
+    "wasmUrl": "packages/OkaySynthesizer/lowstepper/2.0.1/module.wasm",
+    "width": 150,
+    "description": "Dual phase maniuplation LFO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate Knob A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20.669,
+          "y": 71.212,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate Knob B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126.969,
+          "y": 71.212,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Morph Knob B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126.969,
+          "y": 116.979,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Morph Knob A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20.669,
+          "y": 118.456,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Start Knob A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20.669,
+          "y": 168.653,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Start Knob B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126.969,
+          "y": 168.319,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "End Knob A",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 20.669,
+          "y": 215.897,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "End Knob B",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 126.969,
+          "y": 215.897,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Speed Toggle A",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 41.339,
+          "y": 240.281,
+          "centered": true,
+          "widget": "SlowMedFastSwitch"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Speed Toggle B",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 109.252,
+          "y": 240.281,
+          "centered": true,
+          "widget": "SlowMedFastSwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "RATE_CV_A",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 69.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "RATE_CV_B",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 69.735,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "MORPH_CV_A",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 116.979,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "MORPH_CV_B",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 116.979,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "START_CV_B",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 166.843,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "START_CV_A",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 167.176,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "END_CV_A",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 214.42,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "END_CV_B",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 214.42,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "SYNC_CV_A",
+        "kind": "cv",
+        "position": {
+          "x": 17.717,
+          "y": 277.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "RESET_CV_A",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 277.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "SYNC_CV_B",
+        "kind": "cv",
+        "position": {
+          "x": 91.899,
+          "y": 277.559,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "RESET_CV_B",
+        "kind": "cv",
+        "position": {
+          "x": 130.284,
+          "y": 277.559,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV_OUT_A",
+        "kind": "cv",
+        "position": {
+          "x": 17.717,
+          "y": 317.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "EOC_A",
+        "kind": "cv",
+        "position": {
+          "x": 56.102,
+          "y": 317.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV_OUT_B",
+        "kind": "cv",
+        "position": {
+          "x": 91.899,
+          "y": 317.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "EOC_B",
+        "kind": "cv",
+        "position": {
+          "x": 130.284,
+          "y": 317.625,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 13.287,
+          "y": 239.932,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 137.832,
+          "y": 239.932,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/OkaySynthesizer/lowstepper/2.0.1/manifest.json",
+    "sourceCommit": "e06a976140b5fc782ef032ea1da4d2d0b9b4c267",
+    "artifact": {
+      "sha256": "407c9927f156dc22e432cb57b1fa1dc25c9083d97f7ea8d8f0be93ec7c8cfefa",
+      "size": 87611
+    }
+  },
+  "source": {
+    "url": "https://github.com/rafkhan/okay-synthesizer-vcvrack",
+    "commit": "e06a976140b5fc782ef032ea1da4d2d0b9b4c267"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T11:15:17.142Z"
+  }
+}
