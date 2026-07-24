@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Walk2",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Walk2",
+    "name": "WALK2",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Walk2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Walk2.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Walk2/2.6.47/module.wasm",
+    "width": 210,
+    "description": "2D random-walk and X/Y controller",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate X",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 28,
+          "y": 240,
+          "widget": "Knob29"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate Y",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 151.5,
+          "y": 240,
+          "widget": "Knob29"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Offset X",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 234,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset Y",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 119,
+          "y": 234,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale X",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 75,
+          "y": 262.5,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale Y",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 119,
+          "y": 262.5,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 6,
+        "name": "TRIG action",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 122,
+          "y": 341.7,
+          "widget": "StatefulButton9"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Offset X CV",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 284
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale X CV",
+        "kind": "cv",
+        "position": {
+          "x": 41.5,
+          "y": 284
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rate X CV",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 323
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset Y CV",
+        "kind": "cv",
+        "position": {
+          "x": 145.5,
+          "y": 284
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale Y CV",
+        "kind": "cv",
+        "position": {
+          "x": 176.5,
+          "y": 284
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rate Y CV",
+        "kind": "cv",
+        "position": {
+          "x": 145.5,
+          "y": 323
+        }
+      },
+      {
+        "id": 6,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 78,
+          "y": 291
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X signal",
+        "kind": "audio",
+        "position": {
+          "x": 41.5,
+          "y": 323
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y signal",
+        "kind": "audio",
+        "position": {
+          "x": 176.5,
+          "y": 323
+        }
+      },
+      {
+        "id": 2,
+        "name": "X/Y distance signal",
+        "kind": "audio",
+        "position": {
+          "x": 109,
+          "y": 291
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 90.5,
+          "y": 333
+        }
+      },
+      {
+        "id": 1,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 90.5,
+          "y": 343
+        }
+      },
+      {
+        "id": 2,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 90.5,
+          "y": 353
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "poly_input",
+        "type": "integer"
+      },
+      {
+        "key": "jump_mode",
+        "type": "string-enum",
+        "values": [
+          "jump",
+          "track_and_hold",
+          "sample_and_hold"
+        ]
+      },
+      {
+        "key": "zoom_out",
+        "type": "boolean"
+      },
+      {
+        "key": "grid",
+        "type": "boolean"
+      },
+      {
+        "key": "color",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Walk2/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "1e395b5f0f36d412ed19998ea04e23cf0382e69a2482546bb01d6b789a1b6cbc",
+      "size": 95662
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T10:19:37.446Z"
+  }
+}

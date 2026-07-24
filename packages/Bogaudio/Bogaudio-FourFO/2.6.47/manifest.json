@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-FourFO",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-FourFO",
+    "name": "4FO",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-FourFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-FourFO.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-FourFO/2.6.47/module.wasm",
+    "width": 150,
+    "description": "Quadrature LFO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -5,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 23,
+          "y": 42,
+          "widget": "Knob38"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Waveform",
+        "min": 1,
+        "max": 6,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 95,
+          "y": 53,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slow",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 49,
+          "y": 108.7,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Width",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 149,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Smoothing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 48,
+          "y": 149,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 198,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 48,
+          "y": 198,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase 0",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Phase 90",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Phase 180",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Phase 270",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sample/PWM CV",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 230
+        }
+      },
+      {
+        "id": 1,
+        "name": "Smoothing CV",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 230
+        }
+      },
+      {
+        "id": 2,
+        "name": "Offset CV",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 274
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 274
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 318
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 43,
+          "y": 318
+        }
+      },
+      {
+        "id": 6,
+        "name": "Phase 0 CV",
+        "kind": "cv",
+        "position": {
+          "x": 117,
+          "y": 104
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 104
+        }
+      },
+      {
+        "id": 8,
+        "name": "Phase 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 322
+        }
+      },
+      {
+        "id": 9,
+        "name": "Phase 3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 117,
+          "y": 322
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Phase 0",
+        "kind": "cv",
+        "position": {
+          "x": 117,
+          "y": 146
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase 1",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 146
+        }
+      },
+      {
+        "id": 2,
+        "name": "Phase 2",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 280
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phase 3",
+        "kind": "cv",
+        "position": {
+          "x": 117,
+          "y": 280
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "offset_scale",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-FourFO/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "71b92836407b3f23409c2d8b7e6e45be90b3c75f66d65360063cb5008be96b22",
+      "size": 109544
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T10:10:17.951Z"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Vish",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Vish",
+    "name": "VISH",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Vish",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Vish.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Vish/2.6.47/module.wasm",
+    "width": 75,
+    "description": "Vactrol-ish envelope generator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rise time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5773500204086304,
+        "position": {
+          "x": 12.5,
+          "y": 47,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rise shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52,
+          "y": 52,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fall time",
+        "min": 0,
+        "max": 1,
+        "default": 0.547722578048706,
+        "position": {
+          "x": 12.5,
+          "y": 111,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fall shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52,
+          "y": 116,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Minimum gate",
+        "min": 0,
+        "max": 1,
+        "default": 0.3162277638912201,
+        "position": {
+          "x": 23,
+          "y": 175,
+          "widget": "Knob29"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate to trigger mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 57,
+          "y": 220,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Timings 10X mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 55,
+          "y": 234,
+          "widget": "IndicatorButtonGreen9"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rise CV",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 251
+        }
+      },
+      {
+        "id": 1,
+        "name": "Minimum gate CV",
+        "kind": "cv",
+        "position": {
+          "x": 40.5,
+          "y": 251
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fall CV",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 288
+        }
+      },
+      {
+        "id": 3,
+        "name": "Shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 40.5,
+          "y": 288
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 10.5,
+          "y": 325
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 40.5,
+          "y": 325
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "rise_shape_mode",
+        "type": "string-enum",
+        "values": [
+          "off",
+          "on",
+          "inverted"
+        ]
+      },
+      {
+        "key": "fall_shape_mode",
+        "type": "string-enum",
+        "values": [
+          "off",
+          "on",
+          "inverted"
+        ]
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Vish/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "1360b70b212e2fcfe7f6a85761fb94c7b31e5cac28c46689e92718e5876aab2f",
+      "size": 92258
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T09:58:18.725Z"
+  }
+}

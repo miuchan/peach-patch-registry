@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-XCO",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-XCO",
+    "name": "XCO",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-XCO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-XCO.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-XCO/2.6.47/module.wasm",
+    "width": 300,
+    "description": "Oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -3,
+        "max": 6,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 45,
+          "widget": "Knob68"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine tune",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 153,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slow mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 112,
+          "y": 157.2,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 3,
+        "name": "FM depth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 55,
+          "y": 194,
+          "widget": "Knob38"
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 101.5,
+          "y": 256.5,
+          "widget": "SliderSwitch2State14"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Square wave pulse width",
+        "min": -0.9700000286102295,
+        "max": 0.9700000286102295,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 60,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Square wave phase",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 148,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Square wave mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 147,
+          "y": 237,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Saw wave saturation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 187,
+          "y": 60,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Saw wave phase",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 187,
+          "y": 148,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Saw wave mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 187,
+          "y": 237,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Triangle wave sampling",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 227,
+          "y": 60,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Triangle wave phase",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 227,
+          "y": 148,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Triangle wave mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 227,
+          "y": 237,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Sine wave feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 267,
+          "y": 60,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Sine wave phase",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 267,
+          "y": 148,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Sine wave mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 267,
+          "y": 237,
+          "widget": "Knob16"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency modulation",
+        "kind": "cv",
+        "position": {
+          "x": 29,
+          "y": 251
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM depth CV",
+        "kind": "cv",
+        "position": {
+          "x": 62,
+          "y": 251
+        }
+      },
+      {
+        "id": 2,
+        "name": "Square pulse width CV",
+        "kind": "cv",
+        "position": {
+          "x": 143,
+          "y": 95
+        }
+      },
+      {
+        "id": 3,
+        "name": "Square phase CV",
+        "kind": "cv",
+        "position": {
+          "x": 143,
+          "y": 183
+        }
+      },
+      {
+        "id": 4,
+        "name": "Square mix CV",
+        "kind": "cv",
+        "position": {
+          "x": 143,
+          "y": 272
+        }
+      },
+      {
+        "id": 5,
+        "name": "Saw saturation CV",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 95
+        }
+      },
+      {
+        "id": 6,
+        "name": "Saw phase CV",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 183
+        }
+      },
+      {
+        "id": 7,
+        "name": "Saw mix CV",
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 272
+        }
+      },
+      {
+        "id": 8,
+        "name": "Triangle sample CV",
+        "kind": "cv",
+        "position": {
+          "x": 223,
+          "y": 95
+        }
+      },
+      {
+        "id": 9,
+        "name": "Triangle phase CV",
+        "kind": "cv",
+        "position": {
+          "x": 223,
+          "y": 183
+        }
+      },
+      {
+        "id": 10,
+        "name": "Triangle mix CV",
+        "kind": "cv",
+        "position": {
+          "x": 223,
+          "y": 272
+        }
+      },
+      {
+        "id": 11,
+        "name": "Sine feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 263,
+          "y": 95
+        }
+      },
+      {
+        "id": 12,
+        "name": "Sine phase CV",
+        "kind": "cv",
+        "position": {
+          "x": 263,
+          "y": 183
+        }
+      },
+      {
+        "id": 13,
+        "name": "Sine mix CV",
+        "kind": "cv",
+        "position": {
+          "x": 263,
+          "y": 272
+        }
+      },
+      {
+        "id": 14,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv",
+        "position": {
+          "x": 17,
+          "y": 318
+        }
+      },
+      {
+        "id": 15,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 318
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Square signal",
+        "kind": "audio",
+        "position": {
+          "x": 143,
+          "y": 318
+        }
+      },
+      {
+        "id": 1,
+        "name": "Saw signal",
+        "kind": "audio",
+        "position": {
+          "x": 183,
+          "y": 318
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangle signal",
+        "kind": "audio",
+        "position": {
+          "x": 223,
+          "y": 318
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sine signal",
+        "kind": "audio",
+        "position": {
+          "x": 263,
+          "y": 318
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mixed signal",
+        "kind": "audio",
+        "position": {
+          "x": 103,
+          "y": 318
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "dc_correction",
+        "type": "boolean"
+      },
+      {
+        "key": "clipping_mode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-XCO/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "304583a45ccb3c6799208e8f2e025c2f1f8ab6fd2fbc8c853053b1fef4ff6400",
+      "size": 124964
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T04:55:46.320Z"
+  }
+}

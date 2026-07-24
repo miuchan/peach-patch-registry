@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-LLFO",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-LLFO",
+    "name": "LLFO",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-LLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-LLFO.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-LLFO/2.6.47/module.wasm",
+    "width": 45,
+    "description": "Low frequency oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -5,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 9.5,
+          "y": 27,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Slow mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 71,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Waveform",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.5,
+          "y": 126,
+          "widget": "StatefulButton9"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.5,
+          "y": 158.5,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 14.5,
+          "y": 199.5,
+          "widget": "Knob16"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 231
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 10.5,
+          "y": 266
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 10.5,
+          "y": 304
+        }
+      }
+    ],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 2,
+          "y": 89
+        }
+      },
+      {
+        "id": 1,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 2,
+          "y": 102
+        }
+      },
+      {
+        "id": 2,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 2,
+          "y": 115
+        }
+      },
+      {
+        "id": 6,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 2,
+          "y": 128
+        }
+      },
+      {
+        "id": 3,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 24,
+          "y": 89
+        }
+      },
+      {
+        "id": 4,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 24,
+          "y": 102
+        }
+      },
+      {
+        "id": 5,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 24,
+          "y": 115
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "offset_scale",
+        "type": "real"
+      },
+      {
+        "key": "output_sampling",
+        "type": "real"
+      },
+      {
+        "key": "pulse_width",
+        "type": "real"
+      },
+      {
+        "key": "smoothing",
+        "type": "real"
+      },
+      {
+        "key": "reset_on_wave_change",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-LLFO/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "5e9ad997e0c34646be549975c0be286b10c09845a9f4ff22025838d6717089d0",
+      "size": 109073
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T10:07:44.316Z"
+  }
+}

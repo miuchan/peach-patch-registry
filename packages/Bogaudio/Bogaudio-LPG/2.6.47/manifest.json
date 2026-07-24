@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-LPG",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-LPG",
+    "name": "LPG",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-LPG",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-LPG.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-LPG/2.6.47/module.wasm",
+    "width": 120,
+    "description": "Low-pass gate",
+    "params": [
+      {
+        "id": 0,
+        "name": "Response",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 19.5,
+          "y": 50,
+          "widget": "Knob45"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Long mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26,
+          "y": 106,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Rise shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88,
+          "y": 50,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fall shape",
+        "min": -1,
+        "max": 1,
+        "default": -0.5,
+        "position": {
+          "x": 88,
+          "y": 95,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 4,
+        "name": "LPF envelope amount",
+        "min": -1,
+        "max": 1,
+        "default": 0.800000011920929,
+        "position": {
+          "x": 27,
+          "y": 152,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75.5,
+          "y": 152,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 6,
+        "name": "VCA envelope amount",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 27.5,
+          "y": 219,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 7,
+        "name": "VCA level",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 219,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Linear VCA mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 258,
+          "widget": "IndicatorButtonGreen9"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Response CV",
+        "kind": "cv",
+        "position": {
+          "x": 18.5,
+          "y": 287
+        }
+      },
+      {
+        "id": 1,
+        "name": "LPF envelope response CV",
+        "kind": "cv",
+        "position": {
+          "x": 48.5,
+          "y": 287
+        }
+      },
+      {
+        "id": 2,
+        "name": "VCA envelope response CV",
+        "kind": "cv",
+        "position": {
+          "x": 78.5,
+          "y": 287
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 18.5,
+          "y": 324
+        }
+      },
+      {
+        "id": 4,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 48.5,
+          "y": 324
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 78.5,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "rise_shape_mode",
+        "type": "string-enum",
+        "values": [
+          "off",
+          "on",
+          "inverted"
+        ]
+      },
+      {
+        "key": "fall_shape_mode",
+        "type": "string-enum",
+        "values": [
+          "off",
+          "on",
+          "inverted"
+        ]
+      },
+      {
+        "key": "lpf_poles",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-LPG/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "1f42bb08ebebcfe1036caa82522ba0a0d700126fb23c1ea36b742afbf27131cd",
+      "size": 112591
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T09:52:23.323Z"
+  }
+}

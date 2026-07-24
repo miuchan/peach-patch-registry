@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-Ranalyzer",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-Ranalyzer",
+    "name": "RANALYZER",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Ranalyzer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Ranalyzer.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-Ranalyzer/2.6.47/module.wasm",
+    "width": 675,
+    "description": "Swept-sine frequency response analyzer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 24.5,
+          "y": 42,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frequency 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 24.5,
+          "y": 103.5,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 18,
+          "y": 154,
+          "widget": "Button18"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sweep",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 23,
+          "y": 213,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 62,
+          "y": 213,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Return sample delay",
+        "min": 2,
+        "max": 66,
+        "default": 2,
+        "position": {
+          "x": 29.5,
+          "y": 249.5,
+          "widget": "Knob16"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 40.5,
+          "y": 151
+        }
+      },
+      {
+        "id": 1,
+        "name": "Return signal",
+        "kind": "audio",
+        "position": {
+          "x": 40.5,
+          "y": 323
+        }
+      },
+      {
+        "id": 2,
+        "name": "Test signal",
+        "kind": "audio",
+        "position": {
+          "x": 30.5,
+          "y": 181
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 10.5,
+          "y": 286
+        }
+      },
+      {
+        "id": 1,
+        "name": "End-of-cycle trigger",
+        "kind": "gate",
+        "position": {
+          "x": 40.5,
+          "y": 286
+        }
+      },
+      {
+        "id": 2,
+        "name": "Send signal",
+        "kind": "audio",
+        "position": {
+          "x": 10.5,
+          "y": 323
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "frequency_plot",
+        "type": "string-enum",
+        "values": [
+          "log",
+          "linear"
+        ]
+      },
+      {
+        "key": "range",
+        "type": "real"
+      },
+      {
+        "key": "amplitude_plot",
+        "type": "string-enum",
+        "values": [
+          "decibels_80",
+          "decibels_140",
+          "percentage"
+        ]
+      },
+      {
+        "key": "triggerOnLoad",
+        "type": "boolean"
+      },
+      {
+        "key": "display_traces",
+        "type": "string-enum",
+        "values": [
+          "all",
+          "test_return",
+          "analysis"
+        ]
+      },
+      {
+        "key": "window_type",
+        "type": "string-enum",
+        "values": [
+          "none",
+          "taper",
+          "hamming",
+          "Kaiser"
+        ]
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-Ranalyzer/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "8173b667e283e51815f845eaab610fda7ac1b62f88fc5cb6e82eda77282dcd3f",
+      "size": 132419
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T07:47:31.491Z"
+  }
+}

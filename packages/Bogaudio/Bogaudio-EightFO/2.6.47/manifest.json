@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-EightFO",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-EightFO",
+    "name": "8FO",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-EightFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-EightFO.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-EightFO/2.6.47/module.wasm",
+    "width": 255,
+    "description": "LFO with outputs at 8 different phases",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -5,
+        "max": 8,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 45,
+          "widget": "Knob68"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Waveform",
+        "min": 1,
+        "max": 6,
+        "default": 3,
+        "snap": true,
+        "position": {
+          "x": 20,
+          "y": 178,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Width",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 100,
+          "y": 143,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phase 315",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Phase 270",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Phase 225",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Phase 180",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Phase 135",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Phase 90",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Phase 45",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Phase 0",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Slow",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 50,
+          "y": 139.7,
+          "widget": "IndicatorButtonGreen9"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Offset",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 235,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 100,
+          "y": 235,
+          "widget": "Knob26"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Smoothing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 100,
+          "y": 190,
+          "widget": "Knob26"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sample/PWM CV",
+        "kind": "cv",
+        "position": {
+          "x": 21,
+          "y": 277
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase 7 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 36
+        }
+      },
+      {
+        "id": 2,
+        "name": "Phase 6 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 76
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phase 5 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 116
+        }
+      },
+      {
+        "id": 4,
+        "name": "Phase 4 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 156
+        }
+      },
+      {
+        "id": 5,
+        "name": "Phase 3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 196
+        }
+      },
+      {
+        "id": 6,
+        "name": "Phase 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 236
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 276
+        }
+      },
+      {
+        "id": 8,
+        "name": "Phase 0 CV",
+        "kind": "cv",
+        "position": {
+          "x": 179,
+          "y": 316
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pitch (1V/octave)",
+        "kind": "cv",
+        "position": {
+          "x": 21,
+          "y": 318
+        }
+      },
+      {
+        "id": 10,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 59,
+          "y": 318
+        }
+      },
+      {
+        "id": 11,
+        "name": "Offset CV",
+        "kind": "cv",
+        "position": {
+          "x": 59,
+          "y": 277
+        }
+      },
+      {
+        "id": 12,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 97,
+          "y": 277
+        }
+      },
+      {
+        "id": 13,
+        "name": "Smoothing CV",
+        "kind": "cv",
+        "position": {
+          "x": 97,
+          "y": 318
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Phase 7",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 36
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase 6",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 76
+        }
+      },
+      {
+        "id": 2,
+        "name": "Phase 5",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 116
+        }
+      },
+      {
+        "id": 3,
+        "name": "Phase 4",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 156
+        }
+      },
+      {
+        "id": 4,
+        "name": "Phase 3",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 196
+        }
+      },
+      {
+        "id": 5,
+        "name": "Phase 2",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 236
+        }
+      },
+      {
+        "id": 6,
+        "name": "Phase 1",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 276
+        }
+      },
+      {
+        "id": 7,
+        "name": "Phase 0",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 316
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "offset_scale",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-EightFO/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "c6149397b0cc177eaf75a45e9a96ba2146100d9471f26844cdde72b04586f027",
+      "size": 111821
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T10:12:52.738Z"
+  }
+}

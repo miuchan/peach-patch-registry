@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Bogaudio/Bogaudio-EightOne",
+    "plugin": "Bogaudio",
+    "model": "Bogaudio-EightOne",
+    "name": "8:1",
+    "brand": "Bogaudio",
+    "version": "2.6.47",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/bogaudio/BogaudioModules",
+    "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-EightOne",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-EightOne.webp",
+    "wasmUrl": "packages/Bogaudio/Bogaudio-EightOne/2.6.47/module.wasm",
+    "width": 90,
+    "description": "8-channel demultiplexer & sequential switch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "position": {
+          "x": 58.5,
+          "y": 131.5,
+          "widget": "Knob16"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Direction",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 58.5,
+          "y": 167.5,
+          "widget": "SliderSwitch2State14"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Select step",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 52,
+          "y": 230,
+          "widget": "Knob29"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal 1",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 35
+        }
+      },
+      {
+        "id": 1,
+        "name": "Signal 2",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 76.3
+        }
+      },
+      {
+        "id": 2,
+        "name": "Signal 3",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 118.6
+        }
+      },
+      {
+        "id": 3,
+        "name": "Signal 4",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 158.9
+        }
+      },
+      {
+        "id": 4,
+        "name": "Signal 5",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 200.1
+        }
+      },
+      {
+        "id": 5,
+        "name": "Signal 6",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 241.4
+        }
+      },
+      {
+        "id": 6,
+        "name": "Signal 7",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 282.7
+        }
+      },
+      {
+        "id": 7,
+        "name": "Signal 8",
+        "kind": "audio",
+        "position": {
+          "x": 11.5,
+          "y": 324
+        }
+      },
+      {
+        "id": 8,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 54.5,
+          "y": 35
+        }
+      },
+      {
+        "id": 9,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 54.5,
+          "y": 72
+        }
+      },
+      {
+        "id": 10,
+        "name": "Select CV",
+        "kind": "cv",
+        "position": {
+          "x": 54.5,
+          "y": 270
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 54.5,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 61.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 102.8
+        }
+      },
+      {
+        "id": 2,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 145.1
+        }
+      },
+      {
+        "id": 3,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 185.4
+        }
+      },
+      {
+        "id": 4,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 226.6
+        }
+      },
+      {
+        "id": 5,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 267.9
+        }
+      },
+      {
+        "id": 6,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 309.2
+        }
+      },
+      {
+        "id": 7,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 23.5,
+          "y": 350.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "range_offset",
+        "type": "real"
+      },
+      {
+        "key": "range_scale",
+        "type": "real"
+      },
+      {
+        "key": "poly_input",
+        "type": "integer"
+      },
+      {
+        "key": "select_on_clock",
+        "type": "boolean"
+      },
+      {
+        "key": "triggered_select",
+        "type": "boolean"
+      },
+      {
+        "key": "reverse_on_negative_clock",
+        "type": "boolean"
+      },
+      {
+        "key": "wrap_select_at_steps",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Bogaudio/Bogaudio-EightOne/2.6.47/manifest.json",
+    "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
+    "artifact": {
+      "sha256": "c52edccdff28199542da5faf60a4b942ccea1b1ff22f385d61508773b93cd6be",
+      "size": 86010
+    }
+  },
+  "source": {
+    "url": "https://github.com/bogaudio/BogaudioModules",
+    "commit": "656eaae458e045602dc974bae82e15a11e104958"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T07:29:52.345Z"
+  }
+}
