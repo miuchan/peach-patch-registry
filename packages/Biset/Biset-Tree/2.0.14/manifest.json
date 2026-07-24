@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Biset/Biset-Tree",
+    "plugin": "Biset",
+    "model": "Biset-Tree",
+    "name": "Tree",
+    "brand": "Biset",
+    "version": "2.0.14",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "libraryUrl": "https://library.vcvrack.com/Biset/Biset-Tree",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Biset/Biset-Tree.webp",
+    "wasmUrl": "packages/Biset/Biset-Tree/2.0.14/module.wasm",
+    "width": 165,
+    "description": "Evolving Tree sequencer impacted by wind force",
+    "params": [
+      {
+        "id": 0,
+        "name": "Angle variation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 30.089,
+          "y": 318.898,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Branching variation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 55.187,
+          "y": 318.898,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sun force",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 105.384,
+          "y": 318.898,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Branching",
+        "min": 1,
+        "max": 4,
+        "default": 2,
+        "position": {
+          "x": 80.285,
+          "y": 318.898,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sequence length",
+        "min": 1,
+        "max": 64,
+        "default": 8,
+        "position": {
+          "x": 32.303,
+          "y": 209.646,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sequence length mod",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 32.303,
+          "y": 233.268,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sequence offset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.736,
+          "y": 209.646,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Sequence offset mod",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.736,
+          "y": 233.268,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sequence wind influence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103.169,
+          "y": 209.646,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Sequence wind influence mod",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 103.169,
+          "y": 233.268,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Branch mutation chance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Reset tree",
+        "kind": "gate",
+        "position": {
+          "x": 32.303,
+          "y": 289.37,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset sequence",
+        "kind": "gate",
+        "position": {
+          "x": 67.736,
+          "y": 289.37,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock sequence",
+        "kind": "gate",
+        "position": {
+          "x": 103.169,
+          "y": 289.37,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sequence length",
+        "kind": "cv",
+        "position": {
+          "x": 32.303,
+          "y": 252.461,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sequence offset",
+        "kind": "cv",
+        "position": {
+          "x": 67.736,
+          "y": 252.461,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sequence wind influence",
+        "kind": "cv",
+        "position": {
+          "x": 103.169,
+          "y": 252.461,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "audio",
+        "position": {
+          "x": 141.245,
+          "y": 208.169,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "audio",
+        "position": {
+          "x": 141.245,
+          "y": 234.596,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output 3",
+        "kind": "audio",
+        "position": {
+          "x": 141.245,
+          "y": 261.024,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output 4",
+        "kind": "audio",
+        "position": {
+          "x": 141.245,
+          "y": 287.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Output 5",
+        "kind": "audio",
+        "position": {
+          "x": 141.245,
+          "y": 313.878,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Biset/Biset-Tree/2.0.14/manifest.json",
+    "sourceCommit": "af5277d7e5819d56382ee934ca78ae477764377d",
+    "artifact": {
+      "sha256": "4309a47d551ecab2f20ba0d72269d9d5ec08ec16c18833187f24c8967a3caa62",
+      "size": 99822
+    }
+  },
+  "source": {
+    "url": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "commit": "af5277d7e5819d56382ee934ca78ae477764377d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T03:31:48.092Z"
+  }
+}

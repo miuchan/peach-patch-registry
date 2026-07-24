@@ -1,0 +1,799 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Biset/Biset-Igc",
+    "plugin": "Biset",
+    "model": "Biset-Igc",
+    "name": "It's good cholesterol",
+    "brand": "Biset",
+    "version": "2.0.14",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "libraryUrl": "https://library.vcvrack.com/Biset/Biset-Igc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Biset/Biset-Igc.webp",
+    "wasmUrl": "packages/Biset/Biset-Igc/2.0.14/module.wasm",
+    "width": 300,
+    "description": "Recorder / buffer playground with polyphonic playhead",
+    "params": [
+      {
+        "id": 0,
+        "name": "Delay time",
+        "min": -9,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 197.244,
+          "y": 299.705,
+          "centered": true,
+          "widget": "KnobBig"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Delay time mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 219.39,
+          "y": 323.327,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delay click ppqn",
+        "min": 1,
+        "max": 96,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 150,
+          "y": 150.591,
+          "centered": true,
+          "widget": "ButtonTriggerState"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Output mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 258.661,
+          "y": 342.52,
+          "centered": true,
+          "widget": "ButtonTriggerState"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Playhead phase",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 33.957,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Playhead phase 1 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40.807,
+          "y": 57.579,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Playhead phase 2 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 79.193,
+          "y": 57.579,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Playhead speed",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 42.815,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Playhead speed 1 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130.807,
+          "y": 66.437,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Playhead speed 2 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 169.193,
+          "y": 66.437,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Speed reverse",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 169.193,
+          "y": 107.776,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Speed round",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 130.807,
+          "y": 107.776,
+          "centered": true,
+          "widget": "ButtonTriggerState"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Speed slew",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 150,
+          "y": 126.969,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Grain length",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 240,
+          "y": 33.957,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Grain length 1 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 220.807,
+          "y": 57.579,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Grain length 2 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 259.193,
+          "y": 57.579,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Playhead level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 60,
+          "y": 132.874,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Playhead level 1 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40.807,
+          "y": 156.496,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Playhead level 2 mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 79.193,
+          "y": 156.496,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Global level shape force",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225.236,
+          "y": 132.874,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Global level shape force mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 220.807,
+          "y": 159.449,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Global level shape wave",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 254.764,
+          "y": 132.874,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Global level shape wave mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 259.193,
+          "y": 159.449,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 24,
+        "name": "In level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 91.535,
+          "y": 293.799,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 25,
+        "name": "In level mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 91.535,
+          "y": 320.374,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Out level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 121.063,
+          "y": 293.799,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Out level mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 121.063,
+          "y": 320.374,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 150.591,
+          "y": 293.799,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Mix mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150.591,
+          "y": 320.374,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Mode HD",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 31,
+        "name": "Mode Anti-click",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "Global level shape space",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 240,
+          "y": 169.783,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Grain shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 240,
+          "y": 70.866,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left / Mono",
+        "kind": "audio",
+        "position": {
+          "x": 14.764,
+          "y": 289.37,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 14.764,
+          "y": 318.898,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delay time",
+        "kind": "cv",
+        "position": {
+          "x": 219.39,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Delay clock",
+        "kind": "gate",
+        "position": {
+          "x": 175.098,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Playhead phase 1",
+        "kind": "cv",
+        "position": {
+          "x": 40.807,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Playhead phase 2",
+        "kind": "cv",
+        "position": {
+          "x": 79.193,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Playhead speed 1",
+        "kind": "cv",
+        "position": {
+          "x": 130.807,
+          "y": 85.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Playhead speed 2",
+        "kind": "cv",
+        "position": {
+          "x": 169.193,
+          "y": 85.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Playhead speed reverse",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 107.776,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Grain length 1",
+        "kind": "cv",
+        "position": {
+          "x": 220.807,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Grain length 2",
+        "kind": "cv",
+        "position": {
+          "x": 259.193,
+          "y": 76.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Playhead level 1",
+        "kind": "cv",
+        "position": {
+          "x": 40.807,
+          "y": 175.689,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Playhead level 2",
+        "kind": "cv",
+        "position": {
+          "x": 79.193,
+          "y": 175.689,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Input Lvl Shape Force",
+        "kind": "cv",
+        "position": {
+          "x": 220.807,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Input Lvl Shape Wave",
+        "kind": "cv",
+        "position": {
+          "x": 259.193,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "In level",
+        "kind": "audio",
+        "position": {
+          "x": 91.535,
+          "y": 339.567,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Out level",
+        "kind": "audio",
+        "position": {
+          "x": 121.063,
+          "y": 339.567,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 150.591,
+          "y": 339.567,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 197.244,
+          "y": 342.52,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 285.236,
+          "y": 289.37,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 285.236,
+          "y": 318.898,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 11,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 127.854,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 142.618,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 157.382,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 172.146,
+          "y": 165.354,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 252.756,
+          "y": 280.512,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 264.567,
+          "y": 280.512,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 252.756,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 264.567,
+          "y": 327.756,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 150,
+          "y": 21.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 116.043,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 183.957,
+          "y": 66.437,
+          "centered": true
+        }
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Biset/Biset-Igc/2.0.14/manifest.json",
+    "sourceCommit": "af5277d7e5819d56382ee934ca78ae477764377d",
+    "artifact": {
+      "sha256": "bb76876fc5f0375d054605e549da465bc447a82c62bb50044d58ad50ee938cb1",
+      "size": 98904
+    }
+  },
+  "source": {
+    "url": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "commit": "af5277d7e5819d56382ee934ca78ae477764377d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T03:30:00.135Z"
+  }
+}

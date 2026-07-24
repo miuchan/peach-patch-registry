@@ -1,0 +1,761 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Biset/Biset-Regex",
+    "plugin": "Biset",
+    "model": "Biset-Regex",
+    "name": "Regex",
+    "brand": "Biset",
+    "version": "2.0.14",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "libraryUrl": "https://library.vcvrack.com/Biset/Biset-Regex",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Biset/Biset-Regex.webp",
+    "wasmUrl": "packages/Biset/Biset-Regex/2.0.14/module.wasm",
+    "width": 450,
+    "description": "A text based pattern sequencer for rythm and pitch",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 25.098,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 63.484,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 101.87,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 140.256,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 178.642,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 217.028,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 255.413,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 14.026,
+          "y": 293.799,
+          "centered": true,
+          "widget": "ButtonSwitch"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Param 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Bias",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 301.181,
+          "y": 363.927,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Master reset",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 332.185,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Master clock",
+        "kind": "gate",
+        "position": {
+          "x": 352.854,
+          "y": 332.185,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input Exp Reset 1",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 25.098,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Input Exp Reset 2",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Input Exp Reset 3",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Input Exp Reset 4",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Input Exp Reset 5",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Input Exp Reset 6",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 217.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Input Exp Reset 7",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 255.413,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Input Exp Reset 8",
+        "kind": "gate",
+        "position": {
+          "x": 327.018,
+          "y": 293.799,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Input Exp Reset 9",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Input Exp Reset 10",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Input Exp Reset 11",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Input Exp Reset 12",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Input Exp 1 1",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 25.098,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Input Exp 1 2",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Input Exp 1 3",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Input Exp 1 4",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Input Exp 1 5",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Input Exp 1 6",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 217.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Input Exp 1 7",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 255.413,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Input Exp 1 8",
+        "kind": "cv",
+        "position": {
+          "x": 352.854,
+          "y": 293.799,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Input Exp 1 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Input Exp 1 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Input Exp 1 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "Input Exp 1 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "Input Exp 2 1",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 25.098,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "name": "Input Exp 2 2",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "name": "Input Exp 2 3",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "name": "Input Exp 2 4",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "name": "Input Exp 2 5",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "name": "Input Exp 2 6",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 217.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "name": "Input Exp 2 7",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 255.413,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "name": "Input Exp 2 8",
+        "kind": "cv",
+        "position": {
+          "x": 378.691,
+          "y": 293.799,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "name": "Input Exp 2 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 35,
+        "name": "Input Exp 2 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 36,
+        "name": "Input Exp 2 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 37,
+        "name": "Input Exp 2 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 38,
+        "name": "Orientation",
+        "kind": "cv",
+        "position": {
+          "x": 301.181,
+          "y": 332.185,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output Exp 1",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 25.098,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output Exp 2",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output Exp 3",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output Exp 4",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Output Exp 5",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Output Exp 6",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 217.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Output Exp 7",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 255.413,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Output Exp 8",
+        "kind": "cv",
+        "position": {
+          "x": 430.364,
+          "y": 293.799,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Output Exp 9",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Output Exp 10",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Output Exp 11",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Output Exp 12",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Output Exp EOC 1",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 25.098,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Output Exp EOC 2",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 63.484,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Output Exp EOC 3",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 101.87,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Output Exp EOC 4",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 140.256,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Output Exp EOC 5",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 178.642,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Output Exp EOC 6",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 217.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Output Exp EOC 7",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 255.413,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Output Exp EOC 8",
+        "kind": "gate",
+        "position": {
+          "x": 404.528,
+          "y": 293.799,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Output Exp EOC 9",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Output Exp EOC 10",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Output Exp EOC 11",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Output Exp EOC 12",
+        "kind": "gate",
+        "hidden": true
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Biset/Biset-Regex/2.0.14/manifest.json",
+    "sourceCommit": "af5277d7e5819d56382ee934ca78ae477764377d",
+    "artifact": {
+      "sha256": "df6247290ab22a177a2cf14b33f04b2dd17cd8d91567947101eb9759b8b685d9",
+      "size": 93182
+    }
+  },
+  "source": {
+    "url": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "commit": "af5277d7e5819d56382ee934ca78ae477764377d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T03:31:32.766Z"
+  }
+}

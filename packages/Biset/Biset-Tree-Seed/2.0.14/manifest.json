@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Biset/Biset-Tree-Seed",
+    "plugin": "Biset",
+    "model": "Biset-Tree-Seed",
+    "name": "Tree Seed",
+    "brand": "Biset",
+    "version": "2.0.14",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "libraryUrl": "https://library.vcvrack.com/Biset/Biset-Tree-Seed",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Biset/Biset-Tree-Seed.webp",
+    "wasmUrl": "packages/Biset/Biset-Tree-Seed/2.0.14/module.wasm",
+    "width": 60,
+    "description": "Tree sequencer expander to create evolving melodies",
+    "params": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 30,
+          "y": 44.291,
+          "centered": true,
+          "widget": "KnobBig"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Threshold attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 75.295,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Range",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Gate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Polyphony",
+        "min": 1,
+        "max": 16,
+        "default": 4,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 97.441,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 208.169,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 234.596,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output CV 1",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 261.024,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output CV 2",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 287.451,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Output CV 3",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 313.878,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Biset/Biset-Tree-Seed/2.0.14/manifest.json",
+    "sourceCommit": "af5277d7e5819d56382ee934ca78ae477764377d",
+    "artifact": {
+      "sha256": "4b19a947038fdc5ac258fcf4859e103f3ca84ea476b24be1f30723eac60eb19f",
+      "size": 79679
+    }
+  },
+  "source": {
+    "url": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "commit": "af5277d7e5819d56382ee934ca78ae477764377d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T03:31:52.798Z"
+  }
+}

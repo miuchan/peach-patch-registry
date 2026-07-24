@@ -1,0 +1,506 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Biset/Biset-Gbu",
+    "plugin": "Biset",
+    "model": "Biset-Gbu",
+    "name": "The Good, the Bad and the Ugly",
+    "brand": "Biset",
+    "version": "2.0.14",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "libraryUrl": "https://library.vcvrack.com/Biset/Biset-Gbu",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Biset/Biset-Gbu.webp",
+    "wasmUrl": "packages/Biset/Biset-Gbu/2.0.14/module.wasm",
+    "width": 270,
+    "description": "PM AM RM VCO with pitch turbulence and attraction",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "min": -9,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 134.941,
+          "y": 295.276,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch Good",
+        "min": -9,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 117.224,
+          "y": 314.469,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch Bad",
+        "min": -9,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 152.657,
+          "y": 314.469,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pitch Ugly",
+        "min": -9,
+        "max": 9,
+        "default": 0,
+        "position": {
+          "x": 134.941,
+          "y": 323.327,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Level Good",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Level Bad",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Level Ugly",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Feedback Good",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Feedback Bad",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Feedback Ugly",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "PM Good → Bad",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "PM Good ← Bad",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "PM Good ← Ugly",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "PM Ugly → Bad",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "RM Good ↔ Bad",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "RM Good ← Ugly",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "RM Ugly → Bad",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "RM / AM",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 64.961,
+          "y": 265.748,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 18,
+        "name": "RM / AM mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 64.961,
+          "y": 289.37,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Feedback delay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 265.748,
+          "centered": true,
+          "widget": "KnobMedium"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Feedback delay mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 29.528,
+          "y": 289.37,
+          "centered": true,
+          "widget": "KnobSmall"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Ugly noise speed",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Ugly noise amplitude",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Ugly attraction",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Ugly friction",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "Algorithm",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 250.984,
+          "y": 19.931,
+          "centered": true,
+          "widget": "ButtonTriggerState"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct Good",
+        "kind": "cv",
+        "position": {
+          "x": 98.031,
+          "y": 314.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/Oct Bad",
+        "kind": "cv",
+        "position": {
+          "x": 171.85,
+          "y": 314.469,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "V/Oct Ugly",
+        "kind": "cv",
+        "position": {
+          "x": 134.941,
+          "y": 342.52,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Level Good",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Level Bad",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Level Ugly",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Feedback Good",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Feedback Bad",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Feedback Ugly",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "PM Good → Bad",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "PM Good ← Bad",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "PM Good ← Ugly",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "PM Ugly → Bad",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "AM Good ↔ Bad",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "AM Good ← Ugly",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "AM Ugly → Bad",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "RM / AM",
+        "kind": "audio",
+        "position": {
+          "x": 64.961,
+          "y": 308.563,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Feedback delay",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 308.563,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Good",
+        "kind": "cv",
+        "position": {
+          "x": 194.439,
+          "y": 280.807,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bad",
+        "kind": "cv",
+        "position": {
+          "x": 241.093,
+          "y": 280.807,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ugly",
+        "kind": "cv",
+        "position": {
+          "x": 217.766,
+          "y": 289.665,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "kind": "audio",
+        "position": {
+          "x": 217.766,
+          "y": 255.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Extra",
+        "kind": "cv",
+        "position": {
+          "x": 217.766,
+          "y": 325.541,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 234.744,
+          "y": 19.931,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 234.744,
+          "y": 34.695,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 234.744,
+          "y": 49.459,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Biset/Biset-Gbu/2.0.14/manifest.json",
+    "sourceCommit": "af5277d7e5819d56382ee934ca78ae477764377d",
+    "artifact": {
+      "sha256": "2eb0dd1bce9d530db8c0b4543dce0875eabe2fab0181d5d2d92e23a21661390a",
+      "size": 94429
+    }
+  },
+  "source": {
+    "url": "https://github.com/gibbonjoyeux/VCV-Biset",
+    "commit": "af5277d7e5819d56382ee934ca78ae477764377d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T03:30:19.819Z"
+  }
+}
