@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "cf/PLAYER",
+    "plugin": "cf",
+    "model": "PLAYER",
+    "name": "Player",
+    "brand": "cf",
+    "version": "2.0.2",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/cfoulc/cf",
+    "libraryUrl": "https://library.vcvrack.com/cf/PLAYER",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/cf/PLAYER.webp",
+    "wasmUrl": "packages/cf/PLAYER/2.0.2/module.wasm",
+    "width": 135,
+    "description": "Sample player",
+    "params": [
+      {
+        "id": 0,
+        "name": "Start",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 23,
+          "y": 235,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Speed",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 73,
+          "y": 235,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Start trim",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 42,
+          "y": 278,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed trim",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73,
+          "y": 278,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Next sample",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 73,
+          "y": 95,
+          "widget": "downButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Previous sample",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 43,
+          "y": 95,
+          "widget": "upButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Osc Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 104,
+          "y": 212,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gated sample play",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 321
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start position control",
+        "kind": "cv",
+        "position": {
+          "x": 40,
+          "y": 321
+        }
+      },
+      {
+        "id": 2,
+        "name": "Speed control",
+        "kind": "cv",
+        "position": {
+          "x": 70,
+          "y": 321
+        }
+      },
+      {
+        "id": 3,
+        "name": "Previous sample trigger",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 91
+        }
+      },
+      {
+        "id": 4,
+        "name": "Next sample trigger",
+        "kind": "gate",
+        "position": {
+          "x": 100,
+          "y": 91
+        }
+      },
+      {
+        "id": 5,
+        "name": "Triggered sample play",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 275
+        }
+      },
+      {
+        "id": 6,
+        "name": "Volt/octave control",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 210
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 100,
+          "y": 275
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 100,
+          "y": 321
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 108.4,
+          "y": 216.4
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "oscstate",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 1920000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/cf/PLAYER/2.0.2/manifest.json",
+    "sourceCommit": "f037bcab20d92f4734437a1aad877499e7d1fe46",
+    "artifact": {
+      "sha256": "29f6af10a31613631676ce403595723594add2178d56c39306b2709bb5fa4e65",
+      "size": 83131
+    }
+  },
+  "source": {
+    "url": "https://github.com/cfoulc/cf",
+    "commit": "f037bcab20d92f4734437a1aad877499e7d1fe46"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T12:18:36.881Z"
+  }
+}
