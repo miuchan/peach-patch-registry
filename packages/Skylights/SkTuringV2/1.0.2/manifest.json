@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Skylights/SkTuringV2",
+    "plugin": "Skylights",
+    "model": "SkTuringV2",
+    "name": "Alan (Turing Machine)",
+    "brand": "Skrylar",
+    "version": "1.0.2",
+    "license": "GPL-3.0",
+    "sourceUrl": "https://github.com/Skrylar/skylights-vcv",
+    "libraryUrl": "https://library.vcvrack.com/Skylights/SkTuringV2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Skylights/SkTuringV2.webp",
+    "wasmUrl": "packages/Skylights/SkTuringV2/1.0.2/module.wasm",
+    "width": 150,
+    "description": "A Whitwell turing machine.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Write",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 121,
+          "y": 175,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "min": 2,
+        "max": 16,
+        "default": 8,
+        "snap": true,
+        "position": {
+          "x": 61,
+          "y": 215,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 47,
+          "y": 80,
+          "widget": "RoundHugeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bipolar",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 10,
+          "y": 320,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 34,
+          "y": 320,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 4.5,
+          "y": 173
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "kind": "cv",
+        "position": {
+          "x": 63,
+          "y": 167
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 64,
+          "y": 317
+        }
+      },
+      {
+        "id": 1,
+        "name": "Expansion",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 317
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 90,
+          "y": 317
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulse",
+        "kind": "gate",
+        "position": {
+          "x": 90,
+          "y": 274
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 18,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 33,
+          "y": 50
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 48,
+          "y": 50
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 63,
+          "y": 50
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 78,
+          "y": 50
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 93,
+          "y": 50
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 108,
+          "y": 50
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 123,
+          "y": 50
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "sequence",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Skylights/SkTuringV2/1.0.2/manifest.json",
+    "sourceCommit": "04c66539824f8e4b4de4da824f2090470e8494ec",
+    "artifact": {
+      "sha256": "9dc3ca1e991b778cae59380c77063e939148f6233e067a00df542da0defe87e4",
+      "size": 75027
+    }
+  },
+  "source": {
+    "url": "https://github.com/Skrylar/skylights-vcv",
+    "commit": "04c66539824f8e4b4de4da824f2090470e8494ec"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T16:33:38.266Z"
+  }
+}
