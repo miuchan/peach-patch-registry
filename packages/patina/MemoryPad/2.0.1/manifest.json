@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "patina/MemoryPad",
+    "plugin": "patina",
+    "model": "MemoryPad",
+    "name": "Memory Pad",
+    "brand": "Patina",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/epadilla/patina",
+    "libraryUrl": "https://library.vcvrack.com/patina/MemoryPad",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/patina/MemoryPad.webp",
+    "wasmUrl": "packages/patina/MemoryPad/2.0.1/module.wasm",
+    "width": 150,
+    "description": "Interactive X-Y pad that records and repeats path drawn on touchpad. Can be used to modulate any parameter as a custom-drawn LFO with 2 outputs. Outputs can be set to bipolar or unipolar values and attenuated. Drag with the mouse on the touchpad to record a path.",
+    "params": [
+      {
+        "id": 0,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Path Direction",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 41.339,
+          "y": 36.555,
+          "centered": true,
+          "widget": "CKSSThreeHorizontal"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Speed Multiplier",
+        "min": 0.10000000149011612,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 109.252,
+          "y": 35.433,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "X Polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 41.339,
+          "y": 221.457,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Y Polarity",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 109.252,
+          "y": 221.457,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "X Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 41.339,
+          "y": 262.795,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Y Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 109.252,
+          "y": 262.795,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X Output",
+        "kind": "cv",
+        "position": {
+          "x": 41.575,
+          "y": 316.831,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y Output",
+        "kind": "cv",
+        "position": {
+          "x": 109.606,
+          "y": 316.831,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 41.339,
+          "y": 221.457,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 109.252,
+          "y": 221.457,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "CurrentColor",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/patina/MemoryPad/2.0.1/manifest.json",
+    "sourceCommit": "6f4afdf83bc065461391ce524d0fc6507180be1f",
+    "artifact": {
+      "sha256": "704687f3e9f1b15a094135e03ae4d2c556dbe222d12b5d30a3e1326e238a038b",
+      "size": 78066
+    }
+  },
+  "source": {
+    "url": "https://github.com/epadilla/patina",
+    "commit": "6f4afdf83bc065461391ce524d0fc6507180be1f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T11:22:39.015Z"
+  }
+}
