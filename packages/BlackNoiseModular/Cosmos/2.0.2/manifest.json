@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BlackNoiseModular/Cosmos",
+    "plugin": "BlackNoiseModular",
+    "model": "Cosmos",
+    "name": "Cosmos",
+    "brand": "BlackNoiseModular",
+    "version": "2.0.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/BlackNoiseModular/VCV",
+    "libraryUrl": "https://library.vcvrack.com/BlackNoiseModular/Cosmos",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BlackNoiseModular/Cosmos.webp",
+    "wasmUrl": "packages/BlackNoiseModular/Cosmos/2.0.2/module.wasm",
+    "width": 210,
+    "description": "Cosmos is a new kind of module that will help you to creating complex modulation, sounds, patterns with ease and will lead you to new sounds territories.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pad X",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19.104,
+          "y": 189.915,
+          "centered": true,
+          "widget": "CosmosPad"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pad Y",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 189.788,
+          "y": 189.915,
+          "centered": true,
+          "widget": "CosmosPad"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate/trigger threshold",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Pad max presssure",
+        "min": 0,
+        "max": 10,
+        "default": 5,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 52.175,
+          "y": 190.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 156.384,
+          "y": 190.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "XOR gate",
+        "kind": "gate",
+        "position": {
+          "x": 52.196,
+          "y": 42.018,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "XOR trigger",
+        "kind": "gate",
+        "position": {
+          "x": 156.44,
+          "y": 41.988,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "XOR (through-zero clipper)",
+        "kind": "cv",
+        "position": {
+          "x": 104.318,
+          "y": 62.601,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "OR gate",
+        "kind": "gate",
+        "position": {
+          "x": 30.791,
+          "y": 78.912,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "AND gate",
+        "kind": "gate",
+        "position": {
+          "x": 177.844,
+          "y": 78.912,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "OR (maximum)",
+        "kind": "cv",
+        "position": {
+          "x": 52.175,
+          "y": 115.881,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "AND (minimum)",
+        "kind": "cv",
+        "position": {
+          "x": 156.455,
+          "y": 115.881,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Sum (mean)",
+        "kind": "cv",
+        "position": {
+          "x": 104.318,
+          "y": 136.594,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "OR-gate trigger",
+        "kind": "gate",
+        "position": {
+          "x": 30.827,
+          "y": 152.879,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 73.491,
+          "y": 152.879,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 135.109,
+          "y": 152.879,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "AND trigger",
+        "kind": "gate",
+        "position": {
+          "x": 177.774,
+          "y": 152.879,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "NOR trigger",
+        "kind": "gate",
+        "position": {
+          "x": 30.865,
+          "y": 226.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "X (inverted)",
+        "kind": "cv",
+        "position": {
+          "x": 73.53,
+          "y": 226.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Y (inverted)",
+        "kind": "cv",
+        "position": {
+          "x": 135.145,
+          "y": 226.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "NAND trigger",
+        "kind": "gate",
+        "position": {
+          "x": 177.809,
+          "y": 226.819,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Difference",
+        "kind": "cv",
+        "position": {
+          "x": 104.318,
+          "y": 243.103,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "NOR (maximum inverted)",
+        "kind": "cv",
+        "position": {
+          "x": 52.181,
+          "y": 263.817,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "NAND (minimum inverted)",
+        "kind": "cv",
+        "position": {
+          "x": 156.464,
+          "y": 263.817,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "NOR gate",
+        "kind": "gate",
+        "position": {
+          "x": 30.791,
+          "y": 300.785,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "NAND gate",
+        "kind": "gate",
+        "position": {
+          "x": 177.844,
+          "y": 300.782,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "XNOR (inverted through-zero clipper)",
+        "kind": "cv",
+        "position": {
+          "x": 104.318,
+          "y": 317.096,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "XNOR gate",
+        "kind": "gate",
+        "position": {
+          "x": 52.196,
+          "y": 337.71,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "XNOR trigger",
+        "kind": "gate",
+        "position": {
+          "x": 156.44,
+          "y": 337.68,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 36,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "CosmosLedXor",
+        "position": {
+          "x": 104.324,
+          "y": 87.971,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "CosmosLedOr",
+        "position": {
+          "x": 77.595,
+          "y": 115.837,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "CosmosLedAnd",
+        "position": {
+          "x": 131.031,
+          "y": 115.837,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "CosmosLedSum",
+        "position": {
+          "x": 104.232,
+          "y": 162.083,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "CosmosLedX",
+        "position": {
+          "x": 86.728,
+          "y": 175.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "CosmosLedY",
+        "position": {
+          "x": 121.925,
+          "y": 175.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "CosmosLedXInv",
+        "position": {
+          "x": 86.728,
+          "y": 203.894,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "CosmosLedYInv",
+        "position": {
+          "x": 121.925,
+          "y": 203.894,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "CosmosLedDiff",
+        "position": {
+          "x": 104.232,
+          "y": 217.583,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "CosmosLedNor",
+        "position": {
+          "x": 77.595,
+          "y": 263.829,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "CosmosLedNand",
+        "position": {
+          "x": 131.031,
+          "y": 263.829,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "CosmosLedXnor",
+        "position": {
+          "x": 104.324,
+          "y": 291.694,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "oversampleLogicOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "oversampleLogicGateOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "oversampleLogicTriggerOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "clip10V",
+        "type": "boolean"
+      },
+      {
+        "key": "oversamplingIndex",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BlackNoiseModular/Cosmos/2.0.2/manifest.json",
+    "sourceCommit": "c3db83a58e98afbf37eee8b3235f8a69c69e4e8a",
+    "artifact": {
+      "sha256": "d2431c578a17342c6fc43218d377daa8a63b6387a2016285cb2cb4fc09a2739c",
+      "size": 109181
+    }
+  },
+  "source": {
+    "url": "https://github.com/BlackNoiseModular/VCV",
+    "commit": "c3db83a58e98afbf37eee8b3235f8a69c69e4e8a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T03:35:56.936Z"
+  }
+}

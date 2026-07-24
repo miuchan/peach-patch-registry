@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "BlackNoiseModular/SlewLFO",
+    "plugin": "BlackNoiseModular",
+    "model": "SlewLFO",
+    "name": "SlewLFO",
+    "brand": "BlackNoiseModular",
+    "version": "2.0.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/BlackNoiseModular/VCV",
+    "libraryUrl": "https://library.vcvrack.com/BlackNoiseModular/SlewLFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/BlackNoiseModular/SlewLFO.webp",
+    "wasmUrl": "packages/BlackNoiseModular/SlewLFO/2.0.2/module.wasm",
+    "width": 60,
+    "description": "Slew, LFO, and much more",
+    "params": [
+      {
+        "id": 0,
+        "name": "Curve",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 29.941,
+          "y": 80.483,
+          "centered": true,
+          "widget": "HexnutKnobBlack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rise",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 29.941,
+          "y": 133.633,
+          "centered": true,
+          "widget": "HexnutKnobBlack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Fall",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 29.941,
+          "y": 186.753,
+          "centered": true,
+          "widget": "HexnutKnobBlack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 15.156,
+          "y": 239.008,
+          "centered": true,
+          "widget": "DoepferSwitch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 44.873,
+          "y": 239.008,
+          "centered": true,
+          "widget": "DoepferSwitch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Capacitor Expander",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.962,
+          "y": 304.899,
+          "centered": true,
+          "widget": "CapacitorPanel"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Rise CV",
+        "kind": "cv",
+        "position": {
+          "x": 14.976,
+          "y": 281.386,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fall CV",
+        "kind": "cv",
+        "position": {
+          "x": 44.657,
+          "y": 281.386,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "In",
+        "kind": "cv",
+        "position": {
+          "x": 14.976,
+          "y": 330.771,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 44.657,
+          "y": 330.771,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SlewInLed",
+        "position": {
+          "x": 10.048,
+          "y": 307.45,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SlewOutLed",
+        "position": {
+          "x": 49.893,
+          "y": 307.45,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "removeDCAtAudioRates",
+        "type": "boolean"
+      },
+      {
+        "key": "oversamplingIndex",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/BlackNoiseModular/SlewLFO/2.0.2/manifest.json",
+    "sourceCommit": "c3db83a58e98afbf37eee8b3235f8a69c69e4e8a",
+    "artifact": {
+      "sha256": "34de1743e9dac1ca8ab7d6c0641e2865df7c73fc16b53439656c804c28d05f07",
+      "size": 108438
+    }
+  },
+  "source": {
+    "url": "https://github.com/BlackNoiseModular/VCV",
+    "commit": "c3db83a58e98afbf37eee8b3235f8a69c69e4e8a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T03:36:10.335Z"
+  }
+}
