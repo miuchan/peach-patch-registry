@@ -1,0 +1,709 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-portaloof",
+    "plugin": "computerscare",
+    "model": "computerscare-portaloof",
+    "name": "Portaloof",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-portaloof",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-portaloof.webp",
+    "wasmUrl": "packages/computerscare/computerscare-portaloof/2.3.3/module.wasm",
+    "width": 300,
+    "description": "Visual experimentation.  A Kaleidoscopic mirror pointed back at your Rack, and yourself.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 28,
+          "y": 39,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input Source Mix",
+        "min": -1,
+        "max": 1,
+        "default": -1,
+        "position": {
+          "x": 91,
+          "y": 46,
+          "widget": "DarkSmallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 76,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scale",
+        "min": 0.10000000149011612,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 120,
+          "y": 77,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scale CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 81,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale X",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 109,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Scale X",
+        "min": -5,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 120,
+          "y": 110,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Scale X CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 114,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale Y",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 142,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scale Y",
+        "min": -5,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 120,
+          "y": 143,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Scale Y CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 147,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Rotation",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 175,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Rotation",
+        "min": -180,
+        "max": 180,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 176,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Rotation CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 180,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Kaleidoscope",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 208,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Kaleido Mode",
+        "min": -12,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 209,
+          "widget": "PortaloofKaleidModeKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Kaleido CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 213,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Translate X",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 241,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Translate X",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 242,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Translate X CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 246,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Translate Y",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 274,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Translate Y",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 275,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Translate Y CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 279,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Hue",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 307,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Hue",
+        "min": -360,
+        "max": 360,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 308,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Hue CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 312,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Fold",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "Fold Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "Fold CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "Color Warp",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 2,
+          "y": 340,
+          "widget": "SmallIsoButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Color Warp",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 341,
+          "widget": "SmoothKnob"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Color Warp CV Atten",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 98,
+          "y": 345,
+          "widget": "SmallKnob"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Backdrop Alpha",
+        "min": 0,
+        "max": 1,
+        "default": 0.8500000238418579,
+        "hidden": true
+      },
+      {
+        "id": 33,
+        "name": "Backdrop Darken",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 34,
+        "name": "Backdrop Blur",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scale Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 73
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scale X Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 106
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale Y Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 139
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rotation Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 172
+        }
+      },
+      {
+        "id": 4,
+        "name": "Kaleido Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 205
+        }
+      },
+      {
+        "id": 5,
+        "name": "Translate X Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 238
+        }
+      },
+      {
+        "id": 6,
+        "name": "Translate Y Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 271
+        }
+      },
+      {
+        "id": 7,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 76
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scale X CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 109
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scale Y CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 142
+        }
+      },
+      {
+        "id": 10,
+        "name": "Rotation CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 175
+        }
+      },
+      {
+        "id": 11,
+        "name": "Kaleido CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 208
+        }
+      },
+      {
+        "id": 12,
+        "name": "Translate X CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 241
+        }
+      },
+      {
+        "id": 13,
+        "name": "Translate Y CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 274
+        }
+      },
+      {
+        "id": 14,
+        "name": "Hue Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 304
+        }
+      },
+      {
+        "id": 15,
+        "name": "Invert Gate",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Color Warp Gate",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 337
+        }
+      },
+      {
+        "id": 17,
+        "name": "Hue CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 307
+        }
+      },
+      {
+        "id": 18,
+        "name": "Invert CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Color Warp CV",
+        "kind": "cv",
+        "position": {
+          "x": 68,
+          "y": 340
+        }
+      },
+      {
+        "id": 20,
+        "name": "Freeze (gate)",
+        "kind": "gate",
+        "position": {
+          "x": 52,
+          "y": 41
+        }
+      },
+      {
+        "id": 21,
+        "name": "Input Source Mix CV",
+        "kind": "cv",
+        "position": {
+          "x": 118,
+          "y": 41
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "kind",
+        "type": "integer"
+      },
+      {
+        "key": "moduleId",
+        "type": "integer"
+      },
+      {
+        "key": "width",
+        "type": "real"
+      },
+      {
+        "key": "tileEmptySpace",
+        "type": "boolean"
+      },
+      {
+        "key": "maintainAspect",
+        "type": "boolean"
+      },
+      {
+        "key": "cropRackBorders",
+        "type": "boolean"
+      },
+      {
+        "key": "backdropEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "emptyWindowInBgMode",
+        "type": "boolean"
+      },
+      {
+        "key": "transformPost",
+        "type": "boolean"
+      },
+      {
+        "key": "translateFirst",
+        "type": "boolean"
+      },
+      {
+        "key": "hideUi",
+        "type": "boolean"
+      },
+      {
+        "key": "dimVisualsWithRoom",
+        "type": "boolean"
+      },
+      {
+        "key": "sourceBlendMode",
+        "type": "integer"
+      },
+      {
+        "key": "rackSourceModuleId",
+        "type": "integer"
+      },
+      {
+        "key": "rackRectSourceEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "screenRectSourceEnabled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-portaloof/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "6cecd398a0b0100a317759cba867116a474bff0d83ccad10960445cc12908516",
+      "size": 94798
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T15:04:25.241Z"
+  }
+}
