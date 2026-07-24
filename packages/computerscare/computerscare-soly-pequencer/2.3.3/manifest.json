@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-soly-pequencer",
+    "plugin": "computerscare",
+    "model": "computerscare-soly-pequencer",
+    "name": "Soly Pequencer",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-soly-pequencer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-soly-pequencer.webp",
+    "wasmUrl": "packages/computerscare/computerscare-soly-pequencer/2.3.3/module.wasm",
+    "width": 60,
+    "description": "Sequentially step through the channels of a polyphonic signal.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Manual Clock Advance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 8,
+          "y": 152,
+          "widget": "ComputerscareClockButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Manual Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 32,
+          "y": 169,
+          "widget": "ComputerscareResetButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Poly Channels",
+        "min": 0,
+        "max": 16,
+        "default": 16,
+        "snap": true,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 116
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 8,
+          "y": 169
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 182
+        }
+      },
+      {
+        "id": 3,
+        "name": "Run",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "IN 5",
+        "kind": "audio",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 56
+        }
+      },
+      {
+        "id": 1,
+        "name": "End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 40,
+          "y": 84
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-soly-pequencer/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "20b84b4bf5c0055053786af743150316f8e3257d465fe6e0e922ab7428da57fe",
+      "size": 78492
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T13:47:22.351Z"
+  }
+}
