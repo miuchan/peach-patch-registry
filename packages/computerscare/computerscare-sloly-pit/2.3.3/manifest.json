@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-sloly-pit",
+    "plugin": "computerscare",
+    "model": "computerscare-sloly-pit",
+    "name": "Sloly Pit",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-sloly-pit",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-sloly-pit.webp",
+    "wasmUrl": "packages/computerscare/computerscare-sloly-pit/2.3.3/module.wasm",
+    "width": 60,
+    "description": "Split a polyphonic input into 16 monophonic outputs",
+    "params": [
+      {
+        "id": 0,
+        "name": "Routing Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 33,
+          "y": 43,
+          "widget": "SlolyPitModeButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Poly",
+        "kind": "cv",
+        "position": {
+          "x": 4,
+          "y": 31
+        }
+      },
+      {
+        "id": 1,
+        "name": "Randomize Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 31,
+          "y": 25
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1st",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 64
+        }
+      },
+      {
+        "id": 1,
+        "name": "2nd",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 83
+        }
+      },
+      {
+        "id": 2,
+        "name": "3rd",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 102
+        }
+      },
+      {
+        "id": 3,
+        "name": "4th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 121
+        }
+      },
+      {
+        "id": 4,
+        "name": "5th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 140
+        }
+      },
+      {
+        "id": 5,
+        "name": "6th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 159
+        }
+      },
+      {
+        "id": 6,
+        "name": "7th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 178
+        }
+      },
+      {
+        "id": 7,
+        "name": "8th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 197
+        }
+      },
+      {
+        "id": 8,
+        "name": "9th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 216
+        }
+      },
+      {
+        "id": 9,
+        "name": "10th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 235
+        }
+      },
+      {
+        "id": 10,
+        "name": "11th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 254
+        }
+      },
+      {
+        "id": 11,
+        "name": "12th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 273
+        }
+      },
+      {
+        "id": 12,
+        "name": "13th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 292
+        }
+      },
+      {
+        "id": 13,
+        "name": "14th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 311
+        }
+      },
+      {
+        "id": 14,
+        "name": "15th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 330
+        }
+      },
+      {
+        "id": 15,
+        "name": "16th",
+        "kind": "cv",
+        "position": {
+          "x": 41,
+          "y": 349
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "routingMode",
+        "type": "integer"
+      },
+      {
+        "key": "editingOutputIndex",
+        "type": "integer"
+      },
+      {
+        "key": "customRoutingInitialized",
+        "type": "boolean"
+      },
+      {
+        "key": "randomizeInputPool",
+        "type": "integer"
+      },
+      {
+        "key": "randomizeReplacement",
+        "type": "integer"
+      },
+      {
+        "key": "randomizeChannelCount",
+        "type": "integer"
+      },
+      {
+        "key": "randomizeOnlyConnectedOutputs",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-sloly-pit/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "d7e100c5ff2015f3ed33c7dbd96cbcf672027a91fba770972d4aa5dc6756864b",
+      "size": 89396
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T14:52:57.464Z"
+  }
+}
