@@ -1,0 +1,559 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "EternalEclipseModular/ElementalRevelator",
+    "plugin": "EternalEclipseModular",
+    "model": "ElementalRevelator",
+    "name": "Elemental Revelator",
+    "brand": "Eternal Eclipse",
+    "version": "2.7.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/7337Productions/eternaleclipsemodular",
+    "libraryUrl": "https://library.vcvrack.com/EternalEclipseModular/ElementalRevelator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/EternalEclipseModular/ElementalRevelator.webp",
+    "wasmUrl": "packages/EternalEclipseModular/ElementalRevelator/2.7.1/module.wasm",
+    "width": 630,
+    "description": "Four-element wavetable synth voice — a pentagram of AIR, WATER, EARTH, and FIRE oscillators with elemental-ring cross-modulation, opposing-pair ring mod, SPIRIT chord mode, 72 daemon algorithms, ladder lowpass filter, and stereo delay/diffusion.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Air (pitch / chord root)",
+        "min": -54,
+        "max": 54,
+        "default": -12,
+        "position": {
+          "x": 53.593,
+          "y": 166.535,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Water (pitch)",
+        "min": -54,
+        "max": 54,
+        "default": -12,
+        "position": {
+          "x": 300.738,
+          "y": 166.535,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Earth (pitch)",
+        "min": -54,
+        "max": 54,
+        "default": -12,
+        "position": {
+          "x": 100.807,
+          "y": 311.811,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fire (pitch)",
+        "min": -54,
+        "max": 54,
+        "default": -12,
+        "position": {
+          "x": 253.524,
+          "y": 311.811,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Air wavetable position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47.244,
+          "y": 206.693,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Water wavetable position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 307.087,
+          "y": 206.693,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Earth wavetable position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 72.047,
+          "y": 283.051,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Fire wavetable position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 282.283,
+          "y": 283.051,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Spirit (chord)",
+        "min": 0,
+        "max": 23,
+        "default": 2,
+        "position": {
+          "x": 177.165,
+          "y": 76.772,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Spirit (chord mode)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 177.165,
+          "y": 206.693,
+          "centered": true,
+          "widget": "VCVLightBezelLatch<RedLight>"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Offering",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 53.593,
+          "y": 246.85,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Sigil",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 100.807,
+          "y": 101.575,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Rite (opposing-pair ring mod)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 300.738,
+          "y": 246.85,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Veil (detune / stereo width)",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 253.524,
+          "y": 101.575,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Daemon",
+        "min": 0,
+        "max": 71,
+        "default": 0,
+        "position": {
+          "x": 177.165,
+          "y": 336.614,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Omen (variation)",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "position": {
+          "x": 411.909,
+          "y": 82.677,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 411.909,
+          "y": 147.638,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 411.909,
+          "y": 206.693,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Time (delay time)",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 411.909,
+          "y": 271.654,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Feed (feedback / diffusion)",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 386.811,
+          "y": 324.803,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Mix (delay dry/wet)",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 437.008,
+          "y": 324.803,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "V/oct CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Sigil CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Veil CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Rite CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 25,
+        "name": "Daemon scan CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "Offering CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "Omen CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "Spirit CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "Air WT CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 30,
+        "name": "Water WT CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 31,
+        "name": "Earth WT CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "Fire WT CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 33,
+        "name": "Time CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 34,
+        "name": "Feed CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 35,
+        "name": "Cutoff CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 36,
+        "name": "Resonance CV amount",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/octave pitch",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Sigil CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Veil CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Rite CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Daemon scan CV (10V sweeps all 72 daemons; overrides knob)",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Offering CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Omen CV (10V sweeps all 64 steps)",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Spirit chord CV (10V sweeps all 24 chords; active in Spirit mode)",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "Air wavetable CV",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Water wavetable CV",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "Earth wavetable CV",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "Fire wavetable CV",
+        "kind": "cv"
+      },
+      {
+        "id": 12,
+        "name": "Time CV",
+        "kind": "cv"
+      },
+      {
+        "id": 13,
+        "name": "Feed CV",
+        "kind": "cv"
+      },
+      {
+        "id": 14,
+        "name": "Cutoff CV (1V/octave)",
+        "kind": "cv"
+      },
+      {
+        "id": 15,
+        "name": "Resonance CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 516.732,
+          "y": 347.244,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 580.217,
+          "y": 347.244,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightBezelLatch<RedLight>",
+        "position": {
+          "x": 177.165,
+          "y": 206.693,
+          "centered": true
+        },
+        "paramId": 9
+      }
+    ],
+    "runtime": {
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/EternalEclipseModular/ElementalRevelator/2.7.1/manifest.json",
+    "sourceCommit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3",
+    "artifact": {
+      "sha256": "67292550c705cfe61230cb85e6b652b94d102362df8eeeca30a144ce1fbd3a7b",
+      "size": 121852
+    }
+  },
+  "source": {
+    "url": "https://github.com/7337Productions/eternaleclipsemodular",
+    "commit": "d1bc5cdcead4b61761b670cc9edd113cfb1296a3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T11:00:01.540Z"
+  }
+}
