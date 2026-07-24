@@ -1,0 +1,1147 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Fugue",
+    "plugin": "SignalFunctionSet",
+    "model": "Fugue",
+    "name": "Fugue",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Fugue",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Fugue.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Fugue/2.16.3/module.wasm",
+    "width": 300,
+    "description": "8-step harmonic deviation sequencer with three independent CV/gate voices",
+    "params": [
+      {
+        "id": 0,
+        "name": "Step 1 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step 2 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 129.065,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step 3 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 153.13,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 4 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 177.195,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 5 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 201.26,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 6 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225.325,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 7 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 249.39,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 8 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 273.455,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Root Note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 67.618,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scale",
+        "min": 0,
+        "max": 18,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 67.5,
+          "y": 67.618,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 149.469,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Slew",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 149.469,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Wander A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Wander B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Wander C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 15,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.5,
+          "y": 228.041,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Param 17",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 105,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Param 18",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 129.065,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Param 19",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 153.13,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Param 20",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 177.195,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Param 21",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 201.26,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Param 22",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 225.325,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Param 23",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 249.39,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Param 24",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 273.455,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Param 25",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Param 26",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 129.065,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Param 27",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 153.13,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Param 28",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 177.195,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Param 29",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 201.26,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Param 30",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225.325,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Param 31",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 249.39,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Param 32",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 273.455,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Param 33",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Param 34",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 129.065,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Param 35",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 153.13,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Param 36",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 177.195,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Param 37",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 201.26,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Param 38",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225.325,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Param 39",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 249.39,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Param 40",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 273.455,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock A",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Clock B (normalled to A)",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Clock C (normalled to B)",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 228.041,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Root Note CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 100.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 100.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Steps CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 181.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Slew CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 181.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Wander A CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Wander B CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Wander C CV",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV A",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Gate A",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "CV B",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Gate B",
+        "kind": "gate"
+      },
+      {
+        "id": 4,
+        "name": "CV C",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Gate C",
+        "kind": "gate"
+      }
+    ],
+    "lights": 48,
+    "lightWidgets": [
+      {
+        "id": 24,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 129.065,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 153.13,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.195,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 201.26,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225.325,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 249.39,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 273.455,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 129.065,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 153.13,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.195,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 201.26,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225.325,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 249.39,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 273.455,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 129.065,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 153.13,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.195,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 201.26,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225.325,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 249.39,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 273.455,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 105,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 16
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 129.065,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 17
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 153.13,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 18
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 177.195,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 19
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 201.26,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 20
+      },
+      {
+        "id": 5,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 225.325,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 21
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 249.39,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 22
+      },
+      {
+        "id": 7,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 273.455,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 23
+      },
+      {
+        "id": 8,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 105,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 24
+      },
+      {
+        "id": 9,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 129.065,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 25
+      },
+      {
+        "id": 10,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 153.13,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 26
+      },
+      {
+        "id": 11,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 177.195,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 27
+      },
+      {
+        "id": 12,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 201.26,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 28
+      },
+      {
+        "id": 13,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 225.325,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 29
+      },
+      {
+        "id": 14,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 249.39,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 30
+      },
+      {
+        "id": 15,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 273.455,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 31
+      },
+      {
+        "id": 16,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 105,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 32
+      },
+      {
+        "id": 17,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 129.065,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 33
+      },
+      {
+        "id": 18,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 153.13,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 34
+      },
+      {
+        "id": 19,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 177.195,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 35
+      },
+      {
+        "id": 20,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 201.26,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 36
+      },
+      {
+        "id": 21,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 225.325,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 37
+      },
+      {
+        "id": 22,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 249.39,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 38
+      },
+      {
+        "id": 23,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 273.455,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 39
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "faderRange",
+        "type": "real"
+      },
+      {
+        "key": "harmonicLock",
+        "type": "boolean"
+      },
+      {
+        "key": "gateLength",
+        "type": "real"
+      },
+      {
+        "key": "scaleCanonical",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Fugue/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "4fe6ff522da64c1b8f13260d1a2c15e04e70877f2997b4600509c10b878435c5",
+      "size": 91897
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T15:33:22.361Z"
+  }
+}
