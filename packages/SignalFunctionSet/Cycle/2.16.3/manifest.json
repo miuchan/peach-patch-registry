@@ -1,0 +1,588 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Cycle",
+    "plugin": "SignalFunctionSet",
+    "model": "Cycle",
+    "name": "Cycle",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Cycle",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Cycle.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Cycle/2.16.3/module.wasm",
+    "width": 390,
+    "description": "Bar-synced quad LFO. Four channels (A-D), each with its own morphable shape and depth, lock to a musical bar via clock + bar inputs (free-running in Hz when unpatched). Global phase spread and stability, per-channel unipolar and bipolar outputs, and full CV.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 0,
+        "max": 9,
+        "default": 6,
+        "position": {
+          "x": 30,
+          "y": 299.97,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Phase spread",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 179.97,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Stability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 239.97,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset (restart cycle)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 239.97,
+          "y": 359.97,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "A shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 179.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "B shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 224.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "C shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 269.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "D shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 314.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "A scale (bipolar)",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 239.97,
+          "y": 179.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "B scale (bipolar)",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 239.97,
+          "y": 224.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "C scale (bipolar)",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 239.97,
+          "y": 269.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 11,
+        "name": "D scale (bipolar)",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 239.97,
+          "y": 314.97,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Link A-B shape",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 172.5,
+          "y": 202.47,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Link B-C shape",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 172.5,
+          "y": 247.47,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Link C-D shape",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 172.5,
+          "y": 292.47,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Link A-B scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 262.5,
+          "y": 202.47,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Link B-C scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 262.5,
+          "y": 247.47,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Link C-D scale",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 262.5,
+          "y": 292.47,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock (optional — sets the staircase / stepped-random step grid: one step per pulse)",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bar (downbeat sync)",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset (restart cycle)",
+        "kind": "gate",
+        "position": {
+          "x": 285,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 299.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Phase spread CV",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Stability CV",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 239.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "A shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 194.97,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "B shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 194.97,
+          "y": 224.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "C shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 194.97,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "D shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 194.97,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "A scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 285,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "B scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 285,
+          "y": 224.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "C scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 285,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "D scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 285,
+          "y": 314.97,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "A unipolar (0-5V)",
+        "kind": "cv",
+        "position": {
+          "x": 330,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "B unipolar (0-5V)",
+        "kind": "cv",
+        "position": {
+          "x": 330,
+          "y": 224.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "C unipolar (0-5V)",
+        "kind": "cv",
+        "position": {
+          "x": 330,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "D unipolar (0-5V)",
+        "kind": "cv",
+        "position": {
+          "x": 330,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "A bipolar (±5V)",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 179.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "B bipolar (±5V)",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 224.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "C bipolar (±5V)",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 269.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "D bipolar (±5V)",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 314.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "End of cycle (trigger)",
+        "kind": "gate",
+        "position": {
+          "x": 360,
+          "y": 359.97,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 7,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 52.5,
+          "y": 359.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 172.5,
+          "y": 202.47,
+          "centered": true
+        },
+        "paramId": 12
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 172.5,
+          "y": 247.47,
+          "centered": true
+        },
+        "paramId": 13
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 172.5,
+          "y": 292.47,
+          "centered": true
+        },
+        "paramId": 14
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 262.5,
+          "y": 202.47,
+          "centered": true
+        },
+        "paramId": 15
+      },
+      {
+        "id": 5,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 262.5,
+          "y": 247.47,
+          "centered": true
+        },
+        "paramId": 16
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 262.5,
+          "y": 292.47,
+          "centered": true
+        },
+        "paramId": 17
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Cycle/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "1eb511dfad2edacca61f9479ba78811b31b93ea08fc65b8d63c3db8a0815d477",
+      "size": 90206
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T15:41:14.970Z"
+  }
+}
