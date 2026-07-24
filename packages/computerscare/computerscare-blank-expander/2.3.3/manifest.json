@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-blank-expander",
+    "plugin": "computerscare",
+    "model": "computerscare-blank-expander",
+    "name": "Custom Blank Expander",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-blank-expander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-blank-expander.webp",
+    "wasmUrl": "packages/computerscare/computerscare-blank-expander/2.3.3/module.wasm",
+    "width": 30,
+    "description": "Allows CV Control of Computerscare Custom Blank GIF Animation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 0.5,
+          "y": 30,
+          "widget": "ClockModeButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Manual Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 0,
+          "y": 90,
+          "widget": "ComputerscareResetButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "EOC / Reset Frame #",
+        "min": 0,
+        "max": 0.9990000128746033,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 294,
+          "widget": "FrameScrubKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Next File (see right click menu of mother for options)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 0,
+          "y": 150,
+          "widget": "ComputerscareNextButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 2,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 2,
+          "y": 110
+        }
+      },
+      {
+        "id": 2,
+        "name": "Next Slideshow File",
+        "kind": "cv",
+        "position": {
+          "x": 2,
+          "y": 170
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "End of Animation",
+        "kind": "cv",
+        "position": {
+          "x": 2,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Frame Change",
+        "kind": "cv",
+        "position": {
+          "x": 2,
+          "y": 236
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "computerscare/ComputerscareBlank",
+            "symbol": "modelComputerscareBlank",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-blank-expander/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "12d74e3e666169bf735bbb0ff9e8be555a39f6741ac3ece310bce4b3f20716e0",
+      "size": 76984
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T14:07:58.165Z"
+  }
+}
