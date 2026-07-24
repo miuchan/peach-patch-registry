@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-laundry-soup",
+    "plugin": "computerscare",
+    "model": "computerscare-laundry-soup",
+    "name": "Laundry Soup",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-laundry-soup",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-laundry-soup.webp",
+    "wasmUrl": "packages/computerscare/computerscare-laundry-soup/2.3.3/module.wasm",
+    "width": 200,
+    "description": "Rhythm sequencer, pulse generator, text-based",
+    "params": [
+      {
+        "id": 0,
+        "name": "Manual Clock Advance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 5.906,
+          "y": 23.622,
+          "widget": "ComputerscareClockButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Manual Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 35.433,
+          "y": 23.622,
+          "widget": "ComputerscareResetButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset Row 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 37.795,
+          "widget": "ComputerscareInvisibleButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset Row 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 92.126,
+          "widget": "ComputerscareInvisibleButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Reset Row 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 146.457,
+          "widget": "ComputerscareInvisibleButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset Row 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 200.787,
+          "widget": "ComputerscareInvisibleButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reset Row 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 255.118,
+          "widget": "ComputerscareInvisibleButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Reset Row 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 59.055,
+          "y": 309.449,
+          "widget": "ComputerscareInvisibleButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Global Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 0
+        }
+      },
+      {
+        "id": 1,
+        "name": "Global Reset",
+        "kind": "gate",
+        "position": {
+          "x": 35.433,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "name": "Row 1 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 35.433
+        }
+      },
+      {
+        "id": 3,
+        "name": "Row 2 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 89.764
+        }
+      },
+      {
+        "id": 4,
+        "name": "Row 3 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 144.094
+        }
+      },
+      {
+        "id": 5,
+        "name": "Row 4 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 198.425
+        }
+      },
+      {
+        "id": 6,
+        "name": "Row 5 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 252.756
+        }
+      },
+      {
+        "id": 7,
+        "name": "Row 6 Clock",
+        "kind": "gate",
+        "position": {
+          "x": 5.906,
+          "y": 307.087
+        }
+      },
+      {
+        "id": 8,
+        "name": "Row 1 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 35.433,
+          "y": 35.433
+        }
+      },
+      {
+        "id": 9,
+        "name": "Row 2 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 35.433,
+          "y": 89.764
+        }
+      },
+      {
+        "id": 10,
+        "name": "Row 3 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 35.433,
+          "y": 144.094
+        }
+      },
+      {
+        "id": 11,
+        "name": "Row 4 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 35.433,
+          "y": 198.425
+        }
+      },
+      {
+        "id": 12,
+        "name": "Row 5 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 35.433,
+          "y": 252.756
+        }
+      },
+      {
+        "id": 13,
+        "name": "Row 6 Reset",
+        "kind": "gate",
+        "position": {
+          "x": 35.433,
+          "y": 307.087
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Row 1 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 32.48
+        }
+      },
+      {
+        "id": 1,
+        "name": "Row 2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 86.811
+        }
+      },
+      {
+        "id": 2,
+        "name": "Row 3 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 141.142
+        }
+      },
+      {
+        "id": 3,
+        "name": "Row 4 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 195.472
+        }
+      },
+      {
+        "id": 4,
+        "name": "Row 5 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 249.803
+        }
+      },
+      {
+        "id": 5,
+        "name": "Row 6 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 159.449,
+          "y": 304.134
+        }
+      },
+      {
+        "id": 6,
+        "name": "Row 1 End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 124.016,
+          "y": 32.48
+        }
+      },
+      {
+        "id": 7,
+        "name": "Row 2 End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 124.016,
+          "y": 86.811
+        }
+      },
+      {
+        "id": 8,
+        "name": "Row 3 End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 124.016,
+          "y": 141.142
+        }
+      },
+      {
+        "id": 9,
+        "name": "Row 4 End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 124.016,
+          "y": 195.472
+        }
+      },
+      {
+        "id": 10,
+        "name": "Row 5 End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 124.016,
+          "y": 249.803
+        }
+      },
+      {
+        "id": 11,
+        "name": "Row 6 End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 124.016,
+          "y": 304.134
+        }
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-laundry-soup/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "7d4f2a6c5a2ad0568b71c463ae2f6b597d1317c2d95415650cf5e1a6432f4a9f",
+      "size": 237761
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T13:19:25.755Z"
+  }
+}
