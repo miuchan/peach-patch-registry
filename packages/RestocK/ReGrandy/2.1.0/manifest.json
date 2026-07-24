@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "RestocK/ReGrandy",
+    "plugin": "RestocK",
+    "model": "ReGrandy",
+    "name": "ReGrandy",
+    "brand": "Shortwav Labs",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/shortwavlabs/vcv-restoch-plugins/tree/main/src",
+    "libraryUrl": "https://library.vcvrack.com/RestocK/ReGrandy",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/RestocK/ReGrandy.webp",
+    "wasmUrl": "packages/RestocK/ReGrandy/2.1.0/module.wasm",
+    "width": 225,
+    "description": "A stochastic synthesis generator.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -4,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 19,
+          "y": 20,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Maximum Amplitude Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 169,
+          "y": 20,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Maximum Duration Step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 119,
+          "y": 20,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Number of Breakpoints",
+        "min": 3,
+        "max": 50,
+        "default": 0,
+        "position": {
+          "x": 69,
+          "y": 20,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Granulation Frequency",
+        "min": -6,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 19,
+          "y": 200,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Granulation Frequency CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 260,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Frequency CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 80,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Amplitude Step CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 176,
+          "y": 80,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Duration Step CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126,
+          "y": 80,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Breakpoints CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76,
+          "y": 80,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Param 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "FM Mode Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105.5,
+          "y": 155,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Envelope Type",
+        "min": 1,
+        "max": 4,
+        "default": 4,
+        "position": {
+          "x": 171,
+          "y": 257,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "FM Modulation Frequency",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 69,
+          "y": 200,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "FM Carrier Frequency",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 169,
+          "y": 200,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "FM Modulation Index",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 119,
+          "y": 200,
+          "widget": "RoundLargeBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "FM Modulation Frequency CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76,
+          "y": 260,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "FM Modulation Index CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 126,
+          "y": 260,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Probability Distribution",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 80.5,
+          "y": 155,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Mirror Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130.5,
+          "y": 155,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Freq",
+        "kind": "cv",
+        "position": {
+          "x": 26,
+          "y": 108
+        }
+      },
+      {
+        "id": 1,
+        "name": "Astp",
+        "kind": "cv",
+        "position": {
+          "x": 176,
+          "y": 108
+        }
+      },
+      {
+        "id": 2,
+        "name": "Dstp",
+        "kind": "cv",
+        "position": {
+          "x": 126,
+          "y": 108
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bpts",
+        "kind": "cv",
+        "position": {
+          "x": 76,
+          "y": 108
+        }
+      },
+      {
+        "id": 4,
+        "name": "Envs",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Fmod",
+        "kind": "cv",
+        "position": {
+          "x": 76,
+          "y": 288
+        }
+      },
+      {
+        "id": 6,
+        "name": "Imod",
+        "kind": "cv",
+        "position": {
+          "x": 126,
+          "y": 288
+        }
+      },
+      {
+        "id": 7,
+        "name": "Grat",
+        "kind": "cv",
+        "position": {
+          "x": 26,
+          "y": 288
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 76,
+          "y": 347
+        }
+      },
+      {
+        "id": 1,
+        "name": "Inv",
+        "kind": "cv",
+        "position": {
+          "x": 126,
+          "y": 347
+        }
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/RestocK/ReGrandy/2.1.0/manifest.json",
+    "sourceCommit": "8f0af8c3f571511692158bdef143999046facd06",
+    "artifact": {
+      "sha256": "6b3e8f6668e31e556d04b9ca343680330cee83f0208ad974e9b961fc68c52f17",
+      "size": 91213
+    }
+  },
+  "source": {
+    "url": "https://github.com/shortwavlabs/vcv-restoch-plugins/tree/main/src",
+    "commit": "8f0af8c3f571511692158bdef143999046facd06"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T11:07:48.628Z"
+  }
+}
