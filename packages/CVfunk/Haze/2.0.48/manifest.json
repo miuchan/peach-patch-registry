@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CVfunk/Haze",
+    "plugin": "CVfunk",
+    "model": "Haze",
+    "name": "Haze",
+    "brand": "CV funk",
+    "version": "2.0.48",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/codygeary/CVfunk-Modules",
+    "libraryUrl": "https://library.vcvrack.com/CVfunk/Haze",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CVfunk/Haze.webp",
+    "wasmUrl": "packages/CVfunk/Haze/2.0.48/module.wasm",
+    "width": 120,
+    "description": "A three-tap stereo chorus and diffusion effect with switchable nodes.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896
+      },
+      {
+        "id": 1,
+        "name": "Rate Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "Depth Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Haze",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Haze Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Mix (Dry/Wet)",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 7,
+        "name": "Mix Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 9,
+        "name": "Density Att.",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Gain",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "Node I",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 12,
+        "name": "Node II",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 13,
+        "name": "Node III",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Rate CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Depth CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Haze CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Mix CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Density CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio"
+      }
+    ],
+    "lights": 9,
+    "stateKeys": [
+      {
+        "key": "hazeCutoffLow",
+        "type": "real"
+      },
+      {
+        "key": "hazeCutoffHigh",
+        "type": "real"
+      },
+      {
+        "key": "hazeApCoeff",
+        "type": "real"
+      },
+      {
+        "key": "allpassMode0",
+        "type": "boolean"
+      },
+      {
+        "key": "allpassMode1",
+        "type": "boolean"
+      },
+      {
+        "key": "allpassMode2",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CVfunk/Haze/2.0.48/manifest.json",
+    "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
+    "artifact": {
+      "sha256": "bdd8c58c9f51f4586c2575739f427ac53db1f9b4ed0f35680a4662bee8243dec",
+      "size": 85640
+    }
+  },
+  "source": {
+    "url": "https://github.com/codygeary/CVfunk-Modules",
+    "commit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T15:28:45.872Z"
+  }
+}
