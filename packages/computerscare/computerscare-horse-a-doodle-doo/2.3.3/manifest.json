@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "computerscare/computerscare-horse-a-doodle-doo",
+    "plugin": "computerscare",
+    "model": "computerscare-horse-a-doodle-doo",
+    "name": "Horse A Doodle Doo",
+    "brand": "computerscare",
+    "version": "2.3.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/freddyz/computerscare-vcv-modules",
+    "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-horse-a-doodle-doo",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-horse-a-doodle-doo.webp",
+    "wasmUrl": "packages/computerscare/computerscare-horse-a-doodle-doo/2.3.3/module.wasm",
+    "width": 90,
+    "description": "Melody, rhythm generator.  Generate complex repeatable sequences with the turn of a single knob.  Fully Polyphonic.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pattern",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Pattern CV Trim",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Number of Steps",
+        "min": 2,
+        "max": 64,
+        "default": 8,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Steps CV Trim",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Density CV Trim",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Polyphony",
+        "min": 0,
+        "max": 16,
+        "default": 0,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 4,
+          "y": 234,
+          "widget": "HorseModeKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Reset all Sequences",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 2,
+          "y": 310,
+          "widget": "ComputerscareResetButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Pattern Spread",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Steps Spread",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Density Spread",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Advance all Sequences",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 2,
+          "y": 258,
+          "widget": "ComputerscareClockButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "CV Scale",
+        "min": -2,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "CV Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 17,
+        "name": "CV Variation",
+        "min": -3.141590118408203,
+        "max": 3.141590118408203,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "Gate Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Gate Length Scaling",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Gate Length Minimum",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Gate Length Variation",
+        "min": -3.141590118408203,
+        "max": 3.141590118408203,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "CV2 Scale",
+        "min": -2,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "CV2 Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "CV2 Variation",
+        "min": -3.141590118408203,
+        "max": 3.141590118408203,
+        "default": 0,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 2,
+          "y": 274
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 2,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pattern CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Number of Steps CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Density CV",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Trigger Sequence",
+        "kind": "gate",
+        "position": {
+          "x": 42,
+          "y": 260
+        }
+      },
+      {
+        "id": 1,
+        "name": "End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 42,
+          "y": 290
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV Sequence",
+        "kind": "cv",
+        "position": {
+          "x": 42,
+          "y": 320
+        }
+      },
+      {
+        "id": 3,
+        "name": "2nd CV Sequence",
+        "kind": "cv",
+        "position": {
+          "x": 42,
+          "y": 350
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/computerscare/computerscare-horse-a-doodle-doo/2.3.3/manifest.json",
+    "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
+    "artifact": {
+      "sha256": "97f0a3b43124c09d48b3af983494bb17fa2b653ba48e2163aa07d27196902ff4",
+      "size": 112197
+    }
+  },
+  "source": {
+    "url": "https://github.com/freddyz/computerscare-vcv-modules",
+    "commit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T14:43:59.446Z"
+  }
+}
