@@ -1,0 +1,2087 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/MetaFugue",
+    "plugin": "SignalFunctionSet",
+    "model": "MetaFugue",
+    "name": "MetaFugue",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/MetaFugue",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/MetaFugue.webp",
+    "wasmUrl": "packages/SignalFunctionSet/MetaFugue/2.16.3/module.wasm",
+    "width": 660,
+    "description": "Single-module merge of Fugue and Fugue X on one wider panel. Adds the per-voice steps/range/sleep/probability, S&H mode, sorted min/mid/max CV outputs, and per-step triggers. Ideal for hosts without expander support, such as MetaModule.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Step 1 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 105,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step 2 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 129.065,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step 3 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 153.13,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 4 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 177.195,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step 5 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 201.26,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step 6 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225.325,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Step 7 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 249.39,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Step 8 Pitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 273.455,
+          "y": 127.057,
+          "centered": true,
+          "widget": "VCVSlider"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Root Note",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 67.618,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scale",
+        "min": 0,
+        "max": 18,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 67.5,
+          "y": 67.618,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Steps",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 149.469,
+          "centered": true,
+          "widget": "RoundBlackSnapKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Slew",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 67.5,
+          "y": 149.469,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Wander A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 149.409,
+          "y": 294.183,
+          "centered": true,
+          "widget": "WanderSlider"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Wander B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 149.409,
+          "y": 320.138,
+          "centered": true,
+          "widget": "WanderSlider"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Wander C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 149.409,
+          "y": 346.122,
+          "centered": true,
+          "widget": "WanderSlider"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.5,
+          "y": 228.041,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Gate A Step 1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 105,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Gate A Step 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 129.065,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Gate A Step 3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 153.13,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Gate A Step 4",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 177.195,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Gate A Step 5",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 201.26,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Gate A Step 6",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 225.325,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Gate A Step 7",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 249.39,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Gate A Step 8",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 273.455,
+          "y": 186.171,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Gate B Step 1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 105,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Gate B Step 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 129.065,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Gate B Step 3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 153.13,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Gate B Step 4",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 177.195,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Gate B Step 5",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 201.26,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Gate B Step 6",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 225.325,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Gate B Step 7",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 249.39,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Gate B Step 8",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 273.455,
+          "y": 206.781,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Gate C Step 1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 105,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Gate C Step 2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 129.065,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Gate C Step 3",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 153.13,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Gate C Step 4",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 177.195,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Gate C Step 5",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 201.26,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Gate C Step 6",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 225.325,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Gate C Step 7",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 249.39,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Gate C Step 8",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 273.455,
+          "y": 227.539,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Randomize Sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 330,
+          "y": 82.5,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Sample & Hold Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 420,
+          "y": 82.5,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Steps A",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "snap": true,
+        "position": {
+          "x": 330,
+          "y": 135,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Range A",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 420,
+          "y": 135,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Sleep A",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 510.354,
+          "y": 135,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Probability A",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 600,
+          "y": 135,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Steps B",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "snap": true,
+        "position": {
+          "x": 330,
+          "y": 180,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Range B",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 420,
+          "y": 180,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Sleep B",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 510.354,
+          "y": 180,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Probability B",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 600,
+          "y": 180,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Steps C",
+        "min": 1,
+        "max": 8,
+        "default": 8,
+        "snap": true,
+        "position": {
+          "x": 330,
+          "y": 225,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Range C",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 420,
+          "y": 225,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Sleep C",
+        "min": 0,
+        "max": 9,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 510.354,
+          "y": 225,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Probability C",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 600,
+          "y": 225,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock A",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 294.183,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock B (normalled to A)",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 320.138,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clock C (normalled to B)",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 346.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 228.041,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Root Note CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 100.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scale CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 100.01,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Steps CV",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 181.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Slew CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 181.978,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Wander A CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 294.183,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Wander B CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 320.138,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Wander C CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 346.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Randomize Sequence Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 360,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Steps A CV",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Range A CV",
+        "kind": "cv",
+        "position": {
+          "x": 450,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Sleep A CV",
+        "kind": "cv",
+        "position": {
+          "x": 540,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Probability A CV",
+        "kind": "cv",
+        "position": {
+          "x": 630,
+          "y": 135,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Steps B CV",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Range B CV",
+        "kind": "cv",
+        "position": {
+          "x": 450,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Sleep B CV",
+        "kind": "cv",
+        "position": {
+          "x": 540,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Probability B CV",
+        "kind": "cv",
+        "position": {
+          "x": 630,
+          "y": 180,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Steps C CV",
+        "kind": "cv",
+        "position": {
+          "x": 360,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Range C CV",
+        "kind": "cv",
+        "position": {
+          "x": 450,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Sleep C CV",
+        "kind": "cv",
+        "position": {
+          "x": 540,
+          "y": 225,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "Probability C CV",
+        "kind": "cv",
+        "position": {
+          "x": 630,
+          "y": 225,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV A",
+        "kind": "cv",
+        "position": {
+          "x": 264.567,
+          "y": 294.183,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate A",
+        "kind": "gate",
+        "position": {
+          "x": 236.043,
+          "y": 294.183,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV B",
+        "kind": "cv",
+        "position": {
+          "x": 264.567,
+          "y": 320.138,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Gate B",
+        "kind": "gate",
+        "position": {
+          "x": 236.043,
+          "y": 320.138,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV C",
+        "kind": "cv",
+        "position": {
+          "x": 264.567,
+          "y": 346.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate C",
+        "kind": "gate",
+        "position": {
+          "x": 236.043,
+          "y": 346.122,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Max CV",
+        "kind": "cv",
+        "position": {
+          "x": 630,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mid CV",
+        "kind": "cv",
+        "position": {
+          "x": 630,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Min CV",
+        "kind": "cv",
+        "position": {
+          "x": 630,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gate A Step 1",
+        "kind": "gate",
+        "position": {
+          "x": 330,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Gate A Step 2",
+        "kind": "audio",
+        "position": {
+          "x": 360,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Gate A Step 3",
+        "kind": "audio",
+        "position": {
+          "x": 390,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Gate A Step 4",
+        "kind": "audio",
+        "position": {
+          "x": 420,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Gate A Step 5",
+        "kind": "audio",
+        "position": {
+          "x": 450,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Gate A Step 6",
+        "kind": "audio",
+        "position": {
+          "x": 480,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Gate A Step 7",
+        "kind": "audio",
+        "position": {
+          "x": 510,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Gate A Step 8",
+        "kind": "audio",
+        "position": {
+          "x": 540,
+          "y": 285,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Gate B Step 1",
+        "kind": "gate",
+        "position": {
+          "x": 330,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Gate B Step 2",
+        "kind": "audio",
+        "position": {
+          "x": 360,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Gate B Step 3",
+        "kind": "audio",
+        "position": {
+          "x": 390,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Gate B Step 4",
+        "kind": "audio",
+        "position": {
+          "x": 420,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Gate B Step 5",
+        "kind": "audio",
+        "position": {
+          "x": 450,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Gate B Step 6",
+        "kind": "audio",
+        "position": {
+          "x": 480,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "Gate B Step 7",
+        "kind": "audio",
+        "position": {
+          "x": 510,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "name": "Gate B Step 8",
+        "kind": "audio",
+        "position": {
+          "x": 540,
+          "y": 315,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "Gate C Step 1",
+        "kind": "gate",
+        "position": {
+          "x": 330,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "name": "Gate C Step 2",
+        "kind": "audio",
+        "position": {
+          "x": 360,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "name": "Gate C Step 3",
+        "kind": "audio",
+        "position": {
+          "x": 390,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "name": "Gate C Step 4",
+        "kind": "audio",
+        "position": {
+          "x": 420,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "name": "Gate C Step 5",
+        "kind": "audio",
+        "position": {
+          "x": 450,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "name": "Gate C Step 6",
+        "kind": "audio",
+        "position": {
+          "x": 480,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "name": "Gate C Step 7",
+        "kind": "audio",
+        "position": {
+          "x": 510,
+          "y": 344.97,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "name": "Gate C Step 8",
+        "kind": "audio",
+        "position": {
+          "x": 540,
+          "y": 344.97,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 76,
+    "lightWidgets": [
+      {
+        "id": 24,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 129.065,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 153.13,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.195,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 201.26,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225.325,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 249.39,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 273.455,
+          "y": 56.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 129.065,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 153.13,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.195,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 201.26,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225.325,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 249.39,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 273.455,
+          "y": 65.108,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 105,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 129.065,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 153.13,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 177.195,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 201.26,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225.325,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 249.39,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 273.455,
+          "y": 73.937,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 510,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 50,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 510,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 510,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 525,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 525,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 525,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 55,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 540,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 56,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 540,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 540,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 58,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 555,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 59,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 555,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 555,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 61,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 570,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 62,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 570,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 63,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 570,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 64,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 585,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 65,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 585,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 66,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 585,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 67,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 600,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 68,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 600,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 69,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 600,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 70,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 615,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 71,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 615,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 72,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 615,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 73,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 630,
+          "y": 52.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 74,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 630,
+          "y": 67.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 75,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 630,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 105,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 16
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 129.065,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 17
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 153.13,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 18
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 177.195,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 19
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 201.26,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 20
+      },
+      {
+        "id": 5,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 225.325,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 21
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 249.39,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 22
+      },
+      {
+        "id": 7,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 273.455,
+          "y": 186.171,
+          "centered": true
+        },
+        "paramId": 23
+      },
+      {
+        "id": 8,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 105,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 24
+      },
+      {
+        "id": 9,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 129.065,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 25
+      },
+      {
+        "id": 10,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 153.13,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 26
+      },
+      {
+        "id": 11,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 177.195,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 27
+      },
+      {
+        "id": 12,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 201.26,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 28
+      },
+      {
+        "id": 13,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 225.325,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 29
+      },
+      {
+        "id": 14,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 249.39,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 30
+      },
+      {
+        "id": 15,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 273.455,
+          "y": 206.781,
+          "centered": true
+        },
+        "paramId": 31
+      },
+      {
+        "id": 16,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 105,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 32
+      },
+      {
+        "id": 17,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 129.065,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 33
+      },
+      {
+        "id": 18,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 153.13,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 34
+      },
+      {
+        "id": 19,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 177.195,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 35
+      },
+      {
+        "id": 20,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 201.26,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 36
+      },
+      {
+        "id": 21,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 225.325,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 37
+      },
+      {
+        "id": 22,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 249.39,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 38
+      },
+      {
+        "id": 23,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 273.455,
+          "y": 227.539,
+          "centered": true
+        },
+        "paramId": 39
+      },
+      {
+        "id": 48,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 420,
+          "y": 82.5,
+          "centered": true
+        },
+        "paramId": 41
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "faderRange",
+        "type": "real"
+      },
+      {
+        "key": "harmonicLock",
+        "type": "boolean"
+      },
+      {
+        "key": "gateLength",
+        "type": "real"
+      },
+      {
+        "key": "schemaVersion",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SignalFunctionSet/MetaFugue/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "430590fd12b0f11e2a49c1d9a073c696d0b6e367ffff41e18b118d384d5f02a9",
+      "size": 102691
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T15:55:18.521Z"
+  }
+}
