@@ -1,0 +1,943 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SSE/KeySeq",
+    "plugin": "SSE",
+    "model": "KeySeq",
+    "name": "Keyboard-Sequencer",
+    "brand": "SSE",
+    "version": "2.0.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/herbert-50/SSE-One/tree/main/src",
+    "libraryUrl": "https://library.vcvrack.com/SSE/KeySeq",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SSE/KeySeq.webp",
+    "wasmUrl": "packages/SSE/KeySeq/2.0.2/module.wasm",
+    "width": 360,
+    "description": "Create and control sequences with a MIDI keyboard",
+    "params": [
+      {
+        "id": 0,
+        "name": "Double click time (ms)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130.001,
+          "y": 78,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length of gate signal",
+        "min": 10,
+        "max": 1000,
+        "default": 250,
+        "position": {
+          "x": 280.001,
+          "y": 79.175,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Run sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 253.999,
+          "y": 47.303,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 253.999,
+          "y": 107.973,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Next step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 121.001,
+          "y": 301.999,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Prev step",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 81,
+          "y": 301.999,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reserved",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 241.001,
+          "y": 301.999,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Copy sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 280.999,
+          "y": 301.999,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Param 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Clear sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 201,
+          "y": 301.999,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Copy record sequence to play sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 61.999,
+          "y": 328.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Tied mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 139.999,
+          "y": 328.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Del note",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 181.999,
+          "y": 328.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Insert mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 222,
+          "y": 328.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Add a rest",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 102,
+          "y": 328.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Select sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 262.001,
+          "y": 328.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Transpose mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 301.999,
+          "y": 328.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Param 18",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 96,
+          "y": 79.999,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/OCT",
+        "kind": "cv",
+        "position": {
+          "x": 25.001,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 204,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 25.001,
+          "y": 78,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 204,
+          "y": 78,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Velocity",
+        "kind": "cv",
+        "position": {
+          "x": 25.001,
+          "y": 108.691,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 204,
+          "y": 108,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Copy record sequence to play sequence",
+        "kind": "gate",
+        "position": {
+          "x": 204,
+          "y": 138,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "1V/OCT for commands",
+        "kind": "cv",
+        "position": {
+          "x": 25.001,
+          "y": 305.265,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gate for commands",
+        "kind": "gate",
+        "position": {
+          "x": 25.001,
+          "y": 342.502,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Trans",
+        "kind": "cv",
+        "position": {
+          "x": 204,
+          "y": 168,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/OCT",
+        "kind": "cv",
+        "position": {
+          "x": 334.999,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 334.999,
+          "y": 78,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Velocity",
+        "kind": "cv",
+        "position": {
+          "x": 334.999,
+          "y": 108,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "End of sequence",
+        "kind": "gate",
+        "position": {
+          "x": 334.999,
+          "y": 138,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 40,
+    "lightWidgets": [
+      {
+        "id": 38,
+        "widget": "LargeLight<YellowLight>",
+        "position": {
+          "x": 336.741,
+          "y": 316.116,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "position": {
+          "x": 253.999,
+          "y": 47.303,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 253.999,
+          "y": 107.973,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 81,
+          "y": 301.999,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 5,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 121.001,
+          "y": 301.999,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 8,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 201,
+          "y": 301.999,
+          "centered": true
+        },
+        "paramId": 9
+      },
+      {
+        "id": 11,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 241.001,
+          "y": 301.999,
+          "centered": true
+        },
+        "paramId": 6
+      },
+      {
+        "id": 14,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 280.999,
+          "y": 301.999,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 17,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 61.999,
+          "y": 328.001,
+          "centered": true
+        },
+        "paramId": 10
+      },
+      {
+        "id": 20,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 102,
+          "y": 328.001,
+          "centered": true
+        },
+        "paramId": 14
+      },
+      {
+        "id": 23,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 139.999,
+          "y": 328.001,
+          "centered": true
+        },
+        "paramId": 11
+      },
+      {
+        "id": 26,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 181.999,
+          "y": 328.001,
+          "centered": true
+        },
+        "paramId": 12
+      },
+      {
+        "id": 29,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 222,
+          "y": 328.001,
+          "centered": true
+        },
+        "paramId": 13
+      },
+      {
+        "id": 35,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 262.001,
+          "y": 328.001,
+          "centered": true
+        },
+        "paramId": 15
+      },
+      {
+        "id": 32,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedGreenBlueLight>>",
+        "position": {
+          "x": 301.999,
+          "y": 328.001,
+          "centered": true
+        },
+        "paramId": 16
+      },
+      {
+        "id": 39,
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+        "position": {
+          "x": 96,
+          "y": 79.999,
+          "centered": true
+        },
+        "paramId": 17
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "seqPLAYIdx",
+        "type": "integer"
+      },
+      {
+        "key": "seqRECIdx",
+        "type": "integer"
+      },
+      {
+        "key": "seqTRANSIdx",
+        "type": "integer"
+      },
+      {
+        "key": "CmdFromLastKey",
+        "type": "boolean"
+      },
+      {
+        "key": "AutoPlayOnNewNote",
+        "type": "boolean"
+      },
+      {
+        "key": "AutoPlayOnNewRest",
+        "type": "boolean"
+      },
+      {
+        "key": "AutoPlayOnNewTie",
+        "type": "boolean"
+      },
+      {
+        "key": "AutoPlayOnDelete",
+        "type": "boolean"
+      },
+      {
+        "key": "AutoPlayOnSeqSelected",
+        "type": "boolean"
+      },
+      {
+        "key": "AutoPlayAlways",
+        "type": "boolean"
+      },
+      {
+        "key": "CopyUse10",
+        "type": "boolean"
+      },
+      {
+        "key": "CopyOnEOS",
+        "type": "boolean"
+      },
+      {
+        "key": "TransOnEOS",
+        "type": "boolean"
+      },
+      {
+        "key": "SetSeqOnCopy",
+        "type": "boolean"
+      },
+      {
+        "key": "KeyboardControl",
+        "type": "boolean"
+      },
+      {
+        "key": "SelectOnPlayInput",
+        "type": "boolean"
+      },
+      {
+        "path": [
+          0,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          0,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          1,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          2,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          3,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          4,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          5,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          6,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          7,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          8,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          9,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          10,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "idx"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "len"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "path": [
+          11,
+          "pos"
+        ],
+        "key": "sequences",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/SSE/KeySeq/2.0.2/manifest.json",
+    "sourceCommit": "ff3505b67b2b07e7787c40a89d06b9c42a2ddd65",
+    "artifact": {
+      "sha256": "83f837288d13338da14cd79129e11db98421294b3bb1427a16aa1014b3927010",
+      "size": 112703
+    }
+  },
+  "source": {
+    "url": "https://github.com/herbert-50/SSE-One/tree/main/src",
+    "commit": "ff3505b67b2b07e7787c40a89d06b9c42a2ddd65"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-24T11:20:44.885Z"
+  }
+}
