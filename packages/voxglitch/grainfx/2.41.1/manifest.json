@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "voxglitch/grainfx",
+    "plugin": "voxglitch",
+    "model": "grainfx",
+    "name": "Grain Fx",
+    "brand": "Voxglitch",
+    "version": "2.41.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/clone45/voxglitch",
+    "libraryUrl": "https://library.vcvrack.com/voxglitch/grainfx",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/voxglitch/grainfx.webp",
+    "wasmUrl": "packages/voxglitch/grainfx/2.41.1/module.wasm",
+    "width": 375,
+    "description": "Granular effects for incoming audio.",
+    "params": [
+      {
+        "id": 0,
+        "name": "WindowKnob",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 124.606,
+          "y": 208.618,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "WindowAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 208.618,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "SamplePlaybackPositionKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 280.512,
+          "y": 338.687,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "SamplePlaybackPositionAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 315.945,
+          "y": 338.687,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "PitchKnob",
+        "min": -1.2999999523162842,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 124.606,
+          "y": 273.472,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "PitchAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 76.772,
+          "y": 273.472,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "TrimKnob",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 221.28,
+          "y": 304.261,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "JitterKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 223.214,
+          "y": 134.979,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "PanSwitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 223.214,
+          "y": 194.17,
+          "centered": true,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "FreezeSwitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 223.214,
+          "y": 253.361,
+          "centered": true,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "GrainsKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0.05000000074505806,
+        "position": {
+          "x": 124.606,
+          "y": 143.767,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "GrainsAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 143.767,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "SpawnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 124.606,
+          "y": 78.915,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "SpawnAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 76.772,
+          "y": 78.915,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "InternalModulateionFrequencyKnob",
+        "min": 0.10000000149011612,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 280.512,
+          "y": 152.474,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "InternalModulateionFrequencyAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 315.945,
+          "y": 152.474,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "InternalModulateionAmplitudeKnob",
+        "min": 0.0020000000949949026,
+        "max": 1,
+        "default": 0.009999999776482582,
+        "position": {
+          "x": 280.512,
+          "y": 211.53,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "InternalModulateionAmplitudeAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 315.945,
+          "y": 211.53,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 19,
+        "name": "InternalModulateionWaveformKnob",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 0.009999999776482582,
+        "position": {
+          "x": 280.512,
+          "y": 91.535,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "InternalModulateionWaveformAttnKnob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 315.945,
+          "y": 91.535,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "InternalModulationOutputPolaritySwitch",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 310.039,
+          "y": 259.843,
+          "centered": true,
+          "widget": "CKSS"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Jitter CV",
+        "kind": "cv",
+        "position": {
+          "x": 184.152,
+          "y": 134.979,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Window",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 208.618,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sample Playback Position",
+        "kind": "cv",
+        "position": {
+          "x": 348.425,
+          "y": 338.687,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 273.472,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Spawn Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 184.152,
+          "y": 78.915,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Contour",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Pan",
+        "kind": "cv",
+        "position": {
+          "x": 184.152,
+          "y": 194.17,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Freeze",
+        "kind": "cv",
+        "position": {
+          "x": 184.152,
+          "y": 253.361,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Grains",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 143.767,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Audio Input Left",
+        "kind": "audio",
+        "position": {
+          "x": 29.528,
+          "y": 338.687,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Audio Input Right",
+        "kind": "audio",
+        "position": {
+          "x": 62.008,
+          "y": 338.687,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Spawn",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 78.915,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Internal Modulation Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 348.425,
+          "y": 152.474,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Internal Modulation Amplitude",
+        "kind": "cv",
+        "position": {
+          "x": 348.425,
+          "y": 211.53,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Internal Modulation Waveform",
+        "kind": "cv",
+        "position": {
+          "x": 348.425,
+          "y": 91.535,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio Output Left",
+        "kind": "audio",
+        "position": {
+          "x": 189.614,
+          "y": 338.687,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio Output Right",
+        "kind": "audio",
+        "position": {
+          "x": 221.28,
+          "y": 338.687,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Internal Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 348.425,
+          "y": 259.843,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 10,
+    "lightWidgets": [
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 150.591,
+          "y": 78.915,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 207.874,
+          "y": 78.915,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 94.488,
+          "y": 338.687,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 277.99,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 296.929,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 315.475,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 334.022,
+          "y": 59.055,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 352.568,
+          "y": 59.055,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/voxglitch/grainfx/2.41.1/manifest.json",
+    "sourceCommit": "267101591c21dee84c3e18e4bac64d5177c94d5a",
+    "artifact": {
+      "sha256": "c923fd0d95b22c74b92d8fbef7363544f36ae84b0be7d3ac2ffc079c9271c6a2",
+      "size": 106506
+    }
+  },
+  "source": {
+    "url": "https://github.com/clone45/voxglitch",
+    "commit": "267101591c21dee84c3e18e4bac64d5177c94d5a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T21:44:09.998Z"
+  }
+}

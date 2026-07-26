@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "voxglitch/xy",
+    "plugin": "voxglitch",
+    "model": "xy",
+    "name": "XY",
+    "brand": "Voxglitch",
+    "version": "2.41.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/clone45/voxglitch",
+    "libraryUrl": "https://library.vcvrack.com/voxglitch/xy",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/voxglitch/xy.webp",
+    "wasmUrl": "packages/voxglitch/xy/2.41.1/module.wasm",
+    "width": 300,
+    "description": "CV output generator with built in gesture recording.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Retrigger",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Punch",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clk",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "tablet_mode",
+        "type": "integer"
+      },
+      {
+        "key": "no_clk_position_x",
+        "type": "real"
+      },
+      {
+        "key": "no_clk_position_y",
+        "type": "real"
+      },
+      {
+        "key": "voltage_range",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/voxglitch/xy/2.41.1/manifest.json",
+    "sourceCommit": "267101591c21dee84c3e18e4bac64d5177c94d5a",
+    "artifact": {
+      "sha256": "0fce1bfd7644dccb3524bce8bce6d2a24b9e5abd082980deab458ba163cb4f2c",
+      "size": 78625
+    }
+  },
+  "source": {
+    "url": "https://github.com/clone45/voxglitch",
+    "commit": "267101591c21dee84c3e18e4bac64d5177c94d5a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T21:46:52.415Z"
+  }
+}

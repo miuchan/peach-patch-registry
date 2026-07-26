@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "voxglitch/noteDetector",
+    "plugin": "voxglitch",
+    "model": "noteDetector",
+    "name": "Note Detector",
+    "brand": "Voxglitch",
+    "version": "2.41.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/clone45/voxglitch",
+    "libraryUrl": "https://library.vcvrack.com/voxglitch/noteDetector",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/voxglitch/noteDetector.webp",
+    "wasmUrl": "packages/voxglitch/noteDetector/2.41.1/module.wasm",
+    "width": 180,
+    "description": "Produces a gate or trigger output when a specified note is detected at the CV input",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 11,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": -1,
+        "max": 8,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Detection",
+        "kind": "cv"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "window_start",
+        "type": "integer"
+      },
+      {
+        "key": "window_end",
+        "type": "integer"
+      },
+      {
+        "key": "output_mode",
+        "type": "integer"
+      },
+      {
+        "key": "tolerance",
+        "type": "integer"
+      },
+      {
+        "key": "trigger_length_index",
+        "type": "integer"
+      },
+      {
+        "key": "use_flat_notation",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/voxglitch/noteDetector/2.41.1/manifest.json",
+    "sourceCommit": "267101591c21dee84c3e18e4bac64d5177c94d5a",
+    "artifact": {
+      "sha256": "7bf983cb88dafee6704566ede26040cc1030e86c85a134697aba6e47589e0b9b",
+      "size": 77353
+    }
+  },
+  "source": {
+    "url": "https://github.com/clone45/voxglitch",
+    "commit": "267101591c21dee84c3e18e4bac64d5177c94d5a"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T21:45:29.949Z"
+  }
+}
