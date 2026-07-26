@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-26T16:10:01.017Z",
-  "packageCount": 2716,
-  "totalBytes": 330844588,
+  "generatedAt": "2026-07-26T16:27:02.824Z",
+  "packageCount": 2718,
+  "totalBytes": 331110087,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -216457,6 +216457,206 @@
       }
     },
     {
+      "key": "Coalescent/Axon",
+      "plugin": "Coalescent",
+      "model": "Axon",
+      "name": "Neuron · Axon",
+      "brand": "Coalescent",
+      "version": "2.2.1",
+      "license": "GPL-3.0-only",
+      "sourceUrl": "https://github.com/jeremycg/coalescent",
+      "libraryUrl": "https://library.vcvrack.com/Coalescent/Axon",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coalescent/Axon.webp",
+      "wasmUrl": "packages/Coalescent/Axon/2.2.1/module.wasm",
+      "width": 180,
+      "description": "Spiking-neuron oscillator on the FitzHugh-Nagumo system: relaxation oscillator + excitable (trigger-fired) voice",
+      "params": [
+        {
+          "id": 0,
+          "name": "Pitch",
+          "min": -4,
+          "max": 4,
+          "default": 0,
+          "position": {
+            "x": 22.146,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Current (excitability)",
+          "min": -0.20000000298023224,
+          "max": 1.600000023841858,
+          "default": 0.6000000238418579,
+          "position": {
+            "x": 67.382,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Timescale ε (spike sharpness)",
+          "min": 0.009999999776482582,
+          "max": 0.30000001192092896,
+          "default": 0.07999999821186066,
+          "position": {
+            "x": 112.618,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Shape (asymmetry a)",
+          "min": 0.4000000059604645,
+          "max": 1,
+          "default": 0.699999988079071,
+          "position": {
+            "x": 157.854,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Current CV",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 67.382,
+            "y": 212.598,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 5,
+          "name": "ε CV",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 112.618,
+            "y": 212.598,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "1V/oct pitch",
+          "kind": "cv",
+          "position": {
+            "x": 19.193,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Current CV",
+          "kind": "cv",
+          "position": {
+            "x": 67.382,
+            "y": 248.031,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "ε CV",
+          "kind": "cv",
+          "position": {
+            "x": 112.618,
+            "y": 248.031,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Trigger (fire a spike)",
+          "kind": "gate",
+          "position": {
+            "x": 45.768,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "name": "Sync (hard reset to rest)",
+          "kind": "gate",
+          "position": {
+            "x": 72.343,
+            "y": 330.709,
+            "centered": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Audio (membrane voltage v)",
+          "kind": "audio",
+          "position": {
+            "x": 107.776,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Spike (trigger on each spike)",
+          "kind": "gate",
+          "position": {
+            "x": 134.35,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Recovery w (slow CV)",
+          "kind": "cv",
+          "position": {
+            "x": 160.925,
+            "y": 330.709,
+            "centered": true
+          }
+        }
+      ],
+      "lights": 0,
+      "stateKeys": [
+        {
+          "key": "osFactor",
+          "type": "integer"
+        },
+        {
+          "key": "oversample",
+          "type": "integer"
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/Coalescent/Axon/2.2.1/manifest.json",
+      "sourceCommit": "bea6fe0d95e0e6693ac7814554e42906236ac99f",
+      "artifact": {
+        "sha256": "c9ebb41778f88df62f8521f8fe3e9f62dbebaed156262492dc13ae62d20b0c97",
+        "size": 132175
+      }
+    },
+    {
       "key": "Coalescent/Bunnies",
       "plugin": "Coalescent",
       "model": "Bunnies",
@@ -217192,6 +217392,206 @@
       "artifact": {
         "sha256": "28859ccac05d0a65819e5fb8c2e83b6fdc6bd4b39c471de5308db3901721851d",
         "size": 78447
+      }
+    },
+    {
+      "key": "Coalescent/Soma",
+      "plugin": "Coalescent",
+      "model": "Soma",
+      "name": "Neuron · Soma",
+      "brand": "Coalescent",
+      "version": "2.2.1",
+      "license": "GPL-3.0-only",
+      "sourceUrl": "https://github.com/jeremycg/coalescent",
+      "libraryUrl": "https://library.vcvrack.com/Coalescent/Soma",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Coalescent/Soma.webp",
+      "wasmUrl": "packages/Coalescent/Soma/2.2.1/module.wasm",
+      "width": 180,
+      "description": "Bursting/chaotic neuron oscillator on the Hindmarsh-Rose system: spike trains, bursts, and chaos from one current control",
+      "params": [
+        {
+          "id": 0,
+          "name": "Pitch",
+          "min": -4,
+          "max": 4,
+          "default": 0,
+          "position": {
+            "x": 22.146,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Current (excitability)",
+          "min": 0.4000000059604645,
+          "max": 4,
+          "default": 2,
+          "position": {
+            "x": 67.382,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Burst / adaptation rate r",
+          "min": -9.965784072875977,
+          "max": -4.321928024291992,
+          "default": -5.05889368057251,
+          "position": {
+            "x": 112.618,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Adaptation strength s",
+          "min": 1,
+          "max": 5,
+          "default": 4,
+          "position": {
+            "x": 157.854,
+            "y": 159.449,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Current CV",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 67.382,
+            "y": 212.598,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Burst CV",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 112.618,
+            "y": 212.598,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "1V/oct pitch",
+          "kind": "cv",
+          "position": {
+            "x": 19.193,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Current CV",
+          "kind": "cv",
+          "position": {
+            "x": 67.382,
+            "y": 248.031,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Burst rate CV",
+          "kind": "cv",
+          "position": {
+            "x": 112.618,
+            "y": 248.031,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Trigger (fire a burst)",
+          "kind": "gate",
+          "position": {
+            "x": 45.768,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "name": "Sync (hard reset to rest)",
+          "kind": "gate",
+          "position": {
+            "x": 72.343,
+            "y": 330.709,
+            "centered": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Audio (membrane potential x)",
+          "kind": "audio",
+          "position": {
+            "x": 107.776,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Spike (trigger on each spike)",
+          "kind": "gate",
+          "position": {
+            "x": 134.35,
+            "y": 330.709,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Adaptation z (burst-envelope CV)",
+          "kind": "cv",
+          "position": {
+            "x": 160.925,
+            "y": 330.709,
+            "centered": true
+          }
+        }
+      ],
+      "lights": 0,
+      "stateKeys": [
+        {
+          "key": "osFactor",
+          "type": "integer"
+        },
+        {
+          "key": "oversample",
+          "type": "integer"
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/Coalescent/Soma/2.2.1/manifest.json",
+      "sourceCommit": "bea6fe0d95e0e6693ac7814554e42906236ac99f",
+      "artifact": {
+        "sha256": "0adf4c6060747ab0f9346d01735cb0dd82fb6f135fda7d473d36cb4e6be99ab2",
+        "size": 133324
       }
     },
     {
