@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/Loud",
+    "plugin": "Cella",
+    "model": "Loud",
+    "name": "Loud",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/Loud",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Loud.webp",
+    "wasmUrl": "packages/Cella/Loud/2.10.0/module.wasm",
+    "width": 90,
+    "description": "Loudness meter based on EBU R128 standard, narrow version",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.5,
+          "y": 280.1,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Target loudness",
+        "min": -36,
+        "max": 0,
+        "default": -23,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio L / Mono",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 329.28,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 329.28,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 280.1,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "integratedLufs",
+        "type": "real"
+      },
+      {
+        "key": "processingMode",
+        "type": "integer"
+      },
+      {
+        "key": "shortTermEnabled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Cella/LoudnessCV",
+            "symbol": "modelLoudnessCV",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/Loud/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "cf2ae173d5a8ed69f05edb21ecd7b43ede54c3f92f84721a5cf7f4abcf500fd5",
+      "size": 114743
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T10:05:55.565Z"
+  }
+}
