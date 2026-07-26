@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CosineKitty-Sapphire/Empath",
+    "plugin": "CosineKitty-Sapphire",
+    "model": "Empath",
+    "name": "Empath",
+    "brand": "Sapphire",
+    "version": "2.6.007",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/cosinekitty/sapphire",
+    "libraryUrl": "https://library.vcvrack.com/CosineKitty-Sapphire/Empath",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CosineKitty-Sapphire/Empath.webp",
+    "wasmUrl": "packages/CosineKitty-Sapphire/Empath/2.6.007/module.wasm",
+    "width": 180,
+    "description": "A multi-stage filter based on a chain of expanders.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Insert Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 1,
+        "name": "Output Channel Mode Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 1,
+        "max": 3,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": -7,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Param 7",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 7,
+        "name": "Param 8",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Initialize entire chain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 9,
+        "name": "Toggle Spectrum Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 10,
+        "name": "Chaos Stereo Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "Randomize chaotic CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 13,
+        "name": "Param 14",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 14,
+        "name": "Chaos Freeze Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 15,
+        "name": "Chaos Display Voltages Button",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio Left",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio Right",
+        "kind": "audio"
+      },
+      {
+        "id": 2,
+        "name": "Cascade CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Chaos Speed CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Chaos Level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Input Gain CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "enableStereoSplitter",
+        "type": "boolean"
+      },
+      {
+        "key": "enableStereoMerge",
+        "type": "boolean"
+      },
+      {
+        "key": "modelSampleRate",
+        "type": "integer"
+      },
+      {
+        "key": "neonMode",
+        "type": "boolean"
+      },
+      {
+        "key": "limiterWarningLight",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "CosineKitty-Sapphire/SapphireEmpathInput",
+            "symbol": "modelSapphireEmpathInput",
+            "index": 0
+          },
+          {
+            "key": "CosineKitty-Sapphire/EmpathFilter",
+            "symbol": "modelSapphireEmpathFilter",
+            "index": 1
+          },
+          {
+            "key": "CosineKitty-Sapphire/EmpathOutput",
+            "symbol": "modelSapphireEmpathOutput",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CosineKitty-Sapphire/Empath/2.6.007/manifest.json",
+    "sourceCommit": "cb449647370591a7cdd569ff4d556ad7c838c4db",
+    "artifact": {
+      "sha256": "eae0e3cf3d7428baf952b1b65f27108a302875dce8cbece4086f96c3a3a6d59e",
+      "size": 121730
+    }
+  },
+  "source": {
+    "url": "https://github.com/cosinekitty/sapphire",
+    "commit": "cb449647370591a7cdd569ff4d556ad7c838c4db"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T20:08:42.333Z"
+  }
+}

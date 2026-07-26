@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CosineKitty-Sapphire/Nucleus",
+    "plugin": "CosineKitty-Sapphire",
+    "model": "Nucleus",
+    "name": "Nucleus",
+    "brand": "Sapphire",
+    "version": "2.6.007",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/cosinekitty/sapphire",
+    "libraryUrl": "https://library.vcvrack.com/CosineKitty-Sapphire/Nucleus",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CosineKitty-Sapphire/Nucleus.webp",
+    "wasmUrl": "packages/CosineKitty-Sapphire/Nucleus/2.6.007/module.wasm",
+    "width": 240,
+    "description": "Simulation of a cloud of particles with mutually attractive, repulsive, and orthogonal forces.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "min": -6,
+        "max": 6,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Magnetic coupling",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 3,
+        "name": "Input drive",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 4,
+        "name": "Output level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Speed attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Decay attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Magnetic coupling attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Input drive attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Output level attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Toggle audio/CV output mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 11,
+        "name": "Param 12",
+        "min": 1,
+        "max": 10.199999809265137,
+        "default": 4
+      },
+      {
+        "id": 12,
+        "name": "Param 13",
+        "min": 20,
+        "max": 400,
+        "default": 30
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "AX",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "AY",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "AZ",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Speed CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Decay CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Magnetic coupling CV",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "Input level CV",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "Output level CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "BX",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "BY",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "BZ",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "CX",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "CY",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "CZ",
+        "kind": "cv"
+      },
+      {
+        "id": 6,
+        "name": "DX",
+        "kind": "cv"
+      },
+      {
+        "id": 7,
+        "name": "DY",
+        "kind": "cv"
+      },
+      {
+        "id": 8,
+        "name": "DZ",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "EX",
+        "kind": "cv"
+      },
+      {
+        "id": 10,
+        "name": "EY",
+        "kind": "cv"
+      },
+      {
+        "id": 11,
+        "name": "EZ",
+        "kind": "cv"
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "enableStereoSplitter",
+        "type": "boolean"
+      },
+      {
+        "key": "enableStereoMerge",
+        "type": "boolean"
+      },
+      {
+        "key": "modelSampleRate",
+        "type": "integer"
+      },
+      {
+        "key": "neonMode",
+        "type": "boolean"
+      },
+      {
+        "key": "limiterWarningLight",
+        "type": "boolean"
+      },
+      {
+        "key": "tricorderOutputIndex",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CosineKitty-Sapphire/Nucleus/2.6.007/manifest.json",
+    "sourceCommit": "cb449647370591a7cdd569ff4d556ad7c838c4db",
+    "artifact": {
+      "sha256": "9ee56994e9dacf8f0ce8211fb06b033500e06abff6ac859adafccab1e496e98d",
+      "size": 107377
+    }
+  },
+  "source": {
+    "url": "https://github.com/cosinekitty/sapphire",
+    "commit": "cb449647370591a7cdd569ff4d556ad7c838c4db"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T19:59:54.456Z"
+  }
+}

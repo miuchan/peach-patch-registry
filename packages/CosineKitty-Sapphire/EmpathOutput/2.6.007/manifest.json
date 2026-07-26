@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CosineKitty-Sapphire/EmpathOutput",
+    "plugin": "CosineKitty-Sapphire",
+    "model": "EmpathOutput",
+    "name": "Empath Output",
+    "brand": "Sapphire",
+    "version": "2.6.007",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/cosinekitty/sapphire",
+    "libraryUrl": "https://library.vcvrack.com/CosineKitty-Sapphire/EmpathOutput",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CosineKitty-Sapphire/EmpathOutput.webp",
+    "wasmUrl": "packages/CosineKitty-Sapphire/EmpathOutput/2.6.007/module.wasm",
+    "width": 180,
+    "description": "The final expander to get output from a chain of Empath filter modules.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param 1",
+        "min": 0,
+        "max": 1,
+        "default": 1
+      },
+      {
+        "id": 1,
+        "name": "Param 2",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Param 3",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 3,
+        "name": "Param 4",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Vertical scale",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Param 6",
+        "min": 1,
+        "max": 10.199999809265137,
+        "default": 6
+      },
+      {
+        "id": 6,
+        "name": "Add another Empath chain in series",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Global Mix CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Global Level CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio Left",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Audio Right",
+        "kind": "audio"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "enableStereoSplitter",
+        "type": "boolean"
+      },
+      {
+        "key": "enableStereoMerge",
+        "type": "boolean"
+      },
+      {
+        "key": "modelSampleRate",
+        "type": "integer"
+      },
+      {
+        "key": "neonMode",
+        "type": "boolean"
+      },
+      {
+        "key": "limiterWarningLight",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "CosineKitty-Sapphire/SapphireEmpathInput",
+            "symbol": "modelSapphireEmpathInput",
+            "index": 0
+          },
+          {
+            "key": "CosineKitty-Sapphire/EmpathFilter",
+            "symbol": "modelSapphireEmpathFilter",
+            "index": 1
+          },
+          {
+            "key": "CosineKitty-Sapphire/EmpathOutput",
+            "symbol": "modelSapphireEmpathOutput",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CosineKitty-Sapphire/EmpathOutput/2.6.007/manifest.json",
+    "sourceCommit": "cb449647370591a7cdd569ff4d556ad7c838c4db",
+    "artifact": {
+      "sha256": "54f58690569ba8dfd11a02f90dd19c5a84274d0445a31e4142047ac3d451c70e",
+      "size": 125671
+    }
+  },
+  "source": {
+    "url": "https://github.com/cosinekitty/sapphire",
+    "commit": "cb449647370591a7cdd569ff4d556ad7c838c4db"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T20:12:03.059Z"
+  }
+}

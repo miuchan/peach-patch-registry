@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CosineKitty-Sapphire/Elastika",
+    "plugin": "CosineKitty-Sapphire",
+    "model": "Elastika",
+    "name": "Elastika",
+    "brand": "Sapphire",
+    "version": "2.6.007",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/cosinekitty/sapphire",
+    "libraryUrl": "https://library.vcvrack.com/CosineKitty-Sapphire/Elastika",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CosineKitty-Sapphire/Elastika.webp",
+    "wasmUrl": "packages/CosineKitty-Sapphire/Elastika/2.6.007/module.wasm",
+    "width": 180,
+    "description": "Filters audio through a simulated network of balls and springs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Friction",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Stiffness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 2,
+        "name": "Spring span",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "Magnetic field",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Impurity mass",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 5,
+        "name": "Friction attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 6,
+        "name": "Stiffness attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 7,
+        "name": "Spring span attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 8,
+        "name": "Magnetic field attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 9,
+        "name": "Impurity mass attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 10,
+        "name": "Input drive",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 11,
+        "name": "Output level",
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": 12,
+        "name": "Input tilt angle",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 13,
+        "name": "Output tilt angle",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 14,
+        "name": "Power",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 15,
+        "name": "Input tilt angle attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 16,
+        "name": "Output tilt angle attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 17,
+        "name": "Param 18",
+        "min": 20,
+        "max": 400,
+        "default": 20
+      },
+      {
+        "id": 18,
+        "name": "Param 19",
+        "min": 1,
+        "max": 10.199999809265137,
+        "default": 4
+      },
+      {
+        "id": 19,
+        "name": "Param 20",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 20,
+        "name": "Param 21",
+        "min": 0,
+        "max": 1,
+        "default": 0
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Friction CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Stiffness CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Spring span CV",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Magnetic field CV",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Impurity mass CV",
+        "kind": "cv"
+      },
+      {
+        "id": 5,
+        "name": "Left audio",
+        "kind": "audio"
+      },
+      {
+        "id": 6,
+        "name": "Right audio",
+        "kind": "audio"
+      },
+      {
+        "id": 7,
+        "name": "Power gate",
+        "kind": "gate"
+      },
+      {
+        "id": 8,
+        "name": "Input tilt CV",
+        "kind": "cv"
+      },
+      {
+        "id": 9,
+        "name": "Output tilt CV",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio"
+      },
+      {
+        "id": 1,
+        "name": "Right audio",
+        "kind": "audio"
+      }
+    ],
+    "lights": 6,
+    "stateKeys": [
+      {
+        "key": "enableStereoSplitter",
+        "type": "boolean"
+      },
+      {
+        "key": "enableStereoMerge",
+        "type": "boolean"
+      },
+      {
+        "key": "modelSampleRate",
+        "type": "integer"
+      },
+      {
+        "key": "neonMode",
+        "type": "boolean"
+      },
+      {
+        "key": "limiterWarningLight",
+        "type": "boolean"
+      },
+      {
+        "key": "outputVectorSelectRight",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CosineKitty-Sapphire/Elastika/2.6.007/manifest.json",
+    "sourceCommit": "cb449647370591a7cdd569ff4d556ad7c838c4db",
+    "artifact": {
+      "sha256": "18886f934b73ad3e81f4123f4dc6fdd613b56f43dada4bd917479e8679ae4245",
+      "size": 122840
+    }
+  },
+  "source": {
+    "url": "https://github.com/cosinekitty/sapphire",
+    "commit": "cb449647370591a7cdd569ff4d556ad7c838c4db"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T19:57:43.606Z"
+  }
+}

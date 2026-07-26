@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CosineKitty-Sapphire/Pop",
+    "plugin": "CosineKitty-Sapphire",
+    "model": "Pop",
+    "name": "Pop",
+    "brand": "Sapphire",
+    "version": "2.6.007",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/cosinekitty/sapphire",
+    "libraryUrl": "https://library.vcvrack.com/CosineKitty-Sapphire/Pop",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CosineKitty-Sapphire/Pop.webp",
+    "wasmUrl": "packages/CosineKitty-Sapphire/Pop/2.6.007/module.wasm",
+    "width": 60,
+    "description": "A trigger generator based on the statistics of radioactive decay.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Speed",
+        "min": -7,
+        "max": 7,
+        "default": 0
+      },
+      {
+        "id": 1,
+        "name": "Speed attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 2,
+        "name": "Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0.5
+      },
+      {
+        "id": 3,
+        "name": "Chaos attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0
+      },
+      {
+        "id": 4,
+        "name": "Param 5",
+        "min": 0.5,
+        "max": 16.5,
+        "default": 1
+      },
+      {
+        "id": 5,
+        "name": "Sync polyphonic channels",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 6,
+        "name": "Toggle pulse mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Wait for sync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Speed CV",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Chaos CV",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Sync trigger",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulse",
+        "kind": "gate"
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "enableStereoSplitter",
+        "type": "boolean"
+      },
+      {
+        "key": "enableStereoMerge",
+        "type": "boolean"
+      },
+      {
+        "key": "modelSampleRate",
+        "type": "integer"
+      },
+      {
+        "key": "neonMode",
+        "type": "boolean"
+      },
+      {
+        "key": "limiterWarningLight",
+        "type": "boolean"
+      },
+      {
+        "key": "channels",
+        "type": "integer"
+      },
+      {
+        "key": "outputMode",
+        "type": "integer"
+      },
+      {
+        "key": "triggerOnReset",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CosineKitty-Sapphire/Pop/2.6.007/manifest.json",
+    "sourceCommit": "cb449647370591a7cdd569ff4d556ad7c838c4db",
+    "artifact": {
+      "sha256": "c7d24dcbb1caf5c85dee90417a56ce0ab90e7970a8bc535e75c5ebdd79feb3d6",
+      "size": 109353
+    }
+  },
+  "source": {
+    "url": "https://github.com/cosinekitty/sapphire",
+    "commit": "cb449647370591a7cdd569ff4d556ad7c838c4db"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T20:00:16.104Z"
+  }
+}
