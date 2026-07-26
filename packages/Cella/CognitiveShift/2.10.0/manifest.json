@@ -1,0 +1,548 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/CognitiveShift",
+    "plugin": "Cella",
+    "model": "CognitiveShift",
+    "name": "Cognitive Shift",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/CognitiveShift",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/CognitiveShift.webp",
+    "wasmUrl": "packages/Cella/CognitiveShift/2.10.0/module.wasm",
+    "width": 180,
+    "description": "Advanced 8-bit digital shift register with clock, gates or trigger outputs, 4 DAC-based CV generators and various self-patching capabilities",
+    "params": [
+      {
+        "id": 0,
+        "name": "Data + (Write)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "VCVButtonHuge"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Data - (Erase)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 112.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "VCVButtonHuge"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clear register",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Data Input Threshold",
+        "min": 1,
+        "max": 9,
+        "default": 1,
+        "position": {
+          "x": 157.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Threshold CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 103.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "DAC 1 (Bits 1-4) Level",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "DAC 2 (Bits 3-6) Level",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 67.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "DAC 3 (Bits 5-8) Level",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 112.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "DAC 4 (Bits 1-8) Level",
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 157.5,
+          "y": 203.81,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Manual input",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 157.5,
+          "y": 53.5,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Data",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 153.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Logic",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 153.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "XOR",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 153.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 153.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clear register",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 103.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Threshold CV",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 103.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "DAC 1 (Bits 1-4)",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 231.29,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "DAC 2 (Bits 3-6)",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 231.29,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "DAC 3 (Bits 5-8)",
+        "kind": "cv",
+        "position": {
+          "x": 112.5,
+          "y": 231.29,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bit 1",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bit 2",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bit 3",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bit 4",
+        "kind": "gate",
+        "position": {
+          "x": 157.5,
+          "y": 280,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Bit 5",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Bit 6",
+        "kind": "gate",
+        "position": {
+          "x": 67.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Bit 7",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Bit 8",
+        "kind": "gate",
+        "position": {
+          "x": 157.5,
+          "y": 329.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "DAC 4 (Bits 1-8)",
+        "kind": "cv",
+        "position": {
+          "x": 157.5,
+          "y": 231.29,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 17,
+    "lightWidgets": [
+      {
+        "id": 8,
+        "widget": "LargeFresnelLight<BlueLight>",
+        "position": {
+          "x": 157.5,
+          "y": 53.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 34.84,
+          "y": 269.43,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 79.84,
+          "y": 269.43,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 124.84,
+          "y": 269.43,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 169.84,
+          "y": 269.43,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 34.84,
+          "y": 318.58,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 79.84,
+          "y": 318.58,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 124.84,
+          "y": 318.58,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 169.84,
+          "y": 318.58,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TinyLight<GreenRedLight>",
+        "position": {
+          "x": 34.84,
+          "y": 219.58,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "TinyLight<GreenRedLight>",
+        "position": {
+          "x": 79.84,
+          "y": 219.58,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "TinyLight<GreenRedLight>",
+        "position": {
+          "x": 124.84,
+          "y": 219.58,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "TinyLight<GreenRedLight>",
+        "position": {
+          "x": 169.84,
+          "y": 219.58,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "values",
+        "type": "boolean"
+      },
+      {
+        "key": "outputType",
+        "type": "integer"
+      },
+      {
+        "key": "logicType",
+        "type": "integer"
+      },
+      {
+        "key": "inputOverridesEverything",
+        "type": "boolean"
+      },
+      {
+        "key": "allBitDACOutputType",
+        "type": "integer"
+      },
+      {
+        "key": "showBitLights",
+        "type": "boolean"
+      },
+      {
+        "key": "showDACLights",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/CognitiveShift/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "63e84e12308c434a90531654e05db340ec85ce4c2cf632ad1d6fa9a59df27729",
+      "size": 90504
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T09:44:21.909Z"
+  }
+}
