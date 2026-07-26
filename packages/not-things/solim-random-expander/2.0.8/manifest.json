@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "not-things/solim-random-expander",
+    "plugin": "not-things",
+    "model": "solim-random-expander",
+    "name": "SL-R",
+    "brand": "not-things",
+    "version": "2.0.8",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/not-things-modular/not-things-vcv",
+    "libraryUrl": "https://library.vcvrack.com/not-things/solim-random-expander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/not-things/solim-random-expander.webp",
+    "wasmUrl": "packages/not-things/solim-random-expander/2.0.8/module.wasm",
+    "width": 180,
+    "description": "Random expander for Solim (SLR)",
+    "params": [
+      {
+        "id": 0,
+        "name": "Move One Up or Down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 49.5,
+          "centered": true,
+          "widget": "LEDLightBezel<DimmedLight<RedLight>>"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Switch Two at Random",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 133.5,
+          "centered": true,
+          "widget": "LEDLightBezel<DimmedLight<RedLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Move All to Random Positions",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 217.5,
+          "centered": true,
+          "widget": "LEDLightBezel<DimmedLight<RedLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset All",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 301.5,
+          "centered": true,
+          "widget": "LEDLightBezel<DimmedLight<RedLight>>"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Move One Up or Down",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 82.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Switch Two at Random",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 166.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Move All to Random Positions",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 250.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset All",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 334.5,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 4,
+        "widget": "TinyLight<DimmedLight<GreenLight>>",
+        "position": {
+          "x": 5,
+          "y": 20,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<DimmedLight<GreenLight>>",
+        "position": {
+          "x": 40,
+          "y": 20,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LEDLightBezel<DimmedLight<RedLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 49.5,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 1,
+        "widget": "LEDLightBezel<DimmedLight<RedLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 133.5,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 2,
+        "widget": "LEDLightBezel<DimmedLight<RedLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 217.5,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 3,
+        "widget": "LEDLightBezel<DimmedLight<RedLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 301.5,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "ntTheme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/not-things/solim-random-expander/2.0.8/manifest.json",
+    "sourceCommit": "52163b7e3132bf418b2941999f93849290488801",
+    "artifact": {
+      "sha256": "5920d5d95da06e291939b7b67a5a2c66a89f77ca97a8ba9ca87a8947b2b378d4",
+      "size": 75778
+    }
+  },
+  "source": {
+    "url": "https://github.com/not-things-modular/not-things-vcv",
+    "commit": "52163b7e3132bf418b2941999f93849290488801"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T23:20:42.484Z"
+  }
+}
