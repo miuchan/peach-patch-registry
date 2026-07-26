@@ -1,0 +1,1626 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CavianSequencer/CavianSequencer",
+    "plugin": "CavianSequencer",
+    "model": "CavianSequencer",
+    "name": "Cavian",
+    "brand": "YourModulesMayVary",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/nikscave/Cavian-VCV",
+    "libraryUrl": "https://library.vcvrack.com/CavianSequencer/CavianSequencer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CavianSequencer/CavianSequencer.webp",
+    "wasmUrl": "packages/CavianSequencer/CavianSequencer/2.0.0/module.wasm",
+    "width": 360,
+    "description": "8-channel multi-step sequencer and a lot more, save locally, loop, copy paste, clear, randomise",
+    "params": [
+      {
+        "id": 0,
+        "name": "BPM",
+        "min": 1,
+        "max": 400,
+        "default": 120,
+        "position": {
+          "x": 48.72,
+          "y": 32.48,
+          "centered": true,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Run / Stop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 324.8,
+          "y": 32.48,
+          "centered": true,
+          "widget": "RunStopDisplay"
+        }
+      },
+      {
+        "id": 2,
+        "name": "▲",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "▼",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "▲",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "▼",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "▲",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "▼",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "View Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 32.48,
+          "y": 357.28,
+          "centered": true,
+          "widget": "VerticalViewDisplay"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Grid 1:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Grid 1:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Grid 1:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Grid 1:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Grid 1:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Grid 1:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Grid 1:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Grid 1:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 81.2,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Grid 2:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Grid 2:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Grid 2:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Grid 2:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Grid 2:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Grid 2:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Grid 2:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Grid 2:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 115.16,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Grid 3:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Grid 3:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Grid 3:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Grid 3:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Grid 3:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Grid 3:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Grid 3:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Grid 3:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 149.11,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Grid 4:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Grid 4:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Grid 4:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Grid 4:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Grid 4:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Grid 4:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Grid 4:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Grid 4:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 183.07,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Grid 5:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Grid 5:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Grid 5:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Grid 5:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Grid 5:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Grid 5:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Grid 5:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Grid 5:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 217.03,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Grid 6:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Grid 6:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Grid 6:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Grid 6:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Grid 6:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Grid 6:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Grid 6:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Grid 6:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 250.98,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Grid 7:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Grid 7:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Grid 7:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Grid 7:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Grid 7:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Grid 7:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 63,
+        "name": "Grid 7:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 64,
+        "name": "Grid 7:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 284.94,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 65,
+        "name": "Grid 8:1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 31,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Grid 8:2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 64.96,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 67,
+        "name": "Grid 8:3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.92,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 68,
+        "name": "Grid 8:4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 132.87,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 69,
+        "name": "Grid 8:5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 166.83,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 70,
+        "name": "Grid 8:6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 200.79,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 71,
+        "name": "Grid 8:7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 234.74,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 72,
+        "name": "Grid 8:8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.7,
+          "y": 318.9,
+          "centered": true,
+          "widget": "CavianButton"
+        }
+      },
+      {
+        "id": 73,
+        "name": "Channel 1 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 74,
+        "name": "Channel 2 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 75,
+        "name": "Channel 3 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 76,
+        "name": "Channel 4 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 77,
+        "name": "Channel 5 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 78,
+        "name": "Channel 6 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 79,
+        "name": "Channel 7 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 80,
+        "name": "Channel 8 Mute",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 81,
+        "name": "Group Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 82,
+        "name": "Preset Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 83,
+        "name": "Set Loop Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 84,
+        "name": "Copy",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 85,
+        "name": "Paste",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 86,
+        "name": "Clear",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 87,
+        "name": "Random",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 88,
+        "name": "Swing Mode (Global/Per-Step)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 89,
+        "name": "Straight",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 90,
+        "name": "8th Swing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 91,
+        "name": "Heavy 8th",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 92,
+        "name": "Triplet Feel",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 93,
+        "name": "16th Swing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 94,
+        "name": "Push-Pull",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 95,
+        "name": "Accelerando",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 96,
+        "name": "Ritardando",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 97,
+        "name": "Global Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 98,
+        "name": "Step 1 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 99,
+        "name": "Step 2 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 100,
+        "name": "Step 3 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 101,
+        "name": "Step 4 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 102,
+        "name": "Step 5 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 103,
+        "name": "Step 6 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 104,
+        "name": "Step 7 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 105,
+        "name": "Step 8 Swing",
+        "min": -50,
+        "max": 50,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 106,
+        "name": "Cascade Swing to Preset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 107,
+        "name": "Cascade Swing to Group",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 108,
+        "name": "Randomize Swing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 165.354,
+          "y": 357.283,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 202.264,
+          "y": 357.283,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Master Clock",
+        "kind": "gate",
+        "position": {
+          "x": 236.22,
+          "y": 357.283,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel 1",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 88.583,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Channel 2",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 121.063,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Channel 3",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 153.543,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Channel 4",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 186.024,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Channel 5",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 218.504,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Channel 6",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 250.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Channel 7",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 283.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Channel 8",
+        "kind": "gate",
+        "position": {
+          "x": 324.803,
+          "y": 315.945,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 13,
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "caveArray",
+        "type": "integer"
+      },
+      {
+        "key": "activeGroup",
+        "type": "integer"
+      },
+      {
+        "key": "activePreset",
+        "type": "integer"
+      },
+      {
+        "key": "activeChannel",
+        "type": "integer"
+      },
+      {
+        "key": "viewMode",
+        "type": "integer"
+      },
+      {
+        "key": "enableESP32Sync",
+        "type": "boolean"
+      },
+      {
+        "key": "randomWeight",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CavianSequencer/CavianSequencer/2.0.0/manifest.json",
+    "sourceCommit": "7c47b01c7a5cbc9e47d68b7119f1b2ba0e618b7d",
+    "artifact": {
+      "sha256": "aa41520e538ecca66cfe438c63765f170bd7e8eff913f73d9ee9ecb6db99adfd",
+      "size": 102661
+    }
+  },
+  "source": {
+    "url": "https://github.com/nikscave/Cavian-VCV",
+    "commit": "7c47b01c7a5cbc9e47d68b7119f1b2ba0e618b7d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T09:33:02.079Z"
+  }
+}
