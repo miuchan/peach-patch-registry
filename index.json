@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-26T09:35:13.126Z",
-  "packageCount": 2694,
-  "totalBytes": 326406775,
+  "generatedAt": "2026-07-26T09:38:18.206Z",
+  "packageCount": 2695,
+  "totalBytes": 326487443,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -193432,6 +193432,242 @@
       "artifact": {
         "sha256": "e11e27c16cd20e0c02381c75145532e744ecb67bef290c1d9d9fdbfb2f7e4bb2",
         "size": 76844
+      }
+    },
+    {
+      "key": "Cella/Bezier",
+      "plugin": "Cella",
+      "model": "Bezier",
+      "name": "Bezier",
+      "brand": "Cella",
+      "version": "2.10.0",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+      "libraryUrl": "https://library.vcvrack.com/Cella/Bezier",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Bezier.webp",
+      "wasmUrl": "packages/Cella/Bezier/2.10.0/module.wasm",
+      "width": 100,
+      "description": "Smooth random voltage generator that uses Bezier curves",
+      "params": [
+        {
+          "id": 0,
+          "name": "Frequency",
+          "min": -8,
+          "max": 5.643856048583984,
+          "default": 1,
+          "position": {
+            "x": 22.5,
+            "y": 53.39,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Level",
+          "min": 0,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 67.5,
+            "y": 53.39,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Curve",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 22.5,
+            "y": 104.35,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Offset",
+          "min": -5,
+          "max": 5,
+          "default": 0,
+          "position": {
+            "x": 67.5,
+            "y": 104.35,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Frequency modulation",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 22.5,
+            "y": 203.79,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Level modulation",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 67.5,
+            "y": 203.79,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 6,
+          "name": "Limit",
+          "min": -1,
+          "max": 1,
+          "default": 1,
+          "snap": true,
+          "position": {
+            "x": 54.74,
+            "y": 162.66,
+            "centered": true,
+            "widget": "CKSSThree"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Sampling",
+          "kind": "audio",
+          "position": {
+            "x": 22.5,
+            "y": 159.15,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Frequency modulation",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 231.31,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Volume modulation",
+          "kind": "cv",
+          "position": {
+            "x": 67.5,
+            "y": 231.31,
+            "centered": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Curve",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 280.1,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Inverted curve",
+          "kind": "cv",
+          "position": {
+            "x": 67.5,
+            "y": 280.1,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Trigger",
+          "kind": "gate",
+          "position": {
+            "x": 22.5,
+            "y": 329.25,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Gate",
+          "kind": "gate",
+          "position": {
+            "x": 67.5,
+            "y": 329.25,
+            "centered": true
+          }
+        }
+      ],
+      "lights": 3,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "LargeFresnelLight<GreenRedLight>",
+          "position": {
+            "x": 45,
+            "y": 35,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "widget": "TinyLight<YellowLight>",
+          "position": {
+            "x": 79.96,
+            "y": 318,
+            "centered": true
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "continuousFrequency",
+          "type": "boolean"
+        },
+        {
+          "key": "continuousLevel",
+          "type": "boolean"
+        },
+        {
+          "key": "assymetricCurve",
+          "type": "boolean"
+        },
+        {
+          "key": "distributionType",
+          "type": "integer"
+        },
+        {
+          "key": "levelClipType",
+          "type": "integer"
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/Cella/Bezier/2.10.0/manifest.json",
+      "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+      "artifact": {
+        "sha256": "c1aec9cb8dd60868b28c67c3b9a6b8fe3ad0f0b88ae6a4cb4d6e220d85ebcedf",
+        "size": 80668
       }
     },
     {
