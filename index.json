@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-26T08:21:00.665Z",
-  "packageCount": 2685,
-  "totalBytes": 325599456,
+  "generatedAt": "2026-07-26T08:30:41.568Z",
+  "packageCount": 2686,
+  "totalBytes": 325711045,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -643072,6 +643072,185 @@
       "artifact": {
         "sha256": "50f53728435c970462183d3321038338bd69faf5d8f5f4aab2d9b3c2538950bb",
         "size": 64534
+      }
+    },
+    {
+      "key": "Sparkette/Accessor",
+      "plugin": "Sparkette",
+      "model": "Accessor",
+      "name": "Accessor",
+      "brand": "Sparkette's Stuff",
+      "version": "2.8.1",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+      "libraryUrl": "https://library.vcvrack.com/Sparkette/Accessor",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/Accessor.webp",
+      "wasmUrl": "packages/Sparkette/Accessor/2.8.1/module.wasm",
+      "width": 45,
+      "description": "Connects to an adjacent DMA-compatible module to allow for reading and writing of memory.",
+      "params": [
+        {
+          "id": 0,
+          "name": "DMA channel",
+          "min": 0,
+          "max": 16,
+          "default": 0,
+          "snap": true,
+          "position": {
+            "x": 22.5,
+            "y": 30.856,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Data",
+          "min": -10,
+          "max": 10,
+          "default": 10,
+          "position": {
+            "x": 35.347,
+            "y": 191.903,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Write",
+          "min": 0,
+          "max": 2,
+          "default": 0,
+          "snap": true,
+          "position": {
+            "x": 34.515,
+            "y": 255.34,
+            "centered": true,
+            "widget": "CKSSThree"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "X address",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 86.277,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Y address",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 120.653,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Data",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 171.591,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Write",
+          "kind": "gate",
+          "position": {
+            "x": 15.118,
+            "y": 255.34,
+            "centered": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Data",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 212.215,
+            "centered": true
+          }
+        }
+      ],
+      "lights": 7,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "SmallLight<GreenRedLight>",
+          "position": {
+            "x": 5.938,
+            "y": 52.389,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "widget": "LargeLight<GreenRedLight>",
+          "position": {
+            "x": 9.653,
+            "y": 191.903,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "widget": "SmallLight<BlueLight>",
+          "position": {
+            "x": 8,
+            "y": 8,
+            "centered": true
+          }
+        },
+        {
+          "id": 5,
+          "widget": "SmallLight<GreenRedLight>",
+          "position": {
+            "x": 37,
+            "y": 8,
+            "centered": true
+          }
+        }
+      ],
+      "runtime": {
+        "expanderMode": "message-buffer",
+        "expander": {
+          "transport": "message-buffer",
+          "direction": "both",
+          "capacity": 16384,
+          "models": [
+            {
+              "key": "Sparkette/RAM40964",
+              "symbol": "modelRAM40964",
+              "index": 0
+            },
+            {
+              "key": "Sparkette/Microcosm",
+              "symbol": "modelMicrocosm",
+              "index": 1
+            }
+          ]
+        },
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/Sparkette/Accessor/2.8.1/manifest.json",
+      "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+      "artifact": {
+        "sha256": "f33d251324b56a45a0204423e1c13131ffb2b7c6e3b8562f6b66fce4f29974fb",
+        "size": 111589
       }
     },
     {
