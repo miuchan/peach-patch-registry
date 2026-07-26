@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SingleSRFlipFlop",
+    "plugin": "CountModula",
+    "model": "SingleSRFlipFlop",
+    "name": "SR Flip Flop",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SingleSRFlipFlop",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SingleSRFlipFlop.webp",
+    "wasmUrl": "packages/CountModula/SingleSRFlipFlop/2.5.0/module.wasm",
+    "width": 180,
+    "description": "A logical Set/Reset flip flop with enable",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Set",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate"
+      },
+      {
+        "id": 2,
+        "name": "Enable",
+        "kind": "cv"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Q",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Not Q",
+        "kind": "cv"
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "QStates",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "QStates",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "NQStates",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "NQStates",
+        "type": "boolean"
+      },
+      {
+        "key": "QState",
+        "type": "boolean"
+      },
+      {
+        "key": "NQState",
+        "type": "boolean"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SingleSRFlipFlop/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "23b740a3c2c57c41cafa796f19c3e1b35645bb63fa280cabeaa3001b82ab85d6",
+      "size": 77595
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T20:43:33.429Z"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "CountModula/SequenceEncoder",
+    "plugin": "CountModula",
+    "model": "SequenceEncoder",
+    "name": "4Bit Sequence Encoder",
+    "brand": "Count Modula",
+    "version": "2.5.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/countmodula/VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/CountModula/SequenceEncoder",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CountModula/SequenceEncoder.webp",
+    "wasmUrl": "packages/CountModula/SequenceEncoder/2.5.0/module.wasm",
+    "width": 60,
+    "description": "Binary addressed encoder for sequencer expanders",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Address bit 0",
+        "kind": "cv"
+      },
+      {
+        "id": 1,
+        "name": "Address bit 1",
+        "kind": "cv"
+      },
+      {
+        "id": 2,
+        "name": "Address bit 2",
+        "kind": "cv"
+      },
+      {
+        "id": 3,
+        "name": "Address bit 3",
+        "kind": "cv"
+      },
+      {
+        "id": 4,
+        "name": "Clock",
+        "kind": "gate"
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "moduleVersion",
+        "type": "real"
+      },
+      {
+        "key": "theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/CountModula/SequenceEncoder/2.5.0/manifest.json",
+    "sourceCommit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd",
+    "artifact": {
+      "sha256": "71d7e113233af4fa0f4daec9b43eaa9132a69d196cfba259bcb4803829682ef7",
+      "size": 74371
+    }
+  },
+  "source": {
+    "url": "https://github.com/countmodula/VCVRackPlugins",
+    "commit": "30b3c6c46fc0589f5e0ece7ad79abbe0293e70fd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T20:44:42.590Z"
+  }
+}
