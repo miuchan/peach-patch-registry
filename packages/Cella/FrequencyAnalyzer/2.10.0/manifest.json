@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/FrequencyAnalyzer",
+    "plugin": "Cella",
+    "model": "FrequencyAnalyzer",
+    "name": "Frequency Analyzer",
+    "brand": "Cella",
+    "version": "2.10.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/FrequencyAnalyzer",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/FrequencyAnalyzer.webp",
+    "wasmUrl": "packages/Cella/FrequencyAnalyzer/2.10.0/module.wasm",
+    "width": 500,
+    "description": "Vintage frequency analyzer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Top",
+        "min": -40,
+        "max": 0,
+        "default": -12,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Bottom",
+        "min": -120,
+        "max": -60,
+        "default": -100,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Fall Delay",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 0.009999999776482582,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Peak Fall Delay",
+        "min": 0.009999999776482582,
+        "max": 3,
+        "default": 1,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 23.417,
+          "y": 364,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 64.25,
+          "y": 364,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "displayMode",
+        "type": "integer"
+      },
+      {
+        "key": "stereoMode",
+        "type": "integer"
+      },
+      {
+        "key": "intensityMode",
+        "type": "integer"
+      },
+      {
+        "key": "effectsMode",
+        "type": "integer"
+      },
+      {
+        "key": "signatureEffects",
+        "type": "integer"
+      },
+      {
+        "key": "showLabels",
+        "type": "boolean"
+      },
+      {
+        "key": "showUnlitSegments",
+        "type": "boolean"
+      },
+      {
+        "key": "currentTheme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "cella-frequency-analyzer",
+          "inputs": [
+            0,
+            1
+          ],
+          "x": 0,
+          "y": 26,
+          "width": 496,
+          "height": 320
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/FrequencyAnalyzer/2.10.0/manifest.json",
+    "sourceCommit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb",
+    "artifact": {
+      "sha256": "8fd6515e4914f4f539dde6c30e4990a1e0b81db90a307cdfe3b51c7ff23b374d",
+      "size": 87787
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "47850690466c0168d20fa8df69e6e8ffc0fc0ddb"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T10:20:52.906Z"
+  }
+}
