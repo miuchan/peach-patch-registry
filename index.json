@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-26T13:57:05.289Z",
-  "packageCount": 2710,
-  "totalBytes": 328200726,
+  "generatedAt": "2026-07-26T14:00:53.247Z",
+  "packageCount": 2711,
+  "totalBytes": 328300312,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -214014,6 +214014,214 @@
       "artifact": {
         "sha256": "5bda0bcb9c1870416e7c79f9ebe20444207b281c4505f188655fdc2e9c5ba258",
         "size": 64343
+      }
+    },
+    {
+      "key": "ChowDSP/Werner",
+      "plugin": "ChowDSP",
+      "model": "Werner",
+      "name": "Werner Filter",
+      "brand": "chowdsp",
+      "version": "2.0.1",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/jatinchowdhury18/ChowDSP-VCV",
+      "libraryUrl": "https://library.vcvrack.com/ChowDSP/Werner",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ChowDSP/Werner.webp",
+      "wasmUrl": "packages/ChowDSP/Werner/2.0.1/module.wasm",
+      "width": 150,
+      "description": "SVF based on a generalized Moog-Octave CAT architecture",
+      "params": [
+        {
+          "id": 0,
+          "name": "Freq.",
+          "min": 0,
+          "max": 1,
+          "default": 0.5,
+          "position": {
+            "x": 116.339,
+            "y": 78.986,
+            "centered": true,
+            "widget": "ChowKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Freq atten",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 72.047,
+            "y": 74.557,
+            "centered": true,
+            "widget": "ChowSmallKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Feedback",
+          "min": 0,
+          "max": 0.949999988079071,
+          "default": 0.5,
+          "position": {
+            "x": 116.339,
+            "y": 135.089,
+            "centered": true,
+            "widget": "ChowKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Feedback atten",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 72.047,
+            "y": 130.659,
+            "centered": true,
+            "widget": "ChowSmallKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Damp",
+          "min": 0.25,
+          "max": 1.25,
+          "default": 0.5,
+          "position": {
+            "x": 116.339,
+            "y": 191.191,
+            "centered": true,
+            "widget": "ChowKnob"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Damp atten",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 72.047,
+            "y": 186.762,
+            "centered": true,
+            "widget": "ChowSmallKnob"
+          }
+        },
+        {
+          "id": 6,
+          "name": "Drive",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 116.339,
+            "y": 248.031,
+            "centered": true,
+            "widget": "ChowKnob"
+          }
+        },
+        {
+          "id": 7,
+          "name": "Drive atten",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 72.047,
+            "y": 243.602,
+            "centered": true,
+            "widget": "ChowSmallKnob"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Audio",
+          "kind": "audio",
+          "position": {
+            "x": 75,
+            "y": 287.894,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Frequency mod.",
+          "kind": "cv",
+          "position": {
+            "x": 32.037,
+            "y": 70.128,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Feedback mod.",
+          "kind": "cv",
+          "position": {
+            "x": 32.037,
+            "y": 126.23,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Damping mod.",
+          "kind": "cv",
+          "position": {
+            "x": 32.037,
+            "y": 182.333,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "name": "Drive mod.",
+          "kind": "cv",
+          "position": {
+            "x": 32.037,
+            "y": 239.173,
+            "centered": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Audio",
+          "kind": "audio",
+          "position": {
+            "x": 75,
+            "y": 339.567,
+            "centered": true
+          }
+        }
+      ],
+      "lights": 0,
+      "stateKeys": [
+        {
+          "key": "osIdx",
+          "type": "integer"
+        }
+      ],
+      "bypassRoutes": [
+        [
+          0,
+          0
+        ]
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/ChowDSP/Werner/2.0.1/manifest.json",
+      "sourceCommit": "e1a20acc0fe64ed42d7a91ddcdbdf12daa6ec6d3",
+      "artifact": {
+        "sha256": "0493b85cb5cccae527d2fa478b7288ffec03333956379924ec818081e01942a5",
+        "size": 99586
       }
     },
     {
