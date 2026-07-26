@@ -1,0 +1,1260 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Sparkette/RAM40964",
+    "plugin": "Sparkette",
+    "model": "RAM40964",
+    "name": "RAM-40964",
+    "brand": "Sparkette's Stuff",
+    "version": "2.8.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+    "libraryUrl": "https://library.vcvrack.com/Sparkette/RAM40964",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/RAM40964.webp",
+    "wasmUrl": "packages/Sparkette/RAM40964/2.8.1/module.wasm",
+    "width": 345,
+    "description": "64×64×4 planar random access memory, designed with RGB Matrix in mind. DMA compatible.",
+    "params": [
+      {
+        "id": 0,
+        "name": "X address",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 32.215,
+          "centered": true,
+          "widget": "Rogan1PYellow"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y address",
+        "min": 0,
+        "max": 63,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 69.715,
+          "centered": true,
+          "widget": "Rogan1PPurple"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Plane 0 value",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 288.351,
+          "y": 179.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Plane 1 value",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 288.351,
+          "y": 217.075,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Plane 2 value",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 288.351,
+          "y": 254.575,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Plane 3 value",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 288.351,
+          "y": 292.075,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Poly-data address increment",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 296.864,
+          "y": 323.551,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Data monitor",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 187.5,
+          "y": 34.801,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Display mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 313.016,
+          "y": 323.551,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Brightness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 262.5,
+          "y": 317.215,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Write",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 289.4,
+          "y": 119.091,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Phasor as write address",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 242.717,
+          "y": 31.38,
+          "centered": true,
+          "widget": "CKSSWithLine"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Clear memory",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 303.1,
+          "y": 119.091,
+          "centered": true,
+          "widget": "MomentaryVariant<CKSS>"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Plane 0 write enable",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 336.909,
+          "y": 175.028,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Plane 1 write enable",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 336.909,
+          "y": 212.528,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Plane 2 write enable",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 336.909,
+          "y": 250.028,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Plane 3 write enable",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 336.909,
+          "y": 287.528,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "X address (read)",
+        "kind": "cv",
+        "position": {
+          "x": 322.5,
+          "y": 32.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y address (read)",
+        "kind": "cv",
+        "position": {
+          "x": 322.5,
+          "y": 69.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Clear trigger",
+        "kind": "gate",
+        "position": {
+          "x": 322.5,
+          "y": 119.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Write",
+        "kind": "cv",
+        "position": {
+          "x": 270,
+          "y": 119.091,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Plane 0 CV",
+        "kind": "cv",
+        "position": {
+          "x": 263.749,
+          "y": 175.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Plane 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 263.749,
+          "y": 212.528,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Plane 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 263.749,
+          "y": 250.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Plane 3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 263.749,
+          "y": 287.528,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "X address (write)",
+        "kind": "cv",
+        "position": {
+          "x": 270,
+          "y": 32.215,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Y address (write)",
+        "kind": "cv",
+        "position": {
+          "x": 270,
+          "y": 69.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Phasor",
+        "kind": "cv",
+        "position": {
+          "x": 220.624,
+          "y": 32.215,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Plane 0 CV",
+        "kind": "cv",
+        "position": {
+          "x": 315.354,
+          "y": 175.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Plane 1 CV",
+        "kind": "cv",
+        "position": {
+          "x": 315.354,
+          "y": 212.528,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Plane 2 CV",
+        "kind": "cv",
+        "position": {
+          "x": 315.354,
+          "y": 250.028,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Plane 3 CV",
+        "kind": "cv",
+        "position": {
+          "x": 315.354,
+          "y": 287.528,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "X phasor",
+        "kind": "cv",
+        "position": {
+          "x": 205.624,
+          "y": 69.715,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Y phasor",
+        "kind": "cv",
+        "position": {
+          "x": 235.624,
+          "y": 69.715,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 12456,
+    "lightWidgets": [
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 47.244,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 55.512,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 63.78,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 72.047,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 80.315,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 88.583,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 96.85,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 105.118,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 113.386,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 121.654,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 129.921,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 138.189,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 146.457,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 154.724,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 162.992,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 171.26,
+          "y": 22.146,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 47.244,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 55.512,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 63.78,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 72.047,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 80.315,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 88.583,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 96.85,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 105.118,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 113.386,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 55,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 121.654,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 129.921,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 59,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 138.189,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 61,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 146.457,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 63,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 154.724,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 65,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 162.992,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 67,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 171.26,
+          "y": 36.909,
+          "centered": true
+        }
+      },
+      {
+        "id": 69,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 47.244,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 71,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 55.512,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 73,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 63.78,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 75,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 72.047,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 77,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 80.315,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 79,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 88.583,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 81,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 96.85,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 83,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 105.118,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 85,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 113.386,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 87,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 121.654,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 89,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 129.921,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 91,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 138.189,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 93,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 146.457,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 95,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 154.724,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 97,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 162.992,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 99,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 171.26,
+          "y": 51.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 101,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 47.244,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 103,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 55.512,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 105,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 63.78,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 107,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 72.047,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 109,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 80.315,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 111,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 88.583,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 113,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 96.85,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 115,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 105.118,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 117,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 113.386,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 119,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 121.654,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 121,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 129.921,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 123,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 138.189,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 125,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 146.457,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 127,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 154.724,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 129,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 162.992,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 131,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 171.26,
+          "y": 66.437,
+          "centered": true
+        }
+      },
+      {
+        "id": 133,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 47.244,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 135,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 55.512,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 137,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 63.78,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 139,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 72.047,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 141,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 80.315,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 143,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 88.583,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 145,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 96.85,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 147,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 105.118,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 149,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 113.386,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 151,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 121.654,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 153,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 129.921,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 155,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 138.189,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 157,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 146.457,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 159,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 154.724,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 161,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 162.992,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 163,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 171.26,
+          "y": 81.201,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 296.076,
+          "y": 166.051,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 296.076,
+          "y": 203.551,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 296.076,
+          "y": 241.051,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 296.076,
+          "y": 278.551,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 291.319,
+          "y": 138.78,
+          "centered": true
+        }
+      },
+      {
+        "id": 12453,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 8,
+          "y": 8,
+          "centered": true
+        }
+      },
+      {
+        "id": 12455,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 242.717,
+          "y": 16.24,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "fade_lights",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "visuals": [
+        {
+          "kind": "light-matrix",
+          "lightStart": 165,
+          "columns": 64,
+          "rows": 64,
+          "channels": 3,
+          "x": 10.453,
+          "y": 125.167,
+          "width": 234.094,
+          "height": 234.094
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Sparkette/RAM40964/2.8.1/manifest.json",
+    "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+    "artifact": {
+      "sha256": "95985379ba7ecd86da01a4f03992a5a573d79f053672dd7246e10ea4d055a35a",
+      "size": 97166
+    }
+  },
+  "source": {
+    "url": "https://github.com/flarn2006/SparketteVCV",
+    "commit": "b90cd69589ac77f41f626ea4ecb3a49d57780239"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T07:52:43.657Z"
+  }
+}
