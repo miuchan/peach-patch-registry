@@ -1,0 +1,912 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Chinenual-VCV/MIDIRecorder",
+    "plugin": "Chinenual-VCV",
+    "model": "MIDIRecorder",
+    "name": "MIDIRecorder",
+    "brand": "Chinenual",
+    "version": "2.7.5",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/chinenual/Chinenual-VCV",
+    "libraryUrl": "https://library.vcvrack.com/Chinenual-VCV/MIDIRecorder",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Chinenual-VCV/MIDIRecorder.webp",
+    "wasmUrl": "packages/Chinenual-VCV/MIDIRecorder/2.7.5/module.wasm",
+    "width": 240,
+    "description": "Multi-track MIDI Recorder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Start / Stop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": false,
+        "position": {
+          "x": 26.575,
+          "y": 106.299,
+          "centered": true,
+          "widget": "RecButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Text Style",
+        "min": 0,
+        "max": 4,
+        "default": 0,
+        "snap": true,
+        "contextOnly": true,
+        "values": [
+          "Red",
+          "Yellow",
+          "Green",
+          "Aqua",
+          "White"
+        ],
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Tempo / BPM",
+        "kind": "cv",
+        "position": {
+          "x": 26.575,
+          "y": 338.091,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start / Stop Gate",
+        "kind": "gate",
+        "position": {
+          "x": 26.575,
+          "y": 152.067,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 1 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 59.055,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 59.055,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 59.055,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 1 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 59.055,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Track 1 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 59.055,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 1 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 59.055,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 2 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 90.059,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 2 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 90.059,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 2 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 90.059,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Track 2 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 90.059,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Track 2 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 90.059,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Track 2 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 90.059,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Track 3 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 121.063,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Track 3 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 121.063,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Track 3 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 121.063,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Track 3 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 121.063,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Track 3 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 121.063,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Track 3 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 121.063,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Track 4 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 152.067,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Track 4 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 152.067,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Track 4 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 152.067,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Track 4 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 152.067,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Track 4 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 152.067,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Track 4 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 152.067,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Track 5 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 183.071,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Track 5 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 183.071,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Track 5 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 183.071,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Track 5 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 183.071,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Track 5 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 183.071,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Track 5 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 183.071,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Track 6 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 214.075,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Track 6 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 214.075,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Track 6 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 214.075,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Track 6 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 214.075,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Track 6 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 214.075,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Track 6 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 214.075,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Track 7 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 245.079,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Track 7 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 245.079,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Track 7 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 245.079,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Track 7 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 245.079,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Track 7 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 245.079,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Track 7 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 245.079,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Track 8 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 276.083,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Track 8 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 276.083,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Track 8 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 276.083,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Track 8 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 276.083,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Track 8 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 276.083,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Track 8 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 276.083,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Track 9 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 307.087,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Track 9 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 307.087,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Track 9 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 307.087,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Track 9 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 307.087,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Track 9 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 307.087,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Track 9 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 307.087,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Track 10 Note pitch (V/oct)",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 338.091,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Track 10 Note gate",
+        "kind": "gate",
+        "position": {
+          "x": 88.583,
+          "y": 338.091,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Track 10 Note velocity",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 338.091,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Track 10 Aftertouch",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 338.091,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Track 10 Pitchbend",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 338.091,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Track 10 Modwheel",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 338.091,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Is Actively Recording Gate",
+        "kind": "gate",
+        "position": {
+          "x": 26.575,
+          "y": 214.075,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "RecLight",
+        "position": {
+          "x": 26.575,
+          "y": 106.299,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 26.575,
+          "y": 245.079,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "incrementPath",
+        "type": "boolean",
+        "name": "Append -001, -002, etc.",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "alignToFirstNote",
+        "type": "boolean",
+        "name": "Start at first note gate",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "cvConfigVel",
+        "type": "integer",
+        "values": [
+          "-10 to 10",
+          "0 to 10",
+          "-5 to 5",
+          "0 to 5",
+          "-3 to 3",
+          "0 to 3",
+          "-1 to 1",
+          "0 to 1"
+        ],
+        "name": "VEL Input Range",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "cvConfigAft",
+        "type": "integer",
+        "values": [
+          "-10 to 10",
+          "0 to 10",
+          "-5 to 5",
+          "0 to 5",
+          "-3 to 3",
+          "0 to 3",
+          "-1 to 1",
+          "0 to 1"
+        ],
+        "name": "AFT Input Range",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "cvConfigPw",
+        "type": "integer",
+        "values": [
+          "-10 to 10",
+          "0 to 10",
+          "-5 to 5",
+          "0 to 5",
+          "-3 to 3",
+          "0 to 3",
+          "-1 to 1",
+          "0 to 1"
+        ],
+        "name": "PW Input Range",
+        "default": 2,
+        "contextOnly": true
+      },
+      {
+        "key": "cvConfigMw",
+        "type": "integer",
+        "values": [
+          "-10 to 10",
+          "0 to 10",
+          "-5 to 5",
+          "0 to 5",
+          "-3 to 3",
+          "0 to 3",
+          "-1 to 1",
+          "0 to 1"
+        ],
+        "name": "MW Input Range",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "mwIs14bit",
+        "type": "boolean",
+        "name": "MW is 14-bit",
+        "default": 0,
+        "contextOnly": true
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Chinenual-VCV/MIDIRecorderCC",
+            "symbol": "modelMIDIRecorderCC",
+            "index": 0
+          }
+        ]
+      },
+      "capture": {
+        "format": "midi",
+        "channels": 1,
+        "panelControlParam": 0
+      },
+      "visuals": [
+        {
+          "kind": "bpm-display",
+          "inputs": [
+            0
+          ],
+          "styleParam": 1,
+          "x": 38.386,
+          "y": 279.035,
+          "width": 30,
+          "height": 10
+        }
+      ],
+      "initialMemory": 20971520,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Chinenual-VCV/MIDIRecorder/2.7.5/manifest.json",
+    "sourceCommit": "257aba08502184c3e34adf036ebc90c1f76b4b67",
+    "artifact": {
+      "sha256": "c00b055620b80267d07cf7e2a57d4b3bb034461ba052234eacb788a342fce325",
+      "size": 210030
+    }
+  },
+  "source": {
+    "url": "https://github.com/chinenual/Chinenual-VCV",
+    "commit": "257aba08502184c3e34adf036ebc90c1f76b4b67"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T12:14:06.317Z"
+  }
+}
