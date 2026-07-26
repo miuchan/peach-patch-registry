@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-26T07:24:54.892Z",
-  "packageCount": 2681,
-  "totalBytes": 325219667,
+  "generatedAt": "2026-07-26T07:35:52.860Z",
+  "packageCount": 2682,
+  "totalBytes": 325300923,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -645649,6 +645649,323 @@
       "artifact": {
         "sha256": "8caa8f6bc1de4f48550e8ee9bd5f96b2be77ac5a00e80133112e34ac027a0f61",
         "size": 74851
+      }
+    },
+    {
+      "key": "Sparkette/Integrator",
+      "plugin": "Sparkette",
+      "model": "Integrator",
+      "name": "Dual Integrator",
+      "brand": "Sparkette's Stuff",
+      "version": "2.8.1",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/flarn2006/SparketteVCV",
+      "libraryUrl": "https://library.vcvrack.com/Sparkette/Integrator",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sparkette/Integrator.webp",
+      "wasmUrl": "packages/Sparkette/Integrator/2.8.1/module.wasm",
+      "width": 90,
+      "description": "Modulates up to two values over time at variable speed. DMA compatible; try stacking multiple horizontally.",
+      "params": [
+        {
+          "id": 0,
+          "name": "Min Value A",
+          "min": -10,
+          "max": 10,
+          "default": -10,
+          "position": {
+            "x": 22.5,
+            "y": 60.812,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Max Value A",
+          "min": -10,
+          "max": 10,
+          "default": 10,
+          "position": {
+            "x": 67.5,
+            "y": 60.812,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Delta Scale A",
+          "min": -10,
+          "max": 10,
+          "default": 1,
+          "position": {
+            "x": 45,
+            "y": 85.721,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Delta Scale x50 A",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "position": {
+            "x": 45,
+            "y": 106.391,
+            "centered": true,
+            "widget": "CKSS"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Reset A",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 45,
+            "y": 133.47,
+            "centered": true,
+            "widget": "VCVButton"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Min Value B",
+          "min": -10,
+          "max": 10,
+          "default": -10,
+          "position": {
+            "x": 22.5,
+            "y": 228.31,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 6,
+          "name": "Max Value B",
+          "min": -10,
+          "max": 10,
+          "default": 10,
+          "position": {
+            "x": 67.5,
+            "y": 228.31,
+            "centered": true,
+            "widget": "RoundBlackKnob"
+          }
+        },
+        {
+          "id": 7,
+          "name": "Delta Scale B",
+          "min": -10,
+          "max": 10,
+          "default": 1,
+          "position": {
+            "x": 45,
+            "y": 253.219,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 8,
+          "name": "Delta Scale x50 B",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "position": {
+            "x": 45,
+            "y": 273.889,
+            "centered": true,
+            "widget": "CKSS"
+          }
+        },
+        {
+          "id": 9,
+          "name": "Reset B",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 45,
+            "y": 300.969,
+            "centered": true,
+            "widget": "VCVButton"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Delta A",
+          "kind": "cv",
+          "position": {
+            "x": 67.5,
+            "y": 97.532,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Gate A",
+          "kind": "gate",
+          "position": {
+            "x": 22.5,
+            "y": 133.47,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Reset A",
+          "kind": "gate",
+          "position": {
+            "x": 67.5,
+            "y": 133.47,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Delta B",
+          "kind": "cv",
+          "position": {
+            "x": 67.5,
+            "y": 265.031,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "name": "Gate B",
+          "kind": "gate",
+          "position": {
+            "x": 22.5,
+            "y": 300.969,
+            "centered": true
+          }
+        },
+        {
+          "id": 5,
+          "name": "Reset B",
+          "kind": "gate",
+          "position": {
+            "x": 67.5,
+            "y": 300.969,
+            "centered": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Output A",
+          "kind": "cv",
+          "position": {
+            "x": 73.751,
+            "y": 181.281,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Output B",
+          "kind": "cv",
+          "position": {
+            "x": 73.751,
+            "y": 348.78,
+            "centered": true
+          }
+        }
+      ],
+      "lights": 7,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "MediumLight<GreenLight>",
+          "position": {
+            "x": 45,
+            "y": 54.906,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "widget": "MediumLight<RedLight>",
+          "position": {
+            "x": 45,
+            "y": 66.718,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "widget": "MediumLight<GreenLight>",
+          "position": {
+            "x": 45,
+            "y": 222.405,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "widget": "MediumLight<RedLight>",
+          "position": {
+            "x": 45,
+            "y": 234.216,
+            "centered": true
+          }
+        },
+        {
+          "id": 6,
+          "widget": "SmallLight<BlueLight>",
+          "position": {
+            "x": 8,
+            "y": 8,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "widget": "SmallLight<GreenRedLight>",
+          "position": {
+            "x": 82,
+            "y": 8,
+            "centered": true
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "wraparound",
+          "type": "boolean"
+        }
+      ],
+      "runtime": {
+        "expanderMode": "message-buffer",
+        "expander": {
+          "transport": "message-buffer",
+          "direction": "both",
+          "capacity": 16384,
+          "models": []
+        },
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/Sparkette/Integrator/2.8.1/manifest.json",
+      "sourceCommit": "b90cd69589ac77f41f626ea4ecb3a49d57780239",
+      "artifact": {
+        "sha256": "a729a97c1dd73911db2e2273f314781aad6a3a6145346afa1549c019b58ae164",
+        "size": 81256
       }
     },
     {
