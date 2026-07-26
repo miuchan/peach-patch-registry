@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Chinenual-VCV/Tint",
+    "plugin": "Chinenual-VCV",
+    "model": "Tint",
+    "name": "Tintinnabulator",
+    "brand": "Chinenual",
+    "version": "2.7.5",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/chinenual/Chinenual-VCV",
+    "libraryUrl": "https://library.vcvrack.com/Chinenual-VCV/Tint",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Chinenual-VCV/Tint.webp",
+    "wasmUrl": "packages/Chinenual-VCV/Tint/2.7.5/module.wasm",
+    "width": 45,
+    "description": "Harmonizes via Arvo Pärt style Tintinnabulation",
+    "params": [
+      {
+        "id": 0,
+        "name": "Mode",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "Up",
+          "Down",
+          "Up/Down",
+          "Up+1",
+          "Down-1",
+          "Up+1/Down-1",
+          "Quantize"
+        ],
+        "position": {
+          "x": 23.031,
+          "y": 59.055,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Octave Offset",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "-3",
+          "-2",
+          "-1",
+          "0",
+          "+1",
+          "+2",
+          "+3"
+        ],
+        "position": {
+          "x": 23.031,
+          "y": 103.346,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitches to use for harmonization",
+        "kind": "cv",
+        "position": {
+          "x": 23.031,
+          "y": 147.638,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Melody pitch(es)",
+        "kind": "cv",
+        "position": {
+          "x": 23.031,
+          "y": 191.929,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "When to change direction of harmony (if bidirectional)",
+        "kind": "gate",
+        "position": {
+          "x": 23.031,
+          "y": 236.22,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Original plus harmonized pitches",
+        "kind": "cv",
+        "position": {
+          "x": 23.031,
+          "y": 324.803,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Harmonized pitch(es)",
+        "kind": "cv",
+        "position": {
+          "x": 23.031,
+          "y": 280.512,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "octave",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Chinenual-VCV/Tint/2.7.5/manifest.json",
+    "sourceCommit": "257aba08502184c3e34adf036ebc90c1f76b4b67",
+    "artifact": {
+      "sha256": "e44d9281e31448a5cddb127444765786c3a4e8b970724856cce5a5c0f43b250f",
+      "size": 77070
+    }
+  },
+  "source": {
+    "url": "https://github.com/chinenual/Chinenual-VCV",
+    "commit": "257aba08502184c3e34adf036ebc90c1f76b4b67"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-26T11:38:07.885Z"
+  }
+}
