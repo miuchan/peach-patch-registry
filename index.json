@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-27T19:58:52.935Z",
-  "packageCount": 2847,
-  "totalBytes": 355167962,
+  "generatedAt": "2026-07-27T20:06:55.196Z",
+  "packageCount": 2848,
+  "totalBytes": 355255768,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -396827,6 +396827,284 @@
       "artifact": {
         "sha256": "9f1558354a248dc18d0e603d81a24a07aa69806e21be29e234a43906c2d5a7c5",
         "size": 95720
+      }
+    },
+    {
+      "key": "FrozenWasteland/PhasedLockedLoop",
+      "plugin": "FrozenWasteland",
+      "model": "PhasedLockedLoop",
+      "name": "Phased Locked Loop",
+      "brand": "Frozen Wasteland",
+      "version": "2.1.2",
+      "license": "GPL-3.0-only",
+      "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+      "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/PhasedLockedLoop",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/PhasedLockedLoop.webp",
+      "wasmUrl": "packages/FrozenWasteland/PhasedLockedLoop/2.1.2/module.wasm",
+      "width": 150,
+      "description": "PLL attempts to follow input signals freqency",
+      "params": [
+        {
+          "id": 0,
+          "name": "VCO Frequency",
+          "min": -54,
+          "max": 54,
+          "default": 0,
+          "position": {
+            "x": 100,
+            "y": 46,
+            "widget": "RoundSmallFWKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Pulse Width",
+          "min": 0,
+          "max": 1,
+          "default": 0.5,
+          "position": {
+            "x": 85,
+            "y": 80,
+            "widget": "RoundSmallFWKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Pulse Width CV",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 118,
+            "y": 80,
+            "widget": "RoundSmallFWKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "LPF Frequency",
+          "min": 0,
+          "max": 1,
+          "default": 0.5,
+          "position": {
+            "x": 97,
+            "y": 323,
+            "widget": "RoundFWKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "XOR Comparator",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 53.5,
+            "y": 187.5,
+            "widget": "LEDButton"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Flip-Flop Comparator",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 53.5,
+            "y": 205.5,
+            "widget": "LEDButton"
+          }
+        },
+        {
+          "id": 6,
+          "name": "Coincidence Comparator",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 53.5,
+            "y": 223.5,
+            "widget": "LEDButton"
+          }
+        },
+        {
+          "id": 7,
+          "name": "Fuzzy XOR Comparator",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 53.5,
+            "y": 241.5,
+            "widget": "LEDButton"
+          }
+        },
+        {
+          "id": 8,
+          "name": "Fuzzy Hyperbolic XOR Comparator",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 53.5,
+            "y": 259.5,
+            "widget": "LEDButton"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Internal VCO FM",
+          "kind": "cv",
+          "position": {
+            "x": 8,
+            "y": 30
+          }
+        },
+        {
+          "id": 1,
+          "name": "Internal VCO PWM",
+          "kind": "cv",
+          "position": {
+            "x": 8,
+            "y": 62
+          }
+        },
+        {
+          "id": 2,
+          "name": "External",
+          "kind": "cv",
+          "position": {
+            "x": 8,
+            "y": 135
+          }
+        },
+        {
+          "id": 3,
+          "name": "Main Signal",
+          "kind": "audio",
+          "position": {
+            "x": 8,
+            "y": 165
+          }
+        },
+        {
+          "id": 4,
+          "name": "LPF Fc",
+          "kind": "cv",
+          "position": {
+            "x": 8,
+            "y": 304
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Main",
+          "kind": "cv",
+          "position": {
+            "x": 8,
+            "y": 94
+          }
+        },
+        {
+          "id": 1,
+          "name": "Comparator",
+          "kind": "cv",
+          "position": {
+            "x": 8,
+            "y": 269
+          }
+        },
+        {
+          "id": 2,
+          "name": "LPF",
+          "kind": "cv",
+          "position": {
+            "x": 8,
+            "y": 334
+          }
+        }
+      ],
+      "lights": 6,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "LargeLight<GreenLight>",
+          "position": {
+            "x": 62,
+            "y": 155
+          }
+        },
+        {
+          "id": 1,
+          "widget": "LargeLight<BlueLight>",
+          "position": {
+            "x": 55,
+            "y": 189
+          }
+        },
+        {
+          "id": 2,
+          "widget": "LargeLight<BlueLight>",
+          "position": {
+            "x": 55,
+            "y": 207
+          }
+        },
+        {
+          "id": 3,
+          "widget": "LargeLight<BlueLight>",
+          "position": {
+            "x": 55,
+            "y": 225
+          }
+        },
+        {
+          "id": 4,
+          "widget": "LargeLight<BlueLight>",
+          "position": {
+            "x": 55,
+            "y": 243
+          }
+        },
+        {
+          "id": 5,
+          "widget": "LargeLight<BlueLight>",
+          "position": {
+            "x": 55,
+            "y": 261
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "comparatorType",
+          "type": "integer"
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/FrozenWasteland/PhasedLockedLoop/2.1.2/manifest.json",
+      "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+      "artifact": {
+        "sha256": "3098c76e1a2561ed79f4f053273ca57d0f5a203deb5bbd5879601ce612afdc3f",
+        "size": 87806
       }
     },
     {
