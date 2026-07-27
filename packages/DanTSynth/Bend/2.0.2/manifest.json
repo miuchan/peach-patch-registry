@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "DanTSynth/Bend",
+    "plugin": "DanTSynth",
+    "model": "Bend",
+    "name": "Bend",
+    "brand": "DanT",
+    "version": "2.0.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Miff-Real/DanT.Synth",
+    "libraryUrl": "https://library.vcvrack.com/DanTSynth/Bend",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/DanTSynth/Bend.webp",
+    "wasmUrl": "packages/DanTSynth/Bend/2.0.2/module.wasm",
+    "width": 120,
+    "description": "[8HP][Polyphonic] CV processor that produces programmable portamento, glides, envelopes, and pitch bends.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Bend Duration (Clocked)",
+        "min": -7,
+        "max": 7,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 83.125,
+          "centered": true,
+          "widget": "DANT::Knob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Bend Duration (Timed)",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 97.5,
+          "y": 83.125,
+          "centered": true,
+          "widget": "DANT::Knob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 97.5,
+          "y": 11.875,
+          "centered": true,
+          "widget": "rack::componentlibrary::VCVLightButton<\n        rack::componentlibrary::MediumSimpleLight<rack::componentlibrary::RedLight>>"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bend Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 60,
+          "y": 308.75,
+          "centered": true,
+          "widget": "rack::componentlibrary::VCVLightButton<\n        rack::componentlibrary::MediumSimpleLight<rack::componentlibrary::YellowLight>>"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bend Orientation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 147.25,
+          "centered": true,
+          "widget": "rack::componentlibrary::CKSS"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bend Direction",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 60,
+          "y": 147.25,
+          "centered": true,
+          "widget": "rack::componentlibrary::CKSS"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bend Amount",
+        "min": 0,
+        "max": 24,
+        "default": 2,
+        "position": {
+          "x": 22.5,
+          "y": 235.125,
+          "centered": true,
+          "widget": "DANT::Knob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Bend Shape",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 97.5,
+          "y": 235.125,
+          "centered": true,
+          "widget": "DANT::Knob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Bend Completion",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 97.5,
+          "y": 147.25,
+          "centered": true,
+          "widget": "rack::componentlibrary::CKSS"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Input Tracking",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 60,
+          "y": 223.25,
+          "centered": true,
+          "widget": "rack::componentlibrary::CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "External Clock",
+        "kind": "gate",
+        "position": {
+          "x": 52.5,
+          "y": 83.125,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "[Poly] Bend Duration (Clocked) CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 106.875,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "[Poly] V/Sec Bend Duration (Timed) CV",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 106.875,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "[Poly] Reset Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 97.5,
+          "y": 35.625,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "[Poly] Bend Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 60,
+          "y": 332.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "[Poly] V/Oct Signals",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 344.375,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "[Poly] Bend Orientation CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 185.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "[Poly] Bend Direction CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 185.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "[Poly] V/Oct Bend Amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 270.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "[Poly] Bend Shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 270.75,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "[Poly] Bend Completion CV",
+        "kind": "cv",
+        "position": {
+          "x": 97.5,
+          "y": 185.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "[Poly] Input Tracking CV",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 261.25,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "[Poly] V/Oct Signals",
+        "kind": "audio",
+        "position": {
+          "x": 97.5,
+          "y": 344.375,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "rack::componentlibrary::VCVLightButton<\n        rack::componentlibrary::MediumSimpleLight<rack::componentlibrary::RedLight>>",
+        "position": {
+          "x": 97.5,
+          "y": 11.875,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 1,
+        "widget": "rack::componentlibrary::VCVLightButton<\n        rack::componentlibrary::MediumSimpleLight<rack::componentlibrary::YellowLight>>",
+        "position": {
+          "x": 60,
+          "y": 308.75,
+          "centered": true
+        },
+        "paramId": 3
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "unbendEnvelope",
+        "type": "boolean"
+      },
+      {
+        "key": "inverseUnbendShape",
+        "type": "boolean"
+      },
+      {
+        "key": "unbendDurationPct",
+        "type": "real"
+      },
+      {
+        "key": "holdMethod",
+        "type": "integer"
+      },
+      {
+        "key": "autoUnholdThreshold",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        5,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/DanTSynth/Bend/2.0.2/manifest.json",
+    "sourceCommit": "bbda6418675cd66f46bd610e2d646d2dfca8deb4",
+    "artifact": {
+      "sha256": "d79e1c2f56224afbd852415273b5a24135b760637d1a41c5397b35b86ee980f9",
+      "size": 90631
+    }
+  },
+  "source": {
+    "url": "https://github.com/Miff-Real/DanT.Synth",
+    "commit": "bbda6418675cd66f46bd610e2d646d2dfca8deb4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T15:49:16.894Z"
+  }
+}
