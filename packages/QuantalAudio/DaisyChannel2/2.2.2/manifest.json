@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuantalAudio/DaisyChannel2",
+    "plugin": "QuantalAudio",
+    "model": "DaisyChannel2",
+    "name": "Daisy Mix Channel STEREO | 2HP",
+    "brand": "QuantalAudio",
+    "version": "2.2.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sumpygump/quantal-audio",
+    "libraryUrl": "https://library.vcvrack.com/QuantalAudio/DaisyChannel2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuantalAudio/DaisyChannel2.webp",
+    "wasmUrl": "packages/QuantalAudio/DaisyChannel2/2.2.2/module.wasm",
+    "width": 30,
+    "description": "Modular mixer channel - proximity daisy chainable",
+    "params": [
+      {
+        "id": 0,
+        "name": "Channel level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 4.5,
+          "y": 138.4,
+          "widget": "LEDSliderGreen"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mute",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 6,
+          "y": 254,
+          "widget": "QuantalDualLatch<MediumSimpleLight<RedGreenLight>>"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Panning",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 240,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Channel L",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 45
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel R",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 71
+        }
+      },
+      {
+        "id": 2,
+        "name": "Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 110
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel L",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 290
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel R",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 316
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 11,
+          "y": 361,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 19,
+          "y": 361,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 5,
+          "y": 6,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<BlueLight>",
+        "position": {
+          "x": 5,
+          "y": 11,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "QuantalDualLatch<MediumSimpleLight<RedGreenLight>>",
+        "position": {
+          "x": 6,
+          "y": 254
+        },
+        "paramId": 1
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "muted",
+        "type": "boolean"
+      },
+      {
+        "key": "solo",
+        "type": "boolean"
+      },
+      {
+        "key": "direct_outs_prefader",
+        "type": "boolean"
+      },
+      {
+        "key": "level_slew",
+        "type": "boolean"
+      },
+      {
+        "key": "aux1_send_amt",
+        "type": "real"
+      },
+      {
+        "key": "aux2_send_amt",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "QuantalAudio/DaisyChannel2",
+            "symbol": "modelDaisyChannel2",
+            "index": 0
+          },
+          {
+            "key": "QuantalAudio/DaisyChannelVu",
+            "symbol": "modelDaisyChannelVu",
+            "index": 1
+          },
+          {
+            "key": "QuantalAudio/DaisyChannelSends2",
+            "symbol": "modelDaisyChannelSends2",
+            "index": 2
+          },
+          {
+            "key": "QuantalAudio/DaisyBlank",
+            "symbol": "modelDaisyBlank",
+            "index": 3
+          },
+          {
+            "key": "QuantalAudio/DaisyMaster2",
+            "symbol": "modelDaisyMaster2",
+            "index": 4
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuantalAudio/DaisyChannel2/2.2.2/manifest.json",
+    "sourceCommit": "27a050936c0c802473f7828509e84b26bf6d55c7",
+    "artifact": {
+      "sha256": "9aa11a08b5ea7f0f91be58e37257d7e6040cf11107a004432134af3905180144",
+      "size": 90137
+    }
+  },
+  "source": {
+    "url": "https://github.com/sumpygump/quantal-audio",
+    "commit": "27a050936c0c802473f7828509e84b26bf6d55c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T14:56:27.762Z"
+  }
+}

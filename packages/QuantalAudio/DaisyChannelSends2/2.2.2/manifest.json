@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "QuantalAudio/DaisyChannelSends2",
+    "plugin": "QuantalAudio",
+    "model": "DaisyChannelSends2",
+    "name": "Daisy Mix Channel Aux Sends STEREO | 2HP",
+    "brand": "QuantalAudio",
+    "version": "2.2.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/sumpygump/quantal-audio",
+    "libraryUrl": "https://library.vcvrack.com/QuantalAudio/DaisyChannelSends2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/QuantalAudio/DaisyChannelSends2.webp",
+    "wasmUrl": "packages/QuantalAudio/DaisyChannelSends2/2.2.2/module.wasm",
+    "width": 30,
+    "description": "Modular mixer channel aux sends - proximity daisy chainable",
+    "params": [
+      {
+        "id": 0,
+        "name": "Change group",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 57.5,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Channel L",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 290
+        }
+      },
+      {
+        "id": 1,
+        "name": "Channel R",
+        "kind": "cv",
+        "position": {
+          "x": 2.5,
+          "y": 316
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 3,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 13,
+          "y": 80,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 13,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 11,
+          "y": 361,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<YellowLight>",
+        "position": {
+          "x": 19,
+          "y": 361,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 15,
+          "y": 57.5,
+          "centered": true
+        },
+        "paramId": 0
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "group",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "QuantalAudio/DaisyChannel2",
+            "symbol": "modelDaisyChannel2",
+            "index": 0
+          },
+          {
+            "key": "QuantalAudio/DaisyChannelVu",
+            "symbol": "modelDaisyChannelVu",
+            "index": 1
+          },
+          {
+            "key": "QuantalAudio/DaisyChannelSends2",
+            "symbol": "modelDaisyChannelSends2",
+            "index": 2
+          },
+          {
+            "key": "QuantalAudio/DaisyBlank",
+            "symbol": "modelDaisyBlank",
+            "index": 3
+          },
+          {
+            "key": "QuantalAudio/DaisyMaster2",
+            "symbol": "modelDaisyMaster2",
+            "index": 4
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/QuantalAudio/DaisyChannelSends2/2.2.2/manifest.json",
+    "sourceCommit": "27a050936c0c802473f7828509e84b26bf6d55c7",
+    "artifact": {
+      "sha256": "c92917c58517b06e34fc228357735e36b326549ea6a1b0558f7a7ada75582969",
+      "size": 75137
+    }
+  },
+  "source": {
+    "url": "https://github.com/sumpygump/quantal-audio",
+    "commit": "27a050936c0c802473f7828509e84b26bf6d55c7"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T14:56:36.982Z"
+  }
+}
