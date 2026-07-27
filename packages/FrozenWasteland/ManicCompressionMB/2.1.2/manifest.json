@@ -1,0 +1,3080 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/ManicCompressionMB",
+    "plugin": "FrozenWasteland",
+    "model": "ManicCompressionMB",
+    "name": "Megalomanic Compression",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/ManicCompressionMB",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/ManicCompressionMB.webp",
+    "wasmUrl": "packages/FrozenWasteland/ManicCompressionMB/2.1.2/module.wasm",
+    "width": 1110,
+    "description": "Fun Multi-Band Compressor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Band 1 Active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 140,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Band 2 Active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 65,
+          "y": 140,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Band 3 Active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 140,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Band 4 Active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 165,
+          "y": 140,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Band 5 Active",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 215,
+          "y": 140,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Band 1 Frequency",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 10,
+          "y": 170,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Band 2 Frequency",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 60,
+          "y": 170,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Band 3 Frequency",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 110,
+          "y": 170,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Band 4 Frequency",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 160,
+          "y": 170,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Band 5 Frequency",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 210,
+          "y": 170,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Band 1 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 188,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Band 2 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 84,
+          "y": 188,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Band 3 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 134,
+          "y": 188,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Band 4 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 184,
+          "y": 188,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Band 5 Frequency CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 234,
+          "y": 188,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Band 1 Bandwidth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 225,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Band 2 Bandwidth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 225,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Band 3 Bandwidth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 110,
+          "y": 225,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Band 4 Bandwidth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160,
+          "y": 225,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Band 5 Bandwidth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 210,
+          "y": 225,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Band 1 Bandwidth CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34,
+          "y": 243,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Band 2 Bandwidth CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 84,
+          "y": 243,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Band 3 Bandwidth CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 134,
+          "y": 243,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Band 4 Bandwidth CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 184,
+          "y": 243,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Band 5 Bandwidth CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 234,
+          "y": 243,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Band 1 Threshold",
+        "min": -50,
+        "max": 0,
+        "default": -30,
+        "position": {
+          "x": 270,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Band 2 Threshold",
+        "min": -50,
+        "max": 0,
+        "default": -30,
+        "position": {
+          "x": 410,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Band 3 Threshold",
+        "min": -50,
+        "max": 0,
+        "default": -30,
+        "position": {
+          "x": 550,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Band 4 Threshold",
+        "min": -50,
+        "max": 0,
+        "default": -30,
+        "position": {
+          "x": 690,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Band 5 Threshold",
+        "min": -50,
+        "max": 0,
+        "default": -30,
+        "position": {
+          "x": 830,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Band 1 Threshold CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Band 2 Threshold CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 435,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Band 3 Threshold CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 575,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Band 4 Threshold CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 715,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Band 5 Threshold CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 855,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Band 1 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 270,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Band 2 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 410,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Band 3 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 550,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Band 4 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 690,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Band 5 Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 830,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Band 1 Attack CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Band 2 Attack CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 435,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Band 3 Attack CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 575,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Band 4 Attack CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 715,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Band 5 Attack CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 855,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Band 1 Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 330,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Band 2 Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 470,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Band 3 Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 610,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Band 4 Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 750,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Band 5 Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 890,
+          "y": 235,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Band 1 Release CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 355,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Band 2 Release CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 495,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Band 3 Release CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 635,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Band 4 Release CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 775,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Band 5 Release CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 915,
+          "y": 253,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Band 1 Attack Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 270,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Band 2 Attack Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 410,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Band 3 Attack Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 550,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Band 4 Attack Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 690,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Band 5 Attack Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 830,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Band 1 Attack Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Band 2 Attack Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 435,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Band 3 Attack Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 575,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 63,
+        "name": "Band 4 Attack Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 715,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 64,
+        "name": "Band 5 Attack Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 855,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 65,
+        "name": "Band 1 Release Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 330,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Band 2 Release Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 470,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 67,
+        "name": "Band 3 Release Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 610,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 68,
+        "name": "Band 4 Release Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 750,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 69,
+        "name": "Band 5 Release Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 890,
+          "y": 290,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 70,
+        "name": "Band 1 Release Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 71,
+        "name": "Band 2 Release Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 435,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 72,
+        "name": "Band 3 Release Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 575,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 73,
+        "name": "Band 4 Release Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 715,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 74,
+        "name": "Band 5 Release Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 855,
+          "y": 303,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 75,
+        "name": "Band 1 Ratio",
+        "min": -0.20000000298023224,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 330,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 76,
+        "name": "Band 2 Ratio",
+        "min": -0.20000000298023224,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 470,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 77,
+        "name": "Band 3 Ratio",
+        "min": -0.20000000298023224,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 610,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 78,
+        "name": "Band 4 Ratio",
+        "min": -0.20000000298023224,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 750,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 79,
+        "name": "Band 5 Ratio",
+        "min": -0.20000000298023224,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 890,
+          "y": 135,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 80,
+        "name": "Band 1 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 355,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 81,
+        "name": "Band 2 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 495,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 82,
+        "name": "Band 3 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 635,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 83,
+        "name": "Band 4 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 775,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 84,
+        "name": "Band 5 Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 915,
+          "y": 153,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 85,
+        "name": "Band 1 Knee",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 337,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 86,
+        "name": "Band 2 Knee",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 477,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 87,
+        "name": "Band 3 Knee",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 617,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 88,
+        "name": "Band 4 Knee",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 757,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 89,
+        "name": "Band 5 Knee",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 897,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 90,
+        "name": "Band 1 Knee CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 362,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 91,
+        "name": "Band 2 Knee CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 502,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 92,
+        "name": "Band 3 Knee CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 642,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 93,
+        "name": "Band 4 Knee CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 782,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 94,
+        "name": "Band 5 Knee CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 922,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 95,
+        "name": "Band 1 Makeup Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 330,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 96,
+        "name": "Band 2 Makeup Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 470,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 97,
+        "name": "Band 3 Makeup Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 610,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 98,
+        "name": "Band 4 Makeup Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 750,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 99,
+        "name": "Band 5 Makeup Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 890,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 100,
+        "name": "Band 1 Makeup Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 355,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 101,
+        "name": "Band 2 Makeup Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 495,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 102,
+        "name": "Band 3 Makeup Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 635,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 103,
+        "name": "Band 4 Makeup Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 775,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 104,
+        "name": "Band 5 Makeup Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 915,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 105,
+        "name": "Band 1 Input Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 270,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 106,
+        "name": "Band 2 Input Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 410,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 107,
+        "name": "Band 3 Input Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 550,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 108,
+        "name": "Band 4 Input Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 690,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 109,
+        "name": "Band 5 Input Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 830,
+          "y": 341,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 110,
+        "name": "Band 1 Input Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 295,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 111,
+        "name": "Band 2 Input Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 435,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 112,
+        "name": "Band 3 Input Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 575,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 113,
+        "name": "Band 4 Input Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 715,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 114,
+        "name": "Band 5 Input Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 855,
+          "y": 359,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 115,
+        "name": "Band 1 RMS Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 265,
+          "y": 185,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 116,
+        "name": "Band 2 RMS Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 405,
+          "y": 185,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 117,
+        "name": "Band 3 RMS Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 545,
+          "y": 185,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 118,
+        "name": "Band 4 RMS Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 685,
+          "y": 185,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 119,
+        "name": "Band 5 RMS Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 825,
+          "y": 185,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 120,
+        "name": "Band 1 RMS Window",
+        "min": 0.019999999552965164,
+        "max": 50,
+        "default": 5,
+        "position": {
+          "x": 285,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 121,
+        "name": "Band 2 RMS Window",
+        "min": 0.019999999552965164,
+        "max": 50,
+        "default": 5,
+        "position": {
+          "x": 425,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 122,
+        "name": "Band 3 RMS Window",
+        "min": 0.019999999552965164,
+        "max": 50,
+        "default": 5,
+        "position": {
+          "x": 565,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 123,
+        "name": "Band 4 RMS Window",
+        "min": 0.019999999552965164,
+        "max": 50,
+        "default": 5,
+        "position": {
+          "x": 705,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 124,
+        "name": "Band 5 RMS Window",
+        "min": 0.019999999552965164,
+        "max": 50,
+        "default": 5,
+        "position": {
+          "x": 845,
+          "y": 185,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 125,
+        "name": "Band 1 RMS Windows CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 310,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 126,
+        "name": "Band 2 RMS Windows CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 450,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 127,
+        "name": "Band 3 RMS Windows CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 590,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 128,
+        "name": "Band 4 RMS Windows CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 730,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 129,
+        "name": "Band 5 RMS Windows CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 870,
+          "y": 203,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 130,
+        "name": "Band 1 Compression Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 378,
+          "y": 138,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 131,
+        "name": "Band 2 Compression Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 518,
+          "y": 138,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 132,
+        "name": "Band 3 Compression Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 658,
+          "y": 138,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 133,
+        "name": "Band 4 Compression Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 798,
+          "y": 138,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 134,
+        "name": "Band 5 Compression Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 938,
+          "y": 138,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 135,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 145,
+          "y": 280,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 136,
+        "name": "Mix CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170,
+          "y": 298,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 137,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 202,
+          "y": 280,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 138,
+        "name": "Mid-Side Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 280,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 139,
+        "name": "Compress Mid",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 57,
+          "y": 280,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 140,
+        "name": "Compress Side",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 101,
+          "y": 280,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Band 1 Active",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 143
+        }
+      },
+      {
+        "id": 1,
+        "name": "Band 2 Active",
+        "kind": "cv",
+        "position": {
+          "x": 88,
+          "y": 143
+        }
+      },
+      {
+        "id": 2,
+        "name": "Band 3 Active",
+        "kind": "cv",
+        "position": {
+          "x": 138,
+          "y": 143
+        }
+      },
+      {
+        "id": 3,
+        "name": "Band 4 Active",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 143
+        }
+      },
+      {
+        "id": 4,
+        "name": "Band 5 Active",
+        "kind": "cv",
+        "position": {
+          "x": 238,
+          "y": 143
+        }
+      },
+      {
+        "id": 5,
+        "name": "Band 1 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 173
+        }
+      },
+      {
+        "id": 6,
+        "name": "Band 2 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 88,
+          "y": 173
+        }
+      },
+      {
+        "id": 7,
+        "name": "Band 3 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 138,
+          "y": 173
+        }
+      },
+      {
+        "id": 8,
+        "name": "Band 4 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 173
+        }
+      },
+      {
+        "id": 9,
+        "name": "Band 5 Frequency",
+        "kind": "cv",
+        "position": {
+          "x": 238,
+          "y": 173
+        }
+      },
+      {
+        "id": 10,
+        "name": "Band 1 Bandwidth",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 228
+        }
+      },
+      {
+        "id": 11,
+        "name": "Band 2 Bandwidth",
+        "kind": "cv",
+        "position": {
+          "x": 88,
+          "y": 228
+        }
+      },
+      {
+        "id": 12,
+        "name": "Band 3 Bandwidth",
+        "kind": "cv",
+        "position": {
+          "x": 138,
+          "y": 228
+        }
+      },
+      {
+        "id": 13,
+        "name": "Band 4 Bandwidth",
+        "kind": "cv",
+        "position": {
+          "x": 188,
+          "y": 228
+        }
+      },
+      {
+        "id": 14,
+        "name": "Band 5 Bandwidth",
+        "kind": "cv",
+        "position": {
+          "x": 238,
+          "y": 228
+        }
+      },
+      {
+        "id": 15,
+        "name": "Band 1 Threshold",
+        "kind": "cv",
+        "position": {
+          "x": 299,
+          "y": 138
+        }
+      },
+      {
+        "id": 16,
+        "name": "Band 2 Threshold",
+        "kind": "cv",
+        "position": {
+          "x": 439,
+          "y": 138
+        }
+      },
+      {
+        "id": 17,
+        "name": "Band 3 Threshold",
+        "kind": "cv",
+        "position": {
+          "x": 579,
+          "y": 138
+        }
+      },
+      {
+        "id": 18,
+        "name": "Band 4 Threshold",
+        "kind": "cv",
+        "position": {
+          "x": 719,
+          "y": 138
+        }
+      },
+      {
+        "id": 19,
+        "name": "Band 5 Threshold",
+        "kind": "cv",
+        "position": {
+          "x": 859,
+          "y": 138
+        }
+      },
+      {
+        "id": 20,
+        "name": "Band 1 Attack",
+        "kind": "cv",
+        "position": {
+          "x": 299,
+          "y": 238
+        }
+      },
+      {
+        "id": 21,
+        "name": "Band 2 Attack",
+        "kind": "cv",
+        "position": {
+          "x": 439,
+          "y": 238
+        }
+      },
+      {
+        "id": 22,
+        "name": "Band 3 Attack",
+        "kind": "cv",
+        "position": {
+          "x": 579,
+          "y": 238
+        }
+      },
+      {
+        "id": 23,
+        "name": "Band 4 Attack",
+        "kind": "cv",
+        "position": {
+          "x": 719,
+          "y": 238
+        }
+      },
+      {
+        "id": 24,
+        "name": "Band 5 Attack",
+        "kind": "cv",
+        "position": {
+          "x": 859,
+          "y": 238
+        }
+      },
+      {
+        "id": 25,
+        "name": "Band 1 Release",
+        "kind": "cv",
+        "position": {
+          "x": 359,
+          "y": 238
+        }
+      },
+      {
+        "id": 26,
+        "name": "Band 2 Release",
+        "kind": "cv",
+        "position": {
+          "x": 499,
+          "y": 238
+        }
+      },
+      {
+        "id": 27,
+        "name": "Band 3 Release",
+        "kind": "cv",
+        "position": {
+          "x": 639,
+          "y": 238
+        }
+      },
+      {
+        "id": 28,
+        "name": "Band 4 Release",
+        "kind": "cv",
+        "position": {
+          "x": 779,
+          "y": 238
+        }
+      },
+      {
+        "id": 29,
+        "name": "Band 5 Release",
+        "kind": "cv",
+        "position": {
+          "x": 919,
+          "y": 238
+        }
+      },
+      {
+        "id": 30,
+        "name": "Band 1 Attack Curve",
+        "kind": "cv",
+        "position": {
+          "x": 299,
+          "y": 291
+        }
+      },
+      {
+        "id": 31,
+        "name": "Band 2 Attack Curve",
+        "kind": "cv",
+        "position": {
+          "x": 439,
+          "y": 291
+        }
+      },
+      {
+        "id": 32,
+        "name": "Band 3 Attack Curve",
+        "kind": "cv",
+        "position": {
+          "x": 579,
+          "y": 291
+        }
+      },
+      {
+        "id": 33,
+        "name": "Band 4 Attack Curve",
+        "kind": "cv",
+        "position": {
+          "x": 719,
+          "y": 291
+        }
+      },
+      {
+        "id": 34,
+        "name": "Band 5 Attack Curve",
+        "kind": "cv",
+        "position": {
+          "x": 859,
+          "y": 291
+        }
+      },
+      {
+        "id": 35,
+        "name": "Band 1 Release Curve",
+        "kind": "cv",
+        "position": {
+          "x": 359,
+          "y": 291
+        }
+      },
+      {
+        "id": 36,
+        "name": "Band 2 Release Curve",
+        "kind": "cv",
+        "position": {
+          "x": 499,
+          "y": 291
+        }
+      },
+      {
+        "id": 37,
+        "name": "Band 3 Release Curve",
+        "kind": "cv",
+        "position": {
+          "x": 639,
+          "y": 291
+        }
+      },
+      {
+        "id": 38,
+        "name": "Band 4 Release Curve",
+        "kind": "cv",
+        "position": {
+          "x": 779,
+          "y": 291
+        }
+      },
+      {
+        "id": 39,
+        "name": "Band 5 Release Curve",
+        "kind": "cv",
+        "position": {
+          "x": 919,
+          "y": 291
+        }
+      },
+      {
+        "id": 40,
+        "name": "Band 1 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 359,
+          "y": 138
+        }
+      },
+      {
+        "id": 41,
+        "name": "Band 2 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 499,
+          "y": 138
+        }
+      },
+      {
+        "id": 42,
+        "name": "Band 3 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 639,
+          "y": 138
+        }
+      },
+      {
+        "id": 43,
+        "name": "Band 4 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 779,
+          "y": 138
+        }
+      },
+      {
+        "id": 44,
+        "name": "Band 5 Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 919,
+          "y": 138
+        }
+      },
+      {
+        "id": 45,
+        "name": "Band 1 Knee",
+        "kind": "cv",
+        "position": {
+          "x": 366,
+          "y": 188
+        }
+      },
+      {
+        "id": 46,
+        "name": "Band 2 Knee",
+        "kind": "cv",
+        "position": {
+          "x": 506,
+          "y": 188
+        }
+      },
+      {
+        "id": 47,
+        "name": "Band 3 Knee",
+        "kind": "cv",
+        "position": {
+          "x": 646,
+          "y": 188
+        }
+      },
+      {
+        "id": 48,
+        "name": "Band 4 Knee",
+        "kind": "cv",
+        "position": {
+          "x": 786,
+          "y": 188
+        }
+      },
+      {
+        "id": 49,
+        "name": "Band 5 Knee",
+        "kind": "cv",
+        "position": {
+          "x": 926,
+          "y": 188
+        }
+      },
+      {
+        "id": 50,
+        "name": "Band 1 Makeup Gain",
+        "kind": "cv",
+        "position": {
+          "x": 359,
+          "y": 344
+        }
+      },
+      {
+        "id": 51,
+        "name": "Band 2 Makeup Gain",
+        "kind": "cv",
+        "position": {
+          "x": 499,
+          "y": 344
+        }
+      },
+      {
+        "id": 52,
+        "name": "Band 3 Makeup Gain",
+        "kind": "cv",
+        "position": {
+          "x": 639,
+          "y": 344
+        }
+      },
+      {
+        "id": 53,
+        "name": "Band 4 Makeup Gain",
+        "kind": "cv",
+        "position": {
+          "x": 779,
+          "y": 344
+        }
+      },
+      {
+        "id": 54,
+        "name": "Band 5 Makeup Gain",
+        "kind": "cv",
+        "position": {
+          "x": 919,
+          "y": 344
+        }
+      },
+      {
+        "id": 55,
+        "name": "Band 1 Input Gain",
+        "kind": "cv",
+        "position": {
+          "x": 299,
+          "y": 344
+        }
+      },
+      {
+        "id": 56,
+        "name": "Band 2 Input Gain",
+        "kind": "cv",
+        "position": {
+          "x": 439,
+          "y": 344
+        }
+      },
+      {
+        "id": 57,
+        "name": "Band 3 Input Gain",
+        "kind": "cv",
+        "position": {
+          "x": 579,
+          "y": 344
+        }
+      },
+      {
+        "id": 58,
+        "name": "Band 4 Input Gain",
+        "kind": "cv",
+        "position": {
+          "x": 719,
+          "y": 344
+        }
+      },
+      {
+        "id": 59,
+        "name": "Band 5 Input Gain",
+        "kind": "cv",
+        "position": {
+          "x": 859,
+          "y": 344
+        }
+      },
+      {
+        "id": 60,
+        "name": "Band 1 Compression Direction",
+        "kind": "cv",
+        "position": {
+          "x": 381,
+          "y": 158
+        }
+      },
+      {
+        "id": 61,
+        "name": "Band 2 Compression Direction",
+        "kind": "cv",
+        "position": {
+          "x": 521,
+          "y": 158
+        }
+      },
+      {
+        "id": 62,
+        "name": "Band 3 Compression Direction",
+        "kind": "cv",
+        "position": {
+          "x": 661,
+          "y": 158
+        }
+      },
+      {
+        "id": 63,
+        "name": "Band 4 Compression Direction",
+        "kind": "cv",
+        "position": {
+          "x": 801,
+          "y": 158
+        }
+      },
+      {
+        "id": 64,
+        "name": "Band 5 Compression Direction",
+        "kind": "cv",
+        "position": {
+          "x": 941,
+          "y": 158
+        }
+      },
+      {
+        "id": 65,
+        "name": "Band 1 RMS Mode",
+        "kind": "cv",
+        "position": {
+          "x": 268,
+          "y": 206
+        }
+      },
+      {
+        "id": 66,
+        "name": "Band 2 RMS Mode",
+        "kind": "cv",
+        "position": {
+          "x": 408,
+          "y": 206
+        }
+      },
+      {
+        "id": 67,
+        "name": "Band 3 RMS Mode",
+        "kind": "cv",
+        "position": {
+          "x": 548,
+          "y": 206
+        }
+      },
+      {
+        "id": 68,
+        "name": "Band 4 RMS Mode",
+        "kind": "cv",
+        "position": {
+          "x": 688,
+          "y": 206
+        }
+      },
+      {
+        "id": 69,
+        "name": "Band 5 RMS Mode",
+        "kind": "cv",
+        "position": {
+          "x": 828,
+          "y": 206
+        }
+      },
+      {
+        "id": 70,
+        "name": "Band 1 RMS Window",
+        "kind": "cv",
+        "position": {
+          "x": 314,
+          "y": 188
+        }
+      },
+      {
+        "id": 71,
+        "name": "Band 2 RMS Window",
+        "kind": "cv",
+        "position": {
+          "x": 454,
+          "y": 188
+        }
+      },
+      {
+        "id": 72,
+        "name": "Band 3 RMS Window",
+        "kind": "cv",
+        "position": {
+          "x": 594,
+          "y": 188
+        }
+      },
+      {
+        "id": 73,
+        "name": "Band 4 RMS Window",
+        "kind": "cv",
+        "position": {
+          "x": 734,
+          "y": 188
+        }
+      },
+      {
+        "id": 74,
+        "name": "Band 5 RMS Window",
+        "kind": "cv",
+        "position": {
+          "x": 874,
+          "y": 188
+        }
+      },
+      {
+        "id": 75,
+        "name": "Band 1 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 965,
+          "y": 25
+        }
+      },
+      {
+        "id": 76,
+        "name": "Band 2 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 965,
+          "y": 57
+        }
+      },
+      {
+        "id": 77,
+        "name": "Band 3 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 965,
+          "y": 89
+        }
+      },
+      {
+        "id": 78,
+        "name": "Band 4 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 965,
+          "y": 121
+        }
+      },
+      {
+        "id": 79,
+        "name": "Band 5 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 965,
+          "y": 153
+        }
+      },
+      {
+        "id": 80,
+        "name": "Band 1 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1035,
+          "y": 25
+        }
+      },
+      {
+        "id": 81,
+        "name": "Band 2 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1035,
+          "y": 57
+        }
+      },
+      {
+        "id": 82,
+        "name": "Band 3 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1035,
+          "y": 89
+        }
+      },
+      {
+        "id": 83,
+        "name": "Band 4 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1035,
+          "y": 121
+        }
+      },
+      {
+        "id": 84,
+        "name": "Band 5 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1035,
+          "y": 153
+        }
+      },
+      {
+        "id": 85,
+        "name": "Mix Level",
+        "kind": "cv",
+        "position": {
+          "x": 174,
+          "y": 283
+        }
+      },
+      {
+        "id": 86,
+        "name": "Bypass Control",
+        "kind": "cv",
+        "position": {
+          "x": 223,
+          "y": 283
+        }
+      },
+      {
+        "id": 87,
+        "name": "Left Source",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 335
+        }
+      },
+      {
+        "id": 88,
+        "name": "Right Source",
+        "kind": "audio",
+        "position": {
+          "x": 40,
+          "y": 335
+        }
+      },
+      {
+        "id": 89,
+        "name": "Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 335
+        }
+      },
+      {
+        "id": 90,
+        "name": "Mid/Side Mode",
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 283
+        }
+      },
+      {
+        "id": 91,
+        "name": "Compress Mid",
+        "kind": "cv",
+        "position": {
+          "x": 78,
+          "y": 283
+        }
+      },
+      {
+        "id": 92,
+        "name": "Compress Side",
+        "kind": "cv",
+        "position": {
+          "x": 122,
+          "y": 283
+        }
+      },
+      {
+        "id": 93,
+        "name": "Band 1 Left",
+        "kind": "audio",
+        "position": {
+          "x": 965,
+          "y": 210
+        }
+      },
+      {
+        "id": 94,
+        "name": "Band 2 Left",
+        "kind": "audio",
+        "position": {
+          "x": 965,
+          "y": 242
+        }
+      },
+      {
+        "id": 95,
+        "name": "Band 3 Left",
+        "kind": "audio",
+        "position": {
+          "x": 965,
+          "y": 274
+        }
+      },
+      {
+        "id": 96,
+        "name": "Band 4 Left",
+        "kind": "audio",
+        "position": {
+          "x": 965,
+          "y": 306
+        }
+      },
+      {
+        "id": 97,
+        "name": "Band 5 Left",
+        "kind": "audio",
+        "position": {
+          "x": 965,
+          "y": 338
+        }
+      },
+      {
+        "id": 98,
+        "name": "Band 1 Right",
+        "kind": "audio",
+        "position": {
+          "x": 995,
+          "y": 210
+        }
+      },
+      {
+        "id": 99,
+        "name": "Band 2 Right",
+        "kind": "audio",
+        "position": {
+          "x": 995,
+          "y": 242
+        }
+      },
+      {
+        "id": 100,
+        "name": "Band 3 Right",
+        "kind": "audio",
+        "position": {
+          "x": 995,
+          "y": 274
+        }
+      },
+      {
+        "id": 101,
+        "name": "Band 4 Right",
+        "kind": "audio",
+        "position": {
+          "x": 995,
+          "y": 306
+        }
+      },
+      {
+        "id": 102,
+        "name": "Band 5 Right",
+        "kind": "audio",
+        "position": {
+          "x": 995,
+          "y": 338
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 186,
+          "y": 335
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 216,
+          "y": 335
+        }
+      },
+      {
+        "id": 2,
+        "name": "Band 1 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1070,
+          "y": 25
+        }
+      },
+      {
+        "id": 3,
+        "name": "Band 2 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1070,
+          "y": 57
+        }
+      },
+      {
+        "id": 4,
+        "name": "Band 3 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1070,
+          "y": 89
+        }
+      },
+      {
+        "id": 5,
+        "name": "Band 4 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1070,
+          "y": 121
+        }
+      },
+      {
+        "id": 6,
+        "name": "Band 5 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 1070,
+          "y": 153
+        }
+      },
+      {
+        "id": 7,
+        "name": "Band 1 Left",
+        "kind": "audio",
+        "position": {
+          "x": 1035,
+          "y": 210
+        }
+      },
+      {
+        "id": 8,
+        "name": "Band 2 Left",
+        "kind": "audio",
+        "position": {
+          "x": 1035,
+          "y": 242
+        }
+      },
+      {
+        "id": 9,
+        "name": "Band 3 Left",
+        "kind": "audio",
+        "position": {
+          "x": 1035,
+          "y": 274
+        }
+      },
+      {
+        "id": 10,
+        "name": "Band 4 Left",
+        "kind": "audio",
+        "position": {
+          "x": 1035,
+          "y": 306
+        }
+      },
+      {
+        "id": 11,
+        "name": "Band 5 Left",
+        "kind": "audio",
+        "position": {
+          "x": 1035,
+          "y": 338
+        }
+      },
+      {
+        "id": 12,
+        "name": "Band 1 Right",
+        "kind": "audio",
+        "position": {
+          "x": 1065,
+          "y": 210
+        }
+      },
+      {
+        "id": 13,
+        "name": "Band 2 Right",
+        "kind": "audio",
+        "position": {
+          "x": 1065,
+          "y": 242
+        }
+      },
+      {
+        "id": 14,
+        "name": "Band 3 Right",
+        "kind": "audio",
+        "position": {
+          "x": 1065,
+          "y": 274
+        }
+      },
+      {
+        "id": 15,
+        "name": "Band 4 Right",
+        "kind": "audio",
+        "position": {
+          "x": 1065,
+          "y": 306
+        }
+      },
+      {
+        "id": 16,
+        "name": "Band 5 Right",
+        "kind": "audio",
+        "position": {
+          "x": 1065,
+          "y": 338
+        }
+      },
+      {
+        "id": 17,
+        "name": "Band 1 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 1000,
+          "y": 25
+        }
+      },
+      {
+        "id": 18,
+        "name": "Band 2 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 1000,
+          "y": 57
+        }
+      },
+      {
+        "id": 19,
+        "name": "Band 3 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 1000,
+          "y": 89
+        }
+      },
+      {
+        "id": 20,
+        "name": "Band 4 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 1000,
+          "y": 121
+        }
+      },
+      {
+        "id": 21,
+        "name": "Band 5 Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 1000,
+          "y": 153
+        }
+      }
+    ],
+    "lights": 19,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 16.5,
+          "y": 141.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 141.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 116.5,
+          "y": 141.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 166.5,
+          "y": 141.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 216.5,
+          "y": 141.5
+        }
+      },
+      {
+        "id": 10,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 379.5,
+          "y": 139.5
+        }
+      },
+      {
+        "id": 11,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 519.5,
+          "y": 139.5
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 659.5,
+          "y": 139.5
+        }
+      },
+      {
+        "id": 13,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 799.5,
+          "y": 139.5
+        }
+      },
+      {
+        "id": 14,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 939.5,
+          "y": 139.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 266.5,
+          "y": 186.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 406.5,
+          "y": 186.5
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 546.5,
+          "y": 186.5
+        }
+      },
+      {
+        "id": 8,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 686.5,
+          "y": 186.5
+        }
+      },
+      {
+        "id": 9,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 826.5,
+          "y": 186.5
+        }
+      },
+      {
+        "id": 16,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 281.5
+        }
+      },
+      {
+        "id": 17,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 58.5,
+          "y": 281.5
+        }
+      },
+      {
+        "id": 18,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 102.5,
+          "y": 281.5
+        }
+      },
+      {
+        "id": 15,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 203.5,
+          "y": 281.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "bypassed",
+        "type": "boolean"
+      },
+      {
+        "key": "midSideMode",
+        "type": "boolean"
+      },
+      {
+        "key": "compressMid",
+        "type": "boolean"
+      },
+      {
+        "key": "compressSide",
+        "type": "boolean"
+      },
+      {
+        "key": "gateMode",
+        "type": "boolean"
+      },
+      {
+        "key": "envelopeMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/ManicCompressionMB/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "7cba15a6077685ac964425dcdd6ad3744b9b029e2ecbad5a38ac871a70af52d4",
+      "size": 166113
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T19:51:01.745Z"
+  }
+}
