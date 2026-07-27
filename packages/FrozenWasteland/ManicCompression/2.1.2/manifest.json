@@ -1,0 +1,754 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/ManicCompression",
+    "plugin": "FrozenWasteland",
+    "model": "ManicCompression",
+    "name": "Manic Compression",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/ManicCompression",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/ManicCompression.webp",
+    "wasmUrl": "packages/FrozenWasteland/ManicCompression/2.1.2/module.wasm",
+    "width": 255,
+    "description": "Fun Compressor",
+    "params": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "min": -50,
+        "max": 0,
+        "default": -30,
+        "position": {
+          "x": 15,
+          "y": 140,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Threshold CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 158,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 135,
+          "y": 140,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Attack CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160,
+          "y": 158,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 195,
+          "y": 140,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Release CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 220,
+          "y": 158,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Attack Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135,
+          "y": 200,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Attack Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160,
+          "y": 213,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Release Curve",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 195,
+          "y": 200,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Release Curve CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 220,
+          "y": 213,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ratio",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 75,
+          "y": 140,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Ratio CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 100,
+          "y": 158,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Knee",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 195,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Knee CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 107,
+          "y": 213,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Makeup Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 280,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Makeup Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 100,
+          "y": 298,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 135,
+          "y": 280,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Mix CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 160,
+          "y": 298,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192,
+          "y": 304,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "RMS Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 195,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "RMS Window",
+        "min": 0.019999999552965164,
+        "max": 50,
+        "default": 5,
+        "position": {
+          "x": 30,
+          "y": 195,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "RMS Windows CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 55,
+          "y": 213,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "LP Filter",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 10,
+          "y": 247,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "HP FIlter",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 60,
+          "y": 247,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Mid-Side Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 110,
+          "y": 247,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Compress Mid",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 157,
+          "y": 247,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Compress Side",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 201,
+          "y": 247,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Input Gain",
+        "min": 0,
+        "max": 30,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 280,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Input Gain CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 298,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Compression Direction",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192,
+          "y": 278,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Threshold",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 143
+        }
+      },
+      {
+        "id": 1,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 164,
+          "y": 143
+        }
+      },
+      {
+        "id": 2,
+        "name": "Release",
+        "kind": "cv",
+        "position": {
+          "x": 224,
+          "y": 143
+        }
+      },
+      {
+        "id": 3,
+        "name": "Attack Curve",
+        "kind": "cv",
+        "position": {
+          "x": 164,
+          "y": 198
+        }
+      },
+      {
+        "id": 4,
+        "name": "Release Curve",
+        "kind": "cv",
+        "position": {
+          "x": 224,
+          "y": 198
+        }
+      },
+      {
+        "id": 5,
+        "name": "Ratio",
+        "kind": "cv",
+        "position": {
+          "x": 104,
+          "y": 143
+        }
+      },
+      {
+        "id": 6,
+        "name": "Knee",
+        "kind": "cv",
+        "position": {
+          "x": 111,
+          "y": 198
+        }
+      },
+      {
+        "id": 7,
+        "name": "Makeup Gain",
+        "kind": "cv",
+        "position": {
+          "x": 104,
+          "y": 283
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mix Level",
+        "kind": "cv",
+        "position": {
+          "x": 164,
+          "y": 283
+        }
+      },
+      {
+        "id": 9,
+        "name": "RMS Mode",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 216
+        }
+      },
+      {
+        "id": 10,
+        "name": "RMS Window",
+        "kind": "cv",
+        "position": {
+          "x": 59,
+          "y": 198
+        }
+      },
+      {
+        "id": 11,
+        "name": "Bypass Control",
+        "kind": "cv",
+        "position": {
+          "x": 213,
+          "y": 307
+        }
+      },
+      {
+        "id": 12,
+        "name": "Left Source",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 335
+        }
+      },
+      {
+        "id": 13,
+        "name": "Right Source",
+        "kind": "audio",
+        "position": {
+          "x": 40,
+          "y": 335
+        }
+      },
+      {
+        "id": 14,
+        "name": "Sidechain",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 335
+        }
+      },
+      {
+        "id": 15,
+        "name": "LP Filter Mode",
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 250
+        }
+      },
+      {
+        "id": 16,
+        "name": "HP Filter Mode",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 250
+        }
+      },
+      {
+        "id": 17,
+        "name": "Mid/Side Mode",
+        "kind": "cv",
+        "position": {
+          "x": 131,
+          "y": 250
+        }
+      },
+      {
+        "id": 18,
+        "name": "Compress Mid",
+        "kind": "cv",
+        "position": {
+          "x": 178,
+          "y": 250
+        }
+      },
+      {
+        "id": 19,
+        "name": "Compress Side",
+        "kind": "cv",
+        "position": {
+          "x": 222,
+          "y": 250
+        }
+      },
+      {
+        "id": 20,
+        "name": "Input Gain",
+        "kind": "cv",
+        "position": {
+          "x": 44,
+          "y": 283
+        }
+      },
+      {
+        "id": 21,
+        "name": "Compression Direction",
+        "kind": "cv",
+        "position": {
+          "x": 213,
+          "y": 281
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 186,
+          "y": 335
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 216,
+          "y": 335
+        }
+      },
+      {
+        "id": 2,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 140,
+          "y": 335
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 196.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 11.5,
+          "y": 248.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 61.5,
+          "y": 248.5
+        }
+      },
+      {
+        "id": 0,
+        "widget": "LargeLight<RedLight>",
+        "position": {
+          "x": 193.5,
+          "y": 305.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 111.5,
+          "y": 248.5
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 158.5,
+          "y": 248.5
+        }
+      },
+      {
+        "id": 6,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 202.5,
+          "y": 248.5
+        }
+      },
+      {
+        "id": 7,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 193.5,
+          "y": 279.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "bypassed",
+        "type": "integer"
+      },
+      {
+        "key": "rmsMode",
+        "type": "integer"
+      },
+      {
+        "key": "lpFilterMode",
+        "type": "integer"
+      },
+      {
+        "key": "hpFilterMode",
+        "type": "integer"
+      },
+      {
+        "key": "midSideMode",
+        "type": "integer"
+      },
+      {
+        "key": "compressMid",
+        "type": "integer"
+      },
+      {
+        "key": "compressSide",
+        "type": "integer"
+      },
+      {
+        "key": "compressDirection",
+        "type": "integer"
+      },
+      {
+        "key": "gateMode",
+        "type": "integer"
+      },
+      {
+        "key": "envelopeMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/ManicCompression/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "3da2da1e4eb9f33fdec10cf629e6e55dd41ddd60628f9c4bff168a773cf52d05",
+      "size": 119387
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T19:34:29.583Z"
+  }
+}
