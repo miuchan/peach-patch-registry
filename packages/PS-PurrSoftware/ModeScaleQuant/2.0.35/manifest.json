@@ -1,0 +1,591 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "PS-PurrSoftware/ModeScaleQuant",
+    "plugin": "PS-PurrSoftware",
+    "model": "ModeScaleQuant",
+    "name": "ModeScaleQuant",
+    "brand": "PurrSoftware",
+    "version": "2.0.35",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/knchaffin/Meander/tree/master-V2",
+    "libraryUrl": "https://library.vcvrack.com/PS-PurrSoftware/ModeScaleQuant",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/PS-PurrSoftware/ModeScaleQuant.webp",
+    "wasmUrl": "packages/PS-PurrSoftware/ModeScaleQuant/2.0.35/module.wasm",
+    "width": 495,
+    "description": "Mode Scale Quantizer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Root/Key",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 23.98,
+          "y": 150,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mode",
+        "min": 0,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 23.98,
+          "y": 232.31,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 343.19,
+          "y": 110.011,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "G",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 391.178,
+          "y": 122.008,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "D",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 422.725,
+          "y": 154.001,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 435.611,
+          "y": 198.877,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "E",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 419.173,
+          "y": 247.754,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 392.513,
+          "y": 278.858,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Gb/F#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 343.636,
+          "y": 291.744,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Db",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 298.314,
+          "y": 277.524,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Ab",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.987,
+          "y": 247.754,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Eb",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 254.77,
+          "y": 201.1,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Bb",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 264.989,
+          "y": 153.555,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "F",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 300.534,
+          "y": 119.787,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Mono CV Ext. Root Set: 0.1v-10v=C,G,D,A,E,B,F#,Db,Ab,Eb,Bb,F :",
+        "kind": "cv",
+        "position": {
+          "x": 0,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mono CV Ext. Mode Set: 0.1v-10v=Lydian,Ionian,Mixolydian,Dorian,Aeolian,Phrygian,Locrian :",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Poly External Note(s) To Quantize In : v/oct",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 14.764,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output Harmony Gate",
+        "kind": "gate",
+        "position": {
+          "x": 596.67,
+          "y": 366.93,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Poly Harmony Chord Notes Out: v/oct :",
+        "kind": "cv",
+        "position": {
+          "x": 596.98,
+          "y": 342.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Poly Scale Out: v/oct Out: 7, 5 or 12 notes",
+        "kind": "cv",
+        "position": {
+          "x": 1122.05,
+          "y": 368.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Poly External Note(s) Quantized Out : v/oct :",
+        "kind": "cv",
+        "position": {
+          "x": 206.69,
+          "y": 1018.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mono Scale Root Note Out: v/oct :",
+        "kind": "audio",
+        "position": {
+          "x": 109.25,
+          "y": 959.65,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Output Ext Scale",
+        "kind": "cv",
+        "position": {
+          "x": 168.31,
+          "y": 1033.46,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Poly quantized out :",
+        "kind": "gate",
+        "position": {
+          "x": 250.98,
+          "y": 1018.7,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 24,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 343.19,
+          "y": 110.011,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 391.178,
+          "y": 122.008,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 422.725,
+          "y": 154.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 435.611,
+          "y": 198.877,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 419.173,
+          "y": 247.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 392.513,
+          "y": 278.858,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 343.636,
+          "y": 291.744,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 298.314,
+          "y": 277.524,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 268.987,
+          "y": 247.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 254.77,
+          "y": 201.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 560.265,
+          "y": 153.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 300.534,
+          "y": 119.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 343.19,
+          "y": 129.561,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 380.959,
+          "y": 139.338,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 405.399,
+          "y": 165.552,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 414.729,
+          "y": 199.766,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 404.953,
+          "y": 237.092,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 380.516,
+          "y": 261.529,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 342.747,
+          "y": 272.194,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 309.422,
+          "y": 262.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 284.094,
+          "y": 237.98,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 273.431,
+          "y": 199.766,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 283.205,
+          "y": 163.775,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 311.2,
+          "y": 137.56,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "scale_out_mode",
+        "type": "integer"
+      },
+      {
+        "key": "paneltheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelcontrast",
+        "type": "real"
+      },
+      {
+        "key": "modalmode",
+        "type": "real"
+      },
+      {
+        "key": "modaroot",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/PS-PurrSoftware/ModeScaleQuant/2.0.35/manifest.json",
+    "sourceCommit": "b4cec996b8ffb4a8df1d4e1b30054694afa61562",
+    "artifact": {
+      "sha256": "ff8c3984b03d53cef8c481c9609abdf1a08e08f3fc157fbeb73418c1a37b8ce5",
+      "size": 119119
+    }
+  },
+  "source": {
+    "url": "https://github.com/knchaffin/Meander/tree/master-V2",
+    "commit": "b4cec996b8ffb4a8df1d4e1b30054694afa61562"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T14:32:37.236Z"
+  }
+}

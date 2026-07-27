@@ -1,0 +1,2977 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "PS-PurrSoftware/Meander",
+    "plugin": "PS-PurrSoftware",
+    "model": "Meander",
+    "name": "Meander",
+    "brand": "PurrSoftware",
+    "version": "2.0.35",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/knchaffin/Meander/tree/master-V2",
+    "libraryUrl": "https://library.vcvrack.com/PS-PurrSoftware/Meander",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/PS-PurrSoftware/Meander.webp",
+    "wasmUrl": "packages/PS-PurrSoftware/Meander/2.0.35/module.wasm",
+    "width": 1200,
+    "description": "Algorithmic Composer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 58.169,
+          "y": 30.856,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 58.169,
+          "y": 66.585,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tempo",
+        "min": 3.75,
+        "max": 960,
+        "default": 120,
+        "position": {
+          "x": 23.976,
+          "y": 104.528,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Time Signature Top",
+        "min": 2,
+        "max": 15,
+        "default": 4,
+        "position": {
+          "x": 23.976,
+          "y": 148.589,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Time Signature Bottom",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 23.976,
+          "y": 170.787,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Root/Key",
+        "min": 0,
+        "max": 11,
+        "default": 0,
+        "position": {
+          "x": 23.976,
+          "y": 201.316,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Mode",
+        "min": 0,
+        "max": 6,
+        "default": 1,
+        "position": {
+          "x": 23.976,
+          "y": 232.308,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 343.19,
+          "y": 110.011,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "G",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 391.178,
+          "y": 122.008,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "D",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 422.725,
+          "y": 154.001,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 435.611,
+          "y": 198.877,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "E",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 419.173,
+          "y": 247.754,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 392.513,
+          "y": 278.858,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Gb/F#",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 343.636,
+          "y": 291.744,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Db",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 298.314,
+          "y": 277.524,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Ab",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 268.987,
+          "y": 247.754,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Eb",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 254.77,
+          "y": 201.1,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Bb",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 264.989,
+          "y": 153.555,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "F",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 300.534,
+          "y": 119.787,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Step 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192.511,
+          "y": 314.418,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Step 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 191.687,
+          "y": 289.429,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Step 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192.499,
+          "y": 263.595,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Step 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 191.687,
+          "y": 241.9,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Step 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192.499,
+          "y": 216.094,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Step 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 191.687,
+          "y": 195.263,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Step 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 192.499,
+          "y": 171.094,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Step 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 191.666,
+          "y": 146.085,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Step 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 13.668,
+          "y": 121.095,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Step 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190.834,
+          "y": 96.93,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Step 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190.834,
+          "y": 72.782,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Step 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Step 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Step 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Step 15",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Step 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Melody Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 709.704,
+          "y": 32.439,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Volume",
+        "min": 0,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 709.704,
+          "y": 56.743,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Hold Tied Notes Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 709.869,
+          "y": 75.366,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Notes on 1/N",
+        "min": 0,
+        "max": 5,
+        "default": 2,
+        "position": {
+          "x": 709.704,
+          "y": 95.129,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Target Octave",
+        "min": 1,
+        "max": 7,
+        "default": 3,
+        "position": {
+          "x": 709.704,
+          "y": 115.798,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Variablility",
+        "min": 0,
+        "max": 1,
+        "default": 0.8999999761581421,
+        "position": {
+          "x": 709.648,
+          "y": 141.151,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Octave Range",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 709.648,
+          "y": 163.376,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 42,
+        "name": "Arp Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 709.47,
+          "y": 183.1,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Arp Notes Played",
+        "min": 0,
+        "max": 31,
+        "default": 3,
+        "position": {
+          "x": 709.47,
+          "y": 200.829,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 44,
+        "name": "Arp Notes Length",
+        "min": 2,
+        "max": 5,
+        "default": 4,
+        "position": {
+          "x": 709.417,
+          "y": 244.509,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Volume Decay",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 709.361,
+          "y": 270.741,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Pattern Preset",
+        "min": -3,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 710.897,
+          "y": 293.79,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Chordal Notes Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 783.289,
+          "y": 183.1,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Scaler Notes Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 836.439,
+          "y": 183.1,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Harmony (chords) Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 513.334,
+          "y": 37.27,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Param 51",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 51,
+        "name": "Volume (0-10)",
+        "min": 0,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 513.334,
+          "y": 60.189,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Steps",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 513.862,
+          "y": 82.677,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Target Octave",
+        "min": 1,
+        "max": 7,
+        "default": 3,
+        "position": {
+          "x": 513.809,
+          "y": 110.421,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Variability",
+        "min": 0,
+        "max": 1,
+        "default": 0.8999999761581421,
+        "position": {
+          "x": 514.577,
+          "y": 135.774,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Octave Range",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 513.753,
+          "y": 158.823,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Notes Length",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 513.641,
+          "y": 183.407,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Progression Preset",
+        "min": 1,
+        "max": 80,
+        "default": 1,
+        "position": {
+          "x": 513.859,
+          "y": 240.72,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Bass Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 900.591,
+          "y": 30.644,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Volume",
+        "min": 0,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 900.591,
+          "y": 62.649,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Target Octave",
+        "min": 1,
+        "max": 7,
+        "default": 2,
+        "position": {
+          "x": 900.591,
+          "y": 86.271,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Accent Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 900.591,
+          "y": 109.893,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Syncopate Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 900.591,
+          "y": 133.515,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 63,
+        "name": "Shuffle Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 900.591,
+          "y": 157.137,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 64,
+        "name": "Notes Length",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 900.591,
+          "y": 180.759,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 65,
+        "name": "Harmony fBm 1/f meandering noise. Number of noise octaves.",
+        "min": 1,
+        "max": 6,
+        "default": 3,
+        "position": {
+          "x": 1057.087,
+          "y": 56.102,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 66,
+        "name": "Melody fBm 1/f meandering noise. Number of noise octaves.",
+        "min": 1,
+        "max": 6,
+        "default": 3,
+        "position": {
+          "x": 1057.087,
+          "y": 100.394,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 67,
+        "name": "Arp/32nds fBm 1/f meandering noise. Number of noise octaves.",
+        "min": 1,
+        "max": 6,
+        "default": 3,
+        "position": {
+          "x": 1057.087,
+          "y": 150.591,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 68,
+        "name": "Harmony fBm 1/f meandering noise. Noise 'period' seconds.",
+        "min": 1,
+        "max": 100,
+        "default": 60,
+        "position": {
+          "x": 1057.087,
+          "y": 73.819,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 69,
+        "name": "Melody fBm 1/f meandering noise. Noise 'period' seconds.",
+        "min": 1,
+        "max": 100,
+        "default": 10,
+        "position": {
+          "x": 1057.087,
+          "y": 126.969,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 70,
+        "name": "Arp/32nds fBm 1/f meandering noise. Noise 'period' seconds.",
+        "min": 1,
+        "max": 100,
+        "default": 1,
+        "position": {
+          "x": 1057.087,
+          "y": 174.213,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 71,
+        "name": "Chordal Notes Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 798.286,
+          "y": 32.439,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 72,
+        "name": "Scaler Notes Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 848.25,
+          "y": 32.439,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 73,
+        "name": "7ths Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 513.334,
+          "y": 203.74,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 74,
+        "name": "V 7ths Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 601.916,
+          "y": 203.74,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 75,
+        "name": "Staccato Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 513.334,
+          "y": 221.457,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 76,
+        "name": "Staccato Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 709.47,
+          "y": 221.457,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 77,
+        "name": "Staccato Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 900.591,
+          "y": 262.379,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 78,
+        "name": "Play as 2 Octaves Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 900.591,
+          "y": 157.137,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 79,
+        "name": "Step Harmony Progression",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 1033.465,
+          "y": 738.189,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 80,
+        "name": "Render Piano Keyboard Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 2598.425,
+          "y": 35.433,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 81,
+        "name": "Render Score Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 2598.425,
+          "y": 88.583,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 82,
+        "name": "4-Voice Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 601.916,
+          "y": 221.457,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 83,
+        "name": "Tonic on Ch1 Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 513.334,
+          "y": 221.457,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 84,
+        "name": "Bass on Ch1 Enable/Disable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 513.334,
+          "y": 221.457,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 85,
+        "name": "Rand",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 87.697,
+          "y": 66.585,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Mono CV Ext. Run Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 0,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mono CV Ext. Reset: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mono CV Ext. Tempo Set: +-v/oct 0v=120 BPM :",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mono CV Ext. Time Signature Top Set: 0.1v-10v=2-15 :",
+        "kind": "cv",
+        "position": {
+          "x": 88.583,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mono CV Ext. Time Signature Bottom Set: 0.1v-10v=2-16 :",
+        "kind": "cv",
+        "position": {
+          "x": 118.11,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mono CV Ext. Root Set: 0.1v-10v=C,G,D,A,E,B,F#,Db,Ab,Eb,Bb,F :",
+        "kind": "cv",
+        "position": {
+          "x": 147.638,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Mono CV Ext. Mode Set: 0.1v-10v=Lydian,Ionian,Mixolydian,Dorian,Aeolian,Phrygian,Locrian :",
+        "kind": "cv",
+        "position": {
+          "x": 177.165,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mono Ext. 8x Clock In: overrides Meander internal clock :",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mono CV Ext. Circle Degree Set: Octal radix (degree.octave) 1.1v-7.7v :",
+        "kind": "cv",
+        "position": {
+          "x": 236.22,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mono Ext. Circle Degree Gate In: 10v or duplicate of Circle Degree input cable :",
+        "kind": "cv",
+        "position": {
+          "x": 265.748,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Mono CV Ext. Melody Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 295.276,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Mono CV Ext. Melody Volume Set: 0-10v :",
+        "kind": "cv",
+        "position": {
+          "x": 324.803,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Mono CV Ext. Melody Hold Tied Notes Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 354.331,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mono CV Ext. Melody Note On 1/n Set: 0.1v-10v=n=1,2,4,8,16,32 :",
+        "kind": "cv",
+        "position": {
+          "x": 383.858,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Mono CV Ext. Melody Target Octave Set: 0.1v-10v=n=1-7 :",
+        "kind": "cv",
+        "position": {
+          "x": 413.386,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Mono CV Ext. Melody Variability Set: 0.1v-10v=0-1.0 :",
+        "kind": "cv",
+        "position": {
+          "x": 442.913,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Mono CV Ext. Melody Octave Range Set: 0.1v-10v=+/- 0-3.0 :",
+        "kind": "cv",
+        "position": {
+          "x": 472.441,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Mono CV Ext. Melody Arp Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 501.969,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Mono CV Ext. Melody Arp steps Set: 0.1v-10v=n=0-31 :",
+        "kind": "cv",
+        "position": {
+          "x": 531.496,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Mono CV Ext. Melody Arp Note On 1/n Set: 0.1v-10v=n=4,8,16,32 :",
+        "kind": "cv",
+        "position": {
+          "x": 561.024,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Mono CV Ext. Melody Arp Note Volume Decay Set: 0.1v-10v=n=0-1.0 :",
+        "kind": "cv",
+        "position": {
+          "x": 590.551,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Mono CV Ext. Arp Step Pattern Set: 0.1v-10v= (-1,+1),(-1),(0),(+1,-1) :",
+        "kind": "cv",
+        "position": {
+          "x": 620.079,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Mono CV Ext. Melody Arp Chordal Notes Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 649.606,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "Mono CV Ext. Melody Arp Scaler Notes Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 679.134,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "name": "Mono CV Ext. Harmony Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 708.661,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "Mono CV Ext. Harmony Hold Tied Notes Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 738.189,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "name": "Mono CV Ext. Harmony Volume Set: 0-10v :",
+        "kind": "cv",
+        "position": {
+          "x": 767.717,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "name": "Mono CV Ext. Harmony Progression Steps Set: 0.1v-10v=n=1-N :",
+        "kind": "cv",
+        "position": {
+          "x": 797.244,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "name": "Mono CV Ext. Harmony Target Octave Set: 0.1v-10v=n=1-7 :",
+        "kind": "cv",
+        "position": {
+          "x": 826.772,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "name": "Mono CV Ext. Harmony Variability Set: 0.1v-10v=0-1.0 :",
+        "kind": "cv",
+        "position": {
+          "x": 856.299,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "name": "Mono CV Ext. Harmony Octave Range Set: 0.1v-10v=+/- 0-3.0 :",
+        "kind": "cv",
+        "position": {
+          "x": 885.827,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "name": "Mono CV Ext. Harmony Note On 1/n Set: 0.1v-10v=n=1,2,4,8 :",
+        "kind": "cv",
+        "position": {
+          "x": 915.354,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "name": "Mono CV Ext. Harmony Progression Preset Set: 0.1v-10v= 1-~60 progression number :",
+        "kind": "cv",
+        "position": {
+          "x": 944.882,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "name": "Mono CV Ext. Bass Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 974.409,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "name": "Mono CV Ext. Bass Volume Set: 0-10v :",
+        "kind": "cv",
+        "position": {
+          "x": 1003.937,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "name": "Mono CV Ext. Bass Target Octave Set: 0.1v-10v=n=1-7 :",
+        "kind": "cv",
+        "position": {
+          "x": 1033.465,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "name": "Mono CV Ext. Bass Accent Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1062.992,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "name": "Mono CV Ext. Bass Syncopate Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1092.52,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "name": "Mono CV Ext. Bass Shuffle Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1122.047,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "name": "Mono CV Ext. Bass Note On 1/n Set: 0.1v-10v=n=1,2,4,8 :",
+        "kind": "cv",
+        "position": {
+          "x": 1151.575,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "name": "Mono CV Ext. Harmony fBm Generator Octaves Set: 0.1v-10v=1-6 :",
+        "kind": "cv",
+        "position": {
+          "x": 1181.102,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "name": "Mono CV Ext. Melody fBm Generator Octaves Set: 0.1v-10v=1-6 :",
+        "kind": "cv",
+        "position": {
+          "x": 1210.63,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "name": "Mono CV Ext. Arp/32nds fBm Generator Octaves Set: 0.1v-10v=1-6 :",
+        "kind": "cv",
+        "position": {
+          "x": 1240.157,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "name": "Mono CV Ext. Harmony fBm Generator Period Seconds Set: 0.1v-10v=1-100 :",
+        "kind": "cv",
+        "position": {
+          "x": 1269.685,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "name": "Mono CV Ext. Melody fBm Generator Period Seconds Set: 0.1v-10v=1-100 :",
+        "kind": "cv",
+        "position": {
+          "x": 1299.213,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "name": "Mono CV Ext. Arp/32nds fBm Generator Period Seconds Set: 0.1v-10v=1-100 :",
+        "kind": "cv",
+        "position": {
+          "x": 1328.74,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "name": "Mono CV Ext. Melody Chordal Notes Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1358.268,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "name": "Mono CV Ext. Melody Scaler Notes Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1387.795,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "name": "Mono CV Ext. Harmony Nice 7ths Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1417.323,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "name": "Mono CV Ext. Harmony V7ths Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1446.85,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 50,
+        "name": "Mono CV Ext. Harmony Staccato Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1476.378,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "name": "Mono CV Ext. Melody Staccato Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1505.906,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "name": "Mono CV Ext. Bass Staccato Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1535.433,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "name": "Mono CV Ext. Bass Play Octaves (x2) Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1564.961,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "name": "Mono CV Ext. Progression Step Advance: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1594.488,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 55,
+        "name": "Mono CV Ext. Melody Scale Degree Set: Octal radix (degree.octave) 1.1v-7.7v :",
+        "kind": "cv",
+        "position": {
+          "x": 1624.016,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 56,
+        "name": "Mono Ext. Melody Scale Degree Gate In: 10v or duplicate of Circle Degree input cable :",
+        "kind": "cv",
+        "position": {
+          "x": 1653.543,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "name": "Poly External Note(s) To Quantize In : v/oct",
+        "kind": "cv",
+        "position": {
+          "x": 1683.071,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 58,
+        "name": "Mono CV Ext. Harmony 4-voice octave chords Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1712.598,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 59,
+        "name": "Mono CV Ext. Harmony Tonic On Ch1 Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1742.126,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "name": "Mono CV Ext. Harmony Bass On Ch1 Enable Toggle: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1771.654,
+          "y": 14.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 61,
+        "name": "Mono CV Ext. Rand: >0v :",
+        "kind": "cv",
+        "position": {
+          "x": 1801.181,
+          "y": 14.764,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mono Run Enable Ext. Momentary: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 89.173,
+          "y": 32.333,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mono Reset Enable Ext. Momentary: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 89.173,
+          "y": 68.947,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mono CV Ext. Tempo : +-v/oct 0v=120 BPM :",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Mono 8x Clock Out: :",
+        "kind": "gate",
+        "position": {
+          "x": 132.874,
+          "y": 1033.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mono Melody Gate Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 788.333,
+          "y": 367.763,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mono Harmony Gate Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 596.666,
+          "y": 366.93,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Mono Bass Gate Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 960.833,
+          "y": 366.094,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mono Harmony fBm Noise Out: 0-10.0v :",
+        "kind": "audio",
+        "position": {
+          "x": 1122.047,
+          "y": 317.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mono Melody Notes Out: v/oct :",
+        "kind": "cv",
+        "position": {
+          "x": 788.088,
+          "y": 341.968,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mono Melody fBm Noise Out: 0-10.0v :",
+        "kind": "audio",
+        "position": {
+          "x": 1122.047,
+          "y": 341.973,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Poly Bass Notes Out: v/oct :",
+        "kind": "cv",
+        "position": {
+          "x": 960.431,
+          "y": 341.979,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Poly Harmony Chord Notes Out: v/oct :",
+        "kind": "cv",
+        "position": {
+          "x": 596.976,
+          "y": 342.251,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Mono BeatX2 1ms Trigger/Clock Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 232.5,
+          "y": 361.095,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mono Bsr 1ms Trigger/Clock Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 109.674,
+          "y": 361.822,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Mono BeatX4 1ms Trigger/Clock Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 293.333,
+          "y": 361.928,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Mono BeatX8 1ms Trigger/Clock Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 357.499,
+          "y": 361.928,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Mono Beat 1ms Trigger/Clock Out: 10v :",
+        "kind": "gate",
+        "position": {
+          "x": 170.835,
+          "y": 362.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Mono ",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 18,
+        "name": "Mono ",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Mono ",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "Mono Melody Arp/32nds fBm Noise Out: 0-10.0v :",
+        "kind": "audio",
+        "position": {
+          "x": 1122.047,
+          "y": 368.595,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Mono CV Melody Volume Out: 0-10v :",
+        "kind": "cv",
+        "position": {
+          "x": 788.333,
+          "y": 316.928,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Mono CV Harmony Volume Out: 0-10v :",
+        "kind": "cv",
+        "position": {
+          "x": 595.834,
+          "y": 317.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "name": "Mono CV Bass Volume Out: 0-10v :",
+        "kind": "cv",
+        "position": {
+          "x": 960,
+          "y": 317.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "name": "Poly Scale Out: v/oct Out: 7, 5 or 12 notes",
+        "kind": "cv",
+        "position": {
+          "x": 1122.047,
+          "y": 368.595,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "name": "Poly External Note(s) Quantized Out : v/oct :",
+        "kind": "cv",
+        "position": {
+          "x": 206.693,
+          "y": 1018.701,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "name": "Mono Scale Root Note Out: v/oct :",
+        "kind": "audio",
+        "position": {
+          "x": 109.252,
+          "y": 959.646,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "name": "Output Ext Scale",
+        "kind": "cv",
+        "position": {
+          "x": 168.307,
+          "y": 1033.465,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "name": "Mono Circle Degree Out: CV 1-7 V",
+        "kind": "cv",
+        "position": {
+          "x": 1122.047,
+          "y": 368.595,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "name": "Poly quantized out :",
+        "kind": "gate",
+        "position": {
+          "x": 250.98,
+          "y": 1018.7,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "name": "Chord Type:",
+        "kind": "cv",
+        "position": {
+          "x": 1122.047,
+          "y": 413.386,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 68,
+    "lightWidgets": [
+      {
+        "id": 9,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 343.19,
+          "y": 110.011,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 391.178,
+          "y": 122.008,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 422.725,
+          "y": 154.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 435.611,
+          "y": 198.877,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 419.173,
+          "y": 247.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 392.513,
+          "y": 278.858,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 343.636,
+          "y": 291.744,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 298.314,
+          "y": 277.524,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 268.987,
+          "y": 247.754,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 254.77,
+          "y": 201.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 560.265,
+          "y": 153.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 300.534,
+          "y": 119.787,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 343.19,
+          "y": 129.561,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 380.959,
+          "y": 139.338,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 405.399,
+          "y": 165.552,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 414.729,
+          "y": 199.766,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 404.953,
+          "y": 237.092,
+          "centered": true
+        }
+      },
+      {
+        "id": 26,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 380.516,
+          "y": 261.529,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 342.747,
+          "y": 272.194,
+          "centered": true
+        }
+      },
+      {
+        "id": 28,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 309.422,
+          "y": 262.417,
+          "centered": true
+        }
+      },
+      {
+        "id": 29,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 284.094,
+          "y": 237.98,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 273.431,
+          "y": 199.766,
+          "centered": true
+        }
+      },
+      {
+        "id": 31,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 283.205,
+          "y": 163.775,
+          "centered": true
+        }
+      },
+      {
+        "id": 32,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 311.2,
+          "y": 137.56,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 192.511,
+          "y": 314.418,
+          "centered": true
+        }
+      },
+      {
+        "id": 34,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 191.687,
+          "y": 289.429,
+          "centered": true
+        }
+      },
+      {
+        "id": 35,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 192.499,
+          "y": 263.595,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 191.687,
+          "y": 241.899,
+          "centered": true
+        }
+      },
+      {
+        "id": 37,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 192.499,
+          "y": 216.094,
+          "centered": true
+        }
+      },
+      {
+        "id": 38,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 191.687,
+          "y": 195.263,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 192.499,
+          "y": 171.094,
+          "centered": true
+        }
+      },
+      {
+        "id": 40,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 191.666,
+          "y": 146.085,
+          "centered": true
+        }
+      },
+      {
+        "id": 41,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 13.668,
+          "y": 121.095,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 190.834,
+          "y": 96.93,
+          "centered": true
+        }
+      },
+      {
+        "id": 43,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 190.834,
+          "y": 72.782,
+          "centered": true
+        }
+      },
+      {
+        "id": 44,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 46,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 47,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "widget": "MediumSimpleLight<GreenLight>",
+        "position": {
+          "x": 190.843,
+          "y": 47.764,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 58.169,
+          "y": 30.856,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 58.169,
+          "y": 66.585,
+          "centered": true
+        }
+      },
+      {
+        "id": 67,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 87.697,
+          "y": 66.585,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 513.334,
+          "y": 37.27,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 513.334,
+          "y": 203.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 601.916,
+          "y": 203.74,
+          "centered": true
+        }
+      },
+      {
+        "id": 57,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 513.334,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 709.704,
+          "y": 32.439,
+          "centered": true
+        }
+      },
+      {
+        "id": 50,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 798.286,
+          "y": 32.439,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 848.25,
+          "y": 32.439,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 709.869,
+          "y": 75.366,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 709.47,
+          "y": 183.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 783.289,
+          "y": 183.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 836.439,
+          "y": 183.1,
+          "centered": true
+        }
+      },
+      {
+        "id": 58,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 709.47,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 900.591,
+          "y": 30.644,
+          "centered": true
+        }
+      },
+      {
+        "id": 55,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 900.591,
+          "y": 109.893,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 900.591,
+          "y": 133.515,
+          "centered": true
+        }
+      },
+      {
+        "id": 56,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 900.591,
+          "y": 157.137,
+          "centered": true
+        }
+      },
+      {
+        "id": 60,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 900.591,
+          "y": 218.728,
+          "centered": true
+        }
+      },
+      {
+        "id": 59,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 900.591,
+          "y": 206.693,
+          "centered": true
+        }
+      },
+      {
+        "id": 62,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 2952.756,
+          "y": 29.528,
+          "centered": true
+        }
+      },
+      {
+        "id": 63,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 2952.756,
+          "y": 590.551,
+          "centered": true
+        }
+      },
+      {
+        "id": 61,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 1033.465,
+          "y": 738.189,
+          "centered": true
+        }
+      },
+      {
+        "id": 64,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 601.916,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 65,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 513.334,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 66,
+        "widget": "MediumSimpleLight<RedLight>",
+        "position": {
+          "x": 513.334,
+          "y": 221.457,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "theHarmonyParmsenabled",
+        "type": "boolean"
+      },
+      {
+        "key": "harmony_staccato_enable",
+        "type": "boolean"
+      },
+      {
+        "key": "theHarmonyParmsenable_all_7ths",
+        "type": "boolean"
+      },
+      {
+        "key": "theHarmonyParmsenable_V_7ths",
+        "type": "boolean"
+      },
+      {
+        "key": "theHarmonyParmsenable_4voice_octaves",
+        "type": "boolean"
+      },
+      {
+        "key": "theHarmonyParmsenable_tonic_on_ch1",
+        "type": "boolean"
+      },
+      {
+        "key": "theHarmonyParmsenable_bass_on_ch1",
+        "type": "boolean"
+      },
+      {
+        "key": "theMelodyParmsenabled",
+        "type": "boolean"
+      },
+      {
+        "key": "theMelodyParmsdestutter",
+        "type": "boolean"
+      },
+      {
+        "key": "theMelodyParmsenable_staccato",
+        "type": "boolean"
+      },
+      {
+        "key": "theMelodyParmschordal",
+        "type": "boolean"
+      },
+      {
+        "key": "theMelodyParmsscaler",
+        "type": "boolean"
+      },
+      {
+        "key": "theArpParmsenabled",
+        "type": "boolean"
+      },
+      {
+        "key": "theArpParmschordal",
+        "type": "boolean"
+      },
+      {
+        "key": "theArpParmsscaler",
+        "type": "boolean"
+      },
+      {
+        "key": "theBassParmsenabled",
+        "type": "boolean"
+      },
+      {
+        "key": "theBassParmsenable_staccato",
+        "type": "boolean"
+      },
+      {
+        "key": "theBassParmssyncopate",
+        "type": "boolean"
+      },
+      {
+        "key": "theBassParmsaccent",
+        "type": "boolean"
+      },
+      {
+        "key": "theBassParmsshuffle",
+        "type": "boolean"
+      },
+      {
+        "key": "theBassParmsoctave_enabled",
+        "type": "boolean"
+      },
+      {
+        "key": "scale_out_mode",
+        "type": "integer"
+      },
+      {
+        "key": "gate_out_mode",
+        "type": "integer"
+      },
+      {
+        "key": "keyboard_render",
+        "type": "boolean"
+      },
+      {
+        "key": "score_render",
+        "type": "boolean"
+      },
+      {
+        "key": "paneltheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelcontrast",
+        "type": "real"
+      },
+      {
+        "key": "customPresetStep1",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep2",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep3",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep4",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep5",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep6",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep7",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep8",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep9",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep10",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep11",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep12",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep13",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep14",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep15",
+        "type": "integer"
+      },
+      {
+        "key": "customPresetStep16",
+        "type": "integer"
+      },
+      {
+        "key": "harmonic_degree_out_mode",
+        "type": "integer"
+      },
+      {
+        "key": "modalmode",
+        "type": "real"
+      },
+      {
+        "key": "modaroot",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/PS-PurrSoftware/Meander/2.0.35/manifest.json",
+    "sourceCommit": "b4cec996b8ffb4a8df1d4e1b30054694afa61562",
+    "artifact": {
+      "sha256": "b68b12d6cca3bd5ca08740570591c4cf46d9ee3db59138057eef9cefe5c2800a",
+      "size": 219281
+    }
+  },
+  "source": {
+    "url": "https://github.com/knchaffin/Meander/tree/master-V2",
+    "commit": "b4cec996b8ffb4a8df1d4e1b30054694afa61562"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T14:32:24.498Z"
+  }
+}
