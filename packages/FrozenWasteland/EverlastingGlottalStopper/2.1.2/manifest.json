@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/EverlastingGlottalStopper",
+    "plugin": "FrozenWasteland",
+    "model": "EverlastingGlottalStopper",
+    "name": "Everlasting Glottal Stopper",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/EverlastingGlottalStopper",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/EverlastingGlottalStopper.webp",
+    "wasmUrl": "packages/FrozenWasteland/EverlastingGlottalStopper/2.1.2/module.wasm",
+    "width": 120,
+    "description": "Vocal Tract simulating VCO",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 44,
+          "y": 60,
+          "widget": "RoundFWKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Time Open",
+        "min": 0.009999999776482582,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 12,
+          "y": 180,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time Closed",
+        "min": 0,
+        "max": 0.8999999761581421,
+        "default": 0,
+        "position": {
+          "x": 52,
+          "y": 180,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Breathiness",
+        "min": 0,
+        "max": 0.8999999761581421,
+        "default": 0,
+        "position": {
+          "x": 86,
+          "y": 180,
+          "widget": "RoundSmallFWKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM CV Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88,
+          "y": 132,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Time Open CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 228,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Time Closed CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52,
+          "y": 228,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Breathiness CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 88,
+          "y": 228,
+          "widget": "RoundReallySmallFWKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Deemphasis Filter",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 275,
+          "widget": "LEDButton"
+        },
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 24,
+          "y": 110
+        }
+      },
+      {
+        "id": 1,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 110
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time Open",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 207
+        }
+      },
+      {
+        "id": 3,
+        "name": "Time Closed",
+        "kind": "cv",
+        "position": {
+          "x": 54,
+          "y": 207
+        }
+      },
+      {
+        "id": 4,
+        "name": "Breathiness",
+        "kind": "cv",
+        "position": {
+          "x": 89,
+          "y": 207
+        }
+      },
+      {
+        "id": 5,
+        "name": "Deemphasis Filter",
+        "kind": "cv",
+        "position": {
+          "x": 38,
+          "y": 275
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Voice",
+        "kind": "audio",
+        "position": {
+          "x": 52,
+          "y": 330
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 16.5,
+          "y": 276.5
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/EverlastingGlottalStopper/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "920e003a21bf15469e8c72e04435a7edb716ca7fab8629ff9bf39abbc4d975a1",
+      "size": 95594
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T18:52:40.269Z"
+  }
+}
