@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "FrozenWasteland/HairPick",
+    "plugin": "FrozenWasteland",
+    "model": "HairPick",
+    "name": "Hair Pick",
+    "brand": "Frozen Wasteland",
+    "version": "2.1.2",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/almostEric/FrozenWasteland",
+    "libraryUrl": "https://library.vcvrack.com/FrozenWasteland/HairPick",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/FrozenWasteland/HairPick.webp",
+    "wasmUrl": "packages/FrozenWasteland/HairPick/2.1.2/module.wasm",
+    "width": 210,
+    "description": "64 Tap Rhythmic Comb Filter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Divisions",
+        "min": 0,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 33,
+          "widget": "RoundLargeFWSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Size",
+        "min": 0.0010000000474974513,
+        "max": 10,
+        "default": 0.3499999940395355,
+        "position": {
+          "x": 157,
+          "y": 33,
+          "widget": "RoundLargeFWKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pattern Type",
+        "min": 0,
+        "max": 15,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 115,
+          "widget": "RoundLargeFWSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "# of Taps",
+        "min": 1,
+        "max": 64,
+        "default": 64,
+        "position": {
+          "x": 157,
+          "y": 115,
+          "widget": "RoundLargeFWSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Edge Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 17,
+          "y": 200,
+          "widget": "RoundLargeFWKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tent Level",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 87,
+          "y": 200,
+          "widget": "RoundLargeFWKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tent Tap #",
+        "min": 0,
+        "max": 63,
+        "default": 32,
+        "position": {
+          "x": 157,
+          "y": 200,
+          "widget": "RoundLargeFWSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Feedback Type",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 17,
+          "y": 283,
+          "widget": "RoundLargeFWSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Feedback Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 157,
+          "y": 283,
+          "widget": "RoundLargeFWKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 12,
+          "y": 32
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock Division",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 74
+        }
+      },
+      {
+        "id": 2,
+        "name": "v/O",
+        "kind": "cv",
+        "position": {
+          "x": 12,
+          "y": 74
+        }
+      },
+      {
+        "id": 3,
+        "name": "Size CV",
+        "kind": "cv",
+        "position": {
+          "x": 162,
+          "y": 74
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pattern CV",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 156
+        }
+      },
+      {
+        "id": 5,
+        "name": "# Taps CV",
+        "kind": "cv",
+        "position": {
+          "x": 162,
+          "y": 156
+        }
+      },
+      {
+        "id": 6,
+        "name": "Edge Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 241
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tent Level",
+        "kind": "cv",
+        "position": {
+          "x": 92,
+          "y": 241
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tent Tap",
+        "kind": "cv",
+        "position": {
+          "x": 162,
+          "y": 241
+        }
+      },
+      {
+        "id": 9,
+        "name": "Feedback Type",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 324
+        }
+      },
+      {
+        "id": 10,
+        "name": "Feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 162,
+          "y": 324
+        }
+      },
+      {
+        "id": 11,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 50,
+          "y": 336
+        }
+      },
+      {
+        "id": 12,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 75,
+          "y": 336
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left",
+        "kind": "audio",
+        "position": {
+          "x": 110,
+          "y": 336
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 135,
+          "y": 336
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delay Length",
+        "kind": "cv",
+        "position": {
+          "x": 130,
+          "y": 74
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 268435456,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/FrozenWasteland/HairPick/2.1.2/manifest.json",
+    "sourceCommit": "35ca005f2b134f494337ca56c34c3583b2152639",
+    "artifact": {
+      "sha256": "ddc1ebca87fcb00b16ed83251f27b49bf23eb5e3561420390389c438fc0916db",
+      "size": 86332
+    }
+  },
+  "source": {
+    "url": "https://github.com/almostEric/FrozenWasteland",
+    "commit": "35ca005f2b134f494337ca56c34c3583b2152639"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-27T19:04:28.435Z"
+  }
+}
