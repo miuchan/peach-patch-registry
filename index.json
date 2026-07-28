@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-28T17:32:37.738Z",
-  "packageCount": 2858,
-  "totalBytes": 356155458,
+  "generatedAt": "2026-07-28T17:59:44.452Z",
+  "packageCount": 2859,
+  "totalBytes": 356241714,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -434341,6 +434341,194 @@
       "artifact": {
         "sha256": "6beee02a7b13ac7d28c21ec971c20685cff5bf004e397096be19f11ea4d312f1",
         "size": 80806
+      }
+    },
+    {
+      "key": "GP/ChainMixerChannel",
+      "plugin": "GP",
+      "model": "ChainMixerChannel",
+      "name": "Chained Mixer Channel",
+      "brand": "GPaudio",
+      "version": "2.1.0",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/GPrackmodules/GPrackmodules",
+      "libraryUrl": "https://library.vcvrack.com/GP/ChainMixerChannel",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GP/ChainMixerChannel.webp",
+      "wasmUrl": "packages/GP/ChainMixerChannel/2.1.0/module.wasm",
+      "width": 30,
+      "description": "Channel Strip for Chained Mixer",
+      "params": [
+        {
+          "id": 0,
+          "name": "Aux 1 Send Level",
+          "min": 0,
+          "max": 256,
+          "default": 0,
+          "position": {
+            "x": 15,
+            "y": 42.815,
+            "centered": true,
+            "widget": "PointyKnob10mm"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Aux 2 Send Level",
+          "min": 0,
+          "max": 256,
+          "default": 0,
+          "position": {
+            "x": 15,
+            "y": 72.343,
+            "centered": true,
+            "widget": "PointyKnob10mm"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Pan/Balance",
+          "min": -100,
+          "max": 100,
+          "default": 0,
+          "snap": true,
+          "position": {
+            "x": 15,
+            "y": 101.87,
+            "centered": true,
+            "widget": "PointyKnob10mm"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Gain",
+          "min": 0,
+          "max": 768,
+          "default": 578,
+          "snap": true,
+          "position": {
+            "x": 15,
+            "y": 183.071,
+            "centered": true,
+            "widget": "GPaudioSlider44mm"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Solo",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "values": [
+            "Off",
+            "On"
+          ],
+          "position": {
+            "x": 15,
+            "y": 261.319,
+            "centered": true,
+            "widget": "VCVLatch"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Mute",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "values": [
+            "Off",
+            "On"
+          ],
+          "position": {
+            "x": 15,
+            "y": 284.941,
+            "centered": true,
+            "widget": "VCVLatch"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Left",
+          "kind": "audio",
+          "position": {
+            "x": 15,
+            "y": 311.516,
+            "centered": true,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Right",
+          "kind": "audio",
+          "position": {
+            "x": 15,
+            "y": 338.091,
+            "centered": true,
+            "widget": "ThemedPJ301MPort"
+          }
+        }
+      ],
+      "outputs": [],
+      "lights": 2,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "MediumLight<GreenLight>",
+          "position": {
+            "x": 15,
+            "y": 261.319,
+            "centered": true
+          },
+          "paramId": 4
+        },
+        {
+          "id": 1,
+          "widget": "MediumLight<RedLight>",
+          "position": {
+            "x": 15,
+            "y": 284.941,
+            "centered": true
+          },
+          "paramId": 5
+        }
+      ],
+      "runtime": {
+        "expanderMode": "message-buffer",
+        "expander": {
+          "transport": "message-buffer",
+          "direction": "both",
+          "capacity": 16384,
+          "models": [
+            {
+              "key": "GP/ChainMixerChannel",
+              "symbol": "the_pChainMixerChannelModel",
+              "index": 0
+            },
+            {
+              "key": "GP/ChainMixerMaster",
+              "symbol": "the_pChainMixerMasterModel",
+              "index": 1
+            },
+            {
+              "key": "GP/ChainMixerAux",
+              "symbol": "the_pChainMixerAuxModel",
+              "index": 2
+            }
+          ]
+        },
+        "initialMemory": 12582912,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/GP/ChainMixerChannel/2.1.0/manifest.json",
+      "sourceCommit": "9068e02e7dcd43cf018c6b6b851691f53e928b88",
+      "artifact": {
+        "sha256": "bd357ddd12dc226997d3f125166f1d292443c29eedbb616fa511dd500d60ac12",
+        "size": 86256
       }
     },
     {
