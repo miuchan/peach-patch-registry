@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-28T17:59:44.452Z",
-  "packageCount": 2859,
-  "totalBytes": 356241714,
+  "generatedAt": "2026-07-28T18:36:57.591Z",
+  "packageCount": 2860,
+  "totalBytes": 356344555,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -434529,6 +434529,152 @@
       "artifact": {
         "sha256": "bd357ddd12dc226997d3f125166f1d292443c29eedbb616fa511dd500d60ac12",
         "size": 86256
+      }
+    },
+    {
+      "key": "GP/ChainMixerMaster",
+      "plugin": "GP",
+      "model": "ChainMixerMaster",
+      "name": "Chained Mixer Master Section",
+      "brand": "GPaudio",
+      "version": "2.1.0",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/GPrackmodules/GPrackmodules",
+      "libraryUrl": "https://library.vcvrack.com/GP/ChainMixerMaster",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GP/ChainMixerMaster.webp",
+      "wasmUrl": "packages/GP/ChainMixerMaster/2.1.0/module.wasm",
+      "width": 60,
+      "description": "Master section for Chained Mixer",
+      "params": [
+        {
+          "id": 0,
+          "name": "Aux 1 Send Level",
+          "min": 0,
+          "max": 256,
+          "default": 256,
+          "position": {
+            "x": 39.862,
+            "y": 42.815,
+            "centered": true,
+            "widget": "PointyKnob10mm"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Aux 2 Send Level",
+          "min": 0,
+          "max": 256,
+          "default": 256,
+          "position": {
+            "x": 39.862,
+            "y": 72.343,
+            "centered": true,
+            "widget": "PointyKnob10mm"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Gain",
+          "min": 0,
+          "max": 768,
+          "default": 578,
+          "snap": true,
+          "position": {
+            "x": 39.862,
+            "y": 183.071,
+            "centered": true,
+            "widget": "GPaudioSlider44mm"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Mute",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "values": [
+            "Off",
+            "On"
+          ],
+          "position": {
+            "x": 39.862,
+            "y": 284.941,
+            "centered": true,
+            "widget": "VCVLatch"
+          }
+        }
+      ],
+      "inputs": [],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Left",
+          "kind": "audio",
+          "position": {
+            "x": 39.862,
+            "y": 311.516,
+            "centered": true,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Right",
+          "kind": "audio",
+          "position": {
+            "x": 39.862,
+            "y": 338.091,
+            "centered": true,
+            "widget": "ThemedPJ301MPort"
+          }
+        }
+      ],
+      "lights": 1,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "MediumLight<RedLight>",
+          "position": {
+            "x": 39.862,
+            "y": 284.941,
+            "centered": true
+          },
+          "paramId": 3
+        }
+      ],
+      "runtime": {
+        "expanderMode": "message-buffer",
+        "expander": {
+          "transport": "message-buffer",
+          "direction": "both",
+          "capacity": 16384,
+          "models": [
+            {
+              "key": "GP/ChainMixerChannel",
+              "symbol": "the_pChainMixerChannelModel",
+              "index": 0
+            },
+            {
+              "key": "GP/ChainMixerMaster",
+              "symbol": "the_pChainMixerMasterModel",
+              "index": 1
+            },
+            {
+              "key": "GP/ChainMixerAux",
+              "symbol": "the_pChainMixerAuxModel",
+              "index": 2
+            }
+          ]
+        },
+        "initialMemory": 12582912,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/GP/ChainMixerMaster/2.1.0/manifest.json",
+      "sourceCommit": "9068e02e7dcd43cf018c6b6b851691f53e928b88",
+      "artifact": {
+        "sha256": "a538fa29be4d98881b099452c8b76e7c097027ef8e083c066a6b5da4636fbf95",
+        "size": 102841
       }
     },
     {
