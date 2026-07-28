@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-28T20:46:59.217Z",
-  "packageCount": 2866,
-  "totalBytes": 357110972,
+  "generatedAt": "2026-07-28T21:10:27.387Z",
+  "packageCount": 2867,
+  "totalBytes": 357201794,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -428566,6 +428566,187 @@
       "artifact": {
         "sha256": "56e3c050bb7111caa49ff88467ab2f248a85873647c0d9ece076654c0914285d",
         "size": 101488
+      }
+    },
+    {
+      "key": "GlueTheGiant/MiniBus",
+      "plugin": "GlueTheGiant",
+      "model": "MiniBus",
+      "name": "Mini Bus Mixer",
+      "brand": "Glue the Giant",
+      "version": "2.0.2",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/gluethegiant/gtg-rack",
+      "libraryUrl": "https://library.vcvrack.com/GlueTheGiant/MiniBus",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GlueTheGiant/MiniBus.webp",
+      "wasmUrl": "packages/GlueTheGiant/MiniBus/2.0.2/module.wasm",
+      "width": 45,
+      "description": "Mono mixer to three stereo buses",
+      "params": [
+        {
+          "id": 0,
+          "name": "Input on",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 22.5,
+            "y": 44.882,
+            "centered": true,
+            "widget": "gtgBlackButton"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Level to blue bus",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 22.5,
+            "y": 150.591,
+            "centered": true,
+            "widget": "gtgBlueKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Level to orange bus",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 22.5,
+            "y": 200.049,
+            "centered": true,
+            "widget": "gtgOrangeKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Level to red bus",
+          "min": 0,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 22.5,
+            "y": 249.508,
+            "centered": true,
+            "widget": "gtgRedKnob"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "On CV",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 68.504,
+            "centered": true,
+            "widget": "gtgKeyPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Mono or poly",
+          "kind": "audio",
+          "position": {
+            "x": 22.5,
+            "y": 104.528,
+            "centered": true,
+            "widget": "gtgNutPort"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Bus chain",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 306.644,
+            "centered": true,
+            "widget": "gtgNutPort"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Bus chain",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 336.909,
+            "centered": true,
+            "widget": "gtgNutPort"
+          }
+        }
+      ],
+      "lights": 2,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "MediumLight<GreenRedLight>",
+          "position": {
+            "x": 22.5,
+            "y": 44.882,
+            "centered": true
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "input_on",
+          "type": "integer"
+        },
+        {
+          "key": "post_fades",
+          "type": "integer"
+        },
+        {
+          "key": "gain",
+          "type": "real"
+        },
+        {
+          "key": "fade_in",
+          "type": "real"
+        },
+        {
+          "key": "fade_out",
+          "type": "real"
+        },
+        {
+          "key": "audition_mixer",
+          "type": "integer"
+        },
+        {
+          "key": "auditioned",
+          "type": "integer"
+        },
+        {
+          "key": "temped",
+          "type": "integer"
+        },
+        {
+          "key": "color_theme",
+          "type": "integer"
+        },
+        {
+          "key": "use_default_theme",
+          "type": "integer"
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/GlueTheGiant/MiniBus/2.0.2/manifest.json",
+      "sourceCommit": "3266554d0ff570ffc5a66b52585fb5b1a1e6d75c",
+      "artifact": {
+        "sha256": "640cc116861a4f7848ec7bd8bf80d7258e80d2e836b5cac32c0435eac4d93348",
+        "size": 90822
       }
     },
     {
