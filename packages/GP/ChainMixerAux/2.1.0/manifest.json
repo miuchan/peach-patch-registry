@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GP/ChainMixerAux",
+    "plugin": "GP",
+    "model": "ChainMixerAux",
+    "name": "Chained Mixer Aux Section",
+    "brand": "GPaudio",
+    "version": "2.1.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/GPrackmodules/GPrackmodules",
+    "libraryUrl": "https://library.vcvrack.com/GP/ChainMixerAux",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GP/ChainMixerAux.webp",
+    "wasmUrl": "packages/GP/ChainMixerAux/2.1.0/module.wasm",
+    "width": 60,
+    "description": "Aux section for Chained Mixer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Aux Return 1 Gain",
+        "min": 0,
+        "max": 768,
+        "default": 578,
+        "snap": true,
+        "position": {
+          "x": 15,
+          "y": 105.561,
+          "centered": true,
+          "widget": "GPaudioSlider38mm"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Aux Return 2 Gain",
+        "min": 0,
+        "max": 768,
+        "default": 578,
+        "snap": true,
+        "position": {
+          "x": 45,
+          "y": 105.561,
+          "centered": true,
+          "widget": "GPaudioSlider38mm"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Solo AUX 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "Off",
+          "On"
+        ],
+        "position": {
+          "x": 15,
+          "y": 175.689,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Solo AUX 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "Off",
+          "On"
+        ],
+        "position": {
+          "x": 45,
+          "y": 175.689,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mute AUX 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "Off",
+          "On"
+        ],
+        "position": {
+          "x": 15,
+          "y": 199.311,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mute AUX 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "Off",
+          "On"
+        ],
+        "position": {
+          "x": 45,
+          "y": 199.311,
+          "centered": true,
+          "widget": "VCVLatch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "AUX Return 1 Left",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 240.65,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "AUX Return 1 Right",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 267.224,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "AUX Return 2 Left",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 240.65,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "AUX Return 2 Right",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 267.224,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "AUX Send 1 Left",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 311.516,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "AUX Send 1 Right",
+        "kind": "audio",
+        "position": {
+          "x": 15,
+          "y": 338.091,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "AUX Send 2 Left",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 311.516,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "AUX Send 2 Right",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 338.091,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 15,
+          "y": 175.689,
+          "centered": true
+        },
+        "paramId": 2
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 15,
+          "y": 199.311,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 45,
+          "y": 175.689,
+          "centered": true
+        },
+        "paramId": 3
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 45,
+          "y": 199.311,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "GP/ChainMixerChannel",
+            "symbol": "the_pChainMixerChannelModel",
+            "index": 0
+          },
+          {
+            "key": "GP/ChainMixerMaster",
+            "symbol": "the_pChainMixerMasterModel",
+            "index": 1
+          },
+          {
+            "key": "GP/ChainMixerAux",
+            "symbol": "the_pChainMixerAuxModel",
+            "index": 2
+          }
+        ]
+      },
+      "initialMemory": 12582912,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GP/ChainMixerAux/2.1.0/manifest.json",
+    "sourceCommit": "9068e02e7dcd43cf018c6b6b851691f53e928b88",
+    "artifact": {
+      "sha256": "198277e2d052bca72d73b40e8513f6cd01e459fb545c95926054e89e061a3eb7",
+      "size": 82960
+    }
+  },
+  "source": {
+    "url": "https://github.com/GPrackmodules/GPrackmodules",
+    "commit": "9068e02e7dcd43cf018c6b6b851691f53e928b88"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-28T18:55:19.283Z"
+  }
+}
