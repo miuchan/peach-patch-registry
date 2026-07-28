@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GlueTheGiant/BusRoute",
+    "plugin": "GlueTheGiant",
+    "model": "BusRoute",
+    "name": "Bus Route",
+    "brand": "Glue the Giant",
+    "version": "2.0.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gluethegiant/gtg-rack",
+    "libraryUrl": "https://library.vcvrack.com/GlueTheGiant/BusRoute",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GlueTheGiant/BusRoute.webp",
+    "wasmUrl": "packages/GlueTheGiant/BusRoute/2.0.2/module.wasm",
+    "width": 90,
+    "description": "Three stereo sends and returns with optional sample delays",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sample delay on blue bus",
+        "min": 0,
+        "max": 999,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 99.283,
+          "centered": true,
+          "widget": "gtgBlueTinySnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Sample delay on orange bus",
+        "min": 0,
+        "max": 999,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 185.055,
+          "centered": true,
+          "widget": "gtgOrangeTinySnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Sample delay on red bus",
+        "min": 0,
+        "max": 999,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 270.697,
+          "centered": true,
+          "widget": "gtgRedTinySnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Blue bus on (hold to audition)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 39.272,
+          "centered": true,
+          "widget": "gtgBlackTinyButton"
+        },
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 4,
+        "name": "Orange bus on (hold to audition)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 125.049,
+          "centered": true,
+          "widget": "gtgBlackTinyButton"
+        },
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 5,
+        "name": "Red bus on (hold to audition)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 210.679,
+          "centered": true,
+          "widget": "gtgBlackTinyButton"
+        },
+        "snap": true,
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Blue return left",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 56.256,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Blue return right",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 86.209,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Orange return left",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 142.028,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Orange return right",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 171.98,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Red return left",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 227.669,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Red return right",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 257.622,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bus chain",
+        "kind": "cv",
+        "position": {
+          "x": 20.64,
+          "y": 336.963,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Blue send left",
+        "kind": "audio",
+        "position": {
+          "x": 20.64,
+          "y": 56.256,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Blue send right",
+        "kind": "audio",
+        "position": {
+          "x": 20.64,
+          "y": 86.209,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Orange send left",
+        "kind": "audio",
+        "position": {
+          "x": 20.64,
+          "y": 142.028,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Orange send right",
+        "kind": "audio",
+        "position": {
+          "x": 20.64,
+          "y": 171.98,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Red send left",
+        "kind": "audio",
+        "position": {
+          "x": 20.64,
+          "y": 227.669,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Red send right",
+        "kind": "audio",
+        "position": {
+          "x": 20.64,
+          "y": 257.622,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bus chain",
+        "kind": "cv",
+        "position": {
+          "x": 20.64,
+          "y": 306.839,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mixed left",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 306.839,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mixed right",
+        "kind": "audio",
+        "position": {
+          "x": 69.36,
+          "y": 336.93,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 45,
+          "y": 39.272,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 45,
+          "y": 125.049,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 45,
+          "y": 210.679,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "onau_1",
+        "type": "integer"
+      },
+      {
+        "key": "onau_2",
+        "type": "integer"
+      },
+      {
+        "key": "onau_3",
+        "type": "integer"
+      },
+      {
+        "key": "auditioning",
+        "type": "integer"
+      },
+      {
+        "key": "bus_audition1",
+        "type": "integer"
+      },
+      {
+        "key": "bus_audition2",
+        "type": "integer"
+      },
+      {
+        "key": "bus_audition3",
+        "type": "integer"
+      },
+      {
+        "key": "temped1",
+        "type": "integer"
+      },
+      {
+        "key": "temped2",
+        "type": "integer"
+      },
+      {
+        "key": "temped3",
+        "type": "integer"
+      },
+      {
+        "key": "color_theme",
+        "type": "integer"
+      },
+      {
+        "key": "use_default_theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "param-numeric-display",
+          "param": 0,
+          "digits": 3,
+          "x": 35.40501968503937,
+          "y": 63.89763779527559,
+          "width": 19.249015748031496,
+          "height": 11.811023622047244
+        },
+        {
+          "kind": "param-numeric-display",
+          "param": 1,
+          "digits": 3,
+          "x": 35.40501968503937,
+          "y": 149.6456692913386,
+          "width": 19.249015748031496,
+          "height": 11.811023622047244
+        },
+        {
+          "kind": "param-numeric-display",
+          "param": 2,
+          "digits": 3,
+          "x": 35.40501968503937,
+          "y": 235.27559055118115,
+          "width": 19.249015748031496,
+          "height": 11.811023622047244
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GlueTheGiant/BusRoute/2.0.2/manifest.json",
+    "sourceCommit": "3266554d0ff570ffc5a66b52585fb5b1a1e6d75c",
+    "artifact": {
+      "sha256": "09b8f854f004b30a3e3550bc932cc6bec0f55f731df2b279dc2554182683f967",
+      "size": 87087
+    }
+  },
+  "source": {
+    "url": "https://github.com/gluethegiant/gtg-rack",
+    "commit": "3266554d0ff570ffc5a66b52585fb5b1a1e6d75c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-28T21:32:32.036Z"
+  }
+}
