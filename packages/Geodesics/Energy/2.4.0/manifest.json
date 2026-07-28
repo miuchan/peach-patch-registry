@@ -1,0 +1,422 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Geodesics/Energy",
+    "plugin": "Geodesics",
+    "model": "Energy",
+    "name": "Energy",
+    "brand": "Geodesics",
+    "version": "2.4.0",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/MarcBoule/Geodesics/",
+    "libraryUrl": "https://library.vcvrack.com/Geodesics/Energy",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Geodesics/Energy.webp",
+    "wasmUrl": "packages/Geodesics/Energy/2.4.0/module.wasm",
+    "width": 105,
+    "description": "Relativistic oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Quantize (Planck) M",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 296.5,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Quantize (Planck) C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 83,
+          "y": 296.5,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV mod type M",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 322.5,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV mod type C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 83,
+          "y": 322.5,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Routing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 52.5,
+          "y": 266.5,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Freq M",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 254,
+          "centered": true,
+          "widget": "GeoKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Freq C",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 82.5,
+          "y": 254,
+          "centered": true,
+          "widget": "GeoKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Momentum M",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 171,
+          "centered": true,
+          "widget": "GeoKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Momentum C",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82.5,
+          "y": 171,
+          "centered": true,
+          "widget": "GeoKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Momentum crossing",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 52.5,
+          "y": 174.5,
+          "centered": true,
+          "widget": "GeoPushButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Mass",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 347.5,
+          "centered": true,
+          "widget": "GeoPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Speed of light",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 347.5,
+          "centered": true,
+          "widget": "GeoPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "1V/oct",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 296,
+          "centered": true,
+          "widget": "GeoPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Multiply",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 99.5,
+          "centered": true,
+          "widget": "GeoPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Momentum M",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 198.5,
+          "centered": true,
+          "widget": "GeoPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Momentum C",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 143.5,
+          "centered": true,
+          "widget": "GeoPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Energy",
+        "kind": "cv",
+        "position": {
+          "x": 52.5,
+          "y": 47.5,
+          "centered": true,
+          "widget": "GeoPort"
+        }
+      }
+    ],
+    "lights": 20,
+    "lightWidgets": [
+      {
+        "id": 19,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 45,
+          "y": 160.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 39,
+          "y": 238.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 51,
+          "y": 225.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 45,
+          "y": 231.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 22.5,
+          "y": 194,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 82.5,
+          "y": 194,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<GeoBlueYellowLight>",
+        "position": {
+          "x": 22.5,
+          "y": 203,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "SmallLight<GeoBlueYellowLight>",
+        "position": {
+          "x": 82.5,
+          "y": 203,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 22,
+          "y": 282.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GeoBlueYellowWhiteLight>",
+        "position": {
+          "x": 83,
+          "y": 282.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 35,
+          "y": 317.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 70,
+          "y": 317.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 11,
+          "y": 332.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<GeoWhiteLight>",
+        "position": {
+          "x": 94,
+          "y": 332.5,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "routing",
+        "type": "integer"
+      },
+      {
+        "key": "planck0",
+        "type": "integer"
+      },
+      {
+        "key": "planck1",
+        "type": "integer"
+      },
+      {
+        "key": "modtype0",
+        "type": "integer"
+      },
+      {
+        "key": "modtype1",
+        "type": "integer"
+      },
+      {
+        "key": "cross",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Geodesics/Energy/2.4.0/manifest.json",
+    "sourceCommit": "1fd26f2f27a2077868a9c78582efb5c650bd1519",
+    "artifact": {
+      "sha256": "1323a36ce74df53df80f7c5126ebd958c3823a5347867c41dcab7f74d722e92f",
+      "size": 109376
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/Geodesics/",
+    "commit": "1fd26f2f27a2077868a9c78582efb5c650bd1519"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-28T20:08:52.130Z"
+  }
+}
