@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-28T15:04:11.550Z",
+  "generatedAt": "2026-07-28T15:38:09.802Z",
   "packageCount": 2851,
-  "totalBytes": 355574765,
+  "totalBytes": 355598919,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -423314,27 +423314,23 @@
       "plugin": "Fundamental",
       "model": "VCO2",
       "name": "Wavetable VCO",
-      "brand": "Fundamental",
+      "brand": "VCV",
       "version": "2.6.4",
       "license": "GPL-3.0-or-later",
-      "polyphonic": true,
-      "runtime": {
-        "strategy": "browser-dsp-adapter"
-      },
       "sourceUrl": "https://github.com/VCVRack/Fundamental",
       "libraryUrl": "https://library.vcvrack.com/Fundamental/VCO2",
       "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/VCO2.webp",
       "wasmUrl": "packages/Fundamental/VCO2/2.6.4/module.wasm",
       "width": 105,
-      "description": "Browser wavetable oscillator adapter preserving Fundamental VCO2 parameter, port, sync, and morph indices",
+      "description": "Voltage-controlled wavetable oscillator",
       "params": [
         {
           "id": 0,
-          "name": "Legacy mode",
+          "name": "Mode",
           "min": 0,
           "max": 1,
           "default": 0,
-          "snap": true
+          "hidden": true
         },
         {
           "id": 1,
@@ -423342,79 +423338,182 @@
           "min": 0,
           "max": 1,
           "default": 0,
-          "snap": true
+          "snap": true,
+          "position": {
+            "x": 52.364,
+            "y": 286.001,
+            "centered": true,
+            "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+          }
         },
         {
           "id": 2,
           "name": "Frequency",
           "min": -75,
           "max": 75,
-          "default": 0
+          "default": 0,
+          "position": {
+            "x": 26.324,
+            "y": 166.5,
+            "centered": true,
+            "widget": "RoundLargeBlackKnob"
+          }
         },
         {
           "id": 3,
-          "name": "Position",
-          "min": 0,
-          "max": 1,
-          "default": 0
-        },
-        {
-          "id": 4,
-          "name": "FM",
-          "min": -1,
-          "max": 1,
-          "default": 0
-        },
-        {
-          "id": 5,
-          "name": "Position CV",
-          "min": -1,
-          "max": 1,
-          "default": 0
-        },
-        {
-          "id": 6,
-          "name": "Linear FM",
+          "name": "Wavetable position",
           "min": 0,
           "max": 1,
           "default": 0,
-          "snap": true
+          "position": {
+            "x": 78.676,
+            "y": 166.5,
+            "centered": true,
+            "widget": "RoundLargeBlackKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Frequency modulation",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 20.365,
+            "y": 238.001,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Wavetable position CV",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 84.363,
+            "y": 238.001,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 6,
+          "name": "FM mode",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "position": {
+            "x": 52.364,
+            "y": 238.001,
+            "centered": true,
+            "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+          }
         }
       ],
       "inputs": [
         {
           "id": 0,
-          "name": "FM",
-          "kind": "cv"
+          "name": "Frequency modulation",
+          "kind": "cv",
+          "position": {
+            "x": 20.365,
+            "y": 285.865,
+            "centered": true
+          }
         },
         {
           "id": 1,
-          "name": "SYNC",
-          "kind": "gate"
+          "name": "Sync",
+          "kind": "cv",
+          "position": {
+            "x": 52.364,
+            "y": 334.001,
+            "centered": true
+          }
         },
         {
           "id": 2,
-          "name": "POSITION",
-          "kind": "cv"
+          "name": "Wavetable position",
+          "kind": "cv",
+          "position": {
+            "x": 84.363,
+            "y": 286.001,
+            "centered": true
+          }
         },
         {
           "id": 3,
-          "name": "V/OCT",
-          "kind": "cv"
+          "name": "1V/octave pitch",
+          "kind": "cv",
+          "position": {
+            "x": 20.365,
+            "y": 334.001,
+            "centered": true
+          }
         }
       ],
       "outputs": [
         {
           "id": 0,
-          "name": "WAVE",
-          "kind": "audio"
+          "name": "Wavetable",
+          "kind": "audio",
+          "position": {
+            "x": 84.363,
+            "y": 334.001,
+            "centered": true
+          }
         }
       ],
       "lights": 5,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "SmallLight<RedGreenBlueLight>",
+          "position": {
+            "x": 52.361,
+            "y": 145.893,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+          "position": {
+            "x": 52.364,
+            "y": 238.001,
+            "centered": true
+          },
+          "paramId": 6
+        },
+        {
+          "id": 3,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+          "position": {
+            "x": 52.364,
+            "y": 286.001,
+            "centered": true
+          },
+          "paramId": 1
+        }
+      ],
+      "runtime": {
+        "asset": {
+          "type": "audio",
+          "maxSamples": 65536,
+          "maxSeconds": 0,
+          "channels": 2
+        },
+        "initialMemory": 37748736,
+        "strategy": "direct-rack-source-adapter"
+      },
       "manifestUrl": "packages/Fundamental/VCO2/2.6.4/manifest.json",
+      "sourceCommit": "e0ade9a23a9b41124ea3f4ec9aa2cb0b98c2529e",
       "artifact": {
-        "sha256": "cb9dd05e762ee15a8e08753d2f2b95b0fc1ab175f06e56557c21bb35a933c1b6",
-        "size": 78409
+        "sha256": "c38a7151252c298048c95d468fb94e4dd8a43457b5da939106dc9ad7a98fbefd",
+        "size": 102563
       }
     },
     {
