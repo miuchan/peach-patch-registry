@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-28T20:17:54.634Z",
-  "packageCount": 2865,
-  "totalBytes": 357009484,
+  "generatedAt": "2026-07-28T20:46:59.217Z",
+  "packageCount": 2866,
+  "totalBytes": 357110972,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -428163,6 +428163,409 @@
       "artifact": {
         "sha256": "f00302b35efd5d6155962563c944ebabc074039ebf69521f42ff0ec74c76a725",
         "size": 79600
+      }
+    },
+    {
+      "key": "GlueTheGiant/GigBus",
+      "plugin": "GlueTheGiant",
+      "model": "GigBus",
+      "name": "Gig Bus Mixer",
+      "brand": "Glue the Giant",
+      "version": "2.0.2",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/gluethegiant/gtg-rack",
+      "libraryUrl": "https://library.vcvrack.com/GlueTheGiant/GigBus",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GlueTheGiant/GigBus.webp",
+      "wasmUrl": "packages/GlueTheGiant/GigBus/2.0.2/module.wasm",
+      "width": 60,
+      "description": "Stereo mixer to three stereo buses",
+      "params": [
+        {
+          "id": 0,
+          "name": "Input on",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 29.911,
+            "y": 44.882,
+            "centered": true,
+            "widget": "gtgBlackButton"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Pan",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 29.911,
+            "y": 180.856,
+            "centered": true,
+            "widget": "gtgGrayKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Post red level send to blue stereo bus",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 15.945,
+            "y": 217.618,
+            "centered": true,
+            "widget": "gtgBlueTinyKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Post red level send to orange stereo bus",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 43.996,
+            "y": 217.618,
+            "centered": true,
+            "widget": "gtgOrangeTinyKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Master level to red stereo bus",
+          "min": 0,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 29.911,
+            "y": 255.472,
+            "centered": true,
+            "widget": "gtgRedKnob"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "On CV",
+          "kind": "cv",
+          "position": {
+            "x": 29.911,
+            "y": 68.601,
+            "centered": true,
+            "widget": "gtgKeyPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Left, mono, or poly",
+          "kind": "audio",
+          "position": {
+            "x": 29.911,
+            "y": 105.068,
+            "centered": true,
+            "widget": "gtgNutPort"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Right",
+          "kind": "audio",
+          "position": {
+            "x": 29.911,
+            "y": 135.077,
+            "centered": true,
+            "widget": "gtgNutPort"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Bus chain",
+          "kind": "cv",
+          "position": {
+            "x": 29.911,
+            "y": 306.682,
+            "centered": true,
+            "widget": "gtgNutPort"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Bus chain",
+          "kind": "cv",
+          "position": {
+            "x": 29.911,
+            "y": 336.933,
+            "centered": true,
+            "widget": "gtgNutPort"
+          }
+        }
+      ],
+      "lights": 24,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "MediumLight<GreenRedLight>",
+          "position": {
+            "x": 29.911,
+            "y": 44.882,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "widget": "SmallLight<RedLight>",
+          "position": {
+            "x": 9.656,
+            "y": 44.291,
+            "centered": true
+          }
+        },
+        {
+          "id": 13,
+          "widget": "SmallLight<RedLight>",
+          "position": {
+            "x": 50.197,
+            "y": 44.291,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "widget": "SmallLight<YellowLight>",
+          "position": {
+            "x": 9.656,
+            "y": 53.888,
+            "centered": true
+          }
+        },
+        {
+          "id": 14,
+          "widget": "SmallLight<YellowLight>",
+          "position": {
+            "x": 50.197,
+            "y": 53.888,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 63.484,
+            "centered": true
+          }
+        },
+        {
+          "id": 5,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 73.081,
+            "centered": true
+          }
+        },
+        {
+          "id": 6,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 82.677,
+            "centered": true
+          }
+        },
+        {
+          "id": 7,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 92.274,
+            "centered": true
+          }
+        },
+        {
+          "id": 8,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 101.87,
+            "centered": true
+          }
+        },
+        {
+          "id": 9,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 111.467,
+            "centered": true
+          }
+        },
+        {
+          "id": 10,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 121.063,
+            "centered": true
+          }
+        },
+        {
+          "id": 11,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 130.659,
+            "centered": true
+          }
+        },
+        {
+          "id": 12,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 9.656,
+            "y": 140.256,
+            "centered": true
+          }
+        },
+        {
+          "id": 15,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 63.484,
+            "centered": true
+          }
+        },
+        {
+          "id": 16,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 73.081,
+            "centered": true
+          }
+        },
+        {
+          "id": 17,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 82.677,
+            "centered": true
+          }
+        },
+        {
+          "id": 18,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 92.274,
+            "centered": true
+          }
+        },
+        {
+          "id": 19,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 101.87,
+            "centered": true
+          }
+        },
+        {
+          "id": 20,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 111.467,
+            "centered": true
+          }
+        },
+        {
+          "id": 21,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 121.063,
+            "centered": true
+          }
+        },
+        {
+          "id": 22,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 130.659,
+            "centered": true
+          }
+        },
+        {
+          "id": 23,
+          "widget": "SmallLight<GreenLight>",
+          "position": {
+            "x": 50.197,
+            "y": 140.256,
+            "centered": true
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "input_on",
+          "type": "integer"
+        },
+        {
+          "key": "post_fades",
+          "type": "integer"
+        },
+        {
+          "key": "gain",
+          "type": "real"
+        },
+        {
+          "key": "color_theme",
+          "type": "integer"
+        },
+        {
+          "key": "use_default_theme",
+          "type": "integer"
+        },
+        {
+          "key": "fade_in",
+          "type": "real"
+        },
+        {
+          "key": "fade_out",
+          "type": "real"
+        },
+        {
+          "key": "audition_mixer",
+          "type": "integer"
+        },
+        {
+          "key": "auditioned",
+          "type": "integer"
+        },
+        {
+          "key": "temped",
+          "type": "integer"
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/GlueTheGiant/GigBus/2.0.2/manifest.json",
+      "sourceCommit": "3266554d0ff570ffc5a66b52585fb5b1a1e6d75c",
+      "artifact": {
+        "sha256": "56e3c050bb7111caa49ff88467ab2f248a85873647c0d9ece076654c0914285d",
+        "size": 101488
       }
     },
     {
