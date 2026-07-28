@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "GlueTheGiant/BusDepot",
+    "plugin": "GlueTheGiant",
+    "model": "BusDepot",
+    "name": "Bus Depot",
+    "brand": "Glue the Giant",
+    "version": "2.0.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/gluethegiant/gtg-rack",
+    "libraryUrl": "https://library.vcvrack.com/GlueTheGiant/BusDepot",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/GlueTheGiant/BusDepot.webp",
+    "wasmUrl": "packages/GlueTheGiant/BusDepot/2.0.2/module.wasm",
+    "width": 90,
+    "description": "Master fader, vu meters, or mix output for three stereo buses",
+    "params": [
+      {
+        "id": 0,
+        "name": "Output on",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 44.882,
+          "centered": true,
+          "widget": "gtgBlackButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Aux level in",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 175.63,
+          "centered": true,
+          "widget": "gtgBlackTinyKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Master level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 45,
+          "y": 247.677,
+          "centered": true,
+          "widget": "gtgBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Fade out automation in milliseconds",
+        "min": 26,
+        "max": 34000,
+        "default": 26,
+        "position": {
+          "x": 45,
+          "y": 125.61,
+          "centered": true,
+          "widget": "gtgGrayTinySnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Fade in automation in milliseconds",
+        "min": 26,
+        "max": 34000,
+        "default": 26,
+        "position": {
+          "x": 45,
+          "y": 77.215,
+          "centered": true,
+          "widget": "gtgGrayTinySnapKnob"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "On CV",
+        "kind": "cv",
+        "position": {
+          "x": 69.685,
+          "y": 62.303,
+          "centered": true,
+          "widget": "gtgKeyPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 210.03,
+          "centered": true,
+          "widget": "gtgKeyPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left, mono, or poly",
+        "kind": "audio",
+        "position": {
+          "x": 20.522,
+          "y": 62.303,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right",
+        "kind": "audio",
+        "position": {
+          "x": 20.522,
+          "y": 92.126,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bus chain",
+        "kind": "cv",
+        "position": {
+          "x": 21.998,
+          "y": 336.909,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fade automation CV",
+        "kind": "cv",
+        "position": {
+          "x": 69.685,
+          "y": 92.126,
+          "centered": true,
+          "widget": "gtgKeyPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Mixed left",
+        "kind": "audio",
+        "position": {
+          "x": 68.209,
+          "y": 306.644,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mixed right",
+        "kind": "audio",
+        "position": {
+          "x": 68.209,
+          "y": 336.909,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bus chain",
+        "kind": "cv",
+        "position": {
+          "x": 21.998,
+          "y": 306.644,
+          "centered": true,
+          "widget": "gtgNutPort"
+        }
+      }
+    ],
+    "lights": 24,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 45,
+          "y": 44.882,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 14.616,
+          "y": 146.161,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 75.591,
+          "y": 146.161,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 14.616,
+          "y": 158.711,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 75.591,
+          "y": 158.711,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 171.26,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 183.809,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 196.358,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 208.907,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 234.006,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 246.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 259.104,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 14.616,
+          "y": 271.654,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 171.26,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 183.809,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 196.358,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 208.907,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 221.457,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 234.006,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 246.555,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 259.104,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 75.591,
+          "y": 271.654,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "input_on",
+        "type": "integer"
+      },
+      {
+        "key": "level_cv_filter",
+        "type": "integer"
+      },
+      {
+        "key": "color_theme",
+        "type": "integer"
+      },
+      {
+        "key": "fade_cv_mode",
+        "type": "integer"
+      },
+      {
+        "key": "audition_depot",
+        "type": "integer"
+      },
+      {
+        "key": "auditioned",
+        "type": "integer"
+      },
+      {
+        "key": "temped",
+        "type": "integer"
+      },
+      {
+        "key": "audition_mode",
+        "type": "integer"
+      },
+      {
+        "key": "use_default_theme",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/GlueTheGiant/BusDepot/2.0.2/manifest.json",
+    "sourceCommit": "3266554d0ff570ffc5a66b52585fb5b1a1e6d75c",
+    "artifact": {
+      "sha256": "508e27ab322799c6d63c91c7f71462fb150f022feee2821e5c02fb2076494ee4",
+      "size": 97180
+    }
+  },
+  "source": {
+    "url": "https://github.com/gluethegiant/gtg-rack",
+    "commit": "3266554d0ff570ffc5a66b52585fb5b1a1e6d75c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-28T21:21:15.203Z"
+  }
+}
