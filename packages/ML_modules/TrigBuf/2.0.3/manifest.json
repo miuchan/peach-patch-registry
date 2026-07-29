@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ML_modules/TrigBuf",
+    "plugin": "ML_modules",
+    "model": "TrigBuf",
+    "name": "Trigger Buffer",
+    "brand": "ML Modules",
+    "version": "2.0.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/martin-lueders/ML_modules",
+    "libraryUrl": "https://library.vcvrack.com/ML_modules/TrigBuf",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ML_modules/TrigBuf.webp",
+    "wasmUrl": "packages/ML_modules/TrigBuf/2.0.3/module.wasm",
+    "width": 60,
+    "description": "A trigger can be buffered, so that the next incoming clock will create an pulse.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Arm",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 40,
+          "y": 66,
+          "widget": "ML_SmallLEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Arm",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 40,
+          "y": 222,
+          "widget": "ML_SmallLEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Arm",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 62
+        }
+      },
+      {
+        "id": 1,
+        "name": "Arm",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 218
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 9,
+          "y": 105
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 9,
+          "y": 263
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 150
+        }
+      },
+      {
+        "id": 1,
+        "name": "Out",
+        "kind": "cv",
+        "position": {
+          "x": 9,
+          "y": 305
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MLSmallLight<GreenLight>",
+        "position": {
+          "x": 44,
+          "y": 70
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MLSmallLight<GreenLight>",
+        "position": {
+          "x": 44,
+          "y": 226
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "armOnLoad",
+        "type": "boolean",
+        "name": "Arm on load",
+        "default": false
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ML_modules/TrigBuf/2.0.3/manifest.json",
+    "sourceCommit": "05ac273285dca1da828deca5aba37c0b7df0fbbd",
+    "artifact": {
+      "sha256": "aa7ab7610361d2596ebc26fae0df73c95746a71bdf6b76ac6e860547c3a57395",
+      "size": 79371
+    }
+  },
+  "source": {
+    "url": "https://github.com/martin-lueders/ML_modules",
+    "commit": "05ac273285dca1da828deca5aba37c0b7df0fbbd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T23:04:23.085Z"
+  }
+}
