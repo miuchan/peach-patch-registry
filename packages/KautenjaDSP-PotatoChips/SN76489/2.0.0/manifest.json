@@ -1,0 +1,373 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/SN76489",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "SN76489",
+    "name": "Mega Tone",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/SN76489",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/SN76489.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/SN76489/2.0.0/module.wasm",
+    "width": 150,
+    "description": "An emulation of the Texas Instruments SN76489 chip from the Sega Master System, Sega Mega Drive, and Sega Genesis.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tone 1 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise Period",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 45,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Tone 1 Fine Tune / FM Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tone 2 Fine Tune / FM Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tone 3 Fine Tune / FM Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Linear Feedback Shift Register",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 173,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Tone 1 Volume / Amplifier Attenuator",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 12,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Tone 2 Volume / Amplifier Attenuator",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 47,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Tone 3 Volume / Amplifier Attenuator",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 82,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Noise Volume / Amplifier Attenuator",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 117,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Tone 1 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 85
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 85
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 85
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise Period",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 85
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tone 1 FM",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 129
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tone 2 FM",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 129
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tone 3 FM",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 129
+        }
+      },
+      {
+        "id": 7,
+        "name": "LFSR",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 129
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tone 1 Level",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 263
+        }
+      },
+      {
+        "id": 9,
+        "name": "Tone 2 Level",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 263
+        }
+      },
+      {
+        "id": 10,
+        "name": "Tone 3 Level",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 263
+        }
+      },
+      {
+        "id": 11,
+        "name": "Noise Level",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 263
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tone 1 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 324
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 80,
+          "y": 324
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise Audio",
+        "kind": "audio",
+        "position": {
+          "x": 115,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 17,
+          "y": 297
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 52,
+          "y": 297
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 87,
+          "y": 297
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 122,
+          "y": 297
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/SN76489/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "b0691db835ba4c365db8647cae2c5ab5df89bf22bdcf9f8a427f36f5a7784d3c",
+      "size": 105917
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T14:15:51.014Z"
+  }
+}
