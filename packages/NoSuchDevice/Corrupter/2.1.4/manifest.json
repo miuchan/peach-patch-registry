@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NoSuchDevice/Corrupter",
+    "plugin": "NoSuchDevice",
+    "model": "Corrupter",
+    "name": "Corrupter",
+    "brand": "No Such Device",
+    "version": "2.1.4",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/thorinside/NoSuchDevice",
+    "libraryUrl": "https://library.vcvrack.com/NoSuchDevice/Corrupter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NoSuchDevice/Corrupter.webp",
+    "wasmUrl": "packages/NoSuchDevice/Corrupter/2.1.4/module.wasm",
+    "width": 270,
+    "description": "Data Bender-style circuit-bent stereo buffer effect",
+    "params": [
+      {
+        "id": 0,
+        "name": "Time",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 73.819,
+          "y": 106.299,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Repeats",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 135,
+          "y": 106.299,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 196.181,
+          "y": 106.299,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bend",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73.819,
+          "y": 187.5,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Break",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 135,
+          "y": 187.5,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Corrupt",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 196.181,
+          "y": 187.5,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bend CV Attn",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 88.583,
+          "y": 219.98,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Break CV Attn",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 149.764,
+          "y": 219.98,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Corrupt CV Attn",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 210.945,
+          "y": 219.98,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Glitch Window",
+        "min": 0,
+        "max": 1,
+        "default": 0.019999999552965164,
+        "position": {
+          "x": 213.898,
+          "y": 319.636,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Bend Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 50.197,
+          "y": 297.49,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Break Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 104.764,
+          "y": 297.49,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Freeze Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 159.331,
+          "y": 297.49,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mode (Macro/Micro)",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 73.819,
+          "y": 349.902,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Corrupt Algorithm",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 213.898,
+          "y": 297.49,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Corrupt Bank",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "hidden": true
+      },
+      {
+        "id": 16,
+        "name": "Break Micro Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 135,
+          "y": 349.902,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Stereo Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 196.181,
+          "y": 349.902,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio",
+        "position": {
+          "x": 29.528,
+          "y": 50.197,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio",
+        "position": {
+          "x": 59.055,
+          "y": 50.197,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 73.819,
+          "y": 138.78,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Repeats CV",
+        "kind": "cv",
+        "position": {
+          "x": 135,
+          "y": 138.78,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mix CV",
+        "kind": "cv",
+        "position": {
+          "x": 196.181,
+          "y": 138.78,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bend CV",
+        "kind": "cv",
+        "position": {
+          "x": 59.055,
+          "y": 219.98,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Break CV",
+        "kind": "cv",
+        "position": {
+          "x": 120.236,
+          "y": 219.98,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Corrupt CV",
+        "kind": "cv",
+        "position": {
+          "x": 181.417,
+          "y": 219.98,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Bend Gate",
+        "kind": "gate",
+        "position": {
+          "x": 50.197,
+          "y": 319.636,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Break Gate",
+        "kind": "gate",
+        "position": {
+          "x": 104.764,
+          "y": 319.636,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Freeze Gate",
+        "kind": "gate",
+        "position": {
+          "x": 159.331,
+          "y": 319.636,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 103.346,
+          "y": 50.197,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio L",
+        "kind": "audio",
+        "position": {
+          "x": 210.945,
+          "y": 50.197,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio",
+        "position": {
+          "x": 240.472,
+          "y": 50.197,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 15,
+    "lightWidgets": [
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 73.819,
+          "y": 361.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 135,
+          "y": 361.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 196.181,
+          "y": 361.713,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "bend_enabled",
+        "type": "boolean"
+      },
+      {
+        "key": "break_enabled",
+        "type": "boolean"
+      },
+      {
+        "key": "freeze_enabled",
+        "type": "boolean"
+      },
+      {
+        "key": "macro_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "break_silence_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "unique_stereo_mode",
+        "type": "boolean"
+      },
+      {
+        "key": "gate_latching",
+        "type": "boolean"
+      },
+      {
+        "key": "freeze_latching",
+        "type": "boolean"
+      },
+      {
+        "key": "corrupt_bank",
+        "type": "integer",
+        "name": "Corrupt bank",
+        "default": 0,
+        "values": [
+          "Legacy",
+          "Expanded"
+        ]
+      },
+      {
+        "key": "corrupt_algorithm",
+        "type": "integer",
+        "name": "Corrupt algorithm",
+        "default": 0,
+        "values": [
+          "Decimate",
+          "Dropout",
+          "Destroy",
+          "DJ Filter",
+          "Vinyl Sim"
+        ]
+      },
+      {
+        "key": "glitch_window_01",
+        "type": "real"
+      },
+      {
+        "key": "gate_mode_index",
+        "type": "integer",
+        "name": "Gate mode",
+        "default": 0,
+        "values": [
+          "Latching",
+          "Momentary"
+        ]
+      },
+      {
+        "key": "scale_index",
+        "type": "integer",
+        "name": "Bend quantize scale",
+        "default": 0,
+        "values": [
+          "None (free)",
+          "Chromatic",
+          "Major",
+          "Minor",
+          "Pentatonic Major",
+          "Pentatonic Minor",
+          "Whole Tone",
+          "Octaves",
+          "Fifths"
+        ]
+      },
+      {
+        "key": "scale_root",
+        "type": "integer",
+        "name": "Bend quantize root",
+        "default": 0,
+        "values": [
+          "C",
+          "C#",
+          "D",
+          "D#",
+          "E",
+          "F",
+          "F#",
+          "G",
+          "G#",
+          "A",
+          "A#",
+          "B"
+        ]
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "corrupter-display",
+          "bins": 128,
+          "x": 20.669,
+          "y": 240.059,
+          "width": 228.661,
+          "height": 38.386
+        }
+      ],
+      "initialMemory": 37748736,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NoSuchDevice/Corrupter/2.1.4/manifest.json",
+    "sourceCommit": "faba49abe54a1c4f698fd134759281fad2e5693d",
+    "artifact": {
+      "sha256": "4247ee5a77be01901d0b1ff987296a7fdd30ecba3084071c2b18cd3d83a5f5bc",
+      "size": 118497
+    }
+  },
+  "source": {
+    "url": "https://github.com/thorinside/NoSuchDevice",
+    "commit": "faba49abe54a1c4f698fd134759281fad2e5693d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T23:27:24.878Z"
+  }
+}
