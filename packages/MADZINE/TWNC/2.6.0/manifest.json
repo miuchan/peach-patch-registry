@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/TWNC",
+    "plugin": "MADZINE",
+    "model": "TWNC",
+    "name": "TWNC",
+    "brand": "MADZINE",
+    "version": "2.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/TWNC",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/TWNC.webp",
+    "wasmUrl": "packages/MADZINE/TWNC/2.6.0/module.wasm",
+    "width": 120,
+    "description": "Dual-track Euclidean rhythm generator with drum and hi-hats synthesis",
+    "params": [
+      {
+        "id": 0,
+        "name": "Global Length",
+        "min": 1,
+        "max": 32,
+        "default": 32,
+        "snap": true,
+        "position": {
+          "x": 60,
+          "y": 71,
+          "centered": true,
+          "widget": "TechnoSnapKnob30"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Manual Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 92,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 1 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 84.50001525878906,
+        "position": {
+          "x": 20,
+          "y": 131,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 Frequency",
+        "min": 4.321928024291992,
+        "max": 14.287712097167969,
+        "default": 5.198917388916016,
+        "position": {
+          "x": 60,
+          "y": 130,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 1 FM Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.6500001549720764,
+        "position": {
+          "x": 100,
+          "y": 131,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 1 Noise Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.15200015902519226,
+        "position": {
+          "x": 20,
+          "y": 169,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 6,
+        "name": "VCA Shift",
+        "min": 1,
+        "max": 7,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 60,
+          "y": 169,
+          "centered": true,
+          "widget": "TechnoSnapKnob30"
+        }
+      },
+      {
+        "id": 7,
+        "name": "VCA Decay",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 0.3960592448711395,
+        "position": {
+          "x": 100,
+          "y": 169,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 1 Decay",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 0.7204297780990601,
+        "position": {
+          "x": 20,
+          "y": 210,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 1 Shape",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 210,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Track 2 Shift",
+        "min": 0,
+        "max": 7,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 15,
+          "y": 266,
+          "centered": true,
+          "widget": "TechnoSnapKnob30"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Track 2 Fill",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "position": {
+          "x": 45,
+          "y": 266,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Track 2 Div/Mult",
+        "min": 0,
+        "max": 4,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 75,
+          "y": 266,
+          "centered": true,
+          "widget": "TechnoSnapKnob30"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Track 2 Frequency",
+        "min": 4.321928024291992,
+        "max": 14.287712097167969,
+        "default": 14.287712097167969,
+        "position": {
+          "x": 15,
+          "y": 308,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Track 2 Decay",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 0.1313900202512741,
+        "position": {
+          "x": 45,
+          "y": 308,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Track 2 Shape",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0.05543999746441841,
+        "position": {
+          "x": 75,
+          "y": 308,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Track 2 Noise FM",
+        "min": 0,
+        "max": 1,
+        "default": 0.7139996886253357,
+        "position": {
+          "x": 105,
+          "y": 266,
+          "centered": true,
+          "widget": "TechnoStandardBlackKnob30"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Global Clock",
+        "kind": "gate",
+        "position": {
+          "x": 20,
+          "y": 68,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 100,
+          "y": 68,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Drum Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 17,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Drum Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Hats Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 77,
+          "y": 343,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Hats Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 107,
+          "y": 343,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Track 1 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 100,
+          "y": 210,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 105,
+          "y": 308,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Accent VCA Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 24,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 FM Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 64,
+          "y": 368,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 2 VCA Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 102,
+          "y": 368,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 2,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/TWNC/2.6.0/manifest.json",
+    "sourceCommit": "f8f8a93c0ec59255984ff2c3e56e080927b80522",
+    "artifact": {
+      "sha256": "5182089b9b14e316dcf50be0a78fa92f43bea449525eb1894248dd1ef44c218e",
+      "size": 102594
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "f8f8a93c0ec59255984ff2c3e56e080927b80522"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T20:19:55.357Z"
+  }
+}
