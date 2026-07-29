@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-29T00:19:17.232Z",
-  "packageCount": 2882,
-  "totalBytes": 358786677,
+  "generatedAt": "2026-07-29T00:26:43.167Z",
+  "packageCount": 2883,
+  "totalBytes": 358873725,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -462621,6 +462621,340 @@
       "artifact": {
         "sha256": "e6245f65d2566e5094b12ebc94b1f7d0ebc007cc931a6b99a65598e3eadf47b5",
         "size": 74122
+      }
+    },
+    {
+      "key": "HetrickCV/PhasorGen",
+      "plugin": "HetrickCV",
+      "model": "PhasorGen",
+      "name": "Phasor Generator",
+      "brand": "HetrickCV",
+      "version": "2.5.4",
+      "license": "CC0-1.0",
+      "sourceUrl": "https://github.com/mhetrick/hetrickcv",
+      "libraryUrl": "https://library.vcvrack.com/HetrickCV/PhasorGen",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCV/PhasorGen.webp",
+      "wasmUrl": "packages/HetrickCV/PhasorGen/2.5.4/module.wasm",
+      "width": 240,
+      "description": "Generates a phasor along with time-synced gates.",
+      "params": [
+        {
+          "id": 0,
+          "name": "Frequency",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 17.5,
+            "y": 60,
+            "widget": "HCVThemedRogan"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Cycle Frequency CV Depth",
+          "min": -1,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 24,
+            "y": 118,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Phase",
+          "min": -5,
+          "max": 5,
+          "default": 0,
+          "position": {
+            "x": 72.5,
+            "y": 60,
+            "widget": "HCVThemedRogan"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Phase CV Depth",
+          "min": -1,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 140,
+            "y": 64,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Pulse Width",
+          "min": -5,
+          "max": 5,
+          "default": 0,
+          "position": {
+            "x": 72.5,
+            "y": 110,
+            "widget": "HCVThemedRogan"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Pulse Width CV Depth",
+          "min": -1,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 140,
+            "y": 114,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 6,
+          "name": "Pulses Per Cycle",
+          "min": 1,
+          "max": 64,
+          "default": 1,
+          "snap": true,
+          "position": {
+            "x": 72.5,
+            "y": 160,
+            "widget": "HCVThemedRogan"
+          }
+        },
+        {
+          "id": 7,
+          "name": "Pulses Per Cycle CV Depth",
+          "min": -1,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 140,
+            "y": 164,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 8,
+          "name": "Jitter",
+          "min": 0,
+          "max": 5,
+          "default": 0,
+          "position": {
+            "x": 72.5,
+            "y": 210,
+            "widget": "HCVThemedRogan"
+          }
+        },
+        {
+          "id": 9,
+          "name": "Jitter CV Depth",
+          "min": -1,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 140,
+            "y": 214,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 10,
+          "name": "Speed Range",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "values": [
+            "Slow",
+            "Fast"
+          ],
+          "position": {
+            "x": 25,
+            "y": 215,
+            "widget": "CKSS"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Frequency CV",
+          "kind": "cv",
+          "position": {
+            "x": 21,
+            "y": 168,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Phase CV",
+          "kind": "cv",
+          "position": {
+            "x": 200,
+            "y": 63,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Pulse Width CV",
+          "kind": "cv",
+          "position": {
+            "x": 200,
+            "y": 113,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Pulses Per Cycle CV",
+          "kind": "cv",
+          "position": {
+            "x": 200,
+            "y": 163,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Jitter CV",
+          "kind": "cv",
+          "position": {
+            "x": 200,
+            "y": 213,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 5,
+          "name": "V/Oct",
+          "kind": "cv",
+          "position": {
+            "x": 22,
+            "y": 265,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 6,
+          "name": "Clock",
+          "kind": "gate",
+          "position": {
+            "x": 78,
+            "y": 265,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 7,
+          "name": "Reset",
+          "kind": "gate",
+          "position": {
+            "x": 134,
+            "y": 265,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 8,
+          "name": "Freeze",
+          "kind": "gate",
+          "position": {
+            "x": 190,
+            "y": 265,
+            "widget": "ThemedPJ301MPort"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Phasor",
+          "kind": "cv",
+          "position": {
+            "x": 22,
+            "y": 315,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Pulses",
+          "kind": "gate",
+          "position": {
+            "x": 78,
+            "y": 315,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Jitter",
+          "kind": "cv",
+          "position": {
+            "x": 134,
+            "y": 315,
+            "widget": "ThemedPJ301MPort"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Finished Trigger",
+          "kind": "gate",
+          "position": {
+            "x": 190,
+            "y": 315,
+            "widget": "ThemedPJ301MPort"
+          }
+        }
+      ],
+      "lights": 5,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "SmallLight<RedLight>",
+          "position": {
+            "x": 17,
+            "y": 313
+          }
+        },
+        {
+          "id": 1,
+          "widget": "SmallLight<RedLight>",
+          "position": {
+            "x": 73,
+            "y": 313
+          }
+        },
+        {
+          "id": 2,
+          "widget": "SmallLight<GreenRedLight>",
+          "position": {
+            "x": 129,
+            "y": 313
+          }
+        },
+        {
+          "id": 4,
+          "widget": "SmallLight<RedLight>",
+          "position": {
+            "x": 185,
+            "y": 313
+          }
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/HetrickCV/PhasorGen/2.5.4/manifest.json",
+      "sourceCommit": "ad0b04c7d7aa0087dbffb9fae32ac98a4b5621fe",
+      "artifact": {
+        "sha256": "7777ba09530324ba13f80fa69de35046ef30fdf6db9bdf7be435773b9695a95d",
+        "size": 87048
       }
     },
     {
