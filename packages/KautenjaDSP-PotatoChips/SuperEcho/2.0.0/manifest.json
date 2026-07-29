@@ -1,0 +1,584 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/SuperEcho",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "SuperEcho",
+    "name": "Super Echo",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/SuperEcho",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/SuperEcho.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/SuperEcho/2.0.0/module.wasm",
+    "width": 240,
+    "description": "An emulation of the echo effect from the S-SMP chip on the Super Nintendo Entertainment System (SNES).",
+    "params": [
+      {
+        "id": 0,
+        "name": "Echo Delay",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 77,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Echo Feedback",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 52,
+          "y": 77,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Echo Mix (Left)",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 163,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Echo Mix (Right)",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 52,
+          "y": 163,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "FIR Coefficient 1",
+        "min": -128,
+        "max": 127,
+        "default": 127,
+        "position": {
+          "x": 147,
+          "y": 29,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "FIR Coefficient 2",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 72,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "FIR Coefficient 3",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 115,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "FIR Coefficient 4",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 158,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "FIR Coefficient 5",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 201,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "FIR Coefficient 6",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 244,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "FIR Coefficient 7",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 287,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "FIR Coefficient 8",
+        "min": -128,
+        "max": 127,
+        "default": 0,
+        "position": {
+          "x": 147,
+          "y": 330,
+          "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "FIR Coefficient 1 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 30,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "FIR Coefficient 2 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 73,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 14,
+        "name": "FIR Coefficient 3 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 116,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "FIR Coefficient 4 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 159,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 16,
+        "name": "FIR Coefficient 5 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 202,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "FIR Coefficient 6 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 245,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 18,
+        "name": "FIR Coefficient 7 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 288,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 19,
+        "name": "FIR Coefficient 8 CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 117,
+          "y": 331,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Input Gain (Left)",
+        "min": 0,
+        "max": 1.9952623844146729,
+        "default": 1,
+        "position": {
+          "x": 13,
+          "y": 278,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Input Gain (Right)",
+        "min": 0,
+        "max": 1.9952623844146729,
+        "default": 1,
+        "position": {
+          "x": 52,
+          "y": 278,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 25,
+          "widget": "CKSS"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio (Left)",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 243
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio (Right)",
+        "kind": "audio",
+        "position": {
+          "x": 49,
+          "y": 243
+        }
+      },
+      {
+        "id": 2,
+        "name": "Delay",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 112
+        }
+      },
+      {
+        "id": 3,
+        "name": "Feedback",
+        "kind": "cv",
+        "position": {
+          "x": 49,
+          "y": 112
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mix (Left)",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 198
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mix (Right)",
+        "kind": "cv",
+        "position": {
+          "x": 49,
+          "y": 198
+        }
+      },
+      {
+        "id": 6,
+        "name": "FIR Coefficient 1",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 28
+        }
+      },
+      {
+        "id": 7,
+        "name": "FIR Coefficient 2",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 71
+        }
+      },
+      {
+        "id": 8,
+        "name": "FIR Coefficient 3",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 114
+        }
+      },
+      {
+        "id": 9,
+        "name": "FIR Coefficient 4",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 157
+        }
+      },
+      {
+        "id": 10,
+        "name": "FIR Coefficient 5",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 200
+        }
+      },
+      {
+        "id": 11,
+        "name": "FIR Coefficient 6",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 243
+        }
+      },
+      {
+        "id": 12,
+        "name": "FIR Coefficient 7",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 286
+        }
+      },
+      {
+        "id": 13,
+        "name": "FIR Coefficient 8",
+        "kind": "cv",
+        "position": {
+          "x": 84,
+          "y": 329
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio (Left)",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 323
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio (Right)",
+        "kind": "audio",
+        "position": {
+          "x": 49,
+          "y": 323
+        }
+      }
+    ],
+    "lights": 36,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 3,
+          "y": 236
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 42,
+          "y": 236
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 3,
+          "y": 311
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 42,
+          "y": 311
+        }
+      },
+      {
+        "id": 12,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 29
+        },
+        "paramId": 4
+      },
+      {
+        "id": 15,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 72
+        },
+        "paramId": 5
+      },
+      {
+        "id": 18,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 115
+        },
+        "paramId": 6
+      },
+      {
+        "id": 21,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 158
+        },
+        "paramId": 7
+      },
+      {
+        "id": 24,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 201
+        },
+        "paramId": 8
+      },
+      {
+        "id": 27,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 244
+        },
+        "paramId": 9
+      },
+      {
+        "id": 30,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 287
+        },
+        "paramId": 10
+      },
+      {
+        "id": 33,
+        "widget": "LEDLightSliderHorizontal<RedGreenBlueLight>",
+        "position": {
+          "x": 147,
+          "y": 330
+        },
+        "paramId": 11
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/SuperEcho/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "1d321f07d50894f95a619ce1f98b4f7f0da8cd3e2550d3bb7b30262b45f587df",
+      "size": 86913
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T13:49:00.113Z"
+  }
+}
