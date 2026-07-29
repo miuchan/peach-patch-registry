@@ -1,0 +1,636 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Leviathan/IntegralFlux",
+    "plugin": "Leviathan",
+    "model": "IntegralFlux",
+    "name": "Integral Flux",
+    "brand": "Leviathan",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "libraryUrl": "https://library.vcvrack.com/Leviathan/IntegralFlux",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Leviathan/IntegralFlux.webp",
+    "wasmUrl": "packages/Leviathan/IntegralFlux/2.8.0/module.wasm",
+    "width": 300,
+    "description": "Dual slope generator, variable curve slew, attenuverters, signal mixing, full audio-rate fidelity.",
+    "params": [
+      {
+        "id": 0,
+        "name": "CH1 attenuverter",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 75.278,
+          "y": 255.254,
+          "centered": true,
+          "widget": "IntegralFluxEclipse2Knob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CH1 loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 94.119,
+          "y": 61.825,
+          "centered": true,
+          "widget": "LoopGoldButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CH4 loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 205.37,
+          "y": 61.825,
+          "centered": true,
+          "widget": "LoopGoldButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CH1 rise",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 99.67,
+          "y": 107.164,
+          "centered": true,
+          "widget": "IntegralFluxHalo2Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "CH4 rise",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 199.719,
+          "y": 107.164,
+          "centered": true,
+          "widget": "IntegralFluxHalo2Knob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "CH2 attenuverter",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 125.616,
+          "y": 255.254,
+          "centered": true,
+          "widget": "IntegralFluxEclipse2Knob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "CH1 fall",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 124.036,
+          "y": 156.729,
+          "centered": true,
+          "widget": "IntegralFluxHalo2Knob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "CH4 fall",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 174.759,
+          "y": 156.729,
+          "centered": true,
+          "widget": "IntegralFluxHalo2Knob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "CH3 attenuverter",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 175.94,
+          "y": 255.254,
+          "centered": true,
+          "widget": "IntegralFluxEclipse2Knob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "CH1 shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 41.265,
+          "y": 149.191,
+          "centered": true,
+          "widget": "IntegralFluxCurveHalo2Knob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "CH4 shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 270.815,
+          "y": 149.191,
+          "centered": true,
+          "widget": "IntegralFluxCurveHalo2Knob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "CH4 attenuverter",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 224.206,
+          "y": 255.254,
+          "centered": true,
+          "widget": "IntegralFluxEclipse2Knob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "CH1 function shape mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 41.265,
+          "y": 108.661,
+          "centered": true,
+          "widget": "IntegralFluxPlasmaSwitch"
+        }
+      },
+      {
+        "id": 13,
+        "name": "CH4 function shape mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 270.815,
+          "y": 108.661,
+          "centered": true,
+          "widget": "IntegralFluxPlasmaSwitch"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CH1 signal",
+        "kind": "audio",
+        "position": {
+          "x": 29.371,
+          "y": 45.337,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CH1 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 61.745,
+          "y": 45.337,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CH2 signal",
+        "kind": "audio",
+        "position": {
+          "x": 125.619,
+          "y": 225.523,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CH3 signal",
+        "kind": "audio",
+        "position": {
+          "x": 175.94,
+          "y": 225.523,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 4,
+        "name": "CH4 trigger",
+        "kind": "gate",
+        "position": {
+          "x": 236.861,
+          "y": 45.337,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 5,
+        "name": "CH4 signal",
+        "kind": "audio",
+        "position": {
+          "x": 269.235,
+          "y": 45.337,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 6,
+        "name": "CH1 rise",
+        "kind": "cv",
+        "position": {
+          "x": 64.025,
+          "y": 107.528,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 7,
+        "name": "CH4 rise",
+        "kind": "cv",
+        "position": {
+          "x": 235.659,
+          "y": 106.937,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 8,
+        "name": "CH1 both",
+        "kind": "cv",
+        "position": {
+          "x": 78.641,
+          "y": 148.435,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 9,
+        "name": "CH4 both",
+        "kind": "cv",
+        "position": {
+          "x": 220.157,
+          "y": 147.844,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 10,
+        "name": "CH1 fall",
+        "kind": "cv",
+        "position": {
+          "x": 96.567,
+          "y": 186.8,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 11,
+        "name": "CH4 fall",
+        "kind": "cv",
+        "position": {
+          "x": 204.298,
+          "y": 186.8,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 12,
+        "name": "CH1 loop",
+        "kind": "cv",
+        "position": {
+          "x": 118.255,
+          "y": 61.53,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 13,
+        "name": "CH4 loop",
+        "kind": "cv",
+        "position": {
+          "x": 180.647,
+          "y": 61.53,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CH1 variable",
+        "kind": "cv",
+        "position": {
+          "x": 74.69,
+          "y": 286.166,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CH2 variable",
+        "kind": "cv",
+        "position": {
+          "x": 125.029,
+          "y": 286.166,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CH3 variable",
+        "kind": "cv",
+        "position": {
+          "x": 175.648,
+          "y": 286.166,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CH4 variable",
+        "kind": "cv",
+        "position": {
+          "x": 223.913,
+          "y": 286.166,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 4,
+        "name": "CH1 end of rise",
+        "kind": "cv",
+        "position": {
+          "x": 29.637,
+          "y": 286.258,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 5,
+        "name": "CH1 unity",
+        "kind": "cv",
+        "position": {
+          "x": 29.666,
+          "y": 326.817,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 6,
+        "name": "OR",
+        "kind": "cv",
+        "position": {
+          "x": 99.366,
+          "y": 327.407,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 7,
+        "name": "SUM",
+        "kind": "cv",
+        "position": {
+          "x": 149.746,
+          "y": 327.407,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 8,
+        "name": "INV",
+        "kind": "cv",
+        "position": {
+          "x": 200.714,
+          "y": 327.407,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 9,
+        "name": "CH4 unity",
+        "kind": "cv",
+        "position": {
+          "x": 269.531,
+          "y": 326.817,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 10,
+        "name": "CH4 end of cycle",
+        "kind": "cv",
+        "position": {
+          "x": 269.531,
+          "y": 286.166,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallAperture<AmberApertureLight>",
+        "position": {
+          "x": 94.119,
+          "y": 43.863,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallAperture<AmberApertureLight>",
+        "position": {
+          "x": 204.782,
+          "y": 43.863,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallAperture<AmberApertureLight>",
+        "position": {
+          "x": 48.83,
+          "y": 285.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallAperture<GreenApertureLight>",
+        "position": {
+          "x": 48.859,
+          "y": 326.277,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallAperture<GreenApertureLight>",
+        "position": {
+          "x": 250.19,
+          "y": 326.572,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallAperture<AmberApertureLight>",
+        "position": {
+          "x": 249.812,
+          "y": 285.579,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallAperture<MagentaApertureLight>",
+        "position": {
+          "x": 125.12,
+          "y": 327.041,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallAperture<GreenApertureLight>",
+        "position": {
+          "x": 175.848,
+          "y": 327.041,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "ch1CycleLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "ch4CycleLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "bandlimitedGateOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "bandlimitedSignalOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "timingUpdateDiv",
+        "type": "integer"
+      },
+      {
+        "key": "timingInterpolate",
+        "type": "boolean"
+      },
+      {
+        "key": "previewTracerEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "previewTracerCacheMode",
+        "type": "integer"
+      },
+      {
+        "key": "previewRenderMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "integral-flux-preview",
+          "channel": 1,
+          "offset": 0,
+          "x": 11.693,
+          "y": 204.23,
+          "width": 60.189,
+          "height": 32.024
+        },
+        {
+          "kind": "integral-flux-preview",
+          "channel": 4,
+          "offset": 9,
+          "x": 229.503,
+          "y": 204.23,
+          "width": 60.189,
+          "height": 32.024
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Leviathan/IntegralFlux/2.8.0/manifest.json",
+    "sourceCommit": "329ced997934968efba04077b5922fd2442baf0d",
+    "artifact": {
+      "sha256": "d22dfa9169dff7d69ff527b556caba107d280f0961fd3b6672ff264b90cb0564",
+      "size": 108160
+    }
+  },
+  "source": {
+    "url": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "commit": "329ced997934968efba04077b5922fd2442baf0d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T15:58:43.257Z"
+  }
+}
