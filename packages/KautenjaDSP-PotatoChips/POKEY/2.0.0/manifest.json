@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/POKEY",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "POKEY",
+    "name": "Pot Keys",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/POKEY",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/POKEY.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/POKEY/2.0.0/module.wasm",
+    "width": 210,
+    "description": "An emulation of the Atari POKEY chip.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tone 1 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 31,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 48,
+          "y": 31,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 83,
+          "y": 31,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tone 4 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 118,
+          "y": 31,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tone 1 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 143,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tone 2 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 48,
+          "y": 143,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tone 3 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 83,
+          "y": 143,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tone 4 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 118,
+          "y": 143,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tone 1 Noise",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 13,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Tone 2 Noise",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 48,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Tone 3 Noise",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 83,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Tone 4 Noise",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 118,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Tone 1 Level",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 13,
+          "y": 169,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Tone 2 Level",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 48,
+          "y": 169,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 14,
+        "name": "Tone 3 Level",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 83,
+          "y": 169,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 15,
+        "name": "Tone 4 Level",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 118,
+          "y": 169,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 16,
+        "name": "Low Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 45,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 17,
+        "name": "High-Pass Tone 2 from Tone 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 101,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 18,
+        "name": "High-Pass Tone 1 from Tone 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 157,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 19,
+        "name": "16-bit 4 + 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "16-bit 1 + 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Tone 3 High Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 213,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 22,
+        "name": "Tone 1 High Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 269,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 23,
+        "name": "Linear Feedback Shift Register",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 325,
+          "widget": "CKSS"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Tone 1 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 70
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 70
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 70
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tone 4 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 70
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tone 1 FM",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 98
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tone 2 FM",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 98
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tone 3 FM",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 98
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tone 4 FM",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 98
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tone 1 Noise",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 281
+        }
+      },
+      {
+        "id": 9,
+        "name": "Tone 2 Noise",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 281
+        }
+      },
+      {
+        "id": 10,
+        "name": "Tone 3 Noise",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 281
+        }
+      },
+      {
+        "id": 11,
+        "name": "Tone 4 Noise",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 281
+        }
+      },
+      {
+        "id": 12,
+        "name": "Tone 1 Level",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 209
+        }
+      },
+      {
+        "id": 13,
+        "name": "Tone 2 Level",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 209
+        }
+      },
+      {
+        "id": 14,
+        "name": "Tone 3 Level",
+        "kind": "cv",
+        "position": {
+          "x": 81,
+          "y": 209
+        }
+      },
+      {
+        "id": 15,
+        "name": "Tone 4 Level",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 209
+        }
+      },
+      {
+        "id": 16,
+        "name": "Low Frequency",
+        "kind": "gate",
+        "position": {
+          "x": 175,
+          "y": 44
+        }
+      },
+      {
+        "id": 17,
+        "name": "High-Pass Tone 2 from Tone 4",
+        "kind": "gate",
+        "position": {
+          "x": 175,
+          "y": 100
+        }
+      },
+      {
+        "id": 18,
+        "name": "High-Pass Tone 1 from Tone 3",
+        "kind": "gate",
+        "position": {
+          "x": 175,
+          "y": 156
+        }
+      },
+      {
+        "id": 19,
+        "name": "16-bit 4 + 3",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 20,
+        "name": "16-bit 1 + 2",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 21,
+        "name": "Tone 3 High Frequency",
+        "kind": "gate",
+        "position": {
+          "x": 175,
+          "y": 212
+        }
+      },
+      {
+        "id": 22,
+        "name": "Tone 1 High Frequency",
+        "kind": "gate",
+        "position": {
+          "x": 175,
+          "y": 268
+        }
+      },
+      {
+        "id": 23,
+        "name": "Linear Feedback Shift Register",
+        "kind": "gate",
+        "position": {
+          "x": 175,
+          "y": 324
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tone 1 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 11,
+          "y": 324
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 46,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 81,
+          "y": 324
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tone 4 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 116,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 30,
+          "y": 319
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 65,
+          "y": 319
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 100,
+          "y": 319
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 135,
+          "y": 319
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/POKEY/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "a709bd2eba94d30d7b14466c36b24f695a60cde63c7763332cc333d6402f93c7",
+      "size": 100862
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T13:21:17.972Z"
+  }
+}
