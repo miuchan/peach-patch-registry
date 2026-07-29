@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Four-View",
+    "plugin": "ImpromptuModular",
+    "model": "Four-View",
+    "name": "FourView",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Four-View",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Four-View.webp",
+    "wasmUrl": "packages/ImpromptuModular/Four-View/2.5.0/module.wasm",
+    "width": 120,
+    "description": "Quad note or chord viewer with passthrough",
+    "params": [
+      {
+        "id": 0,
+        "name": "Display mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 60,
+          "y": 234,
+          "centered": true,
+          "widget": "IMSwitch2H"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "CV 1",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 66,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV 2",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 110,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV 3",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 154,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV 4",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 198,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV 1 thru",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 285,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV 2 thru",
+        "kind": "cv",
+        "position": {
+          "x": 86,
+          "y": 285,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV 3 thru",
+        "kind": "cv",
+        "position": {
+          "x": 34,
+          "y": 331,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV 4 thru",
+        "kind": "cv",
+        "position": {
+          "x": 86,
+          "y": 331,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "allowPolyOverride",
+        "type": "integer"
+      },
+      {
+        "key": "showSharp",
+        "type": "boolean"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/Cv-Pad",
+            "symbol": "modelCvPad",
+            "index": 0
+          },
+          {
+            "key": "ImpromptuModular/Chord-Key",
+            "symbol": "modelChordKey",
+            "index": 1
+          },
+          {
+            "key": "ImpromptuModular/Chord-Key-Expander",
+            "symbol": "modelChordKeyExpander",
+            "index": 2
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "four-view-display",
+          "modeParam": 0,
+          "sharpState": 3,
+          "rows": 4,
+          "x": 54,
+          "y": 51.5,
+          "width": 52,
+          "height": 29,
+          "spacingY": 44
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Four-View/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "260f135d7f8f15327af3eea662bcb01f186a5d5446a27c7d93d50bdfc5f09f48",
+      "size": 83358
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T03:33:53.101Z"
+  }
+}
