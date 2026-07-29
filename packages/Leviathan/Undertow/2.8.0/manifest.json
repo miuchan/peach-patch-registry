@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Leviathan/Undertow",
+    "plugin": "Leviathan",
+    "model": "Undertow",
+    "name": "Undertow",
+    "brand": "Leviathan",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "libraryUrl": "https://library.vcvrack.com/Leviathan/Undertow",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Leviathan/Undertow.webp",
+    "wasmUrl": "packages/Leviathan/Undertow/2.8.0/module.wasm",
+    "width": 120,
+    "description": "Compact analog-style oscillator with sine, morphing shape, and sub-octave outputs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.4725624918937683,
+        "position": {
+          "x": 27.165,
+          "y": 57.874,
+          "centered": true,
+          "widget": "LeviathanHaloKnob2"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Fine tune",
+        "min": -100,
+        "max": 100,
+        "default": 0,
+        "position": {
+          "x": 59.302,
+          "y": 88.89,
+          "centered": true,
+          "widget": "BipolarTinyClockworkGearKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Linear FM",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 25.394,
+          "y": 225,
+          "centered": true,
+          "widget": "Eclipse2Knob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Morph",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 92.619,
+          "y": 225,
+          "centered": true,
+          "widget": "Eclipse2Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Octave stepped",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "Continuous",
+          "Octave Stepped"
+        ],
+        "position": {
+          "x": 59.302,
+          "y": 141.437,
+          "centered": true,
+          "widget": "SmallGoldApertureButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Morph edge hardness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 59.302,
+          "y": 225,
+          "centered": true,
+          "widget": "TinyClockworkGearKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 92.619,
+          "y": 57.874,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Expo FM",
+        "kind": "cv",
+        "position": {
+          "x": 59.302,
+          "y": 184.515,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Linear FM",
+        "kind": "cv",
+        "position": {
+          "x": 25.394,
+          "y": 184.515,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Morph CV",
+        "kind": "cv",
+        "position": {
+          "x": 92.619,
+          "y": 184.515,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sync",
+        "kind": "cv",
+        "position": {
+          "x": 25.394,
+          "y": 125.492,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sub gate",
+        "kind": "gate",
+        "position": {
+          "x": 92.619,
+          "y": 125.492,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sine",
+        "kind": "cv",
+        "position": {
+          "x": 23.032,
+          "y": 333.072,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Morph",
+        "kind": "cv",
+        "position": {
+          "x": 96.85,
+          "y": 333.072,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sub",
+        "kind": "cv",
+        "position": {
+          "x": 59.941,
+          "y": 333.072,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallGoldApertureLight",
+        "position": {
+          "x": 59.302,
+          "y": 141.437,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 0,
+        "widget": "TinyAperture<WhiteApertureLight>",
+        "position": {
+          "x": 42.685,
+          "y": 125.492,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyAperture<WhiteApertureLight>",
+        "position": {
+          "x": 110.104,
+          "y": 125.492,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "shapeEntryAsymmetry",
+        "type": "boolean",
+        "name": "Enable Morph Asymmetry",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "shapeEntryAsymmetryOnRight",
+        "type": "boolean",
+        "name": "Morph Asymmetry On Falling Edge",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "analogCharacterEnabled",
+        "type": "boolean",
+        "name": "Analog Character",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "previewTracerEnabled",
+        "type": "boolean",
+        "name": "Preview Tracer",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "previewTracerCacheMode",
+        "type": "integer",
+        "name": "Preview Tracer Cache",
+        "default": 0,
+        "values": [
+          "Curve",
+          "Frame"
+        ],
+        "contextOnly": false
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "undertow-preview",
+          "offset": 0,
+          "x": 7.025,
+          "y": 254.916,
+          "width": 105.951,
+          "height": 47.498
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Leviathan/Undertow/2.8.0/manifest.json",
+    "sourceCommit": "329ced997934968efba04077b5922fd2442baf0d",
+    "artifact": {
+      "sha256": "77ff7ecdc3703bc9c6408482b8f2c12a09e5ecd3a277987726260b27d9e6a3c6",
+      "size": 96388
+    }
+  },
+  "source": {
+    "url": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "commit": "329ced997934968efba04077b5922fd2442baf0d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T17:45:30.348Z"
+  }
+}
