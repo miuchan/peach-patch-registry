@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Leviathan/Proc",
+    "plugin": "Leviathan",
+    "model": "Proc",
+    "name": "Proc",
+    "brand": "Leviathan",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "libraryUrl": "https://library.vcvrack.com/Leviathan/Proc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Leviathan/Proc.webp",
+    "wasmUrl": "packages/Leviathan/Proc/2.8.0/module.wasm",
+    "width": 120,
+    "description": "Generator, slew limiter, and envelope follower.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Cycle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "button": true,
+        "snap": true,
+        "position": {
+          "x": 97.662,
+          "y": 59.463,
+          "centered": true,
+          "widget": "LoopGoldButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Surge",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 97.166,
+          "y": 107.164,
+          "centered": true,
+          "widget": "ProcEdgeHalo2Knob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sink",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 97.166,
+          "y": 156.729,
+          "centered": true,
+          "widget": "ProcEdgeHalo2Knob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Curve",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 34.769,
+          "y": 171.041,
+          "centered": true,
+          "widget": "ProcCurveHalo2Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Function amplitude",
+        "min": 0,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 21.396,
+          "y": 84.774,
+          "centered": true,
+          "widget": "TinyClockworkGearKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal",
+        "kind": "audio",
+        "position": {
+          "x": 21.399,
+          "y": 49.175,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 58.887,
+          "y": 49.175,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Halt CV",
+        "kind": "cv",
+        "position": {
+          "x": 21.281,
+          "y": 119.194,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rise CV",
+        "kind": "cv",
+        "position": {
+          "x": 58.887,
+          "y": 95.717,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Both CV",
+        "kind": "cv",
+        "position": {
+          "x": 58.887,
+          "y": 132.573,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fall CV",
+        "kind": "cv",
+        "position": {
+          "x": 69.697,
+          "y": 186.8,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "End of rise",
+        "kind": "cv",
+        "position": {
+          "x": 27.865,
+          "y": 286.258,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "End of cycle",
+        "kind": "cv",
+        "position": {
+          "x": 78.529,
+          "y": 286.166,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Positive",
+        "kind": "cv",
+        "position": {
+          "x": 27.895,
+          "y": 326.817,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Negative",
+        "kind": "cv",
+        "position": {
+          "x": 78.402,
+          "y": 327.407,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallAperture<AmberApertureLight>",
+        "position": {
+          "x": 97.662,
+          "y": 41.501,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallAperture<GreenApertureLight>",
+        "position": {
+          "x": 47.058,
+          "y": 285.709,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallAperture<MagentaApertureLight>",
+        "position": {
+          "x": 99.345,
+          "y": 286.276,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallAperture<GreenApertureLight>",
+        "position": {
+          "x": 47.088,
+          "y": 327.041,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallAperture<MagentaApertureLight>",
+        "position": {
+          "x": 99.151,
+          "y": 327.582,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "cycleLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "bandlimitedGateOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "bandlimitedSignalOutputs",
+        "type": "boolean"
+      },
+      {
+        "key": "timingUpdateDiv",
+        "type": "integer"
+      },
+      {
+        "key": "timingInterpolate",
+        "type": "boolean"
+      },
+      {
+        "key": "previewTracerEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "previewTracerCacheMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "proc-preview",
+          "offset": 0,
+          "x": 11.693,
+          "y": 204.23,
+          "width": 60.189,
+          "height": 32.024
+        },
+        {
+          "kind": "param-numeric-display",
+          "param": 4,
+          "digits": 3,
+          "x": 7.382,
+          "y": 94.931,
+          "width": 28.346,
+          "height": 7.677
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Leviathan/Proc/2.8.0/manifest.json",
+    "sourceCommit": "329ced997934968efba04077b5922fd2442baf0d",
+    "artifact": {
+      "sha256": "7d5b0199e394b686c4de5e3f2ad31af687b2026d86c1cddf89402ca21ae3c517",
+      "size": 100861
+    }
+  },
+  "source": {
+    "url": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "commit": "329ced997934968efba04077b5922fd2442baf0d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T16:24:01.869Z"
+  }
+}
