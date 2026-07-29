@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/AY_3_8910",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "AY_3_8910",
+    "name": "Jairasullator",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/AY_3_8910",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/AY_3_8910.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/AY_3_8910/2.0.0/module.wasm",
+    "width": 255,
+    "description": "An emulation of the General Instrument AY-3-8910 chip.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pulse A Frequency",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse B Frequency",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse C Frequency",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Envelope Frequency",
+        "min": -5.5,
+        "max": 9,
+        "default": 1.75,
+        "position": {
+          "x": 222,
+          "y": 47,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse A FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse B FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pulse C FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Envelope FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Pulse A Level",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 12,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Pulse B Level",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 82,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Pulse C Level",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 152,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 11,
+        "name": "Pulse A Tone",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 49,
+          "y": 44,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Pulse B Tone",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 119,
+          "y": 44,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Pulse C Tone",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 189,
+          "y": 44,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 14,
+        "name": "Pulse A Noise",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 171,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 15,
+        "name": "Pulse B Noise",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 119,
+          "y": 171,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 16,
+        "name": "Pulse C Noise",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 189,
+          "y": 171,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 17,
+        "name": "Pulse A Envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 49,
+          "y": 225,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 18,
+        "name": "Pulse B Envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 119,
+          "y": 225,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 19,
+        "name": "Pulse C Envelope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 189,
+          "y": 225,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 20,
+        "name": "Noise Period",
+        "min": 0,
+        "max": 31,
+        "default": 0,
+        "position": {
+          "x": 222,
+          "y": 175,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 21,
+        "name": "Envelope Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 222,
+          "y": 228,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pulse A V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 85
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse B V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 85
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse C V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 85
+        }
+      },
+      {
+        "id": 3,
+        "name": "Envelope V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 220,
+          "y": 86
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse A FM",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 129
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse B FM",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 129
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pulse C FM",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 129
+        }
+      },
+      {
+        "id": 7,
+        "name": "Envelope FM",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Pulse A Level",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 263
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pulse B Level",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 263
+        }
+      },
+      {
+        "id": 10,
+        "name": "Pulse C Level",
+        "kind": "cv",
+        "position": {
+          "x": 150,
+          "y": 263
+        }
+      },
+      {
+        "id": 11,
+        "name": "Pulse A Tone",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 86
+        }
+      },
+      {
+        "id": 12,
+        "name": "Pulse B Tone",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 86
+        }
+      },
+      {
+        "id": 13,
+        "name": "Pulse C Tone",
+        "kind": "gate",
+        "position": {
+          "x": 185,
+          "y": 86
+        }
+      },
+      {
+        "id": 14,
+        "name": "Pulse A Noise",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 130
+        }
+      },
+      {
+        "id": 15,
+        "name": "Pulse B Noise",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 130
+        }
+      },
+      {
+        "id": 16,
+        "name": "Pulse C Noise",
+        "kind": "gate",
+        "position": {
+          "x": 185,
+          "y": 130
+        }
+      },
+      {
+        "id": 17,
+        "name": "Pulse A Envelope",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 264
+        }
+      },
+      {
+        "id": 18,
+        "name": "Pulse B Envelope",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 264
+        }
+      },
+      {
+        "id": 19,
+        "name": "Pulse C Envelope",
+        "kind": "gate",
+        "position": {
+          "x": 185,
+          "y": 264
+        }
+      },
+      {
+        "id": 20,
+        "name": "Noise Period",
+        "kind": "cv",
+        "position": {
+          "x": 220,
+          "y": 130
+        }
+      },
+      {
+        "id": 21,
+        "name": "Envelope Mode",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Pulse A Sync",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 316
+        }
+      },
+      {
+        "id": 23,
+        "name": "Pulse B Sync",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 316
+        }
+      },
+      {
+        "id": 24,
+        "name": "Pulse C Sync",
+        "kind": "gate",
+        "position": {
+          "x": 150,
+          "y": 316
+        }
+      },
+      {
+        "id": 25,
+        "name": "Envelope Reset",
+        "kind": "gate",
+        "position": {
+          "x": 220,
+          "y": 316
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulse A Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 324
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse B Audio",
+        "kind": "audio",
+        "position": {
+          "x": 115,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse C Audio",
+        "kind": "audio",
+        "position": {
+          "x": 185,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 52,
+          "y": 297
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 122,
+          "y": 297
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 192,
+          "y": 297
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 227,
+          "y": 272
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "envMode",
+        "type": "integer",
+        "name": "Envelope Mode",
+        "default": 0,
+        "values": [
+          "/_____ (Attack)",
+          "\\_____ (Decay)",
+          "/----- (Attack & Max)",
+          "\\----- (Decay & Max)",
+          "////// (Attack LFO)",
+          "\\\\\\\\\\\\ (Decay LFO)",
+          "/\\/\\/\\ (Attack-Decay LFO)",
+          "\\/\\/\\/ (Decay-Attack LFO)"
+        ]
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/AY_3_8910/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "fc82325ece3fa069f0f0d6429ec35309c89e09d4d3b6adde9a8293def35acb0b",
+      "size": 101924
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T12:56:11.251Z"
+  }
+}
