@@ -1,0 +1,1754 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Phrase-Seq-16",
+    "plugin": "ImpromptuModular",
+    "model": "Phrase-Seq-16",
+    "name": "PhraseSeq16",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Phrase-Seq-16",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Phrase-Seq-16.webp",
+    "wasmUrl": "packages/ImpromptuModular/Phrase-Seq-16/2.5.0/module.wasm",
+    "width": 450,
+    "description": "16-step, 16-pattern sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Keyboard note mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 252,
+          "y": 78.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Keyboard gate-type mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 140,
+          "y": 78.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Keygate 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Seq/song mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 289,
+          "y": 113,
+          "centered": true,
+          "widget": "IMSwitch2V"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sequence",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 349,
+          "y": 168,
+          "centered": true,
+          "widget": "IMBigKnobInf"
+        },
+        "unbounded": true
+      },
+      {
+        "id": 5,
+        "name": "Run",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 289,
+          "y": 176,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Copy",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 333,
+          "y": 228,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Paste",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 363,
+          "y": 228,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 289,
+          "y": 228,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Octave 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 110.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Octave 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 130.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Octave 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 150.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Octave 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 170.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Octave 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 190.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Octave 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 210.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Octave 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 230.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Gate 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 72,
+          "y": 230,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Gate 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 142,
+          "y": 230,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
+      },
+      {
+        "id": 18,
+        "name": "CV slide",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 142,
+          "y": 281,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Slide rate",
+        "min": 0,
+        "max": 2,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 196,
+          "y": 281,
+          "centered": true,
+          "widget": "IMSmallKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Attach",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 404,
+          "y": 56,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Rotatel",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 22,
+        "name": "Rotater",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 23,
+        "name": "Pastesync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 24,
+        "name": "Autostep when write",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 250,
+          "y": 281,
+          "centered": true,
+          "widget": "IMSwitch2V"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Key Params 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 26,
+        "name": "Key Params 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 27,
+        "name": "Key Params 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 28,
+        "name": "Key Params 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 29,
+        "name": "Key Params 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 30,
+        "name": "Key Params 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 31,
+        "name": "Key Params 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 32,
+        "name": "Key Params 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 33,
+        "name": "Key Params 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 34,
+        "name": "Key Params 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 35,
+        "name": "Key Params 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 36,
+        "name": "Key Params 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 37,
+        "name": "Transposeu",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 38,
+        "name": "Transposed",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 39,
+        "name": "Length / run mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 412,
+          "y": 113,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Transpose / rotate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 412,
+          "y": 173,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Rotate",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 42,
+        "name": "Probability",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 88,
+          "y": 281,
+          "centered": true,
+          "widget": "IMSmallKnob"
+        }
+      },
+      {
+        "id": 43,
+        "name": "Gate 2 Knob",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 44,
+        "name": "Gate 1 probability",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 34,
+          "y": 281,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
+      },
+      {
+        "id": 45,
+        "name": "Tied",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 212,
+          "y": 230,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
+      },
+      {
+        "id": 46,
+        "name": "Copy-paste mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 413,
+          "y": 220,
+          "centered": true,
+          "widget": "IMSwitch3VInv"
+        }
+      },
+      {
+        "id": 47,
+        "name": "Step/phrase 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 48,
+        "name": "Step/phrase 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 51,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 49,
+        "name": "Step/phrase 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 75,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 50,
+        "name": "Step/phrase 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 99,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 51,
+        "name": "Step/phrase 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 123,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 52,
+        "name": "Step/phrase 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 147,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 53,
+        "name": "Step/phrase 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 171,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 54,
+        "name": "Step/phrase 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 195,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 55,
+        "name": "Step/phrase 9",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 219,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 56,
+        "name": "Step/phrase 10",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 243,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 57,
+        "name": "Step/phrase 11",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 267,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 58,
+        "name": "Step/phrase 12",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 291,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 59,
+        "name": "Step/phrase 13",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 315,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 60,
+        "name": "Step/phrase 14",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 339,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 61,
+        "name": "Step/phrase 15",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 363,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 62,
+        "name": "Step/phrase 16",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 387,
+          "y": 48.6,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Write",
+        "kind": "cv",
+        "position": {
+          "x": 250,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 305,
+          "y": 281,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 413,
+          "y": 281,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 359,
+          "y": 281,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Step left",
+        "kind": "audio",
+        "position": {
+          "x": 34,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Step right",
+        "kind": "audio",
+        "position": {
+          "x": 88,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Run",
+        "kind": "gate",
+        "position": {
+          "x": 196,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Seq#",
+        "kind": "cv",
+        "position": {
+          "x": 142,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 305,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate 1",
+        "kind": "gate",
+        "position": {
+          "x": 359,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate 2",
+        "kind": "gate",
+        "position": {
+          "x": 413,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      }
+    ],
+    "lights": 94,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 27,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 51,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 75,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 99,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 123,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 147,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 171,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 195,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 219,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 243,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 30,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 267,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 33,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 291,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 36,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 315,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 39,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 339,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 42,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 363,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 45,
+        "widget": "MediumLight<GreenRedWhiteLightIM>",
+        "position": {
+          "x": 387,
+          "y": 48.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 86,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 426,
+          "y": 56,
+          "centered": true
+        }
+      },
+      {
+        "id": 91,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 252,
+          "y": 78.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 92,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 140,
+          "y": 78.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 48,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 27,
+          "y": 110.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 49,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 27,
+          "y": 130.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 50,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 27,
+          "y": 150.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 51,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 27,
+          "y": 170.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 52,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 27,
+          "y": 190.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 53,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 27,
+          "y": 210.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 54,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 27,
+          "y": 230.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 79,
+        "widget": "LEDBezelLight<GreenLightIM>",
+        "position": {
+          "x": 289,
+          "y": 176,
+          "centered": true
+        }
+      },
+      {
+        "id": 80,
+        "widget": "LEDBezelLight<GreenLightIM>",
+        "position": {
+          "x": 289,
+          "y": 228,
+          "centered": true
+        }
+      },
+      {
+        "id": 81,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 99,
+          "y": 230,
+          "centered": true
+        }
+      },
+      {
+        "id": 83,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 169,
+          "y": 230,
+          "centered": true
+        }
+      },
+      {
+        "id": 90,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 239,
+          "y": 230,
+          "centered": true
+        }
+      },
+      {
+        "id": 88,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 61,
+          "y": 281,
+          "centered": true
+        }
+      },
+      {
+        "id": 85,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 169,
+          "y": 281,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "autoseq",
+        "type": "boolean"
+      },
+      {
+        "key": "autostepLen",
+        "type": "boolean"
+      },
+      {
+        "key": "holdTiedNotes",
+        "type": "boolean"
+      },
+      {
+        "key": "seqCVmethod",
+        "type": "integer"
+      },
+      {
+        "key": "pulsesPerStep",
+        "type": "integer"
+      },
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "runModeSong3",
+        "type": "integer"
+      },
+      {
+        "key": "stepIndexEdit",
+        "type": "integer"
+      },
+      {
+        "key": "sequence",
+        "type": "integer"
+      },
+      {
+        "key": "phraseIndexEdit",
+        "type": "integer"
+      },
+      {
+        "key": "phrases",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "sequences",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "phrase",
+        "type": "integer"
+      },
+      {
+        "key": "resetOnRun",
+        "type": "boolean"
+      },
+      {
+        "key": "retrigGatesOnReset2",
+        "type": "integer"
+      },
+      {
+        "key": "attached",
+        "type": "boolean"
+      },
+      {
+        "key": "stopAtEndOfSong",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "runModeSeq3",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "lengths",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "transposeOffsets",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "transposeOffsets",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "ImpromptuModular/Phrase-Seq-Expander",
+            "symbol": "modelPhraseSeqExpander",
+            "index": 0
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "phrase-seq-display",
+          "x": 320.5,
+          "y": 102,
+          "width": 55,
+          "height": 30
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Phrase-Seq-16/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "59c7c76c3e27ca27e23e9cde57d1c7d84d1de25c3f386f07f7bb0a6c2d77586c",
+      "size": 137764
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T07:06:35.802Z"
+  }
+}
