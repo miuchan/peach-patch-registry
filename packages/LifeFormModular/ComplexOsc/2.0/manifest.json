@@ -1,0 +1,397 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LifeFormModular/ComplexOsc",
+    "plugin": "LifeFormModular",
+    "model": "ComplexOsc",
+    "name": "ComplexOsc",
+    "brand": "LifeFormModular",
+    "version": "2.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "libraryUrl": "https://library.vcvrack.com/LifeFormModular/ComplexOsc",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LifeFormModular/ComplexOsc.webp",
+    "wasmUrl": "packages/LifeFormModular/ComplexOsc/2.0/module.wasm",
+    "width": 270,
+    "description": "Complex Oscillator made with 2 phase modulatable sines plus a clipper",
+    "params": [
+      {
+        "id": 0,
+        "name": "D",
+        "min": 0,
+        "max": 0.8999999761581421,
+        "default": 0,
+        "position": {
+          "x": 170,
+          "y": 125,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "v",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 170,
+          "y": 215,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "fm",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 30,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "offset",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 165,
+          "y": 25,
+          "widget": "LFMSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "D2",
+        "min": 0,
+        "max": 0.8999999761581421,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 125,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "v2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 215,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "D2mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70,
+          "y": 150,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "V2mod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 70,
+          "y": 240,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Dmod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 230,
+          "y": 150,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Vmod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 230,
+          "y": 240,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "FMmod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130,
+          "y": 107,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Cross",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 260,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "CrossMod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130,
+          "y": 337,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "ModFine",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 173,
+          "y": 90,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "ModCoarse",
+        "min": 0,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 220,
+          "y": 38,
+          "widget": "LFMSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 15,
+        "name": "CarFine",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13,
+          "y": 90,
+          "widget": "LFMTinyKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "CarCoarse",
+        "min": 0,
+        "max": 12,
+        "default": 0,
+        "position": {
+          "x": 60,
+          "y": 38,
+          "widget": "LFMSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 17,
+        "name": "Octave",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 10,
+          "y": 25,
+          "widget": "LFMSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 18,
+        "name": "OscMix",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 112.5,
+          "y": 145,
+          "widget": "LFMKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "OscMixmod",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 130,
+          "y": 222,
+          "widget": "LFMTinyKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "A1in",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "A2in",
+        "kind": "cv",
+        "position": {
+          "x": 53,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "D 2 Mod",
+        "kind": "cv",
+        "position": {
+          "x": 58,
+          "y": 130
+        }
+      },
+      {
+        "id": 3,
+        "name": "D Mod",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 130
+        }
+      },
+      {
+        "id": 4,
+        "name": "V 2 Mod",
+        "kind": "cv",
+        "position": {
+          "x": 58,
+          "y": 220
+        }
+      },
+      {
+        "id": 5,
+        "name": "V Mod",
+        "kind": "cv",
+        "position": {
+          "x": 218,
+          "y": 220
+        }
+      },
+      {
+        "id": 6,
+        "name": "FM Mod",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 92
+        }
+      },
+      {
+        "id": 7,
+        "name": "Cross",
+        "kind": "cv",
+        "position": {
+          "x": 110,
+          "y": 322
+        }
+      },
+      {
+        "id": 8,
+        "name": "Oscmix",
+        "kind": "audio",
+        "position": {
+          "x": 110,
+          "y": 207
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "audio",
+        "position": {
+          "x": 170,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "audio",
+        "position": {
+          "x": 205,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "Output 3",
+        "kind": "audio",
+        "position": {
+          "x": 240,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LifeFormModular/ComplexOsc/2.0/manifest.json",
+    "sourceCommit": "d1673014007bab2a17c74e1b061905bdc780f09d",
+    "artifact": {
+      "sha256": "37856716b164442f8630f0125cba028ab7a54f68edf2dc67af23c6835b8c9bff",
+      "size": 85777
+    }
+  },
+  "source": {
+    "url": "https://github.com/TimeControlledOrganism/LifeFormModular",
+    "commit": "d1673014007bab2a17c74e1b061905bdc780f09d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T18:08:57.444Z"
+  }
+}
