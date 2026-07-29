@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-29T05:28:06.338Z",
-  "packageCount": 2891,
-  "totalBytes": 359571781,
+  "generatedAt": "2026-07-29T05:44:31.669Z",
+  "packageCount": 2892,
+  "totalBytes": 359658768,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -483434,6 +483434,277 @@
       "artifact": {
         "sha256": "77223963a92b8c29f4dce3e81e100f1bdcaed17d9fce47804e9036eeae04b793",
         "size": 85999
+      }
+    },
+    {
+      "key": "ImpromptuModular/NoteLoop",
+      "plugin": "ImpromptuModular",
+      "model": "NoteLoop",
+      "name": "NoteLoop",
+      "brand": "Impromptu",
+      "version": "2.5.0",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+      "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/NoteLoop",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/NoteLoop.webp",
+      "wasmUrl": "packages/ImpromptuModular/NoteLoop/2.5.0/module.wasm",
+      "width": 105,
+      "description": "CV/Gate-based looper",
+      "params": [
+        {
+          "id": 0,
+          "name": "Loop",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 76.949,
+            "y": 112.205,
+            "centered": true,
+            "widget": "LEDBezel"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Loop length",
+          "min": 1,
+          "max": 32,
+          "default": 4,
+          "snap": true,
+          "position": {
+            "x": 76.949,
+            "y": 64.961,
+            "centered": true,
+            "widget": "LoopKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Clear",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 28.051,
+            "y": 112.205,
+            "centered": true,
+            "widget": "LEDBezel"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Tempo input mode",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "position": {
+            "x": 76.949,
+            "y": 190.453,
+            "centered": true,
+            "widget": "IMSwitch2V"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "CV",
+          "kind": "cv",
+          "position": {
+            "x": 28.051,
+            "y": 242.126,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Gate",
+          "kind": "gate",
+          "position": {
+            "x": 28.051,
+            "y": 286.417,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 2,
+          "name": "CV2/Velocity",
+          "kind": "cv",
+          "position": {
+            "x": 28.051,
+            "y": 330.709,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Tempo",
+          "kind": "cv",
+          "position": {
+            "x": 28.051,
+            "y": 190.453,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Clear buffer",
+          "kind": "gate",
+          "position": {
+            "x": 28.051,
+            "y": 141.732,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Loop",
+          "kind": "cv",
+          "position": {
+            "x": 76.949,
+            "y": 141.732,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "CV",
+          "kind": "cv",
+          "position": {
+            "x": 76.949,
+            "y": 242.126,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Gate",
+          "kind": "gate",
+          "position": {
+            "x": 76.949,
+            "y": 286.417,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 2,
+          "name": "CV2/Velocity",
+          "kind": "cv",
+          "position": {
+            "x": 76.949,
+            "y": 330.709,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Clear",
+          "kind": "gate",
+          "hidden": true
+        },
+        {
+          "id": 4,
+          "name": "Start of loop",
+          "kind": "cv",
+          "hidden": true
+        }
+      ],
+      "lights": 2,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "LEDBezelLight<GreenLightIM>",
+          "position": {
+            "x": 28.051,
+            "y": 112.205,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "widget": "LEDBezelLight<GreenLightIM>",
+          "position": {
+            "x": 76.949,
+            "y": 112.205,
+            "centered": true
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "panelTheme",
+          "type": "integer"
+        },
+        {
+          "key": "panelContrast",
+          "type": "real"
+        },
+        {
+          "key": "cv2NormalledVoltage",
+          "type": "real"
+        },
+        {
+          "key": "clockPeriod",
+          "type": "integer"
+        },
+        {
+          "key": "ecoMode",
+          "type": "integer"
+        },
+        {
+          "key": "delMult",
+          "type": "integer"
+        }
+      ],
+      "bypassRoutes": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "runtime": {
+        "visuals": [
+          {
+            "kind": "note-loop-display",
+            "param": 1,
+            "x": 10.551,
+            "y": 52.961,
+            "width": 35,
+            "height": 24
+          }
+        ],
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/ImpromptuModular/NoteLoop/2.5.0/manifest.json",
+      "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+      "artifact": {
+        "sha256": "93d93fa3b99bba049eaf8653e7b37bda629dabc9650dd8916ac65660163a4fbe",
+        "size": 86987
       }
     },
     {
