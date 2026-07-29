@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HoyerHoppes/scanning_frequency_division_osc_poly",
+    "plugin": "HoyerHoppes",
+    "model": "scanning_frequency_division_osc_poly",
+    "name": "Scanning Frequency Division Oscillator",
+    "brand": "HoyerHoppes",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/jakulley/HoyerHoppes",
+    "libraryUrl": "https://library.vcvrack.com/HoyerHoppes/scanning_frequency_division_osc_poly",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HoyerHoppes/scanning_frequency_division_osc_poly.webp",
+    "wasmUrl": "packages/HoyerHoppes/scanning_frequency_division_osc_poly/2.0.1/module.wasm",
+    "width": 180,
+    "description": "Polyphonic oscillator with thru-zero FM, windowed sync, and a unique scannable frequency-division parameter.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Freq",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 129.921,
+          "y": 72.343,
+          "centered": true,
+          "widget": "RoundExtraBigBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scan",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 52.447,
+          "y": 76.417,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wave Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 149.173,
+          "y": 136.713,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "FM Depth",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 109.113,
+          "y": 191.634,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Window Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 149.173,
+          "y": 257.244,
+          "centered": true,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Window Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "Off",
+          "On"
+        ],
+        "position": {
+          "x": 149.173,
+          "y": 227.067,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
+      },
+      {
+        "id": 6,
+        "name": "By 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.477,
+          "y": 135.552,
+          "centered": true,
+          "widget": "By1Button"
+        }
+      },
+      {
+        "id": 7,
+        "name": "By 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 66.425,
+          "y": 135.552,
+          "centered": true,
+          "widget": "By2Button"
+        }
+      },
+      {
+        "id": 8,
+        "name": "By 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.477,
+          "y": 197.454,
+          "centered": true,
+          "widget": "By3Button"
+        }
+      },
+      {
+        "id": 9,
+        "name": "By 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 66.425,
+          "y": 197.454,
+          "centered": true,
+          "widget": "By4Button"
+        }
+      },
+      {
+        "id": 10,
+        "name": "By 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.477,
+          "y": 258.18,
+          "centered": true,
+          "widget": "By5Button"
+        }
+      },
+      {
+        "id": 11,
+        "name": "By 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 66.425,
+          "y": 258.18,
+          "centered": true,
+          "widget": "By6Button"
+        }
+      },
+      {
+        "id": 12,
+        "name": "By 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 29.477,
+          "y": 319.47,
+          "centered": true,
+          "widget": "By7Button"
+        }
+      },
+      {
+        "id": 13,
+        "name": "By 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 66.425,
+          "y": 319.47,
+          "centered": true,
+          "widget": "By8Button"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Scan CV",
+        "kind": "cv",
+        "position": {
+          "x": 24.995,
+          "y": 94.488,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 159.006,
+          "y": 100.984,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wave Shape CV",
+        "kind": "cv",
+        "position": {
+          "x": 109.113,
+          "y": 136.713,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "FM",
+        "kind": "cv",
+        "position": {
+          "x": 149.173,
+          "y": 191.634,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "FM Depth CV",
+        "kind": "cv",
+        "position": {
+          "x": 109.113,
+          "y": 220.276,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sync",
+        "kind": "gate",
+        "position": {
+          "x": 109.113,
+          "y": 258.366,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Divide by 1",
+        "kind": "gate",
+        "position": {
+          "x": 29.477,
+          "y": 163.187,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Divide by 2",
+        "kind": "gate",
+        "position": {
+          "x": 66.425,
+          "y": 163.187,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Divide by 3",
+        "kind": "gate",
+        "position": {
+          "x": 29.477,
+          "y": 225.13,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Divide by 4",
+        "kind": "gate",
+        "position": {
+          "x": 66.425,
+          "y": 225.13,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Divide by 5",
+        "kind": "gate",
+        "position": {
+          "x": 29.477,
+          "y": 285.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Divide by 6",
+        "kind": "gate",
+        "position": {
+          "x": 66.425,
+          "y": 285.8,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Divide by 7",
+        "kind": "gate",
+        "position": {
+          "x": 29.477,
+          "y": 347.607,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Divide by 8",
+        "kind": "gate",
+        "position": {
+          "x": 66.425,
+          "y": 347.607,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "kind": "audio",
+        "position": {
+          "x": 109.113,
+          "y": 307.53,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scan",
+        "kind": "audio",
+        "position": {
+          "x": 149.173,
+          "y": 307.53,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reflected",
+        "kind": "audio",
+        "position": {
+          "x": 109.113,
+          "y": 345.768,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Low",
+        "kind": "audio",
+        "position": {
+          "x": 149.173,
+          "y": 345.768,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scan Change",
+        "kind": "gate",
+        "position": {
+          "x": 82.972,
+          "y": 94.488,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 149.173,
+          "y": 227.067,
+          "centered": true
+        },
+        "paramId": 5
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HoyerHoppes/scanning_frequency_division_osc_poly/2.0.1/manifest.json",
+    "sourceCommit": "9158d234902ce8efff3aa125386d4a243a82ca83",
+    "artifact": {
+      "sha256": "5ebda1aed78858595ff5ee2892967b6f47aeb3bffcbb9c7f15cc89567559e96c",
+      "size": 98313
+    }
+  },
+  "source": {
+    "url": "https://github.com/jakulley/HoyerHoppes",
+    "commit": "9158d234902ce8efff3aa125386d4a243a82ca83"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T01:31:39.601Z"
+  }
+}
