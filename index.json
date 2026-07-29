@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-29T03:43:42.465Z",
-  "packageCount": 2889,
-  "totalBytes": 359404641,
+  "generatedAt": "2026-07-29T04:22:27.487Z",
+  "packageCount": 2890,
+  "totalBytes": 359479713,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -482284,6 +482284,117 @@
       "artifact": {
         "sha256": "e41106e190cdbab668283c74bf596fd90a9080ac5a7c1467d7d884bd0abf0b3f",
         "size": 67347
+      }
+    },
+    {
+      "key": "ImpromptuModular/Hotkey",
+      "plugin": "ImpromptuModular",
+      "model": "Hotkey",
+      "name": "Hotkey",
+      "brand": "Impromptu",
+      "version": "2.5.0",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+      "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Hotkey",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Hotkey.webp",
+      "wasmUrl": "packages/ImpromptuModular/Hotkey/2.5.0/module.wasm",
+      "width": 45,
+      "description": "Triggers when mouse is over module and hotkey is pressed",
+      "params": [
+        {
+          "id": 0,
+          "name": "Record hotkey",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 22.5,
+            "y": 84,
+            "centered": true,
+            "widget": "LEDBezel"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Delay",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 22.5,
+            "y": 220,
+            "centered": true,
+            "widget": "IMSmallKnob"
+          }
+        }
+      ],
+      "inputs": [],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Trigger",
+          "kind": "gate",
+          "position": {
+            "x": 22.5,
+            "y": 288,
+            "centered": true,
+            "widget": "IMPort"
+          }
+        }
+      ],
+      "lights": 2,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "LEDBezelLight<GreenRedLightIM>",
+          "position": {
+            "x": 22.5,
+            "y": 84,
+            "centered": true
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "panelTheme",
+          "type": "integer"
+        },
+        {
+          "key": "panelContrast",
+          "type": "real"
+        },
+        {
+          "key": "hotkey",
+          "type": "integer",
+          "default": 32
+        },
+        {
+          "key": "hotkeyMods",
+          "type": "integer",
+          "default": 0
+        },
+        {
+          "key": "treatModsAsKeys",
+          "type": "integer",
+          "default": 1
+        }
+      ],
+      "runtime": {
+        "hotkey": {
+          "scope": "module-hover",
+          "actionBase": 536870912,
+          "recordParam": 0,
+          "keyState": 2,
+          "modsState": 3
+        },
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/ImpromptuModular/Hotkey/2.5.0/manifest.json",
+      "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+      "artifact": {
+        "sha256": "827e0c8266ff29d01a836d804d5ba87dc73a24ab3854238ac876e9ae13735560",
+        "size": 75072
       }
     },
     {
