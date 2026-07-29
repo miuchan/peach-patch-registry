@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "InfrasonicAudio/WarpCore",
+    "plugin": "InfrasonicAudio",
+    "model": "WarpCore",
+    "name": "Warp Core",
+    "brand": "Infrasonic Audio",
+    "version": "2.0.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/infrasonicaudio/Infrasonic-VCV",
+    "libraryUrl": "https://library.vcvrack.com/InfrasonicAudio/WarpCore",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/InfrasonicAudio/WarpCore.webp",
+    "wasmUrl": "packages/InfrasonicAudio/WarpCore/2.0.1/module.wasm",
+    "width": 180,
+    "description": "Dual-algorithm phase distortion and phase modulation oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Frequency",
+        "min": 0,
+        "max": 5,
+        "default": 3,
+        "position": {
+          "x": 36.96,
+          "y": 67.408,
+          "centered": true,
+          "widget": "Rogan2PSWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Internal PM Level",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "visibleWhenState": {
+          "key": "ratioMode",
+          "equals": 0
+        },
+        "position": {
+          "x": 143.105,
+          "y": 67.408,
+          "centered": true,
+          "widget": "Rogan2PSWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Warp Algorithm A Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70.931,
+          "y": 114.98,
+          "centered": true,
+          "widget": "infrasonic::Button"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Warp Algorithm B Toggle",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 109.146,
+          "y": 114.98,
+          "centered": true,
+          "widget": "infrasonic::Button"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Warp A Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 36.904,
+          "y": 156.883,
+          "centered": true,
+          "widget": "Rogan2PSBlue"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Warp B Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 143.105,
+          "y": 156.883,
+          "centered": true,
+          "widget": "Rogan2PSRed"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Warp A CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 24.963,
+          "y": 216.576,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Warp B CV Attenuation",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 155.046,
+          "y": 216.576,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Routing",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 69.387,
+          "y": 255.969,
+          "centered": true,
+          "widget": "infrasonic::Switch2"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Windowing",
+        "min": 0,
+        "max": 2,
+        "default": 2,
+        "snap": true,
+        "position": {
+          "x": 110.613,
+          "y": 255.969,
+          "centered": true,
+          "widget": "infrasonic::Switch3"
+        }
+      },
+      {
+        "id": 10,
+        "name": "PM Ratio",
+        "min": 0,
+        "max": 15,
+        "default": 3,
+        "visibleWhenState": {
+          "key": "ratioMode",
+          "equals": 1
+        },
+        "position": {
+          "x": 143.105,
+          "y": 67.408,
+          "centered": true,
+          "widget": "Rogan2PSGreen"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Warp A CV",
+        "kind": "cv",
+        "position": {
+          "x": 24.963,
+          "y": 280.807,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Warp B CV",
+        "kind": "cv",
+        "position": {
+          "x": 155.046,
+          "y": 280.807,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "V/Oct Pitch CV",
+        "kind": "cv",
+        "position": {
+          "x": 24.963,
+          "y": 324.889,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Internal PM Level CV",
+        "kind": "cv",
+        "position": {
+          "x": 57.455,
+          "y": 324.889,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "External PM Signal",
+        "kind": "audio",
+        "position": {
+          "x": 89.944,
+          "y": 324.889,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "cv",
+        "position": {
+          "x": 122.436,
+          "y": 324.889,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Auxiliary",
+        "kind": "cv",
+        "position": {
+          "x": 154.925,
+          "y": 324.889,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 8,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueRedLight>",
+        "position": {
+          "x": 90,
+          "y": 139.518,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<BlueRedLight>",
+        "position": {
+          "x": 90,
+          "y": 154.414,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<BlueRedLight>",
+        "position": {
+          "x": 90,
+          "y": 169.222,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<BlueRedLight>",
+        "position": {
+          "x": 90,
+          "y": 184.057,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "oversampling",
+        "type": "integer",
+        "default": 4
+      },
+      {
+        "key": "pd_type_1",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "pd_type_2",
+        "type": "integer",
+        "default": 1
+      },
+      {
+        "key": "pm_ratio",
+        "type": "integer",
+        "default": 3
+      },
+      {
+        "key": "alt_out_type",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "ratioMode",
+        "type": "boolean",
+        "name": "Edit Internal PM Ratio",
+        "default": 0,
+        "contextOnly": true
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4259840,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/InfrasonicAudio/WarpCore/2.0.1/manifest.json",
+    "sourceCommit": "1b0b2a81ffa2bf27b91c3e6763c599b5827c7c17",
+    "artifact": {
+      "sha256": "237425e295896fe0aeb58e41ac5d3fd427e23ffc587704d53191cfb76badd326",
+      "size": 100992
+    }
+  },
+  "source": {
+    "url": "https://github.com/infrasonicaudio/Infrasonic-VCV",
+    "commit": "1b0b2a81ffa2bf27b91c3e6763c599b5827c7c17"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T10:11:26.964Z"
+  }
+}
