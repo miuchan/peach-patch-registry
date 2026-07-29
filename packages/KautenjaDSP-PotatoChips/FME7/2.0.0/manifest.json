@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/FME7",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "FME7",
+    "name": "Pulses",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/FME7",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/FME7.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/FME7/2.0.0/module.wasm",
+    "width": 120,
+    "description": "An emulation of the Sunsoft FME-7 chip from Nintendo Entertainment System (NES) cartridges.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Tone 1 Frequency",
+        "min": -4.5,
+        "max": 4.5,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 Frequency",
+        "min": -4.5,
+        "max": 4.5,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 Frequency",
+        "min": -4.5,
+        "max": 4.5,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 45,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tone 1 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tone 2 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tone 3 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 173,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tone 1 Level",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 15,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Tone 2 Level",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 50,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Tone 3 Level",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 85,
+          "y": 221,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Tone 1 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 85
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 85
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 85
+        }
+      },
+      {
+        "id": 3,
+        "name": "Tone 1 FM",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 129
+        }
+      },
+      {
+        "id": 4,
+        "name": "Tone 2 FM",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 129
+        }
+      },
+      {
+        "id": 5,
+        "name": "Tone 3 FM",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 129
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tone 1 Level",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 263
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tone 2 Level",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 263
+        }
+      },
+      {
+        "id": 8,
+        "name": "Tone 3 Level",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 263
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tone 1 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 13,
+          "y": 324
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tone 2 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 48,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Tone 3 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 83,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 17,
+          "y": 297
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 52,
+          "y": 297
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 87,
+          "y": 297
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/FME7/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "ac85e588c026b113aa031717af0b29f1c204908c3dd568ad3d7d9bad3c66f82a",
+      "size": 94672
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T13:01:33.991Z"
+  }
+}
