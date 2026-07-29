@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "JW-Modules/FullScope",
+    "plugin": "JW-Modules",
+    "model": "FullScope",
+    "name": "Full Scope",
+    "brand": "JW-Modules",
+    "version": "2.0.43",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/jeremywen/JW-Modules",
+    "libraryUrl": "https://library.vcvrack.com/JW-Modules/FullScope",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/JW-Modules/FullScope.webp",
+    "wasmUrl": "packages/JW-Modules/FullScope/2.0.43/module.wasm",
+    "width": 255,
+    "description": "Automatically isolated from the JW-Modules/FullScope Rack source",
+    "params": [
+      {
+        "id": 0,
+        "name": "X Scale",
+        "min": -2,
+        "max": 8,
+        "default": 1,
+        "position": {
+          "x": 5,
+          "y": 145,
+          "widget": "JwTinyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "X Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 105,
+          "widget": "JwTinyKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Y Scale",
+        "min": -2,
+        "max": 8,
+        "default": 1,
+        "position": {
+          "x": 5,
+          "y": 165,
+          "widget": "JwTinyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Y Offset",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 125,
+          "widget": "JwTinyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Speed",
+        "min": -16,
+        "max": -6,
+        "default": -14,
+        "position": {
+          "x": 5,
+          "y": 205,
+          "widget": "JwTinyKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Lissajous",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "External",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Rotation",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 5,
+          "y": 185,
+          "widget": "JwTinyKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 5,
+          "widget": "TinyPJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 25,
+          "widget": "TinyPJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trigger",
+        "kind": "gate",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Color",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 45,
+          "widget": "TinyPJ301MPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Time",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 85,
+          "widget": "TinyPJ301MPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rotation",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 65,
+          "widget": "TinyPJ301MPort"
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "lissajous",
+        "type": "boolean",
+        "name": "Lissajous Mode",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "external",
+        "type": "boolean",
+        "name": "External Trigger",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "width",
+        "type": "real",
+        "name": "Module Width",
+        "default": 255,
+        "contextOnly": true
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "full-scope",
+          "points": 512,
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 380
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/JW-Modules/FullScope/2.0.43/manifest.json",
+    "sourceCommit": "57299bdd4507cd4f136479a1a7454e5881af15d9",
+    "artifact": {
+      "sha256": "273fce338fcf5c215bcfa703c5c196bd4bbd2e42758fe997993f6a4eddfb1011",
+      "size": 77337
+    }
+  },
+  "source": {
+    "url": "https://github.com/jeremywen/JW-Modules",
+    "commit": "57299bdd4507cd4f136479a1a7454e5881af15d9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T11:55:12.334Z"
+  }
+}
