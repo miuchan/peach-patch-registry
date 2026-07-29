@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LomasModules/AdvancedSampler",
+    "plugin": "LomasModules",
+    "model": "AdvancedSampler",
+    "name": "Advanced Sampler",
+    "brand": "Lomas",
+    "version": "2.0.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/LomasModules/LomasModules.git",
+    "libraryUrl": "https://library.vcvrack.com/LomasModules/AdvancedSampler",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LomasModules/AdvancedSampler.webp",
+    "wasmUrl": "packages/LomasModules/AdvancedSampler/2.0.0/module.wasm",
+    "width": 150,
+    "description": "Monophonic sampler.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sample select",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 28.234,
+          "y": 143.179,
+          "centered": true,
+          "widget": "RoundGrayKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tune",
+        "min": -2,
+        "max": 2,
+        "default": 0,
+        "position": {
+          "x": 28.234,
+          "y": 199.429,
+          "centered": true,
+          "widget": "RoundGrayKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75.221,
+          "y": 199.429,
+          "centered": true,
+          "widget": "RoundGrayKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 122.206,
+          "y": 199.429,
+          "centered": true,
+          "widget": "RoundGrayKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Start point",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 75.221,
+          "y": 143.179,
+          "centered": true,
+          "widget": "RoundGrayKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "End point",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 122.206,
+          "y": 143.179,
+          "centered": true,
+          "widget": "RoundGrayKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Open folder",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 19.606,
+          "y": 45.679,
+          "centered": true,
+          "widget": "LoadButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Loop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 93.464,
+          "y": 45.679,
+          "centered": true,
+          "widget": "RubberSmallButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Play",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 56.536,
+          "y": 45.679,
+          "centered": true,
+          "widget": "RubberSmallButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Record",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 130.394,
+          "y": 45.679,
+          "centered": true,
+          "widget": "RubberSmallButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sample",
+        "kind": "cv",
+        "position": {
+          "x": 22.913,
+          "y": 248.294,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tune",
+        "kind": "cv",
+        "position": {
+          "x": 22.913,
+          "y": 289.459,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Attack",
+        "kind": "cv",
+        "position": {
+          "x": 57.638,
+          "y": 289.459,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay",
+        "kind": "cv",
+        "position": {
+          "x": 92.362,
+          "y": 289.459,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Start",
+        "kind": "cv",
+        "position": {
+          "x": 57.638,
+          "y": 248.238,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "End",
+        "kind": "cv",
+        "position": {
+          "x": 92.362,
+          "y": 248.238,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 127.087,
+          "y": 289.459,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Rec",
+        "kind": "gate",
+        "position": {
+          "x": 127.087,
+          "y": 248.238,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Play",
+        "kind": "gate",
+        "position": {
+          "x": 40.276,
+          "y": 330.679,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "EOC",
+        "kind": "gate",
+        "position": {
+          "x": 109.724,
+          "y": 330.679,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 75,
+          "y": 330.679,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "RubberSmallButtonLed<BlueLight>",
+        "position": {
+          "x": 56.536,
+          "y": 45.679,
+          "centered": true
+        },
+        "paramId": 8
+      },
+      {
+        "id": 1,
+        "widget": "RubberSmallButtonLed<BlueLight>",
+        "position": {
+          "x": 93.464,
+          "y": 45.679,
+          "centered": true
+        },
+        "paramId": 7
+      },
+      {
+        "id": 2,
+        "widget": "RubberSmallButtonLed<RedLight>",
+        "position": {
+          "x": 130.394,
+          "y": 45.679,
+          "centered": true
+        },
+        "paramId": 9
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "loop",
+        "type": "boolean",
+        "name": "Loop",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "hold_envelope",
+        "type": "boolean",
+        "name": "Envelope",
+        "default": 0,
+        "values": [
+          "Attack / Decay",
+          "Hold / Decay"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "playing",
+        "type": "boolean",
+        "name": "Playing",
+        "default": 0,
+        "contextOnly": false
+      },
+      {
+        "key": "read_position",
+        "type": "real",
+        "name": "Read Position",
+        "default": 0,
+        "contextOnly": false
+      },
+      {
+        "key": "interpolation_mode",
+        "type": "integer",
+        "name": "Interpolation",
+        "default": 2,
+        "values": [
+          "None",
+          "Linear",
+          "Hermite",
+          "B-Spline"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "slice",
+        "type": "boolean",
+        "name": "Slice Mode",
+        "default": 0,
+        "contextOnly": true
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 960000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "visuals": [
+        {
+          "kind": "lomas-sampler",
+          "offset": 0,
+          "x": 11.25,
+          "y": 58.804,
+          "width": 127.5,
+          "height": 48.75
+        }
+      ],
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LomasModules/AdvancedSampler/2.0.0/manifest.json",
+    "sourceCommit": "1def9f3ee461e7736452ee9e06fa1a25c191b558",
+    "artifact": {
+      "sha256": "71bed4964bbe33aea8d9cc9b0252ffa39cca5af8621af4addc505de0ef4f0b6a",
+      "size": 86607
+    }
+  },
+  "source": {
+    "url": "https://github.com/LomasModules/LomasModules.git",
+    "commit": "1def9f3ee461e7736452ee9e06fa1a25c191b558"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T18:55:30.587Z"
+  }
+}
