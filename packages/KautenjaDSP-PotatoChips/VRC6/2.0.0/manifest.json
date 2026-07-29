@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/VRC6",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "VRC6",
+    "name": "Step Saw",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/VRC6",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/VRC6.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/VRC6/2.0.0/module.wasm",
+    "width": 120,
+    "description": "An emulation of the Konami VRC6 chip from Nintendo Entertainment System (NES) cartridges.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pulse 1 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 32,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse 2 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 32,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Saw Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 32,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulse 1 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 144,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse 2 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 50,
+          "y": 144,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Saw FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 144,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pulse 1 Duty Cycle",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 15,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Pulse 2 Duty Cycle",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 50,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Pulse 1 Level",
+        "min": 0,
+        "max": 15,
+        "default": 12,
+        "position": {
+          "x": 15,
+          "y": 170,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Pulse 2 Level",
+        "min": 0,
+        "max": 15,
+        "default": 12,
+        "position": {
+          "x": 50,
+          "y": 170,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Saw Level",
+        "min": 0,
+        "max": 63,
+        "default": 32,
+        "position": {
+          "x": 85,
+          "y": 170,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pulse 1 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 71
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse 2 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 71
+        }
+      },
+      {
+        "id": 2,
+        "name": "Saw V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 71
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pulse 1 FM",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 99
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse 2 FM",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 99
+        }
+      },
+      {
+        "id": 5,
+        "name": "Saw FM",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 99
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pulse 1 Duty Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 281
+        }
+      },
+      {
+        "id": 7,
+        "name": "Pulse 2 Duty Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 281
+        }
+      },
+      {
+        "id": 8,
+        "name": "Pulse 1 Level",
+        "kind": "cv",
+        "position": {
+          "x": 13,
+          "y": 210
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pulse 2 Level",
+        "kind": "cv",
+        "position": {
+          "x": 48,
+          "y": 210
+        }
+      },
+      {
+        "id": 10,
+        "name": "Saw Level",
+        "kind": "cv",
+        "position": {
+          "x": 83,
+          "y": 210
+        }
+      },
+      {
+        "id": 11,
+        "name": "Saw Sync",
+        "kind": "gate",
+        "position": {
+          "x": 83,
+          "y": 264
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulse 1 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 13,
+          "y": 324
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse 2 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 48,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Saw Audio",
+        "kind": "audio",
+        "position": {
+          "x": 83,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 32,
+          "y": 319
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 67,
+          "y": 319
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 102,
+          "y": 319
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/VRC6/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "5298efbebc6effea84069f0c309159a01d6faaca48101da09253eb07133e806e",
+      "size": 106344
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T14:22:48.800Z"
+  }
+}
