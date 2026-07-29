@@ -1,0 +1,703 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-RackNES/RackNES",
+    "plugin": "KautenjaDSP-RackNES",
+    "model": "RackNES",
+    "name": "RackNES",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/RackNES",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-RackNES/RackNES",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-RackNES/RackNES.webp",
+    "wasmUrl": "packages/KautenjaDSP-RackNES/RackNES/2.0.0/module.wasm",
+    "width": 570,
+    "description": "A Nintendo Entertainment System emulator with CV",
+    "params": [
+      {
+        "id": 0,
+        "name": "Clock Speed",
+        "min": -4,
+        "max": 4,
+        "default": 0,
+        "position": {
+          "x": 107,
+          "y": 91,
+          "widget": "Rogan3PSNES"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock Speed CV Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 114,
+          "y": 151,
+          "widget": "Rogan1PRed"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Square 1 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 158,
+          "y": 321,
+          "widget": "Rogan2PRed"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Square 2 Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 202,
+          "y": 321,
+          "widget": "Rogan2PRed"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Triangle Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 246,
+          "y": 321,
+          "widget": "Rogan2PRed"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Noise Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 290,
+          "y": 321,
+          "widget": "Rogan2PRed"
+        }
+      },
+      {
+        "id": 6,
+        "name": "DMC Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 334,
+          "y": 321,
+          "widget": "Rogan2PRed"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mix Volume",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 378,
+          "y": 321,
+          "widget": "Rogan2PRed"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Save State",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 454,
+          "y": 40,
+          "widget": "NESSwitchVertical"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Load State",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 454,
+          "y": 95,
+          "widget": "NESSwitchVertical"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Hang Emulation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 454,
+          "y": 150,
+          "widget": "NESSwitchVertical"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Reset NES",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 454,
+          "y": 205,
+          "widget": "NESSwitchVertical"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Player 1 A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 336,
+          "widget": "CKD6_NES_Red"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Player 1 B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 290,
+          "widget": "CKD6_NES_Red"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Player 1 Select",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 199,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Player 1 Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 244,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Player 1 Up",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 13,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Player 1 Down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 59,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Player 1 Left",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 105,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Player 1 Right",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 24,
+          "y": 152,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Player 2 A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 336,
+          "widget": "CKD6_NES_Red"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Player 2 B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 290,
+          "widget": "CKD6_NES_Red"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Player 2 Select",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 199,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Player 2 Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 244,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Player 2 Up",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 13,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Player 2 Down",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 59,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Player 2 Left",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 105,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Player 2 Right",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 515,
+          "y": 152,
+          "widget": "CKD6"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Player 1 \"A\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 335
+        }
+      },
+      {
+        "id": 1,
+        "name": "Player 1 \"B\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 289
+        }
+      },
+      {
+        "id": 2,
+        "name": "Player 1 \"Select\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 206
+        }
+      },
+      {
+        "id": 3,
+        "name": "Player 1 \"Start\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 252
+        }
+      },
+      {
+        "id": 4,
+        "name": "Player 1 \"Up\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 22
+        }
+      },
+      {
+        "id": 5,
+        "name": "Player 1 \"Down\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 68
+        }
+      },
+      {
+        "id": 6,
+        "name": "Player 1 \"Left\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 114
+        }
+      },
+      {
+        "id": 7,
+        "name": "Player 1 \"Right\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 62,
+          "y": 160
+        }
+      },
+      {
+        "id": 8,
+        "name": "Player 2 \"A\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 335
+        }
+      },
+      {
+        "id": 9,
+        "name": "Player 2 \"B\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 289
+        }
+      },
+      {
+        "id": 10,
+        "name": "Player 2 \"Select\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 206
+        }
+      },
+      {
+        "id": 11,
+        "name": "Player 2 \"Start\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 252
+        }
+      },
+      {
+        "id": 12,
+        "name": "Player 2 \"Up\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 22
+        }
+      },
+      {
+        "id": 13,
+        "name": "Player 2 \"Down\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 68
+        }
+      },
+      {
+        "id": 14,
+        "name": "Player 2 \"Left\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 114
+        }
+      },
+      {
+        "id": 15,
+        "name": "Player 2 \"Right\" gate",
+        "kind": "gate",
+        "position": {
+          "x": 482,
+          "y": 160
+        }
+      },
+      {
+        "id": 16,
+        "name": "CPU clock speed",
+        "kind": "cv",
+        "position": {
+          "x": 116,
+          "y": 213
+        }
+      },
+      {
+        "id": 17,
+        "name": "Save state trigger",
+        "kind": "gate",
+        "position": {
+          "x": 421,
+          "y": 48
+        }
+      },
+      {
+        "id": 18,
+        "name": "Load state trigger",
+        "kind": "gate",
+        "position": {
+          "x": 421,
+          "y": 103
+        }
+      },
+      {
+        "id": 19,
+        "name": "Hang gate",
+        "kind": "gate",
+        "position": {
+          "x": 421,
+          "y": 158
+        }
+      },
+      {
+        "id": 20,
+        "name": "Reset trigger",
+        "kind": "gate",
+        "position": {
+          "x": 421,
+          "y": 213
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CPU clock",
+        "kind": "gate",
+        "position": {
+          "x": 116,
+          "y": 49
+        }
+      },
+      {
+        "id": 1,
+        "name": "Square voice 1",
+        "kind": "audio",
+        "position": {
+          "x": 162,
+          "y": 279
+        }
+      },
+      {
+        "id": 2,
+        "name": "Square voice 2",
+        "kind": "audio",
+        "position": {
+          "x": 206,
+          "y": 279
+        }
+      },
+      {
+        "id": 3,
+        "name": "Triangle voice",
+        "kind": "audio",
+        "position": {
+          "x": 250,
+          "y": 279
+        }
+      },
+      {
+        "id": 4,
+        "name": "Noise voice",
+        "kind": "audio",
+        "position": {
+          "x": 294,
+          "y": 279
+        }
+      },
+      {
+        "id": 5,
+        "name": "DMC sample voice",
+        "kind": "audio",
+        "position": {
+          "x": 338,
+          "y": 279
+        }
+      },
+      {
+        "id": 6,
+        "name": "Audio mix",
+        "kind": "audio",
+        "position": {
+          "x": 382,
+          "y": 279
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "KautenjaDSP-RackNES/InputGenie",
+            "symbol": "modelInputGenie",
+            "index": 0
+          }
+        ]
+      },
+      "asset": {
+        "type": "binary",
+        "maxSamples": 4194304,
+        "maxSeconds": 0,
+        "channels": 1
+      },
+      "visuals": [
+        {
+          "kind": "racknes-screen",
+          "bufferWidth": 602,
+          "bufferHeight": 240,
+          "x": 157,
+          "y": 18,
+          "width": 256,
+          "height": 240
+        }
+      ],
+      "initialMemory": 79691776,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-RackNES/RackNES/2.0.0/manifest.json",
+    "sourceCommit": "f4271500cadbcb1258bd9e47ac2a7a822e0fde90",
+    "artifact": {
+      "sha256": "c0bcbdc74a32e2e2d5cc6e59d7c62f06c0ee0a5c596a5030fd281df2e890c2e6",
+      "size": 206816
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/RackNES",
+    "commit": "f4271500cadbcb1258bd9e47ac2a7a822e0fde90"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T14:52:53.295Z"
+  }
+}
