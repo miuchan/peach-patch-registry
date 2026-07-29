@@ -1,0 +1,1007 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/Launchpad",
+    "plugin": "MADZINE",
+    "model": "Launchpad",
+    "name": "Launchpad",
+    "brand": "MADZINE",
+    "version": "2.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/Launchpad",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/Launchpad.webp",
+    "wasmUrl": "packages/MADZINE/Launchpad/2.6.0/module.wasm",
+    "width": 600,
+    "description": "8x8 grid CV/audio looper with session mode, per-cell recording, and send/return mixer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Quantize",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 565,
+          "y": 50,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Stop All",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 45,
+          "y": 355,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scene 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 70,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scene 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 114,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scene 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 158,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scene 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 202,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Scene 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 246,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Scene 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 290,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scene 7",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 334,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scene 8",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 378,
+          "y": 75,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Row 1 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 103,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Row 1 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 103,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Row 1 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 103,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Row 1 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 103,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Row 2 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 131,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Row 2 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 131,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Row 2 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 131,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Row 2 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 131,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Row 3 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 159,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Row 3 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 159,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Row 3 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 159,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Row 3 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 159,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Row 4 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 187,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Row 4 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 187,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Row 4 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 187,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 25,
+        "name": "Row 4 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 187,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Row 5 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 215,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Row 5 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 215,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Row 5 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 215,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Row 5 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 215,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "Row 6 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 243,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 31,
+        "name": "Row 6 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 243,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Row 6 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 243,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 33,
+        "name": "Row 6 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 243,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 34,
+        "name": "Row 7 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 271,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 35,
+        "name": "Row 7 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 271,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 36,
+        "name": "Row 7 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 271,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 37,
+        "name": "Row 7 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 271,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 38,
+        "name": "Row 8 Send A",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 430,
+          "y": 299,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 39,
+        "name": "Row 8 Send B",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 468,
+          "y": 299,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 40,
+        "name": "Row 8 Pan",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 506,
+          "y": 299,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 41,
+        "name": "Row 8 Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 544,
+          "y": 299,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 475,
+          "y": 50,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 520,
+          "y": 50,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scene 1 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 70,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scene 2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 114,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scene 3 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 158,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Scene 4 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 202,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Scene 5 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 246,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Scene 6 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 290,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Scene 7 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 334,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Scene 8 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 378,
+          "y": 48,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Stop All Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 20,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Row 1",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 103,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Row 2",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 131,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Row 3",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 159,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Row 4",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 187,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "name": "Row 5",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 215,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "name": "Row 6",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 243,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "name": "Row 7",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 271,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "name": "Row 8",
+        "kind": "audio",
+        "position": {
+          "x": 27,
+          "y": 299,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "name": "Return A Left",
+        "kind": "audio",
+        "position": {
+          "x": 155,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "name": "Return A Right",
+        "kind": "audio",
+        "position": {
+          "x": 185,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "name": "Return B Left",
+        "kind": "audio",
+        "position": {
+          "x": 330,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "name": "Return B Right",
+        "kind": "audio",
+        "position": {
+          "x": 360,
+          "y": 355,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Row 1",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 103,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Row 2",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 131,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Row 3",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 159,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Row 4",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 187,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Row 5",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 215,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Row 6",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 243,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Row 7",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 271,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Row 8",
+        "kind": "audio",
+        "position": {
+          "x": 577,
+          "y": 299,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Send A Left",
+        "kind": "audio",
+        "position": {
+          "x": 80,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Send A Right",
+        "kind": "audio",
+        "position": {
+          "x": 110,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Send B Left",
+        "kind": "audio",
+        "position": {
+          "x": 245,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Send B Right",
+        "kind": "audio",
+        "position": {
+          "x": 275,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Mix Left",
+        "kind": "audio",
+        "position": {
+          "x": 535,
+          "y": 355,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mix Right",
+        "kind": "audio",
+        "position": {
+          "x": 565,
+          "y": 355,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "madzine-launchpad",
+          "actionBase": 1000,
+          "rows": 8,
+          "columns": 8,
+          "wavePoints": 32,
+          "cellWidth": 40,
+          "cellHeight": 28,
+          "spacingX": 44,
+          "spacingY": 28,
+          "x": 50,
+          "y": 89,
+          "width": 348,
+          "height": 224
+        }
+      ],
+      "initialMemory": 134217728,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/Launchpad/2.6.0/manifest.json",
+    "sourceCommit": "f8f8a93c0ec59255984ff2c3e56e080927b80522",
+    "artifact": {
+      "sha256": "ce4b4baa2b8ae96a6ed6102a198813a4dc51c7643c79bab79659a1140bb39458",
+      "size": 98888
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "f8f8a93c0ec59255984ff2c3e56e080927b80522"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T22:00:43.199Z"
+  }
+}
