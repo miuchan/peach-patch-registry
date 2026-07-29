@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Leviathan/TDScope",
+    "plugin": "Leviathan",
+    "model": "TDScope",
+    "name": "TD.Scope",
+    "brand": "Leviathan",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "libraryUrl": "https://library.vcvrack.com/Leviathan/TDScope",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Leviathan/TDScope.webp",
+    "wasmUrl": "packages/Leviathan/TDScope/2.8.0/module.wasm",
+    "width": 120,
+    "description": "Expander: Waveform display for Temporal Deck.",
+    "params": [],
+    "inputs": [],
+    "outputs": [],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallAperture<AmberGreenApertureLight>",
+        "position": {
+          "x": 9.449,
+          "y": 17.126,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "scopeDisplayRangeMode",
+        "type": "integer",
+        "name": "Scope Range",
+        "default": 3,
+        "values": [
+          "±5V full width",
+          "±10V full width",
+          "±2.5V full width",
+          "Auto (window peak)"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "scopeVerticalInverted",
+        "type": "boolean",
+        "name": "Inverted Vertical",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "scopeChannelMode",
+        "type": "integer",
+        "name": "Channel View",
+        "default": 0,
+        "values": [
+          "Mono",
+          "Stereo (side-by-side)"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "scopeColorScheme",
+        "type": "integer",
+        "name": "Colors",
+        "default": 0,
+        "values": [
+          "Default (Purple/Cyan)",
+          "Classic (Green/Red)",
+          "Monochrome (Gray/White)",
+          "Fire (Red/Yellow)",
+          "Retro Amber",
+          "Retro Green"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "scopeColorSchemeVersion",
+        "type": "integer",
+        "name": "Color Scheme Version",
+        "default": 2,
+        "contextOnly": false
+      },
+      {
+        "key": "scopeColorBrightness",
+        "type": "real",
+        "name": "Brightness",
+        "default": 0.5,
+        "contextOnly": true
+      },
+      {
+        "key": "debugUseGlShaderRenderer",
+        "type": "boolean",
+        "name": "Use GL Shader Renderer",
+        "default": 1,
+        "contextOnly": false
+      },
+      {
+        "key": "debugFramebufferCacheEnabled",
+        "type": "boolean",
+        "name": "Framebuffer Cache",
+        "default": 1,
+        "contextOnly": false
+      },
+      {
+        "key": "debugRenderMode",
+        "type": "integer",
+        "name": "Debug Render Mode",
+        "default": 7,
+        "contextOnly": false
+      },
+      {
+        "key": "debugUiPublishRateMode",
+        "type": "integer",
+        "name": "Scope Publish Rate",
+        "default": 0,
+        "values": [
+          "90 Hz",
+          "60 Hz",
+          "30 Hz"
+        ],
+        "contextOnly": false
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 32768,
+        "models": [
+          {
+            "key": "Leviathan/TemporalDeck",
+            "symbol": "modelTemporalDeck",
+            "index": 0
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "td-scope",
+          "offset": 0,
+          "x": 3.291,
+          "y": 27.728,
+          "width": 113.843,
+          "height": 327.666
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Leviathan/TDScope/2.8.0/manifest.json",
+    "sourceCommit": "329ced997934968efba04077b5922fd2442baf0d",
+    "artifact": {
+      "sha256": "d98dc8b4f46b877daaa6676c5a69e03a1811f10217ebfcfa34b555b99b18a5d0",
+      "size": 75903
+    }
+  },
+  "source": {
+    "url": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "commit": "329ced997934968efba04077b5922fd2442baf0d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T17:04:40.961Z"
+  }
+}
