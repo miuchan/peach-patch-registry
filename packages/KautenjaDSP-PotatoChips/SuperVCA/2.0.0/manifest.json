@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/SuperVCA",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "SuperVCA",
+    "name": "Super VCA",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/SuperVCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/SuperVCA.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/SuperVCA/2.0.0/module.wasm",
+    "width": 90,
+    "description": "An emulation of the Gaussian interpolation filter effect from the S-SMP chip on the Super Nintendo Entertainment System (SNES).",
+    "params": [
+      {
+        "id": 0,
+        "name": "Filter Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 49,
+          "y": 32,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input Gain (Left)",
+        "min": 0,
+        "max": 1.9952623844146729,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 278,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Input Gain (Right)",
+        "min": 0,
+        "max": 1.9952623844146729,
+        "default": 1,
+        "position": {
+          "x": 54,
+          "y": 278,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Output Level (Left)",
+        "min": -128,
+        "max": 127,
+        "default": 60,
+        "position": {
+          "x": 15,
+          "y": 163,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Output Level (Right)",
+        "min": -128,
+        "max": 127,
+        "default": 60,
+        "position": {
+          "x": 54,
+          "y": 163,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Frequency (Left)",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 77,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Frequency (Right)",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 54,
+          "y": 77,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 32,
+          "widget": "CKSS"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input Filter",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Volume (Left)",
+        "kind": "cv",
+        "position": {
+          "x": 12,
+          "y": 200
+        }
+      },
+      {
+        "id": 2,
+        "name": "Volume (Right)",
+        "kind": "cv",
+        "position": {
+          "x": 51,
+          "y": 200
+        }
+      },
+      {
+        "id": 3,
+        "name": "Audio (Left)",
+        "kind": "audio",
+        "position": {
+          "x": 12,
+          "y": 243
+        }
+      },
+      {
+        "id": 4,
+        "name": "Audio (Right)",
+        "kind": "audio",
+        "position": {
+          "x": 51,
+          "y": 243
+        }
+      },
+      {
+        "id": 5,
+        "name": "V/Oct (Left)",
+        "kind": "cv",
+        "position": {
+          "x": 12,
+          "y": 114
+        }
+      },
+      {
+        "id": 6,
+        "name": "V/Oct (Right)",
+        "kind": "cv",
+        "position": {
+          "x": 51,
+          "y": 114
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Audio (Left)",
+        "kind": "audio",
+        "position": {
+          "x": 12,
+          "y": 323
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio (Right)",
+        "kind": "audio",
+        "position": {
+          "x": 51,
+          "y": 323
+        }
+      }
+    ],
+    "lights": 15,
+    "lightWidgets": [
+      {
+        "id": 12,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 67,
+          "y": 44
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 5,
+          "y": 236
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 44,
+          "y": 236
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 5,
+          "y": 311
+        }
+      },
+      {
+        "id": 9,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 44,
+          "y": 311
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "filterMode",
+        "type": "integer",
+        "name": "Filter Mode",
+        "default": 0,
+        "values": [
+          "Loud",
+          "Weird",
+          "Quiet",
+          "Barely Audible"
+        ]
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/SuperVCA/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "ba791964f37b4c99942f5839eb251ea8d1d0f3092adf6e55e33d98fdce29347f",
+      "size": 84502
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T13:56:42.669Z"
+  }
+}
