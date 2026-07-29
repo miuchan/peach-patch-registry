@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/SuperADSR",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "SuperADSR",
+    "name": "Super ADSR",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/SuperADSR",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/SuperADSR.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/SuperADSR/2.0.0/module.wasm",
+    "width": 180,
+    "description": "An emulation of the ADSR envelope generator from the S-SMP chip on the Super Nintendo Entertainment System (SNES).",
+    "params": [
+      {
+        "id": 0,
+        "name": "Amplitude",
+        "min": -128,
+        "max": 127,
+        "default": 127,
+        "position": {
+          "x": 12,
+          "y": 48,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Amplitude",
+        "min": -128,
+        "max": 127,
+        "default": 127,
+        "position": {
+          "x": 12,
+          "y": 167,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 2,
+        "name": "Attack",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 46,
+          "y": 48,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Attack",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 46,
+          "y": 167,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Decay",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 80,
+          "y": 48,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Decay",
+        "min": 0,
+        "max": 7,
+        "default": 7,
+        "position": {
+          "x": 80,
+          "y": 167,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Sustain Level",
+        "min": 0,
+        "max": 7,
+        "default": 5,
+        "position": {
+          "x": 114,
+          "y": 48,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Sustain Level",
+        "min": 0,
+        "max": 7,
+        "default": 5,
+        "position": {
+          "x": 114,
+          "y": 167,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Sustain Rate",
+        "min": 0,
+        "max": 31,
+        "default": 20,
+        "position": {
+          "x": 148,
+          "y": 48,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Sustain Rate",
+        "min": 0,
+        "max": 31,
+        "default": 20,
+        "position": {
+          "x": 148,
+          "y": 167,
+          "widget": "LEDLightSlider<RedGreenBlueLight>"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 20,
+          "y": 281
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 104,
+          "y": 281
+        }
+      },
+      {
+        "id": 2,
+        "name": "Retrig",
+        "kind": "gate",
+        "position": {
+          "x": 53,
+          "y": 281
+        }
+      },
+      {
+        "id": 3,
+        "name": "Retrig",
+        "kind": "gate",
+        "position": {
+          "x": 137,
+          "y": 281
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 324
+        }
+      },
+      {
+        "id": 1,
+        "name": "Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 104,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Inverted",
+        "kind": "cv",
+        "position": {
+          "x": 53,
+          "y": 324
+        }
+      },
+      {
+        "id": 3,
+        "name": "Inverted",
+        "kind": "cv",
+        "position": {
+          "x": 137,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 30,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 12,
+          "y": 48
+        },
+        "paramId": 0
+      },
+      {
+        "id": 3,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 12,
+          "y": 167
+        },
+        "paramId": 1
+      },
+      {
+        "id": 6,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 46,
+          "y": 48
+        },
+        "paramId": 2
+      },
+      {
+        "id": 9,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 46,
+          "y": 167
+        },
+        "paramId": 3
+      },
+      {
+        "id": 12,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 80,
+          "y": 48
+        },
+        "paramId": 4
+      },
+      {
+        "id": 15,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 80,
+          "y": 167
+        },
+        "paramId": 5
+      },
+      {
+        "id": 18,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 114,
+          "y": 48
+        },
+        "paramId": 6
+      },
+      {
+        "id": 21,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 114,
+          "y": 167
+        },
+        "paramId": 7
+      },
+      {
+        "id": 24,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 148,
+          "y": 48
+        },
+        "paramId": 8
+      },
+      {
+        "id": 27,
+        "widget": "LEDLightSlider<RedGreenBlueLight>",
+        "position": {
+          "x": 148,
+          "y": 167
+        },
+        "paramId": 9
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/SuperADSR/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "5369c88dc95ba0b96f4d741de87404c1d23b3aeb67b4c21f23f8448b589cc29c",
+      "size": 78184
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T13:29:00.937Z"
+  }
+}
