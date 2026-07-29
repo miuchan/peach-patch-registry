@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Leviathan/TemporalDeck",
+    "plugin": "Leviathan",
+    "model": "TemporalDeck",
+    "name": "Temporal Deck",
+    "brand": "Leviathan",
+    "version": "2.8.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "libraryUrl": "https://library.vcvrack.com/Leviathan/TemporalDeck",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Leviathan/TemporalDeck.webp",
+    "wasmUrl": "packages/Leviathan/TemporalDeck/2.8.0/module.wasm",
+    "width": 300,
+    "description": "Virtual turntable with modern hybrid control.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Buffer",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 24.827,
+          "y": 50.451,
+          "centered": true,
+          "widget": "Eclipse2Knob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 61.68,
+          "y": 292.99,
+          "centered": true,
+          "widget": "Eclipse2Knob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scratch sensitivity",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 27.93,
+          "y": 248.238,
+          "centered": true,
+          "widget": "Eclipse2Knob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mix",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 209.593,
+          "y": 291.945,
+          "centered": true,
+          "widget": "Eclipse2Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 209.593,
+          "y": 333.65,
+          "centered": true,
+          "widget": "Eclipse2Knob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Freeze",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 169.783,
+          "y": 298.524,
+          "centered": true,
+          "widget": "SmallGoldButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reverse",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 134.646,
+          "y": 298.524,
+          "centered": true,
+          "widget": "SmallGoldButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Slip",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 98.031,
+          "y": 298.524,
+          "centered": true,
+          "widget": "SmallGoldButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Cycle cartridge",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247.559,
+          "y": 242.215,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Spawn TD.Scope",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 247.441,
+          "y": 212.598,
+          "centered": true,
+          "widget": "TemporalDeckScopeSpawnButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Position CV",
+        "kind": "cv",
+        "position": {
+          "x": 134.838,
+          "y": 333.366,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Rate CV",
+        "kind": "cv",
+        "position": {
+          "x": 61.727,
+          "y": 333.366,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 24.912,
+          "y": 292.358,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 25.033,
+          "y": 333.366,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Scratch gate",
+        "kind": "gate",
+        "position": {
+          "x": 98.631,
+          "y": 333.366,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Freeze gate",
+        "kind": "gate",
+        "position": {
+          "x": 169.783,
+          "y": 333.366,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Reverse gate",
+        "kind": "cv",
+        "position": {
+          "x": 116.634,
+          "y": 333.366,
+          "centered": true,
+          "widget": "Magitek2InputJack"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left audio",
+        "kind": "audio",
+        "position": {
+          "x": 278.271,
+          "y": 292.358,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Scratch gate",
+        "kind": "gate",
+        "position": {
+          "x": 245.188,
+          "y": 292.721,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Right audio",
+        "kind": "audio",
+        "position": {
+          "x": 278.15,
+          "y": 334.093,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Scratch position",
+        "kind": "cv",
+        "position": {
+          "x": 245.067,
+          "y": 334.456,
+          "centered": true,
+          "widget": "Magitek2OutputJack"
+        }
+      }
+    ],
+    "lights": 69,
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "TinyAperture<RedApertureLight>",
+        "position": {
+          "x": 90.945,
+          "y": 281.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinyAperture<RedApertureLight>",
+        "position": {
+          "x": 105.118,
+          "y": 281.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallAperture<RedApertureLight>",
+        "position": {
+          "x": 169.783,
+          "y": 281.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallAperture<RedApertureLight>",
+        "position": {
+          "x": 134.646,
+          "y": 281.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyAperture<RedApertureLight>",
+        "position": {
+          "x": 98.031,
+          "y": 281.398,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallAperture<AmberGreenApertureLight>",
+        "position": {
+          "x": 290.551,
+          "y": 17.126,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "freezeLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "reverseLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "slipLatched",
+        "type": "boolean"
+      },
+      {
+        "key": "scratchInterpolationMode",
+        "type": "integer"
+      },
+      {
+        "key": "highQualityRateInterpolation",
+        "type": "boolean"
+      },
+      {
+        "key": "externalGatePosMode",
+        "type": "integer"
+      },
+      {
+        "key": "freezeCvMode",
+        "type": "integer"
+      },
+      {
+        "key": "reverseCvMode",
+        "type": "integer"
+      },
+      {
+        "key": "slipReturnMode",
+        "type": "integer"
+      },
+      {
+        "key": "cartridgeCharacter",
+        "type": "integer"
+      },
+      {
+        "key": "bufferDurationMode",
+        "type": "integer"
+      },
+      {
+        "key": "sampleModeEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "sampleLoopEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "platterArtMode",
+        "type": "integer"
+      },
+      {
+        "key": "platterBrightnessMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Leviathan/TDScope",
+            "symbol": "modelTDScope",
+            "index": 0
+          }
+        ]
+      },
+      "asset": {
+        "type": "audio",
+        "maxSamples": 960000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "visuals": [
+        {
+          "kind": "temporal-deck",
+          "offset": 0,
+          "lightStart": 7,
+          "redLightStart": 38,
+          "x": 62.894,
+          "y": 125.492,
+          "width": 174.213,
+          "height": 174.213
+        }
+      ],
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Leviathan/TemporalDeck/2.8.0/manifest.json",
+    "sourceCommit": "329ced997934968efba04077b5922fd2442baf0d",
+    "artifact": {
+      "sha256": "596ea18222d6881f73d4d25d6f0010728852292771f08b26b8626f24026f92df",
+      "size": 141666
+    }
+  },
+  "source": {
+    "url": "https://github.com/PlasmaChroma/Leviathan-Rack2",
+    "commit": "329ced997934968efba04077b5922fd2442baf0d"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T16:47:01.706Z"
+  }
+}
