@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "LOGinstruments/Speck",
+    "plugin": "LOGinstruments",
+    "model": "Speck",
+    "name": "Speck",
+    "brand": "LOGinstruments",
+    "version": "2.0.4",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/LOGUNIVPM/LOGinstruments",
+    "libraryUrl": "https://library.vcvrack.com/LOGinstruments/Speck",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/LOGinstruments/Speck.webp",
+    "wasmUrl": "packages/LOGinstruments/Speck/2.0.4/module.wasm",
+    "width": 300,
+    "description": "FFT Spectrum Analysis",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale 1",
+        "min": -5,
+        "max": 5,
+        "default": -2,
+        "position": {
+          "x": 118,
+          "y": 244,
+          "widget": "RoundBlackSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Position 1",
+        "min": -1,
+        "max": 1,
+        "default": -1,
+        "position": {
+          "x": 118,
+          "y": 297,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Scale 2",
+        "min": -5,
+        "max": 5,
+        "default": -2,
+        "position": {
+          "x": 167,
+          "y": 244,
+          "widget": "RoundBlackSnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Position 2",
+        "min": -1,
+        "max": 1,
+        "default": -1,
+        "position": {
+          "x": 167,
+          "y": 297,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Zoom",
+        "min": 1,
+        "max": 8,
+        "default": 1,
+        "position": {
+          "x": 213,
+          "y": 244,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Linlog",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 258,
+          "y": 244,
+          "widget": "CKD6"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Foffs",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 213,
+          "y": 297,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Onoff",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 239,
+          "y": 12,
+          "widget": "CKD6"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Input 1",
+        "kind": "audio",
+        "position": {
+          "x": 12,
+          "y": 240
+        }
+      },
+      {
+        "id": 1,
+        "name": "Input 2",
+        "kind": "audio",
+        "position": {
+          "x": 59,
+          "y": 240
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "audio",
+        "position": {
+          "x": 9,
+          "y": 306
+        }
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "audio",
+        "position": {
+          "x": 56,
+          "y": 306
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 286,
+          "y": 230
+        }
+      },
+      {
+        "id": 1,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 286,
+          "y": 280
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<GreenLight>",
+        "position": {
+          "x": 265,
+          "y": 8
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "linLog",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "speck-spectrum",
+          "bins": 1025,
+          "x": 0,
+          "y": 44,
+          "width": 300,
+          "height": 165
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/LOGinstruments/Speck/2.0.4/manifest.json",
+    "sourceCommit": "1fc62fafe66bd622432db895a09ef1e3afc4531c",
+    "artifact": {
+      "sha256": "87366ef70701aec98a8bc014518e38bdcab7d2b840dea03386abf3497c423496",
+      "size": 90701
+    }
+  },
+  "source": {
+    "url": "https://github.com/LOGUNIVPM/LOGinstruments",
+    "commit": "1fc62fafe66bd622432db895a09ef1e3afc4531c"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T15:03:12.259Z"
+  }
+}
