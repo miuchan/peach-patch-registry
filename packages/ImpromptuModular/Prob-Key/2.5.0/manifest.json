@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ImpromptuModular/Prob-Key",
+    "plugin": "ImpromptuModular",
+    "model": "Prob-Key",
+    "name": "ProbKey",
+    "brand": "Impromptu",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/ImpromptuModular/",
+    "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Prob-Key",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Prob-Key.webp",
+    "wasmUrl": "packages/ImpromptuModular/Prob-Key/2.5.0/module.wasm",
+    "width": 375,
+    "description": "Keyboard-based random sequencer",
+    "params": [
+      {
+        "id": 0,
+        "name": "Index",
+        "min": 0,
+        "max": 24,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 32.48,
+          "y": 246.555,
+          "centered": true,
+          "widget": "IMMediumKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Lock length",
+        "min": 0,
+        "max": 31,
+        "default": 31,
+        "snap": true,
+        "position": {
+          "x": 295.276,
+          "y": 246.555,
+          "centered": true,
+          "widget": "LengthKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Lock sequence",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 239.173,
+          "y": 249.508,
+          "centered": true,
+          "widget": "IMBigKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Manual lock opposite",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 239.173,
+          "y": 296.752,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        },
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 4,
+        "name": "Oct range offset",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 183.071,
+          "y": 246.555,
+          "centered": true,
+          "widget": "IMMediumKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Oct range squash",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 132.874,
+          "y": 246.555,
+          "centered": true,
+          "widget": "IMMediumKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Edit note probabilities",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 345.472,
+          "y": 121.654,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Edit note octave refs",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 345.472,
+          "y": 160.039,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Edit octave range",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 345.472,
+          "y": 198.425,
+          "centered": true,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 82.677,
+          "y": 246.555,
+          "centered": true,
+          "widget": "IMMediumKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Copy keyboard values",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 345.472,
+          "y": 246.555,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Paste keyboard values",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 345.472,
+          "y": 284.941,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Transpose up 1 semitone",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 345.472,
+          "y": 44.882,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Transpose down 1 semitone",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 345.472,
+          "y": 80.315,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Index",
+        "kind": "cv",
+        "position": {
+          "x": 32.48,
+          "y": 284.941,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Length",
+        "kind": "cv",
+        "position": {
+          "x": 295.276,
+          "y": 284.941,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Lock",
+        "kind": "cv",
+        "position": {
+          "x": 239.173,
+          "y": 336.614,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Offset",
+        "kind": "cv",
+        "position": {
+          "x": 183.071,
+          "y": 284.941,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Squash",
+        "kind": "cv",
+        "position": {
+          "x": 132.874,
+          "y": 284.941,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 32.48,
+          "y": 336.614,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Hold",
+        "kind": "gate",
+        "position": {
+          "x": 82.677,
+          "y": 336.614,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Density",
+        "kind": "cv",
+        "position": {
+          "x": 82.677,
+          "y": 284.941,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 345.472,
+          "y": 336.614,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 295.276,
+          "y": 336.614,
+          "centered": true,
+          "widget": "IMPort"
+        }
+      }
+    ],
+    "lights": 153,
+    "lightWidgets": [
+      {
+        "id": 150,
+        "widget": "SmallLight<GreenRedLightIM>",
+        "position": {
+          "x": 69.39,
+          "y": 266.339,
+          "centered": true
+        }
+      },
+      {
+        "id": 152,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 224.409,
+          "y": 276.673,
+          "centered": true
+        }
+      },
+      {
+        "id": 144,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 345.472,
+          "y": 121.654,
+          "centered": true
+        }
+      },
+      {
+        "id": 146,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 345.472,
+          "y": 160.039,
+          "centered": true
+        }
+      },
+      {
+        "id": 148,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 345.472,
+          "y": 198.425,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "noteProbs",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "noteAnchors",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "noteRanges",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "noteRanges",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "noteRanges",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "noteRanges",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "noteRanges",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "noteRanges",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "noteRanges",
+        "type": "real"
+      },
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "editMode",
+        "type": "integer"
+      },
+      {
+        "key": "overlap",
+        "type": "real"
+      },
+      {
+        "key": "indexCvCap12",
+        "type": "integer"
+      },
+      {
+        "key": "showTracer",
+        "type": "integer"
+      },
+      {
+        "key": "perIndexManualLocks",
+        "type": "integer"
+      },
+      {
+        "key": "stepLock",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "phrase-seq-display",
+          "digits": 4,
+          "label": "ProbKey display",
+          "x": 122.472,
+          "y": 315.709,
+          "width": 71,
+          "height": 30
+        },
+        {
+          "kind": "piano-keyboard",
+          "actionBase": 1000,
+          "keys": 12,
+          "voices": 4,
+          "lightStart": 0,
+          "lightStride": 12,
+          "lightVoiceStride": 3,
+          "lightChannels": 3,
+          "lightOrder": "bottom-up",
+          "actionSteps": 256,
+          "fixedKeyOnDrag": true,
+          "modifierBank": "shift",
+          "x": 19.114,
+          "y": 34.715,
+          "width": 292,
+          "height": 155,
+          "layout": "big"
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ImpromptuModular/Prob-Key/2.5.0/manifest.json",
+    "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
+    "artifact": {
+      "sha256": "1b9745c39879fd125b7a392b72093dc41ccf776b70d61b33a4c07a5449b28806",
+      "size": 116282
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/ImpromptuModular/",
+    "commit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T08:51:06.913Z"
+  }
+}
