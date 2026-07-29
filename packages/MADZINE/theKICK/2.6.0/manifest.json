@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/theKICK",
+    "plugin": "MADZINE",
+    "model": "theKICK",
+    "name": "theKICK",
+    "brand": "MADZINE",
+    "version": "2.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/theKICK",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/theKICK.webp",
+    "wasmUrl": "packages/MADZINE/theKICK/2.6.0/module.wasm",
+    "width": 120,
+    "description": "Kick drum synthesizer with pitch sweep, bend curve and tanh waveshaper",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "min": 20,
+        "max": 200,
+        "default": 47,
+        "position": {
+          "x": 32,
+          "y": 60,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sweep",
+        "min": 0,
+        "max": 500,
+        "default": 260,
+        "position": {
+          "x": 32,
+          "y": 135,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bend",
+        "min": 0.5,
+        "max": 4,
+        "default": 0.8799999952316284,
+        "position": {
+          "x": 32,
+          "y": 210,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Decay",
+        "min": 10,
+        "max": 1000,
+        "default": 136,
+        "position": {
+          "x": 24,
+          "y": 288,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Fold",
+        "min": 0,
+        "max": 10,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 98,
+          "y": 288,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Sample",
+        "min": 0,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 135,
+          "centered": true,
+          "widget": "theKICKFMKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Feedback",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 210,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tone",
+        "min": 0,
+        "max": 10,
+        "default": 10,
+        "position": {
+          "x": 61,
+          "y": 288,
+          "centered": true,
+          "widget": "madzine::widgets::WhiteKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "FM Mode",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 90,
+          "y": 86,
+          "centered": true,
+          "widget": "VCVButton"
+        },
+        "button": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22,
+          "y": 356,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch CV (V/Oct)",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 88,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sweep CV",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 163,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bend CV",
+        "kind": "cv",
+        "position": {
+          "x": 32,
+          "y": 238,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 24,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fold CV",
+        "kind": "cv",
+        "position": {
+          "x": 98,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 238,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Tone CV",
+        "kind": "cv",
+        "position": {
+          "x": 61,
+          "y": 316,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Sample CV",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 163,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Accent",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 356,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Kick Output",
+        "kind": "audio",
+        "position": {
+          "x": 98,
+          "y": 356,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 90,
+          "y": 86,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "modeValue",
+        "type": "integer"
+      },
+      {
+        "key": "oversampleRate",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 960000,
+        "maxSeconds": 10,
+        "channels": 2
+      },
+      "visuals": [
+        {
+          "kind": "the-kick-sample",
+          "clearAction": 1000,
+          "modeActionBase": 1010,
+          "modeParam": 8,
+          "loadX": 67,
+          "loadY": 53,
+          "loadWidth": 46,
+          "loadHeight": 18,
+          "labelX": 60,
+          "labelY": 107,
+          "labelWidth": 60,
+          "labelHeight": 68,
+          "modeX": 82,
+          "modeY": 78,
+          "modeWidth": 16,
+          "modeHeight": 16,
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        }
+      ],
+      "initialMemory": 8388608,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/theKICK/2.6.0/manifest.json",
+    "sourceCommit": "f8f8a93c0ec59255984ff2c3e56e080927b80522",
+    "artifact": {
+      "sha256": "98fd2462207be627b11354d11b8130f283e4bd3c337d522b2e9e47ac4a229e9a",
+      "size": 97929
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "f8f8a93c0ec59255984ff2c3e56e080927b80522"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T22:13:45.563Z"
+  }
+}
