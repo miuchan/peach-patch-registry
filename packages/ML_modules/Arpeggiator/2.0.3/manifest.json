@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "ML_modules/Arpeggiator",
+    "plugin": "ML_modules",
+    "model": "Arpeggiator",
+    "name": "Arpeggiator",
+    "brand": "ML Modules",
+    "version": "2.0.3",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/martin-lueders/ML_modules",
+    "libraryUrl": "https://library.vcvrack.com/ML_modules/Arpeggiator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ML_modules/Arpeggiator.webp",
+    "wasmUrl": "packages/ML_modules/Arpeggiator/2.0.3/module.wasm",
+    "width": 150,
+    "description": "multi-channel arpeggiator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Note Order",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 35,
+          "widget": "MLSmallButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "CV1 Mode",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 35,
+          "y": 300,
+          "widget": "MLSliderHoriz3"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV2 Mode",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 35,
+          "y": 335,
+          "widget": "MLSliderHoriz3"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Arp mode +",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 110,
+          "widget": "MLSmallButtonUp"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Arp mode -",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 130,
+          "widget": "MLSmallButtonDn"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Arp range +",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 60,
+          "widget": "MLSmallButtonUp"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Arp range -",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 80,
+          "widget": "MLSmallButtonDn"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Hold reversal",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 7,
+          "y": 178,
+          "widget": "ML_SmallLEDButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 260
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 225
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV 1",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 295
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV 2",
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 330
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV 3",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 175
+        }
+      },
+      {
+        "id": 6,
+        "name": "Mode",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 115
+        }
+      },
+      {
+        "id": 7,
+        "name": "Range",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 75
+        }
+      },
+      {
+        "id": 8,
+        "name": "Order",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 35
+        }
+      },
+      {
+        "id": 9,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 175
+        }
+      },
+      {
+        "id": 10,
+        "name": "Hold revert",
+        "kind": "gate",
+        "position": {
+          "x": 35,
+          "y": 175
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 260
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 225
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV 1",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 295
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV 2",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 330
+        }
+      },
+      {
+        "id": 4,
+        "name": "CV 3",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Number of notes",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MLSmallLight<RedLight>",
+        "position": {
+          "x": 11,
+          "y": 182
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "order",
+        "type": "integer"
+      },
+      {
+        "key": "range",
+        "type": "integer"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      },
+      {
+        "key": "hold",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "ml-arpeggiator",
+          "channels": 16,
+          "rows": 17,
+          "x": 31,
+          "y": 35,
+          "width": 60,
+          "height": 120
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/ML_modules/Arpeggiator/2.0.3/manifest.json",
+    "sourceCommit": "05ac273285dca1da828deca5aba37c0b7df0fbbd",
+    "artifact": {
+      "sha256": "1cde11705d0adc7d9ee013b0d6fb77b90fe168aee377836cee3e72ab8861fffd",
+      "size": 88258
+    }
+  },
+  "source": {
+    "url": "https://github.com/martin-lueders/ML_modules",
+    "commit": "05ac273285dca1da828deca5aba37c0b7df0fbbd"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T22:51:13.291Z"
+  }
+}
