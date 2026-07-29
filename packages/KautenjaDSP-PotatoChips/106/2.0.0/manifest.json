@@ -1,0 +1,839 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/106",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "106",
+    "name": "Name Corp Octal Wave Generator",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/106",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/106.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/106/2.0.0/module.wasm",
+    "width": 480,
+    "description": "An emulation of the Namco 163 wavetable chip from Nintendo Entertainment System (NES) cartridges.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Voice 1 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 43,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Voice 2 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 84,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Voice 3 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 125,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voice 4 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 166,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Voice 5 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 207,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Voice 6 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 248,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Voice 7 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 289,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Voice 8 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 251,
+          "y": 330,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Voice 1 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 43,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Voice 2 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 84,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Voice 3 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 125,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Voice 4 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 166,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Voice 5 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 207,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Voice 6 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 248,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Voice 7 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 289,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Voice 8 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 294,
+          "y": 330,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Voice 1 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 43,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Voice 2 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 84,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Voice 3 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 125,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Voice 4 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 166,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Voice 5 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 207,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Voice 6 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 248,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 22,
+        "name": "Voice 7 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 289,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 23,
+        "name": "Voice 8 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 15,
+        "position": {
+          "x": 401,
+          "y": 330,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 24,
+        "name": "Active Channels",
+        "min": 1,
+        "max": 8,
+        "default": 4,
+        "position": {
+          "x": 156,
+          "y": 42,
+          "widget": "Rogan3PWhite"
+        },
+        "snap": true
+      },
+      {
+        "id": 25,
+        "name": "Active Channels Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 168,
+          "y": 110,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 26,
+        "name": "Waveform Morph",
+        "min": 1,
+        "max": 5,
+        "default": 1,
+        "position": {
+          "x": 156,
+          "y": 214,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Waveform Morph Attenuverter",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 168,
+          "y": 282,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Voice 1 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 40
+        }
+      },
+      {
+        "id": 1,
+        "name": "Voice 2 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 81
+        }
+      },
+      {
+        "id": 2,
+        "name": "Voice 3 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 122
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voice 4 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 163
+        }
+      },
+      {
+        "id": 4,
+        "name": "Voice 5 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 204
+        }
+      },
+      {
+        "id": 5,
+        "name": "Voice 6 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 245
+        }
+      },
+      {
+        "id": 6,
+        "name": "Voice 7 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 286
+        }
+      },
+      {
+        "id": 7,
+        "name": "Voice 8 V/Oct",
+        "kind": "audio",
+        "position": {
+          "x": 212,
+          "y": 327
+        }
+      },
+      {
+        "id": 8,
+        "name": "Voice 1 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 40
+        }
+      },
+      {
+        "id": 9,
+        "name": "Voice 2 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 81
+        }
+      },
+      {
+        "id": 10,
+        "name": "Voice 3 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 122
+        }
+      },
+      {
+        "id": 11,
+        "name": "Voice 4 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 163
+        }
+      },
+      {
+        "id": 12,
+        "name": "Voice 5 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 204
+        }
+      },
+      {
+        "id": 13,
+        "name": "Voice 6 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 245
+        }
+      },
+      {
+        "id": 14,
+        "name": "Voice 7 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 286
+        }
+      },
+      {
+        "id": 15,
+        "name": "Voice 8 FM",
+        "kind": "audio",
+        "position": {
+          "x": 328,
+          "y": 327
+        }
+      },
+      {
+        "id": 16,
+        "name": "Voice 1 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 40
+        }
+      },
+      {
+        "id": 17,
+        "name": "Voice 2 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 81
+        }
+      },
+      {
+        "id": 18,
+        "name": "Voice 3 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 122
+        }
+      },
+      {
+        "id": 19,
+        "name": "Voice 4 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 163
+        }
+      },
+      {
+        "id": 20,
+        "name": "Voice 5 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 204
+        }
+      },
+      {
+        "id": 21,
+        "name": "Voice 6 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 245
+        }
+      },
+      {
+        "id": 22,
+        "name": "Voice 7 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 286
+        }
+      },
+      {
+        "id": 23,
+        "name": "Voice 8 Volume",
+        "kind": "audio",
+        "position": {
+          "x": 362,
+          "y": 327
+        }
+      },
+      {
+        "id": 24,
+        "name": "Active Channels",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 153
+        }
+      },
+      {
+        "id": 25,
+        "name": "Waveform Morph",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 325
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Voice 1 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 40
+        }
+      },
+      {
+        "id": 1,
+        "name": "Voice 2 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 81
+        }
+      },
+      {
+        "id": 2,
+        "name": "Voice 3 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 122
+        }
+      },
+      {
+        "id": 3,
+        "name": "Voice 4 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 163
+        }
+      },
+      {
+        "id": 4,
+        "name": "Voice 5 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 204
+        }
+      },
+      {
+        "id": 5,
+        "name": "Voice 6 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 245
+        }
+      },
+      {
+        "id": 6,
+        "name": "Voice 7 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 286
+        }
+      },
+      {
+        "id": 7,
+        "name": "Voice 8 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 437,
+          "y": 327
+        }
+      }
+    ],
+    "lights": 48,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 60
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 101
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 142
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 183
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 224
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 265
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 306
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 431,
+          "y": 347
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 60
+        }
+      },
+      {
+        "id": 27,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 101
+        }
+      },
+      {
+        "id": 30,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 142
+        }
+      },
+      {
+        "id": 33,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 183
+        }
+      },
+      {
+        "id": 36,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 224
+        }
+      },
+      {
+        "id": 39,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 265
+        }
+      },
+      {
+        "id": 42,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 306
+        }
+      },
+      {
+        "id": 45,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 460,
+          "y": 347
+        }
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "wavetable-editor",
+          "actionBase": 1000,
+          "tables": 5,
+          "samples": 32,
+          "bitDepth": 15,
+          "x": 10,
+          "y": 26,
+          "width": 135,
+          "height": 60,
+          "gap": 8,
+          "colors": [
+            "#ff0000",
+            "#00ff00",
+            "#0000ff",
+            "#ffff00",
+            "#ffffff"
+          ]
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/106/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "ab01ba5c275245859d13f0f0b20127fc24cfa902ced49f03abe300cc21823e70",
+      "size": 99410
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T12:39:04.599Z"
+  }
+}
