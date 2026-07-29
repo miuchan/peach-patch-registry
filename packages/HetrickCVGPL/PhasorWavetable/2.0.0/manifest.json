@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "HetrickCVGPL/PhasorWavetable",
+    "plugin": "HetrickCVGPL",
+    "model": "PhasorWavetable",
+    "name": "Phasor Wavetable",
+    "brand": "HetrickCV",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mhetrick/phasorbeatgen",
+    "libraryUrl": "https://library.vcvrack.com/HetrickCVGPL/PhasorWavetable",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/HetrickCVGPL/PhasorWavetable.webp",
+    "wasmUrl": "packages/HetrickCVGPL/PhasorWavetable/2.0.0/module.wasm",
+    "width": 105,
+    "description": "Phasor-driven wavetable oscillator. Load custom wavetables from WAV files. LFO mode for non-antialiased output, VCO mode with mipmap antialiasing for audio-rate use.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Wavetable position",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 13.5,
+          "y": 162,
+          "widget": "HCVThemedRogan"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wavetable position CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 220,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Offset",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "values": [
+          "Bipolar",
+          "Unipolar"
+        ],
+        "position": {
+          "x": 63,
+          "y": 253,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "values": [
+          "LFO (no antialiasing)",
+          "VCO (antialiased)"
+        ],
+        "position": {
+          "x": 63,
+          "y": 181,
+          "widget": "CKSS"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Phasor",
+        "kind": "cv",
+        "position": {
+          "x": 29.528,
+          "y": 318.898,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wavetable position",
+        "kind": "cv",
+        "position": {
+          "x": 17,
+          "y": 270,
+          "widget": "ThemedPJ301MPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Wavetable",
+        "kind": "audio",
+        "position": {
+          "x": 70.866,
+          "y": 318.898,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "waveLen",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "asset": {
+        "type": "audio",
+        "maxSamples": 65536,
+        "maxSeconds": 0,
+        "channels": 2
+      },
+      "visuals": [
+        {
+          "kind": "wavetable-display",
+          "x": 0,
+          "y": 56.102,
+          "width": 105,
+          "height": 86.291
+        }
+      ],
+      "initialMemory": 37748736,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/HetrickCVGPL/PhasorWavetable/2.0.0/manifest.json",
+    "sourceCommit": "56bf82b2fcb9fe833d3ea7cc43b3b4f44f8f63ef",
+    "artifact": {
+      "sha256": "d05eac0dedfa6f4c3eeaaebe69f15b8a08cffdfa68bb6139b01930cf2596b951",
+      "size": 93978
+    }
+  },
+  "source": {
+    "url": "https://github.com/mhetrick/phasorbeatgen",
+    "commit": "56bf82b2fcb9fe833d3ea7cc43b3b4f44f8f63ef"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T00:51:32.681Z"
+  }
+}
