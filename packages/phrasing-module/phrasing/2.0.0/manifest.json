@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "phrasing-module/phrasing",
+    "plugin": "phrasing-module",
+    "model": "phrasing",
+    "name": "Phrasing",
+    "brand": "THEREELPEET",
+    "version": "2.0.0",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/boocup/PhrasingModule",
+    "libraryUrl": "https://library.vcvrack.com/phrasing-module/phrasing",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/phrasing-module/phrasing.webp",
+    "wasmUrl": "packages/phrasing-module/phrasing/2.0.0/module.wasm",
+    "width": 150,
+    "description": "Phrasing and presence controller. Shapes rests, repeats, changes, and level-focused dynamics; intended to drive VCAs or Morph 4-style level CV inputs.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 73,
+          "y": 40,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Gap Jitter",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 33,
+          "y": 40,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Duration Jitter",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 113,
+          "y": 40,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Guarantee one lane",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 143,
+          "y": 40,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Lane 1 Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22,
+          "y": 105,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Lane 2 Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 56,
+          "y": 105,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Lane 3 Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 90,
+          "y": 105,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Lane 4 Enable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 124,
+          "y": 105,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Weight I",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929,
+        "position": {
+          "x": 22,
+          "y": 150,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Weight II",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929,
+        "position": {
+          "x": 56,
+          "y": 150,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Weight III",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929,
+        "position": {
+          "x": 90,
+          "y": 150,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Weight IV",
+        "min": 0,
+        "max": 1,
+        "default": 0.800000011920929,
+        "position": {
+          "x": 124,
+          "y": 150,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Duration I",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 22,
+          "y": 190,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Duration II",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 56,
+          "y": 190,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Duration III",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 90,
+          "y": 190,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Duration IV",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 124,
+          "y": 190,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Floor I",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22,
+          "y": 230,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Floor II",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 56,
+          "y": 230,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Floor III",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 230,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Floor IV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 124,
+          "y": 230,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Density CV",
+        "kind": "cv",
+        "position": {
+          "x": 73,
+          "y": 76,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trig 1",
+        "kind": "gate",
+        "position": {
+          "x": 22,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Trig 2",
+        "kind": "gate",
+        "position": {
+          "x": 56,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Trig 3",
+        "kind": "gate",
+        "position": {
+          "x": 90,
+          "y": 305,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trig 4",
+        "kind": "gate",
+        "position": {
+          "x": 124,
+          "y": 305,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Lane CV I",
+        "kind": "cv",
+        "position": {
+          "x": 22,
+          "y": 340,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Lane CV II",
+        "kind": "cv",
+        "position": {
+          "x": 56,
+          "y": 340,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Lane CV III",
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 340,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Lane CV IV",
+        "kind": "cv",
+        "position": {
+          "x": 124,
+          "y": 340,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 22,
+          "y": 122,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 56,
+          "y": 122,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 90,
+          "y": 122,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 124,
+          "y": 122,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/phrasing-module/phrasing/2.0.0/manifest.json",
+    "sourceCommit": "36c8eed1b33560cc2d419133460401f0f859183f",
+    "artifact": {
+      "sha256": "22c71b812545d9b4df150e1dfc245fd02fd7a9c47548a3728dcaeb98c5c87097",
+      "size": 87045
+    }
+  },
+  "source": {
+    "url": "https://github.com/boocup/PhrasingModule",
+    "commit": "36c8eed1b33560cc2d419133460401f0f859183f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T23:34:49.955Z"
+  }
+}
