@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "KautenjaDSP-PotatoChips/2A03",
+    "plugin": "KautenjaDSP-PotatoChips",
+    "model": "2A03",
+    "name": "Infinite Stairs",
+    "brand": "KautenjaDSP",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Kautenja/PotatoChips",
+    "libraryUrl": "https://library.vcvrack.com/KautenjaDSP-PotatoChips/2A03",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/KautenjaDSP-PotatoChips/2A03.webp",
+    "wasmUrl": "packages/KautenjaDSP-PotatoChips/2A03/2.0.0/module.wasm",
+    "width": 150,
+    "description": "An emulation of the Ricoh 2A03 chip from the Nintendo Entertainment System (NES).",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pulse 1 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 32,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse 2 Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 32,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangle Frequency",
+        "min": -2.5,
+        "max": 2.5,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 32,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise Period",
+        "min": 0,
+        "max": 15,
+        "default": 7,
+        "position": {
+          "x": 117,
+          "y": 32,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 4,
+        "name": "Pulse 1 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 12,
+          "y": 144,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse 2 FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 47,
+          "y": 144,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Triangle FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 144,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Linear Feedback Shift Register",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 141,
+          "widget": "CKSS"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Pulse 1 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 12,
+          "y": 170,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Pulse 2 Volume",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 47,
+          "y": 170,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 10,
+        "name": "Triangle Volume",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 82,
+          "y": 170,
+          "widget": "Trimpot"
+        },
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Noise Volume",
+        "min": 0,
+        "max": 15,
+        "default": 10,
+        "position": {
+          "x": 117,
+          "y": 170,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 12,
+        "name": "Pulse 1 Duty Cycle",
+        "min": 0,
+        "max": 3,
+        "default": 2,
+        "position": {
+          "x": 12,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      },
+      {
+        "id": 13,
+        "name": "Pulse 2 Duty Cycle",
+        "min": 0,
+        "max": 3,
+        "default": 2,
+        "position": {
+          "x": 47,
+          "y": 241,
+          "widget": "Trimpot"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Pulse 1 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 71
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse 2 V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 71
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangle V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 71
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise Period",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 71
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pulse 1 FM",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 99
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pulse 2 FM",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 99
+        }
+      },
+      {
+        "id": 6,
+        "name": "Triangle FM",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 99
+        }
+      },
+      {
+        "id": 7,
+        "name": "Noise LFSR",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 99
+        }
+      },
+      {
+        "id": 8,
+        "name": "Pulse 1 Volume",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 210
+        }
+      },
+      {
+        "id": 9,
+        "name": "Pulse 2 Volume",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 210
+        }
+      },
+      {
+        "id": 10,
+        "name": "Triangle Volume",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 210
+        },
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Noise Volume",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 210
+        }
+      },
+      {
+        "id": 12,
+        "name": "Pulse 1 Width",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 281
+        }
+      },
+      {
+        "id": 13,
+        "name": "Pulse 2 Width",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 281
+        }
+      },
+      {
+        "id": 14,
+        "name": "Triangle Sync",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 264
+        }
+      },
+      {
+        "id": 15,
+        "name": "Noise Sync",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 264
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Pulse 1 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 10,
+          "y": 324
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pulse 2 Audio",
+        "kind": "audio",
+        "position": {
+          "x": 45,
+          "y": 324
+        }
+      },
+      {
+        "id": 2,
+        "name": "Triangle Audio",
+        "kind": "audio",
+        "position": {
+          "x": 80,
+          "y": 324
+        }
+      },
+      {
+        "id": 3,
+        "name": "Noise Audio",
+        "kind": "audio",
+        "position": {
+          "x": 115,
+          "y": 324
+        }
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 29,
+          "y": 319
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 64,
+          "y": 319
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 99,
+          "y": 319
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 134,
+          "y": 319
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/KautenjaDSP-PotatoChips/2A03/2.0.0/manifest.json",
+    "sourceCommit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4",
+    "artifact": {
+      "sha256": "4517969adaf4b93e00e64056050c2c2e6e3aab09831365646f56c6c18f7c960b",
+      "size": 105993
+    }
+  },
+  "source": {
+    "url": "https://github.com/Kautenja/PotatoChips",
+    "commit": "8d368a05ae0337d1f8f9decce9e278c7f1190ba4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T12:48:10.915Z"
+  }
+}
