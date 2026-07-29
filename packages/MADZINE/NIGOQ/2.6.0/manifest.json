@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/NIGOQ",
+    "plugin": "MADZINE",
+    "model": "NIGOQ",
+    "name": "NIGOQ",
+    "brand": "MADZINE",
+    "version": "2.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/NIGOQ",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/NIGOQ.webp",
+    "wasmUrl": "packages/MADZINE/NIGOQ/2.6.0/module.wasm",
+    "width": 200,
+    "description": "Complex oscillator module",
+    "params": [
+      {
+        "id": 0,
+        "name": "Modulation Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 55,
+          "y": 55,
+          "centered": true,
+          "widget": "madzine::widgets::LargeWhiteKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Final Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 125,
+          "y": 55,
+          "centered": true,
+          "widget": "madzine::widgets::LargeWhiteKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "LPF Cutoff",
+        "min": 0,
+        "max": 1,
+        "default": 0.7504000067710876,
+        "position": {
+          "x": 125,
+          "y": 130,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Rectify Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.15000000596046448,
+        "position": {
+          "x": 125,
+          "y": 175,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Wavefolding",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "position": {
+          "x": 125,
+          "y": 220,
+          "centered": true,
+          "widget": "madzine::widgets::StandardBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Modulation Wave Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0.15000000596046448,
+        "position": {
+          "x": 20,
+          "y": 55,
+          "centered": true,
+          "widget": "madzine::widgets::SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "FM CV Attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 55,
+          "y": 130,
+          "centered": true,
+          "widget": "madzine::widgets::SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "TM CV Attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 55,
+          "y": 220,
+          "centered": true,
+          "widget": "madzine::widgets::SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "RECT CV Attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 0.699999988079071,
+        "position": {
+          "x": 55,
+          "y": 175,
+          "centered": true,
+          "widget": "madzine::widgets::SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mod FM Attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 310,
+          "centered": true,
+          "widget": "madzine::widgets::SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Final FM Attenuator",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 108,
+          "y": 310,
+          "centered": true,
+          "widget": "madzine::widgets::SmallWhiteKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Decay Time",
+        "min": 0,
+        "max": 1,
+        "default": 0.7300000190734863,
+        "position": {
+          "x": 165,
+          "y": 90,
+          "centered": true,
+          "widget": "madzine::widgets::SmallGrayKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Bass/Sine Mix",
+        "min": 0,
+        "max": 1,
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 165,
+          "y": 265,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Linear FM Index",
+        "min": 0,
+        "max": 1,
+        "default": 0.05000000074505806,
+        "position": {
+          "x": 90,
+          "y": 130,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "TM Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 90,
+          "y": 220,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "RECT Mod Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 90,
+          "y": 175,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Sync Mode",
+        "min": 0,
+        "max": 2,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 90,
+          "y": 85,
+          "centered": true,
+          "widget": "CKSSThree"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Time",
+        "min": -5.643856048583984,
+        "max": 7.643856048583984,
+        "default": 1,
+        "position": {
+          "x": 40,
+          "y": 335,
+          "widget": "madzine::widgets::HiddenTimeKnobNIGOQ",
+          "width": 66,
+          "height": 38.5,
+          "zIndex": 5
+        }
+      },
+      {
+        "id": 18,
+        "name": "Trigger",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 110,
+          "y": 330,
+          "widget": "ClickableLight"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 165,
+          "y": 55,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Modulation Wave CV",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 95,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "External Modulation Input",
+        "kind": "cv",
+        "position": {
+          "x": 55,
+          "y": 92,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "External Final Input",
+        "kind": "cv",
+        "position": {
+          "x": 125,
+          "y": 92,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "LPF Cutoff CV",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Rectify CV",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 175,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "FM Amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 130,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Harmonics CV",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 220,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Fold Amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 220,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "RECT Mod Amount CV",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 175,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "name": "Modulation FM",
+        "kind": "cv",
+        "position": {
+          "x": 50,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "name": "Modulation 1V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 20,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "name": "Final FM",
+        "kind": "cv",
+        "position": {
+          "x": 135,
+          "y": 310,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "name": "Final 1V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 165,
+          "y": 310,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Modulation Signal",
+        "kind": "audio",
+        "position": {
+          "x": 20,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Final Sine",
+        "kind": "audio",
+        "position": {
+          "x": 135,
+          "y": 360,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Final Output",
+        "kind": "audio",
+        "position": {
+          "x": 165,
+          "y": 360,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "key": "oversampleRate",
+        "type": "integer"
+      },
+      {
+        "key": "attackTime",
+        "type": "real"
+      },
+      {
+        "key": "randomizeGlideTime",
+        "type": "real"
+      },
+      {
+        "key": "randomAmount",
+        "type": "real"
+      },
+      {
+        "key": "excludeFinalFreqFromRandom",
+        "type": "boolean"
+      },
+      {
+        "key": "excludeDecayFromRandom",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "madzine-scope",
+          "points": 256,
+          "tracks": 2,
+          "range": 1,
+          "colors": [
+            "#ff8585",
+            "#85c8ff"
+          ],
+          "x": 40,
+          "y": 335,
+          "width": 66,
+          "height": 38.5
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/NIGOQ/2.6.0/manifest.json",
+    "sourceCommit": "f8f8a93c0ec59255984ff2c3e56e080927b80522",
+    "artifact": {
+      "sha256": "cbb8eea499f8c7a9fb70ca033228b09f4fee5f3f4257d43f03834c0424511738",
+      "size": 115372
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "f8f8a93c0ec59255984ff2c3e56e080927b80522"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-29T20:39:36.438Z"
+  }
+}
