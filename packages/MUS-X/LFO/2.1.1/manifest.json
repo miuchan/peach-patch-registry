@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/LFO",
+    "plugin": "MUS-X",
+    "model": "LFO",
+    "name": "LFO",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/LFO",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/LFO.webp",
+    "wasmUrl": "packages/MUS-X/LFO/2.1.1/module.wasm",
+    "width": 45,
+    "description": "Low frequency oscillator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Shape",
+        "min": 0,
+        "max": 7,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 48.989,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "values": [
+          "Sine",
+          "Triangle",
+          "Square",
+          "Pulse",
+          "Ramp",
+          "Saw",
+          "Sample & hold",
+          "Warped"
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Frequency",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 97.981,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Amplitude",
+        "min": 0,
+        "max": 5,
+        "default": 5,
+        "position": {
+          "x": 22.5,
+          "y": 174.549,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Reset phase",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 22.5,
+          "y": 249.921,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 128.684,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Amplitude CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 205.615,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset trigger",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 273.635,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "LFO",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "sampleRateReduction",
+        "type": "integer",
+        "name": "Internal sample-rate reduction",
+        "default": 1
+      },
+      {
+        "key": "bipolar",
+        "type": "boolean",
+        "name": "Bipolar output",
+        "default": true
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/LFO/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "e4646b44a51261edc50dfbb8f879cf5ca46c85304d2197ff054fffa9c0119afe",
+      "size": 81617
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T01:46:34.704Z"
+  }
+}
