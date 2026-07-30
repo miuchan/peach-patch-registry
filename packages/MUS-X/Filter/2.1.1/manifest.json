@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MUS-X/Filter",
+    "plugin": "MUS-X",
+    "model": "Filter",
+    "name": "Filter",
+    "brand": "MUS-X",
+    "version": "2.1.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/Jojosito/MUS-X",
+    "libraryUrl": "https://library.vcvrack.com/MUS-X/Filter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MUS-X/Filter.webp",
+    "wasmUrl": "packages/MUS-X/Filter/2.1.1/module.wasm",
+    "width": 45,
+    "description": "Collection of virtual analog filters",
+    "params": [
+      {
+        "id": 0,
+        "name": "Cutoff frequency",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 22.5,
+          "y": 47.427,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Resonance",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 131.457,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Mode",
+        "min": 0,
+        "max": 17,
+        "default": 8,
+        "snap": true,
+        "position": {
+          "x": 22.5,
+          "y": 212.717,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        },
+        "values": [
+          "1-pole lowpass, 6 dB/Oct (non-resonant)",
+          "1-pole highpass, 6 dB/Oct (non-resonant)",
+          "2-pole ladder lowpass, 12 dB/Oct",
+          "2-pole ladder bandpass, 6 dB/Oct",
+          "4-pole ladder lowpass, 6 dB/Oct",
+          "4-pole ladder lowpass, 12 dB/Oct",
+          "4-pole ladder lowpass, 18 dB/Oct",
+          "4-pole ladder lowpass, 24 dB/Oct",
+          "2-pole Sallen-Key lowpass, 12 dB/Oct",
+          "2-pole Sallen-Key bandpass, 6 dB/Oct",
+          "2-pole Sallen-Key highpass, 6 dB/Oct",
+          "2-pole Sallen-Key highpass, 12 dB/Oct",
+          "Comb Filter (positive feedback)",
+          "Comb Filter (negative feedback)",
+          "Diode Clipper (Symmetric)",
+          "Diode Clipper (Asymmetric)",
+          "Bypass",
+          "Mute"
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Cutoff frequency CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 77.539,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Resonance CV",
+        "kind": "cv",
+        "position": {
+          "x": 22.5,
+          "y": 161.191,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 284.572,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Filtered",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 332.002,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "oversamplingRate",
+        "type": "integer",
+        "name": "Oversampling rate",
+        "default": 4
+      },
+      {
+        "key": "method",
+        "type": "integer",
+        "name": "ODE solver",
+        "default": 1,
+        "values": [
+          "1st order Euler (low CPU)",
+          "2nd order Runge-Kutta",
+          "4th order Runge-Kutta (best quality)"
+        ]
+      },
+      {
+        "key": "integratorType",
+        "type": "integer",
+        "name": "Integrator type",
+        "default": 3,
+        "values": [
+          "Linear",
+          "OTA with tanh",
+          "OTA with alternate saturator",
+          "Transistor with tanh",
+          "Transistor with alternate saturator"
+        ]
+      },
+      {
+        "key": "saturate",
+        "type": "boolean",
+        "name": "Post-filter saturator",
+        "default": true
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        0
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 16777216,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MUS-X/Filter/2.1.1/manifest.json",
+    "sourceCommit": "f622217ec6b709b7707fb76f85026e0faa93b893",
+    "artifact": {
+      "sha256": "8ca98309e1400486e2d0b4936d88a961b08a6814e29c76f07bcff9578ca02c87",
+      "size": 276083
+    }
+  },
+  "source": {
+    "url": "https://github.com/Jojosito/MUS-X",
+    "commit": "f622217ec6b709b7707fb76f85026e0faa93b893"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T01:54:38.195Z"
+  }
+}
