@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "WrongPeople/Tourette",
+    "plugin": "WrongPeople",
+    "model": "Tourette",
+    "name": "Tourette",
+    "brand": "Wrong People",
+    "version": "1.0.1",
+    "license": "GPL-3.0",
+    "sourceUrl": "https://github.com/WrongPeople/WrongPeopleVCV",
+    "libraryUrl": "https://library.vcvrack.com/WrongPeople/Tourette",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/WrongPeople/Tourette.webp",
+    "wasmUrl": "packages/WrongPeople/Tourette/1.0.1/module.wasm",
+    "width": 105,
+    "description": "Tourette syndrome simulator",
+    "params": [
+      {
+        "id": 0,
+        "name": "Low Threshold",
+        "min": -60,
+        "max": 3,
+        "default": -42,
+        "position": {
+          "x": 11.489,
+          "y": 169.193,
+          "widget": "KnobMediumGreen"
+        }
+      },
+      {
+        "id": 1,
+        "name": "High Threshold",
+        "min": -54,
+        "max": 6,
+        "default": -18,
+        "position": {
+          "x": 63.989,
+          "y": 169.193,
+          "widget": "KnobMediumGreen"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Min shot length",
+        "min": -0.30000001192092896,
+        "max": 0.30000001192092896,
+        "default": -0.10000000149011612,
+        "position": {
+          "x": 11.489,
+          "y": 217.943,
+          "widget": "KnobMediumBlue"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Max shot length",
+        "min": -1,
+        "max": 1,
+        "default": -0.30000001192092896,
+        "position": {
+          "x": 63.989,
+          "y": 217.943,
+          "widget": "KnobMediumBlue"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Repeats",
+        "min": 1,
+        "max": 16,
+        "default": 8,
+        "position": {
+          "x": 11.489,
+          "y": 266.693,
+          "widget": "SnapKnob<KnobMediumYellow>"
+        },
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Randomness",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 63.989,
+          "y": 266.693,
+          "widget": "KnobMediumOrange"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Attack",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 11.489,
+          "y": 315.443,
+          "widget": "KnobMediumRed"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Release",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 63.989,
+          "y": 315.443,
+          "widget": "KnobMediumRed"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Max polyphony",
+        "min": 1,
+        "max": 8,
+        "default": 4,
+        "position": {
+          "x": 37.739,
+          "y": 49.193,
+          "widget": "SnapKnob<KnobMediumPurple>"
+        },
+        "snap": true
+      },
+      {
+        "id": 9,
+        "name": "Stereo mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 78.868,
+          "y": 105.915,
+          "widget": "SwitchVertical"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Sig A",
+        "kind": "audio",
+        "position": {
+          "x": 6.644,
+          "y": 33.573
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sig B",
+        "kind": "audio",
+        "position": {
+          "x": 6.644,
+          "y": 71.073
+        }
+      },
+      {
+        "id": 2,
+        "name": "Play",
+        "kind": "gate",
+        "position": {
+          "x": 6.644,
+          "y": 112.323
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Sig A",
+        "kind": "audio",
+        "position": {
+          "x": 74.144,
+          "y": 33.573
+        }
+      },
+      {
+        "id": 1,
+        "name": "Sig B",
+        "kind": "audio",
+        "position": {
+          "x": 74.144,
+          "y": 71.073
+        }
+      }
+    ],
+    "lights": 48,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 24.644,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 28.394,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 32.144,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 35.894,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 12,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 39.644,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 15,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 43.394,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 18,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 47.144,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 21,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 50.894,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 24,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 54.644,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 27,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 58.394,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 30,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 62.144,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 33,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 65.894,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 36,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 69.644,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 39,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 73.394,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 42,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 77.144,
+          "y": 158.179
+        }
+      },
+      {
+        "id": 45,
+        "widget": "TinyLight<LightBlueGreenRed>",
+        "position": {
+          "x": 80.894,
+          "y": 158.179
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/WrongPeople/Tourette/1.0.1/manifest.json",
+    "sourceCommit": "74c8d2bd7246813ff60887e0bd9068a84b7b21b3",
+    "artifact": {
+      "sha256": "2c8812d22faf3b194c655525fa9fff2ea5179880eed06933e7cd7523ca6486e3",
+      "size": 84243
+    }
+  },
+  "source": {
+    "url": "https://github.com/WrongPeople/WrongPeopleVCV",
+    "commit": "74c8d2bd7246813ff60887e0bd9068a84b7b21b3"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T14:20:53.667Z"
+  }
+}
