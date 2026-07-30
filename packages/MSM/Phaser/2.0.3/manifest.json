@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MSM/Phaser",
+    "plugin": "MSM",
+    "model": "Phaser",
+    "name": "Phaser",
+    "brand": "MSM",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "libraryUrl": "https://library.vcvrack.com/MSM/Phaser",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MSM/Phaser.webp",
+    "wasmUrl": "packages/MSM/Phaser/2.0.3/module.wasm",
+    "width": 90,
+    "description": "2-20 stage phaser distortion effect",
+    "params": [
+      {
+        "id": 0,
+        "name": "Range Low Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.20000000298023224,
+        "position": {
+          "x": 9,
+          "y": 48,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Range High Frequency",
+        "min": 0,
+        "max": 1,
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 50,
+          "y": 48,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Stages",
+        "min": 0,
+        "max": 18,
+        "default": 1,
+        "position": {
+          "x": 9,
+          "y": 148,
+          "widget": "BlueSmallToggleKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "LFO Rate",
+        "min": 0,
+        "max": 1,
+        "default": 0.05000000074505806,
+        "position": {
+          "x": 9,
+          "y": 98,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Feedback",
+        "min": 0,
+        "max": 0.949999988079071,
+        "default": 0.4749999940395355,
+        "position": {
+          "x": 50,
+          "y": 98,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 3,
+          "y": 208,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Wave Type",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 14,
+          "y": 258,
+          "widget": "FMSM"
+        },
+        "snap": true,
+        "values": [
+          "Sine",
+          "Triangle",
+          "Saw",
+          "Square"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "LFO Depth",
+        "min": 0,
+        "max": 1,
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 50,
+          "y": 148,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Pulse Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 50,
+          "y": 208,
+          "widget": "BlueSmallKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "LFO Depth Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 60,
+          "y": 290
+        }
+      },
+      {
+        "id": 1,
+        "name": "Low-pass Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 5,
+          "y": 290
+        }
+      },
+      {
+        "id": 2,
+        "name": "Hi-pass Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 33,
+          "y": 290
+        }
+      },
+      {
+        "id": 3,
+        "name": "Master",
+        "kind": "audio",
+        "position": {
+          "x": 5,
+          "y": 328
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Master",
+        "kind": "audio",
+        "position": {
+          "x": 60,
+          "y": 328
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Theme",
+        "type": "integer",
+        "name": "Panel theme",
+        "default": 0,
+        "values": [
+          "Classic",
+          "Night Mode"
+        ]
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MSM/Phaser/2.0.3/manifest.json",
+    "sourceCommit": "da38052ab9bc846a7d0ed40471a39f943bef89c2",
+    "artifact": {
+      "sha256": "5d2713ad1e9e8a5e8279d1fcabb2afee9bafe410cec817715307ad6fba98e519",
+      "size": 91505
+    }
+  },
+  "source": {
+    "url": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "commit": "da38052ab9bc846a7d0ed40471a39f943bef89c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T00:32:01.938Z"
+  }
+}
