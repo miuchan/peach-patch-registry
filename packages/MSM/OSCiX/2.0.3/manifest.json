@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MSM/OSCiX",
+    "plugin": "MSM",
+    "model": "OSCiX",
+    "name": "OSCiX",
+    "brand": "MSM",
+    "version": "2.0.3",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "libraryUrl": "https://library.vcvrack.com/MSM/OSCiX",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MSM/OSCiX.webp",
+    "wasmUrl": "packages/MSM/OSCiX/2.0.3/module.wasm",
+    "width": 405,
+    "description": "Advanced dual oscillator/LFO with a built-in wave folder",
+    "params": [
+      {
+        "id": 0,
+        "name": "Anlg/Digi",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 152.5,
+          "y": 30,
+          "widget": "VioMSwitch"
+        },
+        "snap": true,
+        "values": [
+          "Digital",
+          "Analog"
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Sync 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Sync 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 43,
+          "y": 94.5,
+          "widget": "RedLargeKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Frequency",
+        "min": -54,
+        "max": 54,
+        "default": 0,
+        "position": {
+          "x": 230,
+          "y": 94.5,
+          "widget": "RedLargeKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fine Frequency",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 97,
+          "y": 131,
+          "widget": "RedSmallKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Fine Frequency",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 192,
+          "y": 131,
+          "widget": "RedSmallKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Wave 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 8,
+        "name": "Wave 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Syncfreq",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Phase 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 11,
+        "name": "Phase 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 12,
+        "name": "Phase 1 CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 13,
+        "name": "Phase 2 CV",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 14,
+        "name": "Linear FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 63.5,
+          "y": 183.5,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Exponential FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 32,
+          "y": 231,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Linear FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 225.5,
+          "y": 183.5,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Exponential FM",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 257.5,
+          "y": 231,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 18,
+        "name": "Pw 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 19,
+        "name": "Pulse Width",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 272,
+          "y": 158,
+          "widget": "BlueSmallKnob"
+        }
+      },
+      {
+        "id": 20,
+        "name": "Fold Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 341,
+          "y": 35,
+          "widget": "RedLargeKnob"
+        }
+      },
+      {
+        "id": 21,
+        "name": "Fold Gain",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 349,
+          "y": 202,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 22,
+        "name": "VCO/LFO",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 16,
+          "y": 109,
+          "widget": "VioM2Switch"
+        },
+        "snap": true,
+        "values": [
+          "LFO",
+          "VCO"
+        ]
+      },
+      {
+        "id": 23,
+        "name": "VCO/LFO",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 289,
+          "y": 109,
+          "widget": "VioM2Switch"
+        },
+        "snap": true,
+        "values": [
+          "LFO",
+          "VCO"
+        ]
+      },
+      {
+        "id": 24,
+        "name": "Sync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152.5,
+          "y": 80,
+          "widget": "VioMSwitch"
+        },
+        "snap": true,
+        "values": [
+          "External sync",
+          "Cross sync"
+        ]
+      },
+      {
+        "id": 25,
+        "name": "Sync",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 152.5,
+          "y": 130,
+          "widget": "VioMSwitch"
+        },
+        "snap": true,
+        "values": [
+          "External sync",
+          "Cross sync"
+        ]
+      },
+      {
+        "id": 26,
+        "name": "FM Master Index",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 144.5,
+          "y": 183.5,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 27,
+        "name": "Fold Shape CV",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 349,
+          "y": 154,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 28,
+        "name": "Upper Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 332,
+          "y": 105,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 29,
+        "name": "Lower Shape",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 367,
+          "y": 105,
+          "widget": "GreenSmallKnob"
+        }
+      },
+      {
+        "id": 30,
+        "name": "OSCiX",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 125,
+          "y": 259.5,
+          "widget": "OSCiXEGG"
+        },
+        "snap": true,
+        "values": [
+          "Standard waves",
+          "Alternate waves"
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "(A) Volt/Octave",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 1,
+        "name": "(B) Volt/Octave",
+        "kind": "cv",
+        "position": {
+          "x": 200.5,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pw 1",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "(B) Pulse Width Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 281.5,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 4,
+        "name": "(A) Linear FM Attenuator Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 55,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 5,
+        "name": "(A) Exponential FM Attenuator Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 55,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 6,
+        "name": "(B) Linear FM Attenuator Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 240.5,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 7,
+        "name": "(B) Exponential FM Attenuator Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 240.5,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 8,
+        "name": "Phase 1 CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 9,
+        "name": "Phase 2 CV",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "(A) Start of Cycle Sync",
+        "kind": "gate",
+        "position": {
+          "x": 14,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 11,
+        "name": "(B) Start of Cycle Sync",
+        "kind": "gate",
+        "position": {
+          "x": 281.5,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 12,
+        "name": "External Fold Source",
+        "kind": "audio",
+        "position": {
+          "x": 352,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 13,
+        "name": "Fold Index Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 332,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 14,
+        "name": "Hardsync (A) Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 95,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 15,
+        "name": "Hardsync (B) Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 200.5,
+          "y": 327.5
+        }
+      },
+      {
+        "id": 16,
+        "name": "FM Index Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 95,
+          "y": 289.5
+        }
+      },
+      {
+        "id": 17,
+        "name": "Fold Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 332,
+          "y": 249.5
+        }
+      },
+      {
+        "id": 18,
+        "name": "Asymmetric Up Folding Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 372,
+          "y": 249.5
+        }
+      },
+      {
+        "id": 19,
+        "name": "Asymmetric Down Folding Control Voltage",
+        "kind": "cv",
+        "position": {
+          "x": 372,
+          "y": 289.5
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Output 1",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Output 2",
+        "kind": "audio",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "(A) Sin",
+        "kind": "audio",
+        "position": {
+          "x": 14,
+          "y": 29
+        }
+      },
+      {
+        "id": 3,
+        "name": "(A) Triangle",
+        "kind": "audio",
+        "position": {
+          "x": 55,
+          "y": 29
+        }
+      },
+      {
+        "id": 4,
+        "name": "(A) Sawtooth",
+        "kind": "audio",
+        "position": {
+          "x": 95,
+          "y": 29
+        }
+      },
+      {
+        "id": 5,
+        "name": "(B) Sin",
+        "kind": "audio",
+        "position": {
+          "x": 200,
+          "y": 29
+        }
+      },
+      {
+        "id": 6,
+        "name": "(B) Square",
+        "kind": "audio",
+        "position": {
+          "x": 240.5,
+          "y": 29
+        }
+      },
+      {
+        "id": 7,
+        "name": "Fold",
+        "kind": "audio",
+        "position": {
+          "x": 281.5,
+          "y": 29
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "Theme",
+        "type": "integer",
+        "name": "Panel theme",
+        "default": 0,
+        "values": [
+          "Classic",
+          "Night Mode"
+        ]
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MSM/OSCiX/2.0.3/manifest.json",
+    "sourceCommit": "da38052ab9bc846a7d0ed40471a39f943bef89c2",
+    "artifact": {
+      "sha256": "9f795f8fd0637338cd487295160212eb10e433ef94392ef0ef111e9600f9b32a",
+      "size": 116289
+    }
+  },
+  "source": {
+    "url": "https://github.com/netboy3/MSM-vcvrack-plugin",
+    "commit": "da38052ab9bc846a7d0ed40471a39f943bef89c2"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T00:48:43.153Z"
+  }
+}
