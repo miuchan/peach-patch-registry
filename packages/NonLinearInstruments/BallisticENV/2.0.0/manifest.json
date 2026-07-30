@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NonLinearInstruments/BallisticENV",
+    "plugin": "NonLinearInstruments",
+    "model": "BallisticENV",
+    "name": "BallisticENV",
+    "brand": "NLnRi",
+    "version": "2.0.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins",
+    "libraryUrl": "https://library.vcvrack.com/NonLinearInstruments/BallisticENV",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NonLinearInstruments/BallisticENV.webp",
+    "wasmUrl": "packages/NonLinearInstruments/BallisticENV/2.0.0/module.wasm",
+    "width": 120,
+    "description": "Ballistic ENV",
+    "params": [
+      {
+        "id": 0,
+        "name": "Impulse",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 40,
+          "widget": "KorgMedGreyKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Impulse Mod",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 48,
+          "widget": "KorgSmallGreyKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Angle",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 75,
+          "y": 95,
+          "widget": "KorgMedGreyKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Angle Mod",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 103,
+          "widget": "KorgSmallGreyKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Gravity",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 150,
+          "widget": "KorgMedGreyKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Gravity Mod",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 158,
+          "widget": "KorgSmallGreyKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Shoot",
+        "min": 0,
+        "max": 5,
+        "default": 0,
+        "position": {
+          "x": 42,
+          "y": 262,
+          "widget": "CKD6"
+        },
+        "snap": true,
+        "button": true
+      },
+      {
+        "id": 7,
+        "name": "Bounce",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 75,
+          "y": 216,
+          "widget": "KorgMedGreyKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Bounce Mod",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 40,
+          "y": 222,
+          "widget": "KorgSmallGreyKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Bounce On Off",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 58,
+          "y": 192,
+          "widget": "KorgCKSS"
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Impulse CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 50
+        }
+      },
+      {
+        "id": 1,
+        "name": "Angle CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 105
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gravity CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 160
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bounce CV",
+        "kind": "cv",
+        "position": {
+          "x": 10,
+          "y": 224
+        }
+      },
+      {
+        "id": 4,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 10,
+          "y": 264
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 320
+        }
+      },
+      {
+        "id": 1,
+        "name": "C",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 320
+        }
+      },
+      {
+        "id": 2,
+        "name": "Zero Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 80,
+          "y": 320
+        }
+      }
+    ],
+    "lights": 1,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NonLinearInstruments/BallisticENV/2.0.0/manifest.json",
+    "sourceCommit": "215f17aaa69e945b09d88f4619f2993fffd7d151",
+    "artifact": {
+      "sha256": "2fa397f8248855490ef7723f6edbbaadf611926edb20fc770fa46bc3f25a9641",
+      "size": 83394
+    }
+  },
+  "source": {
+    "url": "https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins",
+    "commit": "215f17aaa69e945b09d88f4619f2993fffd7d151"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T07:18:45.465Z"
+  }
+}
