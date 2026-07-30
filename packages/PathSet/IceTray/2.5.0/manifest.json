@@ -1,0 +1,595 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "PathSet/IceTray",
+    "plugin": "PathSet",
+    "model": "IceTray",
+    "name": "IceTray",
+    "brand": "Path Set",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/patheros/PathSetModules",
+    "libraryUrl": "https://library.vcvrack.com/PathSet/IceTray",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/PathSet/IceTray.webp",
+    "wasmUrl": "packages/PathSet/IceTray/2.5.0/module.wasm",
+    "width": 360,
+    "description": "Speed shifter and tape delay with selective memory. Perform into this and it will never forget your mistakes.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Record Speed Numerator",
+        "min": 1,
+        "max": 11,
+        "default": 6,
+        "position": {
+          "x": 73.5,
+          "y": 143.082,
+          "centered": true,
+          "widget": "RotarySwitch<RoundBigBlackKnob>"
+        },
+        "snap": true
+      },
+      {
+        "id": 1,
+        "name": "Numerator CV Scalar",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60.768,
+          "y": 87.434,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Record Speed Denominator",
+        "min": 1,
+        "max": 11,
+        "default": 6,
+        "position": {
+          "x": 73.107,
+          "y": 249.794,
+          "centered": true,
+          "widget": "RotarySwitch<RoundBigBlackKnob>"
+        },
+        "snap": true
+      },
+      {
+        "id": 3,
+        "name": "Denominator CV Sclar",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60.768,
+          "y": 296.28,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Frozen Percent",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 282.918,
+          "y": 208.296,
+          "centered": true,
+          "widget": "RoundBigBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Frozen Percent CV Scalar",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 291.514,
+          "y": 256.379,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Record Length",
+        "min": 0.10000000149011612,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 114.576,
+          "y": 68.017,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Playback Clock Rests Position",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 240.833,
+          "y": 68.294,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Playback Repeat Count",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 278.12,
+          "y": 112.686,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Playback Pattern",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 324.487,
+          "y": 111.898,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Feedback Percent",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 138.697,
+          "y": 328.243,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Frozen Percent CV Scalar",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 182.498,
+          "y": 326.663,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Cube 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 153.354,
+          "y": 125.12,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Cube 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 153.354,
+          "y": 198.782,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Cube 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 153.354,
+          "y": 272.442,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Cube 4",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 220.736,
+          "y": 125.262,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Cube 5",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 220.736,
+          "y": 198.782,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 17,
+        "name": "Cube 6",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 221.017,
+          "y": 272.303,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Left Audio Input",
+        "kind": "audio",
+        "position": {
+          "x": 24.301,
+          "y": 172.772,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Record Clock",
+        "kind": "gate",
+        "position": {
+          "x": 147.467,
+          "y": 67.568,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Playback Clock",
+        "kind": "gate",
+        "position": {
+          "x": 212.336,
+          "y": 67.707,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "Numerator CV",
+        "kind": "cv",
+        "position": {
+          "x": 28.376,
+          "y": 72.304,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "Denominator CV",
+        "kind": "cv",
+        "position": {
+          "x": 28.095,
+          "y": 306.121,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "name": "Playback Repeat Count CV",
+        "kind": "cv",
+        "position": {
+          "x": 277.872,
+          "y": 147.496,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "Playback Patern CV",
+        "kind": "cv",
+        "position": {
+          "x": 323.844,
+          "y": 148.087,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "name": "Frozen Track Percent CV",
+        "kind": "cv",
+        "position": {
+          "x": 327.393,
+          "y": 268.831,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Feedback CV",
+        "kind": "cv",
+        "position": {
+          "x": 224.604,
+          "y": 325.654,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "name": "Right Audio Input",
+        "kind": "audio",
+        "position": {
+          "x": 24.301,
+          "y": 214.432,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Left Audio Output",
+        "kind": "audio",
+        "position": {
+          "x": 292.928,
+          "y": 321.413,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Right Audio Output",
+        "kind": "audio",
+        "position": {
+          "x": 325.742,
+          "y": 321.413,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 24,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 153.354,
+          "y": 125.12,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 153.354,
+          "y": 198.782,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 153.354,
+          "y": 272.442,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 220.736,
+          "y": 125.262,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 220.736,
+          "y": 198.782,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "LargeLight<BlueLight>",
+        "position": {
+          "x": 221.017,
+          "y": 272.303,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 143.533,
+          "y": 139.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 143.336,
+          "y": 213.024,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 143.336,
+          "y": 286.615,
+          "centered": true
+        }
+      },
+      {
+        "id": 15,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 211.007,
+          "y": 139.63,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 210.809,
+          "y": 213.024,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 211.007,
+          "y": 286.417,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "version",
+        "type": "string-enum",
+        "values": [
+          "2.1.0"
+        ]
+      },
+      {
+        "key": "playbackCrossFadeBufferIndex",
+        "type": "integer"
+      },
+      {
+        "key": "recordCrossFadePreBufferIndex",
+        "type": "integer"
+      },
+      {
+        "key": "recordIndex",
+        "type": "real"
+      },
+      {
+        "key": "recordBuffer",
+        "type": "integer"
+      },
+      {
+        "key": "playbackIndex",
+        "type": "integer"
+      },
+      {
+        "key": "playbackBuffer",
+        "type": "integer"
+      },
+      {
+        "key": "feedbackValue.0",
+        "type": "real"
+      },
+      {
+        "key": "feedbackValue.1",
+        "type": "real"
+      },
+      {
+        "key": "playbackRepeatCount",
+        "type": "integer"
+      },
+      {
+        "key": "nextReadPatternIndex",
+        "type": "integer"
+      },
+      {
+        "key": "prevInput.0",
+        "type": "real"
+      },
+      {
+        "key": "prevInput.1",
+        "type": "real"
+      },
+      {
+        "key": "fadeInStart",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        9,
+        1
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 34078720,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/PathSet/IceTray/2.5.0/manifest.json",
+    "sourceCommit": "2f55b4b115e76623ef54e24c30daad4d576a4446",
+    "artifact": {
+      "sha256": "da9cb44788f0df750518336716c60b35ed81bb2c8a455f30d8d2737698931895",
+      "size": 122757
+    }
+  },
+  "source": {
+    "url": "https://github.com/patheros/PathSetModules",
+    "commit": "2f55b4b115e76623ef54e24c30daad4d576a4446"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T11:50:34.736Z"
+  }
+}

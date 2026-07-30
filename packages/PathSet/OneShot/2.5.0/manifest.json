@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "PathSet/OneShot",
+    "plugin": "PathSet",
+    "model": "OneShot",
+    "name": "OneShot",
+    "brand": "Path Set",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/patheros/PathSetModules",
+    "libraryUrl": "https://library.vcvrack.com/PathSet/OneShot",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/PathSet/OneShot.webp",
+    "wasmUrl": "packages/PathSet/OneShot/2.5.0/module.wasm",
+    "width": 75,
+    "description": "One-shot Sequencer that can be daisy-chained with other sequencers or more OneShots.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Step 1",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 60.812,
+          "y": 31.5,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Step 2",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 60.812,
+          "y": 60.667,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Step 3",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 60.812,
+          "y": 89.835,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Step 4",
+        "min": 0,
+        "max": 1.100000023841858,
+        "default": 0.5,
+        "position": {
+          "x": 60.812,
+          "y": 119.002,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Length",
+        "min": 1,
+        "max": 16,
+        "default": 4,
+        "position": {
+          "x": 15.502,
+          "y": 160.255,
+          "centered": true,
+          "widget": "RotarySwitch<Trimpot>"
+        },
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Stable",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 60.815,
+          "y": 160.255,
+          "centered": true,
+          "widget": "CKSS"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Random",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15.502,
+          "y": 203.728,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Heat",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 60.815,
+          "y": 203.728,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Start",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 26.903,
+          "y": 11.034,
+          "centered": true,
+          "widget": "TL1105"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Start",
+        "kind": "cv",
+        "position": {
+          "x": 26.903,
+          "y": 32.288,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 15.502,
+          "y": 254.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 15.437,
+          "y": 295.476,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 15.437,
+          "y": 323.601,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "End of Cycle",
+        "kind": "cv",
+        "position": {
+          "x": 26.903,
+          "y": 119.002,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Active Gate",
+        "kind": "gate",
+        "position": {
+          "x": 60.75,
+          "y": 254.076,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 60.75,
+          "y": 295.476,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 60.75,
+          "y": 323.601,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 12,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TrimpotRingLight<PathSetColors>",
+        "position": {
+          "x": 60.812,
+          "y": 31.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TrimpotRingLight<PathSetColors>",
+        "position": {
+          "x": 60.812,
+          "y": 60.667,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TrimpotRingLight<PathSetColors>",
+        "position": {
+          "x": 60.812,
+          "y": 89.835,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TrimpotRingLight<PathSetColors>",
+        "position": {
+          "x": 60.812,
+          "y": 119.002,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "state",
+        "type": "integer"
+      },
+      {
+        "key": "playStep",
+        "type": "integer"
+      },
+      {
+        "key": "noteStep",
+        "type": "integer"
+      },
+      {
+        "key": "noteToPlay",
+        "type": "integer"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/PathSet/OneShot/2.5.0/manifest.json",
+    "sourceCommit": "2f55b4b115e76623ef54e24c30daad4d576a4446",
+    "artifact": {
+      "sha256": "5eb1981b2e75a71bd015e9e7266ee6124e9d2f3ba4642b928bd6f1ca622dab5f",
+      "size": 81367
+    }
+  },
+  "source": {
+    "url": "https://github.com/patheros/PathSetModules",
+    "commit": "2f55b4b115e76623ef54e24c30daad4d576a4446"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T11:51:17.849Z"
+  }
+}
