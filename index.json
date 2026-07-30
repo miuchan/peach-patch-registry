@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-30T00:02:35.473Z",
-  "packageCount": 2947,
-  "totalBytes": 365563182,
+  "generatedAt": "2026-07-30T00:23:13.264Z",
+  "packageCount": 2948,
+  "totalBytes": 365720996,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -626598,6 +626598,293 @@
       "artifact": {
         "sha256": "0aa081ce5086455c6eab8308f1135ca8345b5aebaf25e662d21c99b33917a1b2",
         "size": 66871
+      }
+    },
+    {
+      "key": "MSM/TreasureVCO",
+      "plugin": "MSM",
+      "model": "TreasureVCO",
+      "name": "Treasure VCO",
+      "brand": "MSM",
+      "version": "2.0.3",
+      "license": "MIT",
+      "sourceUrl": "https://github.com/netboy3/MSM-vcvrack-plugin",
+      "libraryUrl": "https://library.vcvrack.com/MSM/TreasureVCO",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MSM/TreasureVCO.webp",
+      "wasmUrl": "packages/MSM/TreasureVCO/2.0.3/module.wasm",
+      "width": 210,
+      "description": "Voltage Controlled Oscillator with complex waveform modulation",
+      "params": [
+        {
+          "id": 0,
+          "name": "LFO/VCO",
+          "min": 0,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 98,
+            "y": 293,
+            "widget": "VioM2Switch"
+          },
+          "snap": true
+        },
+        {
+          "id": 1,
+          "name": "Octave",
+          "min": 0,
+          "max": 6,
+          "default": 3,
+          "position": {
+            "x": 81.5,
+            "y": 26,
+            "widget": "RedLargeToggleKnob"
+          },
+          "snap": true
+        },
+        {
+          "id": 2,
+          "name": "Note",
+          "min": 0,
+          "max": 12,
+          "default": 0,
+          "position": {
+            "x": 29.5,
+            "y": 34.5,
+            "widget": "RedSmallToggleKnob"
+          },
+          "snap": true
+        },
+        {
+          "id": 3,
+          "name": "Fine",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 149.5,
+            "y": 34.5,
+            "widget": "RedSmallKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "FM CV",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 149.5,
+            "y": 229.5,
+            "widget": "RedSmallKnob"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Type",
+          "min": 0,
+          "max": 13,
+          "default": 0,
+          "position": {
+            "x": 90,
+            "y": 229.5,
+            "widget": "GreenToggleKnobSmall"
+          },
+          "snap": true
+        },
+        {
+          "id": 6,
+          "name": "Window Size",
+          "min": 512,
+          "max": 2047,
+          "default": 1024,
+          "position": {
+            "x": 29.5,
+            "y": 229.5,
+            "widget": "YellowSmallKnob"
+          }
+        },
+        {
+          "id": 7,
+          "name": "Mod 1",
+          "min": 0.009999999776482582,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 29.5,
+            "y": 99.5,
+            "widget": "GreenSmallKnob"
+          }
+        },
+        {
+          "id": 8,
+          "name": "Mod 2",
+          "min": 0.009999999776482582,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 90,
+            "y": 99.5,
+            "widget": "GreenSmallKnob"
+          }
+        },
+        {
+          "id": 9,
+          "name": "Mod 3",
+          "min": 0.009999999776482582,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 149.5,
+            "y": 99.5,
+            "widget": "GreenSmallKnob"
+          }
+        },
+        {
+          "id": 10,
+          "name": "Mod 1 CV",
+          "min": 1,
+          "max": -1,
+          "default": 0,
+          "position": {
+            "x": 29.5,
+            "y": 164.5,
+            "widget": "BlueSmallKnob"
+          }
+        },
+        {
+          "id": 11,
+          "name": "Mod 2 CV",
+          "min": 1,
+          "max": -1,
+          "default": 0,
+          "position": {
+            "x": 90,
+            "y": 164.5,
+            "widget": "BlueSmallKnob"
+          }
+        },
+        {
+          "id": 12,
+          "name": "Mod 3 CV",
+          "min": 1,
+          "max": -1,
+          "default": 0,
+          "position": {
+            "x": 149.5,
+            "y": 164.5,
+            "widget": "BlueSmallKnob"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Volt/Octave",
+          "kind": "cv",
+          "position": {
+            "x": 12.5,
+            "y": 328
+          }
+        },
+        {
+          "id": 1,
+          "name": "Reset",
+          "kind": "gate",
+          "position": {
+            "x": 127.5,
+            "y": 287.5
+          }
+        },
+        {
+          "id": 2,
+          "name": "Waveform Base Type Control Voltage",
+          "kind": "cv",
+          "position": {
+            "x": 57,
+            "y": 287.5
+          }
+        },
+        {
+          "id": 3,
+          "name": "Window Size Control Voltage",
+          "kind": "cv",
+          "position": {
+            "x": 12.5,
+            "y": 287.5
+          }
+        },
+        {
+          "id": 4,
+          "name": "Modulation 1 Control Voltage",
+          "kind": "cv",
+          "position": {
+            "x": 57,
+            "y": 328
+          }
+        },
+        {
+          "id": 5,
+          "name": "Modulation 2 Control Voltage",
+          "kind": "cv",
+          "position": {
+            "x": 92.5,
+            "y": 328
+          }
+        },
+        {
+          "id": 6,
+          "name": "Modulation 3 Control Voltage",
+          "kind": "cv",
+          "position": {
+            "x": 127.5,
+            "y": 328
+          }
+        },
+        {
+          "id": 7,
+          "name": "FM",
+          "kind": "cv",
+          "position": {
+            "x": 173,
+            "y": 287.5
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Master",
+          "kind": "audio",
+          "position": {
+            "x": 173,
+            "y": 328
+          }
+        }
+      ],
+      "lights": 0,
+      "stateKeys": [
+        {
+          "key": "Theme",
+          "type": "integer",
+          "name": "Panel theme",
+          "default": 0,
+          "values": [
+            "Classic",
+            "Night Mode",
+            "Espen's Treasure | Jedi",
+            "Omri's Treasure | Mushroom"
+          ]
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/MSM/TreasureVCO/2.0.3/manifest.json",
+      "sourceCommit": "da38052ab9bc846a7d0ed40471a39f943bef89c2",
+      "artifact": {
+        "sha256": "24edbb08f126982b4add940b5444e399db71f5bd8dfe26211efecc9a826dc372",
+        "size": 157814
       }
     },
     {
