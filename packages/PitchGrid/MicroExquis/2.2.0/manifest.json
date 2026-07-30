@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "PitchGrid/MicroExquis",
+    "plugin": "PitchGrid",
+    "model": "MicroExquis",
+    "name": "Microtonal Exquis Interface",
+    "brand": "PitchGrid",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/peterjungx/PitchGridRack",
+    "libraryUrl": "https://library.vcvrack.com/PitchGrid/MicroExquis",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/PitchGrid/MicroExquis.webp",
+    "wasmUrl": "packages/PitchGrid/MicroExquis/2.2.0/module.wasm",
+    "width": 300,
+    "description": "Microtonal interface to the Exquis by Intuitive Instruments",
+    "params": [
+      {
+        "id": 0,
+        "name": "Octave Frequency Ratio",
+        "min": 1.0800000429153442,
+        "max": 4,
+        "default": 2,
+        "hidden": true
+      },
+      {
+        "id": 1,
+        "name": "Pitch Angle (45º/V)",
+        "min": -3.9000000953674316,
+        "max": 3.9000000953674316,
+        "default": 0.4096499979496002,
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Coloring Scheme",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "hidden": true
+      },
+      {
+        "id": 3,
+        "name": "Coloring Mode",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "hidden": true
+      },
+      {
+        "id": 4,
+        "name": "Scale Steps A",
+        "min": 1,
+        "max": 7,
+        "default": 2,
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Scale Steps B",
+        "min": 1,
+        "max": 7,
+        "default": 5,
+        "hidden": true
+      },
+      {
+        "id": 6,
+        "name": "Scale Mode",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 7,
+        "name": "Change key labels",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 64.961,
+          "y": 329.823,
+          "centered": true,
+          "widget": "VCVBezel"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Keyboard Mapping",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 159.449,
+          "y": 329.823,
+          "centered": true,
+          "widget": "VCVBezel"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Key Labels",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      },
+      {
+        "id": 10,
+        "name": "Keyboard Mapping",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 19.509,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Microtonal Interface to the Exquis by Intuitive Instruments",
+        "kind": "cv",
+        "position": {
+          "x": 246.024,
+          "y": 334.001,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tuning Data",
+        "kind": "cv",
+        "position": {
+          "x": 279.833,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 9,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedGreenBlueLight>",
+        "position": {
+          "x": 14.764,
+          "y": 25.098,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 85.63,
+          "y": 315.694,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 85.63,
+          "y": 329.572,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 85.63,
+          "y": 343.45,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 180.118,
+          "y": 315.694,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 180.118,
+          "y": 329.572,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 180.118,
+          "y": 343.45,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "f1",
+        "type": "real"
+      },
+      {
+        "key": "f2",
+        "type": "real"
+      },
+      {
+        "key": "offset",
+        "type": "real"
+      },
+      {
+        "key": "mode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/PitchGrid/MicroExquis/2.2.0/manifest.json",
+    "sourceCommit": "475a7b5b26d0aa0751a17cc16220bc49e9c6a4a4",
+    "artifact": {
+      "sha256": "3b1031d06463b7c0218441520fdcda0cfae829328adc2e0fd4f6037a7a74741e",
+      "size": 240060
+    }
+  },
+  "source": {
+    "url": "https://github.com/peterjungx/PitchGridRack",
+    "commit": "475a7b5b26d0aa0751a17cc16220bc49e9c6a4a4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T12:24:41.911Z"
+  }
+}

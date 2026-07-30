@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "PitchGrid/MicroVOctMapper",
+    "plugin": "PitchGrid",
+    "model": "MicroVOctMapper",
+    "name": "Microtonal VOCT Mapper",
+    "brand": "PitchGrid",
+    "version": "2.2.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/peterjungx/PitchGridRack",
+    "libraryUrl": "https://library.vcvrack.com/PitchGrid/MicroVOctMapper",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/PitchGrid/MicroVOctMapper.webp",
+    "wasmUrl": "packages/PitchGrid/MicroVOctMapper/2.2.0/module.wasm",
+    "width": 135,
+    "description": "Microtonally maps V/OCT to MV/OCT",
+    "params": [
+      {
+        "id": 0,
+        "name": "Sub Freq",
+        "min": 0.25,
+        "max": 0.75,
+        "default": 0.5
+      },
+      {
+        "id": 1,
+        "name": "Sub3 Freq",
+        "min": 0.375,
+        "max": 1.125,
+        "default": 0.75
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "1V/octave pitch",
+        "kind": "cv",
+        "position": {
+          "x": 19.509,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Microtonally adjusted V/OCT pitch",
+        "kind": "cv",
+        "position": {
+          "x": 115.6,
+          "y": 334.001,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "blackKeyMapPreset",
+        "type": "integer"
+      },
+      {
+        "key": "tuningPreset",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/PitchGrid/MicroVOctMapper/2.2.0/manifest.json",
+    "sourceCommit": "475a7b5b26d0aa0751a17cc16220bc49e9c6a4a4",
+    "artifact": {
+      "sha256": "e4fe9ea881951a5e6f4ebe9c23f5072341613aaec73e5c781c1f0e1a0eec57e6",
+      "size": 74516
+    }
+  },
+  "source": {
+    "url": "https://github.com/peterjungx/PitchGridRack",
+    "commit": "475a7b5b26d0aa0751a17cc16220bc49e9c6a4a4"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T12:15:06.962Z"
+  }
+}
