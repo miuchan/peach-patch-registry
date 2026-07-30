@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MosquitoLabs/PulseCzar",
+    "plugin": "MosquitoLabs",
+    "model": "PulseCzar",
+    "name": "PulseCzar",
+    "brand": "Mosquito Labs",
+    "version": "1.1.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/rmosquito/vcv-mosquito/",
+    "libraryUrl": "https://library.vcvrack.com/MosquitoLabs/PulseCzar",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MosquitoLabs/PulseCzar.webp",
+    "wasmUrl": "packages/MosquitoLabs/PulseCzar/1.1.1/module.wasm",
+    "width": 165,
+    "description": "8-bit wavetable oscillator based on C. Roads' Pulsar Synthesis model.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Wave Pitch",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 183.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "ENV Pitch",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 248.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Wave",
+        "min": 0,
+        "max": 7.989999771118164,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 53.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "ENV",
+        "min": 0,
+        "max": 7.989999771118164,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 118.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mask",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 77,
+          "y": 313.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Wave Interpolate On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 66,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "ENV Interpolate On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 131,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Wave Link On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 196,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "ENV Link On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 11,
+          "y": 261,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Gain",
+        "min": 1,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 135.5,
+          "y": 260,
+          "widget": "Trimpot"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 8,
+          "y": 323
+        }
+      },
+      {
+        "id": 1,
+        "name": "Wave Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 193
+        }
+      },
+      {
+        "id": 2,
+        "name": "ENV Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 258
+        }
+      },
+      {
+        "id": 3,
+        "name": "Wave",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 63
+        }
+      },
+      {
+        "id": 4,
+        "name": "ENV",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 128
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mask",
+        "kind": "cv",
+        "position": {
+          "x": 43,
+          "y": 323
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tone",
+        "kind": "cv",
+        "position": {
+          "x": 133,
+          "y": 323
+        }
+      }
+    ],
+    "lights": 4,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 11,
+          "y": 66
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 11,
+          "y": 131
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 11,
+          "y": 196
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 11,
+          "y": 261
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "wave_link_toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "env_link_toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "interpolate_wave_toggle",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "interpolate_env_toggle",
+        "type": "boolean",
+        "default": false
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MosquitoLabs/PulseCzar/1.1.1/manifest.json",
+    "sourceCommit": "15c36b4618668905cfd4e05ca3de0ff831c1c851",
+    "artifact": {
+      "sha256": "48c1ac0e751ed2f559408b002f955b56e430a0f5570d476c340edfb23692bf07",
+      "size": 95514
+    }
+  },
+  "source": {
+    "url": "https://github.com/rmosquito/vcv-mosquito/",
+    "commit": "15c36b4618668905cfd4e05ca3de0ff831c1c851"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T05:57:35.181Z"
+  }
+}
