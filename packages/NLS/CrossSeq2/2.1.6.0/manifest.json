@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "NLS/CrossSeq2",
+    "plugin": "NLS",
+    "model": "CrossSeq2",
+    "name": "XSeq2",
+    "brand": "NLS",
+    "version": "2.1.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/michelezaccagnini/NLS/tree/main",
+    "libraryUrl": "https://library.vcvrack.com/NLS/CrossSeq2",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/NLS/CrossSeq2.webp",
+    "wasmUrl": "packages/NLS/CrossSeq2/2.1.6.0/module.wasm",
+    "width": 225,
+    "description": "detect intersections between LFOs to generate triggers",
+    "params": [
+      {
+        "id": 0,
+        "name": "freq",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 194,
+          "y": 266,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "rate1",
+        "min": 0,
+        "max": 10,
+        "default": 1,
+        "position": {
+          "x": 73,
+          "y": 46,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "rate2",
+        "min": 0,
+        "max": 10,
+        "default": 0.5,
+        "position": {
+          "x": 127,
+          "y": 46,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "amount1",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 73,
+          "y": 80,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "amount2",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 127,
+          "y": 80,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "shape1",
+        "min": 0,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 73,
+          "y": 121,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "shape2",
+        "min": 0,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 127,
+          "y": 121,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "phase1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 73,
+          "y": 162,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "phase2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 127,
+          "y": 162,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "pw1",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 73,
+          "y": 203,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 10,
+        "name": "pw2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 130,
+          "y": 203,
+          "widget": "RoundSmallBlackKnob"
+        }
+      },
+      {
+        "id": 11,
+        "name": "cvrate1",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 46,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 12,
+        "name": "cvrate2",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 193,
+          "y": 46,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 13,
+        "name": "cvamount1",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 80,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 14,
+        "name": "cvamount2",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 193,
+          "y": 80,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 15,
+        "name": "cvshape1",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 6,
+          "y": 121,
+          "widget": "BefacoTinyKnob"
+        }
+      },
+      {
+        "id": 16,
+        "name": "cvshape2",
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 193,
+          "y": 121,
+          "widget": "BefacoTinyKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "freq input",
+        "kind": "cv",
+        "position": {
+          "x": 156,
+          "y": 262
+        }
+      },
+      {
+        "id": 1,
+        "name": "rate1 input",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 39
+        }
+      },
+      {
+        "id": 2,
+        "name": "rate2 input",
+        "kind": "cv",
+        "position": {
+          "x": 154,
+          "y": 39
+        }
+      },
+      {
+        "id": 3,
+        "name": "shape1 input",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 117
+        }
+      },
+      {
+        "id": 4,
+        "name": "shape2 input",
+        "kind": "cv",
+        "position": {
+          "x": 154,
+          "y": 117
+        }
+      },
+      {
+        "id": 5,
+        "name": "amt1 input",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 76
+        }
+      },
+      {
+        "id": 6,
+        "name": "amt2 input",
+        "kind": "cv",
+        "position": {
+          "x": 154,
+          "y": 76
+        }
+      },
+      {
+        "id": 7,
+        "name": "sync input",
+        "kind": "cv",
+        "position": {
+          "x": 36,
+          "y": 262
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "trig",
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 325
+        }
+      },
+      {
+        "id": 1,
+        "name": "lfo1",
+        "kind": "cv",
+        "position": {
+          "x": 72,
+          "y": 325
+        }
+      },
+      {
+        "id": 2,
+        "name": "lfo2",
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 325
+        }
+      },
+      {
+        "id": 3,
+        "name": "diff",
+        "kind": "cv",
+        "position": {
+          "x": 169,
+          "y": 325
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/NLS/CrossSeq2/2.1.6.0/manifest.json",
+    "sourceCommit": "ca3d9a5d49ee1969b483a9b74829197b9b683f3e",
+    "artifact": {
+      "sha256": "1c241013762f615349e3d752cb8341b4706ed4e16108606069cae65562097d29",
+      "size": 84774
+    }
+  },
+  "source": {
+    "url": "https://github.com/michelezaccagnini/NLS/tree/main",
+    "commit": "ca3d9a5d49ee1969b483a9b74829197b9b683f3e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T06:19:41.487Z"
+  }
+}
