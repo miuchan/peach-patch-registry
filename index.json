@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-30T13:02:26.361Z",
-  "packageCount": 2998,
-  "totalBytes": 371159931,
+  "generatedAt": "2026-07-30T13:37:58.312Z",
+  "packageCount": 3000,
+  "totalBytes": 371341955,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -848544,6 +848544,296 @@
       "artifact": {
         "sha256": "ac22487994963feb25e1923235c65bfbd28274ce87dff061ff416c9361f28ecd",
         "size": 84170
+      }
+    },
+    {
+      "key": "TriggerFish-Elements/TfVCA",
+      "plugin": "TriggerFish-Elements",
+      "model": "TfVCA",
+      "name": "TFVCA",
+      "brand": "TriggerFish",
+      "version": "2.0.0",
+      "license": "BSD-3-Clause",
+      "sourceUrl": "https://github.com/JTriggerFish/TriggerFish-VCV",
+      "libraryUrl": "https://library.vcvrack.com/TriggerFish-Elements/TfVCA",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/TriggerFish-Elements/TfVCA.webp",
+      "wasmUrl": "packages/TriggerFish-Elements/TfVCA/2.0.0/module.wasm",
+      "width": 180,
+      "description": "analog modelled VCA that is loosely based on the minimoog's circuit",
+      "params": [
+        {
+          "id": 0,
+          "name": "Input Gain",
+          "min": 0,
+          "max": 2,
+          "default": 0.5,
+          "position": {
+            "x": 108,
+            "y": 79,
+            "widget": "TfLargeAudioKnob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Lin Input Level",
+          "min": 0,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 26,
+            "y": 45.5,
+            "widget": "TfCvKnob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Exp Input Level",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 26,
+            "y": 104,
+            "widget": "TfCvKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "CV Bleed",
+          "min": 0,
+          "max": 1,
+          "default": 0.5,
+          "position": {
+            "x": 121,
+            "y": 245,
+            "widget": "TfTrimpot"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Exp CV Base",
+          "min": 2,
+          "max": 50,
+          "default": 50,
+          "position": {
+            "x": 38,
+            "y": 245,
+            "widget": "TfTrimpot"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Output Level",
+          "min": 0,
+          "max": 2,
+          "default": 1,
+          "position": {
+            "x": 72,
+            "y": 154,
+            "widget": "TfAudioKob"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Audio",
+          "kind": "audio",
+          "position": {
+            "x": 99,
+            "y": 313
+          }
+        },
+        {
+          "id": 1,
+          "name": "Lin CV",
+          "kind": "cv",
+          "position": {
+            "x": 15,
+            "y": 313
+          }
+        },
+        {
+          "id": 2,
+          "name": "Exp CV",
+          "kind": "cv",
+          "position": {
+            "x": 57,
+            "y": 313
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Main",
+          "kind": "audio",
+          "position": {
+            "x": 141,
+            "y": 313
+          }
+        }
+      ],
+      "lights": 1,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "MediumLight<BlueLight>",
+          "position": {
+            "x": 85,
+            "y": 250
+          }
+        }
+      ],
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/TriggerFish-Elements/TfVCA/2.0.0/manifest.json",
+      "sourceCommit": "b454b7388de025ac8c084fe6e49c7633f6b3afe9",
+      "artifact": {
+        "sha256": "e5538d70811f37232742017d8e724b13fad2fb1611865b9f8991882de03b2651",
+        "size": 96379
+      }
+    },
+    {
+      "key": "TriggerFish-Elements/TfVDPO",
+      "plugin": "TriggerFish-Elements",
+      "model": "TfVDPO",
+      "name": "VDPO",
+      "brand": "TriggerFish",
+      "version": "2.0.0",
+      "license": "BSD-3-Clause",
+      "sourceUrl": "https://github.com/JTriggerFish/TriggerFish-VCV",
+      "libraryUrl": "https://library.vcvrack.com/TriggerFish-Elements/TfVDPO",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/TriggerFish-Elements/TfVDPO.webp",
+      "wasmUrl": "packages/TriggerFish-Elements/TfVDPO/2.0.0/module.wasm",
+      "width": 120,
+      "description": "Van Der Pol Oscillator",
+      "params": [
+        {
+          "id": 0,
+          "name": "Damping",
+          "min": 0.0010000000474974513,
+          "max": 9,
+          "default": 0.5,
+          "position": {
+            "x": 14,
+            "y": 112,
+            "widget": "TfAudioKob"
+          }
+        },
+        {
+          "id": 1,
+          "name": "Freq",
+          "min": -5,
+          "max": 5,
+          "default": 0,
+          "position": {
+            "x": 14,
+            "y": 58,
+            "widget": "TfAudioKob"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Input Gain",
+          "min": 0,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 18,
+            "y": 175,
+            "widget": "TfCvKnob"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Level",
+          "min": 0,
+          "max": 1,
+          "default": 2,
+          "position": {
+            "x": 76,
+            "y": 175,
+            "widget": "TfCvKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "V/Oct Scaling",
+          "min": 0,
+          "max": 1,
+          "default": 2,
+          "position": {
+            "x": 23,
+            "y": 256,
+            "widget": "TfTrimpot"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Damping Attenuvert",
+          "min": -1,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 81,
+            "y": 256,
+            "widget": "TfTrimpot"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "V/Oct",
+          "kind": "cv",
+          "position": {
+            "x": 20,
+            "y": 280
+          }
+        },
+        {
+          "id": 1,
+          "name": "Audio",
+          "kind": "audio",
+          "position": {
+            "x": 20,
+            "y": 324
+          }
+        },
+        {
+          "id": 2,
+          "name": "Damping",
+          "kind": "cv",
+          "position": {
+            "x": 78,
+            "y": 280
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "Output",
+          "kind": "audio",
+          "position": {
+            "x": 78,
+            "y": 324
+          }
+        }
+      ],
+      "lights": 0,
+      "runtime": {
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/TriggerFish-Elements/TfVDPO/2.0.0/manifest.json",
+      "sourceCommit": "b454b7388de025ac8c084fe6e49c7633f6b3afe9",
+      "artifact": {
+        "sha256": "e59183f0585757b8d835b063f273f92eab2f8705f240ace2855c253b69ede350",
+        "size": 85645
       }
     },
     {

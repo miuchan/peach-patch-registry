@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "TriggerFish-Elements/TfVCA",
+    "plugin": "TriggerFish-Elements",
+    "model": "TfVCA",
+    "name": "TFVCA",
+    "brand": "TriggerFish",
+    "version": "2.0.0",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/JTriggerFish/TriggerFish-VCV",
+    "libraryUrl": "https://library.vcvrack.com/TriggerFish-Elements/TfVCA",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/TriggerFish-Elements/TfVCA.webp",
+    "wasmUrl": "packages/TriggerFish-Elements/TfVCA/2.0.0/module.wasm",
+    "width": 180,
+    "description": "analog modelled VCA that is loosely based on the minimoog's circuit",
+    "params": [
+      {
+        "id": 0,
+        "name": "Input Gain",
+        "min": 0,
+        "max": 2,
+        "default": 0.5,
+        "position": {
+          "x": 108,
+          "y": 79,
+          "widget": "TfLargeAudioKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Lin Input Level",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 26,
+          "y": 45.5,
+          "widget": "TfCvKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Exp Input Level",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 26,
+          "y": 104,
+          "widget": "TfCvKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CV Bleed",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 121,
+          "y": 245,
+          "widget": "TfTrimpot"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Exp CV Base",
+        "min": 2,
+        "max": 50,
+        "default": 50,
+        "position": {
+          "x": 38,
+          "y": 245,
+          "widget": "TfTrimpot"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Output Level",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 72,
+          "y": 154,
+          "widget": "TfAudioKob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio",
+        "kind": "audio",
+        "position": {
+          "x": 99,
+          "y": 313
+        }
+      },
+      {
+        "id": 1,
+        "name": "Lin CV",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 313
+        }
+      },
+      {
+        "id": 2,
+        "name": "Exp CV",
+        "kind": "cv",
+        "position": {
+          "x": 57,
+          "y": 313
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Main",
+        "kind": "audio",
+        "position": {
+          "x": 141,
+          "y": 313
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 85,
+          "y": 250
+        }
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/TriggerFish-Elements/TfVCA/2.0.0/manifest.json",
+    "sourceCommit": "b454b7388de025ac8c084fe6e49c7633f6b3afe9",
+    "artifact": {
+      "sha256": "e5538d70811f37232742017d8e724b13fad2fb1611865b9f8991882de03b2651",
+      "size": 96379
+    }
+  },
+  "source": {
+    "url": "https://github.com/JTriggerFish/TriggerFish-VCV",
+    "commit": "b454b7388de025ac8c084fe6e49c7633f6b3afe9"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T13:36:10.147Z"
+  }
+}
