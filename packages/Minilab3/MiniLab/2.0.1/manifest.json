@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Minilab3/MiniLab",
+    "plugin": "Minilab3",
+    "model": "MiniLab",
+    "name": "MiniLab",
+    "brand": "ldlework",
+    "version": "2.0.1",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/dustinlacewell/vcv-minilab3",
+    "libraryUrl": "https://library.vcvrack.com/Minilab3/MiniLab",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Minilab3/MiniLab.webp",
+    "wasmUrl": "packages/Minilab3/MiniLab/2.0.1/module.wasm",
+    "width": 137,
+    "description": "Multiplex MIDI signals through expander modules.",
+    "params": [],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "MIDI",
+        "kind": "cv",
+        "hidden": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Gate",
+        "kind": "gate",
+        "position": {
+          "x": 24.104,
+          "y": 160.214,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Velocity",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 2,
+        "name": "Pitch Bend",
+        "kind": "cv",
+        "position": {
+          "x": 67.5,
+          "y": 160.361,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Modulation",
+        "kind": "cv",
+        "position": {
+          "x": 110.896,
+          "y": 160.068,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Aftertouch",
+        "kind": "cv",
+        "hidden": true
+      },
+      {
+        "id": 5,
+        "name": "Knob 1",
+        "kind": "cv",
+        "position": {
+          "x": 24.104,
+          "y": 286.568,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Knob 2",
+        "kind": "cv",
+        "position": {
+          "x": 53.035,
+          "y": 286.568,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Knob 3",
+        "kind": "cv",
+        "position": {
+          "x": 81.966,
+          "y": 286.568,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Knob 4",
+        "kind": "cv",
+        "position": {
+          "x": 110.896,
+          "y": 286.568,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Knob 5",
+        "kind": "cv",
+        "position": {
+          "x": 24.104,
+          "y": 327.484,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Knob 6",
+        "kind": "cv",
+        "position": {
+          "x": 53.035,
+          "y": 327.484,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Knob 7",
+        "kind": "cv",
+        "position": {
+          "x": 81.966,
+          "y": 327.484,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Knob 8",
+        "kind": "cv",
+        "position": {
+          "x": 110.896,
+          "y": 327.484,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Slider 1",
+        "kind": "cv",
+        "position": {
+          "x": 24.104,
+          "y": 223.135,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Slider 2",
+        "kind": "cv",
+        "position": {
+          "x": 53.035,
+          "y": 223.135,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 15,
+        "name": "Slider 3",
+        "kind": "cv",
+        "position": {
+          "x": 81.966,
+          "y": 223.135,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      },
+      {
+        "id": 16,
+        "name": "Slider 4",
+        "kind": "cv",
+        "position": {
+          "x": 110.896,
+          "y": 223.135,
+          "centered": true,
+          "widget": "OutputPort"
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 18.698,
+          "y": 16.649,
+          "centered": true
+        }
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Minilab3/MiniPad",
+            "symbol": "modelMiniPad",
+            "index": 0
+          }
+        ]
+      },
+      "midi": {
+        "input": true
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Minilab3/MiniLab/2.0.1/manifest.json",
+    "sourceCommit": "ce83bfed012136f49de5dd961e2dafa6cdade97b",
+    "artifact": {
+      "sha256": "7c3a45b6f413a6db9ca87fead1562e53b9400af37b5beb0c913b6ac5d53d1892",
+      "size": 118029
+    }
+  },
+  "source": {
+    "url": "https://github.com/dustinlacewell/vcv-minilab3",
+    "commit": "ce83bfed012136f49de5dd961e2dafa6cdade97b"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T04:35:05.008Z"
+  }
+}
