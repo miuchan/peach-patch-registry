@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MosquitoLabs/PhaseCzar",
+    "plugin": "MosquitoLabs",
+    "model": "PhaseCzar",
+    "name": "PhaseCzar",
+    "brand": "Mosquito Labs",
+    "version": "1.1.1",
+    "license": "GPL-3.0-only",
+    "sourceUrl": "https://github.com/rmosquito/vcv-mosquito/",
+    "libraryUrl": "https://library.vcvrack.com/MosquitoLabs/PhaseCzar",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MosquitoLabs/PhaseCzar.webp",
+    "wasmUrl": "packages/MosquitoLabs/PhaseCzar/1.1.1/module.wasm",
+    "width": 225,
+    "description": "8-bit wavetable oscillator based on Casio's Phase Distortion model.",
+    "params": [
+      {
+        "id": 0,
+        "name": "Pitch",
+        "min": -3,
+        "max": 3,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 248.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch Param 2",
+        "min": -3,
+        "max": 3,
+        "default": 1,
+        "position": {
+          "x": 82,
+          "y": 183.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch Param 3",
+        "min": -3,
+        "max": 3,
+        "default": 2,
+        "position": {
+          "x": 82,
+          "y": 118.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Interpolate On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14.5,
+          "y": 65.5,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Pitch On 1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14.5,
+          "y": 261.5,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pitch On 2",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14.5,
+          "y": 195.5,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Pitch On 3",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 14.5,
+          "y": 130.5,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Boost On",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 149,
+          "y": 326.5,
+          "widget": "LEDButton"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Amp",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 136.5,
+          "y": 248.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Amp Param 2",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 136.5,
+          "y": 183.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Amp Param 3",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 136.5,
+          "y": 118.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Wave",
+        "min": 0,
+        "max": 15.989999771118164,
+        "default": 0,
+        "position": {
+          "x": 82,
+          "y": 53.5,
+          "widget": "Rogan3PWhite"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Smooth",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 82,
+          "y": 313.5,
+          "widget": "Rogan3PWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "V/Oct",
+        "kind": "cv",
+        "position": {
+          "x": 11,
+          "y": 323
+        }
+      },
+      {
+        "id": 1,
+        "name": "Pitch",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 258
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pitch Input 2",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 193
+        }
+      },
+      {
+        "id": 3,
+        "name": "Pitch Input 3",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 128
+        }
+      },
+      {
+        "id": 4,
+        "name": "Amp",
+        "kind": "cv",
+        "position": {
+          "x": 191,
+          "y": 258
+        }
+      },
+      {
+        "id": 5,
+        "name": "Amp Input 2",
+        "kind": "cv",
+        "position": {
+          "x": 191,
+          "y": 193
+        }
+      },
+      {
+        "id": 6,
+        "name": "Amp Input 3",
+        "kind": "cv",
+        "position": {
+          "x": 191,
+          "y": 128
+        }
+      },
+      {
+        "id": 7,
+        "name": "Wave",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 63
+        }
+      },
+      {
+        "id": 8,
+        "name": "Smooth",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 323
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tone",
+        "kind": "cv",
+        "position": {
+          "x": 191.5,
+          "y": 323
+        }
+      }
+    ],
+    "lights": 5,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 14.5,
+          "y": 65.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 14.5,
+          "y": 261.5
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 14.5,
+          "y": 195.5
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 14.5,
+          "y": 130.5
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MyLight<GreenLight>",
+        "position": {
+          "x": 149,
+          "y": 326.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "p1toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "p2toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "p3toggle",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "interpolatetoggle",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "boosttoggle",
+        "type": "boolean",
+        "default": false
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MosquitoLabs/PhaseCzar/1.1.1/manifest.json",
+    "sourceCommit": "15c36b4618668905cfd4e05ca3de0ff831c1c851",
+    "artifact": {
+      "sha256": "18a633446645f40f000bd6a148b2cdabffada49bfba09c7d95d93953d6ecd75a",
+      "size": 95633
+    }
+  },
+  "source": {
+    "url": "https://github.com/rmosquito/vcv-mosquito/",
+    "commit": "15c36b4618668905cfd4e05ca3de0ff831c1c851"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T06:04:24.046Z"
+  }
+}
