@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-30T05:13:03.301Z",
-  "packageCount": 2960,
-  "totalBytes": 367444889,
+  "generatedAt": "2026-07-30T05:49:42.193Z",
+  "packageCount": 2961,
+  "totalBytes": 367547872,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -621406,6 +621406,342 @@
       "artifact": {
         "sha256": "1b0beedcdb3901f4992bd7942cd1e98e292ba1f318be9cabf0642c7af86a8edd",
         "size": 72398
+      }
+    },
+    {
+      "key": "ModularMooch/Wolfram",
+      "plugin": "ModularMooch",
+      "model": "Wolfram",
+      "name": "Wolfram",
+      "brand": "Modular Mooch",
+      "version": "2.1.0",
+      "license": "GPL-3.0-or-later",
+      "sourceUrl": "https://github.com/WesDaMooch/Modular-Mooch-VCV",
+      "libraryUrl": "https://library.vcvrack.com/ModularMooch/Wolfram",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ModularMooch/Wolfram.webp",
+      "wasmUrl": "packages/ModularMooch/Wolfram/2.1.0/module.wasm",
+      "width": 180,
+      "description": "Multi-algorithmic Generative Sequencer",
+      "params": [
+        {
+          "id": 0,
+          "name": "Rule",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 157.5,
+            "y": 65.374,
+            "centered": true,
+            "widget": "SelectEncoder"
+          },
+          "unbounded": true
+        },
+        {
+          "id": 1,
+          "name": "Menu",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 22.5,
+            "y": 112.618,
+            "centered": true,
+            "widget": "CKD6"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Mode",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 157.5,
+            "y": 112.618,
+            "centered": true,
+            "widget": "CKD6"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Length",
+          "min": 0,
+          "max": 8,
+          "default": 4,
+          "snap": true,
+          "position": {
+            "x": 45,
+            "y": 181.208,
+            "centered": true,
+            "widget": "LengthKnob"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Probability",
+          "min": 0,
+          "max": 1,
+          "default": 1,
+          "position": {
+            "x": 135,
+            "y": 181.208,
+            "centered": true,
+            "widget": "ProbabilityKnob"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Offset",
+          "min": 0,
+          "max": 7,
+          "default": 4,
+          "snap": true,
+          "position": {
+            "x": 90,
+            "y": 237.983,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 6,
+          "name": "X CV Scale",
+          "min": 0,
+          "max": 1,
+          "default": 0.5,
+          "position": {
+            "x": 22.5,
+            "y": 237.983,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        },
+        {
+          "id": 7,
+          "name": "Y CV Scale",
+          "min": 0,
+          "max": 1,
+          "default": 0.5,
+          "position": {
+            "x": 157.5,
+            "y": 237.983,
+            "centered": true,
+            "widget": "Trimpot"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Reset",
+          "kind": "gate",
+          "position": {
+            "x": 22.5,
+            "y": 65.374,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "Probability CV",
+          "kind": "cv",
+          "position": {
+            "x": 90,
+            "y": 339.13,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Offset CV",
+          "kind": "cv",
+          "position": {
+            "x": 90,
+            "y": 294.839,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Rule CV",
+          "kind": "cv",
+          "position": {
+            "x": 123.75,
+            "y": 339.13,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "name": "Algorithm CV",
+          "kind": "cv",
+          "position": {
+            "x": 157.5,
+            "y": 339.13,
+            "centered": true
+          }
+        },
+        {
+          "id": 5,
+          "name": "Trigger",
+          "kind": "gate",
+          "position": {
+            "x": 22.5,
+            "y": 339.13,
+            "centered": true
+          }
+        },
+        {
+          "id": 6,
+          "name": "Inject",
+          "kind": "cv",
+          "position": {
+            "x": 56.25,
+            "y": 339.13,
+            "centered": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "X",
+          "kind": "cv",
+          "position": {
+            "x": 22.5,
+            "y": 294.839,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "name": "X Pulse",
+          "kind": "gate",
+          "position": {
+            "x": 56.25,
+            "y": 294.839,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "name": "Y",
+          "kind": "cv",
+          "position": {
+            "x": 157.5,
+            "y": 294.839,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "name": "Y Pulse",
+          "kind": "gate",
+          "position": {
+            "x": 123.75,
+            "y": 294.839,
+            "centered": true
+          }
+        }
+      ],
+      "lights": 5,
+      "lightWidgets": [
+        {
+          "id": 0,
+          "widget": "DiagonalLuckyLight<RedLight>",
+          "position": {
+            "x": 157.5,
+            "y": 141.044,
+            "centered": true
+          }
+        },
+        {
+          "id": 1,
+          "widget": "LuckyLight<RedLight>",
+          "position": {
+            "x": 22.5,
+            "y": 266.412,
+            "centered": true
+          }
+        },
+        {
+          "id": 2,
+          "widget": "LuckyLight<RedLight>",
+          "position": {
+            "x": 56.25,
+            "y": 266.412,
+            "centered": true
+          }
+        },
+        {
+          "id": 4,
+          "widget": "LuckyLight<RedLight>",
+          "position": {
+            "x": 123.75,
+            "y": 266.412,
+            "centered": true
+          }
+        },
+        {
+          "id": 3,
+          "widget": "LuckyLight<RedLight>",
+          "position": {
+            "x": 157.5,
+            "y": 266.412,
+            "centered": true
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "audioRateMode",
+          "type": "boolean"
+        },
+        {
+          "key": "sync",
+          "type": "boolean"
+        },
+        {
+          "key": "slewValue",
+          "type": "integer"
+        },
+        {
+          "key": "engine",
+          "type": "integer"
+        },
+        {
+          "key": "displayStyle",
+          "type": "integer"
+        },
+        {
+          "key": "cellStyle",
+          "type": "integer"
+        }
+      ],
+      "runtime": {
+        "visuals": [
+          {
+            "kind": "wolfram-display",
+            "cells": 8,
+            "x": 42.755,
+            "y": 29.941,
+            "width": 94.49,
+            "height": 94.49
+          }
+        ],
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/ModularMooch/Wolfram/2.1.0/manifest.json",
+      "sourceCommit": "f92912c590553ecb2bb7bc5a65ba44da19e4ccd0",
+      "artifact": {
+        "sha256": "12e6893fc3f6f2292971b99e883f476ef07ab7eceb7c7b1d56b5f5ad9784e9ab",
+        "size": 102983
       }
     },
     {
