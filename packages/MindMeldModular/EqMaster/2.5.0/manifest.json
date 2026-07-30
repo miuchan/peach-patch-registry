@@ -1,0 +1,1227 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MindMeldModular/EqMaster",
+    "plugin": "MindMeldModular",
+    "model": "EqMaster",
+    "name": "EqMaster",
+    "brand": "MindMeld",
+    "version": "2.5.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/MarcBoule/MindMeldModular",
+    "libraryUrl": "https://library.vcvrack.com/MindMeldModular/EqMaster",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MindMeldModular/EqMaster.webp",
+    "wasmUrl": "packages/MindMeldModular/EqMaster/2.5.0/module.wasm",
+    "width": 420,
+    "description": "24-track EQ for MixMaster and MixMasterJr",
+    "params": [
+      {
+        "id": 0,
+        "name": "Track",
+        "min": 0,
+        "max": 23,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 24.478,
+          "y": 67.028,
+          "centered": true,
+          "widget": "TrackKnob"
+        },
+        "values": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24"
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Track EQ active",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 24.478,
+          "y": 144.021,
+          "centered": true,
+          "widget": "ActiveSwitch"
+        },
+        "snap": true,
+        "values": [
+          "Off",
+          "Active"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Track gain",
+        "min": -20,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 395.522,
+          "y": 197.835,
+          "centered": true,
+          "widget": "TrackGainKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "LF active",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 80.728,
+          "y": 240.797,
+          "centered": true,
+          "widget": "BandActiveSwitch<0>"
+        },
+        "snap": true,
+        "values": [
+          "Off",
+          "Active"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "LMF active",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 159.685,
+          "y": 240.797,
+          "centered": true,
+          "widget": "BandActiveSwitch<1>"
+        },
+        "snap": true,
+        "values": [
+          "Off",
+          "Active"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "HMF active",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 241.004,
+          "y": 240.797,
+          "centered": true,
+          "widget": "BandActiveSwitch<2>"
+        },
+        "snap": true,
+        "values": [
+          "Off",
+          "Active"
+        ]
+      },
+      {
+        "id": 6,
+        "name": "HF active",
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "position": {
+          "x": 325.571,
+          "y": 240.797,
+          "centered": true,
+          "widget": "BandActiveSwitch<3>"
+        },
+        "snap": true,
+        "values": [
+          "Off",
+          "Active"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "LF freq",
+        "min": 1.3010300397872925,
+        "max": 2.698970079421997,
+        "default": 2,
+        "position": {
+          "x": 70.689,
+          "y": 269.291,
+          "centered": true,
+          "widget": "EqFreqKnob<0>"
+        }
+      },
+      {
+        "id": 8,
+        "name": "LMF freq",
+        "min": 1.4771209955215454,
+        "max": 3.301029920578003,
+        "default": 2.5440680980682373,
+        "position": {
+          "x": 152.598,
+          "y": 269.291,
+          "centered": true,
+          "widget": "EqFreqKnob<1>"
+        }
+      },
+      {
+        "id": 9,
+        "name": "HMF freq",
+        "min": 2.698970079421997,
+        "max": 3.698970079421997,
+        "default": 3.176091194152832,
+        "position": {
+          "x": 234.508,
+          "y": 269.291,
+          "centered": true,
+          "widget": "EqFreqKnob<2>"
+        }
+      },
+      {
+        "id": 10,
+        "name": "HF freq",
+        "min": 3,
+        "max": 4.301030158996582,
+        "default": 3.698970079421997,
+        "position": {
+          "x": 316.417,
+          "y": 269.291,
+          "centered": true,
+          "widget": "EqFreqKnob<3>"
+        }
+      },
+      {
+        "id": 11,
+        "name": "LF gain",
+        "min": -20,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 103.287,
+          "y": 300.531,
+          "centered": true,
+          "widget": "EqGainKnob<0>"
+        }
+      },
+      {
+        "id": 12,
+        "name": "LMF gain",
+        "min": -20,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 185.197,
+          "y": 300.531,
+          "centered": true,
+          "widget": "EqGainKnob<1>"
+        }
+      },
+      {
+        "id": 13,
+        "name": "HMF gain",
+        "min": -20,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 267.106,
+          "y": 300.531,
+          "centered": true,
+          "widget": "EqGainKnob<2>"
+        }
+      },
+      {
+        "id": 14,
+        "name": "HF gain",
+        "min": -20,
+        "max": 20,
+        "default": 0,
+        "position": {
+          "x": 349.016,
+          "y": 300.531,
+          "centered": true,
+          "widget": "EqGainKnob<3>"
+        }
+      },
+      {
+        "id": 15,
+        "name": "LF Q",
+        "min": 0.30000001192092896,
+        "max": 20,
+        "default": 1,
+        "position": {
+          "x": 70.689,
+          "y": 331.801,
+          "centered": true,
+          "widget": "EqQKnob<0>"
+        }
+      },
+      {
+        "id": 16,
+        "name": "LMF Q",
+        "min": 0.30000001192092896,
+        "max": 20,
+        "default": 3,
+        "position": {
+          "x": 152.598,
+          "y": 331.801,
+          "centered": true,
+          "widget": "EqQKnob<1>"
+        }
+      },
+      {
+        "id": 17,
+        "name": "HMF Q",
+        "min": 0.30000001192092896,
+        "max": 20,
+        "default": 3,
+        "position": {
+          "x": 234.508,
+          "y": 331.801,
+          "centered": true,
+          "widget": "EqQKnob<2>"
+        }
+      },
+      {
+        "id": 18,
+        "name": "HF Q",
+        "min": 0.30000001192092896,
+        "max": 20,
+        "default": 1,
+        "position": {
+          "x": 316.417,
+          "y": 331.801,
+          "centered": true,
+          "widget": "EqQKnob<3>"
+        }
+      },
+      {
+        "id": 19,
+        "name": "LF peak/shelf",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 57.254,
+          "y": 240.797,
+          "centered": true,
+          "widget": "ShelfLowSwitch"
+        },
+        "snap": true,
+        "values": [
+          "Low shelf",
+          "Peak"
+        ]
+      },
+      {
+        "id": 20,
+        "name": "HF peak/shelf",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 302.953,
+          "y": 240.797,
+          "centered": true,
+          "widget": "PeakSwitch"
+        },
+        "snap": true,
+        "values": [
+          "High shelf",
+          "Peak"
+        ]
+      },
+      {
+        "id": 21,
+        "name": "Global bypass",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 24.478,
+          "y": 199.902,
+          "centered": true,
+          "widget": "MmBypassButton"
+        },
+        "snap": true,
+        "values": [
+          "Active",
+          "Bypassed"
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Tracks 1-8",
+        "kind": "audio",
+        "position": {
+          "x": 24.478,
+          "y": 249.065,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tracks 9-16",
+        "kind": "audio",
+        "position": {
+          "x": 24.478,
+          "y": 286.86,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Groups and Auxs",
+        "kind": "audio",
+        "position": {
+          "x": 24.478,
+          "y": 324.656,
+          "centered": true
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Tracks 1-8",
+        "kind": "audio",
+        "position": {
+          "x": 395.522,
+          "y": 249.065,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "name": "Tracks 9-16",
+        "kind": "audio",
+        "position": {
+          "x": 395.522,
+          "y": 286.86,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "Groups and Auxs",
+        "kind": "audio",
+        "position": {
+          "x": 395.522,
+          "y": 324.656,
+          "centered": true
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "pmAllowMouseTileMove",
+        "type": "integer"
+      },
+      {
+        "key": "mappedId",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 16,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 17,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 18,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 19,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 20,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 21,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 22,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 23,
+        "key": "trackLabelColors",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 4,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 5,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 6,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 7,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 8,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 9,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 10,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 11,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 12,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 13,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 14,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 15,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 16,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 17,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 18,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 19,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 20,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 21,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 22,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "index": 23,
+        "key": "trackVuColors",
+        "type": "integer"
+      },
+      {
+        "key": "miscSettings",
+        "type": "integer"
+      },
+      {
+        "key": "miscSettings2",
+        "type": "integer"
+      },
+      {
+        "key": "showFreqAsNotes",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 16,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 17,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 18,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 19,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 20,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 21,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 22,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 23,
+        "key": "active",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 16,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 17,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 18,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 19,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 20,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 21,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 22,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 23,
+        "key": "lowPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 6,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 7,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 8,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 9,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 10,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 11,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 12,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 13,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 14,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 15,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 16,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 17,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 18,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 19,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 20,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 21,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 22,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 23,
+        "key": "highPeak",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 3,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 4,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 5,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 6,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 7,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 8,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 9,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 10,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 11,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 12,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 13,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 14,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 15,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 16,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 17,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 18,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 19,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 20,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 21,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 22,
+        "key": "trackGain",
+        "type": "real"
+      },
+      {
+        "index": 23,
+        "key": "trackGain",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "MindMeldModular/EqExpander",
+            "symbol": "modelEqExpander",
+            "index": 0
+          }
+        ]
+      },
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MindMeldModular/EqMaster/2.5.0/manifest.json",
+    "sourceCommit": "9f47a829e53acc7da5f40de21831917f932d928e",
+    "artifact": {
+      "sha256": "d17d59756aac08eb6425ee825751f8f0b427493e941a9fb15fbafbf91f56de33",
+      "size": 141326
+    }
+  },
+  "source": {
+    "url": "https://github.com/MarcBoule/MindMeldModular",
+    "commit": "9f47a829e53acc7da5f40de21831917f932d928e"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": null,
+    "builtAt": "2026-07-30T03:06:12.320Z"
+  }
+}
