@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "abiVersion": "0.3",
-  "generatedAt": "2026-07-30T10:21:47.119Z",
-  "packageCount": 2980,
-  "totalBytes": 369257611,
+  "generatedAt": "2026-07-30T10:30:26.478Z",
+  "packageCount": 2981,
+  "totalBytes": 369379602,
   "packages": [
     {
       "key": "21kHz/kHzD_Inf",
@@ -670212,6 +670212,263 @@
       "artifact": {
         "sha256": "54204a89201b80b42d14f14e3803568347dfc21e0d9042725a899b06948effd2",
         "size": 66385
+      }
+    },
+    {
+      "key": "Ohmer/KlokSpid",
+      "plugin": "Ohmer",
+      "model": "KlokSpid",
+      "name": "KlokSpid",
+      "brand": "Ohmer Modules",
+      "version": "2.6.13",
+      "license": "BSD-3-Clause",
+      "sourceUrl": "https://github.com/DomiKamu/Ohmer.git",
+      "libraryUrl": "https://library.vcvrack.com/Ohmer/KlokSpid",
+      "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ohmer/KlokSpid.webp",
+      "wasmUrl": "packages/Ohmer/KlokSpid/2.6.13/module.wasm",
+      "width": 120,
+      "description": "CPU-controlled clock generator or clock modulator",
+      "params": [
+        {
+          "id": 0,
+          "name": "Param Encoder",
+          "min": -1,
+          "max": 1,
+          "default": 0,
+          "position": {
+            "x": 20,
+            "y": 106,
+            "widget": "Ohmer_Encoder"
+          },
+          "unbounded": true
+        },
+        {
+          "id": 1,
+          "name": "Param Button",
+          "min": 0,
+          "max": 1,
+          "default": 0,
+          "snap": true,
+          "button": true,
+          "position": {
+            "x": 94,
+            "y": 178,
+            "widget": "Ohmer_ButtonGold"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "id": 0,
+          "name": "Master clock",
+          "kind": "gate",
+          "position": {
+            "x": 24,
+            "y": 215,
+            "centered": true,
+            "widget": "DynSVGPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "CV-Ratio / trigger",
+          "kind": "cv",
+          "position": {
+            "x": 72,
+            "y": 215,
+            "centered": true,
+            "widget": "DynSVGPort"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": 0,
+          "name": "1st clock",
+          "kind": "gate",
+          "position": {
+            "x": 10,
+            "y": 261,
+            "centered": true,
+            "widget": "DynSVGPort"
+          }
+        },
+        {
+          "id": 1,
+          "name": "2nd clock",
+          "kind": "gate",
+          "position": {
+            "x": 86,
+            "y": 261,
+            "centered": true,
+            "widget": "DynSVGPort"
+          }
+        },
+        {
+          "id": 2,
+          "name": "3rd clock",
+          "kind": "gate",
+          "position": {
+            "x": 10,
+            "y": 310,
+            "centered": true,
+            "widget": "DynSVGPort"
+          }
+        },
+        {
+          "id": 3,
+          "name": "4th clock",
+          "kind": "gate",
+          "position": {
+            "x": 86,
+            "y": 310,
+            "centered": true,
+            "widget": "DynSVGPort"
+          }
+        }
+      ],
+      "lights": 6,
+      "lightWidgets": [
+        {
+          "id": 4,
+          "widget": "MediumLight<GreenRedLight>",
+          "position": {
+            "x": 7,
+            "y": 96
+          }
+        },
+        {
+          "id": 2,
+          "widget": "SmallLight<KlokSpidOrangeLight>",
+          "position": {
+            "x": 67.5,
+            "y": 206
+          }
+        },
+        {
+          "id": 3,
+          "widget": "SmallLight<KlokSpidOrangeLight>",
+          "position": {
+            "x": 95,
+            "y": 206
+          }
+        },
+        {
+          "id": 0,
+          "widget": "MediumLight<RedLight>",
+          "position": {
+            "x": 31.5,
+            "y": 242
+          }
+        },
+        {
+          "id": 1,
+          "widget": "MediumLight<KlokSpidOrangeLight>",
+          "position": {
+            "x": 79.5,
+            "y": 242
+          }
+        }
+      ],
+      "stateKeys": [
+        {
+          "key": "Model",
+          "type": "integer"
+        },
+        {
+          "key": "bipolarCV",
+          "type": "boolean"
+        },
+        {
+          "key": "pulseDurationExt",
+          "type": "integer"
+        },
+        {
+          "key": "outVoltage",
+          "type": "real"
+        },
+        {
+          "key": "defOutRatios",
+          "type": "boolean"
+        },
+        {
+          "key": "out1Ratio",
+          "type": "integer"
+        },
+        {
+          "key": "out2Ratio",
+          "type": "integer"
+        },
+        {
+          "key": "out3Ratio",
+          "type": "integer"
+        },
+        {
+          "key": "out4Ratio",
+          "type": "integer"
+        },
+        {
+          "key": "jack4LFO",
+          "type": "integer"
+        },
+        {
+          "key": "jack4LFObipolar",
+          "type": "boolean"
+        },
+        {
+          "key": "transportTrig",
+          "type": "boolean"
+        },
+        {
+          "key": "Ratio",
+          "type": "integer"
+        },
+        {
+          "key": "BPM",
+          "type": "integer"
+        },
+        {
+          "key": "runBPMOnInit",
+          "type": "boolean"
+        }
+      ],
+      "bypassRoutes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "runtime": {
+        "visuals": [
+          {
+            "kind": "klokspid-dmd",
+            "offset": 0,
+            "x": 0,
+            "y": 0,
+            "width": 120,
+            "height": 380
+          }
+        ],
+        "initialMemory": 4194304,
+        "strategy": "direct-rack-source-adapter"
+      },
+      "manifestUrl": "packages/Ohmer/KlokSpid/2.6.13/manifest.json",
+      "sourceCommit": "00f3497ddc62edda46463d8084e6bc7cf5bcd1db",
+      "artifact": {
+        "sha256": "7a4e19141ad15a47bb54c3b4f6d545144f8ee32906397ef8b7fb9c9009d16f47",
+        "size": 121991
       }
     },
     {
