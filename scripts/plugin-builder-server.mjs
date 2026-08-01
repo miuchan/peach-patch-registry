@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+import {execFile} from "node:child_process";
+import crypto from "node:crypto";
+import fs from "node:fs";
+import http from "node:http";
+import path from "node:path";
+import {promisify} from "node:util";
+import {fileURLToPath} from "node:url";
+import {parseLibraryModuleUrl} from "../lib/vcv-library.ts";
+
+function directoryFiles(root){const found=[];for(const entry of fs.readdirSync(root,{withFileTypes:true})){const target=path.join(root,entry.name);if(entry.isDirectory())found.push(...directoryFiles(target));else if(entry.isFile())found.push(target)}return found}
+const execute=promisify(execFile),serverFile=fileURLToPath(import.meta.url),projectDir=path.resolve(path.dirname(serverFile),".."),port=Number(process.env.RACK_WEB_BUILDER_PORT??4179),cacheDir=path.join(projectDir,".build"),sourceCacheDir=path.join(cacheDir,"sources"),publicDir=path.join(projectDir,"public","dynamic-plugins"),catalogPath=path.join(publicDir,"catalog.json"),pending=new Map(),fingerprint=directoryFiles(path.join(projectDir,"web-runtime","include")).sort().reduce((hash,file)=>hash.update(fs.readFileSync(file)),crypto.createHash("sha256").update(fs.readFileSync(serverFile)).update(fs.readFileSync(path.join(projectDir,"scripts","scaffold-library-module.mjs")))).digest("hex").slice(0,16);
+fs.mkdirSync(cacheDir,{recursive:true});fs.mkdirSync(publicDir,{recursive:true});
+
+function cors(request,response){const origin=request.headers.origin;if(origin&&/^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?$/.test(origin))response.setHeader("access-control-allow-origin",origin);response.setHeader("vary","Origin");response.setHeader("access-control-allow-headers","content-type");response.setHeader("access-control-allow-methods","GET,POST,OPTIONS")}
+function json(request,response,status,value){cors(request,response);response.writeHead(status,{"content-type":"application/json; charset=utf-8","cache-control":"no-store"});response.end(`${JSON.stringify(value)}\n`)}
+function catalog(){try{const value=JSON.parse(fs.readFileSync(catalogPath,"utf8"));return Array.isArray(value)?value:[]}catch{return []}}
+function saveCatalog(module){const modules=catalog().filter(item=>item?.key!==module.key);modules.push(module);modules.sort((a,b)=>a.key.localeCompare(b.key));const temporary=`${catalogPath}.next`;fs.writeFileSync(temporary,`${JSON.stringify(modules,null,2)}\n`);fs.renameSync(temporary,catalogPath)}
+async function body(request){let value="";for await(const chunk of request){value+=chunk;if(value.length>8192)throw new Error("Request body is too large")}return JSON.parse(value||"{}")}
+async function build(requested){
+  const target=parseLibraryModuleUrl(requested),existing=catalog().find(item=>item.key===target.key),builtAt=Date.parse(existing?.localBuild?.builtAt??"");if(existing&&existing.localBuild?.fingerprint===fingerprint&&Date.now()-builtAt<86400000&&fs.existsSync(path.join(projectDir,"public",existing.wasmUrl)))return existing;
+  const current=pending.get(target.key);if(current)return current;
+  const task=(async()=>{const buildDir=path.join(cacheDir,`${target.plugin}-${target.model}`);fs.mkdirSync(buildDir,{recursive:true});let stdout="";try{({stdout}=await execute(process.execPath,[path.join(projectDir,"scripts","scaffold-library-module.mjs"),target.url,"--source-cache-dir",sourceCacheDir,"--output",buildDir,"--compile"],{cwd:projectDir,timeout:600000,maxBuffer:16*1024*1024}))}catch(error){let assessment;try{assessment=JSON.parse(fs.readFileSync(path.join(buildDir,"adapter.json"),"utf8")).assessment}catch{}const message=assessment&&!assessment.compileEligible?`${target.key} uses Rack APIs that still require a manual browser adapter`:error instanceof Error?error.message:"Module compilation failed";const failure=new Error(message);failure.cause=assessment;throw failure}const result=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(buildDir,"runtime.json"),"utf8")),destination=path.join(publicDir,target.plugin,target.model);fs.mkdirSync(destination,{recursive:true});fs.copyFileSync(result.artifact,path.join(destination,"module.wasm"));runtime.wasmUrl=`/dynamic-plugins/${target.plugin}/${target.model}/module.wasm`;runtime.runtime={...(runtime.runtime??{}),strategy:result.assessment?.strategy??"direct-rack-source-adapter"};runtime.localBuild={fingerprint,builtAt:new Date().toISOString(),sourceCommit:result.source.commit};saveCatalog(runtime);return runtime})().finally(()=>pending.delete(target.key));pending.set(target.key,task);return task;
+}
+
+const server=http.createServer(async(request,response)=>{try{if(request.method==="OPTIONS"){cors(request,response);response.writeHead(204);response.end();return}const url=new URL(request.url??"/",`http://${request.headers.host??"127.0.0.1"}`);if(request.method==="GET"&&url.pathname==="/health"){json(request,response,200,{ready:true,port});return}if(request.method==="GET"&&url.pathname==="/catalog"){json(request,response,200,catalog());return}if(request.method==="POST"&&url.pathname==="/compile"){const payload=await body(request),pluginDefinition=await build(payload.url);json(request,response,200,{runtime:pluginDefinition});return}json(request,response,404,{error:"Not found"})}catch(error){const assessment=error instanceof Error?error.cause:undefined;json(request,response,assessment?422:400,{error:error instanceof Error?error.message:"Builder request failed",assessment})}});
+server.listen(port,"127.0.0.1",()=>process.stdout.write(`Rack Web plugin builder listening on http://127.0.0.1:${port}\n`));

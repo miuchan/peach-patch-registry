@@ -1,20 +1,69 @@
 # Peach Patch Registry
 
-A browser-native VCV Rack module registry. It stores versioned WebAssembly artifacts, complete Rack control/port metadata, source provenance, and SHA-256 integrity data.
+Peach Patch Registry is the public, reproducible distribution and build repository for browser-loadable VCV Rack modules. It publishes versioned WebAssembly packages together with the metadata a host needs to render a Rack panel, connect ports, restore state, and verify an artifact before instantiation.
 
-The root `index.json` is the searchable formula index. Every immutable package lives at `packages/<plugin>/<model>/<version>/` with its own `manifest.json` and `module.wasm`.
+The repository deliberately separates concerns:
 
-`build-status.json` tracks every open-source module discovered from the pinned VCV Library revision as `compiled`, `failed`, or `pending`. `coverage.json` is the compact summary. Failed records contain only structured adapter assessments; local paths and raw build logs are never published.
+- `packages/` is the immutable distribution catalog: one `module.wasm` and one signed-by-hash `manifest.json` per plugin/model/version.
+- `index.json` is the compact searchable index consumed by Peach Patch and other hosts.
+- `scripts/` contains the registry CLI, integrity verifier, source discovery, Rack-source adapter, Emscripten build, and publishing tools.
+- `web-runtime/` contains the portable Rack compatibility headers and bundled adapter sources used to produce WASM; it is not a browser application.
+- `build-status.json` and `coverage.json` describe discovery and build coverage without publishing local paths or raw logs.
 
-## CLI
+The registry is not a replacement for the upstream VCV Rack repositories. Every package keeps its upstream source URL, exact source commit where available, license identifier, and Library URL. Read [docs/PROVENANCE.md](docs/PROVENANCE.md) before adding an artifact.
+
+## Install the CLI
+
+Requirements: Node.js 22 or newer. The CLI has no runtime dependency and can read either a local checkout or a hosted raw `index.json`.
 
 ```sh
-node bin/peach.mjs search oscillator --registry ./index.json
-node bin/peach.mjs info Fundamental/VCO --registry ./index.json
-node bin/peach.mjs install Fundamental/VCO --registry ./index.json
-node bin/peach.mjs verify Fundamental/VCO --registry ./index.json
+npm test
+node bin/peach.mjs search oscillator
+node bin/peach.mjs info Fundamental/VCO
+node bin/peach.mjs install Fundamental/VCO --prefix ~/.peach-patch
+node bin/peach.mjs verify Fundamental/VCO --prefix ~/.peach-patch
 ```
 
-The Peach Patch website reads the same index directly and verifies every downloaded artifact before WebAssembly instantiation. Packages retain their upstream license; see each manifest for its source repository, source commit, and license identifier.
+Use `--registry ./index.json` for offline/local operation or set `PEACH_PATCH_REGISTRY` to a registry URL. Installation is atomic and refuses an artifact whose byte length or SHA-256 digest differs from the index.
 
-Run `npm test` after every registry update.
+## Build a module from official source
+
+The source pipeline is an adapter generator, not a new C++ compiler. It resolves an immutable Library revision, isolates the DSP-relevant Rack class and dependencies, removes unsupported native UI/host code, injects the browser ABI, and invokes the installed Emscripten `em++` toolchain.
+
+```sh
+npm run source:scaffold -- https://library.vcvrack.com/Fundamental/VCO --compile
+npm run source:discover
+npm run source:build -- --plugin Fundamental --model VCO
+npm run registry:publish -- --key Fundamental/VCO
+```
+
+For the bundled catalog, use `npm run runtime:build`. This produces standalone WASM with the fixed `rack_web_*` ABI. See [docs/BUILDING.md](docs/BUILDING.md) for toolchain installation, cache layout, failure handling, and the review checklist.
+
+## Package contract
+
+Each package has this layout:
+
+```text
+packages/<plugin>/<model>/<version>/
+├── manifest.json
+└── module.wasm
+```
+
+The manifest records `abiVersion`, module metadata, parameter/input/output/light definitions, runtime capabilities, source provenance, build strategy, and the artifact digest. The full index and manifest contract is documented in [docs/SCHEMA.md](docs/SCHEMA.md).
+
+## Verification and releases
+
+Run the complete local check before every change to the catalog:
+
+```sh
+npm test
+git diff --check
+```
+
+The GitHub Actions workflow repeats `npm test` on pushes and pull requests. Run `npm run test:builder` when changing source extraction, compatibility headers, or compiler flags. A release is complete only when the committed `index.json`, manifests, artifacts, coverage records, and source provenance agree. The release process is documented in [docs/RELEASING.md](docs/RELEASING.md).
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md) before opening a change. In particular, do not add a binary copied from an upstream plugin without confirming that its license permits redistribution, and do not commit source checkouts, build caches, credentials, or private build logs.
+
+Peach Patch is the consumer project; this repository is intentionally usable by other browser hosts. If a host needs a runtime-specific visual or interaction, keep that behavior in the host and extend the package metadata only when it describes the module's portable ABI contract.

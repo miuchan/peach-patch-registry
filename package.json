@@ -3,10 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "bin": {
     "peach": "bin/peach.mjs"
   },
   "scripts": {
-    "test": "node scripts/verify-registry.mjs"
+    "test": "node scripts/verify-registry.mjs && npm run test:provenance",
+    "test:provenance": "node --test tests/vcv-library.test.mjs",
+    "test:builder": "node --test tests/plugin-scaffold.test.mjs",
+    "runtime:manifest": "node scripts/generate-web-runtime-manifest.mjs",
+    "runtime:build": "./scripts/build-web-runtime.sh",
+    "source:scaffold": "node scripts/scaffold-library-module.mjs",
+    "source:discover": "node scripts/discover-open-source-modules.mjs",
+    "source:build": "node scripts/build-open-source-modules.mjs",
+    "source:serve": "node scripts/plugin-builder-server.mjs",
+    "registry:publish": "node scripts/publish-registry.mjs"
   }
 }
