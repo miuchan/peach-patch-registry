@@ -18,10 +18,12 @@ Requirements: Node.js 22 or newer. The CLI has no runtime dependency and can rea
 
 ```sh
 npm test
-node bin/peach.mjs search oscillator
-node bin/peach.mjs info Fundamental/VCO
-node bin/peach.mjs install Fundamental/VCO --prefix ~/.peach-patch
-node bin/peach.mjs verify Fundamental/VCO --prefix ~/.peach-patch
+cargo run -- search oscillator
+cargo run -- info Fundamental/VCO
+cargo run -- install Fundamental/VCO --prefix ~/.peach-patch
+cargo run -- verify Fundamental/VCO --prefix ~/.peach-patch
+
+Install the Rust CLI with `cargo install --path .` to use the `peach` command directly.
 ```
 
 Use `--registry ./index.json` for offline/local operation or set `PEACH_PATCH_REGISTRY` to a registry URL. Installation is atomic and refuses an artifact whose byte length or SHA-256 digest differs from the index.

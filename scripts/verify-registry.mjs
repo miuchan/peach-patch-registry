@@ -26,9 +26,9 @@ const cliPackage = index.packages.find((item) => item.manifestUrl);
 if (!cliPackage) throw new Error("Registry contains no installable package manifest");
 const prefix = fs.mkdtempSync(path.join(os.tmpdir(), "peach-registry-verify-"));
 try {
-  const cli = path.join(root, "bin", "peach.mjs");
-  execFileSync(process.execPath, [cli, "install", cliPackage.key, "--registry", path.join(root, "index.json"), "--prefix", prefix], { stdio: "pipe" });
-  execFileSync(process.execPath, [cli, "verify", cliPackage.key, "--registry", path.join(root, "index.json"), "--prefix", prefix], { stdio: "pipe" });
+  const cliArgs = ["run", "--quiet", "--manifest-path", path.join(root, "Cargo.toml"), "--"];
+  execFileSync("cargo", [...cliArgs, "install", cliPackage.key, "--registry", path.join(root, "index.json"), "--prefix", prefix], { stdio: "pipe" });
+  execFileSync("cargo", [...cliArgs, "verify", cliPackage.key, "--registry", path.join(root, "index.json"), "--prefix", prefix], { stdio: "pipe" });
   const installed = JSON.parse(fs.readFileSync(path.join(prefix, "packages", cliPackage.plugin, cliPackage.model, cliPackage.version, "manifest.json"), "utf8"));
   if (installed.module?.key !== cliPackage.key || installed.module?.artifact?.sha256 !== cliPackage.artifact.sha256)
     throw new Error(`CLI installed an incomplete manifest for ${cliPackage.key}`);
