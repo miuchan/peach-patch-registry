@@ -23,7 +23,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 60,
+          "y": 295,
+          "centered": true,
+          "widget": "CountModulaLEDPushButtonMega<CountModulaPBLight<GreenLight>>"
+        }
       },
       {
         "id": 1,
@@ -31,36 +37,67 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 90,
+          "y": 163,
+          "centered": true,
+          "widget": "CountModulaToggle2P"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Signal 1",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 53,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Signal 2",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 108,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Mute",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 163,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "L",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 53,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "R",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 108,
+          "centered": true
+        }
       }
     ],
     "lights": 2,
@@ -97,7 +134,18 @@
     "artifact": {
       "sha256": "8b3420ae862fc91f8d441e0c707d7bc9ca36d9507ecb3f3c9e946a347e726117",
       "size": 70644
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<GreenLight>",
+        "position": {
+          "x": 60,
+          "y": 218,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

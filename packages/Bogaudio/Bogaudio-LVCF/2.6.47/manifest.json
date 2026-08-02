@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-LVCF",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-LVCF.webp",
     "wasmUrl": "packages/Bogaudio/Bogaudio-LVCF/2.6.47/module.wasm",
-    "width": 180,
+    "width": 45,
     "description": "Multimode filter",
     "params": [
       {
@@ -21,21 +21,36 @@
         "name": "Param 1",
         "min": 0,
         "max": 1,
-        "default": 0.22360999882221222
+        "default": 0.22360999882221222,
+        "position": {
+          "x": 9.5,
+          "y": 39,
+          "widget": "Knob26"
+        }
       },
       {
         "id": 1,
         "name": "Frequency CV attenuation",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 14.5,
+          "y": 93.5,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 2,
         "name": "Resonance / bandwidth",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 9.5,
+          "y": 138,
+          "widget": "Knob26"
+        }
       },
       {
         "id": 3,
@@ -43,26 +58,43 @@
         "min": 0,
         "max": 3,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 18,
+          "y": 204,
+          "widget": "StatefulButton9"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 10.5,
+          "y": 228
+        }
       },
       {
         "id": 1,
         "name": "Cutoff CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 263
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 10.5,
+          "y": 301
+        }
       }
     ],
     "lights": 4,
@@ -95,7 +127,41 @@
     "artifact": {
       "sha256": "d524f9f2298eda13dc5f7065c2f0d2ab3550328d9ec0e765d6b2286e3ef31932",
       "size": 84486
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 3,
+          "y": 181
+        }
+      },
+      {
+        "id": 1,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 3,
+          "y": 194
+        }
+      },
+      {
+        "id": 2,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 25,
+          "y": 181
+        }
+      },
+      {
+        "id": 3,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 25,
+          "y": 194
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/bogaudio/BogaudioModules",

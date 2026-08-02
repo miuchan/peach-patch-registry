@@ -21,43 +21,80 @@
         "name": "CV Amount",
         "min": -3.200000047683716,
         "max": 3.200000047683716,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 163,
+          "centered": true,
+          "widget": "Potentiometer<YellowKnob>"
+        }
       },
       {
         "id": 1,
         "name": "Divide by",
         "min": 1,
         "max": 32,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 108,
+          "centered": true,
+          "widget": "RotarySwitch<YellowKnob>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Division CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 163,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Pulse",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 218,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 108,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "On the 1",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 273,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "On the N",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 328,
+          "centered": true
+        }
       }
     ],
     "lights": 3,
@@ -80,7 +117,36 @@
     "artifact": {
       "sha256": "22fdbe9bc5afe003592a76edc4725a8ce4727b860ed06317cf1a1b8045c5afce",
       "size": 69899
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 90,
+          "y": 218,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 90,
+          "y": 273,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 90,
+          "y": 328,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

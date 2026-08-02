@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Clocked-Clkd",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Clocked-Clkd.webp",
     "wasmUrl": "packages/ImpromptuModular/Clocked-Clkd/2.5.0/module.wasm",
-    "width": 180,
+    "width": 150,
     "description": "Chainable master clock",
     "params": [
       {
@@ -21,28 +21,52 @@
         "name": "Clk 1 ratio",
         "min": -34,
         "max": 34,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 227,
+          "centered": true,
+          "widget": "RatioKnob"
+        }
       },
       {
         "id": 1,
         "name": "Clk 2 ratio",
         "min": -34,
         "max": 34,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 227,
+          "centered": true,
+          "widget": "RatioKnob"
+        }
       },
       {
         "id": 2,
         "name": "Clk 3 ratio",
         "min": -34,
         "max": 34,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 227,
+          "centered": true,
+          "widget": "RatioKnob"
+        }
       },
       {
         "id": 3,
         "name": "Master clock",
         "min": 30,
         "max": 300,
-        "default": 120
+        "default": 120,
+        "position": {
+          "x": 120,
+          "y": 95,
+          "centered": true,
+          "widget": "BpmKnob"
+        }
       },
       {
         "id": 4,
@@ -51,7 +75,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 30,
+          "y": 95,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
       },
       {
         "id": 5,
@@ -60,7 +90,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 75,
+          "y": 95,
+          "centered": true,
+          "widget": "LEDBezel"
+        }
       },
       {
         "id": 6,
@@ -69,7 +105,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 100,
+          "y": 198,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
       },
       {
         "id": 7,
@@ -78,7 +120,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 124,
+          "y": 198,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
       },
       {
         "id": 8,
@@ -87,7 +135,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 26,
+          "y": 198,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
       },
       {
         "id": 9,
@@ -96,61 +150,127 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 50,
+          "y": 198,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 58,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 1,
         "name": "Run",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 58,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 2,
         "name": "BPM CV / Ext clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 120,
+          "y": 58,
+          "centered": true,
+          "widget": "IMPort"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Master clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 148,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 1,
         "name": "Clock 1",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 281,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 2,
         "name": "Clock 2",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 281,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 3,
         "name": "Clock 3",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 120,
+          "y": 281,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 4,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 328,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 5,
         "name": "Run",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 328,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 6,
         "name": "BPM CV / Ext clock thru",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 120,
+          "y": 328,
+          "centered": true,
+          "widget": "IMPort"
+        }
       }
     ],
     "lights": 12,
@@ -251,7 +371,72 @@
     "artifact": {
       "sha256": "8d56e5ed4c1cc0ede56436c28207f0b3d61735161a2af12eeaa7d62b4cee07ec",
       "size": 89293
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LEDBezelLight<GreenLightIM>",
+        "position": {
+          "x": 30,
+          "y": 95,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "LEDBezelLight<GreenLightIM>",
+        "position": {
+          "x": 75,
+          "y": 95,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<GreenRedLightIM>",
+        "position": {
+          "x": 64.5,
+          "y": 124,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<GreenRedLightIM>",
+        "position": {
+          "x": 64.5,
+          "y": 138,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "SmallLight<GreenRedLightIM>",
+        "position": {
+          "x": 64.5,
+          "y": 148,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "SmallLight<GreenRedLightIM>",
+        "position": {
+          "x": 64.5,
+          "y": 158,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "SmallLight<GreenRedLightIM>",
+        "position": {
+          "x": 75,
+          "y": 198,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/MarcBoule/ImpromptuModular/",

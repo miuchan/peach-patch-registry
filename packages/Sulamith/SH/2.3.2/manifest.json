@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Sulamith/SH",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/SH.webp",
     "wasmUrl": "packages/Sulamith/SH/2.3.2/module.wasm",
-    "width": 180,
+    "width": 45,
     "description": "S&H with min, max, channels and probability. #2s settings apply to #3. Probability applies seperately to each poly channel",
     "params": [
       {
@@ -21,28 +21,52 @@
         "name": "Range A",
         "min": -10,
         "max": 10,
-        "default": -5
+        "default": -5,
+        "position": {
+          "x": 15,
+          "y": 105.6,
+          "centered": true,
+          "widget": "TrimpotSR"
+        }
       },
       {
         "id": 1,
         "name": "Range B",
         "min": -10,
         "max": 10,
-        "default": 5
+        "default": 5,
+        "position": {
+          "x": 32,
+          "y": 105.6,
+          "centered": true,
+          "widget": "TrimpotSB"
+        }
       },
       {
         "id": 2,
         "name": "Number of Channels (0 = auto)",
         "min": 0,
         "max": 16,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 122.4,
+          "centered": true,
+          "widget": "TrimpotSY"
+        }
       },
       {
         "id": 3,
         "name": "Probability",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 32,
+          "y": 122.4,
+          "centered": true,
+          "widget": "TrimpotSG"
+        }
       },
       {
         "id": 4,
@@ -50,35 +74,65 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 11,
+          "y": 70.8,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 5,
         "name": "Range A",
         "min": -10,
         "max": 10,
-        "default": -5
+        "default": -5,
+        "position": {
+          "x": 15,
+          "y": 235.2,
+          "centered": true,
+          "widget": "TrimpotSR"
+        }
       },
       {
         "id": 6,
         "name": "Range B",
         "min": -10,
         "max": 10,
-        "default": 5
+        "default": 5,
+        "position": {
+          "x": 32,
+          "y": 235.2,
+          "centered": true,
+          "widget": "TrimpotSB"
+        }
       },
       {
         "id": 7,
         "name": "Number of Channels (0 = auto)",
         "min": 0,
         "max": 16,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 252,
+          "centered": true,
+          "widget": "TrimpotSY"
+        }
       },
       {
         "id": 8,
         "name": "Probability",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 32,
+          "y": 252,
+          "centered": true,
+          "widget": "TrimpotSG"
+        }
       },
       {
         "id": 9,
@@ -86,77 +140,146 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 11,
+          "y": 200.4,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 10,
         "name": "Manual Button",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 34.2,
+          "y": 24,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 11,
         "name": "Manual Button",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 34.2,
+          "y": 153.6,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 12,
         "name": "Manual Button",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 34.2,
+          "y": 283.2,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Sample Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 31,
+          "y": 57.6,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "CLK/GT/TRIG",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 16,
+          "y": 38.4,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Sample Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 31,
+          "y": 187.2,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "CLK/GT/TRIG",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 16,
+          "y": 168,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Sample Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 31,
+          "y": 316.8,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "CLK/GT/TRIG",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 16,
+          "y": 297.6,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "S&H/Noise",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 84,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "S&H/Noise",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 213.6,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "S&H/Noise",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 343.2,
+          "centered": true
+        }
       }
     ],
     "lights": 5,
@@ -169,7 +292,59 @@
     "artifact": {
       "sha256": "9afc97a7890336565d1a63963009f917f2024a5800a23bf336a3f4257b0f1238",
       "size": 76402
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 34.2,
+          "y": 24,
+          "centered": true
+        },
+        "paramId": 10
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 11,
+          "y": 70.8,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 34.2,
+          "y": 153.6,
+          "centered": true
+        },
+        "paramId": 11
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 11,
+          "y": 200.4,
+          "centered": true
+        },
+        "paramId": 9
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 34.2,
+          "y": 283.2,
+          "centered": true
+        },
+        "paramId": 12
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/JohannAsbjoernson/Sulamith",

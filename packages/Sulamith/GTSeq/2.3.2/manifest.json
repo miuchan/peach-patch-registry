@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Sulamith/GTSeq",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/GTSeq.webp",
     "wasmUrl": "packages/Sulamith/GTSeq/2.3.2/module.wasm",
-    "width": 180,
+    "width": 45,
     "description": "Sequences 6 Gates (0.1s-10s) with playmodes, probability, seq length, reset. For holding notes, envelopes and switches.",
     "params": [
       {
@@ -21,42 +21,78 @@
         "name": "Length of gate",
         "min": 0.10000000149011612,
         "max": 10,
-        "default": 0.10000000149011612
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 25,
+          "y": 156,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 1,
         "name": "Length of gate",
         "min": 0.10000000149011612,
         "max": 10,
-        "default": 0.10000000149011612
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 25,
+          "y": 186,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 2,
         "name": "Length of gate",
         "min": 0.10000000149011612,
         "max": 10,
-        "default": 0.10000000149011612
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 25,
+          "y": 216,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 3,
         "name": "Length of gate",
         "min": 0.10000000149011612,
         "max": 10,
-        "default": 0.10000000149011612
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 25,
+          "y": 246,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 4,
         "name": "Length of gate",
         "min": 0.10000000149011612,
         "max": 10,
-        "default": 0.10000000149011612
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 25,
+          "y": 276,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 5,
         "name": "Length of gate",
         "min": 0.10000000149011612,
         "max": 10,
-        "default": 0.10000000149011612
+        "default": 0.10000000149011612,
+        "position": {
+          "x": 25,
+          "y": 306,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 6,
@@ -64,21 +100,39 @@
         "min": 0,
         "max": 2,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 23,
+          "y": 108,
+          "centered": true,
+          "widget": "ModeSwitch"
+        }
       },
       {
         "id": 7,
         "name": "Probability",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 34.5,
+          "y": 124.8,
+          "centered": true,
+          "widget": "TrimpotSG"
+        }
       },
       {
         "id": 8,
         "name": "Sequence Length",
         "min": 1,
         "max": 6,
-        "default": 6
+        "default": 6,
+        "position": {
+          "x": 11.5,
+          "y": 124.8,
+          "centered": true,
+          "widget": "TrimpotSB"
+        }
       },
       {
         "id": 9,
@@ -87,26 +141,47 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 23,
+          "y": 24,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Clock/Trigger/Gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 52.8,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Reset __|if RES POLY IN & CLK NO IN btn clones IN to GATE_LEN Knobs",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 84,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Gate Sequence",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 340.8,
+          "centered": true
+        }
       }
     ],
     "lights": 7,
@@ -125,7 +200,73 @@
     "artifact": {
       "sha256": "27ecfaa3f36a3671a36f4f3ed3b61c39e971e146a22f5d1f0b94e0c7b47993b7",
       "size": 70919
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 7,
+          "y": 158,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 7,
+          "y": 188,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 7,
+          "y": 218,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 7,
+          "y": 248,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 7,
+          "y": 278,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallSimpleLight<WhiteLight>",
+        "position": {
+          "x": 7,
+          "y": 308,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 23,
+          "y": 24,
+          "centered": true
+        },
+        "paramId": 9
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/JohannAsbjoernson/Sulamith",

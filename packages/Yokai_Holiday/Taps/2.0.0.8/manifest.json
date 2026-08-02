@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Yokai_Holiday/Taps",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Yokai_Holiday/Taps.webp",
     "wasmUrl": "packages/Yokai_Holiday/Taps/2.0.0.8/module.wasm",
-    "width": 180,
+    "width": 120,
     "description": "Reverse Delay - Two adjustable taps on a record buffer",
     "params": [
       {
@@ -21,100 +21,188 @@
         "name": "Length",
         "min": 0,
         "max": 10,
-        "default": 5
+        "default": 5,
+        "position": {
+          "x": 92.164,
+          "y": 55.819,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
       },
       {
         "id": 1,
         "name": "Feedback",
         "min": 0,
         "max": 1,
-        "default": 0.4000000059604645
+        "default": 0.4000000059604645,
+        "position": {
+          "x": 92.164,
+          "y": 117.874,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
       },
       {
         "id": 2,
         "name": "Location",
         "min": 0,
         "max": 1,
-        "default": 0.5
+        "default": 0.5,
+        "position": {
+          "x": 92.164,
+          "y": 179.926,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
       },
       {
         "id": 3,
         "name": "Location",
         "min": 0,
         "max": 1,
-        "default": 0.5
+        "default": 0.5,
+        "position": {
+          "x": 92.164,
+          "y": 241.981,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
       },
       {
         "id": 4,
         "name": "Length Modulation",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 51.664,
+          "y": 69.886,
+          "centered": true,
+          "widget": "YH_Red_Trimpot"
+        }
       },
       {
         "id": 5,
         "name": "Feedback Modulation",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 51.664,
+          "y": 131.717,
+          "centered": true,
+          "widget": "YH_Red_Trimpot"
+        }
       },
       {
         "id": 6,
         "name": "Location Modulation",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 51.664,
+          "y": 193.544,
+          "centered": true,
+          "widget": "YH_Red_Trimpot"
+        }
       },
       {
         "id": 7,
         "name": "Location Modulation",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 51.664,
+          "y": 255.375,
+          "centered": true,
+          "widget": "YH_Red_Trimpot"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Audio",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 19.975,
+          "y": 331.063,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 59.838,
+          "y": 331.063,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Length",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 19.975,
+          "y": 81.859,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Feedback",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 19.975,
+          "y": 143.914,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Reverse Distance",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 19.975,
+          "y": 205.969,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Forward Distance",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 19.975,
+          "y": 266.982,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Reverse",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 99.809,
+          "y": 292.807,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Forward",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 99.7,
+          "y": 331.063,
+          "centered": true
+        }
       }
     ],
     "lights": 3,
@@ -127,7 +215,36 @@
     "artifact": {
       "sha256": "d3c8f127a17e2bf0027e924ae7438d10e45ddd3aa15784abfd62702bb0591243",
       "size": 73667
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 110.554,
+          "y": 33.768,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 110.554,
+          "y": 158.25,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 71.649,
+          "y": 316.299,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/demcanulty/Yokai_Holiday/",

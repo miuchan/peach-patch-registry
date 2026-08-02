@@ -21,28 +21,52 @@
         "name": "Pattern A CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 163,
+          "centered": true,
+          "widget": "Potentiometer<GreenKnob>"
+        }
       },
       {
         "id": 1,
         "name": "Pattern B CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 120,
+          "y": 163,
+          "centered": true,
+          "widget": "Potentiometer<YellowKnob>"
+        }
       },
       {
         "id": 2,
         "name": "Pattern A select",
         "min": 0,
         "max": 255,
-        "default": 170
+        "default": 170,
+        "position": {
+          "x": 30,
+          "y": 108,
+          "centered": true,
+          "widget": "RotarySwitch<GreenKnob>"
+        }
       },
       {
         "id": 3,
         "name": "Pattern B select",
         "min": 0,
         "max": 255,
-        "default": 136
+        "default": 136,
+        "position": {
+          "x": 120,
+          "y": 108,
+          "centered": true,
+          "widget": "RotarySwitch<YellowKnob>"
+        }
       },
       {
         "id": 4,
@@ -51,51 +75,97 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 75,
+          "y": 163,
+          "centered": true,
+          "widget": "CountModulaLEDPushButtonMini<CountModulaPBLight<GreenLight>>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 273,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 120,
+          "y": 273,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Run",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 273,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Pattern A CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 218,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Pattern B CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 120,
+          "y": 218,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Chain CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 218,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Channel A",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Channel B",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 120,
+          "y": 328,
+          "centered": true
+        }
       }
     ],
     "lights": 35,
@@ -165,7 +235,27 @@
     "artifact": {
       "sha256": "7c148578567987497dc6832cb4a5dabe9464832e716d0556cd677de4c371d6be",
       "size": 79280
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 49,
+          "y": 308.5,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 139,
+          "y": 308.5,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

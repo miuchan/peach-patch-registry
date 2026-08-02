@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Foundry-Expander",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Foundry-Expander.webp",
     "wasmUrl": "packages/ImpromptuModular/Foundry-Expander/2.5.0/module.wasm",
-    "width": 180,
+    "width": 150,
     "description": "Expander for Foundry",
     "params": [
       {
@@ -22,96 +22,204 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 119,
+          "y": 119,
+          "centered": true,
+          "widget": "IMSwitch2V"
+        }
       },
       {
         "id": 1,
         "name": "Write mode",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 119,
+          "y": 304,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Track A CV2",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 286,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 1,
         "name": "Track B CV2",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 2,
         "name": "Track C CV2",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 286,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 3,
         "name": "Track D CV2",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 4,
         "name": "Track A seq#",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 70,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 5,
         "name": "Track B seq#",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 31,
+          "y": 119,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 6,
         "name": "Track C seq#",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 70,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 7,
         "name": "Track D seq#",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 119,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 8,
         "name": "Track select",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 119,
+          "y": 70,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 9,
         "name": "Gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 31,
+          "y": 178,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 10,
         "name": "Gate probability",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 31,
+          "y": 227,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 11,
         "name": "Tied",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 178,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 12,
         "name": "Slide",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 119,
+          "y": 178,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 13,
         "name": "Write mode",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 119,
+          "y": 335,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 14,
         "name": "Step left",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 75,
+          "y": 227,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 15,
         "name": "Step right",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 119,
+          "y": 227,
+          "centered": true,
+          "widget": "IMPort"
+        }
       }
     ],
     "outputs": [],
@@ -152,7 +260,63 @@
     "artifact": {
       "sha256": "8f94f4087eca480cbb7755c92898f0bd7a6fb8a0b62e11f6e2422c7a9ef6686b",
       "size": 69267
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 47,
+          "y": 304,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 59,
+          "y": 304,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 107,
+          "y": 289,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 131,
+          "y": 289,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 47,
+          "y": 317,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<RedLightIM>",
+        "position": {
+          "x": 59,
+          "y": 317,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/MarcBoule/ImpromptuModular/",

@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Fundamental/Rescale",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Rescale.webp",
     "wasmUrl": "packages/Fundamental/Rescale/2.6.4/module.wasm",
-    "width": 180,
+    "width": 45,
     "description": "Rescales voltages with gain, offset, and range limiting",
     "params": [
       {
@@ -21,42 +21,76 @@
         "name": "Gain",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 73.001,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
       },
       {
         "id": 1,
         "name": "Offset",
         "min": -10,
         "max": 10,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 22.491,
+          "y": 127.06,
+          "centered": true,
+          "widget": "RoundBlackKnob"
+        }
       },
       {
         "id": 2,
         "name": "Maximum",
         "min": -10,
         "max": 10,
-        "default": 10
+        "default": 10,
+        "position": {
+          "x": 22.476,
+          "y": 189.992,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 3,
         "name": "Minimum",
         "min": -10,
         "max": 10,
-        "default": -10
+        "default": -10,
+        "position": {
+          "x": 22.476,
+          "y": 237.983,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 286.001,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 334.001,
+          "centered": true
+        }
       }
     ],
     "lights": 4,
@@ -88,7 +122,27 @@
     "artifact": {
       "sha256": "4918b3389522ad36648e4c6e2ffe2d1e4abf60eb1d005b9890829125d630f947",
       "size": 15233
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 36.399,
+          "y": 169.193,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 36.399,
+          "y": 217.202,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/VCVRack/Fundamental",

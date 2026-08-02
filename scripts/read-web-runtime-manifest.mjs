@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const projectDir=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const manifest=JSON.parse(fs.readFileSync(path.join(projectDir,"web-runtime","modules.json"),"utf8"));
-const allowedStrategies=new Set(["ordered-translation","browser-dsp-adapter","rack-boundary"]);
+const allowedStrategies=new Set(["ordered-translation","browser-dsp-adapter","rack-boundary","direct-rack-source-adapter"]);
 if(manifest.schemaVersion!==1||manifest.abiVersion!=="0.3"||!Array.isArray(manifest.modules))throw new Error("Unsupported Rack Web module manifest");
 const keys=new Set(),entries=new Set(),artifacts=new Set();
 for(const item of manifest.modules){
@@ -16,8 +16,12 @@ for(const item of manifest.modules){
   if(!allowedStrategies.has(item.strategy))throw new Error(`Invalid strategy for ${item.key}`);
   if(keys.has(item.key)||entries.has(item.entry)||artifacts.has(item.artifact))throw new Error(`Duplicate manifest identity for ${item.key}`);
   keys.add(item.key);entries.add(item.entry);artifacts.add(item.artifact);
-  if(!fs.existsSync(path.join(projectDir,"web-runtime","plugins",`${item.entry}.cpp`)))throw new Error(`Missing C++ entry for ${item.key}`);
+  if(item.strategy==="direct-rack-source-adapter"){
+    if(typeof item.packageArtifact!=="string"||!/^packages\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/[A-Za-z0-9._-]+\/module\.wasm$/.test(item.packageArtifact))throw new Error(`Invalid packageArtifact for ${item.key}`);
+    if(!fs.existsSync(path.join(projectDir,item.packageArtifact)))throw new Error(`Missing source-built artifact for ${item.key}`);
+  }
+  else if(!fs.existsSync(path.join(projectDir,"web-runtime","plugins",`${item.entry}.cpp`)))throw new Error(`Missing C++ entry for ${item.key}`);
 }
 const requested=process.argv.slice(2),selected=requested.length?manifest.modules.filter(item=>requested.includes(item.key)):manifest.modules;
 for(const key of requested)if(!keys.has(key))throw new Error(`Unknown Rack Web module: ${key}`);
-for(const item of selected)process.stdout.write(`${item.entry}\t${item.artifact}\t${item.initialMemory}\t${item.key}\n`);
+for(const item of selected)process.stdout.write(`${item.entry}\t${item.artifact}\t${item.initialMemory}\t${item.key}\t${item.strategy}\t${item.packageArtifact??""}\n`);

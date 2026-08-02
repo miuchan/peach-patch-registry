@@ -14,9 +14,13 @@ build_plugin(){
 }
 
 count=0
-while IFS=$'\t' read -r source output initial_memory key; do
+while IFS=$'\t' read -r source output initial_memory key strategy package_artifact; do
   echo "Building $key"
-  build_plugin "$source" "$output" "$initial_memory"
+  if [[ "$strategy" == "direct-rack-source-adapter" ]]; then
+    cp "$project_dir/$package_artifact" "$project_dir/public/wasm/$output.wasm"
+  else
+    build_plugin "$source" "$output" "$initial_memory"
+  fi
   count=$((count+1))
 done < <(node "$project_dir/scripts/read-web-runtime-manifest.mjs" "$@")
 echo "Built $count Rack Web plugin module(s)"

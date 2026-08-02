@@ -21,7 +21,13 @@
         "name": "Output B chance",
         "min": 0,
         "max": 1,
-        "default": 0.5
+        "default": 0.5,
+        "position": {
+          "x": 30,
+          "y": 96,
+          "centered": true,
+          "widget": "Potentiometer<RedKnob>"
+        }
       },
       {
         "id": 1,
@@ -29,31 +35,57 @@
         "min": 0,
         "max": 2,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 178,
+          "centered": true,
+          "widget": "CountModulaToggle3P"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 234,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Probability CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 50,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "A",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 280,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "B",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 326,
+          "centered": true
+        }
       }
     ],
     "lights": 2,
@@ -82,7 +114,27 @@
     "artifact": {
       "sha256": "3cba4b83eb0051f96c4f31d9b2fd92a66bcd43879084806b8002a7b267d732a7",
       "size": 69425
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 20,
+          "y": 142,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 40,
+          "y": 142,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

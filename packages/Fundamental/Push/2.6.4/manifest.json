@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Fundamental/Push",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Push.webp",
     "wasmUrl": "packages/Fundamental/Push/2.6.4/module.wasm",
-    "width": 180,
+    "width": 45,
     "description": "Button with gate/trigger outputs and hold switch",
     "params": [
       {
@@ -21,38 +21,70 @@
         "name": "Param 1",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 22.5,
+          "y": 73.001,
+          "centered": true,
+          "widget": "LightButton<VCVBezelBig, VCVBezelLightBig<WhiteLight>>"
+        }
       },
       {
         "id": 1,
         "name": "Param 2",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 22.491,
+          "y": 141.951,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Hold",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 22.476,
+          "y": 189.992,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Push",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 22.476,
+          "y": 237.983,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 286.016,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 334.001,
+          "centered": true
+        }
       }
     ],
     "lights": 2,
@@ -70,7 +102,29 @@
     "artifact": {
       "sha256": "ed9aa747ce103450d18ed5f25d57263ae8a992161cc54bef1b1c91576a1aa409",
       "size": 13784
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LightButton<VCVBezelBig, VCVBezelLightBig<WhiteLight>>",
+        "position": {
+          "x": 22.5,
+          "y": 73.001,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 22.491,
+          "y": 141.951,
+          "centered": true
+        },
+        "paramId": 1
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/VCVRack/Fundamental",

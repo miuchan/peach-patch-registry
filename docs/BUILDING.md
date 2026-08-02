@@ -56,7 +56,28 @@ npm run source:discover -- --output .build/open-source-modules.json
 npm run source:build -- --limit 1 --keep-build
 npm run source:build -- --plugin Fundamental --model VCO --force
 npm run source:scaffold -- https://library.vcvrack.com/Fundamental/VCO --output /tmp/vco
+npm run source:refresh-ui -- --key AaronStatic/ChordCV --write
+npm run source:refresh-ui -- --reapply-cache-from-ref HEAD --write
+npm run source:refresh-screenshots -- --write
 ```
+
+`source:refresh-ui` reruns only Rack widget-geometry extraction and preserves the
+published WASM artifact, ABI, DSP metadata, and build provenance. Without
+`--write` it is a dry run. Use it when a published module has missing or stale
+parameter/port positions but does not need to be recompiled.
+
+The refresh also rejects collapsed, out-of-panel geometry and will not replace
+existing good positions with a source extraction that introduces those issues.
+The cache reapply form rebuilds geometry from a clean git baseline and is useful
+after tightening these validation rules; it never invokes source extraction.
+
+`source:refresh-screenshots` checks every official panel raster and clears only
+confirmed HTTP 404 URLs. Transient network failures are preserved and the app
+falls back to its generated panel if a raster later fails at runtime.
+
+Each module extraction is isolated with a 60-second timeout so an unusually
+large or unsupported source file cannot block the full refresh. Override it
+when debugging a specific module with `--timeout-ms 300000`.
 
 Every failed build should leave a small `adapter.json` assessment. Preserve the assessment in review notes, not the checkout or raw compiler log.
 

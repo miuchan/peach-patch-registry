@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-AddrSeq",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-AddrSeq.webp",
     "wasmUrl": "packages/Bogaudio/Bogaudio-AddrSeq/2.6.47/module.wasm",
-    "width": 180,
+    "width": 90,
     "description": "Voltage-addressable 8-step sequencer",
     "params": [
       {
@@ -21,7 +21,12 @@
         "name": "Steps",
         "min": 1,
         "max": 8,
-        "default": 8
+        "default": 8,
+        "position": {
+          "x": 15.5,
+          "y": 131.5,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 1,
@@ -29,94 +34,160 @@
         "min": 0,
         "max": 1,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 16,
+          "y": 167.5,
+          "widget": "SliderSwitch2State14"
+        }
       },
       {
         "id": 2,
         "name": "Select step",
         "min": 0,
         "max": 7,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 9,
+          "y": 230,
+          "widget": "Knob29"
+        }
       },
       {
         "id": 3,
         "name": "Step 1",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 36,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 4,
         "name": "Step 2",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 77.3,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 5,
         "name": "Step 3",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 118.6,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 6,
         "name": "Step 4",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 159.9,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 7,
         "name": "Step 5",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 201.1,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 8,
         "name": "Step 6",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 242.4,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 9,
         "name": "Step 7",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 283.7,
+          "widget": "Knob16"
+        }
       },
       {
         "id": 10,
         "name": "Step 8",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 58.5,
+          "y": 325,
+          "widget": "Knob16"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 11.5,
+          "y": 35
+        }
       },
       {
         "id": 1,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 11.5,
+          "y": 72
+        }
       },
       {
         "id": 2,
         "name": "Select CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 11.5,
+          "y": 270
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Sequence",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 11.5,
+          "y": 324
+        }
       }
     ],
     "lights": 8,
@@ -177,7 +248,73 @@
     "artifact": {
       "sha256": "9204d50683138308ab292418d93cf8d06dc1a7fcab491c7bbf3a5c6e10ff6170",
       "size": 72484
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 58.5
+        }
+      },
+      {
+        "id": 1,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 99.8
+        }
+      },
+      {
+        "id": 2,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 141.1
+        }
+      },
+      {
+        "id": 3,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 182.4
+        }
+      },
+      {
+        "id": 4,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 223.6
+        }
+      },
+      {
+        "id": 5,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 264.9
+        }
+      },
+      {
+        "id": 6,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 306.2
+        }
+      },
+      {
+        "id": 7,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 66.5,
+          "y": 347.5
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/bogaudio/BogaudioModules",

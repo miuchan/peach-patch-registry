@@ -21,42 +21,78 @@
         "name": "Length",
         "min": 1,
         "max": 96,
-        "default": 8
+        "default": 8,
+        "position": {
+          "x": 150,
+          "y": 53,
+          "centered": true,
+          "widget": "RotarySwitch<BlueKnob>"
+        }
       },
       {
         "id": 1,
         "name": "Number of hits",
         "min": 0,
         "max": 1,
-        "default": 0.5
+        "default": 0.5,
+        "position": {
+          "x": 150,
+          "y": 108,
+          "centered": true,
+          "widget": "Potentiometer<GreenKnob>"
+        }
       },
       {
         "id": 2,
         "name": "Shift",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 163,
+          "centered": true,
+          "widget": "Potentiometer<YellowKnob>"
+        }
       },
       {
         "id": 3,
         "name": "Length CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 53,
+          "centered": true,
+          "widget": "Potentiometer<BlueKnob>"
+        }
       },
       {
         "id": 4,
         "name": "Number of hits CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 108,
+          "centered": true,
+          "widget": "Potentiometer<GreenKnob>"
+        }
       },
       {
         "id": 5,
         "name": "Shift CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 163,
+          "centered": true,
+          "widget": "Potentiometer<YellowKnob>"
+        }
       },
       {
         "id": 6,
@@ -65,7 +101,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 90,
+          "y": 218,
+          "centered": true,
+          "widget": "CountModulaLEDPushButtonMomentary<CountModulaPBLight<GreenLight>>"
+        }
       },
       {
         "id": 7,
@@ -74,7 +116,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 90,
+          "y": 273,
+          "centered": true,
+          "widget": "CountModulaLEDPushButtonMomentary<CountModulaPBLight<GreenLight>>"
+        }
       },
       {
         "id": 8,
@@ -89,69 +137,134 @@
       {
         "id": 0,
         "name": "Run",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 150,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 90,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Length CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 53,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Number of hits CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 108,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Shift CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 163,
+          "centered": true
+        }
       },
       {
         "id": 6,
         "name": "Step left trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 218,
+          "centered": true
+        }
       },
       {
         "id": 7,
         "name": "Step right trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 273,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Hit trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 210,
+          "y": 273,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Hit gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 270,
+          "y": 273,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Rest trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 210,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Rest gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 270,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "End of cycle",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 240,
+          "y": 218,
+          "centered": true
+        }
       }
     ],
     "lights": 7,
@@ -213,7 +326,54 @@
     "artifact": {
       "sha256": "2387a829cbeb6c3bb8506be69b089cea7d2da0031b89969febde3b879f50b54e",
       "size": 82830
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 288,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225,
+          "y": 254,
+          "centered": true
+        }
+      },
+      {
+        "id": 289,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 285,
+          "y": 254,
+          "centered": true
+        }
+      },
+      {
+        "id": 290,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 225,
+          "y": 309,
+          "centered": true
+        }
+      },
+      {
+        "id": 291,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 285,
+          "y": 309,
+          "centered": true
+        }
+      },
+      {
+        "id": 292,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 255,
+          "y": 199,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

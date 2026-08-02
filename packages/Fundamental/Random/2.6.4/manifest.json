@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Fundamental/Random",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Random.webp",
     "wasmUrl": "packages/Fundamental/Random/2.6.4/module.wasm",
-    "width": 180,
+    "width": 135,
     "description": "Random CV generator",
     "params": [
       {
@@ -21,21 +21,39 @@
         "name": "Internal trigger rate",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 19.131,
+          "y": 99.227,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
       },
       {
         "id": 1,
         "name": "Shape",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 115.098,
+          "y": 99.227,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
       },
       {
         "id": 2,
         "name": "Offset",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 83.132,
+          "y": 286.001,
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 3,
@@ -49,101 +67,192 @@
         "name": "Trigger probability",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 51.127,
+          "y": 99.227,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
       },
       {
         "id": 5,
         "name": "Random spread",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 83.126,
+          "y": 99.227,
+          "centered": true,
+          "widget": "VCVLightSlider<YellowLight>"
+        }
       },
       {
         "id": 6,
         "name": "Internal trigger rate CV",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 19.131,
+          "y": 190.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       },
       {
         "id": 7,
         "name": "Shape CV",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 115.131,
+          "y": 190.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       },
       {
         "id": 8,
         "name": "Trigger probability CV",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 51.133,
+          "y": 190.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       },
       {
         "id": 9,
         "name": "Random spread CV",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 83.132,
+          "y": 190.001,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Internal trigger rate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 19.131,
+          "y": 237.842,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Shape",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 115.131,
+          "y": 237.865,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 19.131,
+          "y": 286.001,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "External",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 51.133,
+          "y": 286.001,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Trigger probability",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 51.133,
+          "y": 237.842,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Random spread",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 83.132,
+          "y": 237.853,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Stepped",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 19.131,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Linear",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 51.133,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Smooth",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 115.131,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Exponential",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 83.132,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 115.131,
+          "y": 286.001,
+          "centered": true
+        }
       }
     ],
     "lights": 5,
@@ -155,7 +264,59 @@
     "artifact": {
       "sha256": "36a48ef6461d3960996bf4a1d0af227e6a84b29fdc06be43edc503f2cc2ff3bc",
       "size": 37426
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 19.131,
+          "y": 99.227,
+          "centered": true
+        },
+        "paramId": 0
+      },
+      {
+        "id": 2,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 51.127,
+          "y": 99.227,
+          "centered": true
+        },
+        "paramId": 4
+      },
+      {
+        "id": 3,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 83.126,
+          "y": 99.227,
+          "centered": true
+        },
+        "paramId": 5
+      },
+      {
+        "id": 1,
+        "widget": "VCVLightSlider<YellowLight>",
+        "position": {
+          "x": 115.098,
+          "y": 99.227,
+          "centered": true
+        },
+        "paramId": 1
+      },
+      {
+        "id": 4,
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 83.132,
+          "y": 286.001,
+          "centered": true
+        },
+        "paramId": 2
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/VCVRack/Fundamental",

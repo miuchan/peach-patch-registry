@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/ImpromptuModular/Big-Button-Seq2",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/ImpromptuModular/Big-Button-Seq2.webp",
     "wasmUrl": "packages/ImpromptuModular/Big-Button-Seq2/2.5.0/module.wasm",
-    "width": 180,
+    "width": 300,
     "description": "6-channel, 128-step sequencer",
     "params": [
       {
@@ -21,21 +21,39 @@
         "name": "Channel",
         "min": 0,
         "max": 5,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 52,
+          "centered": true,
+          "widget": "IMSixPosBigKnob"
+        }
       },
       {
         "id": 1,
         "name": "Length",
         "min": 0,
         "max": 127,
-        "default": 31
+        "default": 31,
+        "position": {
+          "x": 183,
+          "y": 52,
+          "centered": true,
+          "widget": "IMBigKnob"
+        }
       },
       {
         "id": 2,
         "name": "Random",
         "min": 0,
         "max": 100,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 29,
+          "y": 52,
+          "centered": true,
+          "widget": "IMSmallKnob"
+        }
       },
       {
         "id": 3,
@@ -44,7 +62,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 29,
+          "y": 195,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
       },
       {
         "id": 4,
@@ -53,7 +77,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 271,
+          "y": 195,
+          "centered": true,
+          "widget": "IMPushButton"
+        }
       },
       {
         "id": 5,
@@ -62,21 +92,39 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 129,
+          "y": 121,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
       },
       {
         "id": 6,
         "name": "Delete",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 183,
+          "y": 150,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
       },
       {
         "id": 7,
         "name": "Fill",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 229,
+          "y": 195,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
       },
       {
         "id": 8,
@@ -85,7 +133,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 129,
+          "y": 221,
+          "centered": true,
+          "widget": "LEDLightBezelBig"
+        }
       },
       {
         "id": 9,
@@ -94,7 +148,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 229,
+          "y": 140,
+          "centered": true,
+          "widget": "LEDButton"
+        }
       },
       {
         "id": 10,
@@ -103,7 +163,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 183,
+          "y": 231,
+          "centered": true,
+          "widget": "LEDButton"
+        }
       },
       {
         "id": 11,
@@ -112,7 +178,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 273,
+          "y": 309,
+          "centered": true,
+          "widget": "LEDButton"
+        }
       },
       {
         "id": 12,
@@ -121,7 +193,13 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 75,
+          "y": 150,
+          "centered": true,
+          "widget": "IMBigPushButton"
+        }
       },
       {
         "id": 13,
@@ -129,126 +207,270 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 249,
+          "y": 88,
+          "centered": true,
+          "widget": "IMSwitch2H"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 186,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 1,
         "name": "Channel select",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 100,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 2,
         "name": "Big button",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 231,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 3,
         "name": "Length",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 100,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 4,
         "name": "Random",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 29,
+          "y": 100,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 5,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 29,
+          "y": 231,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 6,
         "name": "Clear",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 271,
+          "y": 231,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 7,
         "name": "Bank select",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 129,
+          "y": 157,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 8,
         "name": "Delete",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 183,
+          "y": 186,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 9,
         "name": "Fill",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 229,
+          "y": 231,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 10,
         "name": "CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 271,
+          "y": 140,
+          "centered": true,
+          "widget": "IMPort"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Channel 1 gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 29,
+          "y": 330,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 1,
         "name": "Channel 2 gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 69,
+          "y": 330,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 2,
         "name": "Channel 3 gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 109,
+          "y": 330,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 3,
         "name": "Channel 4 gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 149,
+          "y": 330,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 4,
         "name": "Channel 5 gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 189,
+          "y": 330,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 5,
         "name": "Channel 6 gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 229,
+          "y": 330,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 6,
         "name": "Channel 1 CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 29,
+          "y": 288,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 7,
         "name": "Channel 2 CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 69,
+          "y": 288,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 8,
         "name": "Channel 3 CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 109,
+          "y": 288,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 9,
         "name": "Channel 4 CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 149,
+          "y": 288,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 10,
         "name": "Channel 5 CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 189,
+          "y": 288,
+          "centered": true,
+          "widget": "IMPort"
+        }
       },
       {
         "id": 11,
         "name": "Channel 6 CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 229,
+          "y": 288,
+          "centered": true,
+          "widget": "IMPort"
+        }
       }
     ],
     "lights": 19,
@@ -329,7 +551,118 @@
     "artifact": {
       "sha256": "3bbf2a58be831c91464fbd46a8eb054cbb38dbf5fa0f45a50c777ea33314e6f3",
       "size": 97256
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 14,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 29,
+          "y": 140,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "MediumLight<GreenLightIM>",
+        "position": {
+          "x": 229,
+          "y": 140,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "MediumLight<RedLightIM>",
+        "position": {
+          "x": 129,
+          "y": 184,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "MediumLight<GreenLightIM>",
+        "position": {
+          "x": 183,
+          "y": 231,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 29,
+          "y": 260,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 69,
+          "y": 260,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 109,
+          "y": 260,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 149,
+          "y": 260,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 189,
+          "y": 260,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "MediumLight<GreenRedLightIM>",
+        "position": {
+          "x": 229,
+          "y": 260,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "MediumLight<GreenLightIM>",
+        "position": {
+          "x": 273,
+          "y": 309,
+          "centered": true
+        }
+      },
+      {
+        "id": 13,
+        "widget": "LEDLightBezelBig",
+        "position": {
+          "x": 129,
+          "y": 221,
+          "centered": true
+        },
+        "paramId": 8
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/MarcBoule/ImpromptuModular/",

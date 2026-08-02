@@ -22,74 +22,139 @@
         "min": 0,
         "max": 2,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 30,
+          "y": 108,
+          "centered": true,
+          "widget": "CountModulaToggle3P"
+        }
       },
       {
         "id": 1,
         "name": "Probability",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 90,
+          "y": 53,
+          "centered": true,
+          "widget": "Potentiometer<WhiteKnob>"
+        }
       },
       {
         "id": 2,
         "name": "Probability CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 108,
+          "centered": true,
+          "widget": "Potentiometer<WhiteKnob>"
+        }
       },
       {
         "id": 3,
         "name": "Input level",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 90,
+          "y": 218,
+          "centered": true,
+          "widget": "Potentiometer<VioletKnob>"
+        }
       },
       {
         "id": 4,
         "name": "Offset amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 273,
+          "centered": true,
+          "widget": "Potentiometer<BlueKnob>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 218,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 53,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Hold mode CV",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 163,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Probability CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 163,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Offset CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 273,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Sampled signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 30,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Inverted sampled signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 90,
+          "y": 328,
+          "centered": true
+        }
       }
     ],
     "lights": 3,
@@ -192,7 +257,36 @@
     "artifact": {
       "sha256": "1f309c41a43896b460b9a33cafb9e51f1555753bd60d0708d1751f738f280dad",
       "size": 80749
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 2,
+        "widget": "SmallLight<YellowLight>",
+        "position": {
+          "x": 49,
+          "y": 90,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "SmallLight<RedLight>",
+        "position": {
+          "x": 49,
+          "y": 108,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<GreenLight>",
+        "position": {
+          "x": 49,
+          "y": 126,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/TC-Wurl/TC-Wurl",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/TC-Wurl/TC-Wurl.webp",
     "wasmUrl": "packages/TC-Wurl/TC-Wurl/2.0.1/module.wasm",
-    "width": 180,
+    "width": 240,
     "description": "Physically-modeled electric piano",
     "params": [
       {
@@ -21,14 +21,26 @@
         "name": "Volume",
         "min": 0,
         "max": 1,
-        "default": 0.8500000238418579
+        "default": 0.8500000238418579,
+        "position": {
+          "x": 116.339,
+          "y": 66.969,
+          "centered": true,
+          "widget": "TCWVolumeKnob"
+        }
       },
       {
         "id": 1,
         "name": "Bark",
         "min": 0,
         "max": 1,
-        "default": 0.5
+        "default": 0.5,
+        "position": {
+          "x": 33.661,
+          "y": 66.969,
+          "centered": true,
+          "widget": "TCWBarkKnob"
+        }
       },
       {
         "id": 2,
@@ -70,77 +82,143 @@
         "name": "Preamp drive",
         "min": -12,
         "max": 12,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 75,
+          "y": 66.969,
+          "centered": true,
+          "widget": "TCMediumKnob"
+        }
       },
       {
         "id": 8,
         "name": "Chorus rate",
         "min": 0,
         "max": 1,
-        "default": 0.4537999927997589
+        "default": 0.4537999927997589,
+        "position": {
+          "x": 166.949,
+          "y": 206.693,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 9,
         "name": "Chorus depth",
         "min": 0,
         "max": 1,
-        "default": 0.30000001192092896
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 208.287,
+          "y": 206.693,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 10,
         "name": "Chorus time",
         "min": 0,
         "max": 1,
-        "default": 0.6496999859809875
+        "default": 0.6496999859809875,
+        "position": {
+          "x": 166.949,
+          "y": 262.795,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 11,
         "name": "Chorus mix",
         "min": 0,
         "max": 1,
-        "default": 0.33000001311302185
+        "default": 0.33000001311302185,
+        "position": {
+          "x": 208.287,
+          "y": 262.795,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 12,
         "name": "Tremolo depth",
         "min": 0,
         "max": 1,
-        "default": 0.30000001192092896
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 33.661,
+          "y": 206.693,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 13,
         "name": "Tremolo rate / clock div-mult",
         "min": 0,
         "max": 1,
-        "default": 0.5666999816894531
+        "default": 0.5666999816894531,
+        "position": {
+          "x": 116.339,
+          "y": 206.693,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 14,
         "name": "Pan depth",
         "min": 0,
         "max": 1,
-        "default": 0.30000001192092896
+        "default": 0.30000001192092896,
+        "position": {
+          "x": 33.661,
+          "y": 262.795,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 15,
         "name": "Pan rate / clock div-mult",
         "min": 0,
         "max": 1,
-        "default": 0.4332999885082245
+        "default": 0.4332999885082245,
+        "position": {
+          "x": 116.339,
+          "y": 262.795,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 16,
         "name": "Filter cutoff",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 33.661,
+          "y": 318.898,
+          "centered": true,
+          "widget": "TCWFiltKnob"
+        }
       },
       {
         "id": 17,
         "name": "Filter resonance",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 116.339,
+          "y": 318.898,
+          "centered": true,
+          "widget": "TCWSmallKnob"
+        }
       },
       {
         "id": 18,
@@ -182,54 +260,104 @@
       {
         "id": 0,
         "name": "V/Oct (poly)",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 166.949,
+          "y": 61.063,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Gate (poly)",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 208.287,
+          "y": 61.063,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Velocity 0-10V (poly)",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 166.949,
+          "y": 105.945,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Bark CV (±5 V, poly)",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 208.287,
+          "y": 105.945,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Sustain pedal (gate)",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 166.949,
+          "y": 150.827,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Pitchbend (±5V = ±range)",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 208.287,
+          "y": 150.827,
+          "centered": true
+        }
       },
       {
         "id": 6,
         "name": "Clock (trem/pan sync at x1 when connected)",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 75,
+          "y": 234.744,
+          "centered": true
+        }
       },
       {
         "id": 7,
         "name": "Filter cutoff CV (±10 V → full sweep)",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 75,
+          "y": 318.898,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Audio L",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 166.949,
+          "y": 318.898,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Audio R",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 208.287,
+          "y": 318.898,
+          "centered": true
+        }
       }
     ],
     "lights": 0,

@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/tapestry/TapestryExpander",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/tapestry/TapestryExpander.webp",
     "wasmUrl": "packages/tapestry/TapestryExpander/2.1.0/module.wasm",
-    "width": 180,
+    "width": 60,
     "description": "Effects expander for Tapestry - adds Bit Crusher and Moog VCF 24dB/oct lowpass filter with CV control",
     "params": [
       {
@@ -34,14 +34,26 @@
         "name": "Rate Reduction",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 60,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 2,
         "name": "Crusher Mix",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 125,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 3,
@@ -61,21 +73,39 @@
         "name": "Resonance",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 200,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 5,
         "name": "Filter Mix",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 265,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       },
       {
         "id": 6,
         "name": "Output Level",
         "min": 0,
         "max": 2,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 30,
+          "y": 335,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
       }
     ],
     "inputs": [
@@ -93,13 +123,23 @@
         "id": 1,
         "name": "Rate CV",
         "kind": "cv",
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 45,
+          "y": 90,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Crusher Mix CV",
         "kind": "audio",
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 30,
+          "y": 155,
+          "centered": true
+        }
       },
       {
         "id": 3,
@@ -115,13 +155,23 @@
         "id": 4,
         "name": "Resonance CV",
         "kind": "cv",
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 45,
+          "y": 230,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Filter Mix CV",
         "kind": "audio",
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 30,
+          "y": 295,
+          "centered": true
+        }
       }
     ],
     "outputs": [],
@@ -148,7 +198,18 @@
     "artifact": {
       "sha256": "f60b2614bcbd32e6089d968600da38c653a0f0ddf951398b06261b2bb2bcdcba",
       "size": 82727
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 30,
+          "y": 25,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/shortwavlabs/vcv-tapestry/tree/main/src",

@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Fundamental/Gates",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fundamental/Gates.webp",
     "wasmUrl": "packages/Fundamental/Gates/2.6.4/module.wasm",
-    "width": 180,
+    "width": 75,
     "description": "Gate processor",
     "params": [
       {
@@ -21,7 +21,13 @@
         "name": "Gate length",
         "min": -9.965784284662087,
         "max": 3.321928094887362,
-        "default": -3.321928024291992
+        "default": -3.321928024291992,
+        "position": {
+          "x": 37.341,
+          "y": 79.001,
+          "centered": true,
+          "widget": "RoundLargeBlackKnob"
+        }
       },
       {
         "id": 1,
@@ -29,56 +35,107 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 53.581,
+          "y": 154.459,
+          "centered": true,
+          "widget": "VCVLightBezel<>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Gate length",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 21.552,
+          "y": 154.459,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 21.546,
+          "y": 199.4,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Reset flip/flop",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 53.539,
+          "y": 199.4,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Rising edge trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 21.546,
+          "y": 244.287,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Falling edge trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 53.545,
+          "y": 244.287,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Flip",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 21.546,
+          "y": 289.246,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Flop",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 53.545,
+          "y": 289.246,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 21.546,
+          "y": 334.001,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Gate delay",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 53.545,
+          "y": 334.001,
+          "centered": true
+        }
       }
     ],
     "lights": 13,
@@ -91,7 +148,73 @@
     "artifact": {
       "sha256": "3e014bbbd4a39210268148b922e6e936ca57ebc42831e092adbd2d21e7b63403",
       "size": 47601
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 32.56,
+          "y": 233.288,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 64.559,
+          "y": 233.288,
+          "centered": true
+        }
+      },
+      {
+        "id": 5,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 32.56,
+          "y": 278.247,
+          "centered": true
+        }
+      },
+      {
+        "id": 7,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 64.559,
+          "y": 278.247,
+          "centered": true
+        }
+      },
+      {
+        "id": 9,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 32.56,
+          "y": 323.011,
+          "centered": true
+        }
+      },
+      {
+        "id": 11,
+        "widget": "TinyLight<YellowBlueLight<>>",
+        "position": {
+          "x": 64.559,
+          "y": 323.011,
+          "centered": true
+        }
+      },
+      {
+        "id": 0,
+        "widget": "VCVLightBezel<>",
+        "position": {
+          "x": 53.581,
+          "y": 154.459,
+          "centered": true
+        },
+        "paramId": 1
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/VCVRack/Fundamental",

@@ -21,7 +21,13 @@
         "name": "Sense",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 108,
+          "centered": true,
+          "widget": "Potentiometer<WhiteKnob>"
+        }
       },
       {
         "id": 1,
@@ -29,36 +35,67 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 90,
+          "y": 108,
+          "centered": true,
+          "widget": "CountModulaToggle2P"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Signal",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 60,
+          "y": 53,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Rising",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 163,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Steady",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 218,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Falling",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 273,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Moving",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 328,
+          "centered": true
+        }
       }
     ],
     "lights": 4,
@@ -81,7 +118,45 @@
     "artifact": {
       "sha256": "1dfde6c006e742997c66ef5ef8e9f8bf8ce020664c8069757d4a2672da6ce873",
       "size": 69744
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenLight>",
+        "position": {
+          "x": 90,
+          "y": 163,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "MediumLight<YellowLight>",
+        "position": {
+          "x": 90,
+          "y": 218,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 90,
+          "y": 273,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<BlueLight>",
+        "position": {
+          "x": 90,
+          "y": 328,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

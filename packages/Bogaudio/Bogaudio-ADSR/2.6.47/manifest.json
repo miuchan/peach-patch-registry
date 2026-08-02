@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-ADSR",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-ADSR.webp",
     "wasmUrl": "packages/Bogaudio/Bogaudio-ADSR/2.6.47/module.wasm",
-    "width": 180,
+    "width": 45,
     "description": "ADSR envelope generator",
     "params": [
       {
@@ -21,28 +21,48 @@
         "name": "Attack",
         "min": 0,
         "max": 1,
-        "default": 0.14142100512981415
+        "default": 0.14142100512981415,
+        "position": {
+          "x": 8,
+          "y": 33,
+          "widget": "Knob29"
+        }
       },
       {
         "id": 1,
         "name": "Decay",
         "min": 0,
         "max": 1,
-        "default": 0.3162277638912201
+        "default": 0.3162277638912201,
+        "position": {
+          "x": 8,
+          "y": 90,
+          "widget": "Knob29"
+        }
       },
       {
         "id": 2,
         "name": "Sustain",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 8,
+          "y": 147,
+          "widget": "Knob29"
+        }
       },
       {
         "id": 3,
         "name": "Release",
         "min": 0,
         "max": 1,
-        "default": 0.3162277638912201
+        "default": 0.3162277638912201,
+        "position": {
+          "x": 8,
+          "y": 204,
+          "widget": "Knob29"
+        }
       },
       {
         "id": 4,
@@ -50,21 +70,34 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 25.5,
+          "y": 246,
+          "widget": "IndicatorButtonGreen9"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Gate",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 10.5,
+          "y": 265
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Envelope",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 10.5,
+          "y": 303
+        }
       }
     ],
     "lights": 4,
@@ -83,7 +116,41 @@
     "artifact": {
       "sha256": "87308343c8a524a3a8c4286659fd032a6c10ad47d97daad06c6ef3cb9e89eac7",
       "size": 34311
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "BGTinyLight<GreenLight>",
+        "position": {
+          "x": 20.8,
+          "y": 65
+        }
+      },
+      {
+        "id": 1,
+        "widget": "BGTinyLight<GreenLight>",
+        "position": {
+          "x": 20.8,
+          "y": 122
+        }
+      },
+      {
+        "id": 2,
+        "widget": "BGTinyLight<GreenLight>",
+        "position": {
+          "x": 20.8,
+          "y": 179
+        }
+      },
+      {
+        "id": 3,
+        "widget": "BGTinyLight<GreenLight>",
+        "position": {
+          "x": 20.8,
+          "y": 236
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/bogaudio/BogaudioModules",

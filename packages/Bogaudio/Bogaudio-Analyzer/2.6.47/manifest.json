@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Bogaudio/Bogaudio-Analyzer",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Bogaudio/Bogaudio-Analyzer.webp",
     "wasmUrl": "packages/Bogaudio/Bogaudio-Analyzer/2.6.47/module.wasm",
-    "width": 180,
+    "width": 300,
     "description": "4-channel spectrum analyzer",
     "params": [
       {
@@ -28,7 +28,12 @@
         "name": "Smoothing",
         "min": 0,
         "max": 1,
-        "default": 0.5
+        "default": 0.5,
+        "position": {
+          "x": 103,
+          "y": 271,
+          "widget": "Knob38"
+        }
       },
       {
         "id": 2,
@@ -36,7 +41,12 @@
         "min": 1,
         "max": 3,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 179,
+          "y": 306,
+          "widget": "StatefulButton9"
+        }
       },
       {
         "id": 3,
@@ -51,58 +61,100 @@
         "min": 1,
         "max": 3,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 250,
+          "y": 306,
+          "widget": "StatefulButton9"
+        }
       },
       {
         "id": 5,
         "name": "Range",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 271,
+          "widget": "Knob38"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Signal A",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 13.5,
+          "y": 323
+        }
       },
       {
         "id": 1,
         "name": "Signal B",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 86,
+          "y": 323
+        }
       },
       {
         "id": 2,
         "name": "Signal C",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 158.5,
+          "y": 323
+        }
       },
       {
         "id": 3,
         "name": "Signal D",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 230.5,
+          "y": 323
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Signal A",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 44.5,
+          "y": 323
+        }
       },
       {
         "id": 1,
         "name": "Signal B",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 117,
+          "y": 323
+        }
       },
       {
         "id": 2,
         "name": "Signal C",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 189.5,
+          "y": 323
+        }
       },
       {
         "id": 3,
         "name": "Signal D",
-        "kind": "audio"
+        "kind": "audio",
+        "position": {
+          "x": 261.5,
+          "y": 323
+        }
       }
     ],
     "lights": 7,
@@ -138,7 +190,57 @@
     "artifact": {
       "sha256": "ee7741a0590c6d0261bbbb0b3aab090c6b96864608d2fe975064d57484eb5e60",
       "size": 86535
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 3,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 170,
+          "y": 267
+        }
+      },
+      {
+        "id": 0,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 170,
+          "y": 281
+        }
+      },
+      {
+        "id": 1,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 170,
+          "y": 295
+        }
+      },
+      {
+        "id": 4,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 241,
+          "y": 267
+        }
+      },
+      {
+        "id": 5,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 241,
+          "y": 281
+        }
+      },
+      {
+        "id": 6,
+        "widget": "BGSmallLight<GreenLight>",
+        "position": {
+          "x": 241,
+          "y": 295
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/bogaudio/BogaudioModules",

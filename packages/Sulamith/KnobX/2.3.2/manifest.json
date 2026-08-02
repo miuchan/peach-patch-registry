@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Sulamith/KnobX",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Sulamith/KnobX.webp",
     "wasmUrl": "packages/Sulamith/KnobX/2.3.2/module.wasm",
-    "width": 180,
+    "width": 45,
     "description": "8CH Volt Bank with built-in sequencer. Probability, Playmodes, CH/Step number and knob range setting. Clk, Rst, Button in. Sequenced CV + Trig and static Poly out.",
     "params": [
       {
@@ -22,7 +22,13 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 115.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 1,
@@ -30,7 +36,13 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 139.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 2,
@@ -38,7 +50,13 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 163.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 3,
@@ -46,7 +64,13 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 187.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 4,
@@ -54,7 +78,13 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 211.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 5,
@@ -62,7 +92,13 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 235.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 6,
@@ -70,7 +106,13 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 259.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 7,
@@ -78,14 +120,26 @@
         "min": -10,
         "max": 10,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "position": {
+          "x": 23,
+          "y": 283.2,
+          "centered": true,
+          "widget": "TrimpotW"
+        }
       },
       {
         "id": 8,
         "name": "Sequence Size",
         "min": 1,
         "max": 8,
-        "default": 8
+        "default": 8,
+        "position": {
+          "x": 11.5,
+          "y": 92.4,
+          "centered": true,
+          "widget": "TrimpotSB"
+        }
       },
       {
         "id": 9,
@@ -93,7 +147,13 @@
         "min": 0,
         "max": 9,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 34.5,
+          "y": 92.4,
+          "centered": true,
+          "widget": "TrimpotSR"
+        }
       },
       {
         "id": 10,
@@ -101,7 +161,13 @@
         "min": 0,
         "max": 2,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 36,
+          "y": 24,
+          "centered": true,
+          "widget": "ModeSwitch"
+        }
       },
       {
         "id": 11,
@@ -110,43 +176,80 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 24,
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>"
+        }
       },
       {
         "id": 12,
         "name": "Probability",
         "min": 0,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 36,
+          "y": 40.8,
+          "centered": true,
+          "widget": "TrimpotSG"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 16,
+          "y": 48,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Reset (if mono), Clone (if poly)",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 31,
+          "y": 68.4,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 23,
+          "y": 309.6,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Polyphonic",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 336,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Sequencer",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 23,
+          "y": 362.4,
+          "centered": true
+        }
       }
     ],
     "lights": 28,
@@ -165,7 +268,181 @@
     "artifact": {
       "sha256": "ec956cbc3290c725c8d34371fdbd1bee9a6e7fecfa1f957b6960b952cb2f1ba2",
       "size": 73211
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 119.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 143.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 4,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 167.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 6,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 191.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 8,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 215.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 10,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 239.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 12,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 263.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 14,
+        "widget": "TinySimpleLight<GreenRedLight>",
+        "position": {
+          "x": 37,
+          "y": 287.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 16,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 119.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 17,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 143.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 18,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 167.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 19,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 191.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 20,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 215.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 21,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 239.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 22,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 263.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 23,
+        "widget": "TinySimpleLight<WhiteLight>",
+        "position": {
+          "x": 9,
+          "y": 287.2,
+          "centered": true
+        }
+      },
+      {
+        "id": 24,
+        "widget": "SmallLight<WhiteLight>",
+        "position": {
+          "x": 39,
+          "y": 313.6,
+          "centered": true
+        }
+      },
+      {
+        "id": 25,
+        "widget": "SmallLight<GreenRedLight>",
+        "position": {
+          "x": 39,
+          "y": 366.4,
+          "centered": true
+        }
+      },
+      {
+        "id": 27,
+        "widget": "VCVLightButton<MediumSimpleLight<WhiteLight>>",
+        "position": {
+          "x": 15,
+          "y": 24,
+          "centered": true
+        },
+        "paramId": 11
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/JohannAsbjoernson/Sulamith",

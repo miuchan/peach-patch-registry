@@ -21,21 +21,39 @@
         "name": "Number of pulses",
         "min": 1,
         "max": 16,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 150,
+          "y": 142,
+          "centered": true,
+          "widget": "RotarySwitch<GreenKnob>"
+        }
       },
       {
         "id": 1,
         "name": "Burst rate",
         "min": 0,
         "max": 5,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 150,
+          "y": 50,
+          "centered": true,
+          "widget": "Potentiometer<RedKnob>"
+        }
       },
       {
         "id": 2,
         "name": "Rate CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 50,
+          "centered": true,
+          "widget": "Potentiometer<RedKnob>"
+        }
       },
       {
         "id": 3,
@@ -43,7 +61,13 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 150,
+          "y": 96,
+          "centered": true,
+          "widget": "CountModulaToggle2P"
+        }
       },
       {
         "id": 4,
@@ -51,14 +75,26 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 90,
+          "y": 234,
+          "centered": true,
+          "widget": "CountModulaToggle2P"
+        }
       },
       {
         "id": 5,
         "name": "Number of pulses CV amount",
         "min": -1.600000023841858,
         "max": 1.600000023841858,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 142,
+          "centered": true,
+          "widget": "Potentiometer<GreenKnob>"
+        }
       },
       {
         "id": 6,
@@ -67,70 +103,133 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 90,
+          "y": 331,
+          "centered": true,
+          "widget": "CountModulaLEDPushButtonBigMomentary<CountModulaPBLight<GreenLight>>"
+        }
       },
       {
         "id": 7,
         "name": "Pulse output probability",
         "min": 0,
         "max": 10,
-        "default": 10
+        "default": 10,
+        "position": {
+          "x": 150,
+          "y": 188,
+          "centered": true,
+          "widget": "Potentiometer<BlueKnob>"
+        }
       },
       {
         "id": 8,
         "name": "Probability CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 90,
+          "y": 188,
+          "centered": true,
+          "widget": "Potentiometer<BlueKnob>"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "External clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 96,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Internal rate CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 50,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 234,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "Number of pulses CV",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 142,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Pulse probability",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 188,
+          "centered": true
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Pulse",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 150,
+          "y": 234,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Start of burst",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 280,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Burst duration",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 90,
+          "y": 280,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "End of burst",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 150,
+          "y": 280,
+          "centered": true
+        }
       }
     ],
     "lights": 2,
@@ -160,7 +259,18 @@
     "artifact": {
       "sha256": "9ae9ec18e52babb0d9d7856237287cce9458157c7c5849915d5745e5435f4676",
       "size": 73296
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 90,
+          "y": 96,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/countmodula/VCVRackPlugins",

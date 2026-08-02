@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/Animatek/UZZ",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Animatek/UZZ.webp",
     "wasmUrl": "packages/Animatek/UZZ/2.5.4/module.wasm",
-    "width": 180,
+    "width": 870,
     "description": "Ultimate Ztep Zequencer. 16-step sequencer with per-step Pitch/Octave/Duration/Mod1/Mod2 and bipolar Prob/Pulse, eight step modes (Play/Mute/Skip/Accum±/Pulse/Gated/Hold), per-row randomize and shift, multiple direction modes (Forward/Backward/Pendulum/Ping-Pong/Random/Drunk/Odd-Even/Jump/Converge/Diverge), accumulator with modulo wrap, swing, slew, polyphonic step-gates output and EOC.",
     "params": [
       {
@@ -693,56 +693,104 @@
         "name": "Steps",
         "min": 1,
         "max": 16,
-        "default": 16
+        "default": 16,
+        "position": {
+          "x": 227.594,
+          "y": 328,
+          "centered": true,
+          "widget": "UzzArcKnob"
+        }
       },
       {
         "id": 97,
         "name": "Start",
         "min": 1,
         "max": 16,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 227.594,
+          "y": 358,
+          "centered": true,
+          "widget": "UzzArcKnob"
+        }
       },
       {
         "id": 98,
         "name": "Direction mode",
         "min": -2,
         "max": 7,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 381.531,
+          "y": 298,
+          "centered": true,
+          "widget": "UzzArcKnob"
+        }
       },
       {
         "id": 99,
         "name": "Gate mode (0=Gate,1=Trig)",
         "min": 0,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 586.781,
+          "y": 328,
+          "centered": true,
+          "widget": "CKSS"
+        }
       },
       {
         "id": 100,
         "name": "Clock ratio",
         "min": 0,
         "max": 28,
-        "default": 14
+        "default": 14,
+        "position": {
+          "x": 227.594,
+          "y": 298,
+          "centered": true,
+          "widget": "UzzArcKnob"
+        }
       },
       {
         "id": 101,
         "name": "Swing",
         "min": 0,
         "max": 0.6000000238418579,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 381.531,
+          "y": 328,
+          "centered": true,
+          "widget": "UzzArcKnob"
+        }
       },
       {
         "id": 102,
         "name": "Glide (slew)",
         "min": 0,
         "max": 2,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 586.781,
+          "y": 298,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       },
       {
         "id": 103,
         "name": "Accumulator amount",
         "min": 0,
         "max": 24,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 371.531,
+          "y": 358,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       },
       {
         "id": 104,
@@ -993,7 +1041,13 @@
         "name": "Global probability",
         "min": 0,
         "max": 100,
-        "default": 100
+        "default": 100,
+        "position": {
+          "x": 792.031,
+          "y": 358,
+          "centered": true,
+          "widget": "UzzArcKnob"
+        }
       },
       {
         "id": 137,
@@ -1025,7 +1079,13 @@
         "name": "Accumulator wrap (semitones, 0=OFF = full ±12 range)",
         "min": 0,
         "max": 12,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 391.531,
+          "y": 358,
+          "centered": true,
+          "widget": "Trimpot"
+        }
       }
     ],
     "inputs": [
@@ -1084,32 +1144,62 @@
       {
         "id": 0,
         "name": "Pitch (1V/oct)",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 689.406,
+          "y": 298,
+          "centered": true
+        }
       },
       {
         "id": 1,
         "name": "Gate/Trig",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 689.406,
+          "y": 328,
+          "centered": true
+        }
       },
       {
         "id": 2,
         "name": "Step gates (poly)",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 586.781,
+          "y": 358,
+          "centered": true
+        }
       },
       {
         "id": 3,
         "name": "End of cycle",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 689.406,
+          "y": 358,
+          "centered": true
+        }
       },
       {
         "id": 4,
         "name": "Mod 1",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 792.031,
+          "y": 298,
+          "centered": true
+        }
       },
       {
         "id": 5,
         "name": "Mod 2",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 792.031,
+          "y": 328,
+          "centered": true
+        }
       }
     ],
     "lights": 23,
