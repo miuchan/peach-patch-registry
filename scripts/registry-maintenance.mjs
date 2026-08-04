@@ -1,12 +1,21 @@
 #!/usr/bin/env node
 import fs from "node:fs";
-import { parseLibraryModuleHtml, parseLibraryModuleUrl } from "../lib/vcv-library.ts";
+import {
+  parseLibraryModuleHtml,
+  parseLibraryModuleUrl,
+} from "../lib/vcv-library.ts";
 import { clearMissingScreenshot } from "./refresh-screenshot-status.mjs";
 import {
   hasCompleteUiGeometry,
   mergeUiGeometry,
   uiGeometryIssueCount,
 } from "./refresh-ui-geometry.mjs";
+import {
+  mergePanelWidth,
+  rackPanelWidth,
+  svgPanelWidthFromText,
+  webpDimensions,
+} from "./refresh-panel-widths.mjs";
 
 const request = JSON.parse(fs.readFileSync(0, "utf8"));
 
@@ -30,14 +39,26 @@ function dispatch(value) {
       };
     case "merge-ui-geometry":
       return mergeUiGeometry(value.current, value.refreshed);
+    case "inspect-panel-screenshot": {
+      const dimensions = webpDimensions(Buffer.from(value.bytes, "base64"));
+      return { dimensions, width: rackPanelWidth(dimensions) };
+    }
+    case "inspect-panel-svg":
+      return { width: svgPanelWidthFromText(value.svg) };
+    case "merge-panel-width":
+      return mergePanelWidth(value.module, value.width);
     default:
-      throw new Error(`Unsupported registry maintenance operation: ${value.operation}`);
+      throw new Error(
+        `Unsupported registry maintenance operation: ${value.operation}`,
+      );
   }
 }
 
 try {
   process.stdout.write(`${JSON.stringify(dispatch(request))}\n`);
 } catch (error) {
-  process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+  process.stderr.write(
+    `${error instanceof Error ? error.message : String(error)}\n`,
+  );
   process.exitCode = 1;
 }

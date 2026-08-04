@@ -60,7 +60,11 @@ fn verify_manifest(
     path: &Path,
     raw: Value,
     expected: &crate::registry::PackageFields,
+    expected_module: &Value,
 ) -> Result<(), String> {
+    if raw.get("module") != Some(expected_module) {
+        return Err(format!("Manifest mismatch for {}", expected.key));
+    }
     let manifest: Manifest = serde_json::from_value(raw)
         .map_err(|error| format!("Invalid package manifest {}: {error}", path.display()))?;
     if manifest.schema_version != REGISTRY_SCHEMA_VERSION {
@@ -125,7 +129,7 @@ pub fn verify_checkout(root: &Path) -> Result<VerificationReport, String> {
         }
 
         let manifest_path = repository_path(&root, manifest_url, "manifest")?;
-        verify_manifest(&manifest_path, read_json(&manifest_path)?, &fields)?;
+        verify_manifest(&manifest_path, read_json(&manifest_path)?, &fields, item)?;
         total_bytes = total_bytes
             .checked_add(fields.artifact.size)
             .ok_or_else(|| "Registry byte total overflow".to_owned())?;

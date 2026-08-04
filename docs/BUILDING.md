@@ -156,18 +156,36 @@ npm run source:build -- --plugin Fundamental --model VCO --force
 npm run source:scaffold -- https://library.vcvrack.com/Fundamental/VCO --output /tmp/vco
 npm run source:refresh-ui -- --key AaronStatic/ChordCV --write
 npm run source:refresh-ui -- --reapply-cache-from-ref HEAD --write
+npm run source:refresh-widths -- --write
+npm run source:refresh-widths -- --source-cache --clone-missing --write
 npm run source:refresh-screenshots -- --write
 ```
 
 `source:refresh-ui` reruns only Rack widget-geometry extraction and preserves the
-published WASM artifact, ABI, DSP metadata, and build provenance. Without
-`--write` it is a dry run. Use it when a published module has missing or stale
+published panel width, WASM artifact, ABI, DSP metadata, and build provenance.
+Panel width has its own independently audited refresh below. Without `--write`
+this command is a dry run. Use it when a published module has missing or stale
 parameter/port positions but does not need to be recompiled.
 
 The refresh also rejects collapsed, out-of-panel geometry and will not replace
 existing good positions with a source extraction that introduces those issues.
 The cache reapply form rebuilds geometry from a clean git baseline and is useful
 after tightening these validation rules; it never invokes source extraction.
+
+`source:refresh-widths` reads only the WebP header of every available official
+Library panel screenshot, converts its aspect ratio to Rack's fixed 380px panel
+height, and requires the result to be an exact 15px HP multiple. It updates the
+index and matching package manifests together, without changing widget positions
+or artifacts. This is the authoritative bulk repair when older source discovery
+left a fallback or physical-unit width in published metadata.
+For legacy modules without a usable Library screenshot, `--source-cache` maps
+the exact `createModel` registration to its widget and `setPanel` SVG in the
+immutable source checkout. Programmatic panels are measured from their
+`box.size`, `CREATE_PANEL`, or HP template declaration instead. Physical SVG
+units are converted with Rack's 75px-per-inch scale, while unitless panels use
+their declared aspect ratio; non-grid legacy widths are preserved. Add
+`--clone-missing` to fetch an absent exact commit into `.build/panel-widths/`.
+Ambiguous or absent evidence is reported and never guessed.
 
 `source:refresh-screenshots` checks every official panel raster and clears only
 confirmed HTTP 404 URLs. Transient network failures are preserved and the app

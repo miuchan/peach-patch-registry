@@ -41,6 +41,7 @@ pub struct PackageFields {
     pub brand: String,
     #[serde(default)]
     pub description: String,
+    pub width: f64,
     #[serde(rename = "wasmUrl")]
     pub wasm_url: String,
     #[serde(rename = "manifestUrl")]
@@ -82,7 +83,9 @@ pub fn package_fields(item: &Value) -> Result<PackageFields, String> {
     let fields: PackageFields = serde_json::from_value(item.clone())
         .map_err(|error| format!("Invalid package record: {error}"))?;
     let layout = package_layout(&fields.plugin, &fields.model, &fields.version)?;
-    if fields.key != layout.key
+    if !fields.width.is_finite()
+        || fields.width <= 0.0
+        || fields.key != layout.key
         || fields.wasm_url != layout.wasm_url
         || fields
             .manifest_url

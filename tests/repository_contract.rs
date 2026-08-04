@@ -60,6 +60,26 @@ fn repository_verifier_rejects_manifest_drift() {
 }
 
 #[test]
+fn repository_verifier_rejects_non_positive_panel_widths() {
+    let fixture = mutable_fixture("panel-width");
+    let index_path = fixture.path().join("index.json");
+    let mut index: Value =
+        serde_json::from_slice(&fs::read(&index_path).expect("index should exist"))
+            .expect("index should be JSON");
+    index["packages"][0]["width"] = Value::from(0);
+    fs::write(
+        &index_path,
+        format!(
+            "{}\n",
+            serde_json::to_string_pretty(&index).expect("index should serialize")
+        ),
+    )
+    .expect("index should be writable");
+    let error = verify_checkout(fixture.path()).expect_err("invalid panel width should fail");
+    assert!(error.contains("Invalid package record"));
+}
+
+#[test]
 fn repository_verifier_rejects_paths_outside_the_package_layout() {
     let fixture = mutable_fixture("path-drift");
     let index_path = fixture.path().join("index.json");

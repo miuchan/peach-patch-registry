@@ -62,7 +62,7 @@ fn ui_geometry_refresh_preserves_artifacts_while_repairing_widget_positions() {
         run_ok(json!({"operation": "inspect-ui-geometry", "module": merged})),
         json!({"complete": true, "issueCount": 0})
     );
-    assert_eq!(merged["width"], 60);
+    assert_eq!(merged["width"], 45);
     assert_eq!(
         merged["params"][0]["position"],
         refreshed["params"][0]["position"]
@@ -109,6 +109,20 @@ fn ui_geometry_refresh_rejects_collapsed_coordinates_and_keeps_good_positions() 
 }
 
 #[test]
+fn ui_geometry_inspection_rejects_widgets_past_the_panel_width() {
+    let module = json!({
+        "width": 60,
+        "params": [{"id": 0, "name": "Past edge", "position": {"x": 61, "y": 40}}],
+        "inputs": [],
+        "outputs": []
+    });
+    assert_eq!(
+        run_ok(json!({"operation": "inspect-ui-geometry", "module": module})),
+        json!({"complete": false, "issueCount": 1})
+    );
+}
+
+#[test]
 fn screenshot_refresh_clears_only_confirmed_missing_assets() {
     let module = json!({
         "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Fixture/Panel.webp"
@@ -128,6 +142,51 @@ fn screenshot_refresh_clears_only_confirmed_missing_assets() {
             "status": 500
         })),
         module
+    );
+}
+
+#[test]
+fn official_screenshot_aspect_ratio_repairs_only_panel_width() {
+    // Lossless WebP header for a 540x1520 image, the 9HP Rack aspect ratio.
+    assert_eq!(
+        run_ok(json!({
+            "operation": "inspect-panel-screenshot",
+            "bytes": "UklGRibqAABXRUJQVlA4TBnqAAAvG8J7AQ=="
+        })),
+        json!({"dimensions": {"width": 540, "height": 1520}, "width": 135})
+    );
+
+    let module = json!({
+        "key": "Fixture/Panel",
+        "width": 100,
+        "params": [{"id": 0, "position": {"x": 60, "y": 100}}],
+        "artifact": {"sha256": "a".repeat(64), "size": 8}
+    });
+    let repaired = run_ok(json!({
+        "operation": "merge-panel-width",
+        "module": module,
+        "width": 135
+    }));
+    assert_eq!(repaired["width"], 135);
+    assert_eq!(repaired["params"], module["params"]);
+    assert_eq!(repaired["artifact"], module["artifact"]);
+}
+
+#[test]
+fn source_svg_widths_support_rack_physical_units_and_legacy_pixels() {
+    assert_eq!(
+        run_ok(json!({
+            "operation": "inspect-panel-svg",
+            "svg": "<svg width=\"36.576mm\" height=\"128.5mm\" viewBox=\"0 0 36.576 128.5\"></svg>"
+        })),
+        json!({"width": 108})
+    );
+    assert_eq!(
+        run_ok(json!({
+            "operation": "inspect-panel-svg",
+            "svg": "<svg width=\"67\" height=\"380\" viewBox=\"0 0 17.727091 100.54167\"></svg>"
+        })),
+        json!({"width": 67})
     );
 }
 
