@@ -27,7 +27,7 @@ Repository development requires Rust 1.88+ and Node.js 22 or newer. The installe
 checkout or a hosted raw `index.json`.
 
 ```sh
-npm test
+cargo test
 cargo run -- search oscillator
 cargo run -- info Fundamental/VCO
 cargo run -- install Fundamental/VCO --prefix ~/.peach-patch
@@ -72,11 +72,27 @@ The manifest records `abiVersion`, module metadata, parameter/input/output/light
 Run the complete local check before every change to the catalog:
 
 ```sh
-npm test
+cargo fmt --check
+cargo clippy --all-targets --all-features -- -D warnings
+cargo test
+cargo run --quiet --bin peach-registry -- verify --root .
 git diff --check
 ```
 
-The GitHub Actions workflow repeats `npm test` on pushes and pull requests. Run `npm run test:builder` when changing source extraction, compatibility headers, or compiler flags. A release is complete only when the committed `index.json`, manifests, artifacts, coverage records, and source provenance agree. The release process is documented in [docs/RELEASING.md](docs/RELEASING.md).
+The GitHub Actions workflow repeats the Cargo gates and Rust registry verification
+on pushes and pull requests. When changing source extraction, compatibility
+headers, compiler flags, or the WASM ABI, also run:
+
+```sh
+cargo test --test scaffold_contract -- --ignored
+cargo test --test web_runtime_header_contract -- --ignored
+```
+
+These explicit builder tests require Emscripten and use Rust's `wasmi` runtime
+for artifact execution. A release is complete only when the committed
+`index.json`, manifests, artifacts, coverage records, and source provenance
+agree. The release process is documented in
+[docs/RELEASING.md](docs/RELEASING.md).
 
 ## Contributing
 

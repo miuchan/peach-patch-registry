@@ -1,31 +1,21 @@
 use std::fs;
 use std::path::{Path, PathBuf};
-use std::time::{SystemTime, UNIX_EPOCH};
+use std::process::Command;
 
-pub struct TemporaryDirectory(PathBuf);
+pub struct TemporaryDirectory(tempfile::TempDir);
 
 impl TemporaryDirectory {
     pub fn new(label: &str) -> Self {
-        let nonce = SystemTime::now()
-            .duration_since(UNIX_EPOCH)
-            .expect("clock should be after the Unix epoch")
-            .as_nanos();
-        let path = std::env::temp_dir().join(format!(
-            "peach-registry-{label}-{}-{nonce}",
-            std::process::id()
-        ));
-        fs::create_dir_all(&path).expect("temporary directory should be created");
-        Self(path)
+        Self(
+            tempfile::Builder::new()
+                .prefix(&format!("peach-registry-{label}-"))
+                .tempdir()
+                .expect("temporary directory should be created"),
+        )
     }
 
     pub fn path(&self) -> &Path {
-        &self.0
-    }
-}
-
-impl Drop for TemporaryDirectory {
-    fn drop(&mut self) {
-        let _ = fs::remove_dir_all(&self.0);
+        self.0.path()
     }
 }
 
@@ -45,4 +35,28 @@ pub fn copy_tree(source: &Path, destination: &Path) {
             fs::copy(entry.path(), target).expect("fixture file should be copied");
         }
     }
+}
+
+#[allow(dead_code)]
+pub fn compile_rust_fixture(source: &Path, output_directory: &Path, name: &str) -> PathBuf {
+    fs::create_dir_all(output_directory).expect("fixture output directory should be created");
+    let binary = output_directory.join(if cfg!(windows) {
+        format!("{name}.exe")
+    } else {
+        name.to_owned()
+    });
+    let rustc = std::env::var_os("RUSTC").unwrap_or_else(|| "rustc".into());
+    let output = Command::new(rustc)
+        .arg("--edition=2021")
+        .arg(source)
+        .arg("-o")
+        .arg(&binary)
+        .output()
+        .expect("Rust fixture compiler should run");
+    assert!(
+        output.status.success(),
+        "Rust fixture should compile: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    binary
 }

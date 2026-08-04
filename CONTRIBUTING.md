@@ -5,7 +5,10 @@ Thank you for improving the registry. Keep changes narrow and reviewable: one so
 Before opening a pull request:
 
 ```sh
-npm test
+cargo fmt --check
+cargo clippy --all-targets --all-features -- -D warnings
+cargo test
+cargo run --quiet --bin peach-registry -- verify --root .
 git diff --check
 ```
 

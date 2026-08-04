@@ -4,14 +4,14 @@ use serde_json::Value;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Output};
-use support::{copy_tree, TemporaryDirectory};
+use support::{compile_rust_fixture, copy_tree, TemporaryDirectory};
 
 fn registry_fixture() -> PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/registry")
 }
 
 fn adapter_fixture() -> PathBuf {
-    Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/fake-scaffold.mjs")
+    Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/fake_scaffold.rs")
 }
 
 fn item(plugin: &str, model: &str) -> Value {
@@ -38,6 +38,7 @@ struct SchedulerFixture {
     output_root: PathBuf,
     source_cache: PathBuf,
     dynamic_root: PathBuf,
+    fixture_binary: PathBuf,
 }
 
 impl SchedulerFixture {
@@ -59,12 +60,18 @@ impl SchedulerFixture {
             ),
         )
         .expect("queue should be writable");
+        let fixture_binary = compile_rust_fixture(
+            &adapter_fixture(),
+            &checkout.path().join("work/bin"),
+            "fake-scaffold",
+        );
         Self {
             state: checkout.path().join("work/state.json"),
             catalog: checkout.path().join("work/catalog.json"),
             output_root: checkout.path().join("work/builds"),
             source_cache: checkout.path().join("work/sources"),
             dynamic_root: checkout.path().join("work/dynamic"),
+            fixture_binary,
             queue,
             checkout,
         }
@@ -95,6 +102,10 @@ impl SchedulerFixture {
                 .expect("dynamic root should be UTF-8"),
             "--adapter-script",
             adapter_fixture().to_str().expect("adapter should be UTF-8"),
+            "--node",
+            self.fixture_binary
+                .to_str()
+                .expect("fixture binary should be UTF-8"),
             "--concurrency",
             "2",
             "--format",

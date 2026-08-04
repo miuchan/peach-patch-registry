@@ -399,14 +399,21 @@ Run these gates for every migration step:
 
 ```sh
 cargo fmt --check
+cargo clippy --all-targets --all-features -- -D warnings
 cargo test
-node --test tests/tool-entrypoints.test.mjs
-node scripts/verify-registry.mjs
-npm run test:provenance
+cargo run --quiet --bin peach-registry -- verify --root .
 git diff --check
 ```
 
 Changes to source extraction, compatibility headers, generated compiler flags,
-or the WASM ABI additionally require the relevant focused builder fixtures and
-runtime instantiation checks. A stalled or selectively run builder suite must be
+or the WASM ABI additionally require the Rust builder gates:
+
+```sh
+cargo test --test scaffold_contract -- --ignored
+cargo test --test web_runtime_header_contract -- --ignored
+```
+
+The scaffold gate invokes the production Node adapter as the system under test,
+but all fixture orchestration and assertions are Rust, and compiled artifacts are
+instantiated with `wasmi`. A stalled or selectively run builder suite must be
 reported as incomplete rather than treated as a green full gate.

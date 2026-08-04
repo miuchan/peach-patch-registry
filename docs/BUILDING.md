@@ -21,6 +21,13 @@ tar --version
 
 `runtime:build` compiles the checked-in files in `web-runtime/plugins/`. `source:scaffold` and `source:build` additionally need network access to the VCV Library index and upstream source repositories unless their caches are already populated.
 
+For machine-readable diagnostics, `scripts/inspect-scaffold.mjs` accepts a JSON
+operation and argument list on standard input and invokes the same exported
+adapter transform used by production scaffolding. `scripts/registry-maintenance.mjs`
+provides the corresponding JSON boundary for Library metadata, screenshot status,
+and UI geometry maintenance. Rust integration tests call these production
+boundaries; neither script contains test cases or assertions.
+
 ## Two build paths
 
 ### Bundled runtime modules
@@ -179,6 +186,6 @@ Every failed build should leave a small `adapter.json` assessment. Preserve the 
 - Check parameter, port, light, state, and panel geometry counts against the Rack module.
 - Instantiate the output and exercise representative audio/control paths at 44.1 kHz and 48 kHz.
 - Check finite outputs, deterministic initialization where promised, and the exported ABI.
-- Run `npm test` and `git diff --check`.
-- Run `npm run test:builder` when changing source extraction, compatibility headers, or compiler flags.
+- Run `cargo fmt --check`, `cargo clippy --all-targets --all-features -- -D warnings`, `cargo test`, `cargo run --quiet --bin peach-registry -- verify --root .`, and `git diff --check`.
+- Run `cargo test --test scaffold_contract -- --ignored` and `cargo test --test web_runtime_header_contract -- --ignored` when changing source extraction, compatibility headers, compiler flags, or the WASM ABI. These explicit builder gates require Emscripten.
 - Publish only after the artifact and manifest digest match.

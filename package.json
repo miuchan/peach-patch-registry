@@ -10,11 +10,6 @@
     "peach": "bin/peach"
   },
   "scripts": {
-    "test": "npm run test:rust && npm run test:compat && node scripts/verify-registry.mjs && npm run test:provenance",
-    "test:rust": "cargo fmt --check && cargo clippy --all-targets --all-features -- -D warnings && cargo test --quiet",
-    "test:compat": "node --test tests/tool-entrypoints.test.mjs",
-    "test:provenance": "node --test tests/vcv-library.test.mjs tests/web-runtime-source-artifacts.test.mjs tests/registry-metadata.test.mjs",
-    "test:builder": "node --test tests/plugin-scaffold.test.mjs",
     "runtime:manifest": "node scripts/generate-web-runtime-manifest.mjs",
     "runtime:build": "./scripts/build-web-runtime.sh",
     "source:scaffold": "node scripts/scaffold-library-module.mjs",
