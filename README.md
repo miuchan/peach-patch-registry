@@ -6,7 +6,15 @@ The repository deliberately separates concerns:
 
 - `packages/` is the immutable distribution catalog: one `module.wasm` and one signed-by-hash `manifest.json` per plugin/model/version.
 - `index.json` is the compact searchable index consumed by Peach Patch and other hosts.
-- `scripts/` contains the registry CLI, integrity verifier, source discovery, Rack-source adapter, Emscripten build, and publishing tools.
+- `src/` contains the Rust consumer CLI plus repository verification,
+  publication, discovery, build scheduling, immutable source acquisition, and
+  bounded source analysis, conditional preprocessing and object-macro expansion,
+  structured Rack port-layout and configuration numeric/string evaluation,
+  shared Rack Web ABI-tail generation, the complete linked export
+  allowlist, canonical Emscripten flag construction, and compiler orchestration.
+- `scripts/` retains compatibility entrypoints, the Rack C++ source adapter,
+  compatibility transforms, source-specific compiler-option discovery, and
+  maintenance commands that have not migrated yet.
 - `web-runtime/` contains the portable Rack compatibility headers and bundled adapter sources used to produce WASM; it is not a browser application.
 - `build-status.json` and `coverage.json` describe discovery and build coverage without publishing local paths or raw logs.
 
@@ -14,7 +22,9 @@ The registry is not a replacement for the upstream VCV Rack repositories. Every 
 
 ## Install the CLI
 
-Requirements: Node.js 22 or newer. The CLI has no runtime dependency and can read either a local checkout or a hosted raw `index.json`.
+Repository development requires Rust 1.88+ and Node.js 22 or newer. The installed
+`peach` binary has no Node.js runtime dependency and can read either a local
+checkout or a hosted raw `index.json`.
 
 ```sh
 npm test
@@ -22,15 +32,15 @@ cargo run -- search oscillator
 cargo run -- info Fundamental/VCO
 cargo run -- install Fundamental/VCO --prefix ~/.peach-patch
 cargo run -- verify Fundamental/VCO --prefix ~/.peach-patch
+```
 
 Install the Rust CLI with `cargo install --path .` to use the `peach` command directly.
-```
 
 Use `--registry ./index.json` for offline/local operation or set `PEACH_PATCH_REGISTRY` to a registry URL. Installation is atomic and refuses an artifact whose byte length or SHA-256 digest differs from the index.
 
 ## Build a module from official source
 
-The source pipeline is an adapter generator, not a new C++ compiler. It resolves an immutable Library revision, isolates the DSP-relevant Rack class and dependencies, removes unsupported native UI/host code, injects the browser ABI, and invokes the installed Emscripten `em++` toolchain.
+The source pipeline is an adapter generator, not a new C++ compiler. It resolves an immutable Library revision, isolates the DSP-relevant Rack class and dependencies, removes unsupported native UI/host code, and injects the browser ABI. Every WASM build is then submitted as a validated structured plan to the Rust CLI, which alone invokes the installed Emscripten `emcc`/`em++` toolchain.
 
 ```sh
 npm run source:scaffold -- https://library.vcvrack.com/Fundamental/VCO --compile
@@ -40,6 +50,10 @@ npm run registry:publish -- --key Fundamental/VCO
 ```
 
 For the bundled catalog, use `npm run runtime:build`. This produces standalone WASM with the fixed `rack_web_*` ABI. See [docs/BUILDING.md](docs/BUILDING.md) for toolchain installation, cache layout, failure handling, and the review checklist.
+
+Registry maintenance is being migrated from Node.js to Rust one compatibility
+boundary at a time. The package/ABI invariants, executable gates, and replacement
+order are documented in [docs/RUST_MIGRATION.md](docs/RUST_MIGRATION.md).
 
 ## Package contract
 

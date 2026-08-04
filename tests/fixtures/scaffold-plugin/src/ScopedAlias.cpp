@@ -1,10 +1,12 @@
 #include "ScopedAlias.hpp"
 
 namespace fixture::ui {
+template <typename ModuleType>
 struct ScopedAliasWidget {
-  typedef dsp::ScopedAlias M;
+  // typedef WrongCommentModule M;
+  using M = ModuleType;
 };
 }
 
 rack::Model* modelScopedAlias =
-  rack::createModel<fixture::ui::ScopedAliasWidget::M, fixture::ui::ScopedAliasWidget>("ScopedAlias");
+  rack::createModel<fixture::ui::ScopedAliasWidget<fixture::dsp::ScopedAlias>::M, fixture::ui::ScopedAliasWidget<fixture::dsp::ScopedAlias>>("ScopedAlias");

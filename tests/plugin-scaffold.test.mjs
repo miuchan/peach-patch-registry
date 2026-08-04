@@ -5,13 +5,77 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import {fileURLToPath} from "node:url";
-import {adaptAlgomorphBrowserSource,adaptChrysalisBrowserBody,adaptClonotribeBrowserBody,adaptDanTSynthAocrBrowserSource,adaptDrumKitSampleAdapter,adaptEdgeKRushBrowserSource,adaptEdgeWcoBrowserSource,adaptFundamentalWavetableBrowserBody,adaptHetrickPhasorWavetableBrowserSource,adaptFv1EmuBrowserSource,adaptGpRotaryBrowserSource,adaptHoyerScanningDivisionBrowserBody,adaptIntegralFluxBrowserSource,adaptLessMessBrowserSource,adaptLeviathanIntegralFluxBrowserBody,adaptLeviathanIntegralFluxBrowserPrelude,adaptMadzineLaunchpadBrowserSource,adaptMadzineManualBrowserSource,adaptMadzineNigoqBrowserSource,adaptMadzineTheKickBrowserSource,adaptMadzineUniRhythmBrowserSource,adaptMadzineUniversalRhythmBrowserSource,adaptMadzineWeiiiDocumentaBrowserSource,adaptMidiRecorderBrowserBody,adaptMidiRecorderBrowserPrelude,adaptMlArpeggiatorBrowserSource,adaptNativeUiBackedExpressionFields,adaptPortlandWeatherBrowserSource,adaptRackNesBrowserSource,adaptStringTheoryBrowserSource,adaptStbImagePointerBrowserBody,browserAssetSamplerContract,browserAssetSamplerMethods,browserComputerscareBlankAdapterSource,browserFundamentalWavetablePrelude,declaredDependencyNames,dedupeOutOfLineMethodDefinitions,enumInfoByTerminal,estimatedStaticMemory,explicitSpecializationForwardDeclarations,features,filesOutsideNestedRepositories,insertExplicitSpecializationForwardDeclarations,isCodePosition,jsonStateKeys,madzineManualHelpData,modelRegistrations,nativeUiPointerMembers,namespaceFunctionForwardDeclarations,namespaceGlobalDefinitions,namespaceUsingPrelude,normalizeGeneratedImplementations,normalizeLegacyMidiOverrides,numericConstants,outOfLineDefinitions,outOfLineFreeFunctionDefinitions,outOfLineStaticDefinitions,paramQuantityHelpers,preferNearestTargetEnums,pruneInactiveConditionalDependencies,rackWidgetPlacements,referencedDependencyBundleForAdapter,referencedDefinesWithoutPluginGlobals,referencedExternGlobalDefinitions,referencedHostModels,referencedLocalFreeFunctionDefinitions,referencedPluginGlobalParts,removeQualifiedFreeFunction,standardDependencyIncludes,stubHostOnlyModuleMethods,stripHostHistoryStatements,stripNativeUiPointerBridges,stripRackUiBlocks,stripUiClassMembers,svgPanelWidth,widgetPanelWidth} from "../scripts/scaffold-library-module.mjs";
-import {adaptLeviathanProcBrowserBody,adaptLeviathanProcBrowserPrelude,adaptLeviathanUndertowBrowserBody,adaptLeviathanUndertowBrowserImplementation,adaptLeviathanUndertowBrowserPrelude} from "../scripts/scaffold-library-module.mjs";
+import {adaptAlgomorphBrowserSource,adaptChrysalisBrowserBody,adaptClonotribeBrowserBody,adaptDanTSynthAocrBrowserSource,adaptDrumKitSampleAdapter,adaptEdgeKRushBrowserSource,adaptEdgeWcoBrowserSource,adaptFundamentalWavetableBrowserBody,adaptHetrickPhasorWavetableBrowserSource,adaptFv1EmuBrowserSource,adaptGpRotaryBrowserSource,adaptHoyerScanningDivisionBrowserBody,adaptIntegralFluxBrowserSource,adaptLessMessBrowserSource,adaptLeviathanIntegralFluxBrowserBody,adaptLeviathanIntegralFluxBrowserPrelude,adaptMadzineLaunchpadBrowserSource,adaptMadzineManualBrowserSource,adaptMadzineNigoqBrowserSource,adaptMadzineTheKickBrowserSource,adaptMadzineUniRhythmBrowserSource,adaptMadzineUniversalRhythmBrowserSource,adaptMadzineWeiiiDocumentaBrowserSource,adaptMidiRecorderBrowserBody,adaptMidiRecorderBrowserPrelude,adaptMlArpeggiatorBrowserSource,adaptNativeUiBackedExpressionFields,adaptPortlandWeatherBrowserSource,adaptRackNesBrowserSource,adaptStringTheoryBrowserSource,adaptStbImagePointerBrowserBody,appendInlineMethodStatement,browserAssetSamplerContract,browserAssetSamplerMethods,browserComputerscareBlankAdapterSource,browserFundamentalWavetablePrelude,declaredDependencyNames,dedupeRepeatedTopLevelEnums,dedupeRepeatedTopLevelTypes,deferFreeFunctionsReferencingTypes,dedupeOutOfLineMethodDefinitions,enumInfoByTerminal,estimatedStaticMemory,explicitSpecializationForwardDeclarations,features,filesOutsideNestedRepositories,insertExplicitSpecializationForwardDeclarations,isCodePosition,jsonStateKeys,localPlainStructDefinitions,madzineManualHelpData,modelRegistrations,nativeUiPointerMembers,namespaceFunctionForwardDeclarations,namespaceGlobalDefinitions,namespaceUsingPrelude,normalizeConditionalTemplateImplementations,normalizeGeneratedImplementations,normalizeLegacyMidiOverrides,numericConstants,outOfLineCallableKeys,outOfLineDefinitions,outOfLineFreeFunctionDefinitions,outOfLineStaticDefinitions,paramQuantityHelpers,preferNearestTargetEnums,prependInlineMethodBody,pruneInactiveConditionalDependencies,rackWidgetPlacements,referencedDependencyBundleForAdapter,referencedDefinesWithoutPluginGlobals,referencedExternGlobalDefinitions,referencedHostModels,referencedLocalFreeFunctionDefinitions,referencedPluginGlobalParts,referencedVecDspHelpers,removeFreeFunction,removeOutOfLineDefinitions,removeQualifiedFreeFunction,replaceInlineMethodBody,replaceOutOfLineMethod,standardDependencyIncludes,stubHostOnlyModuleMethods,stubInlineVoidMethod,stripEmbeddedResourceDocumentation,stripHostHistoryStatements,stripNativeUiPointerBridges,stripPluginInitFunctions,stripRackUiBlocks,stripRackUiResidue,stripSurgeRackCustomEditor,stripUiClassMembers,surgeFxConfigSpecializations,surgeVcoSpecializations,svgPanelWidth,widgetPanelWidth} from "../scripts/scaffold-library-module.mjs";
+import {adaptLeviathanProcBrowserBody,adaptLeviathanProcBrowserPrelude,adaptLeviathanUndertowBrowserBody,adaptLeviathanUndertowBrowserImplementation,adaptLeviathanUndertowBrowserPrelude,chuckEmscriptenImplementationSources} from "../scripts/scaffold-library-module.mjs";
 import {adaptMlTrigBufBrowserSource,adaptNoSuchDeviceCorrupterBrowserSource,adaptTapestryBrowserSource} from "../scripts/scaffold-library-module.mjs";
+import {airwinBrowserSuite,browserAssetDependencyPrelude,modulePrelude,sourceWithoutIncludes,stripUiHeaderIncludes} from "../scripts/scaffold-library-module.mjs";
 import {browserTemporalDeckAdapterSource} from "../scripts/temporal-deck-browser-adapter.mjs";
 import {browserTdScopeAdapterSource} from "../scripts/td-scope-browser-adapter.mjs";
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),".."),source=path.join(root,"tests","fixtures","scaffold-plugin");
+
+test("source preprocessing removal consumes Rust directive ranges while preserving active defines",()=>{
+  const source='😀\n\n#include "Dsp.hpp"\n#pragma once\n#define ACTIVE_GAIN 2\n// #define COMMENTED_GAIN 9\n// #include "Comment.hpp"\nfloat apply(float value) { return value * ACTIVE_GAIN; }\n';
+  assert.equal(sourceWithoutIncludes(source),'😀\n\n\n#define ACTIVE_GAIN 2\n\n\nfloat apply(float value) { return value * ACTIVE_GAIN; }');
+});
+
+test("module preludes preserve active defines while Rust ranges remove other directives",()=>{
+  const source='#include "Dsp.hpp"\n#pragma once\n#define ACTIVE_GAIN 2\n// #define COMMENTED_GAIN 9\nfloat helper(float value) { return value * ACTIVE_GAIN; }\nstruct PreludeModule : Module {};\n';
+  const prelude=modulePrelude(source,"PreludeModule");
+  assert.match(prelude,/#define ACTIVE_GAIN 2/);
+  assert.match(prelude,/float helper\(float value\)/);
+  assert.doesNotMatch(prelude,/#include|#pragma|COMMENTED_GAIN/);
+});
+
+test("UI include and asset dependency policies consume Rust include facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-rust-include-policy-")),dsp=path.join(temporary,"Dsp.hpp"),panel=path.join(temporary,"Panel.hpp");
+  try{
+    fs.writeFileSync(dsp,"struct DspState { float value = 1.f; };\n");
+    fs.writeFileSync(panel,"struct PanelWidget : ModuleWidget {};\n");
+    const source='#include "Dsp.hpp"\n#include "Panel.hpp"\n#include <array>\n';
+    const stripped=stripUiHeaderIncludes(source,[dsp,panel],temporary);
+    assert.match(stripped,/#include "Dsp\.hpp"/);
+    assert.doesNotMatch(stripped,/Panel\.hpp/);
+    assert.match(stripped,/#include <array>/);
+    const assetSource='#include <dep/resampler/Filter.hpp>\n#include "AudioFile.h"\n#include "Ignored.hpp" // trailing policy comment\n// #include "Comment.hpp"\n';
+    assert.equal(browserAssetDependencyPrelude(assetSource,{mode:"audiofile-tape"}),'#include "dep/resampler/Filter.hpp"\n#include "AudioFile.h"');
+  }finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("Airwindows unity aggregation consumes Rust quoted-include facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-airwin-directives-")),sourceDir=path.join(temporary,"plugin"),sourceRoot=path.join(sourceDir,"src"),airwinRoot=path.join(sourceRoot,"autogen_airwin"),output=path.join(temporary,"output");
+  try{
+    fs.mkdirSync(airwinRoot,{recursive:true});fs.mkdirSync(output,{recursive:true});
+    fs.writeFileSync(path.join(sourceRoot,"Support.hpp"),"#pragma once\n");
+    fs.writeFileSync(path.join(sourceRoot,"ModuleAdd.h"),'#include "Support.hpp"\n#include "Trailing.hpp" // not a complete aggregation include\n// #include "Comment.hpp"\nint ExampleRegistration = AirwinRegistry::registerAirwindow({"Example", 0, 0, 0, "Example effect", airwinconsolidated::Example::kNumParameters});\n');
+    fs.writeFileSync(path.join(airwinRoot,"Example.h"),"namespace airwinconsolidated::Example { enum { kNumParameters = 2, kOther = 3 }; }\n");
+    fs.writeFileSync(path.join(airwinRoot,"Example.cpp"),'#ifndef AIRWIN_EXAMPLE_UNIT\n#include "Example.h"\n#endif\nnamespace airwinconsolidated::Example {}\n');
+    const result=airwinBrowserSuite(output,sourceDir,'#include "rack_web_export.hpp"\nstruct AW2RModule : Module { AW2RModule() {} };');
+    assert.ok(result);assert.deepEqual(result.effectNames,["Example"]);assert.match(result.source,/rackWebEnsureAirwinRegistry\(\)/);
+    const suite=fs.readFileSync(result.file,"utf8");
+    assert.match(suite,new RegExp(`#include ${JSON.stringify(path.join(sourceRoot,"Support.hpp")).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}`));
+    assert.doesNotMatch(suite,/Trailing\.hpp|Comment\.hpp/);assert.match(suite,/registerAirwindow/);assert.match(suite,/#define AIRWIN_EXAMPLE_UNIT 1[\s\S]*Example\.cpp[\s\S]*#undef AIRWIN_EXAMPLE_UNIT/);
+  }finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("ChucK Emscripten source selection consumes configured Rust Makefile facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-chuck-makefile-")),sourceDir=path.join(temporary,"plugin"),chuckRoot=path.join(sourceDir,"chuck","src"),core=path.join(chuckRoot,"core"),runtime=path.join(core,"runtime.cpp"),helper=path.join(core,"helper.cc"),ignored=path.join(core,"ignored.cpp");
+  try{
+    fs.mkdirSync(core,{recursive:true});for(const file of [runtime,helper,ignored])fs.writeFileSync(file,"int fixture;\n");fs.writeFileSync(path.join(sourceDir,"Makefile"),"SOURCES = unrelated.cpp\n");fs.writeFileSync(path.join(chuckRoot,"makefile"),"CORE = core/runtime.cpp\nEMSCRIPTENSRCS = $(CORE) core/helper.cc core/missing.cpp\n");
+    assert.deepEqual(chuckEmscriptenImplementationSources(sourceDir),[fs.realpathSync(runtime),fs.realpathSync(helper)]);
+  }finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("linker override detection consumes Rust out-of-line callable facts",()=>{
+  const source=`namespace fixture {
+struct Engine { Engine(); ~Engine(); void render(); static int count; };
+Engine::Engine() {}
+Engine::~Engine() {}
+void Engine::render() {}
+int Engine::count = 1;
+}`;
+  assert.deepEqual(outOfLineCallableKeys(source),["Engine::Engine","Engine::~Engine","Engine::render"]);
+});
 
 test("createModel registrations resolve global template module aliases",()=>{
   const source=`template <typename Circuit> struct SlothModule : Module {};
@@ -40,19 +104,23 @@ struct VoiceModule : Module {};
 template<class TModule> struct ModuleWidgetBase : ModuleWidget { using _ModuleType = TModule; };
 struct VoiceWidget : ModuleWidgetBase<VoiceModule> {};
 }`);
-    const source=`#include "Voice.hpp"
+    const source=`# include "Voice.hpp"
 namespace fixture {
 Model* modelVoice = createModel<voice::VoiceWidget>("Voice");
 }`;
     fs.writeFileSync(sourceFile,source);
-    assert.deepEqual(modelRegistrations(source,sourceFile),[{
+    const expected=[{
       file:sourceFile,
       moduleClass:"fixture::voice::VoiceModule",
       registeredModuleClass:"fixture::voice::VoiceModule",
       widgetClass:"voice::VoiceWidget",
       slug:"Voice",
       registrationNamespace:["fixture"],
-    }]);
+    }];
+    assert.deepEqual(modelRegistrations(source,sourceFile),expected);
+    fs.rmSync(header);
+    const rustCandidate=[{index:source.indexOf("createModel"),templateSource:"voice::VoiceWidget",callSource:'"Voice"',templateArguments:["voice::VoiceWidget"],callArguments:['"Voice"'],namespace:["fixture"],registeredModuleType:"VoiceModule",widgetNamespace:["fixture","voice"],contextFiles:[sourceFile,header],rust:true}],aliases=new Map([[sourceFile,[]],[header,[]]]);
+    assert.deepEqual(modelRegistrations(source,sourceFile,{},rustCandidate,aliases),expected);
   }finally{
     fs.rmSync(temporary,{recursive:true,force:true});
   }
@@ -559,6 +627,10 @@ Model* modelEngine = createFixtureModel<fixture::Engine, fixture::EngineWidget>(
   assert.deepEqual(modelRegistrations(customFactory,"flux.cpp").map(({moduleClass,widgetClass,slug,customModelFactory})=>({moduleClass,widgetClass,slug,customModelFactory})),[
     {moduleClass:"FluxImpl",widgetClass:"FluxWidget",slug:"Flux",customModelFactory:"FluxModel"}
   ]);
+  const rustCustom=[{index:customFactory.indexOf("Model* modelFlux"),variableSlug:"Flux",slugSource:'"Flux"',modelType:"FluxModel",moduleType:"FluxImpl",widgetClass:"FluxWidget",namespace:[],rust:true}];
+  assert.deepEqual(modelRegistrations(customFactory,"flux.cpp",{},[],null,rustCustom).map(({moduleClass,widgetClass,slug,customModelFactory})=>({moduleClass,widgetClass,slug,customModelFactory})),[
+    {moduleClass:"FluxImpl",widgetClass:"FluxWidget",slug:"Flux",customModelFactory:"FluxModel"}
+  ]);
   const identity=namespaceGlobalDefinitions(source,"return modelEngine;");
   assert.match(identity,/Model\* modelEngine = new Model\{"Engine"\};/);
   assert.doesNotMatch(identity,/createFixtureModel|EngineWidget/);
@@ -765,6 +837,21 @@ test("host-only clipboard interop methods are stubbed without removing DSP proce
   assert.match(adapted,/process\s*\([^)]*\)\s*override\s*\{[\s\S]*outputs\[0\]\.setVoltage/);
 });
 
+test("host-only method stubs use Rust direct inline-member ranges",()=>{
+  const adapted=stubHostOnlyModuleMethods(`
+    void loadData(std::string path) { FILE* file = fopen(path.c_str(), "r"); }
+    bool validateHost() { return APP->scene != nullptr; }
+    void process(const ProcessArgs& args) override { outputs[0].setVoltage(inputs[0].getVoltage()); }
+    struct Nested {
+      bool validateHost() { return APP->scene != nullptr; }
+    };
+  `);
+  assert.match(adapted,/loadData\s*\([^)]*\)\s*\{\}/);
+  assert.match(adapted,/bool validateHost\(\)\{ return \{\}; \}/);
+  assert.match(adapted,/process\s*\([^)]*\)\s*override\s*\{[\s\S]*outputs\[0\]\.setVoltage/);
+  assert.match(adapted,/struct Nested[\s\S]*bool validateHost\(\) \{ return APP->scene != nullptr; \}/);
+});
+
 test("DSP value holders named Slider survive UI stripping",()=>{
   const source="struct DPSlider { double value = 0.0; double getValue() { return value; } void setValue(double next) { value = next; } }; struct DPSliderDisplay : TransparentWidget { void draw(const DrawArgs&) {} };";
   const stripped=stripRackUiBlocks(source);
@@ -778,10 +865,14 @@ test("target body UI callbacks are removed without stripping DSP methods",()=>{
     NVGcolor foreground = nvgRGBf(0.1f, 0.2f, 0.3f);
     void draw(const widget::Widget::DrawArgs& args) override;
     void process(const ProcessArgs& args) override { outputs[0].setVoltage(inputs[0].getVoltage()); }
+    bool validateHost() { return APP->scene != nullptr; }
+    struct Nested { bool validateHost() { return APP->scene != nullptr; } };
   `);
   assert.doesNotMatch(stripped,/LEDDisplay|DrawArgs|\bdraw\s*\(/);
   assert.match(stripped,/NVGcolor foreground = nvgRGBf/);
   assert.match(stripped,/\bprocess\s*\(/);
+  assert.match(stripped,/bool validateHost\(\)\{ return \{\}; \}/);
+  assert.match(stripped,/struct Nested[\s\S]*return APP->scene != nullptr/);
 });
 
 test("native UI pointer stripping removes guarded and nested graph access",()=>{
@@ -832,7 +923,7 @@ test("source discovery excludes native audio hosts and development-only tools",(
     fs.writeFileSync(path.join(temporary,"src","module.cpp"),"struct Module {};\n");
     fs.writeFileSync(path.join(temporary,"util","miniaudio.h"),"#define MINIAUDIO_IMPLEMENTATION\n");
     fs.writeFileSync(path.join(temporary,"util","cmdline","host.cpp"),"int main() {}\n");
-    assert.deepEqual(filesOutsideNestedRepositories(temporary),[path.join(temporary,"src","module.cpp")]);
+    assert.deepEqual(filesOutsideNestedRepositories(temporary),[fs.realpathSync(path.join(temporary,"src","module.cpp"))]);
   }finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
@@ -944,7 +1035,7 @@ test("Cella loudness modules keep engine sample-rate methods and link their vend
   fs.writeFileSync(path.join(queue,"queue.h"),"#pragma once\n#define FIXTURE_QUEUE_SCALE 2.f\n");
   fs.writeFileSync(path.join(ebur,"ebur128.c"),'#include "ebur128.h"\n#include <sys/queue.h>\nstatic ebur128_state fixture_state;\nebur128_state* ebur128_init(size_t channels, size_t sample_rate, int mode) { (void)channels; (void)mode; fixture_state.value = (float)sample_rate / 24000.f * FIXTURE_QUEUE_SCALE; return &fixture_state; }\nfloat ebur128_measure(const ebur128_state* state) { return state ? state->value : 0.f; }\n');
   fs.writeFileSync(path.join(src,"LoudnessMeter.cpp"),'#include "plugin.hpp"\n#include "ebur128.h"\nstruct LoudnessMeter : Module { enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; ebur128_state* handle = nullptr; LoudnessMeter() { config(0, 0, NUM_OUTPUTS, 0); configOutput(SIGNAL_OUTPUT, "Measured"); resetMeter(); } void resetMeter() { handle = ebur128_init(1, (size_t)APP->engine->getSampleRate(), 0); } void onSampleRateChange(const SampleRateChangeEvent&) override { resetMeter(); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(ebur128_measure(handle)); } }; struct LoudnessMeterWidget : ModuleWidget {}; struct LoudWidget : ModuleWidget {}; Model* modelLoudnessMeter = createModel<LoudnessMeter, LoudnessMeterWidget>("LoudnessMeter"); Model* modelLoud = createModel<LoudnessMeter, LoudWidget>("Loud");\n');
-  try{for(const [model,destination] of [["LoudnessMeter",output],["Loud",loudOutput]]){execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),`https://library.vcvrack.com/Cella/${model}`,"--manifest-file",path.join(plugin,"plugin.json"),"--source-dir",plugin,"--output",destination,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(destination,"adapter.cpp"),"utf8");assert.match(adapter,/#include "ebur128\.h"/);assert.match(adapter,/void resetMeter\(\)\s*\{\s*handle = ebur128_init/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(destination,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_output_connected(0,1);wasm.rack_web_process(1,44100);assert.ok(Math.abs(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0]-3.675)<1e-5)}}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{for(const [model,destination] of [["LoudnessMeter",output],["Loud",loudOutput]]){execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),`https://library.vcvrack.com/Cella/${model}`,"--manifest-file",path.join(plugin,"plugin.json"),"--source-dir",plugin,"--output",destination,"--compile","--use-rust-analysis"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(destination,"adapter.cpp"),"utf8");assert.match(adapter,/#include "ebur128\.h"/);assert.match(adapter,/void resetMeter\(\)\s*\{\s*handle = ebur128_init/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(destination,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_output_connected(0,1);wasm.rack_web_process(1,44100);assert.ok(Math.abs(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0]-3.675)<1e-5)}}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("RackNES adapter keeps declarations ahead of separately linked emulator implementations",()=>{
@@ -972,9 +1063,10 @@ test("adapter normalization preserves one generic implementation and protects en
   const templateSource='namespace fixture {\ntemplate<int N> struct Bank { Bank(); float next(float value); struct OffsetQuantity : ParamQuantity { float getDisplayValue() override { return getValue(); } }; };\ntemplate<int N> Bank<N>::Bank() {}\ntemplate<int N> float Bank<N>::next(float value) { return value + N; }\ntemplate<int N> Bank<N>::Bank() {}\ntemplate<int N> float Bank<N>::next(float value) { return value + N; }\n}\nRACK_WEB_EXPORTS(fixture::Bank<1>)\n',deduped=dedupeOutOfLineMethodDefinitions(templateSource);
   assert.equal([...deduped.matchAll(/Bank<N>::Bank\s*\(/g)].length,1);assert.equal([...deduped.matchAll(/Bank<N>::next\s*\(/g)].length,1);assert.match(deduped,/RACK_WEB_EXPORTS\(fixture::Bank<1>\)/);assert.deepEqual(paramQuantityHelpers(templateSource,"OffsetQuantity"),[]);
   const macroInlineSource="namespace fixture {\nclass Engine { int output(); };\nRESID_INLINE\nint Engine::output() { return 1; }\n}\nnamespace fixture {\nint Engine::output() { return 2; }\n}\n",macroInlineDeduped=dedupeOutOfLineMethodDefinitions(macroInlineSource);assert.equal([...macroInlineDeduped.matchAll(/int Engine::output\s*\(/g)].length,1);
+  const overloadSource="namespace left {\nstruct Engine { int value(int) const; int value(float) const; int value(int); };\nint Engine::value(int input) const { return input; }\nint Engine::value(int input) const /* duplicate */ { return input + 10; }\nint Engine::value(float input) const { return int(input); }\nint Engine::value(int input) { return input + 1; }\n}\nnamespace right {\nstruct Engine { int value(int) const; };\nint Engine::value(int input) const { return input + 2; }\n}\n",overloadDeduped=dedupeOutOfLineMethodDefinitions(overloadSource);assert.equal([...overloadDeduped.matchAll(/Engine::value\s*\(/g)].length,4);assert.doesNotMatch(overloadDeduped,/return input \+ 10/);assert.match(overloadDeduped,/value\(float input\) const/);assert.match(overloadDeduped,/value\(int input\) \{/);assert.match(overloadDeduped,/return input \+ 2/);
   const specialMembers="struct Engine { Engine(); ~Engine(); static const std::array<int, 2> values; };\nEngine::Engine() = default;\nEngine::~Engine() = default;\nconst std::array<int, 2> Engine::values{{1, 2}};\n";assert.deepEqual(outOfLineDefinitions(specialMembers,"Engine"),["Engine::Engine() = default;","Engine::~Engine() = default;"]);assert.deepEqual(outOfLineStaticDefinitions(specialMembers,"Engine"),["const std::array<int, 2> Engine::values{{1, 2}};"]);
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-enum-macro-test-")),macroFile=path.join(temporary,"macros.cpp");try{fs.writeFileSync(macroFile,'#if !defined(MACROS_CPP_GUARD)\n#define MACROS_CPP_GUARD 1\n#define POLY_INPUT "poly_input"\n#define SAFE_SCALE 2\n#define N 624\n#define INFINITY _INF\n#ifdef _WIN32\n#define ARCH_WIN\n#define WINDOWS_SCALE 4\n#endif\n#ifndef ARCH_WIN\n#define BROWSER_SCALE 3\n#endif\n#endif\n');const defines=referencedDefinesWithoutPluginGlobals([macroFile],"#if !defined(MACROS_CPP_GUARD)\nenum InputIds { POLY_INPUT, NUM_INPUTS }; //********************************************************* DSP values\ntemplate <typename T, int N> struct DelayLine { T values[N]; };\nfloat value = SAFE_SCALE + INFINITY; /* a real block comment */ float browser = WINDOWS_SCALE + BROWSER_SCALE;\n#endif");assert.doesNotMatch(defines,/#define MACROS_CPP_GUARD/);assert.doesNotMatch(defines,/#define POLY_INPUT/);assert.doesNotMatch(defines,/#define N 624/);assert.doesNotMatch(defines,/#define INFINITY/);assert.doesNotMatch(defines,/#define ARCH_WIN|#define WINDOWS_SCALE/);assert.match(defines,/#define SAFE_SCALE 2/);assert.match(defines,/#define BROWSER_SCALE 3/)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
-  const usingPrelude=namespaceUsingPrelude("using namespace fixture;\nusing namespace fixture::dsp;\nusing namespace simd;\nusing namespace rack;\nusing namespace dsp;\n");assert.match(usingPrelude,/using namespace fixture;/);assert.match(usingPrelude,/using namespace fixture::dsp;/);assert.match(usingPrelude,/namespace simd = rack::simd;/);assert.match(usingPrelude,/using namespace rack::simd;/);assert.match(usingPrelude,/using namespace rack::dsp;/);assert.doesNotMatch(usingPrelude,/namespace simd \{\}/);assert.doesNotMatch(usingPrelude,/namespace dsp \{\}/);assert.doesNotMatch(usingPrelude,/using namespace rack;/);
+  const usingPrelude=namespaceUsingPrelude('using namespace fixture;\nusing namespace fixture::dsp;\nusing namespace simd;\nusing namespace rack;\nusing namespace dsp;\nconst char* decoy = "using namespace fake;";\n// using namespace commented;\nvoid local() { using namespace local_only; }\nnamespace compact { using namespace compact_dsp; }\n');assert.match(usingPrelude,/using namespace fixture;/);assert.match(usingPrelude,/using namespace fixture::dsp;/);assert.match(usingPrelude,/namespace simd = rack::simd;/);assert.match(usingPrelude,/using namespace rack::simd;/);assert.match(usingPrelude,/using namespace rack::dsp;/);assert.match(usingPrelude,/using namespace compact_dsp;/);assert.doesNotMatch(usingPrelude,/namespace simd \{\}/);assert.doesNotMatch(usingPrelude,/namespace dsp \{\}/);assert.doesNotMatch(usingPrelude,/using namespace rack;/);assert.doesNotMatch(usingPrelude,/fake|commented|local_only/);
   const customDsp=namespaceUsingPrelude("using namespace dsp;\n");assert.match(customDsp,/namespace dsp \{\}/);assert.match(customDsp,/using namespace dsp;/);
   assert.deepEqual(standardDependencyIncludes("#ifdef _WIN32\n#include <winsock2.h>\n#else\n#include <fcntl.h>\n#include <unistd.h>\n#endif"),["#include <fcntl.h>","#include <unistd.h>"]);
   assert.deepEqual(standardDependencyIncludes("#ifdef ARCH_WIN\r\n#include <windows.h>\r\n#else\r\n#include <sys/socket.h>\r\n#endif\r\n"),["#include <sys/socket.h>"]);
@@ -985,7 +1077,7 @@ test("adapter normalization preserves one generic implementation and protects en
   const globals=namespaceGlobalDefinitions("namespace fixture {\nstatic unsigned int bitMasks[2] = {3u, 5u};\nstatic unsigned int selectedMask = bitMasks[1];\nstatic int unused = 7;\n}\n","return selectedMask;",["fixture"]);assert.match(globals,/bitMasks\[2\]/);assert.match(globals,/selectedMask = bitMasks\[1\]/);assert.doesNotMatch(globals,/unused/);assert.doesNotMatch(globals,/namespace fixture/);
   const modelIdentity=namespaceGlobalDefinitions('namespace fixture {\nModel* modelEngine = createModel<Engine,\n  EngineWidget>("Engine");\n}\n',"return modelEngine;",["fixture"]);assert.match(modelIdentity,/Model\* modelEngine = new Model\{"Engine"\};/);assert.doesNotMatch(modelIdentity,/createModel|EngineWidget/);
   const anonymousGlobals=namespaceGlobalDefinitions("namespace {\nconstexpr float VOLTAGE_SCALE = 5.f;\nconstexpr float OUTPUT_SCALE = VOLTAGE_SCALE * 2.f;\n}\n","return OUTPUT_SCALE;");assert.match(anonymousGlobals,/VOLTAGE_SCALE/);assert.match(anonymousGlobals,/OUTPUT_SCALE/);assert.doesNotMatch(anonymousGlobals,/namespace/);
-  const functions=outOfLineFreeFunctionDefinitions("struct Filter { double render(double value) { return value + member; } double member = 1.; };\nnamespace fixture {\ndouble render(double value) { return value * 2.; }\n}\n","render",true);assert.equal(functions.length,1);assert.match(functions[0],/namespace fixture/);assert.doesNotMatch(functions[0],/member/);
+  const functions=outOfLineFreeFunctionDefinitions("struct Filter { double render(double value) { return value + member; } double member = 1.; };\nnamespace fixture {\ndouble render(double value) { return value * 2.; }\n}\nstruct ExternalFilter { ExternalFilter(); double render(double value); };\nExternalFilter::ExternalFilter() {}\ndouble ExternalFilter::render(double value) { return value * 3.; }\nnamespace qualified { double render(double value); }\ndouble qualified::render(double value) { return value * 4.; }\n","render",true);assert.equal(functions.length,3);assert.match(functions[0],/namespace fixture/);assert.doesNotMatch(functions[0],/member/);assert.match(functions[1],/^double ExternalFilter::render/);assert.match(functions[2],/^double qualified::render/);assert.ok(functions.every(definition=>!definition.includes("ExternalFilter::ExternalFilter")));
   const localFunctions=referencedLocalFreeFunctionDefinitions("namespace fixture {\nusing word = unsigned int;\nword build(word value) { return value + 1; }\n}\n","return build(2);");assert.equal(localFunctions.length,1);assert.match(localFunctions[0],/^namespace fixture \{/);assert.match(localFunctions[0],/word build\(word value\)/);
   const localTemplates=referencedLocalFreeFunctionDefinitions("namespace fixture {\ntemplate <typename T>\nstatic T clampValue(T value, T low, T high) { return value < low ? low : (value > high ? high : value); }\n}\n","return clampValue<int>(value, 0, 10);");assert.equal(localTemplates.length,1);assert.match(localTemplates[0],/template <typename T>/);assert.match(localTemplates[0],/namespace fixture/);
   const functionPointer=referencedLocalFreeFunctionDefinitions("float ParserMax(float a, float b) { return a > b ? a : b; }\n","setFunction(\"max\", ParserMax);");assert.equal(functionPointer.length,1);assert.match(functionPointer[0],/float ParserMax/);
@@ -1000,6 +1092,7 @@ test("adapter normalization preserves one generic implementation and protects en
   const decoratedReturn=outOfLineDefinitions("namespace fixture {\n[[nodiscard]] float Engine::render(float value) { return value; }\nauto Engine::read() -> std::tuple<float, int> { return {}; }\n}\n","Engine",true);assert.equal(decoratedReturn.length,2);assert.match(decoratedReturn[0],/\[\[nodiscard\]\] float Engine::render/);assert.match(decoratedReturn[1],/auto Engine::read\(\) -> std::tuple<float, int>/);
   const decoratedForwards=namespaceFunctionForwardDeclarations("#define FIXTURE_INLINE inline __attribute__((always_inline))\nstatic FIXTURE_INLINE int decoratedHelper() { return 1; }\n");assert.deepEqual(decoratedForwards,["static inline int decoratedHelper();"]);
   const crossHeaderForwards=namespaceFunctionForwardDeclarations("static_inline float generatedHelper(float value) { return value; }\n","#define static_inline static inline\n");assert.deepEqual(crossHeaderForwards,["static inline float generatedHelper(float value);"]);
+  const defaultedForwards=namespaceFunctionForwardDeclarations('namespace fixture {\nstatic int configured(std::array<int, 2> value = std::array<int, 2>{1, 2}, const char* label = "left,right") { return value[0]; }\n}\n');assert.deepEqual(defaultedForwards,["namespace fixture {\nstatic int configured(std::array<int, 2> value, const char* label);\n}"]);
   const planarSamplerSource="void loadSample(std::string path) {} vector<vector<float>> playBuffer; drwav_uint64 totalSampleC; unsigned int sampleRate, channels; float samplePos; bool fileLoaded, loading, reload, play; float startPos; std::string lastPath;";const planarSampler=browserAssetSamplerContract(planarSamplerSource);assert.equal(planarSampler?.mode,"planar-stereo-buffer");const planarMethods=browserAssetSamplerMethods(planarSampler);assert.match(planarMethods,/playBuffer\[0\]\[frame\] = left/);assert.match(planarMethods,/fileLoaded = totalSampleC > 0/);
   assert.deepEqual(browserAssetSamplerContract("std::vector<AudioClip> clip_cache_; static const int MAX_FILES = 256; float getSamplePhase(double p); void startRec(int sampleRate); void switchRec(int sampleRate);"),{type:"audio",maxSamples:960000,maxSeconds:10,channels:2,mode:"lomas-advanced-sampler"});
   const monoPlanarSamplerSource="void loadSample(std::string path) {} vector<vector<float>> playBuffer; PLAY() { playBuffer.resize(1); } drwav_uint64 totalSampleCount; unsigned int sampleRate, channels; float samplePos; bool fileLoaded, loading, reload, run; std::string lastPath;";const monoPlanarSampler=browserAssetSamplerContract(monoPlanarSamplerSource);assert.equal(monoPlanarSampler?.planes,1);assert.equal(monoPlanarSampler?.countField,"totalSampleCount");const monoPlanarMethods=browserAssetSamplerMethods(monoPlanarSampler);assert.match(monoPlanarMethods,/run = false/);assert.doesNotMatch(monoPlanarMethods,/playBuffer\[1\]/);
@@ -1034,44 +1127,495 @@ test("adapter normalization preserves one generic implementation and protects en
   const conditionalRoot=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-conditional-dependency-test-"));try{const definitionsFile=path.join(conditionalRoot,"defs.h"),selectorFile=path.join(conditionalRoot,"selector.h"),activeFile=path.join(conditionalRoot,"active.h"),inactiveFile=path.join(conditionalRoot,"inactive.h"),activeImplementation=path.join(conditionalRoot,"active.cc"),inactiveImplementation=path.join(conditionalRoot,"inactive.cc");fs.writeFileSync(definitionsFile,"#define USE_INACTIVE 0\n");fs.writeFileSync(selectorFile,'#include "defs.h"\n#if USE_INACTIVE\n#include "inactive.h"\n#else\n#include "active.h"\n#endif\n');for(const file of [activeFile,inactiveFile,activeImplementation,inactiveImplementation])fs.writeFileSync(file,"");const pruned=pruneInactiveConditionalDependencies([definitionsFile,selectorFile,activeFile,inactiveFile,activeImplementation,inactiveImplementation],conditionalRoot);assert.ok(pruned.includes(activeFile));assert.ok(pruned.includes(activeImplementation));assert.ok(!pruned.includes(inactiveFile));assert.ok(!pruned.includes(inactiveImplementation))}finally{fs.rmSync(conditionalRoot,{recursive:true,force:true})}
   const strippedBody=stripUiClassMembers("std::atomic<Vec*> _jumpTo;\nModuleWidget* widget;\nComputerscareSVGPanel* panelRef;\nChordDiagram* chordDiagram;\nvoid process() { Vec* target = _jumpTo; _jumpTo = target; }");assert.match(strippedBody,/std::atomic<Vec\*> _jumpTo/);assert.doesNotMatch(strippedBody,/ModuleWidget\* widget|ComputerscareSVGPanel|ChordDiagram/);
   assert.deepEqual(declaredDependencyNames("/* struct CommentedType {}; inline int commentedHelper() { int local = 1; return local; } */\nstruct RealType {};\ninline int realHelper() { int local = 1; return local; }\n"),["RealType","realHelper"]);
+  assert.deepEqual(declaredDependencyNames("typedef struct { int value; } GlobalInterface;\nvoid localFactory() { typedef struct { int value; } LocalInterface; }\n"),["GlobalInterface","localFactory"]);
   assert.deepEqual(declaredDependencyNames("namespace fixture {\nstatic std::vector<std::string> labels = {\"A\", \"B\"};\n}\n"),["labels"]);
   const duplicateHelpers=normalizeGeneratedImplementations("static int helper(int value) { return value + 1; }\nstruct Engine {};\nstatic int helper(int value) { return value + 1; }\n");assert.equal([...duplicateHelpers.matchAll(/static int helper/g)].length,1);
+  const freeFunctionDuplicates=normalizeGeneratedImplementations("namespace left {\ntemplate <typename T>\nstatic T convert(T value) { return value; }\ntemplate <typename T>\nstatic T convert(T value) { return value; }\nstatic int helper(int value) { return value + 1; }\nstatic int helper(int value) { return value + 2; }\n}\nnamespace right {\nstatic int helper(int value) { return value + 1; }\n}\n");assert.equal([...freeFunctionDuplicates.matchAll(/template <typename T>/g)].length,1);assert.equal([...freeFunctionDuplicates.matchAll(/static int helper/g)].length,3);assert.match(freeFunctionDuplicates,/return value \+ 2/);assert.match(freeFunctionDuplicates,/namespace right/);
   const defaultedDefinition=normalizeGeneratedImplementations("void padTo(std::string& value, const size_t count, const char padding = ' ');\nvoid padTo(std::string& value, const size_t count, const char padding = ' ') { value.insert(0, count, padding); }\n");assert.equal([...defaultedDefinition.matchAll(/padding\s*=/g)].length,1);assert.match(defaultedDefinition,/void padTo[^{]+\{ value\.insert/);
+  const scopedDefaults=normalizeGeneratedImplementations('namespace left {\nvoid configure(std::array<int, 2> value = std::array<int, 2>{1, 2}, const char* label = "left,right");\nvoid configure(std::array<int, 2> value = std::array<int, 2>{1, 2}, const char* label = "left,right") { return; }\nvoid overload(int value = 1);\nvoid overload(float value = 1) {}\n}\nnamespace right {\nvoid configure(std::array<int, 2> value = std::array<int, 2>{1, 2}, const char* label = "left,right") {}\n}\n');assert.equal([...scopedDefaults.matchAll(/value\s*=\s*std::array/g)].length,2);assert.equal([...scopedDefaults.matchAll(/label\s*=/g)].length,2);assert.match(scopedDefaults,/void configure\(std::array<int, 2> value, const char\* label\) \{ return; \}/);assert.match(scopedDefaults,/void overload\(float value = 1\) \{\}/);
   const duplicateNamespaceState="std::string lookup =\n    \"abc\";\nstd::string other = \"ok\";\nstd::string lookup =\n    \"abc\";\n";const normalizedNamespaceState=normalizeLegacyMidiOverrides(duplicateNamespaceState);assert.equal([...normalizedNamespaceState.matchAll(/std::string lookup/g)].length,1);assert.match(normalizedNamespaceState,/std::string other/);
   const midiExpander=normalizeLegacyMidiOverrides("namespace smf { struct MidiMessage : std::vector<unsigned char> {}; }\nstruct ExpanderToMasterMessage { std::vector<smf::MidiMessage> msgs[NUM_TRACKS]; };\n");assert.match(midiExpander,/struct RackWebMidiExpanderMessageList/);assert.match(midiExpander,/RackWebMidiExpanderMessageList msgs\[NUM_TRACKS\]/);assert.doesNotMatch(midiExpander,/std::vector<smf::MidiMessage> msgs/);
   const blankContract=browserAssetSamplerContract("int imageFitEnum; bool hidePanel; float zoomX; enum { SLIDESHOW_ACTIVE, CROSSFADE_TIME };");assert.deepEqual(blankContract,{type:"image",maxSamples:4194304,maxSeconds:0,channels:4,mode:"rgba-image"});const blankAdapter=browserComputerscareBlankAdapterSource({key:"computerscare/computerscare-blank"},{sourceUrl:"https://example.com/computerscare"},"BSD-3-Clause","src/ComputerscareBlank.cpp","src/ComputerscareBlank.cpp");assert.match(blankAdapter,/rackWebAssetSampleCapacity = 4194304/);assert.match(blankAdapter,/configParam\(ANIMATION_SPEED, -1\.f, 1\.f, 0\.f/);assert.match(blankAdapter,/json_object_set_new\(root, "hidePanel"/);assert.doesNotMatch(blankAdapter,/APP->|osdialog|system::/);
 });
+
+test("local pre-module support types consume Rust ranges and namespace facts",()=>{
+  const source=`namespace fixture {
+struct Support final { float apply(float value) { return value * 2.f; } };
+void localFactory() { struct LocalSupport { float value = 9.f; }; }
+struct NativeView : Widget {};
+struct Target : Module { Support support; };
+struct AfterTarget { float value = 4.f; };
+}`,
+    selected=localPlainStructDefinitions(source,"fixture::Target","Support support; LocalSupport local; NativeView* view; AfterTarget after;");
+  assert.match(selected,/namespace fixture \{[\s\S]*struct Support final/);
+  assert.doesNotMatch(selected,/LocalSupport|NativeView|AfterTarget|struct Target/);
+});
+
+test("parameter quantity helper discovery uses Rust namespace-scope type facts",()=>{
+  const source=`const char* decoy = "struct StringQuantity : ParamQuantity {};";
+namespace fixture {
+struct QualifiedQuantity final : public rack::engine::ParamQuantity { float getDisplayValue() override { return getValue(); } };
+class ClassQuantity : ParamQuantity {};
+struct MultiQuantity : ParamQuantity, Helper {};
+struct Owner { struct NestedQuantity : ParamQuantity {}; };
+void build() { struct LocalQuantity : ParamQuantity {}; }
+}`;
+  const helpers=paramQuantityHelpers(source,"QualifiedQuantity ClassQuantity MultiQuantity NestedQuantity LocalQuantity StringQuantity");
+  assert.deepEqual(helpers.map(helper=>helper.name),["QualifiedQuantity"]);
+  assert.match(helpers[0].source,/^struct QualifiedQuantity final : public rack::engine::ParamQuantity/);
+  assert.match(helpers[0].source,/};$/);
+});
+test("free-function deferral consumes Rust ranges and namespaces",()=>{
+  const source=`const char* decoy = "static DeferredType fake(DeferredType value) { return value; }";
+struct Owner {
+  static DeferredType member(DeferredType value) { return value; }
+};
+namespace outer::inner {
+template <typename T>
+static DeferredType deferTemplate(DeferredType value, T extra) { return value; }
+static int keep(int value) { return value + 1; }
+}
+namespace other {
+static DeferredType deferOther(DeferredType value) { return value; }
+}`;
+  const deferred=deferFreeFunctionsReferencingTypes(source,["DeferredType"]);
+  assert.match(deferred.source,/const char\* decoy/);
+  assert.match(deferred.source,/DeferredType member/);
+  assert.match(deferred.source,/static int keep/);
+  assert.doesNotMatch(deferred.source,/\bdeferTemplate\s*\(|\bdeferOther\s*\(/);
+  assert.equal(deferred.definitions.length,2);
+  assert.match(deferred.definitions[0],/^namespace outer \{\nnamespace inner \{\ntemplate <typename T>/);
+  assert.match(deferred.definitions[0],/deferTemplate\(DeferredType value, T extra\)/);
+  assert.match(deferred.definitions[1],/^namespace other \{/);
+});
+test("out-of-line removal consumes Rust owner-chain ranges",()=>{
+  const source=`const char* decoy = "float Engine::fake(float value) { return value; }";
+namespace fixture {
+template <typename T>
+float Engine<T>::render(float value) { return value * 2.f; }
+float Engine<int>::Nested::read(float value) { return value + 1.f; }
+Engine<int>::Engine() {}
+Engine<int>::~Engine() {}
+Engine<int>::Engine() = default;
+const int Engine<int>::table = 1;
+float Other::render(float value) { return value * 3.f; }
+}`;
+  const stripped=removeOutOfLineDefinitions(source,"Engine<int>");
+  assert.match(stripped,/const char\* decoy/);
+  assert.doesNotMatch(stripped,/Engine<T>::render|Engine<int>::Nested::read|Engine<int>::~?Engine\(\) \{/);
+  assert.match(stripped,/Engine<int>::Engine\(\) = default/);
+  assert.match(stripped,/Engine<int>::table = 1/);
+  assert.match(stripped,/float Other::render/);
+});
+test("generated adapters deduplicate Rust member and free-function facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-member-dedupe-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"MemberDedupe",name:"Member dedupe",description:"Rust out-of-line signature fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","MemberDedupe.cpp"),'#include "plugin.hpp"\nstruct DuplicateEngine { float apply(float value) const; };\nfloat DuplicateEngine::apply(float value) const { return value * 2.f; }\nfloat DuplicateEngine::apply(float value) const /* duplicate */ { return value * 4.f; }\nstatic float duplicateOffset(float value = 1.f);\nstatic float duplicateOffset(float value = 1.f) { return value + 1.f; }\nstatic float duplicateOffset(float value = 1.f) { return value + 1.f; }\nstruct MemberDedupeModule : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; DuplicateEngine engine; MemberDedupeModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(duplicateOffset(engine.apply(inputs[SIGNAL_INPUT].getVoltage()))); } };\nstruct MemberDedupeWidget : ModuleWidget {};\nModel* modelMemberDedupe = createModel<MemberDedupeModule, MemberDedupeWidget>("MemberDedupe");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/MemberDedupe","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.equal([...adapter.matchAll(/DuplicateEngine::apply\s*\(/g)].length,1);assert.equal([...adapter.matchAll(/static float duplicateOffset\s*\([^)]*\)\s*\{/g)].length,1);assert.equal([...adapter.matchAll(/duplicateOffset\s*\(float value\s*=\s*1\.f/g)].length,1);assert.doesNotMatch(adapter,/return value \* 4\.f/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],7)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
 test("qualified native UI helper functions can be removed without touching DSP helpers",()=>{
-  const source='static inline math::Rect nativeSceneRect() { return APP->scene->box; }\nstatic inline float dspScale(float value) { return value * 2.f; }\n';
+  const source=`const char* decoy = "math::Rect nativeSceneRect() { fake }";
+namespace ui_helpers {
+static inline math::Rect
+nativeSceneRect(
+) { return APP->scene->box; }
+}
+struct NativeOwner { static math::Rect nativeSceneRect() { return {}; } };
+static inline float dspScale(float value) { return value * 2.f; }
+`;
   const stripped=removeQualifiedFreeFunction(source,"nativeSceneRect");
-  assert.doesNotMatch(stripped,/nativeSceneRect|APP->scene/);
+  assert.doesNotMatch(stripped,/APP->scene/);
+  assert.match(stripped,/const char\* decoy/);
+  assert.match(stripped,/NativeOwner \{ static math::Rect nativeSceneRect/);
   assert.match(stripped,/dspScale/);
+});
+test("plugin init cleanup consumes Rust namespace-scope function ranges",()=>{
+  const source=`const char* decoy = "void init(Plugin* plugin) { fake }";
+namespace fixture {
+void init(
+  rack::Plugin* plugin
+) { if (plugin) plugin->addModel(modelFixture); }
+}
+struct Owner { void init(Plugin* plugin) { member = plugin; } Plugin* member = nullptr; };
+void init(Plugin& plugin) { (void)plugin; }
+Model* modelFixture = createModel<FixtureModule, FixtureWidget>("Fixture");
+`;
+  const stripped=stripPluginInitFunctions(source);
+  assert.doesNotMatch(stripped,/plugin->addModel|createModel/);
+  assert.match(stripped,/const char\* decoy/);
+  assert.match(stripped,/Owner \{ void init\(Plugin\* plugin\)/);
+  assert.match(stripped,/void init\(Plugin& plugin\)/);
+});
+test("Vec DSP helper extraction consumes Rust namespace-scope signatures and ranges",()=>{
+  const source=`const char* decoy = "float scalePoint(Vec point) { fake }";
+namespace fixture {
+static float scalePoint(
+  const Vec& point,
+  float scale = 1.f
+) { return point.x * scale; }
+static float scalePoint(float value) { return value * 100.f; }
+static Vec makePoint(float value) { return Vec(value, 0.f); }
+static float unusedPoint(Vec point) { return point.y; }
+}
+struct Owner { static float scalePoint(Vec point) { return point.y; } };
+`;
+  const helpers=referencedVecDspHelpers(source,"return scalePoint(point, 2.f);");
+  assert.match(helpers,/static float scalePoint\(\s*const Vec& point/);
+  assert.doesNotMatch(helpers,/value \* 100|makePoint|unusedPoint|struct Owner|const char\* decoy|namespace fixture/);
+});
+test("ordinary free-function removal consumes Rust names, signatures, and ranges",()=>{
+  const source=`const char* decoy = "bool downloadTodaysFortune() { fake }";
+namespace fixture {
+static math::Rect downloadTodaysFortune() { return {}; }
+static bool downloadTodaysFortune(
+) { return false; }
+static bool downloadTodaysFortune(int retry) { return retry > 0; }
+}
+struct Owner { static bool downloadTodaysFortune() { return true; } };
+`;
+  const stripped=removeFreeFunction(source,"downloadTodaysFortune");
+  assert.match(stripped,/const char\* decoy|math::Rect downloadTodaysFortune|downloadTodaysFortune\(int retry\)|Owner \{ static bool downloadTodaysFortune/);
+  assert.doesNotMatch(stripped,/static bool downloadTodaysFortune\(\s*\) \{ return false/);
+});
+test("Rack UI residue cleanup consumes Rust function and owner facts",()=>{
+  const source=`const char* decoy = "math::Vec nativePoint(float value) { fake }";
+struct NativeDisplay { float paint(float value); };
+float NativeDisplay::paint(float value) { return value + 100.f; }
+struct DspEngine { float process(float value); };
+float DspEngine::process(float value) { return value * 2.f; }
+static math::Vec nativePoint(float value);
+static math::Vec nativePoint(float value) { return math::Vec(value, 0.f); }
+static float dspScale(float value) { return value * 3.f; }
+`;
+  const stripped=stripRackUiResidue(source,new Set(["NativeDisplay"]));
+  assert.doesNotMatch(stripped,/^struct NativeDisplay|^float NativeDisplay::paint|^static math::Vec nativePoint/gm);
+  assert.match(stripped,/const char\* decoy/);
+  assert.match(stripped,/struct DspEngine|DspEngine::process|static float dspScale/);
+});
+test("conditional SIMD template normalization consumes Rust out-of-line facts",()=>{
+  const source=`const char* decoy = "template<> float Bank<float>::next(float) { fake }";
+namespace fixture {
+template<typename T> struct Bank {
+#ifdef RACK_SIMD
+  T lane{};
+#endif
+  float next(float value);
+};
+template<typename T> float Bank<T>::next(float value) { return value + 100.f; }
+template<> float Bank<float>::next(float value) { return value * 2.f; }
+template<typename T> struct Other { float next(float value); };
+template<typename T> float Other<T>::next(float value) { return value + 1.f; }
+template<> float Other<float>::next(float value) { return value + 2.f; }
+}
+`;
+  const normalized=normalizeConditionalTemplateImplementations(source);
+  assert.match(normalized,/const char\* decoy/);
+  assert.match(normalized,/template<>\s*float Bank<float>::next/);
+  assert.doesNotMatch(normalized,/template<typename T>\s*float Bank<T>::next/);
+  assert.match(normalized,/template<typename T>\s*float Other<T>::next/);
+  assert.match(normalized,/template<>\s*float Other<float>::next/);
+});
+test("out-of-line method replacement consumes Rust owner, member, and range facts",()=>{
+  const source=`const char* decoy = "Engine::render(float) { fake }";
+struct Outer { struct Engine { float render(float value); }; };
+float Outer::Engine::render(float value) { return value + 100.f; }
+float Outer::Engine::render(int value) { return float(value) + 200.f; }
+Outer::Engine::Engine() {}
+Outer::Engine::~Engine() {}
+`;
+  const rendered=replaceOutOfLineMethod(source,"Engine","render","float Outer::Engine::render(float value) { return value * 2.f; }");
+  const constructed=replaceOutOfLineMethod(rendered,"Engine","Engine","Outer::Engine::Engine() { ready = true; }");
+  const replaced=replaceOutOfLineMethod(constructed,"Engine","~Engine","Outer::Engine::~Engine() { ready = false; }");
+  assert.match(replaced,/const char\* decoy/);
+  assert.match(replaced,/return value \* 2\.f/);
+  assert.match(replaced,/render\(int value\) \{ return float\(value\) \+ 200\.f/);
+  assert.match(replaced,/Engine\(\) \{ ready = true; \}|~Engine\(\) \{ ready = false; \}/);
+  assert.doesNotMatch(replaced,/return value \+ 100\.f/);
+});
+test("embedded resource documentation replacement consumes Rust body ranges",()=>{
+  const source=`CMRC_DECLARE(fixture_docs);
+const char* decoy = "std::string Docs::fake() { cmrc::fixture_docs::get_filesystem(); }";
+struct Docs { static std::string resource(int value); static std::string literalOnly(); static float number(); };
+std::string Docs::resource(int value) {
+  // cmrc::comment_only::get_filesystem();
+  auto fs = cmrc::fixture_docs::get_filesystem();
+  return fs.is_file("fixture") ? std::to_string(value) : "";
+}
+std::string Docs::literalOnly() { return "cmrc::fixture_docs::get_filesystem()"; }
+float Docs::number() { auto fs = cmrc::fixture_docs::get_filesystem(); return fs.is_file("fixture") ? 1.f : 0.f; }
+`;
+  const stripped=stripEmbeddedResourceDocumentation(source);
+  assert.doesNotMatch(stripped,/^CMRC_DECLARE/gm);
+  assert.match(stripped,/const char\* decoy/);
+  assert.match(stripped,/std::string Docs::resource\(int value\) \{ return ""; \}/);
+  assert.match(stripped,/std::string Docs::literalOnly\(\) \{ return "cmrc::fixture_docs::get_filesystem\(\)"; \}/);
+  assert.match(stripped,/float Docs::number\(\) \{ auto fs = cmrc::fixture_docs::get_filesystem\(\)/);
+  assert.doesNotMatch(stripped,/std::to_string/);
+});
+test("Surge VCO and FX specialization extraction consumes Rust out-of-line facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-surge-specialization-test-")),sourceFile=path.join(temporary,"Specializations.hpp");
+  try{
+    fs.writeFileSync(sourceFile,`const char* decoy = "template<> void VCOConfig<ot_test>::fake() { fake }";
+template<> int VCOConfig<ot_test>::voiceCount() { return 4; }
+template<> rack::Widget* VCOConfig<ot_test>::getLayout() { return nullptr; }
+template<> void VCOConfig<ot_test>::addMenuItems() {}
+template<int oscType> inline void VCOConfig<oscType>::configureVCOSpecificParameters(VCO<oscType>* module) { module->configure(); }
+template<> constexpr int FXConfig<fxt_test>::numParams() { return 3; }
+template<> void FXConfig<fxt_test>::configSpecificParams(FX<fxt_test>* module) { module->configure(); }
+template<> rack::Widget* FXConfig<fxt_test>::getLayout() { return nullptr; }
+template<> void FXConfig<fxt_test>::addFXSpecificMenuItems() {}
+`);
+    const vco=surgeVcoSpecializations([sourceFile],"VCO<ot_test>"),fallback=surgeVcoSpecializations([sourceFile],"VCO<ot_other>"),fx=surgeFxConfigSpecializations([sourceFile],"FX<fxt_test>");
+    assert.match(vco,/VCOConfig<ot_test>::voiceCount/);
+    assert.match(vco,/VCOConfig<oscType>::configureVCOSpecificParameters/);
+    assert.doesNotMatch(vco,/getLayout|addMenuItems|fake/);
+    assert.match(fallback,/VCOConfig<oscType>::configureVCOSpecificParameters/);
+    assert.doesNotMatch(fallback,/VCOConfig<ot_test>::voiceCount/);
+    assert.match(fx,/FXConfig<fxt_test>::numParams/);
+    assert.match(fx,/FXConfig<fxt_test>::configSpecificParams/);
+    assert.doesNotMatch(fx,/getLayout|addFXSpecificMenuItems|decoy/);
+  }finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+test("Surge Rack custom-editor removal consumes Rust owner and range facts",()=>{
+  const source=`const char* decoy = "template<> rack::Widget* VCOConfig<ot_fake>::createCustomEditorAt(int) { fake }";
+template<> rack::Widget* VCOConfig<ot_test>::createCustomEditorAt(int index) { return APP->scene->rack; }
+template<int oscType> rack::Widget* VCOConfig<oscType>::createCustomEditorAt(int) { return nullptr; }
+template<> rack::Widget* OtherConfig<ot_test>::createCustomEditorAt(int) { return nullptr; }
+`;
+  const stripped=stripSurgeRackCustomEditor(source);
+  assert.match(stripped,/const char\* decoy/);
+  assert.doesNotMatch(stripped,/VCOConfig<ot_test>::createCustomEditorAt\(int index\)/);
+  assert.match(stripped,/VCOConfig<oscType>::createCustomEditorAt/);
+  assert.match(stripped,/OtherConfig<ot_test>::createCustomEditorAt/);
+});
+test("inline void stubbing consumes Rust member body ranges",()=>{
+  const source=`const char* decoy = "void guaranteeRackUserWavetablesDir() { fake }";
+struct First {
+  void guaranteeRackUserWavetablesDir() override { if (ready) { desktopOnly(); } }
+};
+struct Second {
+  void guaranteeRackUserWavetablesDir() { keepSecond(); }
+};
+void guaranteeRackUserWavetablesDir() { keepFreeFunction(); }
+`;
+  const stubbed=stubInlineVoidMethod(source,"guaranteeRackUserWavetablesDir");
+  assert.match(stubbed,/const char\* decoy/);
+  assert.match(stubbed,/void guaranteeRackUserWavetablesDir\(\) override \{\}/);
+  assert.match(stubbed,/void guaranteeRackUserWavetablesDir\(\) \{ keepSecond\(\); \}/);
+  assert.match(stubbed,/void guaranteeRackUserWavetablesDir\(\) \{ keepFreeFunction\(\); \}/);
+  assert.doesNotMatch(stubbed,/desktopOnly/);
+});
+test("inline body transforms consume Rust ranges for functions and special callables",()=>{
+  let source=`const char* decoy = "Fragment() { fake }";
+struct Fragment {
+  Fragment() { oldConstruct(); }
+  ~Fragment() { oldDestroy(); }
+  void dataFromJson(json_t* rootJ) override { restore(rootJ); }
+  void process(const ProcessArgs& args) override { run(args); }
+};
+`;
+  source=replaceInlineMethodBody(source,/\bFragment\s*\(\s*\)\s*\{/," constructBrowser(); ");
+  source=replaceInlineMethodBody(source,/~Fragment\s*\(\s*\)/," destroyBrowser(); ");
+  source=appendInlineMethodStatement(source,/\bvoid\s+dataFromJson\s*\([^)]*\)\s*override\s*\{/,"rebuild();");
+  source=prependInlineMethodBody(source,/\bvoid\s+process\s*\([^)]*\)\s*override\s*\{/," preflight(); ");
+  assert.match(source,/const char\* decoy/);
+  assert.match(source,/Fragment\(\) \{ constructBrowser\(\); \}/);
+  assert.match(source,/~Fragment\(\) \{ destroyBrowser\(\); \}/);
+  assert.match(source,/restore\(rootJ\);[^}]*rebuild\(\);/);
+  assert.match(source,/process[^}]*preflight\(\);[^}]*run\(args\);/);
+  assert.doesNotMatch(source,/oldConstruct|oldDestroy/);
+});
+test("top-level type and enum dedupe consumes Rust declaration ranges",()=>{
+  const source=`const char* decoy = "template<typename T> struct Engine { fake }; enum Mode { A };";
+namespace left {
+template<typename T> struct Engine { T value{}; };
+template<typename T> struct Engine { T value{}; };
+enum Mode { A };
+enum Mode { A };
+enum Mode { B };
+struct Holder { struct Nested {}; struct Nested {}; };
+}
+namespace right {
+template<typename T> struct Engine { T value{}; };
+enum Mode { A };
+}
+`;
+  const deduped=dedupeRepeatedTopLevelEnums(dedupeRepeatedTopLevelTypes(source));
+  assert.match(deduped,/const char\* decoy/);
+  assert.equal([...deduped.matchAll(/template<typename T> struct Engine/g)].length,3);
+  assert.equal([...deduped.matchAll(/enum Mode \{ A \}/g)].length,3);
+  assert.match(deduped,/enum Mode \{ B \}/);
+  assert.equal([...deduped.matchAll(/struct Nested/g)].length,2);
+});
+test("referenced Vec DSP helpers from Rust facts survive UI stripping in real WASM",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-vec-helper-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"VecHelper",name:"Vec helper",description:"Rust Vec helper fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","VecHelper.cpp"),'#include "plugin.hpp"\nstatic float fixtureVecScale(Vec point, float scale = 1.f) { return point.x * scale; }\nstruct VecHelperModule : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; VecHelperModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(fixtureVecScale(Vec(inputs[SIGNAL_INPUT].getVoltage(), 0.f), 2.f)); } };\nstruct VecHelperWidget : ModuleWidget {};\nModel* modelVecHelper = createModel<VecHelperModule, VecHelperWidget>("VecHelper");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/VecHelper","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal([...adapter.matchAll(/fixtureVecScale\s*\([^)]*Vec[^)]*\)\s*\{/g)].length,1);wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("Library scaffold generation discovers the registered Rack module contract",()=>{
   const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-scaffold-test-"));
-  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Simple","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output],{encoding:"utf8"});
+  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Simple","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--use-rust-analysis"],{encoding:"utf8",env:{...process.env,RACK_WEB_REQUIRE_RUST_CONFIG_CALLS:"1",RACK_WEB_REQUIRE_RUST_CONFIG_EXPANSION:"1",RACK_WEB_REQUIRE_RUST_CONSTANT_ANALYSIS:"1",RACK_WEB_REQUIRE_RUST_PREPROCESS:"1",RACK_WEB_REQUIRE_RUST_STRING_EVAL:"1",RACK_WEB_REQUIRE_RUST_NUMBER_EVAL:"1"}});
   const report=JSON.parse(stdout),saved=JSON.parse(fs.readFileSync(path.join(output,"adapter.json"),"utf8"));
   assert.equal(report.key,"FixturePlugin/Simple");assert.equal(saved.source.file,"src/Simple.hpp");assert.equal(saved.source.registrationFile,"src/Simple.cpp");assert.equal(saved.source.moduleClass,"FixtureModule");assert.deepEqual(saved.detected.enums.inputs.identifiers,["SIGNAL_INPUT","NUM_INPUTS"]);assert.deepEqual(saved.detected.enums.outputs.identifiers,["SIGNAL_OUTPUT","NUM_OUTPUTS"]);assert.deepEqual(saved.detected.config.bypass,["SIGNAL_INPUT, SIGNAL_OUTPUT"]);assert.equal(saved.assessment.strategy,"direct-rack-source-adapter");assert.equal(saved.assessment.compileEligible,true);const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.match(adapter,/RACK_WEB_EXPORTS\(FixtureModule\)/);assert.doesNotMatch(adapter,/static constexpr int NUM_OUTPUTS/);const runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));assert.deepEqual(runtime.params,[{id:0,name:"Level",min:0,max:1,default:1,position:{x:29.528,y:59.055,centered:true,widget:"RoundBlackKnob"}}]);assert.deepEqual(runtime.inputs[0].position,{x:12,y:300});assert.deepEqual(runtime.outputs[0].position,{x:150,y:330,centered:true});assert.deepEqual(runtime.bypassRoutes,[[0,0]]);
   fs.rmSync(output,{recursive:true,force:true});
+});
+
+test("Rust registration analysis resolves code aliases without comment or string false positives",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-registration-alias-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});
+  const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"AliasRegistration",name:"Alias registration",description:"Rust alias analysis fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","AliasRegistration.cpp"),'#include "plugin.hpp"\nstruct ActualAliasModule : Module { enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; ActualAliasModule() { config(0, 0, NUM_OUTPUTS, 0); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(7.f); } };\n// typedef WrongCommentModule AliasRegistrationModule;\nconst char* aliasText = "using AliasRegistrationModule = WrongStringModule;";\nnamespace hidden { using AliasRegistrationModule = WrongNamespaceModule; }\nusing AliasRegistrationModule = ActualAliasModule;\nstruct AliasRegistrationWidget : ModuleWidget {};\nModel* modelAliasRegistration = createModel<AliasRegistrationModule, AliasRegistrationWidget>("AliasRegistration");\n');
+  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/AliasRegistration","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8"})),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal(report.source.moduleClass,"ActualAliasModule");wasm._initialize();assert.equal(wasm.rack_web_output_count(),1);wasm.rack_web_set_output_connected(0,1);wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],7)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("Rust resolves a single-widget registration across its include context in real WASM",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-single-widget-registration-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});
+  const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"SingleWidget",name:"Single widget",description:"Rust widget inheritance registration fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","SingleWidget.hpp"),'#pragma once\nnamespace fixture::voice {\nstruct VoiceModule : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; VoiceModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(inputs[SIGNAL_INPUT].getVoltage() * 3.f); } };\ntemplate<class TModule> struct VoiceWidgetBase : ModuleWidget {};\nstruct VoiceWidget : VoiceWidgetBase<VoiceModule> {};\n}\n');
+  fs.writeFileSync(path.join(plugin,"src","SingleWidget.cpp"),'# include "SingleWidget.hpp"\nnamespace fixture {\nModel* modelSingleWidget = createModel<voice::VoiceWidget>("SingleWidget");\n}\n');
+  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/SingleWidget","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"})),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal(report.source.moduleClass,"fixture::voice::VoiceModule");assert.equal(report.source.widgetClass,"voice::VoiceWidget");wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("Rust macro facts expand function-like model registrations in real WASM",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-macro-registration-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});
+  const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"MacroRegistration",name:"Macro registration",description:"Rust function-like macro registration fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","MacroRegistration.cpp"),'#include "plugin.hpp"\nstruct MacroRegistrationModule : Module { enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; MacroRegistrationModule() { config(0, 0, NUM_OUTPUTS, 0); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(11.f); } };\nstruct MacroRegistrationWidget : ModuleWidget {};\n# define REGISTER_MODEL(MODULE, WIDGET, SLUG) \\\n  Model* modelMacroRegistration = createModel<MODULE, WIDGET>(#SLUG);\nREGISTER_MODEL(MacroRegistrationModule, MacroRegistrationWidget, MacroRegistration);\n');
+  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/MacroRegistration","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"})),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal(report.source.moduleClass,"MacroRegistrationModule");assert.equal(report.source.widgetClass,"MacroRegistrationWidget");wasm._initialize();wasm.rack_web_set_output_connected(0,1);wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],11)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("dependency implementation globals and plugin host helpers keep their native lookup order",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-implementation-global-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});
   const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"HostGlobal",name:"Host global",description:"Dependency globals and plugin host helper fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
   fs.writeFileSync(path.join(plugin,"src","HostKernel.hpp"),'#pragma once\nfloat hostScale(float value);\nint loadDarkAsDefault();\nstruct HostKernel { float render(float value) { return hostScale(value); } };\n');
-  fs.writeFileSync(path.join(plugin,"src","HostKernel.cpp"),'#include "HostKernel.hpp"\nconst float hostReferenceFrequency = 3.f;\nfloat hostScale(float value) { return value * hostReferenceFrequency; }\nint loadDarkAsDefault() { return 2; }\n');
+  fs.writeFileSync(path.join(plugin,"src","HostKernel.cpp"),'#include "HostKernel.hpp"\nconst float hostReferenceFrequency = 3.f;\nnamespace fixture_support {\nnamespace detail {\nfloat hostScaleBias(float value) { return value; }\n}\nusing namespace detail;\nfloat hostBias(float /* compatibility */ value) { return hostScaleBias(value); }\n}\nfloat hostScale(float value) { return value * hostReferenceFrequency + fixture_support::hostBias(1.f); }\nint loadDarkAsDefault() { return 2; }\n');
   fs.writeFileSync(path.join(plugin,"src","HostGlobal.cpp"),'#include "plugin.hpp"\n#include "HostKernel.hpp"\nstruct HostGlobal : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; HostKernel kernel; int panelTheme = 0; HostGlobal() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); panelTheme = loadDarkAsDefault(); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(kernel.render(inputs[SIGNAL_INPUT].getVoltage()) + panelTheme); } }; struct HostGlobalWidget : ModuleWidget {}; Model* modelHostGlobal = createModel<HostGlobal, HostGlobalWidget>("HostGlobal");\n');
-  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/HostGlobal","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.equal([...adapter.matchAll(/\bhostReferenceFrequency\s*=\s*3\.f/g)].length,1);assert.match(adapter,/panelTheme = ::loadDarkAsDefault\(\)/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],8)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/HostGlobal","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),helperForward=adapter.indexOf("float hostBias(float value);"),helperDefinition=adapter.indexOf("float hostBias(float /* compatibility */ value)");assert.equal([...adapter.matchAll(/\bhostReferenceFrequency\s*=\s*3\.f/g)].length,1);assert.ok(helperForward>=0&&helperDefinition>helperForward);assert.match(adapter,/namespace fixture_support \{\s*using namespace detail;\s*\}/);assert.match(adapter,/namespace detail \{\s*float hostScaleBias\(float value\);/);assert.match(adapter,/panelTheme = ::loadDarkAsDefault\(\)/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],9)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("qualified namespace free-function implementations come from Rust callable facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-qualified-free-function-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"QualifiedFree",name:"Qualified free",description:"Rust qualified callable fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","QualifiedScale.hpp"),'#pragma once\nnamespace fixture_qualified {\nfloat qualifiedScale(float value);\n}\n');
+  fs.writeFileSync(path.join(plugin,"src","QualifiedScale.cpp"),'#include "QualifiedScale.hpp"\nfloat fixture_qualified::qualifiedScale(float value) { return value * 2.f; }\n');
+  fs.writeFileSync(path.join(plugin,"src","QualifiedFree.cpp"),'#include "plugin.hpp"\n#include "QualifiedScale.hpp"\nstruct QualifiedFreeModule : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; QualifiedFreeModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(fixture_qualified::qualifiedScale(inputs[SIGNAL_INPUT].getVoltage())); } };\nstruct QualifiedFreeWidget : ModuleWidget {};\nModel* modelQualifiedFree = createModel<QualifiedFreeModule, QualifiedFreeWidget>("QualifiedFree");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/QualifiedFree","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.equal([...adapter.matchAll(/float fixture_qualified::qualifiedScale\s*\(/g)].length,1);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("plugin header support closure consumes Rust aliases, types, enums, and scope facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-plugin-type-facts-test-")),sourceDir=path.join(temporary,"plugin"),src=path.join(sourceDir,"src");fs.mkdirSync(src,{recursive:true});
+  fs.writeFileSync(path.join(src,"plugin.hpp"),`#pragma once
+namespace fixture {
+using Scalar = float;
+using Pair = std::array<Scalar, 2>;
+enum class Mode { Off, On };
+struct Message final { Pair values{}; Mode mode = Mode::On; float sum() const; };
+struct NativeDisplay : Widget {};
+}
+void buildLocal() {
+using LocalAlias = int;
+enum LocalMode { LocalOff, LocalOn };
+struct LocalMessage { LocalAlias value = LocalOn; };
+}`);
+  fs.writeFileSync(path.join(src,"plugin.cpp"),'#include "plugin.hpp"\nnamespace fixture { float Message::sum() const { return values[0] + values[1]; } }\n');
+  try{
+    const parts=referencedPluginGlobalParts(sourceDir,"fixture::Message message; fixture::Mode mode = fixture::Mode::On; NativeDisplay LocalAlias LocalMode LocalMessage;");
+    const scalar=parts.declarations.indexOf("using Scalar = float;"),pair=parts.declarations.indexOf("using Pair = std::array<Scalar, 2>;"),mode=parts.declarations.indexOf("enum class Mode"),message=parts.declarations.indexOf("struct Message final");
+    assert.ok(scalar>=0&&pair>scalar&&mode>pair&&message>mode);
+    assert.match(parts.declarations,/namespace fixture \{[\s\S]*using Scalar = float;/);
+    assert.match(parts.implementations,/namespace fixture \{[\s\S]*float Message::sum\(\) const/);
+    assert.equal([...parts.implementations.matchAll(/namespace fixture \{/g)].length,1);
+    assert.doesNotMatch(parts.declarations,/NativeDisplay|LocalAlias|LocalMode|LocalMessage/);
+  }finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("plugin extern globals consume Rust declarator and linkage facts",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-plugin-extern-facts-test-")),sourceDir=path.join(temporary,"plugin"),src=path.join(sourceDir,"src");fs.mkdirSync(src,{recursive:true});
+  fs.writeFileSync(path.join(src,"plugin.hpp"),`#pragma once
+extern const float pluginGain;
+namespace fixture_link { extern int pluginSteps; }
+extern "C" {
+extern unsigned char pluginBlob[4];
+}
+struct PluginExternOwner { void configure() { extern int localState; } };
+extern Model* modelIgnored;
+extern Plugin* pluginIgnored;
+extern float unusedPluginValue;
+`);
+  try{
+    const parts=referencedPluginGlobalParts(sourceDir,"float value = pluginGain + fixture_link::pluginSteps + pluginBlob[0] + localState; Model* model = modelIgnored; Plugin* plugin = pluginIgnored;");
+    assert.match(parts.declarations,/inline const float pluginGain = \{\};/);
+    assert.match(parts.declarations,/namespace fixture_link \{\s*inline int pluginSteps = \{\};\s*\}/);
+    assert.match(parts.declarations,/extern "C" inline unsigned char pluginBlob\[4\]\{\};/);
+    assert.doesNotMatch(parts.declarations,/localState|modelIgnored|pluginIgnored|unusedPluginValue/);
+  }finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("plugin header helper closure consumes Rust ranges and reference edges",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-plugin-helper-facts-test-")),sourceDir=path.join(temporary,"plugin"),src=path.join(sourceDir,"src");fs.mkdirSync(src,{recursive:true});
+  fs.writeFileSync(path.join(src,"plugin.hpp"),`#pragma once
+namespace fixture {
+inline constexpr float pluginBase = 2.f;
+inline constexpr float pluginScale = pluginBase * 3.f;
+float pluginLeaf(float value = 1.f);
+inline float pluginBridge(float value) { return pluginLeaf(value) * pluginScale + 1.f; }
+inline float pluginHeaderDecoy(float value) { return value + 9.f; }
+inline NVGcolor pluginUiHelper() { return nvgRGB(255, 0, 0); }
+}
+void pluginLocalConstants() { constexpr float pluginLocal = 99.f; }`);
+  fs.writeFileSync(path.join(src,"plugin.cpp"),`#include "plugin.hpp"
+namespace fixture {
+float pluginLeaf(float value) { return value * 2.f; }
+float pluginImplementationDecoy(float value) { return value + 10.f; }
+}`);
+  try{
+    const parts=referencedPluginGlobalParts(sourceDir,'float value = fixture::pluginBridge(3.f); float local = pluginLocal; const char* text = "pluginHeaderDecoy(4.f)"; // pluginImplementationDecoy(5.f)');
+    const base=parts.declarations.indexOf("inline constexpr float pluginBase"),scale=parts.declarations.indexOf("inline constexpr float pluginScale");assert.ok(base>=0&&scale>base);
+    assert.match(parts.declarations,/namespace fixture \{[\s\S]*float pluginLeaf\(float value = 1\.f\);/);
+    assert.match(parts.implementations,/namespace fixture \{[\s\S]*float pluginBridge\(float value\)/);
+    assert.match(parts.implementations,/namespace fixture \{[\s\S]*float pluginLeaf\(float value\)/);
+    assert.doesNotMatch(parts.declarations,/pluginLocal/);
+    assert.doesNotMatch(parts.implementations,/pluginHeaderDecoy|pluginImplementationDecoy|pluginUiHelper/);
+  }finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("plugin header Rust support closure compiles transitive namespaced dependencies",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-plugin-type-wasm-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});
+  fs.writeFileSync(path.join(plugin,"src","plugin.hpp"),`#pragma once
+#include <rack.hpp>
+#include <array>
+using namespace rack;
+namespace fixture {
+using Scalar = float;
+using Pair = std::array<Scalar, 2>;
+enum class Mode { Off, On };
+struct Message final { Pair values{2.f, 3.f}; Mode mode = Mode::On; float sum() const; };
+struct NativeDisplay : Widget {};
+}
+void buildLocal() { using LocalAlias = int; enum LocalMode { LocalOff, LocalOn }; struct LocalMessage { LocalAlias value = LocalOn; }; }`);
+  fs.writeFileSync(path.join(plugin,"src","plugin.cpp"),'#include "plugin.hpp"\nnamespace fixture { float Message::sum() const { return values[0] + values[1] + float(mode == Mode::On); } }\n');
+  const header=path.join(plugin,"src","Simple.hpp"),simple=fs.readFileSync(header,"utf8").replace("struct FixtureModule : Module {","struct FixtureModule : Module {\n  fixture::Message message{};").replace("inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue()","inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue() + message.sum()");fs.writeFileSync(header,simple);
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Simple","--manifest-file",path.join(plugin,"plugin.json"),"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),scalar=adapter.indexOf("using Scalar = float;"),pair=adapter.indexOf("using Pair = std::array<Scalar, 2>;"),mode=adapter.indexOf("enum class Mode"),message=adapter.indexOf("struct Message final"),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.ok(scalar>=0&&pair>scalar&&mode>pair&&message>mode);assert.doesNotMatch(adapter,/NativeDisplay|LocalAlias|LocalMode|LocalMessage/);wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],8)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("Rust extern declarator facts preserve namespace and C linkage in real WASM",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-plugin-extern-wasm-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});
+  fs.writeFileSync(path.join(plugin,"src","plugin.hpp"),`#pragma once
+#include <rack.hpp>
+using namespace rack;
+namespace fixture_link { extern volatile float pluginGain; }
+extern "C" {
+extern volatile unsigned char pluginBlob[4];
+}
+`);
+  const header=path.join(plugin,"src","Simple.hpp"),simple=fs.readFileSync(header,"utf8").replace("inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue()","inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue() + fixture_link::pluginGain + pluginBlob[0]");fs.writeFileSync(header,simple);
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Simple","--manifest-file",path.join(plugin,"plugin.json"),"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.match(adapter,/namespace fixture_link \{\s*inline volatile float pluginGain = \{\};\s*\}/);assert.match(adapter,/extern "C" inline volatile unsigned char pluginBlob\[4\]\{\};/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],2)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("plugin.hpp DSP helpers are collected transitively without importing UI helpers",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-plugin-helper-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});
-  fs.writeFileSync(path.join(plugin,"src","PluginConstants.hpp"),'#pragma once\nconst float fixturePluginScale = 3.f;\n');
+  fs.writeFileSync(path.join(plugin,"src","PluginConstants.hpp"),'#pragma once\nconst float fixturePluginBase = 1.f;\nconst float fixturePluginScale = fixturePluginBase + 2.f;\n');
   fs.writeFileSync(path.join(plugin,"src","plugin.hpp"),'#pragma once\n#include <rack.hpp>\n#include "PluginConstants.hpp"\nusing namespace rack;\nusing std::vector;\nusing std::list;\nusing simd::int32_4;\nenum class FixturePluginMode { Off, On };\nstruct FixturePluginMessage { float value = 0.f; };\nstruct FixturePluginQuantity : ParamQuantity { float getDisplayValue() override; std::string getDescription() override; };\nstruct FixtureDocs { static std::string documentationStringFor(int index); };\nconst int fixtureUpdateRate = 2;\nfloat fixtureOutOfLine(float value);\njson_t* json_fixtureValue(float value);\ninline float fixtureHelperLeaf(float value) { return value * 2.f; }\ninline float fixtureHelperBridge(float value) { return fixtureOutOfLine(fixtureHelperLeaf(value)) + 1.f; }\ninline NVGcolor fixtureUiColor() { return nvgRGB(255, 0, 0); }\n');
   fs.writeFileSync(path.join(plugin,"src","plugin.cpp"),'#include "plugin.hpp"\nCMRC_DECLARE(fixture_docs);\nfloat FixturePluginQuantity::getDisplayValue() { return fixtureOutOfLine(getValue()); }\nstd::string FixturePluginQuantity::getDescription() { return "fixture description"; }\nstd::string FixtureDocs::documentationStringFor(int) { auto fs = cmrc::fixture_docs::get_filesystem(); return fs.is_file("fixture") ? "fixture" : ""; }\nfloat fixtureOutOfLine(float value) { return value * fixturePluginScale + MOOG_PI - MOOG_PI; }\njson_t* json_fixtureValue(float value) { return json_real(value); }\n');
   const header=path.join(plugin,"src","Simple.hpp"),simple=fs.readFileSync(header,"utf8").replace("struct FixtureModule : Module {","struct FixtureModule : Module {\n  FixturePluginMode pluginMode = FixturePluginMode::On;\n  std::unique_ptr<float> pluginValue = make_unique<float>(2.f);\n  vector<float> pluginVector{1.f};\n  list<float> pluginList{1.f};\n  int32_4 pluginIndices{0};\n  float orderedScale = fixturePluginScale;\n  json_t* dataToJson() override { auto* root = json_object(); json_object_set_new(root, \"fixture\", json_fixtureValue(orderedScale)); return root; }").replace("configParam(LEVEL_PARAM","configParam<FixturePluginQuantity>(LEVEL_PARAM").replace("inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue()","FixturePluginMessage{fixtureHelperBridge(inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue()) * fixtureUpdateRate + *pluginValue + orderedScale - fixturePluginScale + FixtureDocs::documentationStringFor(0).size() * 0}.value");fs.writeFileSync(header,simple);
-  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Simple","--manifest-file",path.join(plugin,"plugin.json"),"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"}));const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),constantIndex=adapter.indexOf("fixturePluginScale = 3.f"),implementationIndex=adapter.indexOf("float fixtureOutOfLine(float value) {");assert.deepEqual(report.assessment.blockers,[]);assert.match(adapter,/using std::vector/);assert.match(adapter,/using std::list/);assert.match(adapter,/using rack::simd::int32_4/);assert.doesNotMatch(adapter,/using namespace std/);assert.match(adapter,/enum class FixturePluginMode/);assert.match(adapter,/struct FixturePluginMessage/);assert.match(adapter,/FixturePluginQuantity::getDisplayValue/);assert.match(adapter,/const int fixtureUpdateRate = 2;/);assert.ok(constantIndex>=0&&implementationIndex>constantIndex);assert.match(adapter,/inline constexpr double MOOG_PI/);assert.match(adapter,/float fixtureHelperBridge\(float value\)/);assert.match(adapter,/float fixtureHelperLeaf\(float value\)/);assert.match(adapter,/json_t\s*\*\s*json_fixtureValue\(float value\)/);assert.match(adapter,/FixtureDocs::documentationStringFor\(int\)\s*\{\s*return "";\s*\}/);assert.doesNotMatch(adapter,/CMRC_DECLARE|cmrc::fixture_docs|fixtureUiColor/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],28)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Simple","--manifest-file",path.join(plugin,"plugin.json"),"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"}));const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),baseConstantIndex=adapter.indexOf("fixturePluginBase = 1.f"),scaleConstantIndex=adapter.indexOf("fixturePluginScale = fixturePluginBase + 2.f"),implementationIndex=adapter.indexOf("float fixtureOutOfLine(float value) {");assert.deepEqual(report.assessment.blockers,[]);assert.match(adapter,/using std::vector/);assert.match(adapter,/using std::list/);assert.match(adapter,/using rack::simd::int32_4/);assert.doesNotMatch(adapter,/using namespace std/);assert.match(adapter,/enum class FixturePluginMode/);assert.match(adapter,/struct FixturePluginMessage/);assert.match(adapter,/FixturePluginQuantity::getDisplayValue/);assert.match(adapter,/const int fixtureUpdateRate = 2;/);assert.ok(baseConstantIndex>=0&&scaleConstantIndex>baseConstantIndex&&implementationIndex>scaleConstantIndex);assert.match(adapter,/inline constexpr double MOOG_PI/);assert.match(adapter,/float fixtureHelperBridge\(float value\)/);assert.match(adapter,/float fixtureHelperLeaf\(float value\)/);assert.match(adapter,/json_t\s*\*\s*json_fixtureValue\(float value\)/);assert.match(adapter,/FixtureDocs::documentationStringFor\(int\)\s*\{\s*return "";\s*\}/);assert.doesNotMatch(adapter,/CMRC_DECLARE|cmrc::fixture_docs|fixtureUiColor/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],28)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("inherited menu helpers accept string units and replace stripped quantity types",()=>{
@@ -1086,21 +1630,21 @@ test("GUI choice siblings are stripped and repeated dependency enums are emitted
   fs.writeFileSync(path.join(plugin,"src","ProgressState.hpp"),'#pragma once\nconstexpr auto ProgressLikeSlug {"ProgressLike"};\nnamespace ah { namespace music {\nenum Notes { NOTE_C = 0, NOTE_D, NUM_NOTES };\nstruct ProgressState { Notes note = NOTE_D; float apply(float value) const { return value + note; } };\nstruct RootChoice : gui::AHChoice { ProgressState* state = nullptr; void step() override; };\nstruct DegreeChoice : RootChoice { void step() override; };\n} }\n');
   fs.writeFileSync(path.join(plugin,"src","ProgressLike.cpp"),'#include "plugin.hpp"\n#include "ProgressState.hpp"\nusing namespace ah::music;\nstruct ProgressLike : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; ProgressState state; ProgressLike() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(state.apply(inputs[SIGNAL_INPUT].getVoltage())); }\njson_t* dataToJson() override { json_t* rootJ = json_object();\n#ifdef PARASITES\njson_object_set_new(rootJ, "reverse", json_integer(1));\n#endif\nreturn rootJ; } };\nstruct ProgressLikeWidget : ModuleWidget { ProgressLikeWidget() { setPanel(SVG::load(asset::plugin(pluginInstance, "res/ProgressLikeLight.svg")));\n// box.size = Vec(300, 380);\nWidget* child = nullptr; child->box.size = Vec(300, 100);\n// addInput(createInputCentered<PJ301MPort>(Vec(10, 10), module, ProgressLike::SIGNAL_INPUT));\naddInput(createInputCentered<PJ301MPort>(Vec(box.size.x / 2.f, 200), module, ProgressLike::SIGNAL_INPUT)); } };\nModel* modelProgressLike = createModel<ProgressLike, ProgressLikeWidget>(ProgressLikeSlug);\n');
   fs.writeFileSync(path.join(plugin,"res","ProgressLikeLight.svg"),'<svg width="75" height="380" xmlns="http://www.w3.org/2000/svg"></svg>\n');
-  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ProgressLike","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"})),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal(report.assessment.compileEligible,true);assert.equal(runtime.width,75);assert.deepEqual(runtime.stateKeys??[],[]);assert.deepEqual(runtime.inputs[0].position,{x:37.5,y:200,centered:true});assert.equal([...adapter.matchAll(/\benum\s+Notes\b/g)].length,1);assert.doesNotMatch(adapter,/gui::AHChoice|RootChoice|DegreeChoice/);wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],3)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ProgressLike","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8"})),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal(report.assessment.compileEligible,true);assert.equal(runtime.width,75);assert.deepEqual(runtime.stateKeys??[],[]);assert.deepEqual(runtime.inputs[0].position,{x:37.5,y:200,centered:true});assert.equal([...adapter.matchAll(/\benum\s+Notes\b/g)].length,1);assert.doesNotMatch(adapter,/gui::AHChoice|RootChoice|DegreeChoice/);wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],3)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("empty derived module classes inherit their complete Rack contract",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-empty-derived-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"EmptyDerived",name:"Empty derived",description:"An empty visual module inheriting its Rack contract",tags:["Blank"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
   fs.writeFileSync(path.join(plugin,"src","empty_base.hh"),'#pragma once\n#include "plugin.hpp"\nstruct EmptyBase : Module { EmptyBase() { config(0, 0, 0, 0); } };\n');
   fs.writeFileSync(path.join(plugin,"src","EmptyDerived.cpp"),'#include "empty_base.hh"\nstruct EmptyDerived : EmptyBase {};\nstruct EmptyDerivedWidget : ModuleWidget { int hp = 0; EmptyDerivedWidget() { hp = 3; } };\nModel* modelEmptyDerived = createModel<EmptyDerived, EmptyDerivedWidget>("EmptyDerived");\n');
-  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/EmptyDerived","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(runtime.width,45);assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[0,0,0,0])}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/EmptyDerived","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8"});const runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(runtime.width,45);assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[0,0,0,0])}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("hh template bases resolve counts from derived static arrays",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-hh-array-base-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"ArraySized",name:"Array sized",description:"A template base sized by its concrete module",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
-  fs.writeFileSync(path.join(plugin,"src","array_base.hh"),'#pragma once\n#include "plugin.hpp"\nstruct ArrayItem { const char* name; };\nstruct ArrayLayout { size_t cols; float x[2]; };\ntemplate <typename T> struct ArrayBase : Module { enum ParamId { FIXED_PARAM, FIRST_DYNAMIC_PARAM }; enum InputId { FIRST_INPUT }; enum OutputId { FIRST_OUTPUT }; enum LightId { FIRST_LIGHT }; static constexpr unsigned PARAMS_LEN = T::values.size() + 1; static constexpr unsigned INPUTS_LEN = T::values.size(); static constexpr unsigned OUTPUTS_LEN = T::values.size(); static constexpr unsigned LIGHTS_LEN = T::values.size(); ArrayBase() { config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN); configParam(FIXED_PARAM, 0.f, 1.f, .5f, "Fixed"); for (auto i = 0u; i < T::values.size(); ++i) { std::string name = std::string{T::values[i].name} + " level"; configParam(i + FIRST_DYNAMIC_PARAM, 0.f, 1.f, 0.f, name); } } };\ntemplate <typename M> struct ArrayBaseWidget : ModuleWidget { inline static constexpr ArrayLayout layout{.cols = 2, .x = {12.f, 48.f}}; ArrayBaseWidget(M* module) { box.size = Vec(60, 380); addParam(createParamCentered<RoundBlackKnob>(Vec(10, 20), module, M::FIXED_PARAM)); constexpr size_t itemCount = M::values.size(); constexpr bool compact = itemCount <= 4; constexpr float yStart = compact ? 100.f : 300.f; constexpr float rowOffsets[2] = {0.f, 100.f}; for (size_t i = 0; i < itemCount; ++i) { const size_t row = i / layout.cols; const float x = layout.x[i % layout.cols]; const float y = yStart + rowOffsets[row]; addParam(createParamCentered<RoundBlackKnob>(Vec(x, y), module, M::FIRST_DYNAMIC_PARAM + i)); addInput(createInputCentered<PJ301MPort>(Vec(x, y + 10.f), module, M::FIRST_INPUT + i)); addOutput(createOutputCentered<PJ301MPort>(Vec(x, y + 20.f), module, M::FIRST_OUTPUT + i)); addChild(createLightCentered<SmallLight<RedLight>>(Vec(x, y + 30.f), module, M::FIRST_LIGHT + i)); } } };\n');
+  fs.writeFileSync(path.join(plugin,"src","array_base.hh"),'#pragma once\n#include "plugin.hpp"\nstruct ArrayItem { const char* name; };\nstruct ArrayLayout { size_t cols; float x[2]; };\ntemplate <typename T> struct ArrayBase : Module { enum ParamId { FIXED_PARAM, FIRST_DYNAMIC_PARAM }; enum InputId { FIRST_INPUT }; enum OutputId { FIRST_OUTPUT }; enum LightId { FIRST_LIGHT }; static constexpr unsigned PARAMS_LEN = T::values.size() + 1; static constexpr unsigned INPUTS_LEN = T::values.size(); static constexpr unsigned OUTPUTS_LEN = T::values.size(); static constexpr unsigned LIGHTS_LEN = T::values.size(); ArrayBase() { config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN); configParam(FIXED_PARAM, 0.f, 1.f, .5f, "Fixed"); for (auto i = 0u; i < T::values.size(); ++i) { std::string name = std::string{T::values[i].name} + " level"; configParam(i + FIRST_DYNAMIC_PARAM, 0.f, 1.f, 0.f, name); getParamQuantity(i + FIRST_DYNAMIC_PARAM)->snapEnabled = true; } } };\ntemplate <typename M> struct ArrayBaseWidget : ModuleWidget { inline static constexpr ArrayLayout layout{.cols = 2, .x = {12.f, 48.f}}; ArrayBaseWidget(M* module) { box.size = Vec(60, 380); addParam(createParamCentered<RoundBlackKnob>(Vec(10, 20), module, M::FIXED_PARAM)); constexpr size_t itemCount = M::values.size(); constexpr bool compact = itemCount <= 4; constexpr float yStart = compact ? 100.f : 300.f; constexpr float rowOffsets[2] = {0.f, 100.f}; for (size_t i = 0; i < itemCount; ++i) { const size_t row = i / layout.cols; const float x = layout.x[i % layout.cols]; const float y = yStart + rowOffsets[row]; addParam(createParamCentered<RoundBlackKnob>(Vec(x, y), module, M::FIRST_DYNAMIC_PARAM + i)); addInput(createInputCentered<PJ301MPort>(Vec(x, y + 10.f), module, M::FIRST_INPUT + i)); addOutput(createOutputCentered<PJ301MPort>(Vec(x, y + 20.f), module, M::FIRST_OUTPUT + i)); addChild(createLightCentered<SmallLight<RedLight>>(Vec(x, y + 30.f), module, M::FIRST_LIGHT + i)); } } };\n');
   fs.writeFileSync(path.join(plugin,"src","ArraySized.cpp"),'#include "array_base.hh"\nstruct ArraySized : ArrayBase<ArraySized> { static constexpr auto values = std::array{ArrayItem{"One"}, ArrayItem{"Two"}, ArrayItem{"Three"}, ArrayItem{"Four"}}; };\nstruct ArraySizedWidget : ArrayBaseWidget<ArraySized> { using ArrayBaseWidget<ArraySized>::ArrayBaseWidget; };\nModel* modelArraySized = createModel<ArraySized, ArraySizedWidget>("ArraySized");\n');
-  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ArraySized","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"})),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.deepEqual(report.detected.counts,{params:5,inputs:4,outputs:4,lights:4});assert.deepEqual(runtime.params.map(param=>param.name),["Fixed","One level","Two level","Three level","Four level"]);assert.deepEqual(runtime.params.map(param=>param.position),[{x:10,y:20,centered:true,widget:"RoundBlackKnob"},{x:12,y:100,centered:true,widget:"RoundBlackKnob"},{x:48,y:100,centered:true,widget:"RoundBlackKnob"},{x:12,y:200,centered:true,widget:"RoundBlackKnob"},{x:48,y:200,centered:true,widget:"RoundBlackKnob"}]);assert.deepEqual(runtime.inputs.map(input=>input.position),[{x:12,y:110,centered:true},{x:48,y:110,centered:true},{x:12,y:210,centered:true},{x:48,y:210,centered:true}]);assert.deepEqual(runtime.outputs.map(output=>output.position),[{x:12,y:120,centered:true},{x:48,y:120,centered:true},{x:12,y:220,centered:true},{x:48,y:220,centered:true}]);assert.deepEqual(runtime.lightWidgets.map(light=>light.position),[{x:12,y:130,centered:true},{x:48,y:130,centered:true},{x:12,y:230,centered:true},{x:48,y:230,centered:true}]);assert.deepEqual(runtime.lightWidgets.map(light=>light.widget),["SmallLight<RedLight>","SmallLight<RedLight>","SmallLight<RedLight>","SmallLight<RedLight>"]);wasm._initialize();assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[5,4,4,4])}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ArraySized","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8",env:{...process.env,RACK_WEB_REQUIRE_RUST_CONFIG_CALLS:"1",RACK_WEB_REQUIRE_RUST_CONFIG_EXPANSION:"1",RACK_WEB_REQUIRE_RUST_CONSTANT_ANALYSIS:"1",RACK_WEB_REQUIRE_RUST_INTEGER_EVAL:"1",RACK_WEB_REQUIRE_RUST_STRING_EVAL:"1"}})),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.deepEqual(report.detected.counts,{params:5,inputs:4,outputs:4,lights:4});assert.deepEqual(runtime.params.map(param=>param.name),["Fixed","One level","Two level","Three level","Four level"]);assert.deepEqual(runtime.params.map(param=>Boolean(param.snap)),[false,true,true,true,true]);assert.deepEqual(runtime.params.map(param=>param.position),[{x:10,y:20,centered:true,widget:"RoundBlackKnob"},{x:12,y:100,centered:true,widget:"RoundBlackKnob"},{x:48,y:100,centered:true,widget:"RoundBlackKnob"},{x:12,y:200,centered:true,widget:"RoundBlackKnob"},{x:48,y:200,centered:true,widget:"RoundBlackKnob"}]);assert.deepEqual(runtime.inputs.map(input=>input.position),[{x:12,y:110,centered:true},{x:48,y:110,centered:true},{x:12,y:210,centered:true},{x:48,y:210,centered:true}]);assert.deepEqual(runtime.outputs.map(output=>output.position),[{x:12,y:120,centered:true},{x:48,y:120,centered:true},{x:12,y:220,centered:true},{x:48,y:220,centered:true}]);assert.deepEqual(runtime.lightWidgets.map(light=>light.position),[{x:12,y:130,centered:true},{x:48,y:130,centered:true},{x:12,y:230,centered:true},{x:48,y:230,centered:true}]);assert.deepEqual(runtime.lightWidgets.map(light=>light.widget),["SmallLight<RedLight>","SmallLight<RedLight>","SmallLight<RedLight>","SmallLight<RedLight>"]);wasm._initialize();assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[5,4,4,4])}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("direct Rack Module blank registrations receive a zero-port browser wrapper",()=>{
@@ -1122,7 +1666,7 @@ test("relative registrations preserve concrete template arguments and same-named
   fs.writeFileSync(path.join(moduleDirectory,"shared.hpp"),'#pragma once\nnamespace fixture { namespace shared { enum class ModeId { Add }; struct HEngine { static float apply(float value) { return value + 2.f; } }; } }\n');
   fs.writeFileSync(path.join(moduleDirectory,"module.hpp"),'#pragma once\n#include "rack.hpp"\n#include "forward.hpp"\n#include "shared.hpp"\nnamespace fixture { namespace variant { enum class ModeId { Normal }; template <typename Engine> struct Processor : rack::engine::Module { enum ParamIds { GAIN_PARAM, NUM_PARAMS }; enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; enum LightIds { NUM_LIGHTS }; fixture::shared::ModeId sharedMode = fixture::shared::ModeId::Add; ModeId localMode = ModeId::Normal; Processor() { config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS); configParam(GAIN_PARAM, 0.f, 2.f, 1.f, "Gain"); } void process(ProcessArgs const&) override { outputs[SIGNAL_OUTPUT].setVoltage(Engine::apply(inputs[SIGNAL_INPUT].getVoltage()) * params[GAIN_PARAM].getValue()); } }; } }\n');
   fs.writeFileSync(path.join(moduleDirectory,"init.cpp"),'#include "module.hpp"\nnamespace fixture { struct RelativePanel : ModuleWidget { RelativePanel(variant::Processor<shared::HEngine>* module) { setModule(module); box.size = Vec(75, 380); } }; void initRelative(Plugin* plugin) { plugin->addModel(createModel<variant::Processor<shared::HEngine>, RelativePanel>("RelativeTemplate")); } }\n');
-  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/RelativeTemplate","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"})),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal(report.source.moduleClass,"variant::Processor<shared::HEngine>");assert.equal(report.source.file,"src/relative/module.hpp");assert.equal(report.detected.panelWidth,75);assert.match(adapter,/enum class ModeId \{ Add \}/);assert.match(adapter,/enum class ModeId \{ Normal \}/);assert.match(adapter,/struct HEngine/);assert.match(adapter,/using RackWebModule = fixture::variant::Processor<fixture::shared::HEngine>/);wasm._initialize();assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[1,1,1,0]);wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_set_param(0,2);wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],10)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{const report=JSON.parse(execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/RelativeTemplate","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8"})),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal(report.source.moduleClass,"variant::Processor<shared::HEngine>");assert.equal(report.source.file,"src/relative/module.hpp");assert.equal(report.detected.panelWidth,75);assert.match(adapter,/enum class ModeId \{ Add \}/);assert.match(adapter,/enum class ModeId \{ Normal \}/);assert.match(adapter,/struct HEngine/);assert.match(adapter,/using RackWebModule = fixture::variant::Processor<fixture::shared::HEngine>/);wasm._initialize();assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[1,1,1,0]);wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_set_param(0,2);wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],10)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("out-of-line widget constructors determine the exact Rack panel width",()=>{
@@ -1149,7 +1693,7 @@ test("DHE-style template aliases resolve anonymous enum counts and Rack quantity
 test("module extraction follows browser preprocessor branches before parsing braces",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-conditional-body-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"ConditionalBody",name:"Conditional body",description:"A module whose constructor differs across host branches",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
   fs.writeFileSync(path.join(plugin,"src","ConditionalBody.cpp"),'#include "plugin.hpp"\nstruct ConditionalBody : Module {\n  enum ParamIds { NUM_PARAMS }; enum InputIds { NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; enum LightIds { NUM_LIGHTS };\n#if defined(METAMODULE_BUILTIN)\n  ConditionalBody() {\n#else\n  ConditionalBody() { config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS); }\n#endif\n};\nstruct ConditionalBodyWidget : ModuleWidget {};\nModel* modelConditionalBody = createModel<ConditionalBody, ConditionalBodyWidget>("ConditionalBody");\n');
-  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ConditionalBody","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(wasm.rack_web_output_count(),1)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ConditionalBody","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8",env:{...process.env,RACK_WEB_REQUIRE_RUST_CONFIG_CALLS:"1",RACK_WEB_REQUIRE_RUST_CONFIG_EXPANSION:"1",RACK_WEB_REQUIRE_RUST_DECLARATIONS:"1",RACK_WEB_REQUIRE_RUST_PREPROCESS:"1"}});const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(wasm.rack_web_output_count(),1)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("Rack 1 bypass and Rack 2 bypassed names share one module state",()=>{
@@ -1208,7 +1752,7 @@ test("Rack light and light-param constructors preserve exact widget geometry",()
 
 test("Rack 2.6 singular enums and ENUMS groups compile into a runnable adapter",()=>{
   const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-modern-scaffold-test-"));
-  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Modern","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile"],{encoding:"utf8"}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
+  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Modern","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8",env:{...process.env,RACK_WEB_REQUIRE_RUST_CONFIG_CALLS:"1",RACK_WEB_REQUIRE_RUST_CONFIG_EXPANSION:"1",RACK_WEB_REQUIRE_RUST_INTEGER_EVAL:"1"}}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
   assert.equal(report.assessment.compileEligible,true);assert.equal(report.detected.panelWidth,75);assert.deepEqual(report.detected.features,["custom-state","expanders","simd","rack-dsp","rack-app","json","bypass-routes"]);assert.deepEqual(report.detected.inheritance.secondaryBases,["FixtureMeterInterface"]);assert.equal(runtime.width,75);assert.deepEqual(runtime.params,[{id:0,name:"Rate",min:Math.fround(Math.log2(1e-3)),max:3,default:-3,snap:true}]);assert.equal(runtime.inputs.length,1);assert.equal(runtime.outputs.length,8);assert.equal(runtime.runtime.expanderMode,"message-buffer");assert.deepEqual(runtime.runtime.expander.models,[{key:"FixturePlugin/ExpanderOnly",symbol:"modelExpanderOnly",index:0}]);assert.equal(runtime.runtime.initialMemory,4194304);assert.deepEqual(runtime.bypassRoutes,[[0,0]]);assert.deepEqual(runtime.stateKeys,[{key:"multiplier",type:"integer"},{key:"enabled",type:"boolean"},{key:"offsets",type:"real",index:0},{key:"offsets",type:"real",index:1},{key:"offsets",type:"real",index:2},{key:"matrix",type:"real",path:[0,0]},{key:"matrix",type:"real",path:[0,1]},{key:"matrix",type:"real",path:[1,0]},{key:"matrix",type:"real",path:[1,1]}]);const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.match(adapter,/using namespace rack::dsp;/);assert.match(adapter,/enum FixtureVoltageRange/);assert.ok(adapter.indexOf("inline float fixtureHeaderSaturate(float value);")<adapter.indexOf("struct FixtureDependentDsp"));assert.ok(adapter.indexOf("const float fixtureDependentTwo")<adapter.indexOf("static const float fixtureDependentScale[1][1][1]"));assert.ok(adapter.indexOf("static const float fixtureDependentScale[1][1][1]")<adapter.indexOf("static float fixtureDependentShape(float value) {"));assert.match(adapter,/#define RCFilter RackWebHostRCFilter/);assert.match(adapter,/auto localValue = begin\(localValues\)/);assert.match(adapter,/FixtureSupportOutput::FixtureSupportOutput\(\)/);assert.match(adapter,/FixtureSupportOutput::apply\(float value\)/);assert.match(adapter,/struct ModernModule : Module, FixtureMeterInterface/);assert.match(adapter,/ModernModule\(\)\s*\{/);assert.match(adapter,/configParam<EditableQuantity>\(RATE_PARAM/);assert.match(adapter,/const int configSwitch = 1/);assert.match(adapter,/rightExpander\.module/);assert.doesNotMatch(adapter,/nativeMeter\{/);assert.doesNotMatch(adapter,/plainMeter/);assert.doesNotMatch(adapter,/nativeLabel/);assert.doesNotMatch(adapter,/FixtureUnusedUiParameter/);assert.doesNotMatch(adapter,/widget\/FramebufferWidget\.hpp/);
   const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(wasm.rack_web_output_count(),8);assert.equal(wasm.rack_web_light_count(),1);wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_state(0,2);wasm.rack_web_set_state(2,1.25);wasm.rack_web_set_state(8,0.75);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2.5;wasm.rack_web_process(1,48000);const values=new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),8*16*128);for(let port=0;port<8;port++)assert.equal(values[port*128],7);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_light_buffer(),1)[0],0);
   wasm.rack_web_set_state(1,0);wasm.rack_web_process(1,48000);for(let port=0;port<8;port++)assert.equal(values[port*128],0);
@@ -1263,16 +1807,16 @@ test("implicit port metadata uses enum names without inventing expander transpor
 
 test("template-specialized Rack registrations preserve arguments and port counts",()=>{
   const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-template-scaffold-test-"));
-  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/TemplateRoute","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile"],{encoding:"utf8"}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
-  assert.equal(report.source.moduleClass,"TemplateRoute<1, 4>");assert.deepEqual(report.detected.template.constants,{INPUTS:1,OUTPUTS:4});assert.equal(runtime.inputs.length,1);assert.equal(runtime.outputs.length,4);assert.match(fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),/using RackWebModule = TemplateRoute<1, 4>/);
-  const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3.25;wasm.rack_web_process(1,48000);const values=new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),4*16*128);for(let port=0;port<4;port++)assert.equal(values[port*128],3.25);
+  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/TemplateRoute","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8",env:{...process.env,RACK_WEB_REQUIRE_RUST_CONFIG_CALLS:"1",RACK_WEB_REQUIRE_RUST_CONFIG_EXPANSION:"1",RACK_WEB_REQUIRE_RUST_CONSTANT_ANALYSIS:"1",RACK_WEB_REQUIRE_RUST_INTEGER_EVAL:"1",RACK_WEB_REQUIRE_RUST_PREPROCESS:"1",RACK_WEB_REQUIRE_RUST_STRING_EVAL:"1"}}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
+  assert.equal(report.source.moduleClass,"TemplateRoute<std::pair<int, int>, 1, 4>");assert.deepEqual(report.detected.template.constants,{INPUTS:1,OUTPUTS:4});assert.deepEqual(runtime.inputs.map(port=>port.name),["Input 1"]);assert.deepEqual(runtime.outputs.map(port=>port.name),["Output 1","Output 2","Output 3","Output 4"]);assert.match(fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),/using RackWebModule = TemplateRoute<std::pair<int, int>, 1, 4>/);
+  const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(typeof wasm.rack_web_get_chain_neighbor_light_brightness,"function");assert.equal(typeof wasm.rack_web_get_neighbor_light_brightness,"function");wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3.25;wasm.rack_web_process(1,48000);const values=new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),4*16*128);for(let port=0;port<4;port++)assert.equal(values[port*128],3.25);
   fs.rmSync(output,{recursive:true,force:true});
 });
 
 test("widget-scoped module aliases resolve to the namespaced DSP class",()=>{
   const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-scoped-alias-test-"));
-  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ScopedAlias","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile"],{encoding:"utf8"}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
-  assert.equal(report.source.moduleClass,"fixture::dsp::ScopedAlias");assert.equal(report.source.widgetClass,"fixture::ui::ScopedAliasWidget");assert.deepEqual([runtime.params.length,runtime.inputs.length,runtime.outputs.length],[1,1,1]);assert.match(fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),/RACK_WEB_EXPORTS\(fixture::dsp::ScopedAlias\)/);
+  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/ScopedAlias","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8"}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
+  assert.equal(report.source.moduleClass,"fixture::dsp::ScopedAlias");assert.equal(report.source.widgetClass,"fixture::ui::ScopedAliasWidget<fixture::dsp::ScopedAlias>");assert.deepEqual([runtime.params.length,runtime.inputs.length,runtime.outputs.length],[1,1,1]);assert.match(fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),/RACK_WEB_EXPORTS\(fixture::dsp::ScopedAlias\)/);
   const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_param(0,1.5);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],3);
   fs.rmSync(output,{recursive:true,force:true});
 });
@@ -1282,6 +1826,18 @@ test("function-style registrations and FXConfig specializations preserve the con
   const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/SurgeXTFXFixture","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output],{encoding:"utf8"}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
   assert.equal(report.source.moduleClass,"fixture::fx::FX<fxt_fixture>");assert.equal(report.source.widgetClass,"fixture::fxui::FXWidget<fxt_fixture>");assert.equal(report.detected.constants["FXConfig.numParams"],11);assert.equal(report.detected.constants["FXConfig.specificParamCount"],2);assert.deepEqual([runtime.params.length,runtime.inputs.length,runtime.outputs.length],[62,9,2]);assert.deepEqual(runtime.params.slice(0,3).map(({name})=>name),["Drive","Feedback","Tone"]);assert.equal(runtime.params[11].name,"Unused Effect Slot 1");assert.deepEqual(runtime.params.slice(-2).map(({name})=>name),["Enable Low Cut","Enable High Cut"]);
   fs.rmSync(output,{recursive:true,force:true});
+});
+
+test("Rust-derived FXConfig specialization executes in real WASM",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-rust-fx-specialization-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"RustFxSpecialization",name:"Rust FX specialization",description:"Rust out-of-line FXConfig specialization fixture",tags:["Effect"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","RustFxSpecialization.cpp"),'#include "plugin.hpp"\nenum RustFxType { fxt_rust };\ntemplate<int fxType> struct FX;\ntemplate<int fxType> struct FXConfig { static float scale(); };\ntemplate<int fxType> struct FX : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; FX() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(inputs[SIGNAL_INPUT].getVoltage() * FXConfig<fxType>::scale()); } };\ntemplate<> float FXConfig<fxt_rust>::scale() { return 2.f; }\ntemplate<int fxType> struct FXWidget : ModuleWidget {};\nModel* modelRustFxSpecialization = createModel<FX<fxt_rust>, FXWidget<fxt_rust>>("RustFxSpecialization");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/RustFxSpecialization","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal([...adapter.matchAll(/FXConfig<fxt_rust>::scale\(\)\s*\{/g)].length,1);wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
+test("Rust-derived VCO specialization strips its Rack editor and executes in real WASM",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-rust-vco-specialization-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"RustVcoSpecialization",name:"Rust VCO specialization",description:"Rust out-of-line VCOConfig specialization fixture",tags:["Oscillator"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","RustVcoSpecialization.cpp"),'#include "plugin.hpp"\nenum RustOscType { ot_rust };\ntemplate<int oscType> struct VCOConfig { static float scale(); };\ntemplate<int oscType> struct VCO : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; VCO() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); guaranteeRackUserWavetablesDir(); } void guaranteeRackUserWavetablesDir() { desktopOnlyGuarantee(); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(inputs[SIGNAL_INPUT].getVoltage() * VCOConfig<oscType>::scale()); } };\ntemplate<> float VCOConfig<ot_rust>::scale() { return 2.f; }\ntemplate<> rack::Widget* VCOConfig<ot_rust>::createCustomEditorAt(int) { return APP->scene->rack; }\ntemplate<int oscType> struct VCOWidget : ModuleWidget {};\nModel* modelRustVcoSpecialization = createModel<VCO<ot_rust>, VCOWidget<ot_rust>>("RustVcoSpecialization");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/RustVcoSpecialization","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.equal([...adapter.matchAll(/VCOConfig<ot_rust>::scale\(\)\s*\{/g)].length,1);assert.match(adapter,/void guaranteeRackUserWavetablesDir\(\) \{\s*\}/);assert.doesNotMatch(adapter,/createCustomEditorAt|APP->scene|desktopOnlyGuarantee/);wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=4;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],8)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("locked submodule checkout resumes a matching interrupted staging clone",()=>{
@@ -1296,7 +1852,7 @@ test("locked submodule checkout resumes a matching interrupted staging clone",()
 
 test("macro-configured shared module headers compile as their concrete Library model",()=>{
   const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-macro-scaffold-test-"));
-  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/MacroSwitch","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile"],{encoding:"utf8"}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");
+  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/MacroSwitch","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8",env:{...process.env,RACK_WEB_REQUIRE_RUST_CONFIG_CALLS:"1",RACK_WEB_REQUIRE_RUST_CONFIG_EXPANSION:"1",RACK_WEB_REQUIRE_RUST_DECLARATIONS:"1",RACK_WEB_REQUIRE_RUST_PREPROCESS:"1"}}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");
   assert.equal(report.source.moduleClass,"MacroSwitch");assert.equal(report.source.file,"src/MacroSwitchSrc.hpp");assert.deepEqual([runtime.params.length,runtime.inputs.length,runtime.outputs.length,runtime.lights],[1,2,1,2]);assert.deepEqual(runtime.stateKeys,[{key:"selected",type:"integer"}]);assert.match(adapter,/\/\/ FIXTURE_SELECTED_MEMBER must remain a comment/);assert.doesNotMatch(adapter,/Vec|nativeWidgetPosition|STRUCT_NAME|ROUTE_TO_ONE|FixtureCenteredLabel/);
   const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_connected(1,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_input_channels(1,1);const inputs=new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),2*16*128),outputs=new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128);inputs[0]=2;inputs[128]=7;wasm.rack_web_set_param(0,1);wasm.rack_web_process(1,48000);assert.equal(outputs[0],7);assert.deepEqual([...new Float32Array(wasm.memory.buffer,wasm.rack_web_light_buffer(),2)],[0,1]);
   fs.rmSync(output,{recursive:true,force:true});
@@ -1311,11 +1867,29 @@ test("mixed host helpers keep DSP state while desktop-only methods are stubbed",
   fs.rmSync(output,{recursive:true,force:true});
 });
 
+test("Rust-derived custom Model lambda registration executes in real WASM",()=>{
+  const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-custom-model-test-"));
+  try{
+    const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/CustomFactory","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile"],{encoding:"utf8"}),report=JSON.parse(stdout),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));
+    assert.equal(report.source.moduleClass,"CustomFactoryDsp");
+    assert.equal(report.source.widgetClass,"CustomFactoryWidget");
+    assert.deepEqual(runtime.params,[{id:0,name:"Offset",min:-5,max:5,default:1}]);
+    const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;
+    wasm._initialize();
+    wasm.rack_web_set_input_connected(0,1);
+    wasm.rack_web_set_input_channels(0,1);
+    new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;
+    wasm.rack_web_set_param(0,5);
+    wasm.rack_web_process(1,48000);
+    assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],8);
+  }finally{fs.rmSync(output,{recursive:true,force:true})}
+});
+
 test("classic modules without a LightIds enum synthesize a zero-light ABI",()=>{
   const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-no-lights-test-"));
   const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/NoLights","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile"],{encoding:"utf8"}),report=JSON.parse(stdout);
   assert.equal(report.assessment.compileEligible,true);assert.equal(report.detected.counts.lights,0);assert.equal(report.runtimeDraft.lights,0);assert.equal(report.runtimeDraft.params[0].default,1.25);const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.match(adapter,/static constexpr int NUM_LIGHTS = 0/);assert.doesNotMatch(adapter,/UiUmbrella\.hpp/);assert.match(adapter,/const float NamespacedGain::bias = 0\.f/);assert.match(adapter,/float helperLeaf\(float value\)/);assert.match(adapter,/float helperBridge\(float value\)/);assert.match(adapter,/namespace fixture \{\s*NamespacedGain::NamespacedGain\(float scale\) : _scale\(scale\)/s);assert.match(adapter,/float NamespacedGain::apply\(float value\) const/s);assert.match(adapter,/template<int Scale> float NamespacedTemplateGain<Scale>::apply/);
-  const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(wasm.rack_web_light_count(),0);wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_param(0,1.5);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6);
+  const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.equal(wasm.rack_web_light_count(),0);assert.equal(typeof wasm.rack_web_get_chain_neighbor_light_brightness,"function");assert.equal(typeof wasm.rack_web_get_neighbor_light_brightness,"function");wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_param(0,1.5);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6);
   fs.rmSync(output,{recursive:true,force:true});
 });
 
@@ -1448,8 +2022,8 @@ test("qualified Rack module bases ignore unrelated terminal-name typedefs",()=>{
 test("companion implementation includes are followed transitively",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-companion-closure-test-")),plugin=path.join(temporary,"plugin"),dependency=path.join(plugin,"dependency"),output=path.join(temporary,"output");
   fs.cpSync(source,plugin,{recursive:true});
-  const header=path.join(plugin,"src","Simple.hpp"),simple=fs.readFileSync(header,"utf8").replace('#include "plugin.hpp"','#include "plugin.hpp"\n#include <time.h>\n#include "entry.hpp"').replace("struct FixtureModule : Module {","struct FixtureModule : Module {\n  FixtureEntry entry;\n  FixtureMode mode = FixtureMode::Double;").replace("inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue()","entry.apply(inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue())");
-  const sdk=path.join(plugin,"metamodule-plugin-sdk");fs.writeFileSync(header,simple);fs.mkdirSync(path.join(dependency,"include"),{recursive:true});fs.mkdirSync(path.join(dependency,"src"),{recursive:true});fs.mkdirSync(path.join(sdk,"newlib"),{recursive:true});fs.writeFileSync(path.join(plugin,".gitmodules"),'[submodule "dependency"]\n  path = dependency\n  url = https://github.com/example/dependency.git\n[submodule "metamodule-plugin-sdk"]\n  path = metamodule-plugin-sdk\n  url = https://github.com/example/metamodule-plugin-sdk.git\n');fs.writeFileSync(path.join(dependency,"include","entry.hpp"),'#pragma once\nenum class FixtureMode { Double };\nstruct FixtureEntry { float apply(float value) const; };\n');fs.writeFileSync(path.join(dependency,"include","time.h"),'#error A submodule time.h must not shadow the browser C standard library\n');fs.writeFileSync(path.join(dependency,"src","entry.cpp"),'#include "entry.hpp"\n#include "resources.hpp"\nfloat FixtureEntry::apply(float value) const { return value * fixtureResourceGain; }\n');fs.writeFileSync(path.join(dependency,"src","resources.hpp"),'#pragma once\nextern const float fixtureResourceGain;\n');fs.writeFileSync(path.join(dependency,"src","resources.cpp"),'#include "resources.hpp"\nconst float fixtureResourceGain = 2.f;\n');fs.writeFileSync(path.join(sdk,"rack.hpp"),'#error A vendored host rack.hpp must never replace the browser Rack ABI\n');fs.writeFileSync(path.join(sdk,"newlib","incompatible.c"),'#error MetaModule firmware libc must not be linked into browser Rack modules\n');
+  const header=path.join(plugin,"src","Simple.hpp"),simple=fs.readFileSync(header,"utf8").replace('#include "plugin.hpp"','#include "plugin.hpp"\n#include <time.h>\n#include "entry.hpp"\n#ifdef _WIN32\n#include "include/windows_only.hpp"\n#endif').replace("struct FixtureModule : Module {","struct FixtureModule : Module {\n  FixtureEntry entry;\n  FixtureMode mode = FixtureMode::Double;").replace("inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue()","entry.apply(inputs[SIGNAL_INPUT].getVoltage() * params[LEVEL_PARAM].getValue())");
+  const sdk=path.join(plugin,"metamodule-plugin-sdk");fs.writeFileSync(header,simple);fs.mkdirSync(path.join(dependency,"include"),{recursive:true});fs.mkdirSync(path.join(dependency,"src"),{recursive:true});fs.mkdirSync(path.join(sdk,"newlib"),{recursive:true});fs.writeFileSync(path.join(plugin,".gitmodules"),'[submodule "dependency"]\n  path = dependency\n  url = https://github.com/example/dependency.git\n[submodule "metamodule-plugin-sdk"]\n  path = metamodule-plugin-sdk\n  url = https://github.com/example/metamodule-plugin-sdk.git\n');fs.writeFileSync(path.join(dependency,"include","entry.hpp"),'#pragma once\nenum class FixtureMode { Double };\nstruct FixtureEntry { float apply(float value) const; };\n');fs.writeFileSync(path.join(dependency,"include","time.h"),'#error A submodule time.h must not shadow the browser C standard library\n');fs.writeFileSync(path.join(dependency,"include","windows_only.hpp"),'#error An inactive Windows-only dependency must not enter the browser adapter\n');fs.writeFileSync(path.join(dependency,"src","entry.cpp"),'#include "entry.hpp"\n#include "resources.hpp"\nfloat FixtureEntry::apply(float value) const { return value * fixtureResourceGain; }\n');fs.writeFileSync(path.join(dependency,"src","resources.hpp"),'#pragma once\nextern const float fixtureResourceGain;\n');fs.writeFileSync(path.join(dependency,"src","resources.cpp"),'#include "resources.hpp"\nconst float fixtureResourceGain = 2.f;\n');fs.writeFileSync(path.join(sdk,"rack.hpp"),'#error A vendored host rack.hpp must never replace the browser Rack ABI\n');fs.writeFileSync(path.join(sdk,"newlib","incompatible.c"),'#error MetaModule firmware libc must not be linked into browser Rack modules\n');
   const gitEnvironment={...process.env,GIT_AUTHOR_NAME:"Rack Web",GIT_AUTHOR_EMAIL:"rack-web@example.invalid",GIT_COMMITTER_NAME:"Rack Web",GIT_COMMITTER_EMAIL:"rack-web@example.invalid"},git=(directory,...parameters)=>execFileSync("git",["-C",directory,...parameters],{env:gitEnvironment,stdio:"ignore"});execFileSync("git",["init",dependency],{env:gitEnvironment,stdio:"ignore"});git(dependency,"add",".");git(dependency,"commit","-m","fixture dependency");execFileSync("git",["init",sdk],{env:gitEnvironment,stdio:"ignore"});git(sdk,"add",".");git(sdk,"commit","-m","fixture sdk");execFileSync("git",["init",plugin],{env:gitEnvironment,stdio:"ignore"});git(plugin,"add",".");git(plugin,"commit","-m","fixture plugin");
   execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Simple","--manifest-file",path.join(plugin,"plugin.json"),"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});
   const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6);
@@ -1549,7 +2123,7 @@ test("free helpers keep referenced globals while unbraced native display branche
 
 test("plugin-defined DSP base classes, aliases, and template arguments are collected transitively",()=>{
   const output=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-inherited-test-"));
-  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Inherited","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile"],{encoding:"utf8"}),report=JSON.parse(stdout);
+  const stdout=execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/Inherited","--manifest-file",path.join(source,"plugin.json"),"--source-dir",source,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8"}),report=JSON.parse(stdout);
   assert.deepEqual(report.detected.inheritance,{directBase:"FixtureForwardedBase",secondaryBases:[],chain:[{name:"FixtureDspBase",base:"Module",missing:false},{name:"FixtureForwardingBase",base:"FixtureDspBase",missing:false}]});assert.deepEqual(report.detected.dependencyFiles,[]);assert.deepEqual(report.detected.stateKeys,[]);assert.ok(report.detected.features.includes("custom-state"));assert.ok(!report.detected.features.includes("assets"));assert.match(fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),/template <class BASE>\s*struct FixtureForwardingBase : BASE/);
   const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_param(0,1.5);const inputs=new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128),outputs=new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128);inputs[0]=2;wasm.rack_web_process(1,48000);assert.equal(outputs[0],7.125);inputs[0]=2;wasm.rack_web_process(1,96000);assert.equal(outputs[0],14.25);
   fs.rmSync(output,{recursive:true,force:true});
@@ -1560,7 +2134,7 @@ test("aliased template bases preserve header SIMD, body macros, multiline enums,
   fs.writeFileSync(path.join(plugin,"src","AliasedTemplateSupport.hpp"),'#pragma once\n#include <xmmintrin.h>\nnamespace vendor { struct CustomBase : Module { float scale = 2.f; }; }\ninline float headerSimdScale(float value) { __m128 lane = _mm_set1_ps(value); lane = _mm_mul_ps(lane, _mm_set1_ps(2.f)); return lane[0]; }\n');
   fs.writeFileSync(path.join(plugin,"src","AliasedTemplate.hpp"),'#pragma once\n#include "AliasedTemplateSupport.hpp"\ntemplate<typename TBase> struct AliasedTemplate : virtual TBase { static constexpr int nParams{8}, nInputs{4}; enum OutputIds { SIGNAL_OUTPUT, EXTRA_OUTPUT = SIGNAL_OUTPUT + CHANNELS +\n1, NUM_OUTPUTS }; AliasedTemplate() : TBase() { this->config(nParams, nInputs, NUM_OUTPUTS, 0); } void process(const typename TBase::ProcessArgs&) override { this->outputs[SIGNAL_OUTPUT].setVoltage(headerSimdScale(this->inputs[0].getVoltage()) * this->scale); } };\n');
   fs.writeFileSync(path.join(plugin,"src","AliasedTemplate.cpp"),'#include "plugin.hpp"\n#define CHANNELS 4\n#include "AliasedTemplate.hpp"\nnamespace bp = vendor;\nstruct AliasedTemplateWidget : ModuleWidget { using ModuleType = AliasedTemplate<bp::CustomBase>; AliasedTemplateWidget(ModuleType* module) { setModule(module); box.size = Vec(150, 380); auto layoutSize = box.size; layoutSize.x /= 2; Vec inputPosition(5, 35); auto inputSpacing = (layoutSize.x - 10) / 4; for (int input = 0; input < 4; ++input) { addInput(createInput<PJ301MPort>(inputPosition, module, input)); inputPosition.x += inputSpacing; } Vec paramPosition(10, 90); auto paramSpacing = (layoutSize.x - 20) / 2; std::vector<int> paramIds = {0, 1, 2, 3, 4, 5, 6, 7}; int param = 0; for (auto ignored : paramIds) { addParam(createParam<RoundLargeBlackKnob>(paramPosition, module, param)); if (param % 2 == 0) paramPosition.x += paramSpacing; else { paramPosition.x = 10; paramPosition.y += paramSpacing; } param++; } } };\nModel* modelAliasedTemplate = createModel<AliasedTemplateWidget::ModuleType, AliasedTemplateWidget>("AliasedTemplate");\n');
-  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/AliasedTemplate","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),baseIndex=adapter.indexOf("struct CustomBase"),aliasIndex=adapter.indexOf("namespace bp = vendor");assert.ok(baseIndex>=0&&aliasIndex>baseIndex);assert.match(adapter,/#define CHANNELS 4/);assert.match(adapter,/template\s*<\s*typename TBase\s*>\s*struct AliasedTemplate : TBase/);assert.match(adapter,/#include <xmmintrin\.h>/);assert.equal(runtime.width,150);assert.deepEqual(runtime.inputs.map(input=>input.position),[{x:5,y:35},{x:21.25,y:35},{x:37.5,y:35},{x:53.75,y:35}]);assert.deepEqual(runtime.params.map(param=>param.position),[{x:10,y:90,widget:"RoundLargeBlackKnob"},{x:37.5,y:90,widget:"RoundLargeBlackKnob"},{x:10,y:117.5,widget:"RoundLargeBlackKnob"},{x:37.5,y:117.5,widget:"RoundLargeBlackKnob"},{x:10,y:145,widget:"RoundLargeBlackKnob"},{x:37.5,y:145,widget:"RoundLargeBlackKnob"},{x:10,y:172.5,widget:"RoundLargeBlackKnob"},{x:37.5,y:172.5,widget:"RoundLargeBlackKnob"}]);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[8,4,6,0]);wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),4*16*128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),6*16*128)[0],12)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/AliasedTemplate","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile","--use-rust-analysis"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),baseIndex=adapter.indexOf("struct CustomBase"),aliasIndex=adapter.indexOf("namespace bp = vendor");assert.ok(baseIndex>=0&&aliasIndex>baseIndex);assert.match(adapter,/#define CHANNELS 4/);assert.match(adapter,/template\s*<\s*typename TBase\s*>\s*struct AliasedTemplate : TBase/);assert.match(adapter,/#include <xmmintrin\.h>/);assert.equal(runtime.width,150);assert.deepEqual(runtime.inputs.map(input=>input.position),[{x:5,y:35},{x:21.25,y:35},{x:37.5,y:35},{x:53.75,y:35}]);assert.deepEqual(runtime.params.map(param=>param.position),[{x:10,y:90,widget:"RoundLargeBlackKnob"},{x:37.5,y:90,widget:"RoundLargeBlackKnob"},{x:10,y:117.5,widget:"RoundLargeBlackKnob"},{x:37.5,y:117.5,widget:"RoundLargeBlackKnob"},{x:10,y:145,widget:"RoundLargeBlackKnob"},{x:37.5,y:145,widget:"RoundLargeBlackKnob"},{x:10,y:172.5,widget:"RoundLargeBlackKnob"},{x:37.5,y:172.5,widget:"RoundLargeBlackKnob"}]);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();assert.deepEqual([wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],[8,4,6,0]);wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),4*16*128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),6*16*128)[0],12)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("direct implementation includes keep SSE3 DSP and comma-declared widget arrays",()=>{
@@ -1571,9 +2145,10 @@ test("direct implementation includes keep SSE3 DSP and comma-declared widget arr
   fs.writeFileSync(path.join(plugin,"src","DirectNestedLeaf.hpp"),'#pragma once\nstruct DirectNestedLeaf { float apply(float value); };\n#ifdef DIRECT_NESTED_IMPLEMENTATION\ninline float DirectNestedLeaf::apply(float value) { return value + 1.f; }\n#endif\n');
   fs.writeFileSync(path.join(plugin,"src","DirectNestedLeaf.cpp"),'#define DIRECT_NESTED_IMPLEMENTATION\n#include "DirectNestedLeaf.hpp"\n');
   fs.writeFileSync(path.join(plugin,"src","DirectNested.cpp"),'#include "DirectNestedLeaf.cpp"\nstruct DirectNested { float apply(float value) { return DirectNestedLeaf{}.apply(value); } };\n');
-  fs.writeFileSync(path.join(plugin,"src","DirectDsp.cpp"),'#include <pmmintrin.h>\n#include "DirectFrame.hpp"\n#include "DirectDspOnly.hpp"\n#include "DirectNested.cpp"\nstruct DirectDsp { float apply(float value) { DirectFrame frame{value}; DirectDspOnly support{0.f}; unsigned csr = _mm_getcsr(); _mm_setcsr(csr); __m128 lanes = _mm_set1_ps(frame.apply(DirectNested{}.apply(value)) + support.bias); lanes = _mm_hadd_ps(lanes, lanes); return lanes[0] - value; } };\n');
-  fs.writeFileSync(path.join(plugin,"src","DirectImplementation.cpp"),'#include "plugin.hpp"\n#include "DirectDsp.cpp"\nstruct DirectImplementationModule : Module { enum ParamIds { LEVEL_PARAM, NUM_PARAMS }; enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; enum LightIds { NUM_LIGHTS }; DirectFrame scratch{}; DirectImplementationModule() { config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS); configParam(LEVEL_PARAM, 0.f, 1.f, .5f, "Level"); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { scratch.value = inputs[SIGNAL_INPUT].getVoltage(); outputs[SIGNAL_OUTPUT].setVoltage(DirectDsp{}.apply(scratch.value)); } };\nstruct DirectImplementationWidget : ModuleWidget { DirectImplementationWidget(DirectImplementationModule* module) { setModule(module); box.size = Vec(45, 380); constexpr float portX[1] = { 5.f }, knobX[1] = { 20.f }; addInput(createInput<PJ301MPort>(Vec(portX[0], 35.f), module, DirectImplementationModule::SIGNAL_INPUT)); addParam(createParam<RoundBlackKnob>(Vec(knobX[0], 90.f), module, DirectImplementationModule::LEVEL_PARAM)); addOutput(createOutput<PJ301MPort>(Vec(portX[0], 320.f), module, DirectImplementationModule::SIGNAL_OUTPUT)); } };\nModel* modelDirectImplementation = createModel<DirectImplementationModule, DirectImplementationWidget>("DirectImplementation");\n');
-  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/DirectImplementation","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),implementationMacro="#define DIRECT_NESTED_IMPLEMENTATION",leafInclude='#include "DirectNestedLeaf.hpp"';assert.match(adapter,/struct DirectDsp/);assert.equal(adapter.split(implementationMacro).length-1,1);assert.ok(adapter.includes(leafInclude));assert.ok(adapter.indexOf(implementationMacro)<adapter.indexOf(leafInclude));assert.ok(adapter.indexOf(leafInclude)<adapter.indexOf("struct DirectNested {"));assert.match(adapter,/#include "DirectDspOnly\.hpp"/);assert.match(adapter,/inline float DirectFrame::apply\(float input\)/);assert.doesNotMatch(adapter,/#include "DirectFrame\.inl"/);assert.ok(adapter.indexOf("struct DirectFrame")<adapter.indexOf("DirectFrame::apply"));assert.deepEqual(runtime.inputs[0].position,{x:5,y:35});assert.deepEqual(runtime.params[0].position,{x:20,y:90,widget:"RoundBlackKnob"});assert.deepEqual(runtime.outputs[0].position,{x:5,y:320});const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],8)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  fs.writeFileSync(path.join(plugin,"src","DirectNativeOnly.cpp"),'#error An inactive native implementation must not enter the browser adapter\n');
+  fs.writeFileSync(path.join(plugin,"src","DirectDsp.cpp"),'#include <pmmintrin.h>\n#ifdef _WIN32\n#include <windows.h>\n#endif\n#include "DirectFrame.hpp"\n#include "DirectDspOnly.hpp"\n#include "DirectNested.cpp"\nstruct DirectDsp { float apply(float value) { DirectFrame frame{value}; DirectDspOnly support{0.f}; unsigned csr = _mm_getcsr(); _mm_setcsr(csr); __m128 lanes = _mm_set1_ps(frame.apply(DirectNested{}.apply(value)) + support.bias); lanes = _mm_hadd_ps(lanes, lanes); return lanes[0] - value; } };\n');
+  fs.writeFileSync(path.join(plugin,"src","DirectImplementation.cpp"),'#include "plugin.hpp"\n#ifdef _WIN32\n#include "DirectNativeOnly.cpp"\n#endif\n#include "DirectDsp.cpp"\nstruct DirectImplementationModule : Module { enum ParamIds { LEVEL_PARAM, NUM_PARAMS }; enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; enum LightIds { NUM_LIGHTS }; DirectFrame scratch{}; DirectImplementationModule() { config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS); configParam(LEVEL_PARAM, 0.f, 1.f, .5f, "Level"); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override { scratch.value = inputs[SIGNAL_INPUT].getVoltage(); outputs[SIGNAL_OUTPUT].setVoltage(DirectDsp{}.apply(scratch.value)); } };\nstruct DirectImplementationWidget : ModuleWidget { DirectImplementationWidget(DirectImplementationModule* module) { setModule(module); box.size = Vec(45, 380); constexpr float portX[1] = { 5.f }, knobX[1] = { 20.f }; addInput(createInput<PJ301MPort>(Vec(portX[0], 35.f), module, DirectImplementationModule::SIGNAL_INPUT)); addParam(createParam<RoundBlackKnob>(Vec(knobX[0], 90.f), module, DirectImplementationModule::LEVEL_PARAM)); addOutput(createOutput<PJ301MPort>(Vec(portX[0], 320.f), module, DirectImplementationModule::SIGNAL_OUTPUT)); } };\nModel* modelDirectImplementation = createModel<DirectImplementationModule, DirectImplementationWidget>("DirectImplementation");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/DirectImplementation","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8")),adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),implementationMacro="#define DIRECT_NESTED_IMPLEMENTATION",leafInclude='#include "DirectNestedLeaf.hpp"';assert.match(adapter,/struct DirectDsp/);assert.equal(adapter.split(implementationMacro).length-1,1);assert.ok(adapter.includes(leafInclude));assert.ok(adapter.indexOf(implementationMacro)<adapter.indexOf(leafInclude));assert.ok(adapter.indexOf(leafInclude)<adapter.indexOf("struct DirectNested {"));assert.match(adapter,/#include "DirectDspOnly\.hpp"/);assert.match(adapter,/inline float DirectFrame::apply\(float input\)/);assert.doesNotMatch(adapter,/#include "DirectFrame\.inl"|DirectNativeOnly|windows\.h/);assert.ok(adapter.indexOf("struct DirectFrame")<adapter.indexOf("DirectFrame::apply"));assert.deepEqual(runtime.inputs[0].position,{x:5,y:35});assert.deepEqual(runtime.params[0].position,{x:20,y:90,widget:"RoundBlackKnob"});assert.deepEqual(runtime.outputs[0].position,{x:5,y:320});const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],8)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("constructor heap pressure retries memory and WASI logging stays browser-loadable",()=>{
@@ -1614,8 +2189,9 @@ test("pure UI secondary bases and VCV enum names do not leak into WASM",()=>{
 test("included header DSP state and duplicate port metadata survive direct adapter generation",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-header-state-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"HeaderState",name:"Header state",description:"Included DSP state and duplicate metadata fixture",tags:["Sample and hold"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
   fs.writeFileSync(path.join(plugin,"src","HeaderStateMacros.hpp"),"#define HEADER_STATE_WIDTH 2\n");
-  fs.writeFileSync(path.join(plugin,"src","HeaderState.hpp"),'#if !defined(HEADER_STATE_HPP)\n#define HEADER_STATE_HPP 1\nrack::dsp::SchmittTrigger headerStateTrigger; float headerStateHeld = 0.f; float headerStateOffset[HEADER_STATE_WIDTH] = {1.f, 2.f};\n#endif\n');
-  fs.writeFileSync(path.join(plugin,"src","HeaderState.cpp"),'#include "plugin.hpp"\nstruct HeaderStateModule : Module { enum InputIds { SAMPLE_INPUT, TRIGGER_INPUT, NUM_INPUTS }; enum OutputIds { A_OUTPUT, B_OUTPUT, NUM_OUTPUTS };\n#include "HeaderState.hpp" // DSP state is intentionally included inside the module class\nHeaderStateModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SAMPLE_INPUT, "Sample"); configInput(TRIGGER_INPUT, "Trigger"); configOutput(A_OUTPUT, "Output A"); configOutput(A_OUTPUT, "Output B"); } void process(const ProcessArgs&) override { if (headerStateTrigger.process(inputs[TRIGGER_INPUT].getVoltage())) headerStateHeld = inputs[SAMPLE_INPUT].getVoltage(); outputs[A_OUTPUT].setVoltage(headerStateHeld); outputs[B_OUTPUT].setVoltage(headerStateHeld + headerStateOffset[0]); } };\nstruct HeaderStateWidget : ModuleWidget { HeaderStateWidget(HeaderStateModule* module) { setModule(module); box.size = Vec(75, 380); addInput(createInputCentered<PJ301MPort>(Vec(20, 80), module, HeaderStateModule::SAMPLE_INPUT)); addInput(createInputCentered<PJ301MPort>(Vec(55, 80), module, HeaderStateModule::TRIGGER_INPUT)); addOutput(createOutputCentered<PJ301MPort>(Vec(20, 300), module, HeaderStateModule::A_OUTPUT)); addOutput(createOutputCentered<PJ301MPort>(Vec(55, 300), module, HeaderStateModule::B_OUTPUT)); } };\nModel* modelHeaderState = createModel<HeaderStateModule, HeaderStateWidget>("HeaderState");\n');
+  fs.writeFileSync(path.join(plugin,"src","HeaderStateStorage.hpp"),'float headerStateOffset[HEADER_STATE_WIDTH] = {1.f, 2.f};\n');
+  fs.writeFileSync(path.join(plugin,"src","HeaderState.hpp"),'#if !defined(HEADER_STATE_HPP)\n#define HEADER_STATE_HPP 1\nrack::dsp::SchmittTrigger headerStateTrigger; float headerStateHeld = 0.f;\n  #include "HeaderStateStorage.hpp" // nested class-body state\n#endif\n');
+  fs.writeFileSync(path.join(plugin,"src","HeaderState.cpp"),'#include "plugin.hpp"\nstruct HeaderStateModule : Module { enum InputIds { SAMPLE_INPUT, TRIGGER_INPUT, NUM_INPUTS }; enum OutputIds { A_OUTPUT, B_OUTPUT, NUM_OUTPUTS };\n  #include "HeaderState.hpp" // DSP state is intentionally included inside the module class\nHeaderStateModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SAMPLE_INPUT, "Sample"); configInput(TRIGGER_INPUT, "Trigger"); configOutput(A_OUTPUT, "Output A"); configOutput(A_OUTPUT, "Output B"); } void process(const ProcessArgs&) override { if (headerStateTrigger.process(inputs[TRIGGER_INPUT].getVoltage())) headerStateHeld = inputs[SAMPLE_INPUT].getVoltage(); outputs[A_OUTPUT].setVoltage(headerStateHeld); outputs[B_OUTPUT].setVoltage(headerStateHeld + headerStateOffset[0]); } };\nstruct HeaderStateWidget : ModuleWidget { HeaderStateWidget(HeaderStateModule* module) { setModule(module); box.size = Vec(75, 380); addInput(createInputCentered<PJ301MPort>(Vec(20, 80), module, HeaderStateModule::SAMPLE_INPUT)); addInput(createInputCentered<PJ301MPort>(Vec(55, 80), module, HeaderStateModule::TRIGGER_INPUT)); addOutput(createOutputCentered<PJ301MPort>(Vec(20, 300), module, HeaderStateModule::A_OUTPUT)); addOutput(createOutputCentered<PJ301MPort>(Vec(55, 300), module, HeaderStateModule::B_OUTPUT)); } };\nModel* modelHeaderState = createModel<HeaderStateModule, HeaderStateWidget>("HeaderState");\n');
   try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/HeaderState","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),runtime=JSON.parse(fs.readFileSync(path.join(output,"runtime.json"),"utf8"));assert.match(adapter,/#define HEADER_STATE_WIDTH 2/);assert.doesNotMatch(adapter,/#define HEADER_STATE_HPP/);assert.match(adapter,/SchmittTrigger headerStateTrigger/);assert.match(adapter,/float headerStateHeld = 0\.f/);assert.match(adapter,/float headerStateOffset\[HEADER_STATE_WIDTH\]/);assert.deepEqual(runtime.outputs.map(port=>port.name),["Output A","Output B"]);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();for(let input=0;input<2;input++){wasm.rack_web_set_input_connected(input,1);wasm.rack_web_set_input_channels(input,1)}for(let output=0;output<2;output++)wasm.rack_web_set_output_connected(output,1);const inputs=new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),2*16*128),outputs=new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),2*16*128);inputs[0]=3;wasm.rack_web_process(1,48000);inputs[128]=10;wasm.rack_web_process(1,48000);assert.deepEqual([outputs[0],outputs[128]],[3,4])}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
@@ -1627,6 +2203,12 @@ test("cross-file DSP closure keeps only required sibling types and nested engine
   try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/CrossFileDsp","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.match(adapter,/struct SlewLimiter/);assert.match(adapter,/return value \* 2\.f/);assert.doesNotMatch(adapter,/Slew::next|SpectralAnalyzer::process|MissingSlewBackend|MissingAnalyzerBackend|value \+ 100\.f/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],8)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
+test("referenced sibling modules are selected from Rust type declarations",()=>{
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-rust-sibling-fact-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"RustSiblingFact",name:"Rust sibling fact",description:"Rust declaration-backed sibling module fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
+  fs.writeFileSync(path.join(plugin,"src","RustSiblingFact.cpp"),'#include "plugin.hpp"\nstruct RustSiblingFactModule : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; RustSiblingFactModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); configInput(SIGNAL_INPUT, "Signal"); configOutput(SIGNAL_OUTPUT, "Signal"); } void process(const ProcessArgs&) override; };\nstruct RustSiblingBridgeModule final : public Module { static float transform(float value) { return value * 3.f; } };\nvoid RustSiblingFactModule::process(const ProcessArgs&) { outputs[SIGNAL_OUTPUT].setVoltage(RustSiblingBridgeModule::transform(inputs[SIGNAL_INPUT].getVoltage())); }\nstruct RustSiblingFactWidget : ModuleWidget {};\nModel* modelRustSiblingFact = createModel<RustSiblingFactModule, RustSiblingFactWidget>("RustSiblingFact");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/RustSiblingFact","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8"),wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;assert.match(adapter,/struct RustSiblingBridgeModule : Module/);assert.match(adapter,/RustSiblingBridgeModule::transform/);wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=2;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+});
+
 test("secondary bases retain namespaces and nested quantity implementations without menu UI",()=>{
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-secondary-base-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"SecondaryBase",name:"Secondary base",description:"Namespaced secondary base fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);
   fs.writeFileSync(path.join(plugin,"src","SecondaryRange.hpp"),'#pragma once\nnamespace fixture_secondary { struct Range { float scale = 2.f; struct RangeParamQuantity : ParamQuantity { float getDisplayValue() override; void setDisplayValue(float value) override; }; }; struct RangeOptionMenuItem : MenuItem { void onAction(const event::Action&) override {} }; }\n');
@@ -1636,11 +2218,11 @@ test("secondary bases retain namespaces and nested quantity implementations with
 });
 
 test("Makefile SIMD template specializations precede use without inactive generic implementations",()=>{
-  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-simd-template-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"SimdTemplate",name:"SIMD template",description:"Conditional template specialization fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);fs.writeFileSync(path.join(plugin,"Makefile"),"ifndef NO_RACK_SIMD\nFLAGS += -DRACK_SIMD=1\nendif\n");
+  const temporary=fs.mkdtempSync(path.join(os.tmpdir(),"rack-web-simd-template-test-")),plugin=path.join(temporary,"plugin"),output=path.join(temporary,"output");fs.cpSync(source,plugin,{recursive:true});const manifestPath=path.join(plugin,"plugin.json"),manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));manifest.modules.push({slug:"SimdTemplate",name:"SIMD template",description:"Conditional template specialization fixture",tags:["Utility"]});fs.writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);fs.writeFileSync(path.join(plugin,"Makefile"),"ifndef NO_RACK_SIMD\nFLAGS += -DRACK_SIMD=1\nendif\n");fs.writeFileSync(path.join(plugin,"CMakeLists.txt"),'set(FIXTURE_CMAKE_SCALE 3 CACHE STRING "scale")\n');
   fs.writeFileSync(path.join(plugin,"src","SimdBank.hpp"),'#pragma once\nnamespace fixture_simd { #ifdef RACK_SIMD\nstruct Lane { float next(float value); };\n#endif\ntemplate<typename T, int N> struct Bank { #ifdef RACK_SIMD\nLane lanes[N / 4];\n#else\nT lanes[N] {}; int active = N;\n#endif\nfloat next(float value); }; }\n'.replaceAll("{ #","{\n#"));
   fs.writeFileSync(path.join(plugin,"src","SimdBank.cpp"),'#include "SimdBank.hpp"\nnamespace fixture_simd {\n#ifdef RACK_SIMD\nfloat Lane::next(float value) { return value * 2.f; }\ntemplate<> float Bank<float, 4>::next(float value) { return lanes[0].next(value); }\n#else\ntemplate<typename T, int N> float Bank<T, N>::next(float value) { return value + active; }\n#endif\ntemplate struct Bank<float, 4>;\n}\n');
-  fs.writeFileSync(path.join(plugin,"src","SimdTemplate.cpp"),'#include "plugin.hpp"\n#include "SimdBank.hpp"\nstruct SimdTemplateModule : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; fixture_simd::Bank<float, 4> bank; SimdTemplateModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(bank.next(inputs[SIGNAL_INPUT].getVoltage())); } };\nstruct SimdTemplateWidget : ModuleWidget {};\nModel* modelSimdTemplate = createModel<SimdTemplateModule, SimdTemplateWidget>("SimdTemplate");\n');
-  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/SimdTemplate","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.match(adapter,/template<>\s*float Bank<float, 4>::next/);assert.doesNotMatch(adapter,/template<typename T, int N>\s*float Bank<T, N>::next|template struct Bank<float, 4>/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],6)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
+  fs.writeFileSync(path.join(plugin,"src","SimdTemplate.cpp"),'#include "plugin.hpp"\n#include "SimdBank.hpp"\nstruct SimdTemplateModule : Module { enum InputIds { SIGNAL_INPUT, NUM_INPUTS }; enum OutputIds { SIGNAL_OUTPUT, NUM_OUTPUTS }; fixture_simd::Bank<float, 4> bank; SimdTemplateModule() { config(0, NUM_INPUTS, NUM_OUTPUTS, 0); } void process(const ProcessArgs&) override { outputs[SIGNAL_OUTPUT].setVoltage(bank.next(inputs[SIGNAL_INPUT].getVoltage()) * FIXTURE_CMAKE_SCALE); } };\nstruct SimdTemplateWidget : ModuleWidget {};\nModel* modelSimdTemplate = createModel<SimdTemplateModule, SimdTemplateWidget>("SimdTemplate");\n');
+  try{execFileSync(process.execPath,[path.join(root,"scripts","scaffold-library-module.mjs"),"https://library.vcvrack.com/FixturePlugin/SimdTemplate","--manifest-file",manifestPath,"--source-dir",plugin,"--output",output,"--compile"],{encoding:"utf8"});const adapter=fs.readFileSync(path.join(output,"adapter.cpp"),"utf8");assert.match(adapter,/template<>\s*float Bank<float, 4>::next/);assert.doesNotMatch(adapter,/template<typename T, int N>\s*float Bank<T, N>::next|template struct Bank<float, 4>/);const wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(path.join(output,"module.wasm"))),{}).exports;wasm._initialize();wasm.rack_web_set_input_connected(0,1);wasm.rack_web_set_input_channels(0,1);wasm.rack_web_set_output_connected(0,1);new Float32Array(wasm.memory.buffer,wasm.rack_web_input_buffer(),128)[0]=3;wasm.rack_web_process(1,48000);assert.equal(new Float32Array(wasm.memory.buffer,wasm.rack_web_output_buffer(),128)[0],18)}finally{fs.rmSync(temporary,{recursive:true,force:true})}
 });
 
 test("MetaModule generic registrations compile their DSP core and element metadata",()=>{

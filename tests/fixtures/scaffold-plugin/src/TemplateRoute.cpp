@@ -1,6 +1,7 @@
 #include "plugin.hpp"
+#include <utility>
 
-template <int INPUTS, int OUTPUTS>
+template <typename Marker = std::pair<int, int>, int INPUTS = 1, int OUTPUTS = 4>
 struct TemplateRoute : Module {
   enum ParamIds { NUM_PARAMS };
   enum InputIds { ENUMS(IN_INPUTS, INPUTS), NUM_INPUTS };
@@ -9,8 +10,14 @@ struct TemplateRoute : Module {
 
   TemplateRoute() {
     config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-    for (int index = 0; index < INPUTS; index++) configInput(IN_INPUTS + index, string::f("Input %d", index + 1));
-    for (int index = 0; index < OUTPUTS; index++) configOutput(OUT_OUTPUTS + index, string::f("Output %d", index + 1));
+    for (int index = 0; index < INPUTS; index++) {
+      auto label = string::f("Input %d", index + 1);
+      configInput(IN_INPUTS + index, label);
+    }
+    for (int index = 0; index < OUTPUTS; index++) {
+      std::string label = string::f("Output %d", index + 1);
+      configOutput(OUT_OUTPUTS + index, label);
+    }
   }
 
   void process(const ProcessArgs&) override {
@@ -22,4 +29,4 @@ struct TemplateRoute : Module {
   }
 };
 
-Model* modelTemplateRoute = createModel<TemplateRoute<1, 4>, TemplateRouteWidget<1, 4>>("TemplateRoute");
+Model* modelTemplateRoute = createModel<TemplateRoute<std::pair<int, int>, 1, 4>, TemplateRouteWidget<1, 4>>("TemplateRoute");
