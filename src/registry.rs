@@ -36,6 +36,8 @@ pub struct PackageFields {
     pub plugin: String,
     pub model: String,
     pub name: String,
+    #[serde(default)]
+    pub hidden: bool,
     pub version: String,
     #[serde(default)]
     pub brand: String,

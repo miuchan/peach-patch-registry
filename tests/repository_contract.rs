@@ -24,6 +24,37 @@ fn repository_verifier_accepts_the_versioned_package_contract() {
 }
 
 #[test]
+fn repository_verifier_accepts_hidden_compatibility_packages() {
+    let fixture = mutable_fixture("hidden-compatibility-package");
+    let index_path = fixture.path().join("index.json");
+    let manifest_path = fixture
+        .path()
+        .join("packages/Fixture/Gain/1.0.0/manifest.json");
+    let mut index: Value =
+        serde_json::from_slice(&fs::read(&index_path).expect("index should exist"))
+            .expect("index should be JSON");
+    let mut manifest: Value =
+        serde_json::from_slice(&fs::read(&manifest_path).expect("manifest should exist"))
+            .expect("manifest should be JSON");
+    index["packages"][0]["hidden"] = Value::Bool(true);
+    manifest["module"]["hidden"] = Value::Bool(true);
+    for (file, value) in [(&index_path, &index), (&manifest_path, &manifest)] {
+        fs::write(
+            file,
+            format!(
+                "{}\n",
+                serde_json::to_string_pretty(value).expect("JSON should serialize")
+            ),
+        )
+        .expect("JSON should be writable");
+    }
+
+    let report = verify_checkout(fixture.path()).expect("hidden package should remain verifiable");
+    assert_eq!(report.package_count, 1);
+    assert_eq!(report.total_bytes, 19);
+}
+
+#[test]
 fn repository_verifier_rejects_artifact_tampering() {
     let fixture = mutable_fixture("artifact-tamper");
     fs::write(

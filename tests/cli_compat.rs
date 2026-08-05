@@ -49,6 +49,41 @@ fn consumer_commands_preserve_the_local_registry_contract() {
 }
 
 #[test]
+fn hidden_packages_are_loadable_by_exact_key_but_not_discoverable() {
+    let fixture = TemporaryDirectory::new("hidden-cli-package");
+    copy_tree(&fixture_root(), fixture.path());
+    let index_path = fixture.path().join("index.json");
+    let mut index: serde_json::Value =
+        serde_json::from_slice(&fs::read(&index_path).expect("fixture index should be readable"))
+            .expect("fixture index should be JSON");
+    index["packages"][0]["hidden"] = serde_json::Value::Bool(true);
+    fs::write(
+        &index_path,
+        format!(
+            "{}\n",
+            serde_json::to_string_pretty(&index).expect("fixture index should serialize")
+        ),
+    )
+    .expect("fixture index should be writable");
+    let registry = index_path.to_str().expect("fixture path should be UTF-8");
+
+    let listed = run_peach(&["list", "--registry", registry]);
+    assert!(listed.status.success(), "{}", stderr(&listed));
+    assert!(!stdout(&listed).contains("Fixture/Gain"));
+
+    let searched = run_peach(&["search", "SATURATOR", "--registry", registry]);
+    assert!(searched.status.success(), "{}", stderr(&searched));
+    assert!(!stdout(&searched).contains("Fixture Gain"));
+
+    let info = run_peach(&["info", "fixture/gain", "--registry", registry]);
+    assert!(info.status.success(), "{}", stderr(&info));
+    let record: serde_json::Value =
+        serde_json::from_slice(&info.stdout).expect("info should emit JSON");
+    assert_eq!(record["key"], "Fixture/Gain");
+    assert_eq!(record["hidden"], true);
+}
+
+#[test]
 fn install_and_verify_preserve_paths_manifests_and_integrity_failures() {
     let prefix = TemporaryDirectory::new("cli-prefix");
     let index_path = fixture_index();

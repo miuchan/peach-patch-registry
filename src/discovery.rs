@@ -43,6 +43,8 @@ struct LibraryModule {
     name: Option<String>,
     description: Option<String>,
     #[serde(default)]
+    hidden: bool,
+    #[serde(default)]
     tags: Vec<Value>,
 }
 
@@ -240,6 +242,9 @@ pub fn discover(options: &DiscoveryOptions) -> Result<DiscoveryReport, String> {
         };
         let mut package_modules = Vec::new();
         for item in manifest_modules {
+            if item.hidden {
+                continue;
+            }
             let Some(model) = item.slug.filter(|value| !value.is_empty()) else {
                 continue;
             };

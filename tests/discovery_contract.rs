@@ -31,8 +31,9 @@ fn library_index(root: &Path) -> PathBuf {
             "license": "MIT",
             "sourceUrl": "https://github.com/example/fixture",
             "modules": [
-                { "slug": "Gain", "name": "Fixture Gain", "tags": ["Effect"] },
+                { "slug": "Gain", "name": "Fixture Gain", "hidden": false, "tags": ["Effect"] },
                 { "slug": "Pending", "description": "Not compiled yet" },
+                { "slug": "Hidden", "name": "Internal experiment", "hidden": true },
                 { "slug": "../Escape", "name": "Unsafe" },
                 { "name": "Missing slug" }
             ]
@@ -144,7 +145,7 @@ fn discovery_uses_an_immutable_library_snapshot_and_emits_a_safe_queue() {
         .as_array()
         .expect("module records should be an array")
         .iter()
-        .all(|item| item["key"] != "Fixture/../Escape"));
+        .all(|item| item["key"] != "Fixture/Hidden" && item["key"] != "Fixture/../Escape"));
 }
 
 #[test]

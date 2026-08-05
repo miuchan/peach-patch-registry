@@ -2,6 +2,7 @@ use assert_cmd::Command;
 use regex::Regex;
 use serde_json::Value;
 use sha2::{Digest, Sha256};
+use std::collections::{BTreeMap, HashSet};
 use std::fs;
 use std::path::{Path, PathBuf};
 
@@ -12,6 +13,77 @@ fn root() -> PathBuf {
 fn read_json(path: impl AsRef<Path>) -> Value {
     serde_json::from_slice(&fs::read(path).expect("repository JSON should exist"))
         .expect("repository JSON should parse")
+}
+
+#[test]
+fn hidden_packages_are_compatibility_only_across_repository_metadata() {
+    let index = read_json(root().join("index.json"));
+    let status = read_json(root().join("build-status.json"));
+    let coverage = read_json(root().join("coverage.json"));
+    let packages = index["packages"]
+        .as_array()
+        .expect("index packages should be an array");
+    let hidden_keys = packages
+        .iter()
+        .filter(|item| item["hidden"] == true)
+        .map(|item| {
+            item["key"]
+                .as_str()
+                .expect("package key should be a string")
+                .to_owned()
+        })
+        .collect::<HashSet<_>>();
+    assert!(
+        !hidden_keys.is_empty(),
+        "the repository fixture should exercise compatibility-only packages"
+    );
+
+    let visible = packages
+        .iter()
+        .filter(|item| item["hidden"] != true)
+        .collect::<Vec<_>>();
+    let visible_bytes = visible.iter().fold(0_u64, |total, item| {
+        total
+            + item["artifact"]["size"]
+                .as_u64()
+                .expect("artifact size should be an integer")
+    });
+    let visible_strategies = visible.iter().fold(BTreeMap::new(), |mut counts, item| {
+        let strategy = item["runtime"]["strategy"]
+            .as_str()
+            .expect("runtime strategy should be a string");
+        *counts.entry(strategy).or_insert(0_u64) += 1;
+        counts
+    });
+    assert_eq!(
+        coverage["compiledModules"],
+        u64::try_from(visible.len()).expect("visible package count should fit u64")
+    );
+    assert_eq!(coverage["bytes"], visible_bytes);
+    for (strategy, count) in visible_strategies {
+        assert_eq!(coverage["strategies"][strategy], count);
+    }
+    assert!(status["records"]
+        .as_array()
+        .expect("status records should be an array")
+        .iter()
+        .all(|item| !hidden_keys
+            .contains(item["key"].as_str().expect("status key should be a string"))));
+
+    for item in packages.iter().filter(|item| item["hidden"] == true) {
+        let manifest_url = item["manifestUrl"]
+            .as_str()
+            .expect("manifest URL should be a string");
+        let manifest = read_json(root().join(manifest_url));
+        assert_eq!(&manifest["module"], item);
+        assert!(root()
+            .join(
+                item["wasmUrl"]
+                    .as_str()
+                    .expect("WASM URL should be a string")
+            )
+            .exists());
+    }
 }
 
 #[test]

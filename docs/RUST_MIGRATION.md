@@ -75,8 +75,9 @@ package.
    digest generation, manifest assembly, atomic file replacement, and index
    totals. The Node entrypoint remains as a tested release compatibility shim.
 3. **Discovery:** complete. Rust snapshots an exact Library Git revision,
-   filters open-source manifests, rejects unsafe slugs, and writes the queue
-   atomically. The existing Node command is a tested compatibility shim.
+   filters open-source manifests and module-level `hidden: true` entries,
+   rejects unsafe slugs, and writes the queue atomically. The existing Node
+   command is a tested compatibility shim.
 4. **Build scheduling:** complete. Rust owns queue/state validation, plugin-group
    concurrency, bounded adapter output and process-group timeouts, structured
    failures, artifact/component staging, and cleanup. The Node source adapter

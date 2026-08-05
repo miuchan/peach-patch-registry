@@ -47,6 +47,9 @@ fn print_list(packages: &[Value], query: &str) -> Result<(), String> {
     let needle = query.to_lowercase();
     for item in packages {
         let fields = package_fields(item)?;
+        if fields.hidden {
+            continue;
+        }
         let haystack = format!(
             "{} {} {} {}",
             fields.key, fields.name, fields.brand, fields.description

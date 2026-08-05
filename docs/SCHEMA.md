@@ -12,7 +12,7 @@ The root index contains:
 - `packageCount` and `totalBytes`: denormalized catalog totals.
 - `packages`: one searchable package record per `plugin/model` key.
 
-Package records contain identity (`key`, `plugin`, `model`, `name`, `brand`, `version`), provenance (`license`, `sourceUrl`, `libraryUrl`, `sourceCommit`), browser metadata (`width`, `description`, `params`, `inputs`, `outputs`, `lights`, `runtime`), relative artifact paths (`wasmUrl`, `manifestUrl`), and `artifact.sha256`/`artifact.size`. `screenshotUrl` is either the official HTTPS VCV Library panel or a registry-relative `panel.webp` captured by the matching native Rack runtime from the locked source. It is canonical UI data, not a browser-generated fallback.
+Package records contain identity (`key`, `plugin`, `model`, `name`, `brand`, `version`), provenance (`license`, `sourceUrl`, `libraryUrl`, `sourceCommit`), browser metadata (`width`, `description`, `params`, `inputs`, `outputs`, `lights`, `runtime`), relative artifact paths (`wasmUrl`, `manifestUrl`), and `artifact.sha256`/`artifact.size`. Optional `hidden: true` records are compatibility-only packages: consumers must exclude them from browsing, search, quick-add, and replacement lists while retaining exact-key lookup and artifact loading for existing patches. `screenshotUrl` is either the official HTTPS VCV Library panel or a registry-relative `panel.webp` captured by the matching native Rack runtime from the locked source. It is canonical UI data, not a browser-generated fallback.
 
 ## `manifest.json`
 
@@ -36,4 +36,4 @@ The manifest is the portable package description. A host may ignore fields it do
 
 ## Status files
 
-`build-status.json` records the source-discovery universe and each candidate's `compiled`, `failed`, or `pending` state. Failed records may include structured blockers and assessments. `coverage.json` is a summary for humans and automation. Neither file should contain local absolute paths, credentials, or raw compiler output.
+`build-status.json` records the discoverable source universe and each candidate's `compiled`, `failed`, or `pending` state. Module-level `hidden: true` entries are excluded from this universe even when an already-published compatibility package remains in `index.json`. Failed records may include structured blockers and assessments. `coverage.json` summarizes the same discoverable population for humans and automation, so its compiled count and byte total may be lower than the compatibility-inclusive index totals. Neither file should contain local absolute paths, credentials, or raw compiler output.
