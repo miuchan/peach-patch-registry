@@ -159,6 +159,10 @@ npm run source:refresh-ui -- --reapply-cache-from-ref HEAD --write
 npm run source:refresh-widths -- --write
 npm run source:refresh-widths -- --source-cache --clone-missing --write
 npm run source:refresh-screenshots -- --write
+npm run source:refresh-native-ui -- --abi 1 --write
+npm run source:refresh-native-ui -- --abi 2 --write
+npm run source:refresh-native-ui -- --overrides-only --write
+npm run source:audit-ui -- --report .build/module-ui-audit.json
 ```
 
 `source:refresh-ui` reruns only Rack widget-geometry extraction and preserves the
@@ -183,13 +187,37 @@ the exact `createModel` registration to its widget and `setPanel` SVG in the
 immutable source checkout. Programmatic panels are measured from their
 `box.size`, `CREATE_PANEL`, or HP template declaration instead. Physical SVG
 units are converted with Rack's 75px-per-inch scale, while unitless panels use
-their declared aspect ratio; non-grid legacy widths are preserved. Add
+their declared aspect ratio. SVG-derived widths are normalized to Rack's 15px
+HP grid; an explicit programmatic `ModuleWidget::box.size` remains authoritative. Add
 `--clone-missing` to fetch an absent exact commit into `.build/panel-widths/`.
 Ambiguous or absent evidence is reported and never guessed.
 
 `source:refresh-screenshots` checks every official panel raster and clears only
-confirmed HTTP 404 URLs. Transient network failures are preserved and the app
-falls back to its generated panel if a raster later fails at runtime.
+confirmed HTTP 404 URLs. Transient network failures are preserved.
+
+`source:refresh-native-ui` is the authoritative repair for a missing Library
+raster or geometry that static C++ analysis cannot prove. It builds the exact
+locked plugin source against the matching VCV Rack SDK, instruments Rack's live
+`ModuleWidget` tree, and invokes Rack's own screenshot mode. The result supplies
+the real panel width, parameter/port centers, dimensions, custom widget types,
+and a lossless 380px WebP for legacy modules whose Library screenshot is absent.
+Configured parameters that do not own a widget in a real native module instance
+are marked hidden instead of being rendered as invented generic controls. Small,
+source-reviewed overrides cover proven upstream coordinate typos and controls
+that are deliberately constructed outside the visible panel.
+Source checkout is verified against the package's recorded commit; if the live
+Library has since advanced, the refresh fetches that historical revision rather
+than mixing a newer UI with the published WASM.
+The macOS implementation verifies the downloaded Rack archives by SHA-256 and
+uses an isolated `.build/native-module-ui/` Rack profile. Rack 2 Free 2.6.6 must
+be installed for `--abi 2`; Rack 1.1.6 and its SDK are fetched from VCV's official
+download archive. Without `--write`, tracked metadata and artwork are unchanged.
+
+`source:audit-ui` checks the complete registry population. Publication is not UI
+complete while any package lacks canonical panel artwork, any local panel has
+the wrong dimensions, or any visible parameter/input/output lacks a proven
+position or lies wholly outside the panel. Keep the detailed report under
+`.build/`; do not commit it.
 
 Each module extraction is isolated with a 60-second timeout so an unusually
 large or unsupported source file cannot block the full refresh. Override it

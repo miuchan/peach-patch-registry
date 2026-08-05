@@ -21,35 +21,68 @@
         "name": "Speed",
         "min": -7,
         "max": 7,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 30,
+          "y": 76.772,
+          "width": 36,
+          "height": 36,
+          "centered": true,
+          "widget": "rack::componentlibrary::RoundLargeBlackKnob"
+        }
       },
       {
         "id": 1,
         "name": "Speed attenuverter",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 15.236,
+          "y": 109.252,
+          "width": 17.856,
+          "height": 17.859,
+          "centered": true,
+          "widget": "Sapphire::SnapVoctAttenuverterKnob"
+        }
       },
       {
         "id": 2,
         "name": "Chaos",
         "min": 0,
         "max": 1,
-        "default": 0.5
+        "default": 0.5,
+        "position": {
+          "x": 30,
+          "y": 168.307,
+          "width": 36,
+          "height": 36,
+          "centered": true,
+          "widget": "rack::componentlibrary::RoundLargeBlackKnob"
+        }
       },
       {
         "id": 3,
         "name": "Chaos attenuverter",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 15.236,
+          "y": 200.787,
+          "width": 17.856,
+          "height": 17.859,
+          "centered": true,
+          "widget": "Sapphire::SapphireAttenuverterKnob"
+        }
       },
       {
         "id": 4,
         "name": "Param 5",
         "min": 0.5,
         "max": 16.5,
-        "default": 1
+        "default": 1,
+        "hidden": true
       },
       {
         "id": 5,
@@ -58,7 +91,15 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 49.193,
+          "y": 292.323,
+          "width": 8.858,
+          "height": 8.858,
+          "centered": true,
+          "widget": "Sapphire::Pop::SyncButton"
+        }
       },
       {
         "id": 6,
@@ -67,7 +108,15 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 10.807,
+          "y": 339.567,
+          "width": 8.858,
+          "height": 8.858,
+          "centered": true,
+          "widget": "Sapphire::Pop::PulseModeButton"
+        }
       },
       {
         "id": 7,
@@ -76,31 +125,71 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 49.193,
+          "y": 339.567,
+          "width": 8.858,
+          "height": 8.858,
+          "centered": true,
+          "widget": "Sapphire::Pop::WaitButton"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Speed CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 44.764,
+          "y": 109.252,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Sapphire::SapphirePort"
+        }
       },
       {
         "id": 1,
         "name": "Chaos CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 44.764,
+          "y": 200.787,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Sapphire::SapphirePort"
+        }
       },
       {
         "id": 2,
         "name": "Sync trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 292.323,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Sapphire::SapphirePort"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Pulse",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 30,
+          "y": 339.567,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Sapphire::SapphirePort"
+        }
       }
     ],
     "lights": 0,

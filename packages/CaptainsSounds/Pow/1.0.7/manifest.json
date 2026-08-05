@@ -11,9 +11,9 @@
     "license": "GPL-3.0-only",
     "sourceUrl": "https://github.com/mikeallisonJS/vcv-CaptainsSounds",
     "libraryUrl": "https://library.vcvrack.com/CaptainsSounds/Pow",
-    "screenshotUrl": "",
+    "screenshotUrl": "packages/CaptainsSounds/Pow/1.0.7/panel.webp",
     "wasmUrl": "packages/CaptainsSounds/Pow/1.0.7/module.wasm",
-    "width": 30.122,
+    "width": 30,
     "description": "Uni-polar and Bi-polar voltage generator and attenuator",
     "params": [
       {
@@ -21,38 +21,86 @@
         "name": "10V Uni-polar Voltage",
         "min": 0,
         "max": 10,
-        "default": 10
+        "default": 10,
+        "position": {
+          "x": 15.5,
+          "y": 67.5,
+          "width": 19,
+          "height": 19,
+          "centered": true,
+          "widget": "captainssounds::components::SmallRound909Knob"
+        }
       },
       {
         "id": 1,
         "name": "5V Bi-polar Voltage",
         "min": -5,
         "max": 5,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 15.5,
+          "y": 232.5,
+          "width": 19,
+          "height": 19,
+          "centered": true,
+          "widget": "captainssounds::components::SmallRound909Knob"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Uni",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 15.125,
+          "y": 96.125,
+          "width": 22.25,
+          "height": 22.25,
+          "centered": true,
+          "widget": "captainssounds::components::Round909Port"
+        }
       },
       {
         "id": 1,
         "name": "Bi",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 15.125,
+          "y": 261.125,
+          "width": 22.25,
+          "height": 22.25,
+          "centered": true,
+          "widget": "captainssounds::components::Round909Port"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Uni",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 15.125,
+          "y": 158.125,
+          "width": 22.25,
+          "height": 22.25,
+          "centered": true,
+          "widget": "captainssounds::components::Round909Port"
+        }
       },
       {
         "id": 1,
         "name": "Bi",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 15.125,
+          "y": 331.125,
+          "width": 22.25,
+          "height": 22.25,
+          "centered": true,
+          "widget": "captainssounds::components::Round909Port"
+        }
       }
     ],
     "lights": 3,
@@ -78,7 +126,31 @@
     "artifact": {
       "sha256": "aa561f0531966127dfd71a863b545d4ccd38fd5cfff1ab23d99d73e5caf8d3b6",
       "size": 72543
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TGreenLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 15.213,
+          "y": 48.213,
+          "width": 6.425,
+          "height": 6.425,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TGreenRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 15.213,
+          "y": 213.213,
+          "width": 6.425,
+          "height": 6.425,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/mikeallisonJS/vcv-CaptainsSounds",

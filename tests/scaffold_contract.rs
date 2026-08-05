@@ -214,11 +214,11 @@ fn library_scaffold_discovers_the_registered_rack_module_contract() {
     );
     assert_eq!(
         artifact.runtime["inputs"][0]["position"],
-        serde_json::json!({"x": 12, "y": 300})
+        serde_json::json!({"x": 12, "y": 300, "widget": "PJ301MPort"})
     );
     assert_eq!(
         artifact.runtime["outputs"][0]["position"],
-        serde_json::json!({"x": 150, "y": 330, "centered": true})
+        serde_json::json!({"x": 150, "y": 330, "centered": true, "widget": "PJ301MPort"})
     );
     assert_eq!(
         artifact.runtime["bypassRoutes"],

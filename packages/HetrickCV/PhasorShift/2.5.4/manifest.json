@@ -21,28 +21,60 @@
         "name": "Steps",
         "min": 1,
         "max": 64,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 33.199,
+          "y": 105.699,
+          "width": 31.398,
+          "height": 31.398,
+          "centered": true,
+          "widget": "HCVThemedRogan"
+        }
       },
       {
         "id": 1,
         "name": "Steps CV Depth",
         "min": -1,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 32.928,
+          "y": 156.93,
+          "width": 17.856,
+          "height": 17.859,
+          "centered": true,
+          "widget": "rack::componentlibrary::Trimpot"
+        }
       },
       {
         "id": 2,
         "name": "Phasor Shift",
         "min": -5,
         "max": 5,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 88.199,
+          "y": 105.699,
+          "width": 31.398,
+          "height": 31.398,
+          "centered": true,
+          "widget": "HCVThemedRogan"
+        }
       },
       {
         "id": 3,
         "name": "Phasor Shift CV Depth",
         "min": -1,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 87.928,
+          "y": 156.93,
+          "width": 17.856,
+          "height": 17.859,
+          "centered": true,
+          "widget": "rack::componentlibrary::Trimpot"
+        }
       },
       {
         "id": 4,
@@ -50,36 +82,83 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "hidden": true
+        "position": {
+          "x": 86.321,
+          "y": 257,
+          "width": 20.641,
+          "height": 14,
+          "centered": true,
+          "widget": "CKSSRot"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Phasor",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 32.85,
+          "y": 256.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 1,
         "name": "Steps CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 32.85,
+          "y": 209.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 2,
         "name": "Shift CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 87.85,
+          "y": 209.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Shifted Phasor",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 32.85,
+          "y": 321.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 1,
         "name": "Shifted Step Gates",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 87.85,
+          "y": 321.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       }
     ],
     "lights": 3,
@@ -98,7 +177,42 @@
     "artifact": {
       "sha256": "8561dc2e09df0fdd15dbae828e25a621b2ca43431798597172240c4720cb9f6f",
       "size": 70186
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 108.953,
+          "y": 247.953,
+          "width": 5.906,
+          "height": 5.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 18.953,
+          "y": 310.953,
+          "width": 5.906,
+          "height": 5.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 73.953,
+          "y": 310.953,
+          "width": 5.906,
+          "height": 5.906,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/mhetrick/hetrickcv",

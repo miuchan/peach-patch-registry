@@ -12,7 +12,7 @@ The root index contains:
 - `packageCount` and `totalBytes`: denormalized catalog totals.
 - `packages`: one searchable package record per `plugin/model` key.
 
-Package records contain identity (`key`, `plugin`, `model`, `name`, `brand`, `version`), provenance (`license`, `sourceUrl`, `libraryUrl`, `sourceCommit`), browser metadata (`width`, `description`, `params`, `inputs`, `outputs`, `lights`, `runtime`), relative artifact paths (`wasmUrl`, `manifestUrl`), and `artifact.sha256`/`artifact.size`.
+Package records contain identity (`key`, `plugin`, `model`, `name`, `brand`, `version`), provenance (`license`, `sourceUrl`, `libraryUrl`, `sourceCommit`), browser metadata (`width`, `description`, `params`, `inputs`, `outputs`, `lights`, `runtime`), relative artifact paths (`wasmUrl`, `manifestUrl`), and `artifact.sha256`/`artifact.size`. `screenshotUrl` is either the official HTTPS VCV Library panel or a registry-relative `panel.webp` captured by the matching native Rack runtime from the locked source. It is canonical UI data, not a browser-generated fallback.
 
 ## `manifest.json`
 

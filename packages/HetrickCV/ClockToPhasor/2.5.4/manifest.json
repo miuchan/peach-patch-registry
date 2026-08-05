@@ -21,14 +21,30 @@
         "name": "Pulses Per Cycle",
         "min": 1,
         "max": 64,
-        "default": 4
+        "default": 4,
+        "position": {
+          "x": 58.199,
+          "y": 105.699,
+          "width": 31.398,
+          "height": 31.398,
+          "centered": true,
+          "widget": "HCVThemedRogan"
+        }
       },
       {
         "id": 1,
         "name": "Pulses Per Cycle CV Depth",
         "min": -1,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 57.928,
+          "y": 156.93,
+          "width": 17.856,
+          "height": 17.859,
+          "centered": true,
+          "widget": "rack::componentlibrary::Trimpot"
+        }
       },
       {
         "id": 2,
@@ -37,36 +53,84 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 87.68,
+          "y": 232.679,
+          "width": 15.36,
+          "height": 15.358,
+          "centered": true,
+          "widget": "rack::componentlibrary::TL1105"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Pulses",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 57.85,
+          "y": 209.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 1,
         "name": "Clock",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 32.85,
+          "y": 256.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 2,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 87.85,
+          "y": 256.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Phasor",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 32.85,
+          "y": 321.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 1,
         "name": "Finished Trigger",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 87.85,
+          "y": 321.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       }
     ],
     "lights": 2,
@@ -79,7 +143,31 @@
     "artifact": {
       "sha256": "cbeefbf915b71a58aac4dfcfc6ae0279d020702ab716efc110dd990d54217893",
       "size": 74683
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 18.953,
+          "y": 310.953,
+          "width": 5.906,
+          "height": 5.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 1,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 73.953,
+          "y": 310.953,
+          "width": 5.906,
+          "height": 5.906,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/mhetrick/hetrickcv",

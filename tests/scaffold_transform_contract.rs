@@ -33,7 +33,11 @@ fn inspect_batch(requests: Value) -> Vec<Value> {
         .current_dir(root())
         .arg(root().join("scripts/inspect-scaffold.mjs"))
         .write_stdin(serde_json::to_vec(&requests).expect("requests should serialize"))
-        .timeout(Duration::from_secs(90))
+        // The complex adapter batch legitimately approaches 90 seconds on a
+        // busy six-core builder. Keep enough headroom for the default parallel
+        // Cargo test run so the parent does not close stdout while the Rust
+        // inspector is still returning its result.
+        .timeout(Duration::from_secs(180))
         .output()
         .expect("scaffold inspection batch should run");
     assert!(

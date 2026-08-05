@@ -21,14 +21,30 @@
         "name": "Reset Phase",
         "min": -5,
         "max": 5,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 45.199,
+          "y": 115.699,
+          "width": 31.398,
+          "height": 31.398,
+          "centered": true,
+          "widget": "HCVThemedRogan"
+        }
       },
       {
         "id": 1,
         "name": "Reset Phase CV Depth",
         "min": -1,
         "max": 1,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 44.928,
+          "y": 166.93,
+          "width": 17.856,
+          "height": 17.859,
+          "centered": true,
+          "widget": "rack::componentlibrary::Trimpot"
+        }
       },
       {
         "id": 2,
@@ -45,31 +61,71 @@
         "max": 1,
         "default": 0,
         "snap": true,
-        "button": true
+        "button": true,
+        "position": {
+          "x": 64.68,
+          "y": 237.679,
+          "width": 15.36,
+          "height": 15.358,
+          "centered": true,
+          "widget": "rack::componentlibrary::TL1105"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Phasor",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 24.85,
+          "y": 259.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 1,
         "name": "Reset Phase CV",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 44.85,
+          "y": 219.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       },
       {
         "id": 2,
         "name": "Reset",
-        "kind": "gate"
+        "kind": "gate",
+        "position": {
+          "x": 64.85,
+          "y": 259.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "Phasor",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 44.85,
+          "y": 311.85,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+        }
       }
     ],
     "lights": 1,
@@ -88,7 +144,20 @@
     "artifact": {
       "sha256": "aaa1fecb0826d9e85bc580a6c9a5acd91933faf2ab216371253f4d0e004d79e3",
       "size": 71053
-    }
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 30.953,
+          "y": 300.953,
+          "width": 5.906,
+          "height": 5.906,
+          "centered": true
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/mhetrick/hetrickcv",

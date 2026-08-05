@@ -98,3 +98,51 @@ fn repository_verifier_rejects_paths_outside_the_package_layout() {
     let error = verify_checkout(fixture.path()).expect_err("path drift should fail");
     assert!(error.contains("identity or package path mismatch for Fixture/Gain"));
 }
+
+#[test]
+fn repository_verifier_checks_registry_relative_panel_artwork_dimensions() {
+    let fixture = mutable_fixture("panel-artwork");
+    let index_path = fixture.path().join("index.json");
+    let manifest_path = fixture
+        .path()
+        .join("packages/Fixture/Gain/1.0.0/manifest.json");
+    let panel_path = fixture
+        .path()
+        .join("packages/Fixture/Gain/1.0.0/panel.webp");
+    let panel_url = "packages/Fixture/Gain/1.0.0/panel.webp";
+    let mut index: Value =
+        serde_json::from_slice(&fs::read(&index_path).expect("index should exist"))
+            .expect("index should be JSON");
+    let mut manifest: Value =
+        serde_json::from_slice(&fs::read(&manifest_path).expect("manifest should exist"))
+            .expect("manifest should be JSON");
+    index["packages"][0]["screenshotUrl"] = Value::String(panel_url.to_owned());
+    manifest["module"]["screenshotUrl"] = Value::String(panel_url.to_owned());
+    for (path, value) in [(&index_path, &index), (&manifest_path, &manifest)] {
+        fs::write(
+            path,
+            format!(
+                "{}\n",
+                serde_json::to_string_pretty(value).expect("JSON should serialize")
+            ),
+        )
+        .expect("JSON should be writable");
+    }
+    let mut webp = vec![0_u8; 30];
+    webp[0..4].copy_from_slice(b"RIFF");
+    webp[4..8].copy_from_slice(&22_u32.to_le_bytes());
+    webp[8..12].copy_from_slice(b"WEBP");
+    webp[12..16].copy_from_slice(b"VP8X");
+    webp[16..20].copy_from_slice(&10_u32.to_le_bytes());
+    let width_minus_one = 44_u32.to_le_bytes();
+    let height_minus_one = 379_u32.to_le_bytes();
+    webp[24..27].copy_from_slice(&width_minus_one[..3]);
+    webp[27..30].copy_from_slice(&height_minus_one[..3]);
+    fs::write(&panel_path, &webp).expect("panel should be writable");
+    verify_checkout(fixture.path()).expect("matching local panel should verify");
+
+    webp[24] = 89;
+    fs::write(&panel_path, webp).expect("panel should be writable");
+    let error = verify_checkout(fixture.path()).expect_err("wrong panel dimensions should fail");
+    assert!(error.contains("Panel artwork dimensions mismatch for Fixture/Gain"));
+}

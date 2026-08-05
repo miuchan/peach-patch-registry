@@ -344,7 +344,12 @@ function sourceAssetWidth(module, checkout, sourceByCheckout) {
   if (programmatic) return programmatic;
   const registered = registeredPanelAssets(module, source);
   const registeredWidths = [
-    ...new Set(registered.map(svgPanelWidth).filter(Number.isFinite)),
+    ...new Set(
+      registered
+        .map(svgPanelWidth)
+        .filter(Number.isFinite)
+        .map((width) => Math.max(RACK_HP_WIDTH, Math.round(width / RACK_HP_WIDTH) * RACK_HP_WIDTH)),
+    ),
   ];
   if (registeredWidths.length === 1) return registeredWidths[0];
 
@@ -354,7 +359,12 @@ function sourceAssetWidth(module, checkout, sourceByCheckout) {
       normalizedAssetName(path.basename(file, path.extname(file))) === model,
   );
   const widths = [
-    ...new Set(matches.map(svgPanelWidth).filter(Number.isFinite)),
+    ...new Set(
+      matches
+        .map(svgPanelWidth)
+        .filter(Number.isFinite)
+        .map((width) => Math.max(RACK_HP_WIDTH, Math.round(width / RACK_HP_WIDTH) * RACK_HP_WIDTH)),
+    ),
   ];
   return widths.length === 1 ? widths[0] : null;
 }
@@ -597,7 +607,7 @@ async function main() {
   if (failures.length || sourceFailures.length) process.exitCode = 2;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href)
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href)
   main().catch((error) => {
     process.stderr.write(
       `${error instanceof Error ? (error.stack ?? error.message) : String(error)}\n`,

@@ -42,6 +42,8 @@ pub struct PackageFields {
     #[serde(default)]
     pub description: String,
     pub width: f64,
+    #[serde(rename = "screenshotUrl", default)]
+    pub screenshot_url: String,
     #[serde(rename = "wasmUrl")]
     pub wasm_url: String,
     #[serde(rename = "manifestUrl")]
@@ -58,6 +60,7 @@ pub struct PackageLayout {
     pub key: String,
     pub wasm_url: String,
     pub manifest_url: String,
+    pub panel_url: String,
 }
 
 pub fn package_layout(plugin: &str, model: &str, version: &str) -> Result<PackageLayout, String> {
@@ -76,6 +79,7 @@ pub fn package_layout(plugin: &str, model: &str, version: &str) -> Result<Packag
         key: format!("{plugin}/{model}"),
         wasm_url: format!("packages/{plugin}/{model}/{version}/module.wasm"),
         manifest_url: format!("packages/{plugin}/{model}/{version}/manifest.json"),
+        panel_url: format!("packages/{plugin}/{model}/{version}/panel.webp"),
     })
 }
 
@@ -91,6 +95,9 @@ pub fn package_fields(item: &Value) -> Result<PackageFields, String> {
             .manifest_url
             .as_deref()
             .is_some_and(|value| value != layout.manifest_url)
+        || (!fields.screenshot_url.is_empty()
+            && !fields.screenshot_url.starts_with("https://")
+            && fields.screenshot_url != layout.panel_url)
     {
         return Err(format!(
             "Invalid package record: identity or package path mismatch for {}",

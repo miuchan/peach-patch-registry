@@ -88,6 +88,53 @@ fn verify_manifest(
     Ok(())
 }
 
+fn webp_dimensions(bytes: &[u8]) -> Option<(u32, u32)> {
+    if bytes.len() < 20 || &bytes[0..4] != b"RIFF" || &bytes[8..12] != b"WEBP" {
+        return None;
+    }
+    let mut offset = 12_usize;
+    while offset.checked_add(8)? <= bytes.len() {
+        let chunk = &bytes[offset..offset + 4];
+        let length = u32::from_le_bytes(bytes[offset + 4..offset + 8].try_into().ok()?) as usize;
+        let payload = offset.checked_add(8)?;
+        if payload.checked_add(length)? > bytes.len() {
+            return None;
+        }
+        if chunk == b"VP8X" && length >= 10 {
+            let width = 1 + u32::from_le_bytes([
+                bytes[payload + 4],
+                bytes[payload + 5],
+                bytes[payload + 6],
+                0,
+            ]);
+            let height = 1 + u32::from_le_bytes([
+                bytes[payload + 7],
+                bytes[payload + 8],
+                bytes[payload + 9],
+                0,
+            ]);
+            return Some((width, height));
+        }
+        if chunk == b"VP8L" && length >= 5 && bytes[payload] == 0x2f {
+            let bits = u32::from_le_bytes([
+                bytes[payload + 1],
+                bytes[payload + 2],
+                bytes[payload + 3],
+                bytes[payload + 4],
+            ]);
+            return Some(((bits & 0x3fff) + 1, ((bits >> 14) & 0x3fff) + 1));
+        }
+        if chunk == b"VP8 " && length >= 10 && bytes[payload + 3..payload + 6] == [0x9d, 0x01, 0x2a]
+        {
+            let width = u16::from_le_bytes([bytes[payload + 6], bytes[payload + 7]]) & 0x3fff;
+            let height = u16::from_le_bytes([bytes[payload + 8], bytes[payload + 9]]) & 0x3fff;
+            return Some((u32::from(width), u32::from(height)));
+        }
+        offset = payload.checked_add(length)?.checked_add(length & 1)?;
+    }
+    None
+}
+
 pub fn verify_checkout(root: &Path) -> Result<VerificationReport, String> {
     let root = fs::canonicalize(root)
         .map_err(|error| format!("Cannot resolve repository root {}: {error}", root.display()))?;
@@ -130,6 +177,19 @@ pub fn verify_checkout(root: &Path) -> Result<VerificationReport, String> {
 
         let manifest_path = repository_path(&root, manifest_url, "manifest")?;
         verify_manifest(&manifest_path, read_json(&manifest_path)?, &fields, item)?;
+        if !fields.screenshot_url.is_empty() && !fields.screenshot_url.starts_with("https://") {
+            let panel_path = repository_path(&root, &fields.screenshot_url, "panel artwork")?;
+            let panel = fs::read(&panel_path)
+                .map_err(|error| format!("Cannot read {}: {error}", panel_path.display()))?;
+            let dimensions = webp_dimensions(&panel)
+                .ok_or_else(|| format!("Invalid panel artwork for {}", fields.key))?;
+            if dimensions.1 != 380 || (f64::from(dimensions.0) - fields.width).abs() > 0.001 {
+                return Err(format!(
+                    "Panel artwork dimensions mismatch for {}",
+                    fields.key
+                ));
+            }
+        }
         total_bytes = total_bytes
             .checked_add(fields.artifact.size)
             .ok_or_else(|| "Registry byte total overflow".to_owned())?;

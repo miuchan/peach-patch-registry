@@ -22,7 +22,15 @@
         "min": 0,
         "max": 4,
         "default": 1,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 24,
+          "y": 72,
+          "width": 24,
+          "height": 24,
+          "centered": true,
+          "widget": "Venom::WaveFolderWidget::StagesSwitch"
+        }
       },
       {
         "id": 1,
@@ -30,66 +38,146 @@
         "min": 0,
         "max": 5,
         "default": 2,
-        "snap": true
+        "snap": true,
+        "position": {
+          "x": 66,
+          "y": 72,
+          "width": 24,
+          "height": 24,
+          "centered": true,
+          "widget": "Venom::WaveFolderWidget::OverSwitch"
+        }
       },
       {
         "id": 2,
         "name": "Pre-amp",
         "min": 0,
         "max": 10,
-        "default": 1
+        "default": 1,
+        "position": {
+          "x": 19,
+          "y": 132,
+          "width": 28.348,
+          "height": 28.348,
+          "centered": true,
+          "widget": "Venom::RoundBlackKnobLockable"
+        }
       },
       {
         "id": 3,
         "name": "Stage amp",
         "min": -0.30103,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 71,
+          "y": 132,
+          "width": 28.348,
+          "height": 28.348,
+          "centered": true,
+          "widget": "Venom::RoundBlackKnobLockable"
+        }
       },
       {
         "id": 4,
         "name": "Bias",
         "min": -5,
         "max": 5,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 166,
+          "width": 28.348,
+          "height": 28.348,
+          "centered": true,
+          "widget": "Venom::RoundBlackKnobLockable"
+        }
       },
       {
         "id": 5,
         "name": "Pre-amp CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 19,
+          "y": 198,
+          "width": 22.676,
+          "height": 22.676,
+          "centered": true,
+          "widget": "Venom::RoundSmallBlackKnobLockable"
+        }
       },
       {
         "id": 6,
         "name": "Stage amp CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 71,
+          "y": 198,
+          "width": 22.676,
+          "height": 22.676,
+          "centered": true,
+          "widget": "Venom::RoundSmallBlackKnobLockable"
+        }
       },
       {
         "id": 7,
         "name": "Bias CV amount",
         "min": -1,
         "max": 1,
-        "default": 0
+        "default": 0,
+        "position": {
+          "x": 45,
+          "y": 228,
+          "width": 22.676,
+          "height": 22.676,
+          "centered": true,
+          "widget": "Venom::RoundSmallBlackKnobLockable"
+        }
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Pre-amp CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 19,
+          "y": 257.5,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Venom::WaveFolderWidget::CVPort"
+        }
       },
       {
         "id": 1,
         "name": "Stage amp CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 71,
+          "y": 257.5,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Venom::WaveFolderWidget::CVPort"
+        }
       },
       {
         "id": 2,
         "name": "Bias CV",
-        "kind": "cv"
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 287.5,
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Venom::WaveFolderWidget::CVPort"
+        }
       },
       {
         "id": 3,
@@ -98,7 +186,10 @@
         "position": {
           "x": 24,
           "y": 335.5,
-          "centered": true
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Venom::PolyPort"
         }
       }
     ],
@@ -110,7 +201,10 @@
         "position": {
           "x": 66,
           "y": 335.5,
-          "centered": true
+          "width": 23.7,
+          "height": 23.7,
+          "centered": true,
+          "widget": "Venom::PolyPort"
         }
       }
     ],
@@ -156,46 +250,56 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "SmallLight<YellowLight>",
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TYellowLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
         "position": {
           "x": 5.5,
           "y": 246,
-          "centered": true
-        }
-      },
-      {
-        "id": 2,
-        "widget": "SmallLight<YellowRedLight<>>",
-        "position": {
-          "x": 32.5,
-          "y": 246,
+          "width": 5.906,
+          "height": 5.906,
           "centered": true
         }
       },
       {
         "id": 1,
-        "widget": "SmallLight<YellowLight>",
+        "widget": "rack::componentlibrary::SmallLight<rack::componentlibrary::TYellowLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
         "position": {
           "x": 57.5,
           "y": 246,
+          "width": 5.906,
+          "height": 5.906,
+          "centered": true
+        }
+      },
+      {
+        "id": 2,
+        "widget": "rack::componentlibrary::SmallLight<Venom::YellowRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "position": {
+          "x": 32.5,
+          "y": 246,
+          "width": 5.906,
+          "height": 5.906,
           "centered": true
         }
       },
       {
         "id": 4,
-        "widget": "SmallLight<YellowRedLight<>>",
+        "widget": "rack::componentlibrary::SmallLight<Venom::YellowRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
         "position": {
           "x": 84.5,
           "y": 246,
+          "width": 5.906,
+          "height": 5.906,
           "centered": true
         }
       },
       {
         "id": 6,
-        "widget": "SmallLight<YellowRedLight<>>",
+        "widget": "rack::componentlibrary::SmallLight<Venom::YellowRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
         "position": {
           "x": 58.5,
           "y": 276,
+          "width": 5.906,
+          "height": 5.906,
           "centered": true
         }
       }
