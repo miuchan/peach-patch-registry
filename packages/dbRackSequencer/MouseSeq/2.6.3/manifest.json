@@ -60,6 +60,7 @@
         "min": -4,
         "max": 4,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 295.276,
           "y": 318.898,
@@ -72,6 +73,7 @@
         "min": 0,
         "max": 11,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 324.803,
           "y": 318.898,
@@ -113,7 +115,7 @@
         "button": true,
         "position": {
           "x": 360.236,
-          "y": 147.638,
+          "y": 177.165,
           "widget": "SmallButtonWithLabel"
         }
       }
@@ -121,92 +123,132 @@
     "inputs": [
       {
         "id": 0,
-        "name": "Clock",
+        "name": "Clock 1",
         "kind": "gate",
         "position": {
           "x": 236.22,
-          "y": 67.913
+          "y": 67.913,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 1,
-        "name": "Semitone Offset",
-        "kind": "cv",
+        "name": "Clock 2",
+        "kind": "gate",
         "position": {
-          "x": 324.803,
-          "y": 342.52
+          "x": 265.748,
+          "y": 67.913,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 2,
-        "name": "Octave",
-        "kind": "cv",
+        "name": "Clock 3",
+        "kind": "gate",
         "position": {
           "x": 295.276,
-          "y": 342.52
+          "y": 67.913,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 3,
-        "name": "X",
-        "kind": "cv",
+        "name": "Clock 4",
+        "kind": "gate",
         "position": {
           "x": 324.803,
-          "y": 277.559
+          "y": 67.913,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 4,
-        "name": "Y",
+        "name": "Semitone Offset",
         "kind": "cv",
         "position": {
-          "x": 295.276,
-          "y": 277.559
+          "x": 324.803,
+          "y": 342.52,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 5,
-        "name": "Gate",
-        "kind": "gate",
+        "name": "Octave",
+        "kind": "cv",
         "position": {
-          "x": 265.748,
-          "y": 277.559
+          "x": 295.276,
+          "y": 342.52,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 6,
-        "name": "Play",
+        "name": "X",
         "kind": "cv",
         "position": {
-          "x": 259.843,
-          "y": 318.898
+          "x": 324.803,
+          "y": 277.559,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 7,
-        "name": "Scale select",
+        "name": "Y",
         "kind": "cv",
         "position": {
-          "x": 357.283,
-          "y": 109.252
+          "x": 295.276,
+          "y": 277.559,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 8,
-        "name": "Clock Select",
+        "name": "Gate",
         "kind": "gate",
         "position": {
-          "x": 357.283,
-          "y": 50.197
+          "x": 265.748,
+          "y": 277.559,
+          "widget": "SmallPort"
         }
       },
       {
         "id": 9,
+        "name": "Play",
+        "kind": "cv",
+        "position": {
+          "x": 259.843,
+          "y": 318.898,
+          "widget": "SmallPort"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Scale select",
+        "kind": "cv",
+        "position": {
+          "x": 357.283,
+          "y": 109.252,
+          "widget": "SmallPort"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Clock Select",
+        "kind": "gate",
+        "position": {
+          "x": 357.283,
+          "y": 50.197,
+          "widget": "SmallPort"
+        }
+      },
+      {
+        "id": 12,
         "name": "Pattern Selection",
         "kind": "cv",
         "position": {
           "x": 361.417,
-          "y": 147.638
+          "y": 188.976,
+          "widget": "SmallPort"
         }
       }
     ],
@@ -217,7 +259,8 @@
         "kind": "cv",
         "position": {
           "x": 360.236,
-          "y": 236.22
+          "y": 342.52,
+          "widget": "SmallPort"
         }
       },
       {
@@ -226,7 +269,8 @@
         "kind": "cv",
         "position": {
           "x": 360.236,
-          "y": 236.22
+          "y": 236.22,
+          "widget": "SmallPort"
         }
       },
       {
@@ -235,7 +279,8 @@
         "kind": "gate",
         "position": {
           "x": 360.236,
-          "y": 236.22
+          "y": 307.087,
+          "widget": "SmallPort"
         }
       },
       {
@@ -244,20 +289,32 @@
         "kind": "gate",
         "position": {
           "x": 360.236,
-          "y": 236.22
+          "y": 271.654,
+          "widget": "SmallPort"
         }
       }
     ],
     "lights": 0,
     "runtime": {
+      "visuals": [
+        {
+          "kind": "mouse-seq-grid",
+          "actionBase": 1000,
+          "hotkeyBase": 100000,
+          "x": 11.811,
+          "y": 11.811,
+          "width": 206.693,
+          "height": 354.331
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/dbRackSequencer/MouseSeq/2.6.3/manifest.json",
     "sourceCommit": "a2eb63edb6011a549871f8502e27d811a0ae92f5",
     "artifact": {
-      "sha256": "996715bb66231b16bc339a4f18c0d5531b56eb68161d0d21fbfce8641855cbbf",
-      "size": 78643
+      "sha256": "0a505b967e07315dcba46b8742f5d1b55809155a3fdeccf963dfc19791fedf34",
+      "size": 86104
     }
   },
   "source": {
@@ -266,7 +323,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:06:22.965Z"
+    "fingerprint": "e9e21799ed8c2057",
+    "builtAt": "2026-08-06T04:10:42.295Z"
   }
 }

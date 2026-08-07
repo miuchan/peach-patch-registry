@@ -745,6 +745,9 @@ fn string_expression(
 }
 
 pub(crate) fn evaluate_static_string(value: &str) -> Option<String> {
+    if let Ok(literal) = serde_json::from_str::<String>(value.trim()) {
+        return (literal.len() <= 65_536).then_some(literal);
+    }
     string_expression(value, &BTreeMap::new(), &BTreeMap::new())
 }
 

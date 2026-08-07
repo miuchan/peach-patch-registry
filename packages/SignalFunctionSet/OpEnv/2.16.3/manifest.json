@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/OpEnv",
+    "plugin": "SignalFunctionSet",
+    "model": "OpEnv",
+    "name": "OP ENV",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/OpEnv",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/OpEnv.webp",
+    "wasmUrl": "packages/SignalFunctionSet/OpEnv/2.16.3/module.wasm",
+    "width": 300,
+    "description": "Standalone DX7 operator envelope. Pick a voice from a DX7 .syx bank to load its carrier envelope, offset each of the eight EG attributes (rates and levels) via trimpot or CV, fire it with a gate, and get a 0-10V envelope.",
+    "params": [
+      {
+        "default": 0,
+        "id": 0,
+        "max": 31,
+        "min": 0,
+        "name": "Voice",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 270,
+          "y": 165
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 1,
+        "max": 15,
+        "min": 0,
+        "name": "Bank",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 270,
+          "y": 270
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 2,
+        "max": 99,
+        "min": -99,
+        "name": "Rate 1 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 75,
+          "y": 240
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 3,
+        "max": 99,
+        "min": -99,
+        "name": "Rate 2 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 120,
+          "y": 240
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 4,
+        "max": 99,
+        "min": -99,
+        "name": "Rate 3 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 165,
+          "y": 240
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 5,
+        "max": 99,
+        "min": -99,
+        "name": "Rate 4 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 210,
+          "y": 240
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 6,
+        "max": 99,
+        "min": -99,
+        "name": "Level 1 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 75,
+          "y": 165
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 7,
+        "max": 99,
+        "min": -99,
+        "name": "Level 2 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 120,
+          "y": 165
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 8,
+        "max": 99,
+        "min": -99,
+        "name": "Level 3 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 165,
+          "y": 165
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 9,
+        "max": 99,
+        "min": -99,
+        "name": "Level 4 offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 210,
+          "y": 165
+        },
+        "snap": true
+      },
+      {
+        "default": 100,
+        "id": 10,
+        "max": 100,
+        "min": 0,
+        "name": "Output level",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 210,
+          "y": 315
+        }
+      },
+      {
+        "default": 0,
+        "id": 11,
+        "max": 99,
+        "min": -99,
+        "name": "LFO rate offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 75,
+          "y": 315
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 12,
+        "max": 99,
+        "min": -99,
+        "name": "LFO delay offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 165,
+          "y": 360
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 13,
+        "max": 99,
+        "min": -99,
+        "name": "LFO depth offset (AM)",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 120,
+          "y": 315
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 14,
+        "max": 3,
+        "min": -3,
+        "name": "AM sensitivity offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 165,
+          "y": 315
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "kind": "gate",
+        "name": "Gate",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 360
+        }
+      },
+      {
+        "id": 1,
+        "kind": "cv",
+        "name": "Voice select CV (0-10V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 270,
+          "y": 195
+        }
+      },
+      {
+        "id": 2,
+        "kind": "cv",
+        "name": "Bank select CV (1V/bank)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 270,
+          "y": 240
+        }
+      },
+      {
+        "id": 3,
+        "kind": "cv",
+        "name": "Rate 1 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 75,
+          "y": 270
+        }
+      },
+      {
+        "id": 4,
+        "kind": "cv",
+        "name": "Rate 2 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 120,
+          "y": 270
+        }
+      },
+      {
+        "id": 5,
+        "kind": "cv",
+        "name": "Rate 3 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 270
+        }
+      },
+      {
+        "id": 6,
+        "kind": "cv",
+        "name": "Rate 4 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 210,
+          "y": 270
+        }
+      },
+      {
+        "id": 7,
+        "kind": "cv",
+        "name": "Level 1 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 75,
+          "y": 195
+        }
+      },
+      {
+        "id": 8,
+        "kind": "cv",
+        "name": "Level 2 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 120,
+          "y": 195
+        }
+      },
+      {
+        "id": 9,
+        "kind": "cv",
+        "name": "Level 3 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 195
+        }
+      },
+      {
+        "id": 10,
+        "kind": "cv",
+        "name": "Level 4 CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 210,
+          "y": 195
+        }
+      },
+      {
+        "id": 11,
+        "kind": "cv",
+        "name": "V/oct (rate scaling — faster envelope on higher notes)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 315
+        }
+      },
+      {
+        "id": 12,
+        "kind": "cv",
+        "name": "Output level CV (0-10V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 210,
+          "y": 360
+        }
+      },
+      {
+        "id": 13,
+        "kind": "cv",
+        "name": "LFO rate CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 75,
+          "y": 360
+        }
+      },
+      {
+        "id": 14,
+        "kind": "cv",
+        "name": "LFO depth CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 120,
+          "y": 360
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "kind": "cv",
+        "name": "Envelope (0-10V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 270,
+          "y": 360
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 88.583,
+          "kind": "signal-function-set",
+          "model": "OpEnv",
+          "width": 274.606,
+          "x": 12.5,
+          "y": 36.407
+        }
+      ]
+    },
+    "manifestUrl": "packages/SignalFunctionSet/OpEnv/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "31f003b8040c6e344ac45271520b91d98c1b36fc0e599cfdda65a346f5460dab",
+      "size": 102192
+    },
+    "stateKeys": [
+      {
+        "key": "curBank",
+        "type": "integer"
+      },
+      {
+        "key": "lfoWave",
+        "type": "integer"
+      },
+      {
+        "key": "releaseToZero",
+        "type": "boolean"
+      },
+      {
+        "key": "banks",
+        "path": [
+          0,
+          "voiceCount"
+        ],
+        "type": "integer"
+      },
+      {
+        "key": "banks",
+        "path": [
+          1,
+          "voiceCount"
+        ],
+        "type": "integer"
+      },
+      {
+        "key": "banks",
+        "path": [
+          2,
+          "voiceCount"
+        ],
+        "type": "integer"
+      },
+      {
+        "key": "banks",
+        "path": [
+          3,
+          "voiceCount"
+        ],
+        "type": "integer"
+      }
+    ]
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "builtAt": "2026-08-06T00:20:59.271Z"
+  }
+}

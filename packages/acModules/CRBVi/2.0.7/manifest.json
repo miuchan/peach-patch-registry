@@ -22,6 +22,7 @@
         "min": -5,
         "max": 4,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 59.096,
           "y": 321.112,
@@ -35,6 +36,7 @@
         "min": 1,
         "max": 3,
         "default": 1,
+        "snap": true,
         "position": {
           "x": 130.237,
           "y": 321.112,
@@ -48,6 +50,7 @@
         "min": 0,
         "max": 4,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 255.283,
           "y": 321.112,
@@ -79,7 +82,8 @@
         "position": {
           "x": 328.857,
           "y": 350.705,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       }
     ],
@@ -91,7 +95,8 @@
         "position": {
           "x": 328.857,
           "y": 310.078,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -101,7 +106,8 @@
         "position": {
           "x": 372.608,
           "y": 310.078,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -111,7 +117,8 @@
         "position": {
           "x": 414.794,
           "y": 310.078,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -121,7 +128,8 @@
         "position": {
           "x": 372.608,
           "y": 350.705,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -131,7 +139,8 @@
         "position": {
           "x": 414.794,
           "y": 350.705,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       }
     ],
@@ -149,15 +158,69 @@
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "touch-ribbon",
+          "actionBase": 1000,
+          "actionSteps": 256,
+          "octavesParam": 1,
+          "showGuidesState": 1,
+          "guideTypeState": 3,
+          "x": 21.26,
+          "y": 44.291,
+          "width": 407.48,
+          "height": 236.22
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/acModules/CRBVi/2.0.7/manifest.json",
     "sourceCommit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf",
     "artifact": {
-      "sha256": "0aa7a3c851b72b2351505bd5728b878d417dcd174936fce531b06322c7e2ad34",
-      "size": 78829
-    }
+      "sha256": "561b128060c49890c3695fa71a77c827a0275294fb2d7a4e76706e9b72a38fe5",
+      "size": 84252
+    },
+    "stateKeys": [
+      {
+        "key": "isSnapped",
+        "type": "boolean",
+        "name": "Snap To Notes",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "showKeys",
+        "type": "boolean",
+        "name": "Show Guides",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "yAxisRangeMode",
+        "type": "integer",
+        "name": "Y-Axis Range (Non-VCA)",
+        "default": 0,
+        "values": [
+          "0V to 10V (Default)",
+          "0V to 5V",
+          "-5V to 5V"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "guideType",
+        "type": "integer",
+        "name": "Guide Type",
+        "default": 0,
+        "values": [
+          "Semitones",
+          "Quartertones",
+          "Octaves"
+        ],
+        "contextOnly": true
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/gwygonik/acModules",
@@ -165,7 +228,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T20:57:44.897Z"
+    "fingerprint": "d71ad8ea9d7150c5",
+    "builtAt": "2026-08-06T03:31:34.294Z"
   }
 }

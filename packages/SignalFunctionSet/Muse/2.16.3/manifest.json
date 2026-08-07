@@ -17,343 +17,368 @@
     "description": "Faithful Triadex Muse port. Four Theme and four Interval sliders each tap one of 40 sources (counters plus a 31-bit XNOR shift register) — Theme bits feed the register, Interval bits address a diatonic scale. External clock, V/oct + gate out, randomize, and selectable scale.",
     "params": [
       {
+        "default": 0,
         "id": 0,
+        "max": 39,
+        "min": 0,
         "name": "Theme 1 tap",
-        "min": 0,
-        "max": 39,
-        "default": 0,
         "position": {
+          "centered": true,
+          "widget": "MuseSlider",
           "x": 165,
-          "y": 172.479,
-          "centered": true,
-          "widget": "MuseSlider"
-        }
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 1,
+        "max": 39,
+        "min": 0,
         "name": "Theme 2 tap",
-        "min": 0,
-        "max": 39,
-        "default": 0,
         "position": {
+          "centered": true,
+          "widget": "MuseSlider",
           "x": 195,
-          "y": 172.479,
-          "centered": true,
-          "widget": "MuseSlider"
-        }
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 2,
+        "max": 39,
+        "min": 0,
         "name": "Theme 3 tap",
-        "min": 0,
-        "max": 39,
-        "default": 0,
         "position": {
+          "centered": true,
+          "widget": "MuseSlider",
           "x": 225,
-          "y": 172.479,
-          "centered": true,
-          "widget": "MuseSlider"
-        }
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 3,
+        "max": 39,
+        "min": 0,
         "name": "Theme 4 tap",
-        "min": 0,
-        "max": 39,
-        "default": 0,
         "position": {
+          "centered": true,
+          "widget": "MuseSlider",
           "x": 255,
-          "y": 172.479,
-          "centered": true,
-          "widget": "MuseSlider"
-        }
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 4,
-        "name": "Interval Param 0 +  0",
-        "min": 0,
         "max": 39,
-        "default": 0,
+        "min": 0,
+        "name": "Interval 1 tap",
         "position": {
+          "centered": true,
+          "widget": "MuseSlider",
           "x": 30,
-          "y": 172.479,
-          "centered": true,
-          "widget": "MuseSlider"
-        }
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 5,
-        "name": "Interval Param 0 +  1",
-        "min": 0,
         "max": 39,
-        "default": 0,
+        "min": 0,
+        "name": "Interval 2 tap",
         "position": {
-          "x": 60,
-          "y": 172.479,
           "centered": true,
-          "widget": "MuseSlider"
-        }
+          "widget": "MuseSlider",
+          "x": 60,
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 6,
-        "name": "Interval Param 0 +  2",
-        "min": 0,
         "max": 39,
-        "default": 0,
+        "min": 0,
+        "name": "Interval 3 tap",
         "position": {
+          "centered": true,
+          "widget": "MuseSlider",
           "x": 90,
-          "y": 172.479,
-          "centered": true,
-          "widget": "MuseSlider"
-        }
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 7,
-        "name": "Interval Param 0 +  3",
-        "min": 0,
         "max": 39,
-        "default": 0,
+        "min": 0,
+        "name": "Interval 4 tap",
         "position": {
-          "x": 120,
-          "y": 172.479,
           "centered": true,
-          "widget": "MuseSlider"
-        }
+          "widget": "MuseSlider",
+          "x": 120,
+          "y": 172.479
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 8,
-        "name": "Root",
-        "min": -24,
         "max": 24,
-        "default": 0,
+        "min": -24,
+        "name": "Root",
         "position": {
+          "centered": true,
+          "widget": "Trimpot",
           "x": 180,
-          "y": 360.03,
-          "centered": true,
-          "widget": "Trimpot"
-        }
+          "y": 360.03
+        },
+        "snap": true
       },
       {
+        "button": true,
+        "default": 0,
         "id": 9,
+        "max": 1,
+        "min": 0,
         "name": "Run / Stop",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
-        "button": true,
         "position": {
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
           "x": 60,
-          "y": 360.03,
-          "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "y": 360.03
+        },
+        "snap": true
       },
       {
+        "button": true,
+        "default": 0,
         "id": 10,
+        "max": 1,
+        "min": 0,
         "name": "Reset",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
-        "button": true,
         "position": {
+          "centered": true,
+          "widget": "VCVButton",
           "x": 240,
-          "y": 360.03,
-          "centered": true,
-          "widget": "VCVButton"
-        }
+          "y": 360.03
+        },
+        "snap": true
       },
       {
-        "id": 11,
-        "name": "Randomize sliders",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
         "button": true,
+        "default": 0,
+        "id": 11,
+        "max": 1,
+        "min": 0,
+        "name": "Randomize sliders",
         "position": {
-          "x": 300,
-          "y": 360.03,
           "centered": true,
-          "widget": "VCVButton"
-        }
+          "widget": "VCVButton",
+          "x": 300,
+          "y": 360.03
+        },
+        "snap": true
       },
       {
-        "id": 12,
-        "name": "Scale",
-        "min": 0,
-        "max": 18,
         "default": 0,
-        "snap": true,
+        "id": 12,
+        "max": 18,
+        "min": 0,
+        "name": "Scale",
         "position": {
-          "x": 120,
-          "y": 360.03,
           "centered": true,
-          "widget": "Trimpot"
-        }
+          "widget": "Trimpot",
+          "x": 120,
+          "y": 360.03
+        },
+        "snap": true
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Clock",
         "kind": "gate",
+        "name": "Clock",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       },
       {
         "id": 1,
-        "name": "Reset trigger",
         "kind": "gate",
+        "name": "Reset trigger",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 270,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       },
       {
         "id": 2,
-        "name": "Run gate",
         "kind": "gate",
+        "name": "Run gate",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       },
       {
         "id": 3,
-        "name": "Randomize trigger",
         "kind": "gate",
+        "name": "Randomize trigger",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       },
       {
         "id": 4,
-        "name": "INTERVAL_CV_0 + 0",
         "kind": "cv",
+        "name": "INTERVAL_CV_0 + 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 5,
-        "name": "INTERVAL_CV_0 + 1",
         "kind": "cv",
+        "name": "INTERVAL_CV_0 + 1",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 6,
-        "name": "INTERVAL_CV_0 + 2",
         "kind": "cv",
+        "name": "INTERVAL_CV_0 + 2",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 7,
-        "name": "INTERVAL_CV_0 + 3",
         "kind": "cv",
+        "name": "INTERVAL_CV_0 + 3",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 120,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 8,
-        "name": "Theme 1 CV",
         "kind": "cv",
+        "name": "Theme 1 CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 165,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 9,
-        "name": "Theme 2 CV",
         "kind": "cv",
+        "name": "Theme 2 CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 195,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 10,
-        "name": "Theme 3 CV",
         "kind": "cv",
+        "name": "Theme 3 CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 225,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 11,
-        "name": "Theme 4 CV",
         "kind": "cv",
+        "name": "Theme 4 CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 255,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 12,
-        "name": "Root CV (1V/oct)",
         "kind": "cv",
+        "name": "Root CV (1V/oct)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 210,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       },
       {
         "id": 13,
-        "name": "Scale CV",
         "kind": "cv",
+        "name": "Scale CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Pitch (V/oct)",
         "kind": "cv",
+        "name": "Pitch (V/oct)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 390,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       },
       {
         "id": 1,
-        "name": "Gate",
         "kind": "gate",
+        "name": "Gate",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 420,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         }
       }
     ],
@@ -361,13 +386,13 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 9,
         "position": {
+          "centered": true,
           "x": 60,
-          "y": 360.03,
-          "centered": true
+          "y": 360.03
         },
-        "paramId": 9
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       }
     ],
     "stateKeys": [
@@ -409,27 +434,49 @@
       }
     ],
     "runtime": {
-      "expanderMode": "message-buffer",
       "expander": {
-        "transport": "message-buffer",
-        "direction": "both",
         "capacity": 16384,
+        "direction": "both",
         "models": [
           {
+            "index": 0,
             "key": "SignalFunctionSet/Muse",
-            "symbol": "modelMuse",
-            "index": 0
+            "symbol": "modelMuse"
           }
-        ]
+        ],
+        "transport": "message-buffer"
       },
+      "expanderMode": "message-buffer",
       "initialMemory": 4194304,
-      "strategy": "direct-rack-source-adapter"
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 206.693,
+          "kind": "signal-function-set",
+          "model": "Muse",
+          "width": 159.449,
+          "x": 274.99,
+          "y": 45.502
+        },
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 41.339,
+          "kind": "signal-function-set",
+          "model": "MuseScope",
+          "width": 159.449,
+          "x": 274.99,
+          "y": 258.1
+        }
+      ]
     },
     "manifestUrl": "packages/SignalFunctionSet/Muse/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "6a76b4fea6d43b619cce3e13095ff79e6f703260f37dcc07608606e68bb1e1c4",
-      "size": 85786
+      "sha256": "77eaec240f61876a8e0bad4fa47e748ec6c2c084bb93a6e6fe1ad59101c4a551",
+      "size": 92253
     }
   },
   "source": {
@@ -438,7 +485,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:11:57.836Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

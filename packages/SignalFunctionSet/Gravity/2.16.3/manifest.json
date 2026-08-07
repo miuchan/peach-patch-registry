@@ -17,329 +17,221 @@
     "description": "Gravity-driven chaos engine with six visual modes: double pendulum, orbiting gravity well, elastic billiards, a Pac-Man-style maze, a LOGO turtle, and a spirograph/rose pattern generator. All modes share bipolar X/Y, radius and angle CVs, six sector-distance CVs, and six boundary-ray gates. Speed, chaos, and a mode-dependent gravity control; drag the display to throw or aim.",
     "params": [
       {
-        "id": 0,
-        "name": "Speed",
-        "min": 0,
-        "max": 1,
         "default": 0.4000000059604645,
+        "id": 0,
+        "max": 1,
+        "min": 0,
+        "name": "Speed",
         "position": {
-          "x": 30,
-          "y": 330,
-          "width": 17.856,
-          "height": 17.859,
           "centered": true,
-          "widget": "rack::componentlibrary::Trimpot"
+          "widget": "Trimpot",
+          "x": 30,
+          "y": 330
         }
       },
       {
-        "id": 1,
-        "name": "Chaos",
-        "min": 0,
-        "max": 1,
         "default": 0.6000000238418579,
-        "position": {
-          "x": 30,
-          "y": 255,
-          "width": 17.856,
-          "height": 17.859,
-          "centered": true,
-          "widget": "rack::componentlibrary::Trimpot"
-        }
-      },
-      {
-        "id": 2,
-        "name": "Gravity direction",
-        "min": -1,
+        "id": 1,
         "max": 1,
-        "default": 0,
+        "min": 0,
+        "name": "Chaos",
         "position": {
-          "x": 30,
-          "y": 180,
-          "width": 17.856,
-          "height": 17.859,
           "centered": true,
-          "widget": "rack::componentlibrary::Trimpot"
+          "widget": "Trimpot",
+          "x": 30,
+          "y": 255
         }
       },
       {
-        "id": 3,
-        "name": "Mode",
-        "min": 0,
-        "max": 5,
         "default": 0,
-        "snap": true,
+        "id": 2,
+        "max": 1,
+        "min": -1,
+        "name": "Gravity direction",
         "position": {
-          "x": 30,
-          "y": 104.97,
-          "width": 17.856,
-          "height": 17.859,
           "centered": true,
-          "widget": "rack::componentlibrary::Trimpot"
+          "widget": "Trimpot",
+          "x": 30,
+          "y": 180
         }
+      },
+      {
+        "default": 0,
+        "id": 3,
+        "max": 5,
+        "min": 0,
+        "name": "Mode",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 30,
+          "y": 104.97
+        },
+        "snap": true
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Speed CV",
         "kind": "cv",
+        "name": "Speed CV",
         "position": {
-          "x": 30,
-          "y": 360.03,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 360.03
         }
       },
       {
         "id": 1,
-        "name": "Chaos CV",
         "kind": "cv",
+        "name": "Chaos CV",
         "position": {
-          "x": 30,
-          "y": 285,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 285
         }
       },
       {
         "id": 2,
-        "name": "Gravity direction CV",
         "kind": "cv",
+        "name": "Gravity direction CV",
         "position": {
-          "x": 30,
-          "y": 210,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 210
         }
       },
       {
         "id": 3,
-        "name": "Mode CV (0-10V -> 4 modes)",
         "kind": "cv",
+        "name": "Mode CV (0-10V -> 4 modes)",
         "position": {
-          "x": 30,
-          "y": 135,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 135
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Tip X",
         "kind": "cv",
+        "name": "Tip X",
         "position": {
-          "x": 375,
-          "y": 314.97,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort",
+          "x": 375,
+          "y": 314.97
         }
       },
       {
         "id": 1,
-        "name": "Tip Y",
         "kind": "cv",
+        "name": "Tip Y",
         "position": {
-          "x": 420,
-          "y": 314.97,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort",
+          "x": 420,
+          "y": 314.97
         }
       },
       {
         "id": 2,
-        "name": "Radius (folded -5V .. +5V extended)",
         "kind": "cv",
+        "name": "Radius (folded -5V .. +5V extended)",
         "position": {
-          "x": 420,
-          "y": 360.03,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort",
+          "x": 420,
+          "y": 360.03
         }
       },
       {
         "id": 3,
+        "kind": "cv",
         "name": "Angle from gravity (±180° -> ±5V)",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 375,
-          "y": 360.03,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "y": 360.03
         }
       },
       {
+        "hidden": true,
         "id": 4,
-        "name": "Sector 1 distance",
         "kind": "cv",
-        "position": {
-          "x": 296.752,
-          "y": 314.277,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Sector 1 distance"
       },
       {
+        "hidden": true,
         "id": 5,
-        "name": "Sector 2 distance",
         "kind": "cv",
-        "position": {
-          "x": 369.094,
-          "y": 188.976,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Sector 2 distance"
       },
       {
+        "hidden": true,
         "id": 6,
-        "name": "Sector 3 distance",
         "kind": "cv",
-        "position": {
-          "x": 296.752,
-          "y": 63.675,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Sector 3 distance"
       },
       {
+        "hidden": true,
         "id": 7,
-        "name": "Sector 4 distance",
         "kind": "cv",
-        "position": {
-          "x": 152.067,
-          "y": 63.675,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Sector 4 distance"
       },
       {
+        "hidden": true,
         "id": 8,
-        "name": "Sector 5 distance",
         "kind": "cv",
-        "position": {
-          "x": 79.724,
-          "y": 188.976,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Sector 5 distance"
       },
       {
+        "hidden": true,
         "id": 9,
-        "name": "Sector 6 distance",
         "kind": "cv",
-        "position": {
-          "x": 152.067,
-          "y": 314.277,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Sector 6 distance"
       },
       {
+        "hidden": true,
         "id": 10,
-        "name": "Ray 1 gate",
         "kind": "gate",
-        "position": {
-          "x": 224.409,
-          "y": 301.181,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Ray 1 gate"
       },
       {
+        "hidden": true,
         "id": 11,
-        "name": "Ray 2 gate",
         "kind": "gate",
-        "position": {
-          "x": 321.582,
-          "y": 245.079,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Ray 2 gate"
       },
       {
+        "hidden": true,
         "id": 12,
-        "name": "Ray 3 gate",
         "kind": "gate",
-        "position": {
-          "x": 321.582,
-          "y": 132.874,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Ray 3 gate"
       },
       {
+        "hidden": true,
         "id": 13,
-        "name": "Ray 4 gate",
         "kind": "gate",
-        "position": {
-          "x": 224.409,
-          "y": 76.772,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Ray 4 gate"
       },
       {
+        "hidden": true,
         "id": 14,
-        "name": "Ray 5 gate",
         "kind": "gate",
-        "position": {
-          "x": 127.237,
-          "y": 132.874,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Ray 5 gate"
       },
       {
+        "hidden": true,
         "id": 15,
-        "name": "Ray 6 gate",
         "kind": "gate",
-        "position": {
-          "x": 127.237,
-          "y": 245.079,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
-        }
+        "name": "Ray 6 gate"
       }
     ],
     "lights": 12,
@@ -383,13 +275,25 @@
     ],
     "runtime": {
       "initialMemory": 4194304,
-      "strategy": "direct-rack-source-adapter"
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 177.165,
+          "kind": "signal-function-set",
+          "model": "Gravity",
+          "width": 177.165,
+          "x": 135.827,
+          "y": 100.394
+        }
+      ]
     },
     "manifestUrl": "packages/SignalFunctionSet/Gravity/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "a37c8057c5db091e1246edf288ed29c317ebaedde51f69ab667ec85db1fff111",
-      "size": 115695
+      "sha256": "f5f5872c99c2f04fa38a2d5a73f0aafc8ce2febf396772e78cad47724dc5dc4d",
+      "size": 123818
     },
     "lightWidgets": [
       {
@@ -532,7 +436,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:11:58.540Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

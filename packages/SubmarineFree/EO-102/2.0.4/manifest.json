@@ -18,60 +18,54 @@
     "params": [
       {
         "id": 0,
-        "name": "Param 1",
+        "name": "Param Scale 1 +  0",
         "min": -5,
         "max": 5,
         "default": 0,
         "position": {
           "x": 50,
           "y": 270,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "SnapKnob<MedKnob<LightKnob>>"
-        }
+        },
+        "snap": true
       },
       {
         "id": 1,
-        "name": "Param 2",
+        "name": "Param Scale 1 +  1",
         "min": -5,
         "max": 5,
         "default": 0,
         "position": {
           "x": 125,
           "y": 270,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "SnapKnob<MedKnob<LightKnob>>"
-        }
+        },
+        "snap": true
       },
       {
         "id": 2,
-        "name": "Param 3",
+        "name": "Param Offset 1 +  0",
         "min": -10,
         "max": 10,
         "default": 0,
         "position": {
           "x": 50,
           "y": 320,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "MedKnob<LightKnob>"
         }
       },
       {
         "id": 3,
-        "name": "Param 4",
+        "name": "Param Offset 1 +  1",
         "min": -10,
         "max": 10,
         "default": 0,
         "position": {
           "x": 125,
           "y": 320,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "MedKnob<LightKnob>"
         }
@@ -87,8 +81,6 @@
         "position": {
           "x": 245,
           "y": 320,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "MedKnob<LightKnob>"
         }
@@ -102,8 +94,6 @@
         "position": {
           "x": 172.5,
           "y": 320,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "MedKnob<LightKnob>"
         }
@@ -117,8 +107,6 @@
         "position": {
           "x": 290,
           "y": 320,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "MedKnob<LightKnob>"
         }
@@ -132,8 +120,6 @@
         "position": {
           "x": 332,
           "y": 320,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "MedKnob<LightKnob>"
         }
@@ -147,8 +133,6 @@
         "position": {
           "x": 376,
           "y": 320,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "MedKnob<LightKnob>"
         }
@@ -163,8 +147,6 @@
         "position": {
           "x": 211.5,
           "y": 280,
-          "width": 14,
-          "height": 25,
           "centered": true,
           "widget": "SubSwitch2"
         }
@@ -179,11 +161,10 @@
         "position": {
           "x": 245,
           "y": 280,
-          "width": 16,
-          "height": 16,
           "centered": true,
-          "widget": "SubmarineLightButton"
-        }
+          "widget": "LightButton"
+        },
+        "button": true
       },
       {
         "id": 11,
@@ -194,38 +175,35 @@
         "position": {
           "x": 172.5,
           "y": 270,
-          "width": 38,
-          "height": 38,
           "centered": true,
           "widget": "SnapKnob<MedKnob<LightKnob>>"
-        }
+        },
+        "snap": true
       },
       {
         "id": 12,
-        "name": "Param 13",
+        "name": "Param Mode 1 +  0",
         "min": 0,
         "max": 1,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 16.5,
           "y": 280,
-          "width": 14,
-          "height": 25,
           "centered": true,
           "widget": "SubSwitch2"
         }
       },
       {
         "id": 13,
-        "name": "Param 14",
+        "name": "Param Mode 1 +  1",
         "min": 0,
         "max": 1,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 91.5,
           "y": 280,
-          "width": 14,
-          "height": 25,
           "centered": true,
           "widget": "SubSwitch2"
         }
@@ -243,26 +221,22 @@
     "inputs": [
       {
         "id": 0,
-        "name": "Input  1",
+        "name": "INPUT_1 + 0",
         "kind": "cv",
         "position": {
           "x": 16.5,
           "y": 326.5,
-          "width": 25,
-          "height": 25,
           "centered": true,
           "widget": "SilverPort"
         }
       },
       {
         "id": 1,
-        "name": "Input  2",
+        "name": "INPUT_1 + 1",
         "kind": "cv",
         "position": {
           "x": 91.5,
           "y": 326.5,
-          "width": 25,
-          "height": 25,
           "centered": true,
           "widget": "SilverPort"
         }
@@ -274,8 +248,6 @@
         "position": {
           "x": 211.5,
           "y": 326.5,
-          "width": 25,
-          "height": 25,
           "centered": true,
           "widget": "SilverPort"
         }
@@ -286,25 +258,57 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "rack::componentlibrary::TinyLight<rack::componentlibrary::TBlueLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "widget": "TinyLight<BlueLight>",
         "position": {
           "x": 226,
           "y": 333,
-          "width": 2.953,
-          "height": 2.953,
           "centered": true
         }
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-signal",
+          "mode": "scope",
+          "sources": [
+            {
+              "kind": "input",
+              "id": 0
+            },
+            {
+              "kind": "input",
+              "id": 1
+            },
+            {
+              "kind": "input",
+              "id": 2
+            }
+          ],
+          "colors": [
+            "#ffffff40",
+            "#ff404080"
+          ],
+          "strokeWidths": [
+            1.5
+          ],
+          "range": 10,
+          "stacked": false,
+          "bipolar": true,
+          "x": 2,
+          "y": 30,
+          "width": 401,
+          "height": 320
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/SubmarineFree/EO-102/2.0.4/manifest.json",
     "sourceCommit": "16796663a6e75a9d8fd003961329e98c531e848f",
     "artifact": {
-      "sha256": "8eb34b0affc491f1d0bbc1ca24cb91c9836dbd6e6531fe1cf6a2542dbe558232",
-      "size": 72152
+      "sha256": "317dc01ff428534322e074c2ae3db14266215a05560f8338a80ff92f18d216a7",
+      "size": 79098
     }
   },
   "source": {
@@ -313,7 +317,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T20:41:37.018Z"
+    "fingerprint": "bb4a9b047050795c",
+    "builtAt": "2026-08-06T05:36:19.761Z"
   }
 }

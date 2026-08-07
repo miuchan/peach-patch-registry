@@ -3,6 +3,7 @@ mod support;
 use serde_json::Value;
 use std::fs;
 use std::io::Write;
+use std::net::TcpListener;
 use std::path::Path;
 use std::process::{Command, Stdio};
 use support::TemporaryDirectory;
@@ -145,12 +146,86 @@ fn run_declarations(request: Value) -> std::process::Output {
 }
 
 #[test]
+fn declaration_server_reuses_the_analyzer_without_changing_results() {
+    let request = serde_json::json!({
+        "source": "#define GAIN 2\nstruct Voice { enum ParamIds { GAIN_PARAM, NUM_PARAMS }; };\n"
+    });
+    let direct = run_declarations(request.clone());
+    assert!(
+        direct.status.success(),
+        "{}",
+        String::from_utf8_lossy(&direct.stderr)
+    );
+    let expected: Value =
+        serde_json::from_slice(&direct.stdout).expect("direct report should parse");
+
+    let probe = TcpListener::bind(("127.0.0.1", 0)).expect("ephemeral port should bind");
+    let port = probe
+        .local_addr()
+        .expect("local address should resolve")
+        .port();
+    drop(probe);
+    let token = "analysis-contract-token";
+    let mut server = Command::new(env!("CARGO_BIN_EXE_peach-registry"))
+        .args([
+            "analyze",
+            "declarations-server",
+            "--port",
+            &port.to_string(),
+            "--token",
+            token,
+        ])
+        .stdout(Stdio::null())
+        .stderr(Stdio::piped())
+        .spawn()
+        .expect("declaration server should start");
+
+    for _ in 0..2 {
+        let mut client = Command::new(env!("CARGO_BIN_EXE_peach-registry"))
+            .args([
+                "analyze",
+                "declarations-client",
+                "--port",
+                &port.to_string(),
+                "--token",
+                token,
+            ])
+            .stdin(Stdio::piped())
+            .stdout(Stdio::piped())
+            .stderr(Stdio::piped())
+            .spawn()
+            .expect("declaration client should run");
+        client
+            .stdin
+            .take()
+            .expect("declaration client stdin should be available")
+            .write_all(request.to_string().as_bytes())
+            .expect("declaration client request should be written");
+        let output = client
+            .wait_with_output()
+            .expect("declaration client should finish");
+        assert!(
+            output.status.success(),
+            "{}",
+            String::from_utf8_lossy(&output.stderr)
+        );
+        let actual: Value =
+            serde_json::from_slice(&output.stdout).expect("server report should parse");
+        assert_eq!(actual, expected);
+    }
+
+    server.kill().expect("declaration server should stop");
+    let _ = server.wait();
+}
+
+#[test]
 fn declaration_analysis_reports_structured_types_and_enums_for_active_source() {
     let source = r#"#include "Dsp.hpp"
 # include "Spaced.hpp"
 #include <array>
 #pragma once
 #define ACTIVE_GAIN 2
+#define GROUPED_GAIN (1 << 29)
 # define MAKE_PAIR(left, right) \
     left, \
     right
@@ -216,15 +291,17 @@ static float helperHead(float value) { return helperTail(value); }
     let directives = report["preprocessorDirectives"]
         .as_array()
         .expect("preprocessorDirectives should be an array");
-    assert_eq!(directives.len(), 6, "{directives:#?}");
+    assert_eq!(directives.len(), 7, "{directives:#?}");
     assert_eq!(directives[0]["kind"], "include");
     assert_eq!(directives[0]["commented"], false);
     assert_eq!(directives[2]["kind"], "pragma");
     assert_eq!(directives[3]["kind"], "define");
     assert_eq!(directives[4]["kind"], "define");
-    assert_eq!(directives[4]["commented"], true);
-    assert_eq!(directives[5]["kind"], "include");
+    assert_eq!(directives[4]["commented"], false);
+    assert_eq!(directives[5]["kind"], "define");
     assert_eq!(directives[5]["commented"], true);
+    assert_eq!(directives[6]["kind"], "include");
+    assert_eq!(directives[6]["commented"], true);
     let pragma_start = source.find("#pragma").expect("pragma should exist");
     let pragma_end = pragma_start + "#pragma once".len();
     assert_eq!(
@@ -238,22 +315,26 @@ static float helperHead(float value) { return helperTail(value); }
     let macros = report["macroDefinitions"]
         .as_array()
         .expect("macroDefinitions should be an array");
-    assert_eq!(macros.len(), 3, "{macros:#?}");
+    assert_eq!(macros.len(), 4, "{macros:#?}");
     assert_eq!(macros[0]["name"], "ACTIVE_GAIN");
     assert_eq!(macros[0]["functionLike"], false);
     assert_eq!(macros[0]["parameters"], serde_json::json!([]));
     assert_eq!(macros[0]["replacement"], "2");
     assert_eq!(macros[0]["commented"], false);
-    assert_eq!(macros[1]["name"], "MAKE_PAIR");
-    assert_eq!(macros[1]["functionLike"], true);
+    assert_eq!(macros[1]["name"], "GROUPED_GAIN");
+    assert_eq!(macros[1]["functionLike"], false);
+    assert_eq!(macros[1]["parameters"], serde_json::json!([]));
+    assert_eq!(macros[1]["replacement"], "(1 << 29)");
+    assert_eq!(macros[2]["name"], "MAKE_PAIR");
+    assert_eq!(macros[2]["functionLike"], true);
     assert_eq!(
-        macros[1]["parameters"],
+        macros[2]["parameters"],
         serde_json::json!(["left", "right"])
     );
-    assert_eq!(macros[1]["replacement"], "left, right");
-    assert_eq!(macros[1]["commented"], false);
-    assert_eq!(macros[2]["name"], "COMMENTED_GAIN");
-    assert_eq!(macros[2]["commented"], true);
+    assert_eq!(macros[2]["replacement"], "left, right");
+    assert_eq!(macros[2]["commented"], false);
+    assert_eq!(macros[3]["name"], "COMMENTED_GAIN");
+    assert_eq!(macros[3]["commented"], true);
     let macro_start = source
         .find("# define MAKE_PAIR")
         .expect("macro should exist");
@@ -262,10 +343,10 @@ static float helperHead(float value) { return helperTail(value); }
         .map(|offset| macro_start + offset + "right".len())
         .expect("macro should end");
     assert_eq!(
-        macros[1]["start"],
+        macros[2]["start"],
         source[..macro_start].encode_utf16().count()
     );
-    assert_eq!(macros[1]["end"], source[..macro_end].encode_utf16().count());
+    assert_eq!(macros[2]["end"], source[..macro_end].encode_utf16().count());
     let declarations = report["typeDeclarations"]
         .as_array()
         .expect("typeDeclarations should be an array");
@@ -491,6 +572,11 @@ const char* literal = "#include <Literal.hpp>";
         "#pragma once\n#include <vendor/Spaced.hpp>\n",
     )
     .expect("header source should be written");
+    fs::write(
+        root.join("src/Legacy.cpp"),
+        b"// legacy byte: \xff\n#include \"Legacy.hpp\"\n",
+    )
+    .expect("legacy non-UTF-8 source should be written");
     let output = Command::new(env!("CARGO_BIN_EXE_peach-registry"))
         .args([
             "analyze",
@@ -519,7 +605,7 @@ const char* literal = "#include <Literal.hpp>";
     );
     assert_eq!(
         report["includes"],
-        serde_json::json!(["Quoted.hpp", "vendor/Spaced.hpp"])
+        serde_json::json!(["Legacy.hpp", "Quoted.hpp", "vendor/Spaced.hpp"])
     );
 }
 
@@ -724,6 +810,9 @@ fn declaration_analysis_reports_conditional_directives_and_header_guard_ranges()
 #ifndef CLASSIC_GUARD\r\n\
 #define CLASSIC_GUARD 1\r\n\
 #if ACTIVE_BRANCH\r\n\
+#if FIRST_BRANCH \\\r\n\
+    || SECOND_BRANCH\r\n\
+#endif\r\n\
 #elif ! FALLBACK_BRANCH\r\n\
 #endif\r\n\
 #endif\r\n\
@@ -752,7 +841,7 @@ const char* raw = R\"fixture(\r\n\
     let conditionals = report["conditionalDirectives"]
         .as_array()
         .expect("conditionalDirectives should be an array");
-    assert_eq!(conditionals.len(), 8, "{conditionals:#?}");
+    assert_eq!(conditionals.len(), 10, "{conditionals:#?}");
     assert_eq!(conditionals[0]["kind"], "ifndef");
     assert_eq!(conditionals[0]["expression"], "CLASSIC_GUARD");
     assert_eq!(conditionals[0]["simpleMacro"], "CLASSIC_GUARD");
@@ -760,31 +849,40 @@ const char* raw = R\"fixture(\r\n\
     assert_eq!(conditionals[1]["kind"], "if");
     assert_eq!(conditionals[1]["simpleMacro"], "ACTIVE_BRANCH");
     assert_eq!(conditionals[1]["negated"], false);
-    assert_eq!(conditionals[2]["kind"], "elif");
-    assert_eq!(conditionals[2]["simpleMacro"], "FALLBACK_BRANCH");
-    assert_eq!(conditionals[2]["negated"], true);
+    assert_eq!(conditionals[2]["kind"], "if");
     assert_eq!(
-        conditionals[5]["expression"],
+        conditionals[2]["expression"],
+        "FIRST_BRANCH || SECOND_BRANCH"
+    );
+    assert_eq!(conditionals[2]["simpleMacro"], Value::Null);
+    assert_eq!(conditionals[3]["kind"], "endif");
+    assert_eq!(conditionals[4]["kind"], "elif");
+    assert_eq!(conditionals[4]["simpleMacro"], "FALLBACK_BRANCH");
+    assert_eq!(conditionals[4]["negated"], true);
+    assert_eq!(
+        conditionals[7]["expression"],
         "! defined (SPACED_GUARD) // include guard"
     );
-    assert_eq!(conditionals[5]["simpleMacro"], Value::Null);
-    assert_eq!(conditionals[5]["negated"], true);
+    assert_eq!(conditionals[7]["simpleMacro"], Value::Null);
+    assert_eq!(conditionals[7]["negated"], true);
     assert!(conditionals
         .iter()
         .all(|candidate| candidate["expression"] != "BLOCK_COMMENT_BRANCH"));
     let blocks = report["conditionalBlocks"]
         .as_array()
         .expect("conditionalBlocks should be an array");
-    assert_eq!(blocks.len(), 4, "{blocks:#?}");
+    assert_eq!(blocks.len(), 5, "{blocks:#?}");
     assert_eq!(blocks[0]["openStart"], conditionals[0]["start"]);
-    assert_eq!(blocks[0]["closeStart"], conditionals[4]["start"]);
+    assert_eq!(blocks[0]["closeStart"], conditionals[6]["start"]);
     assert_eq!(blocks[1]["openStart"], conditionals[1]["start"]);
-    assert_eq!(blocks[1]["closeStart"], conditionals[3]["start"]);
-    assert_eq!(blocks[2]["openStart"], conditionals[5]["start"]);
-    assert_eq!(blocks[2]["closeStart"], conditionals[6]["start"]);
+    assert_eq!(blocks[1]["closeStart"], conditionals[5]["start"]);
+    assert_eq!(blocks[2]["openStart"], conditionals[2]["start"]);
+    assert_eq!(blocks[2]["closeStart"], conditionals[3]["start"]);
     assert_eq!(blocks[3]["openStart"], conditionals[7]["start"]);
-    assert_eq!(blocks[3]["closeStart"], Value::Null);
-    assert_eq!(blocks[3]["closeEnd"], Value::Null);
+    assert_eq!(blocks[3]["closeStart"], conditionals[8]["start"]);
+    assert_eq!(blocks[4]["openStart"], conditionals[9]["start"]);
+    assert_eq!(blocks[4]["closeStart"], Value::Null);
+    assert_eq!(blocks[4]["closeEnd"], Value::Null);
     let guards = report["headerGuards"]
         .as_array()
         .expect("headerGuards should be an array");
@@ -2575,6 +2673,7 @@ createModel<RawModule, RawWidget>("Raw"))fixture";
 // constexpr auto CommentSlug {"Comment"};
 constexpr auto RealSlug {"Real"};
 static const std::string SecondSlug = "Second";
+static const std::string EmptySuffix = "";
 using RealAlias = RealModule;
 typedef SecondModule SecondAlias;
 typedef struct {
@@ -2584,7 +2683,8 @@ int value;
 /* createOtherModel<BlockModule, BlockWidget>("Block") */
 Model* real = plugin::createFancyModel<RealModule, RealWidget>("Real");
 Model* second = createModel<SecondModule, SecondWidget>("Second");
-namespace outer::inner {
+namespace outer::inner
+{
 Model* nested = createModel<Wrapper<Pair<int, float>>, NestedWidget>("Nested (factory)");
 template <typename Engine, int Channels = 2>
 struct AliasOwner final : public Base<Engine>, virtual Interface<Channels> {
@@ -2719,7 +2819,7 @@ NUM_INPUTS
     let constants = report["stringConstants"]
         .as_array()
         .expect("stringConstants should be an array");
-    assert_eq!(constants.len(), 4);
+    assert_eq!(constants.len(), 5);
     assert_eq!(constants[0]["name"], "text");
     assert_eq!(constants[1]["name"], "aliasText");
     assert_eq!(constants[2]["name"], "RealSlug");
@@ -2728,6 +2828,8 @@ NUM_INPUTS
     assert_eq!(constants[3]["name"], "SecondSlug");
     assert_eq!(constants[3]["expression"], "\"Second\"");
     assert_eq!(constants[3]["value"], "Second");
+    assert_eq!(constants[4]["name"], "EmptySuffix");
+    assert_eq!(constants[4]["value"], "");
     let aliases = report["typeAliases"]
         .as_array()
         .expect("typeAliases should be an array");

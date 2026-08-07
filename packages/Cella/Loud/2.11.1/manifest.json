@@ -1,0 +1,702 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/Loud",
+    "plugin": "Cella",
+    "model": "Loud",
+    "name": "Loud",
+    "brand": "Cella",
+    "version": "2.11.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/Loud",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/Loud.webp",
+    "wasmUrl": "packages/Cella/Loud/2.11.1/module.wasm",
+    "width": 90,
+    "description": "Loudness meter based on EBU R128 standard, narrow version",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 67.5,
+          "y": 280.1,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Target loudness",
+        "min": -36,
+        "max": 0,
+        "default": -23,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio L / Mono",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 329.28,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 329.28,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 22.5,
+          "y": 280.1,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "integratedLufs",
+        "type": "real"
+      },
+      {
+        "key": "processingMode",
+        "type": "integer"
+      },
+      {
+        "key": "shortTermEnabled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Cella/LoudnessCV",
+            "symbol": "modelLoudnessCV",
+            "index": 0
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "assetBase": "packages/Cella/Loud/2.11.1/resources/",
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380,
+          "font": {
+            "file": "JetBrainsMono-Medium.ttf",
+            "family": "Peach Cella JetBrains Mono"
+          },
+          "regions": [
+            {
+              "label": "Loudness display",
+              "interactive": false,
+              "x": 0,
+              "y": 26,
+              "width": 90,
+              "height": 230,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "#333333",
+                "borderRadius": 3,
+                "fontSize": 0
+              }
+            },
+            {
+              "label": "Momentary, LUFS",
+              "title": "Momentary, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 31,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedAgainst": {
+                  "source": "visual",
+                  "id": 9
+                },
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Short-term, LUFS",
+              "title": "Short-term, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 54,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 1,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Integrated, LUFS",
+              "title": "Integrated, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 77,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 2,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Loudness range, LU",
+              "title": "Loudness range, LU",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 108,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 3,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": 0,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Dynamics, LU",
+              "title": "Dynamics, LU",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 131,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 4,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Average dynamics, LU",
+              "title": "Average dynamics, LU",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 154,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 5,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Momentary max, LUFS",
+              "title": "Momentary max, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 185,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 6,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Short-term max, LUFS",
+              "title": "Short-term max, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 208,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 7,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            },
+            {
+              "label": "True peak max, dBTP",
+              "title": "True peak max, dBTP",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 0,
+              "y": 231,
+              "width": 54,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 8,
+                "precision": 1,
+                "invalidWhenNonFinite": true,
+                "invalidAtOrBelow": -99,
+                "clippedAtOrAbove": -0.5,
+                "clippedColor": "#c0392b",
+                "dash": {
+                  "width": 20,
+                  "strokeWidth": 1.53,
+                  "color": "#f5f5dc"
+                },
+                "color": "#f5f5dc",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 21,
+                "fontFamily": "Peach Cella JetBrains Mono",
+                "fontWeight": 500,
+                "lineHeight": 1,
+                "textAlign": "right",
+                "padding": 0
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-interaction",
+          "assetBase": "packages/Cella/Loud/2.11.1/resources/",
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380,
+          "font": {
+            "file": "SofiaSansExtraCondensed-Regular.ttf",
+            "family": "Peach Cella Sofia Sans Condensed"
+          },
+          "regions": [
+            {
+              "label": "M: Momentary, LUFS",
+              "title": "Momentary, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 31,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "M",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "S: Short-term, LUFS",
+              "title": "Short-term, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 54,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "S",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "I: Integrated, LUFS",
+              "title": "Integrated, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 77,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "I",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "LR: Loudness range, LU",
+              "title": "Loudness range, LU",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 108,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "LR",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "PSR: Dynamics, LU",
+              "title": "Dynamics, LU",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 131,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "PSR",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "PLR: Average dynamics, LU",
+              "title": "Average dynamics, LU",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 154,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "PLR",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "MMAX: Momentary max, LUFS",
+              "title": "Momentary max, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 185,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "MMAX",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "SMAX: Short-term max, LUFS",
+              "title": "Short-term max, LUFS",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 208,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "SMAX",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            },
+            {
+              "label": "TPMAX: True peak max, dBTP",
+              "title": "True peak max, dBTP",
+              "hoverOnly": true,
+              "cursor": "default",
+              "x": 53,
+              "y": 231,
+              "width": 36,
+              "height": 25,
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "text": "TPMAX",
+                "color": "#5fbefa",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Cella Sofia Sans Condensed",
+                "fontWeight": 400,
+                "lineHeight": 1,
+                "textAlign": "center",
+                "padding": 0
+              }
+            }
+          ]
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/Loud/2.11.1/manifest.json",
+    "sourceCommit": "5b158347dca6e2a7d384b78a7c6ffd8873bdc174",
+    "artifact": {
+      "sha256": "d3114f8eda716099c86d22f2a06f57cfbc8cb89319061832887ece1b0f774f87",
+      "size": 113080
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "5b158347dca6e2a7d384b78a7c6ffd8873bdc174"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b80e04599bb4ebd9",
+    "builtAt": "2026-08-06T17:15:48.855Z"
+  }
+}

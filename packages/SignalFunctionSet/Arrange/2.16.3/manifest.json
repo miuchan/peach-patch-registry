@@ -1,0 +1,1125 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Arrange",
+    "plugin": "SignalFunctionSet",
+    "model": "Arrange",
+    "name": "Arrange",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Arrange",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Arrange.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Arrange/2.16.3/module.wasm",
+    "width": 510,
+    "description": "Song-form / arrangement sequencer. A linear chain of 8 phrases (bar-length sections); each phrase has a bar length, root + scale, BPM (linkable — a linked phrase inherits BPM/root/scale from the previous one), a gate out that stays high while it plays, and 4 channel enables. The 4 channels are per-instrument clock buses with clock division and CLOCK / BAR / RESET / EOC outputs each, muted on phrases where the channel is off — instruments drop in and out per phrase. Driven by a bar-rate clock. Master outs: phrase index (1V/phrase), BPM CV (for Meter), root + scale CV. The arrangement brain above Beat / Note / Chance.",
+    "params": [
+      {
+        "button": true,
+        "default": 0,
+        "id": 0,
+        "max": 1,
+        "min": 0,
+        "name": "Reset",
+        "position": {
+          "centered": true,
+          "widget": "VCVButton",
+          "x": 172.913,
+          "y": 360
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 1,
+        "max": 18,
+        "min": 0,
+        "name": "P1 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 41.102,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 2,
+        "max": 18,
+        "min": 0,
+        "name": "P2 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 85.039,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 3,
+        "max": 18,
+        "min": 0,
+        "name": "P3 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 128.976,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 4,
+        "max": 18,
+        "min": 0,
+        "name": "P4 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 172.913,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 5,
+        "max": 18,
+        "min": 0,
+        "name": "P5 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 216.85,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 6,
+        "max": 18,
+        "min": 0,
+        "name": "P6 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 260.787,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 7,
+        "max": 18,
+        "min": 0,
+        "name": "P7 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 304.724,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 8,
+        "max": 18,
+        "min": 0,
+        "name": "P8 scale",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 348.661,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 9,
+        "max": 11,
+        "min": 0,
+        "name": "P1 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 41.102,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 10,
+        "max": 11,
+        "min": 0,
+        "name": "P2 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 85.039,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 11,
+        "max": 11,
+        "min": 0,
+        "name": "P3 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 128.976,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 12,
+        "max": 11,
+        "min": 0,
+        "name": "P4 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 172.913,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 13,
+        "max": 11,
+        "min": 0,
+        "name": "P5 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 216.85,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 14,
+        "max": 11,
+        "min": 0,
+        "name": "P6 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 260.787,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 15,
+        "max": 11,
+        "min": 0,
+        "name": "P7 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 304.724,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 16,
+        "max": 11,
+        "min": 0,
+        "name": "P8 root",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 348.661,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 17,
+        "max": 300,
+        "min": 30,
+        "name": "P1 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 41.102,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 18,
+        "max": 300,
+        "min": 30,
+        "name": "P2 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 85.039,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 19,
+        "max": 300,
+        "min": 30,
+        "name": "P3 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 128.976,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 20,
+        "max": 300,
+        "min": 30,
+        "name": "P4 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 172.913,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 21,
+        "max": 300,
+        "min": 30,
+        "name": "P5 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 216.85,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 22,
+        "max": 300,
+        "min": 30,
+        "name": "P6 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 260.787,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 23,
+        "max": 300,
+        "min": 30,
+        "name": "P7 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 304.724,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 120,
+        "id": 24,
+        "max": 300,
+        "min": 30,
+        "name": "P8 BPM",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 348.661,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 25,
+        "max": 7,
+        "min": 0,
+        "name": "Channel 1 clock division",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 397.5,
+          "y": 75
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 26,
+        "max": 7,
+        "min": 0,
+        "name": "Channel 2 clock division",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 427.5,
+          "y": 75
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 27,
+        "max": 7,
+        "min": 0,
+        "name": "Channel 3 clock division",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 457.5,
+          "y": 75
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 28,
+        "max": 7,
+        "min": 0,
+        "name": "Channel 4 clock division",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 487.5,
+          "y": 75
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 29,
+        "max": 1,
+        "min": 0,
+        "name": "Link P1 → P2 scale (P2 inherits the group leader's scale)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 63.071,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 30,
+        "max": 1,
+        "min": 0,
+        "name": "Link P2 → P3 scale (P3 inherits the group leader's scale)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 107.008,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 31,
+        "max": 1,
+        "min": 0,
+        "name": "Link P3 → P4 scale (P4 inherits the group leader's scale)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 150.945,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 32,
+        "max": 1,
+        "min": 0,
+        "name": "Link P4 → P5 scale (P5 inherits the group leader's scale)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 194.882,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 33,
+        "max": 1,
+        "min": 0,
+        "name": "Link P5 → P6 scale (P6 inherits the group leader's scale)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 238.819,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 34,
+        "max": 1,
+        "min": 0,
+        "name": "Link P6 → P7 scale (P7 inherits the group leader's scale)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 282.756,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 35,
+        "max": 1,
+        "min": 0,
+        "name": "Link P7 → P8 scale (P8 inherits the group leader's scale)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 326.693,
+          "y": 206.693
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 36,
+        "max": 1,
+        "min": 0,
+        "name": "Link P1 → P2 root (P2 inherits the group leader's root)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 63.071,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 37,
+        "max": 1,
+        "min": 0,
+        "name": "Link P2 → P3 root (P3 inherits the group leader's root)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 107.008,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 38,
+        "max": 1,
+        "min": 0,
+        "name": "Link P3 → P4 root (P4 inherits the group leader's root)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 150.945,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 39,
+        "max": 1,
+        "min": 0,
+        "name": "Link P4 → P5 root (P5 inherits the group leader's root)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 194.882,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 40,
+        "max": 1,
+        "min": 0,
+        "name": "Link P5 → P6 root (P6 inherits the group leader's root)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 238.819,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 41,
+        "max": 1,
+        "min": 0,
+        "name": "Link P6 → P7 root (P7 inherits the group leader's root)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 282.756,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 42,
+        "max": 1,
+        "min": 0,
+        "name": "Link P7 → P8 root (P8 inherits the group leader's root)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 326.693,
+          "y": 242.126
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 43,
+        "max": 1,
+        "min": 0,
+        "name": "Link P1 → P2 BPM (P2 inherits the group leader's BPM)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 63.071,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 44,
+        "max": 1,
+        "min": 0,
+        "name": "Link P2 → P3 BPM (P3 inherits the group leader's BPM)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 107.008,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 45,
+        "max": 1,
+        "min": 0,
+        "name": "Link P3 → P4 BPM (P4 inherits the group leader's BPM)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 150.945,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 46,
+        "max": 1,
+        "min": 0,
+        "name": "Link P4 → P5 BPM (P5 inherits the group leader's BPM)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 194.882,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 47,
+        "max": 1,
+        "min": 0,
+        "name": "Link P5 → P6 BPM (P6 inherits the group leader's BPM)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 238.819,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 48,
+        "max": 1,
+        "min": 0,
+        "name": "Link P6 → P7 BPM (P7 inherits the group leader's BPM)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 282.756,
+          "y": 277.559
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 1,
+        "id": 49,
+        "max": 1,
+        "min": 0,
+        "name": "Link P7 → P8 BPM (P8 inherits the group leader's BPM)",
+        "position": {
+          "centered": true,
+          "widget": "LinkDotButton",
+          "x": 326.693,
+          "y": 277.559
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "kind": "gate",
+        "name": "Bar (one pulse per bar — e.g. Meter's BAR out; advances the arrangement)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 41.102,
+          "y": 360
+        }
+      },
+      {
+        "id": 1,
+        "kind": "gate",
+        "name": "Clock (master clock — divided per channel)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 85.039,
+          "y": 360
+        }
+      },
+      {
+        "id": 2,
+        "kind": "gate",
+        "name": "Reset",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 128.976,
+          "y": 360
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "kind": "cv",
+        "name": "Phrase index (1V/phrase, phrase 1 = 0V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 487.5,
+          "y": 360
+        }
+      },
+      {
+        "id": 1,
+        "kind": "cv",
+        "name": "BPM CV (0.01V per BPM) — into Meter",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 397.5,
+          "y": 360
+        }
+      },
+      {
+        "id": 2,
+        "kind": "cv",
+        "name": "Root note CV of the current phrase (1V/oct, semitone-quantized) — into Note/Chance root CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 427.5,
+          "y": 360
+        }
+      },
+      {
+        "id": 3,
+        "kind": "cv",
+        "name": "Scale-select CV of the current phrase (1V per scale) — into Note/Chance scale CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 457.5,
+          "y": 360
+        }
+      },
+      {
+        "id": 4,
+        "kind": "cv",
+        "name": "Channel 1 bar (muted on phrases where the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 397.5,
+          "y": 180
+        }
+      },
+      {
+        "id": 5,
+        "kind": "cv",
+        "name": "Channel 2 bar (muted on phrases where the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 427.5,
+          "y": 180
+        }
+      },
+      {
+        "id": 6,
+        "kind": "cv",
+        "name": "Channel 3 bar (muted on phrases where the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 457.5,
+          "y": 180
+        }
+      },
+      {
+        "id": 7,
+        "kind": "cv",
+        "name": "Channel 4 bar (muted on phrases where the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 487.5,
+          "y": 180
+        }
+      },
+      {
+        "id": 8,
+        "kind": "gate",
+        "name": "Channel 1 clock (master clock ÷ division; muted when the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 397.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 9,
+        "kind": "gate",
+        "name": "Channel 2 clock (master clock ÷ division; muted when the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 427.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 10,
+        "kind": "gate",
+        "name": "Channel 3 clock (master clock ÷ division; muted when the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 457.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 11,
+        "kind": "gate",
+        "name": "Channel 4 clock (master clock ÷ division; muted when the channel is off)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 487.5,
+          "y": 120
+        }
+      },
+      {
+        "id": 12,
+        "kind": "gate",
+        "name": "Channel 1 reset (fires on master reset and when the channel re-enables)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 397.5,
+          "y": 240
+        }
+      },
+      {
+        "id": 13,
+        "kind": "gate",
+        "name": "Channel 2 reset (fires on master reset and when the channel re-enables)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 427.5,
+          "y": 240
+        }
+      },
+      {
+        "id": 14,
+        "kind": "gate",
+        "name": "Channel 3 reset (fires on master reset and when the channel re-enables)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 457.5,
+          "y": 240
+        }
+      },
+      {
+        "id": 15,
+        "kind": "gate",
+        "name": "Channel 4 reset (fires on master reset and when the channel re-enables)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 487.5,
+          "y": 240
+        }
+      },
+      {
+        "id": 16,
+        "kind": "cv",
+        "name": "Channel 1 end of cycle (arrangement wrap)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 397.5,
+          "y": 294.98
+        }
+      },
+      {
+        "id": 17,
+        "kind": "cv",
+        "name": "Channel 2 end of cycle (arrangement wrap)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 427.5,
+          "y": 294.98
+        }
+      },
+      {
+        "id": 18,
+        "kind": "cv",
+        "name": "Channel 3 end of cycle (arrangement wrap)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 457.5,
+          "y": 294.98
+        }
+      },
+      {
+        "id": 19,
+        "kind": "cv",
+        "name": "Channel 4 end of cycle (arrangement wrap)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 487.5,
+          "y": 294.98
+        }
+      },
+      {
+        "id": 20,
+        "kind": "gate",
+        "name": "Pgate 1",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 41.102,
+          "y": 315
+        }
+      },
+      {
+        "id": 21,
+        "kind": "gate",
+        "name": "Pgate 2",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 85.039,
+          "y": 315
+        }
+      },
+      {
+        "id": 22,
+        "kind": "gate",
+        "name": "Pgate 3",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 128.976,
+          "y": 315
+        }
+      },
+      {
+        "id": 23,
+        "kind": "gate",
+        "name": "Pgate 4",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 172.913,
+          "y": 315
+        }
+      },
+      {
+        "id": 24,
+        "kind": "gate",
+        "name": "Pgate 5",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 216.85,
+          "y": 315
+        }
+      },
+      {
+        "id": 25,
+        "kind": "gate",
+        "name": "Pgate 6",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 260.787,
+          "y": 315
+        }
+      },
+      {
+        "id": 26,
+        "kind": "gate",
+        "name": "Pgate 7",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 304.724,
+          "y": 315
+        }
+      },
+      {
+        "id": 27,
+        "kind": "gate",
+        "name": "Pgate 8",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 348.661,
+          "y": 315
+        }
+      }
+    ],
+    "lights": 1,
+    "stateKeys": [
+      {
+        "key": "editPhrase",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 143.799,
+          "kind": "signal-function-set",
+          "model": "Arrange",
+          "width": 366.142,
+          "x": 11.811,
+          "y": 35.433
+        }
+      ]
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Arrange/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "5e3f05c0e35af6a8296ec8b1bffd251f450df1fde445c8705273a5270114fb09",
+      "size": 95627
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "builtAt": "2026-08-06T00:20:59.271Z"
+  }
+}

@@ -1,16 +1,20 @@
 #!/usr/bin/env node
-import {execFileSync} from "node:child_process";
+import {execFileSync,spawn} from "node:child_process";
+import {createHash,randomBytes} from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath,pathToFileURL} from "node:url";
 import {browserTemporalDeckAdapterSource} from "./temporal-deck-browser-adapter.mjs";
 import {browserTdScopeAdapterSource} from "./td-scope-browser-adapter.mjs";
 import {browserLomasAdvancedSamplerAdapterSource} from "./lomas-advanced-sampler-browser-adapter.mjs";
+import {adaptSignalFunctionSetBrowserSource,signalFunctionSetVisuals} from "./signal-function-set-browser-adapter.mjs";
 import {applyModuleUiOverrides} from "../lib/module-ui-overrides.mjs";
 
 const projectDir=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 let activeSourceTool=null;
 let developmentSourceTool=null;
+let declarationServer=null;
+let declarationServerRetrying=false;
 let activeTypeAliasesByFile=null;
 let activeTypeDeclarationsByFile=null;
 let activeEnumDeclarationsByFile=null;
@@ -30,6 +34,8 @@ const modelCandidateCache=new Map;
 const dependencyClosureCache=new Map;
 const sourceDeclarationCache=new Map;
 const inlineMemberDefinitionCache=new Map;
+let sourceDeclarationRequests=0;
+let sourceDeclarationHits=0;
 
 function fail(message){throw new Error(message)}
 function inlineSiblingImplementations(body,className,implementations){
@@ -66,7 +72,7 @@ function args(argv){const result={};for(let index=0;index<argv.length;index++){c
 function wasiImports(holder){
   const memory=()=>holder.exports?.memory,view=()=>memory()?new DataView(memory().buffer):null,unsupported=()=>-52,missing=()=>-2;
   return {
-    env:{emscripten_notify_memory_growth(){},_emscripten_system:unsupported,getnameinfo:unsupported,getaddrinfo:unsupported,__syscall_faccessat:missing,__syscall_fchmod:unsupported,__syscall_chmod:unsupported,__syscall_fchown32:unsupported,__syscall_ftruncate64:unsupported,__syscall_getdents64:missing,__syscall_getcwd(buffer,size){const bytes=memory()?new Uint8Array(memory().buffer):null;if(!bytes||size<2)return-34;bytes[buffer]=47;bytes[buffer+1]=0;return 2},__syscall_readlinkat:missing,__syscall_rmdir:missing,__syscall_unlinkat:missing,__syscall_utimensat:unsupported,__syscall_bind:unsupported,__syscall_connect:unsupported,_emscripten_lookup_name:unsupported,__syscall_getsockname:unsupported,__syscall_recvfrom:unsupported,__syscall_sendto:unsupported,__syscall_setsockopt:unsupported,__syscall_shutdown:unsupported,__syscall_socket:unsupported},
+    env:{emscripten_notify_memory_growth(){},rack_web_host_clipboard_size(){return holder.clipboard?.length??0},rack_web_host_get_clipboard(destination,capacity){const source=holder.clipboard??new Uint8Array(0),length=Math.min(Math.max(0,capacity),source.length),bytes=memory()?new Uint8Array(memory().buffer):null;if(bytes&&length)bytes.set(source.subarray(0,length),destination);return length},rack_web_host_set_clipboard(source,length){const bytes=memory()?new Uint8Array(memory().buffer):null,size=Math.max(0,length);holder.clipboard=bytes?bytes.slice(source,source+size):new Uint8Array(0)},rack_web_host_shared_get(index){return holder.sharedValues&&index>=0&&index<holder.sharedValues.length?holder.sharedValues[index]:0},rack_web_host_shared_set(index,value){if(holder.sharedValues&&index>=0&&index<holder.sharedValues.length)holder.sharedValues[index]=value},rack_web_host_shared_touch(index){if(holder.sharedTouches&&index>=0&&index<holder.sharedTouches.length){if(holder.sharedTouches[index]!=(holder.sharedEpoch??0))holder.sharedCounts[index]=0;holder.sharedTouches[index]=holder.sharedEpoch??0;holder.sharedCounts[index]++}},rack_web_host_shared_active(index){return holder.sharedTouches&&index>=0&&index<holder.sharedTouches.length&&(holder.sharedEpoch??0)-holder.sharedTouches[index]<=1?1:0},rack_web_host_shared_count(index){return holder.sharedTouches&&index>=0&&index<holder.sharedTouches.length&&(holder.sharedEpoch??0)-holder.sharedTouches[index]<=1?holder.sharedCounts[index]:0},_emscripten_system:unsupported,getnameinfo:unsupported,getaddrinfo:unsupported,__syscall_faccessat:missing,__syscall_fchmod:unsupported,__syscall_chmod:unsupported,__syscall_fchown32:unsupported,__syscall_ftruncate64:unsupported,__syscall_getdents64:missing,__syscall_getcwd(buffer,size){const bytes=memory()?new Uint8Array(memory().buffer):null;if(!bytes||size<2)return-34;bytes[buffer]=47;bytes[buffer+1]=0;return 2},__syscall_readlinkat:missing,__syscall_rmdir:missing,__syscall_unlinkat:missing,__syscall_utimensat:unsupported,__syscall_bind:unsupported,__syscall_connect:unsupported,_emscripten_lookup_name:unsupported,__syscall_getsockname:unsupported,__syscall_recvfrom:unsupported,__syscall_sendto:unsupported,__syscall_setsockopt:unsupported,__syscall_shutdown:unsupported,__syscall_socket:unsupported},
     wasi_snapshot_preview1:{
       proc_exit(){},
       fd_write(_fd,iovecs,iovecCount,written){const data=view();if(!data)return 0;let bytes=0;for(let index=0;index<iovecCount;index++)bytes+=data.getUint32(iovecs+index*8+4,true);data.setUint32(written,bytes,true);return 0},
@@ -171,11 +177,24 @@ function lockedFallbackDependencyBundleForAdapter(sourceFiles,source){
 }
 function runRustSource(commandOptions,sourceTool=activeSourceTool,input=null){
   const localBinary=path.join(projectDir,"target","debug",process.platform==="win32"?"peach-registry.exe":"peach-registry"),resolvedTool=sourceTool===null?developmentSourceTool:sourceTool,command=resolvedTool??"cargo",
-    commandArgs=resolvedTool?commandOptions:["run","--quiet","--manifest-path",path.join(projectDir,"Cargo.toml"),"--bin","peach-registry","--",...commandOptions],
-    output=execFileSync(command,commandArgs,{encoding:"utf8",maxBuffer:128*1024*1024,stdio:[input===null?"ignore":"pipe","pipe","inherit"],...(input===null?{}:{input:JSON.stringify(input)})});
+    commandArgs=resolvedTool?commandOptions:["run","--quiet","--manifest-path",path.join(projectDir,"Cargo.toml"),"--bin","peach-registry","--",...commandOptions];
+  let output;
+  try{output=execFileSync(command,commandArgs,{encoding:"utf8",maxBuffer:128*1024*1024,stdio:[input===null?"ignore":"pipe","pipe","pipe"],...(input===null?{}:{input:JSON.stringify(input)})})}
+  catch(error){const stderr=String(error?.stderr??"");if(stderr)process.stderr.write(stderr);throw new Error(`${error instanceof Error?error.message:String(error)}${stderr?`\n${stderr}`:""}`)}
   if(sourceTool===null&&!developmentSourceTool&&fs.existsSync(localBinary))developmentSourceTool=localBinary;
   try{return JSON.parse(output)}catch{fail("Rust source command returned invalid JSON")}
 }
+function ensureDeclarationServer(){
+  if(process.env.RACK_WEB_DECLARATIONS_DIRECT==="1")return null;
+  const localBinary=path.join(projectDir,"target","debug",process.platform==="win32"?"peach-registry.exe":"peach-registry");
+  if(!activeSourceTool&&!developmentSourceTool&&fs.existsSync(localBinary))developmentSourceTool=localBinary;
+  const tool=activeSourceTool??developmentSourceTool;if(!tool)return null;
+  if(declarationServer?.tool===tool&&declarationServer.child.exitCode===null)return declarationServer;
+  declarationServer?.child.kill();
+  const port=20000+(process.pid%30000),token=randomBytes(24).toString("hex"),child=spawn(tool,["analyze","declarations-server","--port",String(port),"--token",token],{stdio:"ignore"});
+  child.unref();declarationServer={tool,port,token,child};return declarationServer
+}
+process.once("exit",()=>declarationServer?.child.kill());
 function checkoutProductionDependency(repository,commit,target){
   runRustSource(["source","checkout","--repository",repository,"--commit",commit,"--target",target,"--format","json"]);
 }
@@ -204,16 +223,26 @@ function rustDependencyFileInventory(root,profile="dependency"){
 }
 function rustMakefileAnalysis(root,makefilePath="Makefile",sourceVariables=["SOURCES"]){
   const canonical=fs.realpathSync(root),relative=String(makefilePath),variables=sourceVariables.map(String);if(!relative||relative.includes("\\")||path.isAbsolute(relative)||relative.split("/").some(part=>!part||part==="."||part==="..")||!variables.length||variables.length>64||variables.some(name=>!/^[A-Za-z_]\w*$/.test(name))||new Set(variables).size!==variables.length)fail("Invalid Makefile analysis request");const cacheKey=JSON.stringify([canonical,relative,variables]),cached=makefileAnalysisCache.get(cacheKey);if(cached)return cached;
-  const command=["analyze","makefile","--source-dir",canonical,"--makefile",relative,...variables.flatMap(name=>["--source-variable",name]),"--format","json"],report=runRustSource(command),reportedRoot=path.resolve(String(report?.sourceRoot??"")),prefix=`${canonical}${path.sep}`,expected=path.resolve(canonical,...relative.split("/")),makefile=report?.makefile===null?null:path.resolve(String(report?.makefile??"")),reportedVariables=report?.sourceVariables,definitions=(values,label)=>{if(!Array.isArray(values)||values.length>65536||values.some(value=>typeof value!=="string"||/^-D[A-Za-z_]\w*(?:=[^\s#]+)?$/.test(value)===false)||new Set(values).size!==values.length)fail(`Rust Makefile analysis returned invalid ${label}`);return values.map(String)},paths=(values,label,directory)=>{if(!Array.isArray(values)||values.length>1048576)fail(`Rust Makefile analysis returned invalid ${label}`);const resolved=values.map(value=>path.resolve(String(value)));if(new Set(resolved).size!==resolved.length||resolved.some(value=>!value.startsWith(prefix)||!fs.existsSync(value)||(directory?!fs.statSync(value).isDirectory():!fs.statSync(value).isFile())))fail(`Rust Makefile analysis returned invalid ${label}`);return resolved};
+  const command=["analyze","makefile","--source-dir",canonical,"--makefile",relative,...variables.flatMap(name=>["--source-variable",name]),"--format","json"],report=runRustSource(command),reportedRoot=path.resolve(String(report?.sourceRoot??"")),prefix=`${canonical}${path.sep}`,expected=path.resolve(canonical,...relative.split("/")),makefile=report?.makefile===null?null:path.resolve(String(report?.makefile??"")),reportedVariables=report?.sourceVariables,definitions=(values,label)=>{if(!Array.isArray(values)||values.length>65536||values.some(value=>typeof value!=="string"||/^-D[A-Za-z_]\w*(?:=[^\s#]+)?$/.test(value)===false)||new Set(values).size!==values.length)fail(`Rust Makefile analysis returned invalid ${label}`);return values.map(String)},paths=(values,label,directory)=>{if(!Array.isArray(values)||values.length>1048576)fail(`Rust Makefile analysis returned invalid ${label}`);const resolved=values.map(value=>path.resolve(String(value)));if(new Set(resolved).size!==resolved.length||resolved.some(value=>(value!==canonical&&!value.startsWith(prefix))||!fs.existsSync(value)||(directory?!fs.statSync(value).isDirectory():!fs.statSync(value).isFile())))fail(`Rust Makefile analysis returned invalid ${label}`);return resolved};
   if(reportedRoot!==canonical||JSON.stringify(reportedVariables)!==JSON.stringify(variables)||(makefile===null)!==!fs.existsSync(expected)||(makefile!==null&&(makefile!==fs.realpathSync(expected)||!makefile.startsWith(prefix)||!fs.statSync(makefile).isFile())))fail("Rust Makefile analysis returned an invalid source boundary");
   const compileDefinitions=definitions(report?.compileDefinitions,"compile definitions"),allCompileDefinitions=definitions(report?.allCompileDefinitions,"all compile definitions");if(compileDefinitions.some(value=>!allCompileDefinitions.includes(value)))fail("Rust Makefile analysis returned inconsistent compile definitions");
   const result={makefile,sourceVariables:variables,compileDefinitions,allCompileDefinitions,includeDirectories:paths(report?.includeDirectories,"include directories",true),implementationSources:paths(report?.implementationSources,"implementation sources",false)};makefileAnalysisCache.set(cacheKey,result);return result
 }
 function rustCmakeAnalysis(root){const canonical=fs.realpathSync(root),cached=cmakeAnalysisCache.get(canonical);if(cached)return cached;const report=runRustSource(["analyze","cmake","--source-dir",canonical,"--format","json"]),reportedRoot=path.resolve(String(report?.sourceRoot??"")),cmakeLists=report?.cmakeLists===null?null:path.resolve(String(report?.cmakeLists??"")),expected=path.join(canonical,"CMakeLists.txt"),definitions=report?.compileDefinitions;if(reportedRoot!==canonical||(cmakeLists===null)!==!fs.existsSync(expected)||(cmakeLists!==null&&(cmakeLists!==fs.realpathSync(expected)||!cmakeLists.startsWith(`${canonical}${path.sep}`)||!fs.statSync(cmakeLists).isFile()))||!Array.isArray(definitions)||definitions.length>65536||definitions.some(value=>typeof value!=="string"||/^-D[A-Z][A-Z0-9_]+=[0-9]+$/.test(value)===false)||new Set(definitions).size!==definitions.length)fail("Rust CMake analysis returned an invalid report");const result={cmakeLists,compileDefinitions:definitions.map(String)};cmakeAnalysisCache.set(canonical,result);return result}
 function rustSourceIncludeNames(root){const canonical=fs.realpathSync(root),report=runRustSource(["analyze","includes","--source-dir",canonical,"--format","json"]),reportedRoot=path.resolve(String(report?.sourceRoot??"")),values=report?.includes;if(reportedRoot!==canonical||!Array.isArray(values)||values.length>1048576||values.some(value=>typeof value!=="string"||!value||value.length>4096||/[\r\n<>\"]/.test(value))||new Set(values).size!==values.length)fail("Rust include inventory returned an invalid report");return values}
+function cachedRustModelCandidateReport(canonical){
+  const inventory=rustSourceInventory(canonical),hash=createHash("sha256"),legacyHash=createHash("sha256"),version="peach-registry-model-candidates-v2\0";
+  hash.update(version);legacyHash.update(version);hash.update(canonical);hash.update("\0");
+  for(const file of inventory.sourceFiles){const relative=path.relative(canonical,file),contents=fs.readFileSync(file);hash.update(relative);legacyHash.update(relative);hash.update("\0");legacyHash.update("\0");hash.update(contents);legacyHash.update(contents);hash.update("\0");legacyHash.update("\0")}
+  const cacheDir=path.join(projectDir,".build","analysis-cache","model-candidates"),cacheFile=path.join(cacheDir,`${hash.digest("hex")}.json`),legacyCacheFile=path.join(cacheDir,`${legacyHash.digest("hex")}.json`);
+  for(const candidate of [cacheFile,legacyCacheFile])try{if(fs.existsSync(candidate)){const report=JSON.parse(fs.readFileSync(candidate,"utf8"));if(path.resolve(String(report?.sourceRoot??""))===canonical)return report}}catch{}
+  const report=runRustSource(["analyze","model-candidates","--source-dir",canonical,"--format","json"]);
+  try{fs.mkdirSync(cacheDir,{recursive:true});const temporary=`${cacheFile}.${process.pid}.tmp`;fs.writeFileSync(temporary,JSON.stringify(report));fs.renameSync(temporary,cacheFile)}catch{}
+  return report
+}
 function rustModelCandidateStarts(root){
   const canonical=fs.realpathSync(root),cached=modelCandidateCache.get(canonical);if(cached)return cached;
-  const report=runRustSource(["analyze","model-candidates","--source-dir",canonical,"--format","json"]),prefix=`${canonical}${path.sep}`,inventoryFiles=rustSourceInventory(canonical).sourceFiles,byFile=new Map(inventoryFiles.map(file=>[file,[]])),customModelCandidatesByFile=new Map(inventoryFiles.map(file=>[file,[]])),metaModuleCandidatesByFile=new Map(inventoryFiles.map(file=>[file,[]]));
+  const report=cachedRustModelCandidateReport(canonical),prefix=`${canonical}${path.sep}`,inventoryFiles=rustSourceInventory(canonical).sourceFiles,byFile=new Map(inventoryFiles.map(file=>[file,[]])),customModelCandidatesByFile=new Map(inventoryFiles.map(file=>[file,[]])),metaModuleCandidatesByFile=new Map(inventoryFiles.map(file=>[file,[]]));
   if(!Array.isArray(report.candidates))fail("Rust model analysis omitted candidates");
   for(const candidate of report.candidates){
     const file=path.resolve(String(candidate.file)),start=Number(candidate.start),factory=String(candidate.factory??""),templateSource=candidate.templateSource,callSource=candidate.callSource,templateArguments=candidate.templateArguments,callArguments=candidate.callArguments,namespace=candidate.namespace,registeredModuleType=candidate.registeredModuleType,widgetNamespace=candidate.widgetNamespace,rawContextFiles=candidate.contextFiles;
@@ -246,9 +275,9 @@ function rustModelCandidateStarts(root){
   const stringConstants={};
   for(const candidate of report.stringConstants){
     const file=path.resolve(String(candidate.file)),start=Number(candidate.start),name=String(candidate.name??""),expression=candidate.expression,value=candidate.value;
-    if(!file.startsWith(prefix)||!Number.isSafeInteger(start)||start<0||!/^[A-Za-z_]\w*$/.test(name)||typeof expression!=="string"||expression.length>1048576||typeof value!=="string"||value.length>1048576)fail("Rust model analysis returned an invalid string constant");
+    if(!file.startsWith(prefix)||!Number.isSafeInteger(start)||start<0||!/^[A-Za-z_]\w*$/.test(name)||typeof expression!=="string"||expression.length>1048576||(value!==null&&typeof value!=="string")||(typeof value==="string"&&value.length>1048576))fail("Rust model analysis returned an invalid string constant");
     const source=fs.readFileSync(file,"utf8");if(!source.slice(start).startsWith(name))fail("Rust string constant does not match its source file");
-    stringConstants[name]=value
+    if(typeof value==="string")stringConstants[name]=value
   }
   if(!Array.isArray(report.typeAliases))fail("Rust model analysis omitted type aliases");
   const aliasesByFile=new Map(rustSourceInventory(canonical).sourceFiles.map(file=>[file,[]]));
@@ -655,8 +684,8 @@ function normalizedMacroDefinitions(candidates,source,label){
   let previousEnd=-1;
   return candidates.map(candidate=>{
     const start=Number(candidate?.start),end=Number(candidate?.end),name=String(candidate?.name??""),functionLike=candidate?.functionLike,parameters=candidate?.parameters,replacement=candidate?.replacement,commented=candidate?.commented;
-    if(!Number.isSafeInteger(start)||start<0||!Number.isSafeInteger(end)||end<=start||end>source.length||start<previousEnd||!/^[A-Za-z_]\w*$/.test(name)||typeof functionLike!=="boolean"||!Array.isArray(parameters)||parameters.length>256||parameters.some(parameter=>typeof parameter!=="string"||parameter.length>4096||!/^(?:[A-Za-z_]\w*(?:\.\.\.)?|\.\.\.)$/.test(parameter))||(!functionLike&&parameters.length)||typeof replacement!=="string"||replacement.length>1048576||typeof commented!=="boolean")fail(`Rust ${label} returned an invalid macro definition`);
-    const rawDefinition=source.slice(start,end),escaped=name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),match=new RegExp(`^[ \\t]*${commented?"//[ \\t]*":""}#[ \\t]*define[ \\t]+${escaped}(?<tail>[\\s\\S]*)$`).exec(rawDefinition),sourceFunctionLike=Boolean(match?.groups?.tail.trimStart().startsWith("("));
+    if(!Number.isSafeInteger(start)||start<0||!Number.isSafeInteger(end)||end<=start||end>source.length||start<previousEnd||!/^[A-Za-z_]\w*$/.test(name)||typeof functionLike!=="boolean"||!Array.isArray(parameters)||parameters.length>256||parameters.some(parameter=>typeof parameter!=="string"||parameter.length>4096||!/^(?:[A-Za-z_]\w*(?:\.\.\.)?|\.\.\.)$/.test(parameter))||(!functionLike&&parameters.length)||typeof replacement!=="string"||replacement.length>1048576||typeof commented!=="boolean")fail(`Rust ${label} returned an invalid macro definition: ${JSON.stringify({start,end,name,functionLike,parameters,previousEnd,sourceLength:source.length,replacementType:typeof replacement,replacementLength:typeof replacement==="string"?replacement.length:null,commented})}`);
+    const rawDefinition=source.slice(start,end),escaped=name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),match=new RegExp(`^[ \\t]*${commented?"//[ \\t]*":""}#[ \\t]*define[ \\t]+${escaped}(?<tail>[\\s\\S]*)$`).exec(rawDefinition),sourceFunctionLike=Boolean(match?.groups?.tail.startsWith("("));
     if(!match||sourceFunctionLike!==functionLike)fail(`Rust ${label} returned a mismatched macro definition`);
     previousEnd=end;return{start,end,name,functionLike,parameters:parameters.map(String),replacement,commented,rawDefinition:rawDefinition.trim()}
   })
@@ -667,8 +696,8 @@ function normalizedConditionalDirectives(candidates,source,label){
   return candidates.map(candidate=>{
     const start=Number(candidate?.start),end=Number(candidate?.end),kind=String(candidate?.kind??""),expression=candidate?.expression,simpleMacro=candidate?.simpleMacro===null?null:String(candidate?.simpleMacro??""),negated=candidate?.negated;
     if(!Number.isSafeInteger(start)||start<0||!Number.isSafeInteger(end)||end<=start||end>source.length||start<previousEnd||!["if","ifdef","ifndef","elif","else","endif"].includes(kind)||typeof expression!=="string"||expression.length>1048576||(simpleMacro!==null&&!/^[A-Za-z_]\w*$/.test(simpleMacro))||typeof negated!=="boolean")fail(`Rust ${label} returned an invalid conditional directive`);
-    const rawDirective=source.slice(start,end),match=new RegExp(`^[ \\t]*#[ \\t]*${kind}\\b(?<expression>[\\s\\S]*)$`).exec(rawDirective),sourceExpression=match?.groups?.expression.replace(/[ \\t]*\\\\[ \\t]*\\r?\\n[ \\t]*/g," ").trim();
-    if(!match||sourceExpression!==expression)fail(`Rust ${label} returned a mismatched conditional directive`);
+    const rawDirective=source.slice(start,end),match=new RegExp(`^[ \\t]*#[ \\t]*${kind}\\b(?<expression>[\\s\\S]*)$`).exec(rawDirective),sourceExpression=match?.groups?.expression.replace(/[ \t]*\\[ \t]*\r?\n[ \t]*/g," ").trim();
+    if(!match||sourceExpression!==expression)fail(`Rust ${label} returned a mismatched conditional directive (${kind}: ${JSON.stringify(rawDirective)} != ${JSON.stringify(expression)})`);
     let expectedSimple=null,expectedNegated=false;
     if(kind==="ifdef"||kind==="ifndef"){expectedSimple=/^[A-Za-z_]\w*$/.test(expression)?expression:null;expectedNegated=kind==="ifndef"}
     else if(kind==="if"||kind==="elif"){const direct=/^(?<negated>!\s*)?(?<name>[A-Za-z_]\w*)$/.exec(expression);expectedSimple=direct?.groups?.name??null;expectedNegated=expression.trimStart().startsWith("!")}
@@ -729,9 +758,25 @@ function normalizedNamespaceUsingDirective(candidate,source,label){
   return{start,end,target,namespace:namespace.map(String),rawDeclaration}
 }
 function rustSourceDeclarations(source){
-  if(sourceDeclarationCache.has(source))return sourceDeclarationCache.get(source);
+  sourceDeclarationRequests+=1;
+  if(sourceDeclarationCache.has(source)){
+    sourceDeclarationHits+=1;
+    return sourceDeclarationCache.get(source)
+  }
+  const declarationTool=activeSourceTool??developmentSourceTool??path.join(projectDir,"target","debug",process.platform==="win32"?"peach-registry.exe":"peach-registry"),declarationToolStat=fs.existsSync(declarationTool)?fs.statSync(declarationTool):null,declarationCacheKey=createHash("sha256").update("rack-web-declarations-v1\0").update(String(declarationToolStat?.size??0)).update("\0").update(String(declarationToolStat?.mtimeMs??0)).update("\0").update(source).digest("hex"),declarationCacheFile=path.join(projectDir,".build","declaration-analysis-cache",`${declarationCacheKey}.json`);
   try{
-    const report=runRustSource(["analyze","declarations","--format","json"],activeSourceTool,{source});
+    if(fs.existsSync(declarationCacheFile)){
+      const cached=JSON.parse(fs.readFileSync(declarationCacheFile,"utf8"));
+      if(Array.isArray(cached?.typeDeclarations)&&Array.isArray(cached?.includeDirectives)&&Array.isArray(cached?.freeFunctionDefinitions)){
+        sourceDeclarationHits+=1;
+        sourceDeclarationCache.set(source,cached);
+        return cached
+      }
+    }
+  }catch{}
+  if(process.env.RACK_WEB_DEBUG_ANALYSIS&&sourceDeclarationRequests%25===0)console.error(JSON.stringify({sourceDeclarationRequests,sourceDeclarationHits,sourceLength:source.length,cacheSize:sourceDeclarationCache.size}));
+  try{
+    const server=ensureDeclarationServer(),report=server?runRustSource(["analyze","declarations-client","--port",String(server.port),"--token",server.token,"--format","json"],server.tool,{source}):runRustSource(["analyze","declarations","--format","json"],activeSourceTool,{source});
     if(!Array.isArray(report.macroDefinitions)||report.macroDefinitions.length>65536)fail("Rust declaration analysis returned invalid macro definitions");
     if(!Array.isArray(report.conditionalDirectives)||report.conditionalDirectives.length>65536||!Array.isArray(report.conditionalBlocks)||report.conditionalBlocks.length>65536||!Array.isArray(report.headerGuards)||report.headerGuards.length>65536||!Array.isArray(report.includeDirectives)||report.includeDirectives.length>65536||!Array.isArray(report.typeDeclarations)||report.typeDeclarations.length>65536||!Array.isArray(report.anonymousTypedefDeclarations)||report.anonymousTypedefDeclarations.length>65536||!Array.isArray(report.typeAliases)||report.typeAliases.length>65536||!Array.isArray(report.enumDeclarations)||report.enumDeclarations.length>65536||!Array.isArray(report.namespaceConstantDeclarations)||report.namespaceConstantDeclarations.length>65536||!Array.isArray(report.namespaceVariableDeclarations)||report.namespaceVariableDeclarations.length>65536||!Array.isArray(report.namespaceUsingDeclarations)||report.namespaceUsingDeclarations.length>65536||!Array.isArray(report.namespaceUsingDirectives)||report.namespaceUsingDirectives.length>65536||!Array.isArray(report.configCalls)||report.configCalls.length>65536||!Array.isArray(report.inlineMemberDefinitions)||report.inlineMemberDefinitions.length>65536||!Array.isArray(report.freeFunctionDeclarations)||report.freeFunctionDeclarations.length>65536)fail("Rust declaration analysis returned an invalid report");
     const typeDeclarations=report.typeDeclarations.map(candidate=>{const start=Number(candidate?.start),declarationStart=Number(candidate?.declarationStart),declarationEnd=Number(candidate?.declarationEnd),bodyStart=Number(candidate?.bodyStart),bodyEnd=Number(candidate?.bodyEnd),name=String(candidate?.name??""),kind=String(candidate?.kind??""),namespace=candidate?.namespace,namespaceScope=candidate?.namespaceScope,owners=declarationOwners(candidate?.owners,"type"),templateSource=candidate?.templateSource,templateParameters=candidate?.templateParameters,bases=candidate?.bases;if(!Number.isSafeInteger(start)||start<0||!Number.isSafeInteger(declarationStart)||declarationStart<0||declarationStart>start||!Number.isSafeInteger(declarationEnd)||declarationEnd<=bodyEnd||declarationEnd>source.length||!Number.isSafeInteger(bodyStart)||bodyStart<=start||!Number.isSafeInteger(bodyEnd)||bodyEnd<bodyStart||!/^[A-Za-z_]\w*$/.test(name)||!["struct","class","union"].includes(kind)||!Array.isArray(namespace)||namespace.length>64||namespace.some(part=>!/^[A-Za-z_]\w*$/.test(String(part)))||typeof namespaceScope!=="boolean"||(templateSource!==null&&(typeof templateSource!=="string"||templateSource.length>1048576))||!Array.isArray(templateParameters)||templateParameters.length>128||templateParameters.some(parameter=>!/^[A-Za-z_]\w*$/.test(String(parameter)))||!Array.isArray(bases)||bases.length>128||bases.some(base=>typeof base!=="string"||!base||base.length>1048576)||!source.slice(start).startsWith(name)||source[bodyStart-1]!=="{"||source[bodyEnd]!=="}")fail("Rust declaration analysis returned an invalid type declaration");return{start,declarationStart,declarationEnd,bodyStart,bodyEnd,name,kind,namespace:namespace.map(String),namespaceScope,owners,templateSource,templateParameters:templateParameters.map(String),bases:[...bases]}});
@@ -779,13 +824,23 @@ function rustSourceDeclarations(source){
     result.preprocessorDirectives=normalizedPreprocessorDirectives(report.preprocessorDirectives,source,"declaration analysis");
     if(!Array.isArray(report.repeatedDefaultArgumentRanges)||report.repeatedDefaultArgumentRanges.length>65536)fail("Rust declaration analysis returned invalid repeated default-argument ranges");let previousDefaultArgumentEnd=-1;
     result.repeatedDefaultArgumentRanges=report.repeatedDefaultArgumentRanges.map(candidate=>{const start=Number(candidate?.start),end=Number(candidate?.end),contained=result.freeFunctionDefinitions.some(definition=>start>=definition.start&&end<=definition.end);if(!Number.isSafeInteger(start)||start<0||!Number.isSafeInteger(end)||end<=start||end>source.length||start<previousDefaultArgumentEnd||!contained||!source.slice(start,end).includes("="))fail("Rust declaration analysis returned an invalid repeated default-argument range");previousDefaultArgumentEnd=end;return{start,end}});
-    if(sourceDeclarationCache.size>=32)sourceDeclarationCache.clear();sourceDeclarationCache.set(source,result);return result
-  }catch(error){throw error}
+    if(sourceDeclarationCache.size>=256)sourceDeclarationCache.delete(sourceDeclarationCache.keys().next().value);sourceDeclarationCache.set(source,result);
+    try{fs.mkdirSync(path.dirname(declarationCacheFile),{recursive:true});const temporary=`${declarationCacheFile}.${process.pid}.tmp`;fs.writeFileSync(temporary,JSON.stringify(result));fs.renameSync(temporary,declarationCacheFile)}catch{}
+    return result
+  }catch(error){
+    if(declarationServer&&!declarationServerRetrying){
+      declarationServerRetrying=true;
+      declarationServer.child.kill();
+      declarationServer=null;
+      try{return rustSourceDeclarations(source)}finally{declarationServerRetrying=false}
+    }
+    throw error
+  }
 }
 function rustInlineMemberDefinitions(source){
   if(inlineMemberDefinitionCache.has(source))return inlineMemberDefinitionCache.get(source);
   const prefix="struct RackWebInlineFragment {\n",wrapped=`${prefix}${source}\n};`,limit=prefix.length+source.length,definitions=rustSourceDeclarations(wrapped).inlineMemberDefinitions.filter(candidate=>candidate.start>=prefix.length&&candidate.end<=limit).map(candidate=>{const start=candidate.start-prefix.length,end=candidate.end-prefix.length,bodyStart=candidate.bodyStart-prefix.length,bodyEnd=candidate.bodyEnd-prefix.length;return{...candidate,start,end,bodyStart,bodyEnd,rawDefinition:source.slice(start,end).trim()}});
-  if(inlineMemberDefinitionCache.size>=32)inlineMemberDefinitionCache.clear();inlineMemberDefinitionCache.set(source,definitions);return definitions
+  if(inlineMemberDefinitionCache.size>=256)inlineMemberDefinitionCache.delete(inlineMemberDefinitionCache.keys().next().value);inlineMemberDefinitionCache.set(source,definitions);return definitions
 }
 function outOfLineCallableKeys(source){
   return rustSourceDeclarations(source).outOfLineDefinitions
@@ -854,6 +909,32 @@ function templateContract(source,moduleClass,typeDeclaration=null){const open=mo
 function enclosingNamespaces(source,className){return rustSourceTypeDeclaration(source,className)?.namespace??[]}
 function removeClassDefinition(source,className){const declaration=rustSourceTypeDeclaration(source,className);return declaration?source.slice(0,declaration.declarationStart)+source.slice(declaration.declarationEnd):source}
 function classDefinitionSource(source,className){const declaration=rustSourceTypeDeclaration(source,className);return declaration?source.slice(declaration.declarationStart,declaration.declarationEnd):""}
+function completeClassDefinitionSource(source,className){
+  const name=baseTypeName(className).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),matcher=new RegExp(`\\b(?:class|struct)\\s+${name}\\b[^;{]*\\{`,"g");
+  for(let match=matcher.exec(source);match;match=matcher.exec(source)){
+    const open=source.indexOf("{",match.index),close=matchingBrace(source,open);
+    if(close<0)continue;
+    let end=close+1;
+    while(/\\s/.test(source[end]??""))++end;
+    if(source[end]===`;`)++end;
+    return source.slice(match.index,end);
+  }
+  return"";
+}
+function removeNamedTypeDefinition(source,typeName){
+  const declaration=new RegExp(`\\b(?:class|struct)\\s+${typeName}\\b[^;{]*\\{`);
+  for(let match=declaration.exec(source);match;match=declaration.exec(source)){
+    const open=source.indexOf("{",match.index),close=matchingBrace(source,open);
+    if(open<0||close<0)break;
+    let end=close+1;
+    while(/\\s/.test(source[end]??""))end++;
+    if(source[end]===")"||source[end]==="]")break;
+    if(source[end]===",")break;
+    if(source[end]===";")end++;
+    source=source.slice(0,match.index)+source.slice(end);
+  }
+  return source;
+}
 function qualifiedTypeDefinitionRecords(source){
   const declarations=rustSourceDeclarations(source),records=[];
   for(const declaration of declarations.typeDeclarations)if(declaration.owners.length===0)records.push({start:declaration.declarationStart,end:declaration.declarationEnd,key:`${declaration.namespace.join("::")}::${declaration.name}`});
@@ -883,6 +964,9 @@ function hasRackUiReference(source){
   return[...sourceWithoutCommentsAndLiterals(String(source)).matchAll(new RegExp(rackUiPattern.source,"g"))]
     .some(match=>!/^(?:First|Last)(?:Knob|Slider)$/.test(match[0]))
 }
+function hasRackUiReferenceBeyondVec(source){
+  return rackUiPattern.test(String(source).replace(/\bVec\b/g,""));
+}
 function classHasDspContract(definition){
   if(/\bdsp::(?:SchmittTrigger|BooleanTrigger|PulseGenerator|ClockDivider|Timer|TSchmittTrigger|TTrigger)\b/.test(definition))return true;
   if(/\b(?:process|step|jsonSave|jsonLoad|next)\s*\(/.test(definition))return true;
@@ -890,7 +974,7 @@ function classHasDspContract(definition){
   if(/\b(?:bool|float|double|int|unsigned)\s+[A-Za-z_]\w*/.test(definition)&&/\b(?:apply|advance|calculate|compute|initialize|reset|select|update|validate)[A-Za-z0-9_]*\s*\(/.test(definition))return true;
   return/\b(?:config|initialize|update)\s*\(/.test(definition)&&/\b(?:Module|Input|Output|Param|GateTriggerReceiver|SchmittTrigger|PulseGenerator|Filter|Oscillator|bool|float|double|int|unsigned)\b/.test(definition);
 }
-function uiClassDefinition(definition,name){const header=definition.slice(0,definition.indexOf("{")),baseHeader=header.replace(new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`),""),dspContract=classHasDspContract(definition),visualContract=/\b(?:GLuint|FramebufferWidget|t_img_ptr)\b|\bNVGcontext\b|\bnvg[A-Z]\w*\s*\(|\b(?:svg_file|load_svg|createParam(?:Centered)?|addParam)\b/.test(definition),uiPointerContract=/\b[A-Za-z_]\w*(?:Label|TextTag)\s*\*/.test(definition),uiName=/(?:Widget|Display|Diagram|Knob|Port|Switch|Button|Light|Screw|Slider|MenuItem|Panel)$/.test(name);return rackUiPattern.test(baseHeader)||uiPointerContract||(!dspContract&&(uiName||rackUiPattern.test(definition)||visualContract))}
+function uiClassDefinition(definition,name){const header=definition.slice(0,definition.indexOf("{")),baseHeader=header.replace(new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`),""),dspContract=classHasDspContract(definition),visualContract=/\b(?:GLuint|FramebufferWidget|t_img_ptr)\b|\bNVGcontext\b|\bnvg[A-Z]\w*\s*\(|\b(?:svg_file|load_svg|createParam(?:Centered)?|addParam)\b/.test(definition),uiPointerContract=/\b[A-Za-z_]\w*(?:Label|TextTag)\s*\*/.test(definition),uiName=/(?:Widget|Display|Diagram|Knob|Port|Switch|Button|Light|Screw|Slider|MenuItem|Panel)$/.test(name);return hasRackUiReferenceBeyondVec(baseHeader)||uiPointerContract||(!dspContract&&(uiName||hasRackUiReferenceBeyondVec(definition)||visualContract))}
 function configHelperClasses(source){const names=declaredTypeNames(source),helpers=new Set(names.filter(name=>{const definition=classDefinitionSource(source,name);return definition&&/\bstatic\b[\s\S]*?\bconfig\s*\(/.test(definition)}));for(let pass=0;pass<names.length;pass++){const before=helpers.size;for(const name of names){if(helpers.has(name))continue;const definition=classDefinitionSource(source,name);if(definition&&declaredBases(definition,name).some(base=>helpers.has(baseTypeName(base))))helpers.add(name)}if(helpers.size===before)break}return helpers}
 function uiClassClosure(source){const names=declaredTypeNames(source),configHelpers=configHelperClasses(source),ui=new Set(names.filter(name=>{const definition=classDefinitionSource(source,name);return definition&&!configHelpers.has(name)&&uiClassDefinition(definition,name)}));for(let pass=0;pass<names.length;pass++){const before=ui.size;for(const name of names){if(ui.has(name)||configHelpers.has(name))continue;const definition=classDefinitionSource(source,name),bases=definition?declaredBases(definition,name):[],rackModule=bases.some(rackModuleBase),uiReference=definition&&[...ui].some(uiName=>new RegExp(`\\b${uiName.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`).test(definition)),uiPointerBridge=definition&&[...ui].some(uiName=>new RegExp(`\\b${uiName.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\s*\\*`).test(definition));if(definition&&!rackModule&&((!classHasDspContract(definition)&&(bases.some(base=>ui.has(baseTypeName(base)))||uiReference))||uiPointerBridge))ui.add(name)}if(ui.size===before)break}return ui}
 function stripUnusedQualifiedUsingDeclarations(source){
@@ -987,8 +1071,242 @@ function hoistLateNumericObjectMacros(source){
   const index=insertion.index+insertion[0].length;
   return`${source.slice(0,index)}${definitions.join("\n")}\n${source.slice(index)}`
 }
+function adapt23voltsMorphBrowserSource(source){
+  if(!/\bRACK_WEB_EXPORTS\(Morph\)/.test(source)||!/\bstruct\s+MultiHandleMapCollection\b/.test(source))return source;
+  source=removeClassDefinition(source,"MappableParameter");
+  if(!/\bvoid\s+setCurrentPageHandleColor\s*\(/.test(source))source=source.replace(
+    /\n([ \t]*)void\s+loadPage\s*\(/,
+    "\n$1void setCurrentPageHandleColor(NVGcolor) {}\n\n$1void loadPage(",
+  );
+  return source;
+}
+function adaptBidooLimonadeBrowserSource(source){
+  const firstDefinition=source.indexOf("\nDRWAV_API drwav_bool32 drwav_init_file_write"),nextDependency=source.indexOf("\nenum LodePNGColorType",firstDefinition);
+  if(firstDefinition>=0&&nextDependency>firstDefinition)source=source.slice(0,firstDefinition)+source.slice(nextDependency);
+  const lodepng=source.indexOf("enum LodePNGColorType"),open=lodepng>=0?source.indexOf("{",lodepng):-1,close=open>=0?matchingBrace(source,open):-1;
+  if(close>=0){const suffix=/^\s*(?:LodePNGColorType\s*)?;?/.exec(source.slice(close+1))?.[0]??"";source=source.slice(0,lodepng)+source.slice(close+1+suffix.length)}
+  if(!source.includes('#include "dep/osc/wtOsc.h"'))source=source.replace('#include "rack_web_export.hpp"','#include "rack_web_export.hpp"\n#include "dep/osc/wtOsc.h"');
+  source=source.replace(/\bthread\s+t\s*=\s*thread\s*\(\s*(tLoadI(?:Sample|Frame))\s*,\s*std::ref\(table\)\s*,\s*std::ref\(iRec\)\s*,\s*([^;]+)\);\s*t\.detach\(\s*\)\s*;/g,"$1(table, iRec, $2);");
+  return source
+}
+function adaptBogaudioGeneratedAdapter(source){
+  source=source.replace(/Model\s*\*\s*(model[A-Za-z0-9_]+)\s*=\s*bogaudio::createModel<[^;]+>\(\s*"([^"]+)"[^;]*;/g,'Model* $1 = new Model{"$2"};');
+  if(/\bffft::FFTReal\s*</.test(source)&&!source.includes('#include "ffft/FFTReal.h"'))source=source.replace('#include "ffft/FFTRealFixLen.h"','#include "ffft/FFTReal.h"\n#include "ffft/FFTRealFixLen.h"');
+  if(/\bRACK_WEB_EXPORTS\([^)]*\bWalk2\)/.test(source)){
+    const unusedFilterTypes=["BiquadBank","MultimodeTypes","MultimodeDesigner","MultimodeFilter","MultimodeBase","FourPoleButtworthLowpassFilter","FourPoleButtworthHighpassFilter","TwoPoleButtworthBandpassFilter","FourPoleButtworthBandpassFilter","Equalizer"];
+    for(const name of unusedFilterTypes){source=removeOutOfLineDefinitions(source,name);source=removeClassDefinition(source,name)}
+    source=source.replace(/^\s*template\s*<>[^;\n]*\bBiquadBank\s*<[^;\n]+;\s*$/gm,"").replace(/^\s*template\s+struct\s+(?:MultimodeDesigner|MultimodeBase)\s*<[^;\n]+;\s*$/gm,"").replace(/^\s*typedef\s+MultimodeBase\s*<[^;\n]+;\s*$/gm,"").replace(/^\s*constexpr\s+[^;\n]*\bMultimodeTypes::[^;\n]+;\s*$/gm,"");
+  }
+  return source
+}
+function adaptBgalDressMeUpGeneratedAdapter(source){
+  // DressMeUpDisplay.hpp exposes the authoritative clothing contract, but its
+  // OpenGL image wrappers are UI-only and must not enter the DSP adapter.
+  for(const name of ["ClothingImage","DressMeUpGLWidget"])source=removeClassDefinition(source,name);
+  return source
+    .replace(/^\s*#\s*define\s+GL_CHECK\([^\n]*\n/gm,"")
+    .replace(/^\s*(?:using\s+t_img_ptr\s*=\s*std::shared_ptr<ImageData>|typedef\s+FramebufferWidget\s+DressMeUpBase)\s*;\s*$/gm,"");
+}
+function adaptAmalgamatedHarmonicsGeneratedAdapter(source,target){
+  if(!["AmalgamatedHarmonics/PolyProbe","AmalgamatedHarmonics/PolyScope"].includes(target.key))return source;
+  const start=source.indexOf("namespace ah {\nnamespace music {\nChordDef ChordTable"),marker="\nnamespace ah {}\nusing namespace ah;",end=source.indexOf(marker,start);
+  // AHCommon.cpp contributes the plugin's entire chord/scale catalog to the
+  // generated dependency prelude. PolyProbe and PolyScope only depend on the
+  // shared pitch names/constants that are selected again below, so retaining
+  // this unrelated catalog both bloats the module and leaves its unused types
+  // ahead of their declarations.
+  return start>=0&&end>start?`${source.slice(0,start)}${source.slice(end)}`:source;
+}
+function hoistNamedEnumBeforeReference(source,name,token){
+  const declaration=new RegExp(`\\benum\\s+${name.replace(/[.*+?^${}()|[\\]\\\\]/g,"\\$&")}\\s*\\{`).exec(source);
+  if(!declaration)return source;
+  const open=source.indexOf("{",declaration.index),close=matchingBrace(source,open);
+  if(close<0)return source;
+  const semicolon=source.indexOf(";",close);
+  if(semicolon<0)return source;
+  const reference=new RegExp(`\\b${token.replace(/[.*+?^${}()|[\\]\\\\]/g,"\\$&")}\\b`).exec(source.slice(0,declaration.index));
+  if(!reference)return source;
+  const insertion=source.lastIndexOf("\n",reference.index)+1;
+  const block=source.slice(declaration.index,semicolon+1);
+  const without=source.slice(0,declaration.index)+source.slice(semicolon+1);
+  return `${without.slice(0,insertion)}${block}\n\n${without.slice(insertion)}`;
+}
+function ensureCvRangeBrowserTypes(source){
+  if(!/\bCVRange\b/.test(source)||/\bstruct\s+CVRange\b/.test(source))return source;
+  const types=`struct CVRange {
+  float cv_a = -1.f;
+  float cv_b = 1.f;
+  float range = 2.f;
+  float min = -1.f;
+  CVRange() { updateInternal(); }
+  CVRange(float a, float b) : cv_a(a), cv_b(b) { updateInternal(); }
+  json_t* dataToJson() {
+    json_t* value = json_object();
+    json_object_set_new(value, "a", json_real(cv_a));
+    json_object_set_new(value, "b", json_real(cv_b));
+    return value;
+  }
+  void dataFromJson(json_t* value) {
+    if (json_typeof(value) != JSON_OBJECT) return;
+    cv_a = json_real_value(json_object_get(value, "a"));
+    cv_b = json_real_value(json_object_get(value, "b"));
+    updateInternal();
+  }
+  void updateInternal() { range = std::abs(cv_a - cv_b); min = std::min(cv_a, cv_b); }
+  float map(float value) const { return range * value + min; }
+  float invMap(float value) const { return (value - min) / range; }
+};
+
+struct CVRangeParamQuantity : ParamQuantity {
+  CVRange* range = nullptr;
+  float getDisplayValue() override { return range ? range->map(getValue()) : getValue(); }
+  void setDisplayValue(float value) override { setValue(range ? range->invMap(value) : value); }
+};`;
+  return source
+    .replace('#include "rack_web_export.hpp"',`#include "rack_web_export.hpp"\n${types}`)
+    .replace(/\bconfigParam\s*<\s*ParamQuantity\s*>(\s*\([^;]+?\))(?=\s*->\s*range\b)/g,"configParam<CVRangeParamQuantity>$1");
+}
+function ensureScopeDataBrowserTypes(source){
+  if(!/\bScopeData\b/.test(source)||/\bstruct\s+ScopeData\b/.test(source))return source;
+  const types=`template <typename T> struct ResizableRingBuffer {
+  std::vector<T> buffer;
+  int head = 0;
+  int size = 0;
+  void resize(int newSize) {
+    if (newSize == size) return;
+    if (newSize < size) {
+      const int offset = size - newSize;
+      for (int i = 0; i < newSize; ++i) buffer[i] = buffer[i + offset];
+      head = newSize;
+    }
+    else {
+      buffer.resize(newSize);
+      if (size > 0) for (int i = size; i < newSize; ++i) buffer[i] = buffer[i - size];
+      head = size;
+    }
+    size = newSize;
+  }
+  void add(T value) { if (size > 0) { buffer[head] = value; head = (head + 1) % size; } }
+  T get(int index) const { return buffer[(head + index) % size]; }
+};
+
+struct ScopeData {
+  int scopeMode[16]{};
+  float zeroThreshold[16]{};
+  float timeScale = 1.f;
+  int activeChannel = 0;
+  ResizableRingBuffer<std::pair<float, bool>> buffer[16];
+  NVGcolor backgroundColor{};
+  NVGcolor wavePrimaryColor{};
+  NVGcolor gridColor{};
+  NVGcolor triggerColor{};
+};`;
+  return source.replace('#include "rack_web_export.hpp"',`#include "rack_web_export.hpp"\n${types}`);
+}
+function adaptAlefsbitsTurntBrowserSource(source){
+  if(!/\bRACK_WEB_EXPORTS\(Turnt\)/.test(source))return source;
+  return source.replace(/RACK_WEB_EXPORTS\(Turnt\)\s*$/,`struct RackWebTurntModule : Turnt {
+  static constexpr int rackWebTurntPoints = 2048;
+  float rackWebTurntVisual[6 + rackWebTurntPoints * 2]{};
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    const int action = id - 1000;
+    if (action >= 0 && action < 16) scope_data.activeChannel = action;
+    else if (action == 16) scope_data.scopeMode[scope_data.activeChannel] = (scope_data.scopeMode[scope_data.activeChannel] + 1) % 2;
+    else if (action == 17) scope_data.timeScale = std::clamp(scope_data.timeScale * 0.9f, 0.1f, 10.f);
+    else if (action == 18) scope_data.timeScale = std::clamp(scope_data.timeScale * 1.1f, 0.1f, 10.f);
+    else if (action >= 19 && action <= 21) scope_data.buffer[scope_data.activeChannel].resize(action == 19 ? 64 : action == 20 ? 256 : 2048);
+    else if (action == 22) scope_data.scopeMode[scope_data.activeChannel] = 0;
+    else if (action == 23) scope_data.scopeMode[scope_data.activeChannel] = 1;
+  }
+  int rackWebVisualCount() const override { return 6 + rackWebTurntPoints * 2; }
+  float* rackWebVisualBuffer() override {
+    const int channel = std::clamp(scope_data.activeChannel, 0, 15);
+    const int size = std::clamp(scope_data.buffer[channel].size, 0, rackWebTurntPoints);
+    rackWebTurntVisual[0] = static_cast<float>(channel);
+    rackWebTurntVisual[1] = scope_data.timeScale;
+    rackWebTurntVisual[2] = static_cast<float>(inputs[SOURCE_INPUT].getChannels());
+    rackWebTurntVisual[3] = static_cast<float>(scope_data.scopeMode[channel]);
+    rackWebTurntVisual[4] = scope_data.zeroThreshold[channel];
+    rackWebTurntVisual[5] = static_cast<float>(size);
+    std::fill(rackWebTurntVisual + 6, rackWebTurntVisual + 6 + rackWebTurntPoints * 2, 0.f);
+    for (int index = 0; index < size; ++index) {
+      const auto point = scope_data.buffer[channel].get(index);
+      rackWebTurntVisual[6 + index] = point.first;
+      rackWebTurntVisual[6 + rackWebTurntPoints + index] = point.second ? 1.f : 0.f;
+    }
+    return rackWebTurntVisual;
+  }
+};
+
+RACK_WEB_EXPORTS(RackWebTurntModule)`);
+}
+function adaptQuestionableDinnerSurgeonBrowserSource(source){
+  const typeStart=source.search(/\btypedef\s+struct\s+te_expr\b/),pluginPrelude=source.indexOf("using namespace rack;",typeStart);
+  if(typeStart>=0&&pluginPrelude>typeStart)source=source.slice(0,typeStart)+source.slice(pluginPrelude);
+  const implementationStart=source.search(/^\s*void\s+te_free\s*\(\s*te_expr\s*\*\s*n\s*\)\s*;/m),moduleStart=source.search(/\bstruct\s+Surgeon\s*:\s*Module\b/);
+  if(implementationStart>=0&&moduleStart>implementationStart)source=source.slice(0,implementationStart)+source.slice(moduleStart);
+  return source;
+}
+function ensureBisetRegexSeqDefinition(source){
+  if(!/RACK_WEB_EXPORTS\(RegexCondensed\)/.test(source))return source;
+  const definition=`struct RegexSeq {
+  u8 mode;
+  RegexItem* sequence;
+  RegexItem* sequence_next;
+  Input* in_reset;
+  Input* in_1;
+  Input* in_2;
+  Output* out;
+  Output* out_eoc;
+  std::string string_edit;
+  std::string string_run;
+  std::string string_run_next;
+  int string_active_value;
+  bool string_syntax;
+  int clock_out_divider;
+  int clock_out_count;
+  dsp::PulseGenerator clock_out;
+  dsp::PulseGenerator clock_out_eoc;
+  bool clock_out_eoc_next;
+  GateGenerator clock_out_gate;
+  dsp::TSchmittTrigger<float> clock_in_reset;
+  dsp::TSchmittTrigger<float> clock_in_1;
+  dsp::TSchmittTrigger<float> clock_in_2;
+  bool clock_in_prev;
+  RegexSeq();
+  ~RegexSeq();
+  void reset(bool destroy);
+  void process(float dt, bool clock_reset_master, bool clock_master, float bias);
+  void compile(Regex* module);
+  bool check_syntax();
+  bool check_syntax_seq(char* str, int& index);
+};`;
+  while(/\bstruct\s+RegexSeq\s*\{/.test(source))source=removeClassDefinition(source,"RegexSeq");
+  return source.replace(/\bstruct\s+Regex\s*:\s*Module\s*\{/,`${definition}\n\nstruct Regex : Module {`);
+}
 function normalizeGeneratedImplementations(source){
   source=hoistLateNumericObjectMacros(stripSpecializedExplicitInstantiations(normalizeConditionalTemplateImplementations(stripRepeatedDefaultArgumentsOnDefinitions(dedupeFreeFunctionDefinitions(dedupeOutOfLineMethodDefinitions(source))))));
+  source=ensureBisetRegexSeqDefinition(source);
+  if(/\bstruct\s+HexSeqP2\s*:\s*Module\b/.test(source))
+    source=source.replace(/#undef\s+NUMSEQ\s*\n/,"#undef NUMSEQ\n#define NUMSEQ 16\n");
+  if(/#\s*include\s*[<\"]dep\/quantizer\.hpp[>\"]/.test(source))
+    source=source.replace(/^namespace quantizer \{\r?\nstatic constexpr int num(?:Notes|Scales) = \d+;\r?\n\}\r?\n?/gm,"");
+  source=hoistNamedEnumBeforeReference(source,"ModuleNames","MODULES_LEN");
+  source=ensureCvRangeBrowserTypes(source);
+  source=ensureScopeDataBrowserTypes(source);
+  source=adaptAlefsbitsTurntBrowserSource(source);
+  if(/\bvoid\s+init_rand\s*\(/.test(source)&&!/^\s*unsigned\s+int\s+Q\s*\[\s*4096\s*\]/m.test(source))
+    source=source.replace(/\bunsigned\s+int\s+g_myrindex\s*=\s*4095\s*;/,"unsigned int Q[4096], c = 362436;\nunsigned int g_myrindex = 4095;");
+  if(/\bRACK_WEB_EXPORTS\(MasterClockx4\)/.test(source))source=source.replace(/^\s*#\s*define\s+CLOCK_DIVS\b[^\n]*\n?/m,"").replace(/\bCLOCK_DIVS\b/g,"25");
+  if(/\bstruct\s+Surgeon\b/.test(source)&&/#\s*include\s*[<\"]tinyexpr\.h[>\"]/.test(source))source=adaptQuestionableDinnerSurgeonBrowserSource(source);
+  for(const definition of [...source.matchAll(/^\s*#\s*define\s+([A-Za-z_]\w*)\s+[^\n]*\n/gm)]){
+    const name=definition[1].replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+    if(new RegExp(`\\b(?:const|constexpr)\\b[^;\\n=]*\\b${name}\\b\\s*(?:[=;\\[,])`).test(source))source=source.replace(definition[0],"");
+  }
+  source=adapt23voltsMorphBrowserSource(source);
+  if(/\bRACK_WEB_EXPORTS\(LIMONADE\)/.test(source))source=adaptBidooLimonadeBrowserSource(source);
+  if(/\bRACK_WEB_EXPORTS\(DressMeUp\)/.test(source))source=adaptBgalDressMeUpGeneratedAdapter(source);
   if(/\bstruct\s+PhasorWavetable\b/.test(source)&&/\bstruct\s+PhasorWavetableData\b/.test(source))source=adaptHetrickPhasorWavetableBrowserSource(source);
   if(/\bRACK_WEB_EXPORTS\((?:MiniLab|MiniPad)\)/.test(source)&&/\bstruct\s+BaseModule\b/.test(source))source=adaptMinilabBrowserSource(source);
   if(/\bRACK_WEB_EXPORTS\(MiniPad\)/.test(source))source=adaptMinilabMiniPadBrowserSource(source);
@@ -998,7 +1316,24 @@ function normalizeGeneratedImplementations(source){
   if(/\bRACK_WEB_EXPORTS\(Launchpad\)/.test(source))source=adaptMadzineLaunchpadBrowserSource(source);
   if(/\bRACK_WEB_EXPORTS\(theKICK\)/.test(source))source=adaptMadzineTheKickBrowserSource(source);
   if(/\bRACK_WEB_EXPORTS\((?:TfVDPO|TfVCA)\)/.test(source))source=adaptTriggerFishGeneratedAdapter(source);
-  return /\bclass\s+MilliSampleDelayLine\b/.test(source)&&/\bclass\s+Rotor4\b/.test(source)?adaptGpRotaryBrowserSource(source):source;
+  if(/\bRACK_WEB_EXPORTS\(QuadAlgorithmicRhythm\)/.test(source)&&!/^\s*#\s*define\s+MAX_STEPS\b/m.test(source))
+    source=source.replace('#include "rack_web_export.hpp"','#include "rack_web_export.hpp"\n#define TRACK_COUNT 4\n#define MAX_STEPS 73\n#define NUM_ALGORITHMS 7\n#define EXPANDER_MAX_STEPS 18\n#define NUM_RULERS 20\n#define MAX_DIVISIONS 11\n#define NUM_PB_PATTERNS 115\n#define MAX_PB_SIZE 73\n#define NBR_SCENES 8');
+  if(/\bRACK_WEB_EXPORTS\(CellularAuto\)/.test(source)&&!/^\s*#\s*define\s+MAX_WIDTH\b/m.test(source))
+    source=source.replace('#include "rack_web_export.hpp"','#include "rack_web_export.hpp"\n#define NEW_STATES 8\n#define CUR_STATES (NEW_STATES * 3)\n#define MAX_WIDTH 64\n#define MAX_INIT 63\n#define MAX_HEIGHT 256\n#define MAX_CHANS 16');
+  if(/\bRACK_WEB_EXPORTS\(TRG\)/.test(source)&&!/^\s*#\s*define\s+MAX_STEPS\b/m.test(source))
+    source=source.replace('#include "rack_web_export.hpp"','#include "rack_web_export.hpp"\n#define MAX_STEPS 32');
+  const amalgamatedDisplay=/\bRACK_WEB_EXPORTS\([^)]*\b(PolyProbe|PolyScope)\)/.exec(source);
+  if(amalgamatedDisplay)source=adaptAmalgamatedHarmonicsGeneratedAdapter(source,{key:`AmalgamatedHarmonics/${amalgamatedDisplay[1]}`});
+  if(/\bRACK_WEB_EXPORTS\(MasterClockx4\)/.test(source))source=adaptMscHackMasterClockBrowserSource(source);
+  if(/\bstruct\s+SpinModule\s*:\s*Module\b/.test(source))source=adaptStoermelderSpinBrowserSource(source);
+  source=adaptImpromptuGeneratedAdapter(source);
+  if(/\bstruct\s+ArpSeq\s*:\s*Module\b/.test(source)&&/\bstruct\s+Page\s*\{/.test(source))source=adaptVoxglitchArpSeqGeneratedAdapter(source);
+  if(/\bvoid\s+rackWebPullXpandPresence\s*\(/.test(source))
+    source=prependInlineMethodBody(source,/\bvoid\s+process\s*\(\s*const\s+ProcessArgs\s*&\s*[A-Za-z_]\w*\s*\)\s*override\s*\{/," rackWebPullXpandPresence(); rackWebPushXpandData(); ");
+  else if(/\bvoid\s+rackWebPullXpandData\s*\(/.test(source))
+    source=prependInlineMethodBody(source,/\bvoid\s+process\s*\(\s*const\s+ProcessArgs\s*&\s*[A-Za-z_]\w*\s*\)\s*override\s*\{/," rackWebPullXpandData(); ");
+  source=/\bclass\s+MilliSampleDelayLine\b/.test(source)&&/\bclass\s+Rotor4\b/.test(source)?adaptGpRotaryBrowserSource(source):source;
+  return ensureBisetRegexSeqDefinition(source);
 }
 function musxSynthBaseDefaults(){
   const defaults=Array(82).fill(0);
@@ -1340,8 +1675,26 @@ $1void loadFile(`);
     loadCode(currentCode);
   `)
 }
-function adaptClonotribeBrowserBody(source){
-  const adapted=source.replace(/(?<![:\w])dsp::/g,"::dsp::");
+function adaptClonotribeBrowserBody(source,sourceDir=""){
+  let adapted=source.replace(/(?<![:\w])dsp::/g,"::dsp::");
+  if(sourceDir){
+    const lightConstants=/static constexpr float LIGHT_OFF\s*=\s*ZERO\s*;\s*static constexpr float LIGHT_ON\s*=\s*[^;]+;\s*static constexpr float LIGHT_ACTIVE\s*=\s*ONE\s*;/.exec(adapted)?.[0];
+    if(lightConstants){
+      adapted=adapted.replace(lightConstants,"");
+      const constantsEnd=/static constexpr float MIN\s*=\s*[^;]+;/.exec(adapted);
+      if(constantsEnd){
+        const insertAt=constantsEnd.index+constantsEnd[0].length;
+        adapted=adapted.slice(0,insertAt)+`\n\n${lightConstants}`+adapted.slice(insertAt);
+      }
+    }
+    if(!classDefinitionSource(adapted,"VCO")){
+      const vcoFile=path.join(sourceDir,"src","dsp","vco.hpp"),vcoSource=fs.existsSync(vcoFile)?classDefinitionSource(fs.readFileSync(vcoFile,"utf8"),"VCO"):"";
+      const parameterCache=adapted.search(/\bnamespace\s+clonotribe\s*\{\s*struct\s+ParameterCache\b/);
+      if(!vcoSource||parameterCache<0)fail("Clonotribe browser adapter is missing its VCO dependency");
+      adapted=adapted.slice(0,parameterCache)+`namespace clonotribe {\n${vcoSource}${/;\s*$/.test(vcoSource)?"":";"}\n}\n\n`+adapted.slice(parameterCache);
+    }
+  }
+  adapted=replaceOutOfLineMethod(adapted,"Clonotribe","appendContextMenu","");
   if(!/\bRibbonController\s+ribbonController\s*;/.test(adapted)||!/\bDrumProcessor\s+drumProcessor\s*;/.test(adapted))return adapted;
   return adapted
     .replace(/\bRibbonController\s+ribbonController\s*;\s*/g,"")
@@ -1467,6 +1820,21 @@ function adaptNativeUiBackedExpressionFields(source,uiPointerNames=[]){
   let result=source.replace(/\bbool\s+fieldsLoaded\s*=\s*false\s*;/,"bool fieldsLoaded = true;");
   if(/\bvoid\s+dataFromJson\s*\([^)]*\)\s*(?:override\s*)?\{/.test(result)&&/\btexts\s*\[/.test(result))result=appendInlineMethodStatement(result,/\bvoid\s+dataFromJson\s*\([^)]*\)\s*(?:override\s*)?\{/,"processStrings();");
   return result
+}
+function adaptMscHackMasterClockBrowserSource(source){
+  const match=/\bvoid\s+MasterClockx4::process\s*\(\s*const\s+ProcessArgs\s*&\s*[A-Za-z_]\w*\s*\)\s*\{/.exec(source);
+  if(!match)return source;
+  const insertion=match.index+match[0].length;
+  return source.slice(0,insertion)+`
+    if (!inputs[INPUT_CHAIN].isConnected()) {
+        const float browserBpm = params[PARAM_BPM].getValue();
+        if (std::abs(browserBpm - m_fBPM) > 0.0001f) BPMChange(browserBpm, false);
+    }
+    for (int browserChannel = 0; browserChannel < nCHANNELS; browserChannel++) {
+        const int browserSelection = std::clamp(static_cast<int>(std::round(params[PARAM_MULT + browserChannel].getValue())), 0, 24);
+        if (browserSelection != m_ChannelMultSelect[browserChannel]) SetDisplayLED(browserChannel, browserSelection);
+    }
+  `+source.slice(insertion);
 }
 function adaptStbImagePointerBrowserBody(source){
   const contract=[/\bunsigned\s+char\s*\*\s*imageData\b/,/\bint\s+imageWidth\b/,/\bint\s+imageHeight\b/,/\breadPixelAtPlayhead\s*\(/,/\bstbi_load\s*\(/];
@@ -1692,13 +2060,13 @@ function sourceWithoutIncludes(source){
   return withoutNonDefinePreprocessorDirectives(source).replace(/(?:inline\s+)?[\w:<>&*\s]+\([^;{}]*\)\s*\{(?=[^{}]*\bAPP\s*->\s*(?!engine\b)[A-Za-z_]\w*)[^{}]*\}/g,"").trim()
 }
 function withoutNonDefinePreprocessorDirectives(source){let result=source;const removals=rustSourceDeclarations(source).preprocessorDirectives.filter(candidate=>candidate.commented||candidate.kind!=="define");for(const {start,end} of [...removals].reverse())result=result.slice(0,start)+result.slice(end);return result}
-function flattenExternCWrappers(source){const removals=[];for(const block of rustSourceDeclarations(source).conditionalBlocks){if(block.open.kind!=="ifdef"||block.open.simpleMacro!=="__cplusplus"||!block.close)continue;const open=completeSourceLineRange(source,block.openStart,block.openEnd),close=completeSourceLineRange(source,block.closeStart,block.closeEnd);if(!open||!close)continue;const body=source.slice(open.end,close.start).trim();if(/^extern\s+"C"\s*(?:\r?\n\s*)?\{$/.test(body)||body==="}")removals.push({start:open.start,end:close.end})}let result=source;for(const {start,end} of removals.reverse())result=result.slice(0,start)+result.slice(end);return result}
+function flattenExternCWrappers(source){const removals=[];for(const block of rustSourceDeclarations(source).conditionalBlocks){if(block.open.kind!=="ifdef"||block.open.simpleMacro!=="__cplusplus"||!block.close)continue;const open=completeSourceLineRange(source,block.openStart,block.openEnd),close=completeSourceLineRange(source,block.closeStart,block.closeEnd);if(!open||!close)continue;const body=source.slice(open.end,close.start).trim();if(/^extern\s+"C"\s*(?:\r?\n\s*)?\{$/.test(body)||body==="}")removals.push({start:open.start,end:close.end})}let result=source;for(const {start,end} of removals.reverse())result=result.slice(0,start)+result.slice(end);return result.replace(/^\s*#\s*ifdef\s+__cplusplus\s*\r?\n\s*}\s*\r?\n([\s\S]*?)^\s*#\s*endif\s*$/gm,"$1")}
 function companionImplementationFile(headerFile,sourceFiles){const stem=headerFile.replace(/\.(?:hpp|hh|h)$/,""),exact=sourceFiles.find(file=>file.replace(/\.(?:cpp|cc|cxx)$/,"")===stem);if(exact)return exact;const name=path.basename(stem),matches=sourceFiles.filter(file=>/\.(?:cpp|cc|cxx)$/.test(file)&&path.basename(file,path.extname(file))===name);return matches.length===1?matches[0]:undefined}
 function isolateInternalCVMidiQueue(source){const definition=classDefinitionSource(source,"CVMidi");if(!definition)return source;const isolated=definition.replace(/\bmidi::InputQueue\s+msgQueue\s*;/,"midi::InputQueue msgQueue{false};");return source.replace(definition,isolated)}
 function canonicalNamespaceKey(namespaces){return namespaces.flatMap(namespace=>namespace.split("::")).join("::")}
 function dedupeRepeatedTopLevelTypes(source){const seen=new Set,removals=[];for(const candidate of rustSourceDeclarations(source).typeDeclarations){if(!candidate.namespaceScope)continue;const key=`${canonicalNamespaceKey(candidate.namespace)}:${candidate.name}`;if(seen.has(key))removals.push([candidate.declarationStart,candidate.declarationEnd]);else seen.add(key)}let result=source;for(const [start,end] of removals.reverse())result=result.slice(0,start)+result.slice(end);return result}
 function dedupeRepeatedTopLevelEnums(source){const seen=new Set,removals=[];for(const candidate of rustSourceDeclarations(source).enumDeclarations){if(!candidate.namespaceScope||!candidate.name)continue;const declaration=source.slice(candidate.start,candidate.end).replace(/\s+/g," ").trim(),key=`${canonicalNamespaceKey(candidate.namespace)}:${candidate.name}:${declaration}`;if(seen.has(key))removals.push([candidate.start,candidate.end]);else seen.add(key)}let result=source;for(const [start,end] of removals.reverse())result=result.slice(0,start)+result.slice(end);return result}
-function dedupeRepeatedNamespaceVariables(source){const seen=new Set,removals=[];for(const candidate of rustSourceDeclarations(source).namespaceVariableDeclarations){if(/^extern\b/.test(candidate.rawDeclaration))continue;const key=`${candidate.namespace.join("::")}:${candidate.name}`;if(seen.has(key))removals.push([candidate.start,candidate.end]);else seen.add(key)}let result=source;for(const [start,end] of removals.reverse())result=result.slice(0,start)+result.slice(end);return result}
+function dedupeRepeatedNamespaceVariables(source){const seen=new Set,removals=[];for(const candidate of rustSourceDeclarations(source).namespaceVariableDeclarations){if(/^extern\b/.test(candidate.rawDeclaration)&&!/\{|=/.test(candidate.rawDeclaration))continue;const key=`${candidate.namespace.join("::")}:${candidate.name}`;if(seen.has(key))removals.push([candidate.start,candidate.end]);else seen.add(key)}let result=source;for(const [start,end] of removals.reverse())result=result.slice(0,start)+result.slice(end);return result}
 function dedupeRepeatedNamespaceConstants(source){const seen=new Set,removals=[],pattern=/^(?:(?:inline|static)\s+)*(?:constexpr\s+|const\s+)[A-Za-z_]\w*(?:::[A-Za-z_]\w*)*(?:\s*<[^;\n]+>)?\s+([A-Za-z_]\w*)\s*=\s*([^;\n]+);$/;for(const candidate of rustSourceDeclarations(source).namespaceVariableDeclarations){const match=pattern.exec(candidate.rawDeclaration);if(!match)continue;const declaration=candidate.rawDeclaration.replace(/\s+/g," ").trim(),key=`${candidate.namespace.join("::")}:${candidate.name}:${declaration}`;if(!seen.has(key)){seen.add(key);continue}removals.push([candidate.start,candidate.end])}let result=source;for(const [start,end] of removals.reverse())result=result.slice(0,start)+result.slice(end);return result}
 function browserSafeMidiExpanderMessages(source){
   const messageArray=/\bstd::vector\s*<\s*smf::MidiMessage\s*>\s+msgs\s*\[\s*NUM_TRACKS\s*\]\s*;/;
@@ -1821,7 +2189,7 @@ function normalizeFunctionDecorationMacros(signature,source){
     .replace(/[ \t]{2,}/g," ")
     .trim()
 }
-function freeFunctionForwardDeclaration(candidate,signature=candidate?.signature){if(!signature)return"";let declaration=`${signature};`;if(candidate.namespace.length)declaration=`${candidate.namespace.map(namespace=>`namespace ${namespace} {`).join("\n")}\n${declaration}\n${candidate.namespace.map(()=>"}").join("\n")}`;return declaration}
+function freeFunctionForwardDeclaration(candidate,signature=candidate?.signature){if(!signature)return"";signature=signature.replace(/\/\*[\s\S]*?\*\//g," ").replace(/\/\/[^\r\n]*/g," ").trim();if(!signature)return"";let declaration=`${signature};`;if(candidate.namespace.length)declaration=`${candidate.namespace.map(namespace=>`namespace ${namespace} {`).join("\n")}\n${declaration}\n${candidate.namespace.map(()=>"}").join("\n")}`;return declaration}
 function namespaceFunctionForwardDeclarations(source,macroSource=source){const declarations=[];for(const candidate of rustSourceFreeFunctionDefinitions(source)){const signature=normalizeFunctionDecorationMacros(candidate.declarationSignature,macroSource);if(!signature||rackUiPattern.test(signature)||/\btemplate\s*</.test(signature))continue;declarations.push(freeFunctionForwardDeclaration(candidate,signature))}return[...new Set(declarations)]}
 function referencedVecDspHelpers(source,reference){const helpers=[];for(const candidate of rustSourceFreeFunctionDefinitions(source)){const escaped=candidate.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),vecParameter=new RegExp(`\\b${escaped}(?:\\s*<[^;{}]+>)?\\s*\\([^;{}]*\\bVec\\b[^;{}]*\\)`).test(candidate.signature);if(vecParameter&&new RegExp(`\\b${escaped}\\s*\\(`).test(reference))helpers.push(candidate.rawDefinition)}return[...new Set(helpers)].join("\n\n")}
 function deferFreeFunctionsReferencingTypes(source,typeNames){const ranges=[],definitions=[];for(const candidate of rustSourceFreeFunctionDefinitions(source)){const definition=candidate.rawDefinition;if(!typeNames.some(name=>new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`).test(definition)))continue;let wrapped=definition;if(candidate.namespace.length)wrapped=`${candidate.namespace.map(namespace=>`namespace ${namespace} {`).join("\n")}\n${wrapped}\n${candidate.namespace.map(()=>"}").join("\n")}`;definitions.push(wrapped);ranges.push([candidate.start,candidate.end])}let remaining=source;for(const [start,end] of ranges.reverse())remaining=remaining.slice(0,start)+remaining.slice(end);return{source:remaining.trim(),definitions:[...new Set(definitions)]}}
@@ -2296,6 +2664,14 @@ function browserAssetSamplerContract(source){
   const stereoBuffer=[/\bwaves::getStereoWav\s*\(/,/\bvector\s*<\s*dsp::Frame\s*<\s*2\s*>\s*>\s*playBuffer\b/,/\btotalSampleCount\b/,/\bsampleRate\b/,/\bchannels\b/,/\bmylock\b/];
   return stereoBuffer.every(pattern=>pattern.test(source))?{type:"audio",maxSamples:1920000,maxSeconds:10,channels:2,mode:"stereo-buffer",slices:/\b(?:std::)?vector\s*<\s*int\s*>\s*slices\b/.test(source)}:null
 }
+function browserAssetTargetContract(targetKey){
+  if(targetKey==="Bidoo/cANARd")return{type:"audio",maxSamples:1920000,maxSeconds:10,channels:2,mode:"stereo-buffer",slices:true};
+  if(targetKey==="Bidoo/OUAIve")return{type:"audio",maxSamples:1920000,maxSeconds:10,channels:2,mode:"stereo-buffer",slices:false};
+  if(targetKey==="voxglitch/onepoint")return{type:"text",maxSamples:1048576,maxSeconds:0,channels:1,mode:"sequence-text",sequenceKind:"voltage"};
+  if(targetKey==="voxglitch/onezero")return{type:"text",maxSamples:1048576,maxSeconds:0,channels:1,mode:"sequence-text",sequenceKind:"gate"};
+  if(targetKey==="EH_modules/FV-1emu")return{type:"text",maxSamples:262144,maxSeconds:0,channels:1,mode:"fv1-spn"};
+  return null
+}
 function browserAssetDependencyPrelude(source,contract){const sourceIncludes=rustSourceDeclarations(source).includeDirectives.filter(candidate=>completeIncludeDirectiveLine(source,candidate)).map(candidate=>candidate.include),includes=sourceIncludes.filter(value=>value.includes("dep/resampler/"));if(contract?.mode==="fundamental-wavetable")return browserFundamentalWavetablePrelude(contract.structure);if(contract?.mode==="rgba-image"&&contract?.storage!=="rgb-pointer")includes.push("dep/pffft/pffft.h");if(contract?.mode==="wavetable")includes.push("dep/osc/wtOsc.h");if(contract?.mode==="audiofile-tape")includes.push(...sourceIncludes.filter(value=>/(?:^|\/)AudioFile\.h$/.test(value)));if(contract?.mode==="buffer-sludger")return`#include "utils/MathUtils.hpp"\nconstexpr int BUFFER_DISPLAY_DRAW_MODE_DISABLE = 1;\nconstexpr int BUFFER_DISPLAY_DRAW_MODE_SAMPLES = 2;\nconstexpr int BUFFER_DISPLAY_DRAW_MODE_DISK = 3;`;if(contract?.mode==="planar-stereo-buffer")return"using drwav_uint64 = uint64_t;";return[...new Set(includes)].map(value=>`#include ${JSON.stringify(value)}`).join("\n")}
 function browserAssetImplementationFiles(sourceDir,contract){
   if(contract?.mode==="mono-resampler")return["BaseVoiceState.cpp","Downsampler2Flt.cpp","InterpPack.cpp","MipMapFlt.cpp","ResamplerFlt.cpp"].map(file=>path.join(sourceDir,"src","dep","resampler",file)).filter(file=>fs.existsSync(file));
@@ -2638,6 +3014,64 @@ function adaptImpromptuProbKeyBrowserBody(source){
       "bool withSymmetry = pkInfo.isRightClick;",
     );
 }
+function adaptImpromptuGeneratedAdapter(source){
+  // PhraseSeqUtil contains an old block-commented implementation immediately
+  // after a struct. Dependency extraction can preserve its body while the
+  // commented signature stays hidden; remove only that provably orphaned copy.
+  return source.replace(
+    /\};\s*\/\/\s*inline int indexToPps(?:GS)?\([^\n]*\n\s*index\s*=\s*clamp\(index,\s*0,\s*12\);\s*\n\s*if\s*\(index\s*==\s*0\)\s*return\s*1;\s*\n(?:\s*return\s*index\s*<<\s*1;\s*\n)?\s*\}/g,
+    "};",
+  ).replace(
+    /inline\s+int\s+ppsToIndex\s*\(\s*int\s+pulsesPerStep\s*\)\s*;/,
+    "inline int ppsToIndex(int pulsesPerStep) { return pulsesPerStep == 1 ? 0 : pulsesPerStep >> 1; }",
+  ).replace(
+    /inline\s+int\s+indexToPps\s*\(\s*int\s+index\s*\)\s*;/,
+    "inline int indexToPps(int index) { index = clamp(index, 0, 12); return index == 0 ? 1 : index << 1; }",
+  );
+}
+function adaptVoxglitchArpSeqGeneratedAdapter(source){
+  if(/\bstruct\s+Quantizer\s*\{/.test(source)&&!/\bconst\s+bool\s*\*\s*Quantizer::scales\s*\[/.test(source)){
+    const quantizer=/\bstruct\s+Quantizer\s*\{/.exec(source),open=source.indexOf("{",quantizer.index),close=matchingBrace(source,open);
+    if(close>=0){
+      let end=close+1;
+      while(/\s/.test(source[end]??""))end++;
+      if(source[end]===";")end++;
+      const definitions=`
+
+const bool Quantizer::chromaticScale[12] = { true, true, true, true, true, true, true, true, true, true, true, true };
+const bool Quantizer::majorScale[12] = { true, false, true, false, true, true, false, true, false, true, false, true };
+const bool Quantizer::minorScale[12] = { true, false, true, true, false, true, false, true, true, false, true, false };
+const bool Quantizer::pentatonicScale[12] = { true, false, true, false, false, true, false, true, false, false, true, false };
+const bool Quantizer::dorianScale[12] = { true, false, true, true, false, true, false, true, false, true, true, false };
+const bool Quantizer::phrygianScale[12] = { true, true, false, true, false, true, false, true, true, false, true, false };
+const bool Quantizer::lydianScale[12] = { true, false, true, false, true, false, true, true, false, true, false, true };
+const bool Quantizer::mixolydianScale[12] = { true, false, true, false, true, true, false, true, false, true, true, false };
+const bool Quantizer::harmonicMinorScale[12] = { true, false, true, true, false, true, false, true, true, false, false, true };
+const bool Quantizer::melodicMinorScale[12] = { true, false, true, true, false, true, false, true, false, true, false, true };
+const bool Quantizer::bluesScale[12] = { true, false, true, true, true, true, false, true, false, true, true, false };
+const bool Quantizer::wholeToneScale[12] = { true, false, true, false, true, false, true, false, true, false, true, false };
+const bool Quantizer::diminishedScale[12] = { true, true, false, true, true, false, true, true, false, true, true, false };
+const bool* Quantizer::scales[Quantizer::NUM_SCALES] = {
+  Quantizer::chromaticScale, Quantizer::majorScale, Quantizer::minorScale,
+  Quantizer::pentatonicScale, Quantizer::dorianScale, Quantizer::phrygianScale,
+  Quantizer::lydianScale, Quantizer::mixolydianScale, Quantizer::harmonicMinorScale,
+  Quantizer::melodicMinorScale, Quantizer::bluesScale, Quantizer::wholeToneScale,
+  Quantizer::diminishedScale
+};`;
+      source=source.slice(0,end)+definitions+source.slice(end);
+    }
+  }
+  const declaration=/\bstruct\s+Page\s*\{/.exec(source),module=/\bstruct\s+ArpSeq\s*:\s*Module\s*\{/.exec(source);
+  if(!declaration||!module||declaration.index>module.index)return source;
+  const open=source.indexOf("{",declaration.index),close=matchingBrace(source,open);
+  if(open<0||close<0)return source;
+  let end=close+1;
+  while(/\s/.test(source[end]??""))end++;
+  if(source[end]!==";")return source;
+  end++;
+  const block=source.slice(declaration.index,end),without=source.slice(0,declaration.index)+source.slice(end),insertion=/\bstruct\s+ArpSeq\s*:\s*Module\s*\{/.exec(without);
+  return insertion?without.slice(0,insertion.index)+block+"\n\n"+without.slice(insertion.index):source;
+}
 function adaptInfrasonicWarpCoreBrowserSource(source){
   const firstSpecialization=source.search(/\btemplate\s*<\s*>\s*/);
   if(firstSpecialization<0)return source;
@@ -2970,6 +3404,55 @@ function browserAssetSamplerMethods(contract){if(!contract)return"";if(contract.
     imageWidth = width; imageHeight = height; loadedImagePath = "browser://rgb";
     playheadX = playheadY = 0; currentRed = currentGreen = currentBlue = 0.f;
     imageDirty = true; requestLoadDialog = false;
+  }`;
+if(contract.mode==="sequence-text")return`  static constexpr int rackWebAssetSampleCapacity = ${contract.maxSamples};
+  float rackWebAssetSamples[rackWebAssetSampleCapacity]{};
+  int assetCapacity() const override { return rackWebAssetSampleCapacity; }
+  float* assetBuffer() override { return rackWebAssetSamples; }
+  void commitAsset(int frames, int, float) override {
+    const int byteCount = std::clamp(frames, 0, rackWebAssetSampleCapacity);
+    std::string contents(static_cast<size_t>(byteCount), '\\0');
+    for (int index = 0; index < byteCount; ++index)
+      contents[static_cast<size_t>(index)] = static_cast<char>(std::clamp(static_cast<int>(std::lround(rackWebAssetSamples[index])), 0, 255));
+    sequences.clear();
+    std::istringstream input(contents);
+    std::string line;
+    while (std::getline(input, line)) {
+      ${contract.sequenceKind==="gate"?`std::vector<bool> sequence;
+      for (char character : line) {
+        if (character == '0') sequence.push_back(false);
+        else if (character == '1') sequence.push_back(true);
+      }`:`std::vector<float> sequence;
+      std::stringstream fields(line);
+      std::string field;
+      while (std::getline(fields, field, ',')) {
+        char* end = nullptr;
+        const float value = std::strtof(field.c_str(), &end);
+        if (end != field.c_str()) sequence.push_back(value);
+      }`}
+      if (!sequence.empty()) sequences.push_back(std::move(sequence));
+    }
+    selected_sequence = 0;
+    real_selected_sequence = 0;
+    step = 0;
+    path = sequences.empty() ? "" : "browser://sequence.txt";
+    reset();
+  }`;
+if(contract.mode==="fv1-spn")return`  static constexpr int rackWebAssetSampleCapacity = ${contract.maxSamples};
+  float rackWebAssetSamples[rackWebAssetSampleCapacity]{};
+  int assetCapacity() const override { return rackWebAssetSampleCapacity; }
+  float* assetBuffer() override { return rackWebAssetSamples; }
+  void commitAsset(int frames, int, float) override {
+    const int byteCount = std::clamp(frames, 0, rackWebAssetSampleCapacity - 1);
+    std::string program(static_cast<size_t>(byteCount), '\\0');
+    for (int index = 0; index < byteCount; ++index)
+      program[static_cast<size_t>(index)] = static_cast<char>(std::clamp(static_cast<int>(std::lround(rackWebAssetSamples[index])), 0, 255));
+    program.push_back('\\0');
+    selectedProgram = -1;
+    filesInPath.clear();
+    lastPath = byteCount > 0 ? "browser://effect.spn" : "";
+    const bool loaded = byteCount > 0 && fx.loadFromSPN("Browser SPN", program.c_str());
+    display = std::string("0: ") + (loaded ? "" : "!!! ") + fx.getDisplay();
   }`;
 if(contract.mode==="lua-script")return`  static constexpr int rackWebAssetSampleCapacity = ${contract.maxSamples};
   float rackWebAssetSamples[rackWebAssetSampleCapacity]{};
@@ -3850,23 +4333,125 @@ ${quantity}`;
 function concreteTemplateOwner(candidate,owner,argument){return candidate.kind==="function"&&candidate.callableKind==="function"&&candidate.owner===owner&&String(candidate.signature).replace(/\s+/g,"").includes(`${owner}<${String(argument).replace(/\s+/g,"")}>::`)}
 function surgeVcoSpecializations(sourceFiles,moduleClass){const type=/\bVCO\s*<\s*([^>]+)>/.exec(moduleClass)?.[1]?.trim();if(!type)return"";const found=[],methods=new Set;for(const file of sourceFiles){const source=fs.readFileSync(file,"utf8");for(const candidate of rustSourceDeclarations(source).outOfLineDefinitions){if(!concreteTemplateOwner(candidate,"VCOConfig",type)||!/^template\s*<\s*>/.test(candidate.rawDefinition)||["getLayout","addMenuItems"].includes(candidate.member))continue;methods.add(candidate.member);found.push(candidate.rawDefinition)}}if(!methods.has("configureVCOSpecificParameters"))for(const file of sourceFiles){const source=fs.readFileSync(file,"utf8"),candidate=rustSourceDeclarations(source).outOfLineDefinitions.find(definition=>definition.kind==="function"&&definition.callableKind==="function"&&definition.owner==="VCOConfig"&&definition.member==="configureVCOSpecificParameters"&&/^template\s*<\s*int\s+oscType\s*>\s*inline\s+void\s+VCOConfig\s*<\s*oscType\s*>\s*::/.test(definition.rawDefinition));if(candidate){found.push(candidate.rawDefinition);break}}return[...new Set(found)].join("\n\n")}
 function qualifyRegisteredTemplateType(type,scope,sourceFiles){const open=type.indexOf("<"),close=type.lastIndexOf(">");if(open<0||close<open||!scope.length)return type;const sources=sourceFiles.map(file=>fs.readFileSync(file,"utf8")),argumentsList=splitArguments(type.slice(open+1,close)).map(argument=>{const name=argument.trim();if(name.startsWith("::"))return name.slice(2);if(!/^[A-Za-z_]\w*(?:::[A-Za-z_]\w*)*$/.test(name)||/^(?:rack|std)::/.test(name))return name;const parts=name.split("::"),terminal=parts.at(-1),qualifiers=parts.slice(0,-1),candidates=[];for(const source of sources){const definition=classDefinitionSource(source,terminal)||enumDeclarationSource(source,terminal);if(!definition)continue;const namespaces=enclosingNamespaces(source,terminal);if(qualifiers.length&&!qualifiers.every((part,index)=>namespaces[namespaces.length-qualifiers.length+index]===part))continue;candidates.push(namespaces)}const exact=candidates.find(namespaces=>namespaces.length===scope.length&&namespaces.every((part,index)=>part===scope[index])),selected=exact??(candidates.length===1?candidates[0]:null);return selected?.length?`${selected.join("::")}::${terminal}`:name});return`${type.slice(0,open)}<${argumentsList.join(", ")}>${type.slice(close+1)}`}
-function adaptBisetTrackerBrowserImplementation(source){
+function adaptBisetTrackerBrowserImplementation(source,{publishBridge=false}={}){
   for(const name of ["load_save_file","compute_save_file","read_u8","read_u16","read_name"])for(const definition of outOfLineFreeFunctionDefinitions(source,name))source=source.replace(definition,"");
   source=replaceOutOfLineMethod(source,"Tracker","onAdd","void Tracker::onAdd(const AddEvent &e) { Module::onAdd(e); }");
   const hostStart=source.indexOf("module_ids = APP->engine->getModuleIds();"),hostEnd=source.indexOf("/// [3] SWAP SYNTH",hostStart);
   if(hostStart>=0&&hostEnd>hostStart)source=source.slice(0,hostStart)+source.slice(hostEnd);
-  return source
+  source=source
     .replace(/^[ \t]*(?:TrackerSynth\s*\*\s*module_synth|TrackerDrum\s*\*\s*module_drum)\s*;\s*$/gm,"")
     .replace(/\bmods\s*=\s*APP\s*->\s*window\s*->\s*getMods\s*\(\s*\)\s*;/g,"mods = 0;")
     .replace(/\s*if\s*\(\s*APP\s*==\s*NULL\s*\|\|\s*APP\s*->\s*window\s*==\s*NULL\s*\)\s*return\s*;/g,"");
+  if(publishBridge)source=source.replace(
+    /g_timeline\s*->\s*process\s*\(\s*args\.frame\s*,\s*dt_sec\s*,\s*dt_beat\s*\)\s*;/g,
+    "g_timeline->process(args.frame, dt_sec, dt_beat); rackWebPublishTrackerBridge();"
+  );
+  return source;
 }
-function adaptBisetTrackerAuxiliaryBrowserImplementation(source){
-  return replaceOutOfLineMethod(adaptBisetTrackerBrowserImplementation(source),"Timeline","process","void Timeline::process(i64, float, float) {}");
+function adaptBisetTrackerAuxiliaryBrowserImplementation(source,targetKey){
+  source=adaptBisetTrackerBrowserImplementation(source);
+  const targetClass={
+    "Biset/Biset-Tracker-Synth":"TrackerSynth",
+    "Biset/Biset-Tracker-Drum":"TrackerDrum",
+    "Biset/Biset-Tracker-State":"TrackerState",
+  }[targetKey];
+  // The source bundle shares the desktop Tracker globals with every auxiliary
+  // module. Browser modules communicate through the host bridge instead, so no
+  // auxiliary WASM should instantiate or execute the desktop Tracker/editor.
+  for(const owner of [
+    "Tracker","TrackerControl","TrackerClock","TrackerDrum","TrackerState","TrackerSynth",
+    "Clock","PatternEffect","PatternCV","PatternNote","PatternCVCol","PatternNoteCol",
+    "PatternSource","PatternInstance","SynthVoice","Synth","PatternReader","Timeline",
+    "EditorLiveVoice","EditorSwitch","EditorTrigger","Editor",
+  ])if(owner!==targetClass)source=removeOutOfLineDefinitions(source,owner);
+  for(const name of ["process_midi_input","process_midi_message"])
+    for(const definition of outOfLineFreeFunctionDefinitions(source,name))source=source.replace(definition,"");
+  if(targetKey==="Biset/Biset-Tracker-Synth")return replaceOutOfLineMethod(source,"TrackerSynth","process",`void TrackerSynth::process(const ProcessArgs&) {
+  const int selected=static_cast<int>(params[PARAM_SYNTH].getValue());
+  int slot=-1;
+  if(rack_web_host_shared_active(15)) for(int index=0; index<6; ++index)
+    if(static_cast<int>(rack_web_host_shared_get(16+index))==selected) { slot=index; break; }
+  if(slot<0) {
+    for(int port=0; port<OUTPUT_COUNT; ++port) outputs[port].setVoltage(0.f);
+    return;
+  }
+  const int channels=std::max(0,std::min(16,static_cast<int>(rack_web_host_shared_get(32+slot))));
+  const int base=64+slot*72;
+  for(int port=OUTPUT_PITCH; port<=OUTPUT_PANNING; ++port) outputs[port].setChannels(channels);
+  for(int channel=0; channel<channels; ++channel) {
+    velocity[channel]=velocity[channel]*0.98f+rack_web_host_shared_get(base+channel*4+2)*0.02f;
+    panning[channel]=panning[channel]*0.98f+rack_web_host_shared_get(base+channel*4+3)*0.02f;
+    outputs[OUTPUT_PITCH].setVoltage(rack_web_host_shared_get(base+channel*4),channel);
+    outputs[OUTPUT_GATE].setVoltage(rack_web_host_shared_get(base+channel*4+1),channel);
+    outputs[OUTPUT_VELOCITY].setVoltage(velocity[channel],channel);
+    outputs[OUTPUT_PANNING].setVoltage(panning[channel],channel);
+  }
+  for(int index=0; index<8; ++index) {
+    const float normalized=rack_web_host_shared_get(base+64+index);
+    const float minimum=params[PARAM_OUT_MIN+index].getValue(),maximum=params[PARAM_OUT_MAX+index].getValue();
+    outputs[OUTPUT_CV+index].setVoltage(normalized*(maximum-minimum)+minimum);
+  }
+}`);
+  if(targetKey==="Biset/Biset-Tracker-Drum")return replaceOutOfLineMethod(source,"TrackerDrum","process",`void TrackerDrum::process(const ProcessArgs&) {
+  const int selected=static_cast<int>(params[PARAM_SYNTH].getValue());
+  int slot=-1;
+  if(rack_web_host_shared_active(15)) for(int index=0; index<6; ++index)
+    if(static_cast<int>(rack_web_host_shared_get(16+index))==selected) { slot=index; break; }
+  if(slot<0) {
+    for(int port=0; port<OUTPUT_COUNT; ++port) outputs[port].setVoltage(0.f);
+    return;
+  }
+  const int base=64+slot*72;
+  for(int channel=0; channel<12; ++channel) {
+    velocity[channel]=velocity[channel]*0.98f+rack_web_host_shared_get(base+channel*4+2)*0.02f;
+    panning[channel]=panning[channel]*0.98f+rack_web_host_shared_get(base+channel*4+3)*0.02f;
+    outputs[OUTPUT_TRIGGER+channel].setVoltage(rack_web_host_shared_get(base+channel*4+1));
+    outputs[OUTPUT_VELOCITY+channel].setVoltage(velocity[channel]);
+    outputs[OUTPUT_PANNING+channel].setVoltage(panning[channel]);
+  }
+  for(int index=0; index<8; ++index) {
+    const float normalized=rack_web_host_shared_get(base+64+index);
+    const float minimum=params[PARAM_OUT_MIN+index].getValue(),maximum=params[PARAM_OUT_MAX+index].getValue();
+    outputs[OUTPUT_CV+index].setVoltage(normalized*(maximum-minimum)+minimum);
+  }
+}`);
+  if(targetKey==="Biset/Biset-Tracker-State")return replaceOutOfLineMethod(source,"TrackerState","process",`void TrackerState::process(const ProcessArgs&) {
+  const bool active=rack_web_host_shared_active(15)!=0;
+  const bool playing=active&&rack_web_host_shared_get(4)>0.f;
+  const bool playTrigger=active&&rack_web_host_shared_get(6)>0.f;
+  const bool stopTrigger=active&&rack_web_host_shared_get(7)>0.f;
+  outputs[OUTPUT_GATE].setVoltage(playing?10.f:0.f);
+  outputs[OUTPUT_PLAY].setVoltage(playTrigger?10.f:0.f);
+  outputs[OUTPUT_STOP].setVoltage(stopTrigger?10.f:0.f);
+  outputs[OUTPUT_PLAY_STOP].setVoltage(playTrigger||stopTrigger?10.f:0.f);
+}`);
+  return source;
 }
 function adaptBisetBlankBrowserImplementation(source){
-  source=replaceOutOfLineMethod(source,"Blank","~Blank","Blank::~Blank() { if (this == g_blank) g_blank = nullptr; }");
+  source=source.replace(/^\s*BlankCable\s+cables\s*\[\s*BLANK_CABLES\s*\+\s*1\s*\]\s*;\s*$/gm,"");
+  source=replaceOutOfLineMethod(source,"Blank","~Blank","Blank::~Blank() {}");
   source=replaceOutOfLineMethod(source,"Blank","processBypass","void Blank::processBypass(const ProcessArgs&) {}");
-  return replaceOutOfLineMethod(source,"Blank","process","void Blank::process(const ProcessArgs&) { if (g_blank == nullptr) g_blank = this; }");
+  return replaceOutOfLineMethod(source,"Blank","process","void Blank::process(const ProcessArgs&) {}");
+}
+function adaptBisetRegexBrowserSource(source){
+  const adapted=replaceOutOfLineMethod(source,"Regex","dataFromJson",`void Regex::dataFromJson(json_t *j_root) {
+  const bool firstLoad=!rackWebRegexStateInitialized;
+  json_t* expressions=json_object_get(j_root,"expressions");
+  if(expressions&&json_typeof(expressions)==JSON_ARRAY) {
+    for(int index=0; index<exp_count; ++index) {
+      json_t* value=json_array_get(expressions,index);
+      const char* text=value&&json_typeof(value)==JSON_STRING?json_string_value(value):nullptr;
+      const std::string next=text?text:"";
+      if(sequences[index].string_edit!=next) {
+        sequences[index].string_edit=next;
+        sequences[index].check_syntax();
+      }
+      if(firstLoad&&params[PARAM_RUN_START].getValue()>0.f) sequences[index].compile(this);
+    }
+  }
+  rackWebRegexStateInitialized=true;
+}`);
+  return adapted===source?source:`static bool rackWebRegexStateInitialized=false;\n${adapted}`;
 }
 function dedupeQualifiedClassDefinitions(source,names){
   for(const name of names){
@@ -3951,9 +4536,11 @@ function adaptSapphireGeneratedAdapter(source,sourceDir=""){
   if(!sourceDir&&sourceDirArgument>=0)sourceDir=path.resolve(process.argv[sourceDirArgument+1]);
   const uiOwners=new Set(["ToggleAllSensitivityAction","SliderAction","BoolToggleAction",...[...source.matchAll(/\b([A-Za-z_]\w*(?:Action|Widget|Display|Diagram|Knob|Button|MenuItem))::[A-Za-z_~]\w*\s*\(/g)].map(match=>match[1])]);
   for(const name of uiOwners)source=removeOutOfLineDefinitions(source,name);
+  for(const name of ["SapphireSlider","SliderAction"])source=removeNamedTypeDefinition(source,name);
   source=replaceOutOfLineMethod(source,"SapphireModule","setPolyphonicEnvelopeOutput","void SapphireModule::setPolyphonicEnvelopeOutput(bool state) { if (envelopeFollower.enabled) envelopeFollower.polyphonicOutput = state; }");
   source=replaceOutOfLineMethod(source,"SapphireModule","toggleEnvDuck","void SapphireModule::toggleEnvDuck() { if (envelopeFollower.enabled) envelopeFollower.duck = !envelopeFollower.duck; }");
   for(let definition=enumDeclarationSource(source,"ExpanderRole");definition;definition=enumDeclarationSource(source,"ExpanderRole"))source=source.replace(definition,"");
+  for(let definition=enumDeclarationSource(source,"PortLabelMode");definition;definition=enumDeclarationSource(source,"PortLabelMode"))source=source.replace(definition,"");
   for(let definition=classDefinitionSource(source,"ModelInfo");definition;definition=classDefinitionSource(source,"ModelInfo"))source=source.replace(definition,"");
   for(let previous="";previous!==source;){previous=source;source=removeQualifiedFreeFunction(source,"Both")}
   source=source
@@ -4865,6 +5452,35 @@ struct Bounds { double a; double b; };
 
 ${hsluvAnchor}`);
 }
+
+function adaptStoermelderCvMapCtxBrowserSource(source){
+  if(/\bstruct\s+Settings\b/.test(source))return source;
+  return source.replace(
+    "extern Settings pluginSettings;",
+    "struct Settings { int panelThemeDefault = 0; };\nextern Settings pluginSettings;",
+  );
+}
+
+function adaptStoermelderSpinBrowserSource(source){
+  if(/\bstruct\s+Settings\b/.test(source))return source;
+  return source.replace(
+    "extern Settings pluginSettings;",
+    "struct Settings { int panelThemeDefault = 0; };\nextern Settings pluginSettings;",
+  );
+}
+
+function adaptVoxglitchDigitalProgrammerBrowserSource(source,sourceDir){
+  const definitionsFile=path.join(sourceDir,"src","modules","DigitalProgrammer","defines.h");
+  const constantsFile=path.join(sourceDir,"src","vgLib-2.0","constants.cpp");
+  if(!fs.existsSync(definitionsFile)||!fs.existsSync(constantsFile))return source;
+  const definitions=fs.readFileSync(definitionsFile,"utf8").trim();
+  const constants=fs.readFileSync(constantsFile,"utf8").trim();
+  return source
+    .replace(/^\s*#\s*define\s+NUMBER_OF_VOLTAGE_RANGES\s+8\s*$/m,"")
+    .replace(/^\s*const\s+int\s+NUMBER_OF_SNAP_DIVISIONS\s*=\s*8\s*;\s*$/m,"")
+    .replace("namespace digital_programmer {}",definitions)
+    .replace("namespace vgLib_v2 {}",`namespace vgLib_v2 {}\n${constants}`);
+}
 function pathSetCvRangeHostPrelude(){
   return `
 struct CVRange {
@@ -4913,8 +5529,1502 @@ function rackWebAbiSource(moduleType,counts){
   if(typeof report.source!=="string"||!report.source.includes(`RACK_WEB_EXPORTS(${moduleType})`))fail("Rust ABI wrapper returned invalid source");
   return report.source;
 }
+function jwGridSourceInteraction(target){
+  const header=32,actionBase=1000;
+  if(target.key==="JW-Modules/1Pattern")return`  std::array<float, ${header+16+16}> rackWebJwGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJwGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJwGridVisual.fill(0.f); rackWebJwGridVisual[0]=1.f; rackWebJwGridVisual[1]=16.f;
+    for(int index=0; index<16; ++index) { rackWebJwGridVisual[${header}+index]=cells[index]?1.f:0.f; rackWebJwGridVisual[${header+16}+index]=static_cast<float>(counters[index]); }
+    return rackWebJwGridVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override { if(!active) return; const int encoded=id-${actionBase}; const int index=encoded/2; if(index>=0&&index<16) setCellOn(index,(encoded%2)!=0); }`;
+  if(["JW-Modules/Arrange","JW-Modules/Arrange16"].includes(target.key)){
+    const cols=target.key.endsWith("Arrange16")?16:64,cells=cols*16,playheadBase=actionBase+cells*2;
+    return`  std::array<float, ${header+cells}> rackWebJwGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJwGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJwGridVisual.fill(0.f); rackWebJwGridVisual[0]=${cols}.f; rackWebJwGridVisual[1]=16.f; rackWebJwGridVisual[2]=static_cast<float>(resetMode?getSeqStart():seqPos); rackWebJwGridVisual[3]=static_cast<float>(getSeqStart()); rackWebJwGridVisual[4]=static_cast<float>(getSeqEnd());
+    for(int index=0; index<${cells}; ++index) rackWebJwGridVisual[${header}+index]=cells[index]?1.f:0.f;
+    return rackWebJwGridVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if(!active) return;
+    if(id>=${playheadBase}&&id<${playheadBase+cols}) { seqPos=clampijw(id-${playheadBase},getSeqStart(),getSeqEnd()); resetMode=false; hitEnd=false; return; }
+    const int encoded=id-${actionBase}; const int index=encoded/2; if(index>=0&&index<${cells}) setCellOn(index%${cols},index/${cols},(encoded%2)!=0);
+  }`;
+  }
+  if(target.key==="JW-Modules/NoteSeq")return`  std::array<float, ${header+1024}> rackWebJwGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJwGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJwGridVisual.fill(0.f); rackWebJwGridVisual[0]=32.f; rackWebJwGridVisual[1]=32.f; rackWebJwGridVisual[2]=static_cast<float>(resetMode?getSeqStart():seqPos); rackWebJwGridVisual[3]=static_cast<float>(getSeqStart()); rackWebJwGridVisual[4]=static_cast<float>(getSeqEnd()); rackWebJwGridVisual[7]=params[NOTE_KNOB_PARAM].getValue(); rackWebJwGridVisual[8]=static_cast<float>(getFinalHighestNote1to32()); rackWebJwGridVisual[9]=static_cast<float>(getFinalLowestNote1to32());
+    for(int index=0; index<1024; ++index) rackWebJwGridVisual[${header}+index]=cells[index]?1.f:0.f;
+    return rackWebJwGridVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override { if(!active) return; const int encoded=id-${actionBase}; const int index=encoded/2; if(index>=0&&index<1024) setCellOn(index%32,index/32,(encoded%2)!=0); }`;
+  if(target.key==="JW-Modules/NoteSeqFu")return`  std::array<float, ${header+1024}> rackWebJwGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJwGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJwGridVisual.fill(0.f); rackWebJwGridVisual[0]=32.f; rackWebJwGridVisual[1]=32.f; rackWebJwGridVisual[7]=params[NOTE_KNOB_PARAM].getValue(); rackWebJwGridVisual[8]=static_cast<float>(getFinalHighestNote1to32()); rackWebJwGridVisual[9]=static_cast<float>(getFinalLowestNote1to32());
+    for(int playhead=0; playhead<4; ++playhead) { rackWebJwGridVisual[10+playhead]=static_cast<float>(resetMode?getSeqStart(playhead):playHeads[playhead].seqPos); rackWebJwGridVisual[14+playhead]=static_cast<float>(getSeqStart(playhead)); rackWebJwGridVisual[18+playhead]=static_cast<float>(getSeqEnd(playhead)); rackWebJwGridVisual[22+playhead]=params[PLAYHEAD_ON_PARAM+playhead].getValue()>0.f?1.f:0.f; }
+    for(int index=0; index<1024; ++index) rackWebJwGridVisual[${header}+index]=cells[index]?1.f:0.f;
+    return rackWebJwGridVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override { if(!active) return; const int encoded=id-${actionBase}; const int index=encoded/2; if(index>=0&&index<1024) setCellOn(index%32,index/32,(encoded%2)!=0); }`;
+  if(target.key==="JW-Modules/Patterns")return`  std::array<float, ${header+256+16}> rackWebJwGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJwGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJwGridVisual.fill(0.f); rackWebJwGridVisual[0]=16.f; rackWebJwGridVisual[1]=16.f;
+    for(int index=0; index<256; ++index) rackWebJwGridVisual[${header}+index]=cells[index]?1.f:0.f;
+    for(int index=0; index<16; ++index) rackWebJwGridVisual[${header+256}+index]=static_cast<float>(counters[index]);
+    return rackWebJwGridVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override { if(!active) return; const int encoded=id-${actionBase}; const int index=encoded/2; if(index>=0&&index<256) setCellOn(index%16,index/16,(encoded%2)!=0); }`;
+  if(target.key==="JW-Modules/Pres1t")return`  std::array<float, ${header+32}> rackWebJwGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJwGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJwGridVisual.fill(0.f); rackWebJwGridVisual[0]=4.f; rackWebJwGridVisual[1]=8.f; rackWebJwGridVisual[5]=static_cast<float>(selectedWriteCellIdx); rackWebJwGridVisual[6]=static_cast<float>(selectedReadCellIdx);
+    for(int index=0; index<32; ++index) rackWebJwGridVisual[${header}+index]=cells[index];
+    return rackWebJwGridVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override { if(!active) return; const int encoded=id-${actionBase}; const int index=encoded/2; if(index>=0&&index<32) setCellOn(index%4,index/4,true,(encoded%2)==0); }`;
+  if(target.key==="JW-Modules/Trigs")return`  std::array<float, ${header+256}> rackWebJwGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJwGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJwGridVisual.fill(0.f); rackWebJwGridVisual[0]=16.f; rackWebJwGridVisual[1]=16.f;
+    for(int track=0; track<4; ++track) { rackWebJwGridVisual[10+track]=static_cast<float>(resetMode[track]?getSeqStart(track):seqPos[track]); rackWebJwGridVisual[14+track]=static_cast<float>(getSeqStart(track)); rackWebJwGridVisual[18+track]=static_cast<float>(getSeqEnd(track)); }
+    for(int index=0; index<256; ++index) rackWebJwGridVisual[${header}+index]=cells[index]?1.f:0.f;
+    return rackWebJwGridVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override { if(!active) return; const int encoded=id-${actionBase}; const int index=encoded/2; if(index>=0&&index<256) setCellOn(index%16,index/16,(encoded%2)!=0); }`;
+  return"";
+}
+function bisetTrackerSourceInteraction(target){
+  if(target.key!=="Biset/Biset-Tracker")return"";
+  return`  mutable std::vector<float> rackWebTrackerVisual;
+  int rackWebTrackerDragBeatOffset=0;
+  int rackWebTrackerDragRowOffset=0;
+
+  static void rackWebTrackerPushText(std::vector<float>& values,const char* text) {
+    int length=0;
+    if(text) while(length<32&&text[length]) ++length;
+    values.push_back(static_cast<float>(length));
+    for(int index=0; index<32; ++index) values.push_back(index<length?static_cast<unsigned char>(text[index]):0.f);
+  }
+
+  void rackWebBuildTrackerVisual() const {
+    rackWebTrackerVisual.assign(32,0.f);
+    if(!g_timeline||!g_editor) return;
+    auto& values=rackWebTrackerVisual;
+    values[0]=1.f;
+    values[1]=static_cast<float>(g_editor->mode);
+    values[2]=static_cast<float>(g_timeline->play);
+    values[3]=static_cast<float>(g_timeline->clock.beat)+g_timeline->clock.phase;
+    values[4]=static_cast<float>(g_editor->pattern_id);
+    values[5]=static_cast<float>(g_editor->synth_id);
+    values[6]=static_cast<float>(g_timeline->pattern_count);
+    values[7]=static_cast<float>(g_timeline->synth_count);
+    values[8]=static_cast<float>(g_editor->pattern_line);
+    values[9]=static_cast<float>(g_editor->pattern_col);
+    values[10]=static_cast<float>(g_editor->pattern_cell);
+    values[11]=static_cast<float>(g_editor->pattern_cam_x);
+    values[12]=static_cast<float>(g_editor->pattern_cam_y);
+    values[13]=static_cast<float>(g_editor->pattern_octave);
+    values[14]=static_cast<float>(g_editor->pattern_jump);
+    values[15]=g_editor->timeline_cam_x;
+    values[16]=g_editor->timeline_cam_y;
+    values[17]=static_cast<float>((g_editor->pattern_view_velo?1:0)|(g_editor->pattern_view_pan?2:0)|(g_editor->pattern_view_glide?4:0)|(g_editor->pattern_view_delay?8:0)|(g_editor->pattern_view_fx?16:0));
+    values[18]=g_editor->instance?static_cast<float>(g_editor->instance->row):-1.f;
+    values[19]=g_editor->instance?static_cast<float>(g_editor->instance->beat):-1.f;
+    values[26]=g_editor->side_synth_cam_y;
+    values[27]=g_editor->side_pattern_cam_y;
+    values[29]=g_editor->pattern?static_cast<float>(g_editor->pattern->line_play):-1.f;
+
+    for(int index=0; index<g_timeline->synth_count; ++index) {
+      const Synth& synth=g_timeline->synths[index];
+      values.push_back(static_cast<float>(index));
+      values.push_back(static_cast<float>(synth.color));
+      values.push_back(static_cast<float>(synth.mode));
+      values.push_back(static_cast<float>(synth.channel_count));
+      rackWebTrackerPushText(values,synth.name);
+    }
+
+    const int visiblePatternCount=std::max(0,std::min(1000,g_timeline->pattern_count));
+    values[30]=static_cast<float>(visiblePatternCount);
+    for(int index=0; index<visiblePatternCount; ++index) {
+      const PatternSource& pattern=g_timeline->patterns[index];
+      values.push_back(static_cast<float>(index));
+      values.push_back(static_cast<float>(pattern.color));
+      rackWebTrackerPushText(values,pattern.name);
+    }
+
+    PatternSource* pattern=g_editor->pattern;
+    if(pattern) {
+      values[21]=static_cast<float>(pattern->line_count);
+      values[22]=static_cast<float>(pattern->note_count);
+      values[23]=static_cast<float>(pattern->cv_count);
+      values[24]=static_cast<float>(pattern->lpb);
+      values[25]=static_cast<float>(pattern->beat_count);
+      for(int visibleLine=0; visibleLine<39; ++visibleLine) {
+        const int line=g_editor->pattern_cam_y+visibleLine;
+        values.push_back(line<pattern->line_count?static_cast<float>(line):-1.f);
+        for(int column=0; column<pattern->note_count; ++column) {
+          const PatternNoteCol& noteColumn=pattern->notes[column];
+          const bool valid=line>=0&&line<static_cast<int>(noteColumn.lines.size());
+          const PatternNote* note=valid?&noteColumn.lines[line]:nullptr;
+          values.push_back(note?static_cast<float>(note->mode):-1.f);
+          values.push_back(note?static_cast<float>(note->pitch):0.f);
+          values.push_back(note?static_cast<float>(note->velocity):0.f);
+          values.push_back(note?static_cast<float>(note->panning):0.f);
+          values.push_back(note?static_cast<float>(note->synth):0.f);
+          values.push_back(note?static_cast<float>(note->delay):0.f);
+          values.push_back(note?static_cast<float>(note->glide):0.f);
+          values.push_back(static_cast<float>(noteColumn.fx_count));
+          for(int effect=0; effect<8; ++effect) {
+            values.push_back(note?static_cast<float>(note->effects[effect].type):0.f);
+            values.push_back(note?static_cast<float>(note->effects[effect].value):0.f);
+          }
+        }
+        for(int column=0; column<pattern->cv_count; ++column) {
+          const PatternCVCol& cvColumn=pattern->cvs[column];
+          const bool valid=line>=0&&line<static_cast<int>(cvColumn.lines.size());
+          const PatternCV* cv=valid?&cvColumn.lines[line]:nullptr;
+          values.push_back(cv?static_cast<float>(cv->mode):-1.f);
+          values.push_back(cv?static_cast<float>(cv->value):0.f);
+          values.push_back(cv?static_cast<float>(cv->curve):0.f);
+          values.push_back(cv?static_cast<float>(cv->delay):0.f);
+        }
+      }
+    }
+
+    const size_t instanceCountIndex=values.size();
+    values.push_back(0.f);
+    int instanceCount=0;
+    const int cameraBeat=std::max(0,static_cast<int>(g_editor->timeline_cam_x));
+    const int cameraRow=std::max(0,static_cast<int>(g_editor->timeline_cam_y));
+    for(int row=cameraRow; row<std::min(32,cameraRow+12); ++row) {
+      for(const PatternInstance& instance:g_timeline->timeline[row]) {
+        if(instance.beat+instance.beat_length<cameraBeat) continue;
+        if(instance.beat>=cameraBeat+85) break;
+        const int sourceIndex=static_cast<int>(&instance.source[0]-g_timeline->patterns);
+        values.push_back(static_cast<float>(row));
+        values.push_back(static_cast<float>(instance.beat));
+        values.push_back(static_cast<float>(instance.beat_length));
+        values.push_back(static_cast<float>(instance.beat_start));
+        values.push_back(static_cast<float>(sourceIndex));
+        values.push_back(static_cast<float>(instance.source->color));
+        values.push_back(instance.muted?1.f:0.f);
+        values.push_back(&instance==g_editor->instance?1.f:0.f);
+        ++instanceCount;
+      }
+    }
+    values[instanceCountIndex]=static_cast<float>(instanceCount);
+    values[28]=static_cast<float>(instanceCount);
+
+    const size_t voiceCountIndex=values.size();
+    values.push_back(0.f);
+    int voiceCount=0;
+    for(int synthIndex=0; synthIndex<g_timeline->synth_count; ++synthIndex) {
+      const Synth& synth=g_timeline->synths[synthIndex];
+      for(int channel=0; channel<std::min(16,static_cast<int>(synth.channel_count)); ++channel) {
+        values.push_back(static_cast<float>(synthIndex));
+        values.push_back(static_cast<float>(channel));
+        values.push_back(static_cast<float>(synth.color));
+        values.push_back(static_cast<float>(synth.mode));
+        for(int field=0; field<4; ++field) values.push_back(synth.out_synth[channel*4+field]);
+        ++voiceCount;
+      }
+    }
+    values[voiceCountIndex]=static_cast<float>(voiceCount);
+    values[20]=static_cast<float>(voiceCount);
+  }
+
+  int rackWebVisualCount() const override { rackWebBuildTrackerVisual(); return static_cast<int>(rackWebTrackerVisual.size()); }
+  float* rackWebVisualBuffer() override { if(rackWebTrackerVisual.empty()) rackWebBuildTrackerVisual(); return rackWebTrackerVisual.data(); }
+
+  void rackWebPublishTrackerBridge() {
+    if(!g_timeline||!g_editor) return;
+    rack_web_host_shared_set(0,static_cast<float>(g_timeline->synth_count));
+    rack_web_host_shared_set(1,static_cast<float>(g_editor->synth_id));
+    rack_web_host_shared_set(2,static_cast<float>(g_timeline->pattern_count));
+    rack_web_host_shared_set(3,static_cast<float>(g_editor->pattern_id));
+    rack_web_host_shared_set(4,g_timeline->play!=TIMELINE_MODE_STOP?1.f:0.f);
+    rack_web_host_shared_set(5,static_cast<float>(g_timeline->clock.beat)+g_timeline->clock.phase);
+    rack_web_host_shared_set(6,g_timeline->play_trigger.remaining>0.f?1.f:0.f);
+    rack_web_host_shared_set(7,g_timeline->stop_trigger.remaining>0.f?1.f:0.f);
+    for(int slot=0; slot<6; ++slot) {
+      const int selected=static_cast<int>(rack_web_host_shared_get(16+slot));
+      const int base=64+slot*72;
+      if(selected<0||selected>=g_timeline->synth_count) {
+        rack_web_host_shared_set(32+slot,0.f);
+        for(int field=0; field<72; ++field) rack_web_host_shared_set(base+field,0.f);
+        continue;
+      }
+      const Synth& synth=g_timeline->synths[selected];
+      rack_web_host_shared_set(32+slot,static_cast<float>(synth.channel_count));
+      for(int field=0; field<64; ++field) rack_web_host_shared_set(base+field,synth.out_synth[field]);
+      for(int field=0; field<8; ++field) rack_web_host_shared_set(base+64+field,synth.out_cv[field]);
+    }
+    rack_web_host_shared_touch(15);
+  }
+
+  void rackWebTrackerSelectCell(int encoded) {
+    if(!g_editor||!g_editor->pattern) return;
+    const int line=encoded/2048,column=(encoded%2048)/32,cell=encoded%32;
+    g_editor->pattern_line=line; g_editor->pattern_col=column; g_editor->pattern_cell=cell; g_editor->pattern_char=0;
+    g_editor->pattern_clamp_cursor();
+  }
+
+  void rackWebTrackerAdjustCell(int direction) {
+    if(!g_editor||!g_editor->pattern) return;
+    PatternSource* pattern=g_editor->pattern;
+    const int coarse=std::abs(direction)==2?1:0;
+    const int sign=direction>0?1:-1;
+    if(g_editor->pattern_col<pattern->note_count) {
+      PatternNote& note=pattern->notes[g_editor->pattern_col].lines[g_editor->pattern_line];
+      int step=coarse?10:1;
+      switch(g_editor->pattern_cell) {
+        case 0: step=coarse?12:1; note.pitch=static_cast<u8>(rack::clamp(static_cast<int>(note.pitch)+sign*step,0,119)); break;
+        case 1: note.pitch=static_cast<u8>(rack::clamp(static_cast<int>(note.pitch)+sign*12,0,119)); break;
+        case 2: note.velocity=static_cast<u8>(rack::clamp(static_cast<int>(note.velocity)+sign*step,0,99)); break;
+        case 3: note.panning=static_cast<u8>(rack::clamp(static_cast<int>(note.panning)+sign*step,0,99)); break;
+        case 4: note.synth=static_cast<u8>(rack::clamp(static_cast<int>(note.synth)+sign*step,0,99)); break;
+        case 5: note.delay=static_cast<u8>(rack::clamp(static_cast<int>(note.delay)+sign*step,0,99)); break;
+        case 6: if(note.mode==PATTERN_NOTE_NEW) note.mode=PATTERN_NOTE_GLIDE; note.glide=static_cast<u8>(rack::clamp(static_cast<int>(note.glide)+sign*step,0,99)); break;
+        default: { const int effect=(g_editor->pattern_cell-7)/2; if(effect>=0&&effect<8) note.effects[effect].value=static_cast<u8>(rack::clamp(static_cast<int>(note.effects[effect].value)+sign*step,0,99)); }
+      }
+    } else {
+      PatternCV& cv=pattern->cvs[g_editor->pattern_col-pattern->note_count].lines[g_editor->pattern_line];
+      int step=(coarse?10:1)*sign;
+      if(g_editor->pattern_cell==0) cv.value=static_cast<u16>(rack::clamp(static_cast<int>(cv.value)+step*10,0,999));
+      else if(g_editor->pattern_cell==1) cv.curve=static_cast<u8>(rack::clamp(static_cast<int>(cv.curve)+step,0,99));
+      else cv.delay=static_cast<u8>(rack::clamp(static_cast<int>(cv.delay)+step,0,99));
+    }
+  }
+
+  void rackWebTrackerInsertDelete(bool insert) {
+    if(!g_editor||!g_editor->pattern) return;
+    PatternSource* pattern=g_editor->pattern;
+    const int line=g_editor->pattern_line;
+    if(g_editor->pattern_col<pattern->note_count) {
+      auto& lines=pattern->notes[g_editor->pattern_col].lines;
+      if(insert) { for(int index=pattern->line_count-1; index>line; --index) lines[index]=lines[index-1]; lines[line].mode=PATTERN_NOTE_KEEP; }
+      else { for(int index=line+1; index<pattern->line_count; ++index) lines[index-1]=lines[index]; lines[pattern->line_count-1].mode=PATTERN_NOTE_KEEP; }
+    } else {
+      auto& lines=pattern->cvs[g_editor->pattern_col-pattern->note_count].lines;
+      if(insert) { for(int index=pattern->line_count-1; index>line; --index) lines[index]=lines[index-1]; lines[line].mode=PATTERN_CV_KEEP; }
+      else { for(int index=line+1; index<pattern->line_count; ++index) lines[index-1]=lines[index]; lines[pattern->line_count-1].mode=PATTERN_CV_KEEP; }
+    }
+  }
+
+  void rackWebTrackerKey(int key,bool active) {
+    if(!g_editor||!g_editor->pattern) return;
+    if(!active) {
+      if(key>=0&&key<128&&table_keyboard[key]>=0) {
+        const int pitch=std::min(127,table_keyboard[key]+g_editor->pattern_octave*12);
+        g_editor->live_stop(pitch); g_editor->live_voices[pitch].state=NOTE_STATE_STOP;
+      }
+      return;
+    }
+    if(key==256||key==257) {
+      if(g_editor->mod_shift) rackWebTrackerAdjustCell(key==256?-2:2); else g_editor->pattern_move_cursor_x(key==256?-1:1);
+      return;
+    }
+    if(key==258||key==259) {
+      if(g_editor->mod_shift) rackWebTrackerAdjustCell(key==258?1:-1); else g_editor->pattern_move_cursor_y(key==258?-1:1);
+      return;
+    }
+    if(key==260) { rackWebTrackerInsertDelete(true); return; }
+    if(key==261) { rackWebTrackerInsertDelete(false); return; }
+    PatternSource* pattern=g_editor->pattern;
+    const bool erase=key==8||key==127;
+    if(g_editor->pattern_col<pattern->note_count) {
+      PatternNote& note=pattern->notes[g_editor->pattern_col].lines[g_editor->pattern_line];
+      const int cell=g_editor->pattern_cell;
+      if(cell==0) {
+        if(erase) { note.mode=PATTERN_NOTE_KEEP; g_editor->pattern_jump_cursor(); }
+        else if(key==32) { note.mode=PATTERN_NOTE_STOP; g_editor->pattern_jump_cursor(); }
+        else if(key>=0&&key<128&&table_keyboard[key]>=0) {
+          const int pitch=std::min(127,table_keyboard[key]+g_editor->pattern_octave*12);
+          g_editor->live_play(pitch,99); g_editor->live_voices[pitch].state=NOTE_STATE_START; g_editor->live_voices[pitch].velocity=99;
+        }
+        return;
+      }
+      if(cell==6&&erase) { if(note.mode==PATTERN_NOTE_GLIDE) note.mode=PATTERN_NOTE_NEW; g_editor->pattern_jump_cursor(); return; }
+      if(cell>=7&&erase) { const int effect=(cell-7)/2; if(effect<8) { note.effects[effect].type=PATTERN_EFFECT_NONE; note.effects[effect].value=0; } g_editor->pattern_jump_cursor(); return; }
+      if(cell>=7&&((cell-7)%2)==0&&key>0&&key<128) {
+        const int effect=(cell-7)/2; const char candidate=static_cast<char>(key); for(const char* allowed="APDONVTvtCc"; *allowed; ++allowed) if(candidate==*allowed) { note.effects[effect].type=candidate; g_editor->pattern_jump_cursor(); break; } return;
+      }
+      if(key<'0'||key>'9') return;
+      const int digit=key-'0';
+      auto editTwo=[&](u8& value) { if(g_editor->pattern_char==0) { value=static_cast<u8>((value%10)+digit*10); g_editor->pattern_char=1; } else { value=static_cast<u8>((value/10)*10+digit); g_editor->pattern_jump_cursor(); } };
+      if(cell==1) { note.pitch=static_cast<u8>(note.pitch%12+digit*12); g_editor->pattern_jump_cursor(); }
+      else if(cell==2) editTwo(note.velocity);
+      else if(cell==3) editTwo(note.panning);
+      else if(cell==4) editTwo(note.synth);
+      else if(cell==5) editTwo(note.delay);
+      else if(cell==6) { if(note.mode==PATTERN_NOTE_NEW) note.mode=PATTERN_NOTE_GLIDE; editTwo(note.glide); }
+      else if(cell>=7) editTwo(note.effects[(cell-7)/2].value);
+    } else {
+      PatternCV& cv=pattern->cvs[g_editor->pattern_col-pattern->note_count].lines[g_editor->pattern_line];
+      if(erase&&g_editor->pattern_cell==0) { cv.mode=PATTERN_CV_KEEP; g_editor->pattern_jump_cursor(); return; }
+      if(key<'0'||key>'9') return;
+      const int digit=key-'0';
+      if(g_editor->pattern_cell==0) {
+        if(cv.mode==PATTERN_CV_KEEP) { cv.mode=PATTERN_CV_SET; cv.curve=50; cv.delay=0; }
+        if(g_editor->pattern_char==0) { cv.value=static_cast<u16>(digit*100+cv.value%100); g_editor->pattern_char=1; }
+        else if(g_editor->pattern_char==1) { cv.value=static_cast<u16>((cv.value/100)*100+digit*10+cv.value%10); g_editor->pattern_char=2; }
+        else { cv.value=static_cast<u16>((cv.value/10)*10+digit); g_editor->pattern_jump_cursor(); }
+      } else {
+        u8& value=g_editor->pattern_cell==1?cv.curve:cv.delay;
+        if(g_editor->pattern_char==0) { value=static_cast<u8>((value%10)+digit*10); g_editor->pattern_char=1; }
+        else { value=static_cast<u8>((value/10)*10+digit); g_editor->pattern_jump_cursor(); }
+      }
+    }
+    g_editor->pattern_clamp_cursor();
+  }
+
+  void rackWebTrackerTimelineClick(int encoded) {
+    if(!g_timeline||!g_editor) return;
+    const int row=encoded/8192,beat=encoded%8192;
+    if(row<0||row>=32) { g_editor->instance=nullptr; return; }
+    PatternInstance* instance=g_timeline->instance_find(row,beat);
+    if(!instance) {
+      if(g_timeline->play!=TIMELINE_MODE_STOP||!g_editor->pattern) return;
+      instance=g_timeline->instance_new(g_editor->pattern,row,beat);
+      g_editor->instance_handle=INSTANCE_HANDLE_MIDDLE;
+    } else {
+      g_editor->instance=instance; g_editor->instance_row=row; g_editor->instance_beat=instance->beat;
+      g_editor->set_pattern(static_cast<int>(instance->source-g_timeline->patterns));
+      if(beat>=instance->beat+instance->beat_length-1) g_editor->instance_handle=INSTANCE_HANDLE_RIGHT;
+      else if(beat<=instance->beat) g_editor->instance_handle=INSTANCE_HANDLE_LEFT;
+      else g_editor->instance_handle=INSTANCE_HANDLE_MIDDLE;
+    }
+    rackWebTrackerDragBeatOffset=beat-instance->beat;
+    rackWebTrackerDragRowOffset=row-instance->row;
+  }
+
+  void rackWebTrackerTimelineDrag(int encoded) {
+    if(!g_timeline||!g_editor||!g_editor->instance||g_timeline->play!=TIMELINE_MODE_STOP) return;
+    const int row=std::max(0,std::min(31,encoded/8192)),beat=std::max(0,encoded%8192);
+    PatternInstance* instance=g_editor->instance;
+    if(g_editor->instance_handle==INSTANCE_HANDLE_MIDDLE) g_timeline->instance_move(instance,std::max(0,std::min(31,row-rackWebTrackerDragRowOffset)),std::max(0,beat-rackWebTrackerDragBeatOffset));
+    else if(g_editor->instance_handle==INSTANCE_HANDLE_RIGHT) instance->beat_length=std::max(1,beat-instance->beat+1);
+    else {
+      const int end=instance->beat+instance->beat_length-1,nextBeat=std::min(end,beat),delta=nextBeat-instance->beat;
+      const int nextLength=std::max(1,instance->beat_length-delta),nextStart=instance->beat_start+delta;
+      g_timeline->instance_move(instance,instance->row,nextBeat); instance->beat_start=nextStart; instance->beat_length=nextLength;
+    }
+  }
+
+  void rackWebTriggerAction(int id,bool active) override {
+    if(id==300300) { if(g_editor) g_editor->mod_shift=active; return; }
+    if(id>=300000&&id<300512) { rackWebTrackerKey(id-300000,active); return; }
+    if(!active||!g_timeline||!g_editor) return;
+    if(id>=10000&&id<10100) { g_editor->set_synth(id-10000); return; }
+    if(id==10100) { g_timeline->synth_new(); return; }
+    if(id>=10200&&id<10300) { const int index=id-10200; if(index>0&&index<g_timeline->synth_count) { g_timeline->synth_swap(&g_timeline->synths[index],&g_timeline->synths[index-1]); g_editor->set_synth(index-1); } return; }
+    if(id>=10300&&id<10400) { const int index=id-10300; if(index>=0&&index+1<g_timeline->synth_count) { g_timeline->synth_swap(&g_timeline->synths[index],&g_timeline->synths[index+1]); g_editor->set_synth(index+1); } return; }
+    if(id>=10400&&id<10500) { const int index=id-10400; if(g_timeline->play==TIMELINE_MODE_STOP&&index>=0&&index<g_timeline->synth_count) g_timeline->synth_del(&g_timeline->synths[index]); return; }
+    if(id>=11000&&id<11800) { const int encoded=id-11000,index=encoded/8,color=encoded%8; if(index<g_timeline->synth_count) g_timeline->synths[index].color=color; return; }
+    if(id>=20000&&id<21000) { g_editor->set_pattern(id-20000); return; }
+    if(id==21000) { g_timeline->pattern_new(); return; }
+    if(id>=22000&&id<23000) { const int index=id-22000; if(index>0&&index<g_timeline->pattern_count) { g_timeline->pattern_swap(&g_timeline->patterns[index],&g_timeline->patterns[index-1]); g_editor->set_pattern(index-1); } return; }
+    if(id>=23000&&id<24000) { const int index=id-23000; if(index>=0&&index+1<g_timeline->pattern_count) { g_timeline->pattern_swap(&g_timeline->patterns[index],&g_timeline->patterns[index+1]); g_editor->set_pattern(index+1); } return; }
+    if(id>=24000&&id<25000) { const int index=id-24000; if(g_timeline->play==TIMELINE_MODE_STOP&&index>=0&&index<g_timeline->pattern_count) g_timeline->pattern_del(&g_timeline->patterns[index]); return; }
+    if(id>=25000&&id<26000) { const int index=id-25000; if(index>=0&&index<g_timeline->pattern_count) g_timeline->pattern_dup(&g_timeline->patterns[index]); return; }
+    if(id>=26000&&id<34000) { const int encoded=id-26000,index=encoded/8,color=encoded%8; if(index<g_timeline->pattern_count) g_timeline->patterns[index].color=color; return; }
+    if(id>=34000&&id<35000) { const int index=id-34000; g_editor->set_pattern(index); params[PARAM_MODE_PATTERN].setValue(1.f); params[PARAM_MODE_TIMELINE].setValue(0.f); return; }
+    if(id==40000) { g_editor->side_synth_cam_y=std::max(0.f,g_editor->side_synth_cam_y-1.f); return; }
+    if(id==40001) { g_editor->side_synth_cam_y=std::min(std::max(0,g_timeline->synth_count-12),static_cast<int>(g_editor->side_synth_cam_y)+1); return; }
+    if(id==40002) { g_editor->side_pattern_cam_y=std::max(0.f,g_editor->side_pattern_cam_y-1.f); return; }
+    if(id==40003) { g_editor->side_pattern_cam_y=std::min(std::max(0,g_timeline->pattern_count-12),static_cast<int>(g_editor->side_pattern_cam_y)+1); return; }
+    if(id>=100000&&id<300000) { rackWebTrackerSelectCell(id-100000); return; }
+    if(id>=500000&&id<800000) { rackWebTrackerTimelineClick(id-500000); return; }
+    if(id>=800000&&id<1100000) { rackWebTrackerTimelineDrag(id-800000); return; }
+    if(id==1100000&&g_editor->instance) { g_timeline->instance_del(g_editor->instance); g_editor->instance=nullptr; return; }
+    if(id==1100001&&g_editor->instance) { g_editor->instance->muted=!g_editor->instance->muted; return; }
+  }`;
+}
+function sourceInteractionActionMethod(target,body){
+  const bisetTracker=bisetTrackerSourceInteraction(target);if(bisetTracker)return bisetTracker;
+  const jwGrid=jwGridSourceInteraction(target);if(jwGrid)return jwGrid;
+  if(target.key==="Biset/Biset-Regex"||target.key==="Biset/Biset-Regex-Condensed")return`  std::array<float, 37> rackWebRegexVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebRegexVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebRegexVisual.fill(0.f);
+    rackWebRegexVisual[0]=static_cast<float>(exp_count);
+    for(int index=0; index<exp_count; ++index) {
+      RegexSeq& sequence=sequences[index];
+      sequence.check_syntax();
+      const int offset=1+index*3;
+      rackWebRegexVisual[offset]=sequence.string_syntax?1.f:0.f;
+      rackWebRegexVisual[offset+1]=sequence.string_run==sequence.string_edit?1.f:0.f;
+      rackWebRegexVisual[offset+2]=sequence.string_run==sequence.string_edit?static_cast<float>(sequence.string_active_value):-1.f;
+    }
+    return rackWebRegexVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if(!active) return;
+    if(id>=1000&&id<1000+exp_count) {
+      RegexSeq& sequence=sequences[id-1000];
+      sequence.check_syntax();
+      sequence.compile(this);
+    }
+    else if(id==1100) for(int index=0; index<exp_count; ++index) {
+      sequences[index].check_syntax();
+      sequences[index].compile(this);
+    }
+    else if(id>=1200&&id<1200+exp_count) {
+      while(thread_flag.test_and_set()) {}
+      sequences[id-1200].reset(true);
+      thread_flag.clear();
+    }
+  }`;
+  if(target.key==="Biset/Biset-Tree")return`  mutable std::vector<float> rackWebBisetTreeVisual;
+  int rackWebVisualCount() const override { return 1 + std::max(0, std::min(branch_count, TREE_BRANCH_MAX)) * 5; }
+  float* rackWebVisualBuffer() override {
+    const int count=std::max(0, std::min(branch_count, TREE_BRANCH_MAX));
+    rackWebBisetTreeVisual.assign(1 + count * 5, 0.f);
+    rackWebBisetTreeVisual[0]=static_cast<float>(count);
+    for(int index=0; index<count; ++index) {
+      const TreeBranch& branch=branches[index];
+      const int offset=1 + index * 5;
+      rackWebBisetTreeVisual[offset]=branch.wpos_root.x;
+      rackWebBisetTreeVisual[offset+1]=branch.wpos_root.y;
+      rackWebBisetTreeVisual[offset+2]=branch.wpos_tail.x;
+      rackWebBisetTreeVisual[offset+3]=branch.wpos_tail.y;
+      rackWebBisetTreeVisual[offset+4]=branch.width;
+    }
+    return rackWebBisetTreeVisual.data();
+  }`;
+  if(target.plugin==="DelexanderVol1"&&target.model.startsWith("Algomorph")){
+    const auxVisual=target.key==="DelexanderVol1/Algomorph"?`
+    for(int index=0; index<5; ++index) {
+      const int active=auxInput[index]->activeModes;
+      rackWebAlgomorphVisual[6+index]=active==1?static_cast<float>(auxInput[index]->lastSetMode):(active==0?-1.f:(active>1?-2.f:-3.f));
+    }`:"";
+    return`  std::array<float, 11> rackWebAlgomorphVisual{};
+  unsigned long rackWebDisplayAlgorithm(int scene) const {
+    if(scene<0||scene>2) scene=1;
+    std::bitset<16> display=algoName[scene];
+    for(int op=0; op<4; ++op) {
+      if(opsDisabled[scene].test(op)) {
+        for(int mod=0; mod<3; ++mod) display.set(op*3+mod,false);
+        bool fullDisable=true;
+        for(int source=0; source<4; ++source)
+          if(!opsDisabled[scene].test(source)&&algoName[scene].test(source*3+fourToThree[source][op])) fullDisable=false;
+        display.set(12+op,fullDisable);
+      }
+      else for(int mod=0; mod<3; ++mod) if(algoName[scene].test(op*3+mod)) {
+        display.set(op*3+mod,true);
+        const int destination=threeToFour[op][mod];
+        if(opsDisabled[scene].test(destination)) display.set(12+destination,false);
+      }
+    }
+    return static_cast<unsigned long>(display.to_ullong());
+  }
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebAlgomorphVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    int scene=configMode?configScene:centerMorphScene[0];
+    if(scene<0||scene>2) scene=1;
+    int morphScene=configMode?scene:forwardMorphScene[0];
+    if(morphScene<0||morphScene>2) morphScene=scene;
+    rackWebAlgomorphVisual.fill(-3.f);
+    rackWebAlgomorphVisual[0]=configMode?1.f:0.f;
+    rackWebAlgomorphVisual[1]=static_cast<float>(scene);
+    rackWebAlgomorphVisual[2]=static_cast<float>(morphScene);
+    rackWebAlgomorphVisual[3]=configMode?0.f:relativeMorphMagnitude[0];
+    rackWebAlgomorphVisual[4]=static_cast<float>(rackWebDisplayAlgorithm(scene));
+    rackWebAlgomorphVisual[5]=static_cast<float>(rackWebDisplayAlgorithm(morphScene));${auxVisual}
+    return rackWebAlgomorphVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if(!active) return;
+    if(id==1000) {
+      int scene=configMode?configScene:centerMorphScene[0];
+      if(scene<0||scene>2) scene=1;
+      randomizeAlgorithm(scene);
+      graphDirty=true;
+    }
+    else if(id==1001) {
+      for(int scene=0; scene<3; ++scene) randomizeAlgorithm(scene);
+      graphDirty=true;
+    }
+  }`;
+  }
+  if(target.key==="JW-Modules/D1v1de")return`  std::array<float, 4> rackWebD1v1deVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebD1v1deVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebD1v1deVisual[0]=static_cast<float>(ticks);
+    rackWebD1v1deVisual[1]=static_cast<float>(getDivInt());
+    rackWebD1v1deVisual[2]=static_cast<float>(getOffsetInt());
+    rackWebD1v1deVisual[3]=params[COLOR_PARAM].getValue();
+    return rackWebD1v1deVisual.data();
+  }`;
+  if(target.key==="JW-Modules/ThingThing")return`  std::array<float, 12> rackWebThingThingVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebThingThingVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    float radius=params[BALL_RAD_PARAM].getValue();
+    if(inputs[BALL_RAD_INPUT].isConnected()) radius+=rescale(inputs[BALL_RAD_INPUT].getVoltage(),-5.f,5.f,0.f,30.f);
+    float zoom=params[ZOOM_MULT_PARAM].getValue();
+    if(inputs[ZOOM_MULT_INPUT].isConnected()) zoom+=rescale(inputs[ZOOM_MULT_INPUT].getVoltage(),-5.f,5.f,1.f,50.f);
+    rackWebThingThingVisual.fill(0.f); rackWebThingThingVisual[0]=radius; rackWebThingThingVisual[1]=zoom;
+    float angle=0.f;
+    for(int index=1; index<5; ++index) {
+      angle=(inputs[ANG_INPUT+index].getVoltage()+angle)*atten[index];
+      rackWebThingThingVisual[2+index*2]=sinf(rescale(angle,-5.f,5.f,-2.f*M_PI+M_PI/2.f,2.f*M_PI+M_PI/2.f))*zoom;
+      rackWebThingThingVisual[3+index*2]=cosf(rescale(angle,-5.f,5.f,-2.f*M_PI+M_PI/2.f,2.f*M_PI+M_PI/2.f))*zoom;
+    }
+    return rackWebThingThingVisual.data();
+  }`;
+  if(target.key==="JW-Modules/Tree")return`  std::array<float, 31> rackWebTreeVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebTreeVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    const float angleOffset=inputs[ANGLE_INPUT].isConnected()?inputs[ANGLE_INPUT].getVoltage():0.f;
+    rackWebTreeVisual[0]=rescale(clamp(params[ANGLE_PARAM].getValue()/9.f+angleOffset,0.f,10.f),0.f,10.f,0.f,90.f);
+    const float hueOffset=inputs[HUE_INPUT].isConnected()?inputs[HUE_INPUT].getVoltage():0.f;
+    rackWebTreeVisual[1]=clamp(params[HUE_PARAM].getValue()+hueOffset/10.f,0.f,1.f);
+    const float reduceOffset=inputs[REDUCE_INPUT].isConnected()?inputs[REDUCE_INPUT].getVoltage():0.f;
+    rackWebTreeVisual[2]=clamp(params[REDUCE_PARAM].getValue()+(inputs[REDUCE_INPUT].isConnected()?rescale(reduceOffset,-5.f,5.f,0.05f,0.33f):0.f),0.1f,0.66f);
+    const float lengthOffset=inputs[LENGTH_INPUT].isConnected()?inputs[LENGTH_INPUT].getVoltage():0.f;
+    rackWebTreeVisual[3]=clamp(params[LENGTH_PARAM].getValue()+(inputs[LENGTH_INPUT].isConnected()?rescale(lengthOffset,-5.f,5.f,5.f,100.f):0.f),10.f,200.f);
+    const float heightOffset=inputs[HEIGHT_INPUT].isConnected()?inputs[HEIGHT_INPUT].getVoltage():0.f;
+    rackWebTreeVisual[4]=clamp(params[HEIGHT_PARAM].getValue()+(inputs[HEIGHT_INPUT].isConnected()?rescale(heightOffset,-5.f,5.f,5.f,125.f):0.f),0.f,250.f);
+    const float jitterOffset=inputs[JITTER_AMT_INPUT].isConnected()?inputs[JITTER_AMT_INPUT].getVoltage():0.f;
+    rackWebTreeVisual[5]=clamp(params[JITTER_AMT_PARAM].getValue()+jitterOffset,-5.f,5.f);
+    for(int index=0; index<RND_NUMS; ++index) rackWebTreeVisual[6+index]=rnd[index];
+    return rackWebTreeVisual.data();
+  }`;
+  if(target.key==="Ahornberg/FlyingFader")return`  void rackWebTriggerAction(int id, bool active) override {
+    if(id==1000) faderDragged=active;
+  }`;
+  if(target.key==="BGal256/SortStep")return`  mutable std::vector<float> rackWebSortStepVisual;
+  int rackWebVisualCount() const override {
+    const int size = std::min<int>(sorterArray.array.size(), MAX_ARRAY_SIZE);
+    return 4 + size * 2;
+  }
+  float* rackWebVisualBuffer() override {
+    const int size = std::min<int>(sorterArray.array.size(), MAX_ARRAY_SIZE);
+    rackWebSortStepVisual.assign(4 + size * 2, 0.f);
+    rackWebSortStepVisual[0] = size;
+    rackWebSortStepVisual[1] = sorterArray.processingFinished ? 1.f : 0.f;
+    rackWebSortStepVisual[2] = static_cast<float>(sorterArray.section);
+    rackWebSortStepVisual[3] = static_cast<float>(sorterArray.currentType);
+    for (int index = 0; index < size; index++)
+      rackWebSortStepVisual[4 + index] = sorterArray.array[index];
+    if (sorterArray.eventCurrent) {
+      for (const auto& element : sorterArray.eventCurrent->elements) {
+        if (element.index >= 0 && element.index < size)
+          rackWebSortStepVisual[4 + size + element.index] = element.elementEvent;
+      }
+    }
+    return rackWebSortStepVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active || !sorterArray.processingFinished) return;
+    const int encoded = id - 1000;
+    if (encoded < 0) return;
+    const int index = encoded / 1001;
+    const int value = encoded % 1001;
+    const int size = static_cast<int>(sorterArray.array.size());
+    if (index >= 0 && index < size)
+      sorterArray.array[index] = clamp(value, 0, size);
+  }`;
+  if(target.key==="computerscare/computerscare-sloly-pit")return`  std::array<float, 276> rackWebSlolyPitVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSlolyPitVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    const int inputChannels = inputs[POLY_INPUT].getChannels();
+    const int visualChannels = inputChannels > 0 ? inputChannels : 16;
+    rackWebSlolyPitVisual[0] = routingMode;
+    rackWebSlolyPitVisual[1] = editingOutputIndex;
+    rackWebSlolyPitVisual[2] = inputChannels;
+    rackWebSlolyPitVisual[3] = getOutputConnectionMask();
+    const auto displayedRouting = getRoutingForMode(routingMode, visualChannels);
+    for (int outputIndex = 0; outputIndex < 16; outputIndex++) {
+      const int offset = 4 + outputIndex * 17;
+      const auto& outputRouting = displayedRouting[outputIndex];
+      rackWebSlolyPitVisual[offset] = std::min<int>(outputRouting.size(), 16);
+      for (int routeIndex = 0; routeIndex < 16; routeIndex++)
+        rackWebSlolyPitVisual[offset + 1 + routeIndex] = routeIndex < static_cast<int>(outputRouting.size()) ? outputRouting[routeIndex] : -1.f;
+    }
+    return rackWebSlolyPitVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id >= 1000 && id < 1004) {
+      setRoutingMode(id - 1000);
+      return;
+    }
+    if (id >= 2000 && id < 2016) {
+      if (routingMode == ROUTING_CUSTOM) editingOutputIndex = id - 2000;
+      return;
+    }
+    if (routingMode != ROUTING_CUSTOM) return;
+    if (id >= 3000 && id < 3256 && editingOutputIndex >= 0 && editingOutputIndex < 16) {
+      const int encoded = id - 3000;
+      const int routeIndex = encoded / 16;
+      const int inputChannel = encoded % 16;
+      auto& outputRouting = routing[editingOutputIndex];
+      if (routeIndex < static_cast<int>(outputRouting.size())) outputRouting[routeIndex] = inputChannel;
+      else appendCustomRouteToIndex(editingOutputIndex, routeIndex, inputChannel);
+      customRoutingInitialized = true;
+      return;
+    }
+    if (id >= 4000 && id < 4016 && editingOutputIndex >= 0 && editingOutputIndex < 16) {
+      auto& outputRouting = routing[editingOutputIndex];
+      outputRouting.resize(std::min<int>(id - 4000, outputRouting.size()));
+      customRoutingInitialized = true;
+      return;
+    }
+    if (id >= 5000 && id < 5016) {
+      editingOutputIndex = id - 5000;
+      routing[editingOutputIndex].clear();
+      customRoutingInitialized = true;
+      return;
+    }
+    if (id >= 5100 && id < 5116 && editingOutputIndex >= 0 && editingOutputIndex < 16) {
+      auto& outputRouting = routing[editingOutputIndex];
+      if (outputRouting.size() < 16) outputRouting.push_back(id - 5100);
+      customRoutingInitialized = true;
+    }
+  }`;
+  if(target.key==="FrozenWasteland/ProbablyNoteMN")return`  static constexpr int rackWebProbablyFixedValues = 512;
+  static constexpr int rackWebProbablyPitchStride = 8;
+  mutable std::vector<float> rackWebProbablyVisual;
+  int rackWebProbablyPitchCount() const { return static_cast<int>(std::min<size_t>(resultingPitches.size(), 8192)); }
+  int rackWebProbablyTemperingCount() const { return static_cast<int>(std::min<size_t>(temperingPitches.size(), 8192)); }
+  int rackWebVisualCount() const override { return rackWebProbablyFixedValues + rackWebProbablyPitchCount() * rackWebProbablyPitchStride + rackWebProbablyTemperingCount(); }
+  float* rackWebVisualBuffer() override {
+    const int pitchCount = rackWebProbablyPitchCount();
+    const int temperingCount = rackWebProbablyTemperingCount();
+    rackWebProbablyVisual.assign(rackWebVisualCount(), 0.f);
+    auto putString = [&](int offset, int length, const std::string& text) {
+      for (int index = 0; index < length; index++) rackWebProbablyVisual[offset + index] = index < static_cast<int>(text.size()) ? static_cast<unsigned char>(text[index]) : 0.f;
+    };
+    rackWebProbablyVisual[0] = pitchCount;
+    rackWebProbablyVisual[1] = temperingCount;
+    rackWebProbablyVisual[2] = actualScaleSize > 0 ? probabilityNote[0] : -1.f;
+    rackWebProbablyVisual[3] = edoTempering;
+    rackWebProbablyVisual[4] = pitchGridDisplayMode;
+    rackWebProbablyVisual[5] = octaveSize;
+    rackWebProbablyVisual[6] = actualScaleSize;
+    rackWebProbablyVisual[7] = key;
+    rackWebProbablyVisual[8] = modulationRoot;
+    rackWebProbablyVisual[9] = microtonalKey;
+    rackWebProbablyVisual[10] = equalDivisionMode;
+    rackWebProbablyVisual[11] = equalDivisions;
+    rackWebProbablyVisual[12] = equalDivisionSteps;
+    rackWebProbablyVisual[13] = equalDivisionWraps;
+    rackWebProbablyVisual[14] = equalStepSize;
+    rackWebProbablyVisual[15] = mosLargeSteps;
+    rackWebProbablyVisual[16] = mosSmallSteps;
+    rackWebProbablyVisual[17] = mosRatio;
+    rackWebProbablyVisual[18] = mosLevels;
+    rackWebProbablyVisual[19] = invalidMos ? 1.f : 0.f;
+    rackWebProbablyVisual[20] = noteReductionAlgorithm;
+    rackWebProbablyVisual[21] = scaleSize;
+    rackWebProbablyVisual[22] = nbrGeneratedPitches;
+    rackWebProbablyVisual[23] = edoTemperingThreshold;
+    rackWebProbablyVisual[24] = edoTemperingStrength;
+    rackWebProbablyVisual[25] = scaleMappingMode;
+    rackWebProbablyVisual[26] = scale;
+    rackWebProbablyVisual[27] = octaveScaleConstant;
+    for (int factor = 0; factor < MAX_FACTORS; factor++) {
+      rackWebProbablyVisual[32 + factor * 3] = actualNSteps[factor];
+      rackWebProbablyVisual[33 + factor * 3] = actualDSteps[factor];
+      rackWebProbablyVisual[34 + factor * 3] = factorsTempering[factor];
+      putString(64 + factor * 12, 12, factorNames[factor]);
+    }
+    putString(184, 48, noteReductionPatternName);
+    if (noteReductionAlgorithm >= 0 && noteReductionAlgorithm < NBR_ALGORITHMS) putString(232, 24, algorithms[noteReductionAlgorithm]);
+    if (edoTempering > 0 && edoTempering <= NBR_TEMPERING_MODES) putString(256, 24, edoTemperingModes[edoTempering - 1]);
+    if (scaleMappingMode > 0 && scaleMappingMode <= NBR_SCALE_MAPPING) putString(280, 32, scaleMappings[scaleMappingMode - 1]);
+    if (scale >= 0 && scale < MAX_SCALES) putString(312, 48, scaleNames[scale]);
+    if (key >= 0 && key < 12) putString(360, 16, noteNames[key]);
+    for (int index = 0; index < 28; index++) {
+      rackWebProbablyVisual[384 + index] = majorRatios[index];
+      rackWebProbablyVisual[412 + index] = minorRatios[index];
+    }
+    for (int index = 0; index < pitchCount; index++) {
+      const auto& pitch = resultingPitches[index];
+      const int offset = rackWebProbablyFixedValues + index * rackWebProbablyPitchStride;
+      rackWebProbablyVisual[offset] = pitch.pitch;
+      rackWebProbablyVisual[offset + 1] = pitch.dissonance;
+      rackWebProbablyVisual[offset + 2] = pitch.inUse ? 1.f : 0.f;
+      rackWebProbablyVisual[offset + 3] = noteProbability[0][index];
+      rackWebProbablyVisual[offset + 4] = pitch.pitchType;
+      rackWebProbablyVisual[offset + 5] = pitch.numerator;
+      rackWebProbablyVisual[offset + 6] = pitch.denominator;
+      rackWebProbablyVisual[offset + 7] = pitch.tempering;
+    }
+    const int temperingOffset = rackWebProbablyFixedValues + pitchCount * rackWebProbablyPitchStride;
+    for (int index = 0; index < temperingCount; index++) rackWebProbablyVisual[temperingOffset + index] = temperingPitches[index].pitch;
+    return rackWebProbablyVisual.data();
+  }`;
+  if(target.key==="voxglitch/arpseq")return`  std::array<float, 240> rackWebArpSeqVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebArpSeqVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebArpSeqVisual.fill(0.f);
+    rackWebArpSeqVisual[0] = page;
+    rackWebArpSeqVisual[1] = sample_and_hold_mode ? 1.f : 0.f;
+    rackWebArpSeqVisual[2] = step_mode ? 1.f : 0.f;
+    rackWebArpSeqVisual[3] = mod1_attenuation_low;
+    rackWebArpSeqVisual[4] = mod1_attenuation_high;
+    rackWebArpSeqVisual[5] = mod1_slew;
+    rackWebArpSeqVisual[6] = mod1_polarity ? 1.f : 0.f;
+    rackWebArpSeqVisual[7] = mod2_attenuation_low;
+    rackWebArpSeqVisual[8] = mod2_attenuation_high;
+    rackWebArpSeqVisual[9] = mod2_slew;
+    rackWebArpSeqVisual[10] = mod2_polarity ? 1.f : 0.f;
+    for (int index = 0; index < 8; index++) {
+      rackWebArpSeqVisual[12 + index] = index < static_cast<int>(rate_readout.size()) ? static_cast<unsigned char>(rate_readout[index]) : 0.f;
+      rackWebArpSeqVisual[20 + index] = index < static_cast<int>(shape_readout.size()) ? static_cast<unsigned char>(shape_readout[index]) : 0.f;
+    }
+    for (int pageIndex = 0; pageIndex < NUMBER_OF_PAGES; pageIndex++) {
+      const int offset = 32 + pageIndex * 52;
+      auto& voltage = pages[pageIndex].voltage_sequencer;
+      auto& chance = pages[pageIndex].chance_sequencer;
+      for (int step = 0; step < MAX_SEQUENCER_STEPS; step++) {
+        rackWebArpSeqVisual[offset + step] = voltage.getValue(step);
+        rackWebArpSeqVisual[offset + 16 + step] = chance.getValue(step);
+        rackWebArpSeqVisual[offset + 36 + step] = *pages[pageIndex].cycle_counters->getCountDownPointer(step);
+      }
+      rackWebArpSeqVisual[offset + 32] = voltage.window_start;
+      rackWebArpSeqVisual[offset + 33] = voltage.window_end;
+      rackWebArpSeqVisual[offset + 34] = voltage.getPlaybackPosition();
+      rackWebArpSeqVisual[offset + 35] = voltage.polarity;
+    }
+    return rackWebArpSeqVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id >= 1000 && id < 1000 + NUMBER_OF_PAGES) {
+      page = id - 1000;
+      return;
+    }
+    if (id >= 10000 && id < 10000 + NUMBER_OF_PAGES * 8192) {
+      int encoded = id - 10000;
+      const int pageIndex = encoded / 8192;
+      encoded %= 8192;
+      const int kind = encoded / 4096;
+      encoded %= 4096;
+      const int column = encoded / 256;
+      const int valueStep = encoded % 256;
+      auto& sequencer = kind ? pages[pageIndex].chance_sequencer : pages[pageIndex].voltage_sequencer;
+      sequencer.setValue(clamp(column, 0, MAX_SEQUENCER_STEPS - 1), valueStep / 255.f);
+      return;
+    }
+    if (id >= 50000 && id < 50000 + NUMBER_OF_PAGES * 32) {
+      int encoded = id - 50000;
+      const int pageIndex = encoded / 32;
+      encoded %= 32;
+      const int kind = encoded / 16;
+      const int operation = encoded % 16;
+      auto& sequencer = kind ? pages[pageIndex].chance_sequencer : pages[pageIndex].voltage_sequencer;
+      if (operation == 0) sequencer.shiftLeftInWindow();
+      else if (operation == 1) sequencer.shiftRightInWindow();
+      else if (operation == 2) sequencer.randomizeInWindow();
+      else if (operation == 3) sequencer.reverseInWindow();
+      else if (operation == 4) sequencer.shuffleInWindow();
+      else if (operation == 5) sequencer.invertInWindow();
+      else if (operation == 6) sequencer.sortInWindow();
+      else if (operation == 7) sequencer.mirrorInWindow();
+      else if (operation == 8) sequencer.resetInWindow();
+      else if (operation == 9) sequencer.zeroInWindow();
+      else if (operation == 10) sequencer.undo();
+      else if (operation == 11) sequencer.redo();
+      else if (operation == 12) sequencer.history_manager.startSession();
+      else if (operation == 13) sequencer.history_manager.endSession();
+      return;
+    }
+    if (id >= 60000 && id < 60000 + NUMBER_OF_PAGES * 256) {
+      const int encoded = id - 60000;
+      const int pageIndex = encoded / 256;
+      const int range = encoded % 256;
+      const int start = range / 16;
+      const int end = range % 16;
+      pages[pageIndex].voltage_sequencer.window_start = clamp(start, 0, 15);
+      pages[pageIndex].voltage_sequencer.window_end = clamp(end, start, 15);
+      pages[pageIndex].chance_sequencer.window_start = clamp(start, 0, 15);
+      pages[pageIndex].chance_sequencer.window_end = clamp(end, start, 15);
+      return;
+    }
+    if (id == 70000) sample_and_hold_mode = !sample_and_hold_mode;
+    else if (id == 70001) step_mode = !step_mode;
+    else if (id == 70010) mod1_polarity = !mod1_polarity;
+    else if (id == 70011) mod2_polarity = !mod2_polarity;
+    else if (id == 70020) resetPageCycleCounters();
+    else if (id == 70021) smartRandomizePageCycleCounters();
+    else if (id >= 71000 && id < 71000 + 6 * 512) {
+      const int encoded = id - 71000;
+      const int control = encoded / 512;
+      const int step = encoded % 512;
+      if (control == 0) mod1_attenuation_low = std::min(mod1_attenuation_high, clamp(step / 40.f, 0.f, 1.f));
+      else if (control == 1) mod1_attenuation_high = std::max(mod1_attenuation_low, clamp(step / 40.f, 0.f, 1.f));
+      else if (control == 2) mod1_slew = clamp(step / 255.f, 0.f, 1.f);
+      else if (control == 3) mod2_attenuation_low = std::min(mod2_attenuation_high, clamp(step / 40.f, 0.f, 1.f));
+      else if (control == 4) mod2_attenuation_high = std::max(mod2_attenuation_low, clamp(step / 40.f, 0.f, 1.f));
+      else if (control == 5) mod2_slew = clamp(step / 255.f, 0.f, 1.f);
+    }
+  }`;
+  if(target.key==="ImpromptuModular/Four-View")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id == 2000) interopCopyChord();
+    else if (id == 2001) interopCopySeq();
+  }`;
+  if(target.key==="ImpromptuModular/Cv-Pad")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id == 2000) cvCpBuf = cvs[calcBank()][writeHead];
+    else if (id == 2001) cvs[calcBank()][writeHead] = cvCpBuf;
+  }`;
+  if(target.key==="ImpromptuModular/Clocked"||target.key==="ImpromptuModular/Clocked-Clkd")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (active && id == 2000) toggleRun();
+  }`;
+  if(target.key==="ImpromptuModular/Foundry")return`  std::array<float, 3> rackWebSequenceDisplay{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSequenceDisplay.size()); }
+  float* rackWebVisualBuffer() override {
+    char text[4] = "  1";
+    switch (displayState) {
+      case DISP_PPQN:
+      case DISP_DELAY: std::snprintf(text, sizeof(text), " - "); break;
+      case DISP_REPS: std::snprintf(text, sizeof(text), "R%2u", static_cast<unsigned>(seq.getPhraseReps())); break;
+      case DISP_COPY_SEQ: std::snprintf(text, sizeof(text), "CPY"); break;
+      case DISP_PASTE_SEQ: std::snprintf(text, sizeof(text), "PST"); break;
+      case DISP_LEN: std::snprintf(text, sizeof(text), "L%2u", static_cast<unsigned>(seq.getLength())); break;
+      case DISP_TRANSPOSE: {
+        const int offset = seq.getTransposeOffset();
+        std::snprintf(text, sizeof(text), "%c%2u", offset < 0 ? '-' : '+', static_cast<unsigned>(std::abs(offset)));
+        break;
+      }
+      case DISP_ROTATE: {
+        const int offset = seq.getRotateOffset();
+        std::snprintf(text, sizeof(text), "%c%2u", offset < 0 ? '(' : ')', static_cast<unsigned>(std::abs(offset)));
+        break;
+      }
+      default: std::snprintf(text, sizeof(text), " %2u", static_cast<unsigned>((editingSequence ? seq.getSeqIndexEdit() : seq.getPhraseSeq()) + 1)); break;
+    }
+    for (int index = 0; index < 3; index++) rackWebSequenceDisplay[index] = static_cast<unsigned char>(text[index] ? text[index] : ' ');
+    return rackWebSequenceDisplay.data();
+  }
+  int rackWebLastDisplayDigit = -1;
+  int64_t rackWebLastDisplayFrame = -1;
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id == 2000) {
+      rackWebLastDisplayDigit = -1;
+      rackWebLastDisplayFrame = APP->engine->getFrame();
+      if (displayState != DISP_MODE_SEQ && displayState != DISP_PPQN && displayState != DISP_DELAY && displayState != DISP_MODE_SONG && (!attached || !running) && !editingSequence) {
+        seq.movePhraseIndexEdit(1);
+        if (displayState != DISP_REPS && displayState != DISP_COPY_SONG_CUST) displayState = DISP_NORMAL;
+        if (!running) seq.bringPhraseIndexRunToEdit();
+      }
+      return;
+    }
+    if (id < 2100 || id > 2109) return;
+    const int digit = id - 2100;
+    const int64_t frame = APP->engine->getFrame();
+    const bool pair = rackWebLastDisplayDigit >= 0 && frame >= rackWebLastDisplayFrame && frame - rackWebLastDisplayFrame < static_cast<int64_t>(APP->engine->getSampleRate());
+    const int number = digit + (pair ? rackWebLastDisplayDigit * 10 : 0);
+    if (displayState == DISP_LEN) seq.setLength(clamp(number, 1, SequencerKernel::MAX_STEPS), multiTracks);
+    else if (displayState == DISP_REPS) seq.setPhraseReps(clamp(number, 0, 99), multiTracks);
+    else if (displayState != DISP_TRANSPOSE && displayState != DISP_ROTATE && displayState != DISP_PPQN && displayState != DISP_DELAY) {
+      const int selected = clamp(number, 1, SequencerKernel::MAX_SEQS) - 1;
+      if (editingSequence) {
+        const int activeTrack = seq.getTrackIndexEdit();
+        const bool expanderPresent = rightExpander.module && rightExpander.module->model == modelFoundryExpander;
+        const float* messages = static_cast<float*>(rightExpander.consumerMessage);
+        if (!expanderPresent || std::isnan(messages[Sequencer::NUM_TRACKS + activeTrack])) {
+          seq.setSeqIndexEdit(selected, activeTrack);
+          if (multiTracks) for (int track = 0; track < Sequencer::NUM_TRACKS; track++)
+            if (track != activeTrack && (!expanderPresent || std::isnan(messages[Sequencer::NUM_TRACKS + track]))) seq.setSeqIndexEdit(selected, track);
+        }
+      }
+      else if (!attached || !running) seq.setPhraseSeqNum(selected, multiTracks);
+    }
+    rackWebLastDisplayDigit = digit;
+    rackWebLastDisplayFrame = frame;
+  }`;
+  if(target.key==="ImpromptuModular/Gate-Seq-64")return`  std::array<float, 3> rackWebSequenceDisplay{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSequenceDisplay.size()); }
+  float* rackWebVisualBuffer() override {
+    char text[4] = "  1";
+    const bool editingSequence = isEditingSequence();
+    if (infoCopyPaste != 0l) {
+      if (infoCopyPaste > 0l) std::snprintf(text, sizeof(text), "CPY");
+      else {
+        const float mode = params[CPMODE_PARAM].getValue();
+        if (editingSequence && !seqCopied) std::snprintf(text, sizeof(text), mode > 1.5f ? "CLR" : mode < .5f ? "RGT" : "RPR");
+        else if (!editingSequence && seqCopied) std::snprintf(text, sizeof(text), mode > 1.5f ? "CLR" : mode < .5f ? "INC" : "RPH");
+        else std::snprintf(text, sizeof(text), "PST");
+      }
+    }
+    else if (displayProbInfo != 0l) {
+      const int probability = attributes[sequence][stepIndexEdit].getGatePVal();
+      if (probability >= 100) std::snprintf(text, sizeof(text), "1,0");
+      else if (probability >= 1) std::snprintf(text, sizeof(text), ",%02u", static_cast<unsigned>(probability));
+      else std::snprintf(text, sizeof(text), "  0");
+    }
+    else if (editingPpqn != 0ul) std::snprintf(text, sizeof(text), "x%2u", static_cast<unsigned>(pulsesPerStep));
+    else if (displayState == DISP_LENGTH) std::snprintf(text, sizeof(text), "L%2u", static_cast<unsigned>(editingSequence ? sequences[sequence].getLength() : phrases));
+    else if (displayState == DISP_MODES) {
+      const int mode = editingSequence ? sequences[sequence].getRunMode() : runModeSong;
+      std::snprintf(text, sizeof(text), "%s", mode >= 0 && mode < NUM_MODES ? modeLabels[mode].c_str() : "");
+    }
+    else {
+      int value = sequence;
+      char prefix = ' ';
+      if (!editingSequence) {
+        if (editingPhraseSongRunning > 0l || !running) {
+          value = phrase[phraseIndexEdit];
+          if (editingPhraseSongRunning > 0l) prefix = '*';
+        }
+        else value = phrase[phraseIndexRun];
+      }
+      std::snprintf(text, sizeof(text), "%c%2u", prefix, static_cast<unsigned>(value + 1));
+    }
+    for (int index = 0; index < 3; index++) rackWebSequenceDisplay[index] = static_cast<unsigned char>(text[index] ? text[index] : ' ');
+    return rackWebSequenceDisplay.data();
+  }
+  int rackWebLastDisplayDigit = -1;
+  int64_t rackWebLastDisplayFrame = -1;
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id == 2000) {
+      rackWebLastDisplayDigit = -1;
+      rackWebLastDisplayFrame = APP->engine->getFrame();
+      if (!isEditingSequence() && displayState != DISP_LENGTH && displayState != DISP_MODES) {
+        phraseIndexEdit = moveIndex(phraseIndexEdit, phraseIndexEdit + 1, 64);
+        if (!running) phraseIndexRun = phraseIndexEdit;
+      }
+      editingPhraseSongRunning = static_cast<long>(editingPhraseSongRunningTime * APP->engine->getSampleRate() / RefreshCounter::displayRefreshStepSkips);
+      return;
+    }
+    if (id < 2100 || id > 2109) return;
+    const int digit = id - 2100;
+    const int64_t frame = APP->engine->getFrame();
+    const bool pair = rackWebLastDisplayDigit >= 0 && frame >= rackWebLastDisplayFrame && frame - rackWebLastDisplayFrame < static_cast<int64_t>(APP->engine->getSampleRate());
+    const int number = digit + (pair ? rackWebLastDisplayDigit * 10 : 0);
+    const bool editingSequence = isEditingSequence();
+    if (infoCopyPaste == 0l && displayProbInfo == 0l && editingPpqn == 0ul) {
+      if (displayState == DISP_LENGTH) {
+        if (editingSequence) sequences[sequence].setLength(clamp(number, 1, 16 * stepConfig));
+        else phrases = clamp(number, 1, 64);
+      }
+      else if (displayState != DISP_MODES) {
+        const int selected = clamp(number, 1, MAX_SEQS) - 1;
+        if (editingSequence) {
+          if (!inputs[SEQCV_INPUT].isConnected()) sequence = selected;
+        }
+        else if (editingPhraseSongRunning > 0l || !running) phrase[phraseIndexEdit] = selected;
+      }
+    }
+    editingPhraseSongRunning = static_cast<long>(editingPhraseSongRunningTime * APP->engine->getSampleRate() / RefreshCounter::displayRefreshStepSkips);
+    rackWebLastDisplayDigit = digit;
+    rackWebLastDisplayFrame = frame;
+  }`;
+  if(target.key==="SubmarineFree/HS-101")return`  static constexpr int rackWebScopeBins = 1001;
+  static constexpr int rackWebScopeHeader = 14;
+  std::array<float, rackWebScopeHeader + rackWebScopeBins * 2> rackWebStorageScope{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebStorageScope.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebStorageScope.fill(0.f);
+    rackWebStorageScope[0] = dataCaptured ? 1.f : 0.f;
+    rackWebStorageScope[1] = running ? 1.f : 0.f;
+    rackWebStorageScope[2] = bufferCount > 0 ? static_cast<float>(bufferIndex) / bufferCount : 0.f;
+    rackWebStorageScope[3] = static_cast<float>(bufferCount);
+    rackWebStorageScope[4] = time;
+    rackWebStorageScope[5] = static_cast<float>(bufferSize);
+    rackWebStorageScope[6] = minValue;
+    rackWebStorageScope[7] = maxValue;
+    if (!dataCaptured || !buffer || bufferCount <= 0) return rackWebStorageScope.data();
+
+    const float visibleSamples = bufferCount / std::pow(2.f, params[PARAM_X_SCALE].getValue());
+    const float xOffset = (bufferCount - visibleSamples) * params[PARAM_X_PAN].getValue();
+    const int originalMin = std::max(0, static_cast<int>(xOffset));
+    const int originalMax = std::min(bufferCount - 1, static_cast<int>(visibleSamples + xOffset));
+    const float rangeY = maxValue - minValue;
+    const float yMultiplier = 1.f / std::pow(2.f, params[PARAM_Y_SCALE].getValue());
+    const float yOffset = (rangeY - rangeY * yMultiplier) * params[PARAM_Y_PAN].getValue();
+    const float visibleMin = minValue + yOffset;
+    const float visibleMax = visibleMin + rangeY * yMultiplier;
+
+    int minimum = originalMin;
+    int maximum = originalMax;
+    int mipEntry = -1;
+    int range = maximum - minimum;
+    while (range > 1000) {
+      ++mipEntry;
+      if (mipEntry == static_cast<int>(mipEntries.size())) {
+        --mipEntry;
+        break;
+      }
+      maximum >>= 2;
+      minimum >>= 2;
+      range >>= 2;
+    }
+    const int count = std::clamp(maximum - minimum + 1, 0, rackWebScopeBins);
+    rackWebStorageScope[8] = visibleMin;
+    rackWebStorageScope[9] = visibleMax;
+    rackWebStorageScope[10] = static_cast<float>(originalMin);
+    rackWebStorageScope[11] = static_cast<float>(originalMax);
+    rackWebStorageScope[12] = static_cast<float>(mipEntry);
+    rackWebStorageScope[13] = static_cast<float>(count);
+    for (int column = 0; column < count; ++column) {
+      const int sample = minimum + column;
+      const float low = mipEntry < 0 ? buffer[sample] : mipEntries[mipEntry][sample * 2];
+      const float high = mipEntry < 0 ? low : mipEntries[mipEntry][sample * 2 + 1];
+      rackWebStorageScope[rackWebScopeHeader + column * 2] = low;
+      rackWebStorageScope[rackWebScopeHeader + column * 2 + 1] = high;
+    }
+    return rackWebStorageScope.data();
+  }`;
+  if(target.key==="Cella/Loud")return`  std::array<float, 10> rackWebLoudnessValues{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebLoudnessValues.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebLoudnessValues = {
+      momentaryLufs,
+      shortTermLufs,
+      integratedLufs,
+      loudnessRange,
+      psrValue,
+      plrValue,
+      maxMomentaryLufs,
+      maxShortTermLufs,
+      truePeakMax,
+      targetLoudness,
+    };
+    return rackWebLoudnessValues.data();
+  }`;
+  if(target.key==="dbRackModules/FadersOne")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active || id != 1000 || !padModule) return;
+    const int pattern = std::clamp(static_cast<int>(params[PAT_PARAM].getValue()), 0, MAX_PATS - 1);
+    presets[pattern].min = 0.f;
+    presets[pattern].max = 10.f;
+    presets[pattern].maxChannels = 16;
+    presets[pattern].snap = 0;
+    for (int channel = 0; channel < 16; channel++)
+      presets[pattern].faderValues[channel] = padModule->params[channel + 8].getValue() * 10.f;
+    setCurrentPattern();
+  }`;
+  if(target.key==="voxglitch/GrooveBoxExpander")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id >= 1100 && id < 1100 + NUMBER_OF_TRACKS) exclusiveSolo(static_cast<unsigned int>(id - 1100));
+    else if (id == 1200) unsoloAll();
+    else if (id == 1300) unmuteAll();
+  }`;
+  if(target.key==="Stoermelder-P1/Spin")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (id == 1000 && active) incPulse.trigger();
+    else if (id == 1001 && active) decPulse.trigger();
+    else if (id == 1010) {
+      if (active) clickEnable();
+      else clickDisable();
+    }
+  }`;
+  if(target.key==="EH_modules/FV-1emu")return`  std::array<float, 257> rackWebFv1Visual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebFv1Visual.size()); }
+  float* rackWebVisualBuffer() override {
+    const int length = std::min<int>(256, display.size());
+    rackWebFv1Visual[0] = static_cast<float>(length);
+    for (int index = 0; index < 256; ++index)
+      rackWebFv1Visual[1 + index] = index < length ? static_cast<unsigned char>(display[static_cast<size_t>(index)]) : 0.f;
+    return rackWebFv1Visual.data();
+  }`;
+  if(target.key==="voxglitch/onepoint"||target.key==="voxglitch/onezero")return`  std::array<float, 2> rackWebSequenceReadout{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSequenceReadout.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebSequenceReadout[0] = sequences.empty() ? 0.f : 1.f;
+    rackWebSequenceReadout[1] = static_cast<float>(real_selected_sequence);
+    return rackWebSequenceReadout.data();
+  }`;
+  if(target.key==="AmalgamatedHarmonics/PolyScope")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (active && id == 1000) toggle = !toggle;
+  }`;
+  if(target.key==="C1-ChannelStrip/ChanOut")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active || id < 1000 || id > 1003) return;
+    const int engineType = id - 1000;
+    characterEngine = engineType;
+    if (engineType == 1) {
+      oversampleFactor = 2;
+      apiEngine.engineL.setOversampleFactor(2);
+      apiEngine.engineR.setOversampleFactor(2);
+    }
+    else if (engineType == 2) {
+      neveOversampleFactor = 2;
+      neveEngine.setOversampleFactor(2);
+    }
+    else if (engineType == 3) {
+      dangerousOversampleFactor = 2;
+      dangerousEngine.setOversampleFactor(2);
+    }
+    params[DRIVE_PARAM].setValue(0.f);
+    params[CHARACTER_PARAM].setValue(0.5f);
+  }`;
+  if(target.key==="moDllz/MIDIpolyMPE")return`  std::array<float, 40> rackWebMidiPolyMpeVisual{};
+  static constexpr int rackWebXpandDataBase = 16;
+  static constexpr int rackWebXpandFieldStride = 64;
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebMidiPolyMpeVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebMidiPolyMpeVisual[0] = static_cast<float>(cursorIx);
+    rackWebMidiPolyMpeVisual[1] = MPEmode ? 1.f : 0.f;
+    rackWebMidiPolyMpeVisual[2] = UNImode ? 1.f : 0.f;
+    rackWebMidiPolyMpeVisual[3] = foundXpander ? 1.f : 0.f;
+    rackWebMidiPolyMpeVisual[4] = xpandAlt ? 1.f : 0.f;
+    rackWebMidiPolyMpeVisual[5] = static_cast<float>(nVoCh);
+    rackWebMidiPolyMpeVisual[6] = static_cast<float>(outCh);
+    rackWebMidiPolyMpeVisual[7] = static_cast<float>(sharedXpander::xpanders);
+    for (int index = 0; index < NUM_ParaMapEnum; index++) rackWebMidiPolyMpeVisual[8 + index] = static_cast<float>(dataMap[index]);
+    rackWebMidiPolyMpeVisual[34] = static_cast<float>(*Y_ptr);
+    rackWebMidiPolyMpeVisual[35] = static_cast<float>(*Z_ptr);
+    rackWebMidiPolyMpeVisual[36] = static_cast<float>(*RP_ptr);
+    rackWebMidiPolyMpeVisual[37] = Ycanedit ? 1.f : 0.f;
+    rackWebMidiPolyMpeVisual[38] = Zcanedit ? 1.f : 0.f;
+    rackWebMidiPolyMpeVisual[39] = RPcanedit ? 1.f : 0.f;
+    return rackWebMidiPolyMpeVisual.data();
+  }
+  void rackWebPullXpandPresence() {
+    sharedXpander::xpanders = 0;
+    for (int group = 0; group < 4; group++) {
+      sharedXpander::xpandnum[group] = rack_web_host_shared_count(group);
+      sharedXpander::xpanders += sharedXpander::xpandnum[group];
+    }
+  }
+  void rackWebPushXpandData() {
+    for (int group = 0; group < 4; group++) {
+      rack_web_host_shared_touch(4 + group);
+      rack_web_host_shared_set(group, static_cast<float>(sharedXpander::xpandch[group]));
+      rack_web_host_shared_set(8 + group, static_cast<float>(sharedXpander::xpandalt[group]));
+      for (int channel = 0; channel < 16; channel++) {
+        const int offset = group * 16 + channel;
+        rack_web_host_shared_set(rackWebXpandDataBase + 0 * rackWebXpandFieldStride + offset, sharedXpander::xpPitch[group][channel]);
+        rack_web_host_shared_set(rackWebXpandDataBase + 1 * rackWebXpandFieldStride + offset, sharedXpander::xpGate[group][channel]);
+        rack_web_host_shared_set(rackWebXpandDataBase + 2 * rackWebXpandFieldStride + offset, sharedXpander::xpVel[group][channel]);
+        rack_web_host_shared_set(rackWebXpandDataBase + 3 * rackWebXpandFieldStride + offset, sharedXpander::xpDetP[group][channel]);
+        rack_web_host_shared_set(rackWebXpandDataBase + 4 * rackWebXpandFieldStride + offset, sharedXpander::xpNafT[group][channel]);
+        rack_web_host_shared_set(rackWebXpandDataBase + 5 * rackWebXpandFieldStride + offset, sharedXpander::xpRvel[group][channel]);
+        rack_web_host_shared_set(rackWebXpandDataBase + 6 * rackWebXpandFieldStride + offset, sharedXpander::xpLed[group][channel]);
+      }
+    }
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id >= 1000 && id < 1000 + NUM_ParaMapEnum) {
+      const int selected = id - 1000;
+      if (selected > 0) {
+        cursorIx = selected;
+        learnId = 0;
+        configDataKnob();
+      }
+      return;
+    }
+    if (id >= 2000 && id < 2512 && cursorIx > 0 && cursorIx < NUM_ParaMapEnum) {
+      const int requested = id - 2256;
+      const int value = std::clamp(requested, static_cast<int>(dataMin[cursorIx]), static_cast<int>(dataMax[cursorIx]));
+      setNewValue(static_cast<float>(value));
+      paramQuantities[DATAKNOB_PARAM]->setSmoothValue(static_cast<float>(value));
+    }
+  }`;
+  if(target.key==="moDllz/Kn8b")return`  std::array<float, 134> rackWebKn8bVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebKn8bVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebKn8bVisual[0] = static_cast<float>(chOffset);
+    rackWebKn8bVisual[1] = vca ? 1.f : 0.f;
+    rackWebKn8bVisual[2] = static_cast<float>(numOutCh);
+    rackWebKn8bVisual[3] = trimVal;
+    rackWebKn8bVisual[4] = incnnctd;
+    rackWebKn8bVisual[5] = cvcnnctd;
+    for (int channel = 0; channel < 16; channel++) {
+      const int offset = 6 + channel * 8;
+      rackWebKn8bVisual[offset] = static_cast<float>(lcdmode[channel]);
+      rackWebKn8bVisual[offset + 1] = inV[channel];
+      rackWebKn8bVisual[offset + 2] = calcVal[channel];
+      rackWebKn8bVisual[offset + 3] = cvVal[channel];
+      rackWebKn8bVisual[offset + 4] = outV[channel];
+      rackWebKn8bVisual[offset + 5] = operation[channel];
+      rackWebKn8bVisual[offset + 6] = polarity[channel];
+      rackWebKn8bVisual[offset + 7] = knobVal[channel];
+    }
+    return rackWebKn8bVisual.data();
+  }
+  void rackWebSetParam(int id, float value) override {
+    Module::rackWebSetParam(id, value);
+    if (id >= KNOB_PARAM && id < KNOB_PARAM + 8) {
+      const int channel = id - KNOB_PARAM + chOffset;
+      knobVal[channel] = params[id].getValue();
+      if (!vca) updateKnobVal(channel);
+      return;
+    }
+    if (id == MAINKNOB_PARAM) {
+      trimVal = params[id].getValue();
+      if (!vca && !cvcable) for (int channel = 0; channel < numOutCh; channel++) updateKnobVal(channel);
+      return;
+    }
+    if (id == PAGE_PARAM) {
+      chOffset = static_cast<int>(params[id].getValue()) * 8;
+      knobsPage();
+      return;
+    }
+    if (id == VCA_PARAM) { vcaMode(params[id].getValue() > 0.f); return; }
+    if (id == TRIMMODE_PARAM) {
+      trimop = params[id].getValue();
+      for (int channel = 0; channel < numOutCh; channel++) updateKnobVal(channel);
+      if (!vca) configMainKnob(static_cast<int>(trimop));
+    }
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (id >= 1000 && id < 1024) {
+      if (!active) return;
+      const int command = id - 1000;
+      const int channel = command / 3 + chOffset;
+      switch (command % 3) {
+        case 0: numOutCh = channel + 1; break;
+        case 1: knobsSumProd(operation[channel] > 0.f ? 0.f : 1.f, channel, channel + 1); break;
+        case 2: knobsUniBipolar(polarity[channel] > 0.f ? 0.f : 1.f, channel, channel + 1); break;
+      }
+      return;
+    }
+    if (active) return;
+    switch (id) {
+      case 1100: knobsUniBipolar(1.f, chOffset, chOffset + 8); break;
+      case 1101: knobsUniBipolar(0.f, chOffset, chOffset + 8); break;
+      case 1102: knobsSumProd(0.f, chOffset, chOffset + 8); break;
+      case 1103: knobsSumProd(1.f, chOffset, chOffset + 8); break;
+      default: break;
+    }
+  }`;
+  if(target.key==="moDllz/Xpand")return`  std::array<float, 2> rackWebXpandVisual{};
+  static constexpr int rackWebXpandDataBase = 16;
+  static constexpr int rackWebXpandFieldStride = 64;
+  void rackWebPullXpandData() {
+    const int group = std::clamp(xpanderId, 0, 3);
+    rack_web_host_shared_touch(group);
+    if (!rack_web_host_shared_active(4 + group)) {
+      sharedXpander::xpandch[group] = 0;
+      sharedXpander::xpandalt[group] = 0;
+      for (int channel = 0; channel < 16; channel++) {
+        sharedXpander::xpPitch[group][channel] = 0.f;
+        sharedXpander::xpGate[group][channel] = 0.f;
+        sharedXpander::xpVel[group][channel] = 0.f;
+        sharedXpander::xpDetP[group][channel] = 0.f;
+        sharedXpander::xpNafT[group][channel] = 0.f;
+        sharedXpander::xpRvel[group][channel] = 0.f;
+        sharedXpander::xpLed[group][channel] = 0.f;
+      }
+      return;
+    }
+    sharedXpander::xpandch[group] = std::max(0, static_cast<int>(rack_web_host_shared_get(group)));
+    sharedXpander::xpandalt[group] = static_cast<int>(rack_web_host_shared_get(8 + group));
+    for (int channel = 0; channel < 16; channel++) {
+      const int offset = group * 16 + channel;
+      sharedXpander::xpPitch[group][channel] = rack_web_host_shared_get(rackWebXpandDataBase + 0 * rackWebXpandFieldStride + offset);
+      sharedXpander::xpGate[group][channel] = rack_web_host_shared_get(rackWebXpandDataBase + 1 * rackWebXpandFieldStride + offset);
+      sharedXpander::xpVel[group][channel] = rack_web_host_shared_get(rackWebXpandDataBase + 2 * rackWebXpandFieldStride + offset);
+      sharedXpander::xpDetP[group][channel] = rack_web_host_shared_get(rackWebXpandDataBase + 3 * rackWebXpandFieldStride + offset);
+      sharedXpander::xpNafT[group][channel] = rack_web_host_shared_get(rackWebXpandDataBase + 4 * rackWebXpandFieldStride + offset);
+      sharedXpander::xpRvel[group][channel] = rack_web_host_shared_get(rackWebXpandDataBase + 5 * rackWebXpandFieldStride + offset);
+      sharedXpander::xpLed[group][channel] = rack_web_host_shared_get(rackWebXpandDataBase + 6 * rackWebXpandFieldStride + offset);
+    }
+  }
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebXpandVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    const int group = std::clamp(xpanderId, 0, 3);
+    rackWebXpandVisual[0] = sharedXpander::xpandch[group] > 0 ? 1.f : 0.f;
+    rackWebXpandVisual[1] = static_cast<float>(sharedXpander::xpandalt[group]);
+    return rackWebXpandVisual.data();
+  }`;
+  if(target.key==="CosineKitty-Sapphire/Nucleus"||target.key==="CosineKitty-Sapphire/Polynucleus")return`  std::array<float, 1> rackWebSapphireSelectorVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSapphireSelectorVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebSapphireSelectorVisual[0] = isVectorReceiverConnectedOnRight() ? 1.f : 0.f;
+    return rackWebSapphireSelectorVisual.data();
+  }`;
+  if(target.key==="Atelier/AtelierPalette")return`  std::array<float, 18> rackWebPaletteVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebPaletteVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebPaletteVisual[0] = static_cast<float>(patch[0].engine);
+    rackWebPaletteVisual[1] = static_cast<float>(std::clamp(curNumVoices, 0, 16));
+    for (int index = 0; index < 16; index++) rackWebPaletteVisual[2 + index] = index < curNumVoices ? static_cast<float>(voice[index].active_engine()) : 0.f;
+    return rackWebPaletteVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active || id < 1000 || id > 1007) return;
+    const int engine = (patch[0].engine / 8) * 8 + id - 1000;
+    for (int voiceIndex = 0; voiceIndex < MAX_PALETTE_VOICES; voiceIndex++) patch[voiceIndex].engine = engine;
+  }`;
+  if(target.key==="Befaco/MidiThingV2")return`  std::array<float, 24> rackWebMidiThingVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebMidiThingVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    for (int index = 0; index < 12; index++) {
+      rackWebMidiThingVisual[index] = static_cast<float>(getVoltageMode(index / 3, index % 3));
+      rackWebMidiThingVisual[12 + index] = isClipping[index] ? 1.f : 0.f;
+    }
+    return rackWebMidiThingVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active || id < 1000 || id >= 1048) return;
+    const int command = id - 1000;
+    setVoltageModeOnHardware(command / 4 / 3, command / 4 % 3, static_cast<PORTMODE_t>(command % 4 + 1));
+  }`;
+  if(target.key==="mscHack/MasterClockx4")return`  std::array<float, 23> rackWebClockVisual{};
+  std::array<int, 5> rackWebClockFlash{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebClockVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebClockVisual[0] = m_bGlobalStopState ? 1.f : 0.f;
+    rackWebClockVisual[1] = rackWebClockFlash[0] > 0 ? 1.f : 0.f;
+    if (rackWebClockFlash[0] > 0) --rackWebClockFlash[0];
+    for (int channel = 0; channel < nCHANNELS; channel++) {
+      rackWebClockVisual[2 + channel] = m_bTimeX2[channel] ? 1.f : 0.f;
+      rackWebClockVisual[6 + channel] = rackWebClockFlash[1 + channel] > 0 ? 1.f : 0.f;
+      if (rackWebClockFlash[1 + channel] > 0) --rackWebClockFlash[1 + channel];
+      rackWebClockVisual[10 + channel] = m_bStopState[channel] ? 1.f : 0.f;
+      const int selection = std::clamp(m_ChannelMultSelect[channel], 0, CLOCK_DIVS - 1);
+      rackWebClockVisual[15 + channel] = static_cast<float>(multdisplayval[selection] * (m_bTimeX2[channel] && selection != MID_INDEX ? 2 : 1));
+      rackWebClockVisual[19 + channel] = selection < MID_INDEX ? 0.f : (selection == MID_INDEX ? 1.f : 2.f);
+    }
+    rackWebClockVisual[14] = m_fBPM;
+    return rackWebClockVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id == 1000) { m_bGlobalStopState = !m_bGlobalStopState; return; }
+    if (id == 1001) { m_bGlobalSync = true; rackWebClockFlash[0] = 8; return; }
+    if (id >= 1010 && id < 1010 + nCHANNELS) {
+      const int channel = id - 1010;
+      m_bTimeX2[channel] = !m_bTimeX2[channel];
+      SetDisplayLED(channel, static_cast<int>(params[PARAM_MULT + channel].getValue()));
+      return;
+    }
+    if (id >= 1020 && id < 1020 + nCHANNELS) {
+      const int channel = id - 1020;
+      m_bChannelSyncPending[channel] = true;
+      m_bIsTriggered[channel] = 5;
+      rackWebClockFlash[1 + channel] = 8;
+      return;
+    }
+    if (id >= 1030 && id < 1030 + nCHANNELS) m_bStopState[id - 1030] = !m_bStopState[id - 1030];
+  }`;
+  if(target.key==="ZZC/Clock")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (active && id == 1000) toggle();
+  }`;
+  if(target.key==="Kilpatrick-Toolbox/MIDI_Channel")return`  void rackWebSetParam(int id, float value) override {
+    Module::rackWebSetParam(id, value);
+    if (id >= IN_CHAN && id <= KEY_TRANS) resetOutputNotes = 1;
+  }`;
+  if(target.key==="Kilpatrick-Toolbox/MIDI_Mapper")return`  std::array<float, 1> rackWebMidiMapperVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebMidiMapperVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebMidiMapperVisual[0] = static_cast<float>(mapMode);
+    return rackWebMidiMapperVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    if (id >= 1000 && id < 1000 + NUM_MAP_CHANS) {
+      mapMode = id - 1000;
+      mapTimeout = MAP_TIMEOUT;
+      return;
+    }
+    const int row = id >= 1020 ? id - 1020 : id - 1010;
+    if (row < 0 || row >= NUM_MAP_CHANS) return;
+    const float change = id >= 1020 ? 1.f : -1.f;
+    setMap(row, params[MAP_CC_IN1 + row].getValue(),
+      putils::clampf(params[MAP_CC_OUT1 + row].getValue() + change, UNMAP, 127.f));
+  }`;
+  if(target.key==="Kilpatrick-Toolbox/Stereo_Meter")return`  std::array<float, 6> rackWebStereoMeterVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebStereoMeterVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    getPeakDbLevels(0, &rackWebStereoMeterVisual[0], &rackWebStereoMeterVisual[1]);
+    getPeakDbLevels(1, &rackWebStereoMeterVisual[2], &rackWebStereoMeterVisual[3]);
+    rackWebStereoMeterVisual[4] = params[REF_LEVEL_L].getValue();
+    rackWebStereoMeterVisual[5] = params[REF_LEVEL_R].getValue();
+    return rackWebStereoMeterVisual.data();
+  }`;
+  if(target.key==="Kilpatrick-Toolbox/Test_Osc")return`  std::array<float, 5> rackWebTestOscVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebTestOscVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebTestOscVisual[0] = dispGetAbsLevel();
+    rackWebTestOscVisual[1] = dispGetRefLevel();
+    rackWebTestOscVisual[2] = dispGetSweepTime();
+    rackWebTestOscVisual[3] = dispGetSweepProgress();
+    rackWebTestOscVisual[4] = dispGetFrequency();
+    return rackWebTestOscVisual.data();
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active || (id != 1000 && id != 1001)) return;
+    const float change = id == 1000 ? -0.1f : 0.1f;
+    params[REF_LEVEL].setValue(dsp2::adjustFactorByDb(params[REF_LEVEL].getValue(), change));
+  }`;
+  if(target.key==="Kilpatrick-Toolbox/MIDI_Clock")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    switch (id) {
+      case 1000: midiClockTapTempo(); break;
+      case 1001: midiClockToggleRunState(); break;
+      case 1002: midiClockToggleAutostart(); break;
+      case 1003: midiClockToggleSource(); break;
+      case 1004: midiClockAdjustTempo(1.f); break;
+      case 1005: midiClockAdjustTempo(-1.f); break;
+      case 1006: midiClockAdjustTempo(0.1f); break;
+      case 1007: midiClockAdjustTempo(-0.1f); break;
+      case 1008: midiClockAdjustOutputDiv(1.f); break;
+      case 1009: midiClockAdjustOutputDiv(-1.f); break;
+      default: break;
+    }
+  }`;
+  if(target.key==="Kilpatrick-Toolbox/Quad_Panner")return`  std::array<float, 2> rackWebJoystickVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebJoystickVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebJoystickVisual[0] = joyPosX;
+    rackWebJoystickVisual[1] = joyPosY;
+    return rackWebJoystickVisual.data();
+  }
+  void rackWebSetParam(int id, float value) override {
+    Module::rackWebSetParam(id, value);
+    if (id == RESET_SW && params[id].getValue() > 0.5f) {
+      joyPosX = 0.f;
+      joyPosY = 0.f;
+    }
+  }
+  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    constexpr int actionBase = 1000;
+    constexpr int actionSteps = 4096;
+    if (id >= actionBase && id < actionBase + actionSteps) {
+      joyPosX = static_cast<float>(id - actionBase) / static_cast<float>(actionSteps - 1) * 2.f - 1.f;
+    }
+    else if (id >= actionBase + actionSteps && id < actionBase + 2 * actionSteps) {
+      joyPosY = static_cast<float>(id - actionBase - actionSteps) / static_cast<float>(actionSteps - 1) * 2.f - 1.f;
+    }
+  }`;
+  if(target.key==="voxglitch/digitalprogrammer")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active || id < 0x43000000 || id >= 0x43000000 + NUMBER_OF_BANKS) return;
+    const unsigned int bank = static_cast<unsigned int>(id - 0x43000000);
+    if (bank_interaction_mode == COPY_MODE) copyBank(copy_bank_id, bank);
+    else if (bank_interaction_mode == CLEAR_MODE) clearBank(bank);
+    else if (bank_interaction_mode == RANDOMIZE_MODE) randomizeBank(bank);
+    else selected_bank = bank;
+  }`;
+  if(target.key==="dbRackModules/Faders")return`  void rackWebTriggerAction(int id, bool active) override {
+    if (active && id == 1000 && padModule) copyFromPad2();
+  }`;
+  if(target.key==="ModularFungi/LightsOff")return`  void rackWebTriggerAction(int id, bool activeAction) override {
+    if (activeAction && id == 1000) active = !active;
+  }`;
+  if(/\bvoid\s+keyEnable\s*\(\s*int\s+\w+\s*\)/.test(body)&&/\bvoid\s+keyDisable\s*\(\s*int\s+\w+\s*\)/.test(body))return`  void rackWebTriggerAction(int id, bool active) override { if (id >= 0 && id < NUM_OUTPUTS) { if (active) keyEnable(id); else keyDisable(id); } }`;
+  return"";
+}
+
 function adapterSource(target,manifest,license,definitionFile,registrationFile,registration,prelude,body,implementations,inherited,detected,compileEligible,sourceDir,vcoSpecializations=""){
+  // Palette's module source already uses Plaits' public Voice header. Flattening
+  // that dependency tree loses macro ordering and preprocessor-selected DSP
+  // implementations (and produces a multi-megabyte adapter). Keep the real
+  // upstream header boundary; implementation .cc files are still linked below.
+  if(target.key==="Atelier/AtelierPalette"){
+    prelude='#include "plaits/dsp/voice.h"\n';
+    body=body.replace(/\bstring::f\s*\(/g,"rack::string::f(");
+  }
   if(target.key==="PathSet/IceTray")prelude=adaptPathSetIceTrayBrowserPrelude(prelude);
+  if(target.key==="Kilpatrick-Toolbox/Test_Osc"){
+    body=body.replace(/(\bfloat\s+dispGet(?:RefLevel|AbsLevel|Frequency|SweepTime|SweepProgress)\s*\([^)]*\))\s+override\b/g,"$1");
+  }
   if(target.key==="Edge/K_Rush"){
     prelude=adaptEdgeKRushBrowserSource(prelude,sourceDir);
     body=body.replace(/\bif\s*\(\s*d_pos\.first_alg\s*\)\s*d_pos\.first_alg\s*=\s*json_integer_value\s*\(\s*first_algJ\s*\)\s*;/,"if (first_algJ) d_pos.first_alg = json_integer_value(first_algJ);");
@@ -4950,7 +7060,12 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
   let rackWebExportInclude=/\b(?:class|struct)\s+RCFilter\b/.test(prelude)?`#define RCFilter RackWebHostRCFilter
 #include "rack_web_export.hpp"
 #undef RCFilter`:`#include "rack_web_export.hpp"`,fullSurgeHost=fullSurgeHostContract(target,body,inherited);let hostCompatibilityPrelude=fullSurgeHost?fullSurgeHostPrelude():"";if(target.plugin==="PathSet"&&/\bCVRange\b/.test(`${prelude}\n${body}`))hostCompatibilityPrelude+=pathSetCvRangeHostPrelude();if(fullSurgeHost){const oscillatorTarget=surgeOscillatorTarget(vcoSpecializations||registration.moduleClass);if(oscillatorTarget)hostCompatibilityPrelude+=`\n#include "${oscillatorTarget}.h"\n`}
-  if(target.key==="Chinenual-VCV/MIDIRecorder")rackWebExportInclude+="\n#include <sstream>";
+  if(target.key==="Chinenual-VCV/MIDIRecorder"){
+    rackWebExportInclude+="\n#include <sstream>";
+    const cvRangeFile=path.join(sourceDir,"src","CVRange.hpp");
+    const cvRange=fs.existsSync(cvRangeFile)?classDefinitionSource(fs.readFileSync(cvRangeFile,"utf8"),"CVRange"):"";
+    if(cvRange)hostCompatibilityPrelude+=`\nnamespace Chinenual { namespace MIDIRecorder {\n${cvRange}${/;\s*$/.test(cvRange)?"":";"}\n} }`;
+  }
   const singleHeaderImplementations=(detected.includes??[]).includes("nanosvg.h")?`#define NANOSVG_IMPLEMENTATION
 #include <nanosvg.h>
 #include <iomanip>`:"";
@@ -4982,13 +7097,32 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
     }
   }
   if(target.key.startsWith("Biset/Biset-Tracker-")){
-    prelude=adaptBisetTrackerAuxiliaryBrowserImplementation(prelude);
-    implementations=implementations.map(adaptBisetTrackerAuxiliaryBrowserImplementation).filter(Boolean);
+    prelude=adaptBisetTrackerAuxiliaryBrowserImplementation(prelude,target.key);
+    implementations=implementations.map(value=>adaptBisetTrackerAuxiliaryBrowserImplementation(value,target.key)).filter(Boolean);
   }
+  if(target.key==="Biset/Biset-Regex"||target.key==="Biset/Biset-Regex-Condensed")
+    implementations=implementations.map(adaptBisetRegexBrowserSource).filter(Boolean);
   if(target.key==="Biset/Biset-Tracker"){
-    prelude=adaptBisetTrackerBrowserImplementation(prelude);
+    prelude=adaptBisetTrackerBrowserImplementation(prelude,{publishBridge:true});
     for(const type of ["TrackerControl","TrackerSynth","TrackerDrum"])prelude=removeOutOfLineDefinitions(prelude,type);
-    implementations=implementations.map(adaptBisetTrackerBrowserImplementation).filter(Boolean);
+    const trackerHeader=(detected.sourceFiles??[]).find(file=>path.basename(file)==="Tracker.hpp");
+    if(trackerHeader){
+      const trackerHeaderSource=fs.readFileSync(trackerHeader,"utf8");
+      // The generic UI closure sees these types through TrackerDisplay and can
+      // classify them as widget support. Emit the source model after generic
+      // UI stripping, in its original dependency order, so it cannot be
+      // mistaken for native Rack UI state.
+      const trackerModelTypes=[
+        "PatternSource",
+        "PatternInstance",
+        "PatternReader",
+        "Timeline",
+        "Editor",
+      ];
+      const trackerModelSource=trackerModelTypes.map(type=>completeClassDefinitionSource(trackerHeaderSource,type)).filter(Boolean).join("\n\n");
+      if(trackerModelSource)familyDeferredPrelude=`${trackerModelSource}\n\nextern Timeline* g_timeline;\nextern Editor* g_editor;`;
+    }
+    implementations=implementations.map(value=>adaptBisetTrackerBrowserImplementation(value,{publishBridge:true})).filter(Boolean);
     const itoawImplementations=(detected.rootSourceFiles??[]).flatMap(file=>outOfLineFreeFunctionDefinitions(fs.readFileSync(file,"utf8"),"itoaw"));
     implementations.unshift(...itoawImplementations);
     implementations.unshift("static void process_midi_message(midi::Message* msg);");
@@ -4998,8 +7132,10 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
     prelude=replaceInlineMethodBody(prelude,/\bvoid\s+start\s*\(\s*\)/," workerBufferIndex = 0; bufferIndex = 0; running = true; ");
     prelude=replaceInlineMethodBody(prelude,/\bvoid\s+stop\s*\(\s*\)/," running = false; ");
   }
+  if(target.key==="az/LoFiTV")prelude=prelude.replace(/\bclass\s+Slime\s*\{/,"class Slime {\n  friend struct LoFiTV;");
   if(target.key==="Biset/Biset-Blank"){
     prelude=adaptBisetBlankBrowserImplementation(prelude);
+    body=adaptBisetBlankBrowserImplementation(body);
     for(const type of ["BlankWidget","BlankCables","BlankScope"])prelude=removeOutOfLineDefinitions(prelude,type);
     implementations=implementations.map(value=>{
       value=adaptBisetBlankBrowserImplementation(value);
@@ -5055,7 +7191,7 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
     const final=path.at(-1),setter=typeof final==="number"?`json_array_insert_new(level${path.length-1}, ${final}, ${stateValue(item)});`:`json_object_set_new(level${path.length-1}, "${final}", ${stateValue(item)});`;
     statements.push(setter);return`      case ${index}: { ${statements.join(" ")} break; }`;
   };
-  const stateMethod=detected.stateKeys.length?`  void setState(int id, float value) override {\n    json_t* root = dataToJson();\n    if (!json_is_object(root)) { json_decref(root); root = json_object(); }\n    switch (id) {\n${detected.stateKeys.map(stateCase).join("\n")}\n      default: break;\n    }\n    dataFromJson(root);${target.key==="Airwin2Rack/Airwin2Rack"?'\n    if (id == 0) resetAirwinByName(selectedFX, true);':""}\n    json_decref(root);\n  }`:"";
+  const stateMethod=detected.stateKeys.length&&!/\bvoid\s+setState\s*\(\s*int\b/.test(body)?`  void setState(int id, float value) override {\n    json_t* root = dataToJson();\n    if (!json_is_object(root)) { json_decref(root); root = json_object(); }\n    switch (id) {\n${detected.stateKeys.map(stateCase).join("\n")}\n      default: break;\n    }\n    dataFromJson(root);${target.key==="Airwin2Rack/Airwin2Rack"?'\n    if (id == 0) resetAirwinByName(selectedFX, true);':""}\n    json_decref(root);\n  }`:"";
   const actionMethod=target.key==="tapestry/Tapestry"?`  void rackWebTriggerAction(int id, bool active) override {
     static constexpr int rackWebActionSteps = 1024;
     if (!active) return;
@@ -5130,6 +7266,13 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
     pkInfo.vel = static_cast<float>(encoded / 12) / static_cast<float>(rackWebVelocitySteps - 1);
     pkInfo.gate = active;
   }`:target.key==="ImpromptuModular/Chord-Key"?`  void rackWebTriggerAction(int id, bool active) override {
+    if (active && id >= 2000 && id <= 2003) {
+      if (id == 2000) interopCopyChord();
+      else if (id == 2001) interopCopySeq();
+      else if (id == 2002) interopPasteChord();
+      else interopPasteSeq();
+      return;
+    }
     static constexpr int rackWebPianoActionBase = 1000;
     int encoded = id - rackWebPianoActionBase;
     if (encoded < 0 || encoded >= 96) return;
@@ -5138,7 +7281,42 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
     pkInfo.key = encoded % 12;
     pkInfo.vel = (static_cast<float>(encoded / 12) + 0.5f) / 4.f;
     pkInfo.gate = active;
-  }`:target.key==="ImpromptuModular/Phrase-Seq-16"||target.key==="ImpromptuModular/Phrase-Seq-32"?`  void rackWebTriggerAction(int id, bool active) override {
+  }`:target.key==="ImpromptuModular/Phrase-Seq-16"||target.key==="ImpromptuModular/Phrase-Seq-32"?`  int rackWebLastDisplayDigit = -1;
+  int64_t rackWebLastDisplayFrame = -1;
+  void rackWebTriggerAction(int id, bool active) override {
+    if (active && id == 2000) {
+      rackWebLastDisplayDigit = -1;
+      rackWebLastDisplayFrame = APP->engine->getFrame();
+      if (displayState != DISP_LENGTH) displayState = DISP_NORMAL;
+      if ((!running || !attached) && !isEditingSequence()) {
+        phraseIndexEdit = moveIndex(phraseIndexEdit, phraseIndexEdit + 1, ${target.key.endsWith("32")?32:16});
+        if (!running) phraseIndexRun = phraseIndexEdit;
+      }
+      return;
+    }
+    if (active && id >= 2100 && id <= 2109) {
+      const int digit = id - 2100;
+      const int64_t frame = APP->engine->getFrame();
+      const bool pair = rackWebLastDisplayDigit >= 0 && frame >= rackWebLastDisplayFrame && frame - rackWebLastDisplayFrame < static_cast<int64_t>(APP->engine->getSampleRate());
+      const int number = digit + (pair ? rackWebLastDisplayDigit * 10 : 0);
+      const bool editingSequence = isEditingSequence();
+      if (infoCopyPaste == 0l && editingPpqn == 0ul && displayState != DISP_MODE) {
+        if (displayState == DISP_LENGTH) {
+          if (editingSequence) sequences[seqIndexEdit].setLength(clamp(number, 1, ${target.key.endsWith("32")?"16 * stepConfig":"16"}));
+          else phrases = clamp(number, 1, ${target.key.endsWith("32")?32:16});
+        }
+        else if (displayState != DISP_TRANSPOSE && displayState != DISP_ROTATE) {
+          const int selected = clamp(number, 1, ${target.key.endsWith("32")?32:16}) - 1;
+          if (editingSequence) {
+            if (!inputs[SEQCV_INPUT].isConnected()) seqIndexEdit = selected;
+          }
+          else if (!attached || !running) phrase[phraseIndexEdit] = selected;
+        }
+      }
+      rackWebLastDisplayDigit = digit;
+      rackWebLastDisplayFrame = frame;
+      return;
+    }
     static constexpr int rackWebPianoActionBase = 1000;
     int encoded = id - rackWebPianoActionBase;
     if (encoded < 0 || encoded >= 24) return;
@@ -5151,10 +7329,1459 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
     const int key = id & 0xffff;
     const int mods = (id >> 16) & 0xf;
     hotkeyPressed(key, mods);
-  }`:/\bvoid\s+keyEnable\s*\(\s*int\s+\w+\s*\)/.test(body)&&/\bvoid\s+keyDisable\s*\(\s*int\s+\w+\s*\)/.test(body)?`  void rackWebTriggerAction(int id, bool active) override { if (id >= 0 && id < NUM_OUTPUTS) { if (active) keyEnable(id); else keyDisable(id); } }`:"",assetMethods=browserAssetSamplerMethods(detected.browserAsset),sourceNamespaceSource=(detected.sourceFiles??[]).map(file=>fs.readFileSync(file,"utf8")).join("\n"),sourceNamespaceReference=[prelude,body,...implementations,...inherited.flatMap(definition=>[definition.prelude,definition.body,...definition.implementations])].join("\n"),sourceNamespaceSpecificUsings=[...new Set(namespaceSpecificUsingDeclarations(sourceNamespaceSource))].filter(declaration=>{if(/\bnamespace\s/.test(declaration))return false;const targetName=/\busing\s+[A-Za-z_]\w*(?:::[A-Za-z_]\w*)*::([A-Za-z_]\w*)\s*;/.exec(declaration)?.[1];return !targetName||new RegExp(`(^|[^:\\w])${targetName}\\b`).test(sourceNamespaceReference)}),sourceNamespacePrelude=[namespaceUsingPrelude(sourceNamespaceSource),...sourceNamespaceSpecificUsings].filter(Boolean).join("\n");if(process.env.RACK_WEB_DEBUG_DEPENDENCIES&&sourceNamespaceSpecificUsings.length)console.error(JSON.stringify({sourceNamespaceSpecificUsings},null,2));
+  }`:target.key==="acModules/CRBVi"||target.key==="acModules/CRBViXL"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebTouchActionBase = 1000;
+    static constexpr int rackWebTouchSteps = 256;
+    const int encoded = id - rackWebTouchActionBase;
+    if (encoded < 0 || encoded >= rackWebTouchSteps * rackWebTouchSteps) return;
+    const float normalizedX = static_cast<float>(encoded % rackWebTouchSteps) / static_cast<float>(rackWebTouchSteps - 1);
+    const float normalizedY = static_cast<float>(encoded / rackWebTouchSteps) / static_cast<float>(rackWebTouchSteps - 1);
+    const int keys = numOctaves * (guideType == 1 ? 24 : 12) + 1;
+    const int key = static_cast<int>(std::floor(normalizedX * static_cast<float>(keys)));
+    const float padVoltage = 10.f - clamp(normalizedY * (80.f / 58.f) * 10.1f, 0.f, 10.f);
+    setPadInputs(normalizedX, padVoltage, key);
+    isDragging = active;
+  }`:target.key==="Clonotribe/Clonotribe"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebRibbonActionBase = 1000;
+    static constexpr int rackWebRibbonSteps = 1024;
+    const int encoded = id - rackWebRibbonActionBase;
+    if (encoded < 0 || encoded >= rackWebRibbonSteps) return;
+    if (active) ribbon.setPosition(static_cast<float>(encoded) / static_cast<float>(rackWebRibbonSteps - 1));
+    ribbon.touching = active;
+  }`:target.key==="voxglitch/xy"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebXyActionBase = 1000;
+    static constexpr int rackWebXyHoverActionBase = 100000;
+    static constexpr int rackWebXyActionSteps = 256;
+    const bool hover = id >= rackWebXyHoverActionBase;
+    const int encoded = id - (hover ? rackWebXyHoverActionBase : rackWebXyActionBase);
+    if (encoded < 0 || encoded >= rackWebXyActionSteps * rackWebXyActionSteps) return;
+    drag_position.x = static_cast<float>(encoded % rackWebXyActionSteps) * 260.f / static_cast<float>(rackWebXyActionSteps - 1);
+    drag_position.y = static_cast<float>(encoded / rackWebXyActionSteps) * 260.f / static_cast<float>(rackWebXyActionSteps - 1);
+    if (hover) return;
+    if (active && !rackWebXyDragging) {
+      rackWebXyDragging = true;
+      if (get_punch_switch_value() == 0.f) start_recording();
+      else start_punch_recording();
+    }
+    else if (!active && rackWebXyDragging) {
+      rackWebXyDragging = false;
+      if (get_punch_switch_value() == 0.f) start_playback();
+      else continue_playback();
+    }
+  }`:target.key==="voxglitch/digitalsequencer"||target.key==="voxglitch/digitalsequencerxp"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebSequenceActionBase = 1000;
+    static constexpr int rackWebSequenceValueSteps = 1024;
+    static constexpr int rackWebSequenceColumns = 32;
+    static constexpr int rackWebSequenceCommandBase = rackWebSequenceValueSteps * rackWebSequenceColumns;
+    const int encoded = id - rackWebSequenceActionBase;
+    if (encoded < 0) return;
+    if (encoded < rackWebSequenceCommandBase) {
+      if (!active) return;
+      const int column = encoded / rackWebSequenceValueSteps;
+      const int y = encoded % rackWebSequenceValueSteps;
+      selected_voltage_sequencer->setValue(column, 1.f - static_cast<float>(y) / static_cast<float>(rackWebSequenceValueSteps - 1));
+      return;
+    }
+    if (!active) return;
+    const int commandEncoded = encoded - rackWebSequenceCommandBase;
+    const int command = commandEncoded / 64;
+    const int payload = commandEncoded % 64;
+    switch (command) {
+      case 0: ${target.key.endsWith("xp")?"selected_gate_sequencer->setWindowEnd(clamp(payload, 0, rackWebSequenceColumns - 1)); selected_voltage_sequencer->setWindowEnd(clamp(payload, 0, rackWebSequenceColumns - 1));":"setLengthKnobPosition(clamp(payload + 1, 1, rackWebSequenceColumns));"} break;
+      case 1:
+        selected_voltage_sequencer->setPosition(clamp(payload, 0, rackWebSequenceColumns - 1));
+        selected_gate_sequencer->setPosition(clamp(payload, 0, rackWebSequenceColumns - 1));
+        break;
+      case 2: selected_voltage_sequencer->shiftLeftInWindow(); selected_gate_sequencer->shiftLeftInWindow(); break;
+      case 3: selected_voltage_sequencer->shiftRightInWindow(); selected_gate_sequencer->shiftRightInWindow(); break;
+      case 4: selected_gate_sequencer->setValue(clamp(payload, 0, rackWebSequenceColumns - 1), 0); break;
+      case 5: selected_gate_sequencer->setValue(clamp(payload, 0, rackWebSequenceColumns - 1), 1); break;
+      case 6:
+        selected_sequencer_index = clamp(payload, 0, NUMBER_OF_SEQUENCERS - 1);
+        selected_voltage_sequencer = &voltage_sequencers[selected_sequencer_index];
+        selected_gate_sequencer = &gate_sequencers[selected_sequencer_index];
+        break;
+      case 7: frozen = !frozen; break;
+      case 8: selected_voltage_sequencer->shiftLeftInWindow(); break;
+      case 9: selected_voltage_sequencer->shiftRightInWindow(); break;
+      case 10: selected_gate_sequencer->shiftLeftInWindow(); break;
+      case 11: selected_gate_sequencer->shiftRightInWindow(); break;
+      case 12: selected_voltage_sequencer->randomize(); break;
+      case 13: selected_gate_sequencer->randomize(); break;
+      case 14: selected_voltage_sequencer->zeroInWindow(); break;
+      case 15: selected_gate_sequencer->clear(); break;
+      case 16: forceGateOut(); break;
+      case 17: selected_voltage_sequencer->setValue(clamp(payload, 0, rackWebSequenceColumns - 1), selected_voltage_sequencer->getValue(clamp(payload, 0, rackWebSequenceColumns - 1)) + .214f); break;
+      case 18: selected_voltage_sequencer->setValue(clamp(payload, 0, rackWebSequenceColumns - 1), selected_voltage_sequencer->getValue(clamp(payload, 0, rackWebSequenceColumns - 1)) - .214f); break;
+      case 19: selected_gate_sequencer->addGate(); break;
+      default: break;
+    }
+  }`:target.key==="Bidoo/cANARd"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebCanardActionBase = 1000;
+    static constexpr int rackWebCanardActionSteps = 65536;
+    const int encoded = id - rackWebCanardActionBase;
+    if (!active || encoded < 0 || encoded >= rackWebCanardActionSteps || totalSampleCount <= 0 || slices.empty()) return;
+    const float normalized = static_cast<float>(encoded) / static_cast<float>(rackWebCanardActionSteps - 1);
+    const int reference = clamp(static_cast<int>(normalized * static_cast<float>(totalSampleCount)), 0, totalSampleCount - 1);
+    addSliceMarker = reference;
+    auto lower = std::lower_bound(slices.begin(), slices.end(), reference);
+    auto selectedMarker = lower == slices.begin() ? slices.begin() : lower - 1;
+    selected = static_cast<int>(std::distance(slices.begin(), selectedMarker));
+    deleteSliceMarker = *selectedMarker;
+  }`:target.key==="Bidoo/liMonADe"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebLimonadeActionBase = 1000;
+    static constexpr int rackWebLimonadeBins = 512;
+    static constexpr int rackWebLimonadeValueSteps = 4096;
+    static constexpr int rackWebLimonadeCommandStride = rackWebLimonadeBins * rackWebLimonadeValueSteps;
+    const int encoded = id - rackWebLimonadeActionBase;
+    if (!active || encoded < 0 || table.nFrames == 0) return;
+    const int command = encoded / rackWebLimonadeCommandStride;
+    const int payload = encoded % rackWebLimonadeCommandStride;
+    const int bin = payload / rackWebLimonadeValueSteps;
+    const int rawValue = payload % rackWebLimonadeValueSteps;
+    if (command < 0 || command > 1 || bin < 0 || bin >= rackWebLimonadeBins) return;
+    const size_t frameIndex = clamp(static_cast<int>(params[INDEX_PARAM].getValue() * static_cast<float>(table.nFrames - 1)), 0, static_cast<int>(table.nFrames - 1));
+    const float normalized = static_cast<float>(rawValue) / static_cast<float>(rackWebLimonadeValueSteps - 1);
+    if (command == 0) table.frames[frameIndex].magnitude[bin] = normalized;
+    else table.frames[frameIndex].phase[bin] = -M_PI + normalized * 2.f * M_PI;
+    table.frames[frameIndex].morphed = false;
+    updateWaveTable();
+  }`:target.key==="FrozenWasteland/PWGridControlExpander"||target.key==="FrozenWasteland/QARGridControlExpander"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebGridActionBase = 1000;
+    static constexpr int rackWebGridColumns = 128;
+    static constexpr int rackWebGridRows = ${target.key.endsWith("PWGridControlExpander")?16:18};
+    const int encoded = id - rackWebGridActionBase;
+    if (!active || encoded < 0 || encoded >= rackWebGridColumns * rackWebGridRows) return;
+    gridCells->setCell(encoded % rackWebGridColumns, encoded / rackWebGridColumns);
+  }`:target.key==="EternalEclipseModular/CosmicClock"?`  void rackWebTriggerAction(int id, bool active) override {
+    if (id == 1000 && active) {
+      simUnix = realNow();
+      reseed();
+    }
+  }`:target.key==="kocmoc/TRG"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebTrgActionBase = 1000;
+    const int encoded = id - rackWebTrgActionBase;
+    if (!active || encoded < 0) return;
+    if (encoded < MAX_STEPS * 2) {
+      const int state = encoded / MAX_STEPS;
+      const int index = encoded % MAX_STEPS;
+      steps[index] = state;
+      return;
+    }
+    const int selectedPage = encoded - MAX_STEPS * 2;
+    if (!_followactivestep && selectedPage >= 0 && selectedPage < 2) page = selectedPage;
+  }`:target.key==="EternalEclipseModular/Saros"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebSarosActionBase = 1000;
+    static constexpr int rackWebSarosValueSteps = 4096;
+    const int encoded = id - rackWebSarosActionBase;
+    if (!active || encoded < 0 || encoded >= TABLE_N * rackWebSarosValueSteps) return;
+    const int index = encoded / rackWebSarosValueSteps;
+    const int value = encoded % rackWebSarosValueSteps;
+    drawTable[index] = static_cast<float>(value) / static_cast<float>(rackWebSarosValueSteps - 1);
+    drawMode = true;
+  }`:target.key==="fruitsofkarma/CellularAuto"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebCellularActionBase = 1000;
+    const int encoded = id - rackWebCellularActionBase;
+    if (!active || encoded < 0) return;
+    if (encoded < MAX_WIDTH) {
+      if (encoded == MAX_WIDTH - 1) InitState[encoded] = (InitState[encoded] + 1) % 3;
+      else InitState[encoded] = InitState[encoded] == 0 ? 1 : 0;
+      return;
+    }
+    const int cell = encoded - MAX_WIDTH;
+    const int x = cell % MAX_WIDTH;
+    const int y = cell / MAX_WIDTH;
+    if (y >= 0 && y < MAX_HEIGHT) Field[y][x] = !Field[y][x];
+  }`:target.key==="FrozenWasteland/QuadAlgorithmicRhythm"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebQarBeatActionBase = 1000;
+    static constexpr int rackWebQarAccentActionBase = 2000;
+    if (!active) return;
+    const bool accent = id >= rackWebQarAccentActionBase;
+    const int encoded = id - (accent ? rackWebQarAccentActionBase : rackWebQarBeatActionBase);
+    if (encoded < 0 || encoded >= TRACK_COUNT * MAX_STEPS) return;
+    const int track = encoded / MAX_STEPS;
+    const int step = encoded % MAX_STEPS;
+    if (step >= stepsCount[track]) return;
+    if (!accent || accentAlgorithmMatrix[track] == MANUAL_MODE_ALGO)
+      toggleManualBeat(track, step, accent);
+  }`:target.key==="FrozenWasteland/FillingStation"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebFillingActionBase = 1000;
+    static constexpr int rackWebFillingValueCount = 17;
+    const int encoded = id - rackWebFillingActionBase;
+    if (!active || encoded < 0 || encoded >= NBR_INPUTS * MAX_STEPS * rackWebFillingValueCount) return;
+    const int value = encoded % rackWebFillingValueCount;
+    const int cell = encoded / rackWebFillingValueCount;
+    const int track = cell / MAX_STEPS;
+    const int step = cell % MAX_STEPS;
+    trackMatrix[currentSceneNbr][track][step] = static_cast<uint8_t>(value);
+    int stepCount = 0;
+    for (int trackIndex = 0; trackIndex < NBR_INPUTS; ++trackIndex) {
+      int length = 0;
+      while (length < MAX_STEPS && trackMatrix[currentSceneNbr][trackIndex][length] != 0) ++length;
+      trackLength[trackIndex] = static_cast<int8_t>(length);
+      stepCount = std::max(stepCount, length);
+    }
+    currentStepCount = stepCount;
+  }`:target.key==="Sha-Bang-Modules/StochSeq"||target.key==="Sha-Bang-Modules/StochSeq4"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebStochActionBase = 1000;
+    static constexpr int rackWebStochSequenceStride = 131072;
+    static constexpr int rackWebStochCommandStride = 8192;
+    static constexpr int rackWebStochValueSteps = 256;
+    const int relative = id - rackWebStochActionBase;
+    if (!active || relative < 0) return;
+    const int sequence = relative / rackWebStochSequenceStride;
+    const int sequenceAction = relative % rackWebStochSequenceStride;
+    const int command = sequenceAction / rackWebStochCommandStride;
+    const int payload = sequenceAction % rackWebStochCommandStride;
+    if (sequence < 0 || sequence >= ${target.key.endsWith("StochSeq4")?"4":"1"}) return;
+    if (command == 0) {
+      const int column = clamp(payload / rackWebStochValueSteps, 0, 31);
+      const int vertical = clamp(payload % rackWebStochValueSteps, 0, rackWebStochValueSteps - 1);
+      const float probability = 1.f - static_cast<float>(vertical) / static_cast<float>(rackWebStochValueSteps - 1);
+      ${target.key.endsWith("StochSeq4")?"seqs[sequence].gateProbabilities[column] = probability;":`gateProbabilities[column] = probability;
+      memBanks[currentMemBank].setProbabilities(gateProbabilities, clamp(static_cast<int>(params[LENGTH_PARAM].getValue()), 1, 32));`}
+      return;
+    }
+    if (command == 1) {
+      const int column = clamp(payload, 0, 31);
+      ${target.key.endsWith("StochSeq4")?"float& probability = seqs[sequence].gateProbabilities[column];":`float& probability = gateProbabilities[column];`}
+      probability = probability < .5f ? 1.f : 0.f;
+      ${target.key.endsWith("StochSeq4")?"":`memBanks[currentMemBank].setProbabilities(gateProbabilities, clamp(static_cast<int>(params[LENGTH_PARAM].getValue()), 1, 32));`}
+      return;
+    }
+    ${target.key.endsWith("StochSeq4")?`if (!enableKBShortcuts) return;
+    switch (command) {
+      case 3: shiftPatternLeft(focusedSeq); break;
+      case 4: shiftPatternRight(focusedSeq); break;
+      case 5: shiftPatternUp(focusedSeq); break;
+      case 6: shiftPatternDown(focusedSeq); break;
+      case 7: shiftFocus(); break;
+      case 8: copyPatternToClipBoard(); break;
+      case 9: pastePattern(); break;
+      default: break;
+    }`:`if (command == 2) {
+      const int bank = clamp(payload, 0, 11);
+      params[LENGTH_PARAM].setValue(static_cast<float>(memBanks[bank].length));
+      memBanks[bank].setGates(gateProbabilities);
+      currentMemBank = bank;
+      return;
+    }
+    if (!enableKBShortcuts) return;
+    switch (command) {
+      case 3: shiftPatternLeft(); break;
+      case 4: shiftPatternRight(); break;
+      case 5: shiftPatternUp(); break;
+      case 6: shiftPatternDown(); break;
+      default: break;
+    }`}
+  }`:target.key==="voxglitch/hazumi"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebHazumiActionBase = 1000;
+    static constexpr int rackWebHazumiRows = 16;
+    const int encoded = id - rackWebHazumiActionBase;
+    if (!active || encoded < 0 || encoded >= 8 * rackWebHazumiRows) return;
+    const int column = encoded / rackWebHazumiRows;
+    const int row = encoded % rackWebHazumiRows + 1;
+    hazumi_sequencer.column_heights[column] = static_cast<unsigned int>(row);
+  }`:target.key==="patina/MemoryPad"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebPathActionBase = 1000;
+    static constexpr int rackWebPathActionSteps = 1024;
+    const int encoded = id - rackWebPathActionBase;
+    if (encoded < 0 || encoded >= rackWebPathActionSteps * rackWebPathActionSteps) return;
+    if (!active) {
+      _isRecording = false;
+      rackWebPathDragging = false;
+      return;
+    }
+    if (!rackWebPathDragging) {
+      _recordedPath.clear();
+      _isRecording = true;
+      rackWebPathDragging = true;
+    }
+    if (_recordedPath.size() > 10000) {
+      _isRecording = false;
+      rackWebPathDragging = false;
+      return;
+    }
+    const float nextX = static_cast<float>(encoded % rackWebPathActionSteps) / static_cast<float>(rackWebPathActionSteps - 1);
+    const float nextY = 1.f - static_cast<float>(encoded / rackWebPathActionSteps) / static_cast<float>(rackWebPathActionSteps - 1);
+    params[TRACKPAD_X_PARAM].setValue(nextX);
+    params[TRACKPAD_Y_PARAM].setValue(nextY);
+    _recordedPath.push_back(Vec(nextX, nextY));
+  }`:target.key==="Bidoo/fLAME"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebFlameActionBase = 1000;
+    static constexpr int rackWebFlameColumns = 130;
+    static constexpr int rackWebFlameRows = 256;
+    const int encoded = id - rackWebFlameActionBase;
+    if (encoded < 0 || encoded >= rackWebFlameColumns * rackWebFlameRows) return;
+    const float nextX = static_cast<float>(encoded % rackWebFlameColumns);
+    const float nextY = static_cast<float>(encoded / rackWebFlameColumns);
+    if (active && !rackWebFlameDragging) {
+      rackWebFlameDragging = true;
+      xBox = nextX;
+      yBox = nextY;
+      wBox = 0.f;
+      hBox = 0.f;
+    }
+    else if (active) {
+      wBox = clamp(nextX - xBox, -xBox, static_cast<float>(rackWebFlameColumns) - xBox);
+      hBox = clamp(nextY - yBox, -yBox, static_cast<float>(rackWebFlameRows) - yBox);
+    }
+    else if (rackWebFlameDragging) {
+      rackWebFlameDragging = false;
+      initRunninSum = true;
+    }
+  }`:target.key==="Bidoo/TiARE"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebPhaseActionBase = 1000;
+    static constexpr int rackWebPhaseActionSteps = 256;
+    if (!active) return;
+    const int encoded = id - rackWebPhaseActionBase;
+    if (encoded < 0 || encoded >= rackWebPhaseActionSteps * rackWebPhaseActionSteps) return;
+    const float normalizedX = static_cast<float>(encoded % rackWebPhaseActionSteps) / static_cast<float>(rackWebPhaseActionSteps - 1);
+    const float normalizedY = static_cast<float>(encoded / rackWebPhaseActionSteps) / static_cast<float>(rackWebPhaseActionSteps - 1);
+    if (!inputs[DIST_X_INPUT].isConnected()) phaseDistX = clamp(normalizedX, 0.01f, 0.98f);
+    if (!inputs[DIST_Y_INPUT].isConnected()) phaseDistY = clamp(1.f - normalizedY, 0.01f, 1.f);
+  }`:target.key==="Bogaudio/Bogaudio-Walk2"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebWalkActionBase = 1000;
+    static constexpr int rackWebWalkActionSteps = 256;
+    if (!active) return;
+    const int encoded = id - rackWebWalkActionBase;
+    if (encoded < 0 || encoded >= rackWebWalkActionSteps * rackWebWalkActionSteps) return;
+    const float displayX = static_cast<float>(encoded % rackWebWalkActionSteps) * 190.f / static_cast<float>(rackWebWalkActionSteps - 1);
+    const float displayY = static_cast<float>(encoded / rackWebWalkActionSteps) * 190.f / static_cast<float>(rackWebWalkActionSteps - 1);
+    if (displayX <= 4.f || displayX >= 186.f || displayY <= 4.f || displayY >= 186.f) return;
+    const float jumpX = 20.f * ((displayX - 4.f) / 364.f) - 5.f;
+    const float jumpY = 5.f - 20.f * ((displayY - 4.f) / 364.f);
+    Vec* previous = _jumpTo.exchange(new Vec(jumpX, jumpY));
+    delete previous;
+  }`:target.key==="dbRackSequencer/CCA"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebMatrixActionBase = 1000;
+    static constexpr int rackWebMatrixCells = 32 * 32;
+    if (!active) return;
+    const int encoded = id - rackWebMatrixActionBase;
+    if (encoded >= 2 * rackWebMatrixCells && encoded < 3 * rackWebMatrixCells) {
+      const int cell = encoded - 2 * rackWebMatrixCells;
+      setCurrent(cell / 32, cell % 32);
+    }
+  }`:target.key==="dbRackSequencer/HexSeqP2"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebHexSeqActionBase = 0x44000000;
+    if (!active) return;
+    switch (id - rackWebHexSeqActionBase) {
+      case 0: copy(); break;
+      case 1: paste(); break;
+      case 2: insert(); break;
+      case 3: del(); break;
+      case 4: randomizeCurrentPattern(); break;
+      case 5: initializeCurrentPattern(); break;
+      default: break;
+    }
+  }`:target.key==="dbRackSequencer/CCA2"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebMatrixActionBase = 1000;
+    static constexpr int rackWebMatrixCells = 32 * 32;
+    if (!active) return;
+    const int encoded = id - rackWebMatrixActionBase;
+    if (encoded < 0 || encoded >= 3 * rackWebMatrixCells) return;
+    const int mode = encoded / rackWebMatrixCells;
+    const int cell = encoded % rackWebMatrixCells;
+    if (mode == 2) setCurrent(cell / 32, cell % 32);
+    else ccaMatrix.setValue(cell / 32, cell % 32, mode == 0 ? 1.f : 0.f);
+  }`:target.key==="dbRackSequencer/Ant"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebMatrixActionBase = 1000;
+    static constexpr int rackWebMatrixCells = 32 * 32;
+    if (!active) return;
+    const int encoded = id - rackWebMatrixActionBase;
+    if (encoded < 0 || encoded >= 2 * rackWebMatrixCells) return;
+    const int mode = encoded / rackWebMatrixCells;
+    const int cell = encoded % rackWebMatrixCells;
+    setCellValue(cell / 32, cell % 32, mode == 0 ? 0.5f : 0.f);
+  }`:target.key==="dbRackSequencer/C42"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebMatrixActionBase = 1000;
+    static constexpr int rackWebMatrixCells = 32 * 32;
+    if (!active) return;
+    const int encoded = id - rackWebMatrixActionBase;
+    if (encoded < 0 || encoded >= 3 * rackWebMatrixCells) return;
+    const int mode = encoded / rackWebMatrixCells;
+    const int cell = encoded % rackWebMatrixCells;
+    const int row = cell / 32;
+    const int column = cell % 32;
+    if (row >= world.size || column >= world.size) return;
+    if (mode == 2) setCurrent(row, column);
+    else setCell(row, column, mode == 0);
+  }`:target.key==="dbRackSequencer/MC1"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebPositionActionBase = 1000;
+    static constexpr int rackWebPositionActionSteps = 1024;
+    const int encoded = id - rackWebPositionActionBase;
+    if (encoded < 0 || encoded >= rackWebPositionActionSteps) return;
+    const float nextY = static_cast<float>(encoded) / static_cast<float>(rackWebPositionActionSteps - 1);
+    if (active) {
+      if (!rackWebPositionDragging) {
+        rackWebPositionDragging = true;
+        startMouse(nextY);
+      }
+      else y = nextY;
+    }
+    else if (rackWebPositionDragging) {
+      rackWebPositionDragging = false;
+      stopMouse();
+    }
+  }`:target.key==="dbRackSequencer/MouseSeq"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebMouseActionBase = 1000;
+    static constexpr int rackWebMouseHotkeyBase = 100000;
+    if (id >= rackWebMouseHotkeyBase && id < rackWebMouseHotkeyBase + 8) {
+      if (!active) return;
+      const int key = id - rackWebMouseHotkeyBase;
+      if (key < 4) setCurrentClock(key);
+      else setCurrentScale(key - 4);
+      return;
+    }
+    const int encoded = id - rackWebMouseActionBase;
+    if (encoded < 0 || encoded >= 64 * 64 || extMode) return;
+    const int nextX = encoded % 64;
+    const int nextY = encoded / 64;
+    if (nextX >= size || nextY >= size) return;
+    if (active) {
+      x = static_cast<uint8_t>(nextX);
+      y = static_cast<uint8_t>(nextY);
+      gate = true;
+    }
+    else gate = false;
+  }`:target.key==="JW-Modules/Crawl"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebCrawlActionBase = 1000;
+    static constexpr int rackWebCrawlActionSteps = 256;
+    if (!active) return;
+    const int encoded = id - rackWebCrawlActionBase;
+    if (encoded < 0 || encoded >= rackWebCrawlActionSteps * rackWebCrawlActionSteps) return;
+    const float x = static_cast<float>(encoded % rackWebCrawlActionSteps) * displayWidth / static_cast<float>(rackWebCrawlActionSteps - 1);
+    const float y = static_cast<float>(encoded / rackWebCrawlActionSteps) * displayHeight / static_cast<float>(rackWebCrawlActionSteps - 1);
+    int n = clampijw(static_cast<int>(params[NUM_POINTS_PARAM].getValue()), 1, CRAWL_MAX_POINTS);
+    int closest = -1;
+    float closestDistance = 10.f;
+    for (int index = 0; index < n; ++index) {
+      const float dx = points[index].x - x;
+      const float dy = points[index].y - y;
+      const float distance = std::sqrt(dx * dx + dy * dy);
+      if (distance < closestDistance) { closestDistance = distance; closest = index; }
+    }
+    if (closest >= 0 && n > 1) {
+      points[closest] = points[n - 1];
+      params[NUM_POINTS_PARAM].setValue(static_cast<float>(n - 1));
+      for (int crawler = 0; crawler < CRAWL_NUM_CRAWLERS; ++crawler)
+        std::memset(crawlers[crawler].connected, 0, sizeof(crawlers[crawler].connected));
+    }
+    else if (closest < 0 && n < CRAWL_MAX_POINTS) {
+      points[n].x = x;
+      points[n].y = y;
+      params[NUM_POINTS_PARAM].setValue(static_cast<float>(n + 1));
+    }
+  }`:target.key==="AuntyLangtonsFree/MusicalAnt"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebGridActionBase = 1000;
+    static constexpr int rackWebGridActionSteps = 256;
+    if (!active) { rackWebGridPainting = false; return; }
+    const int encoded = id - rackWebGridActionBase;
+    if (encoded < 0 || encoded >= rackWebGridActionSteps * rackWebGridActionSteps || !systemState) return;
+    const float x = static_cast<float>(encoded % rackWebGridActionSteps) * 135.f / static_cast<float>(rackWebGridActionSteps - 1);
+    const float y = static_cast<float>(encoded / rackWebGridActionSteps) * 135.f / static_cast<float>(rackWebGridActionSteps - 1);
+    const int side = getSideLength();
+    const float pixelSize = 0.9f * 135.f / static_cast<float>(side);
+    const int cellX = static_cast<int>(x / pixelSize);
+    const int cellY = static_cast<int>(y / pixelSize);
+    if (cellX < 0 || cellX >= side || cellY < 0 || cellY >= side) return;
+    if (!rackWebGridPainting) {
+      rackWebGridPainting = true;
+      rackWebGridPaintOn = !getCellState(cellX, cellY);
+    }
+    setCellOn(cellX, cellY, rackWebGridPaintOn);
+  }`:target.key==="JW-Modules/Trigs128"?`  void rackWebTriggerAction(int id, bool active) override {
+    static constexpr int rackWebSequencerActionBase = 1000;
+    const int encoded = id - rackWebSequencerActionBase;
+    if (!active) { rackWebSequencerPainting = false; return; }
+    if (encoded < 0 || encoded >= GRID_CELLS * 3) return;
+    const int mode = encoded / GRID_CELLS;
+    const int cell = encoded % GRID_CELLS;
+    const int x = cell % GRID_COLS;
+    const int y = cell / GRID_COLS;
+    if (mode == 0) selectCell(x, y, false);
+    else if (mode == 1) selectCell(x, y, true);
+    else {
+      if (!rackWebSequencerPainting) {
+        rackWebSequencerPainting = true;
+        rackWebSequencerPaintState = !cells[cell].active;
+      }
+      setCellActive(x, y, rackWebSequencerPaintState);
+      selectCell(x, y, false);
+    }
+  }`:target.key==="BGal256/DressMeUp"?`  void rackWebTriggerAction(int id, bool active) override {
+    if (!active) return;
+    const int encoded = id - 1000;
+    const int type = encoded / 16;
+    const int cloth = encoded % 16;
+    if (type < 0 || type >= 4 || cloth < 0 || cloth > clothingManager.getClothCounter(static_cast<t_clothtype>(type))) return;
+    clothingManager.changeCloth(static_cast<t_clothtype>(type), cloth);
+  }`:sourceInteractionActionMethod(target,body),assetMethods=browserAssetSamplerMethods(detected.browserAsset),sourceNamespaceSource=(detected.sourceFiles??[]).map(file=>fs.readFileSync(file,"utf8")).join("\n"),sourceNamespaceReference=[prelude,body,...implementations,...inherited.flatMap(definition=>[definition.prelude,definition.body,...definition.implementations])].join("\n"),sourceNamespaceSpecificUsings=[...new Set(namespaceSpecificUsingDeclarations(sourceNamespaceSource))].filter(declaration=>{if(/\bnamespace\s/.test(declaration))return false;const targetName=/\busing\s+[A-Za-z_]\w*(?:::[A-Za-z_]\w*)*::([A-Za-z_]\w*)\s*;/.exec(declaration)?.[1];return !targetName||new RegExp(`(^|[^:\\w])${targetName}\\b`).test(sourceNamespaceReference)}),sourceNamespacePrelude=[namespaceUsingPrelude(sourceNamespaceSource),...sourceNamespaceSpecificUsings].filter(Boolean).join("\n");if(process.env.RACK_WEB_DEBUG_DEPENDENCIES&&sourceNamespaceSpecificUsings.length)console.error(JSON.stringify({sourceNamespaceSpecificUsings},null,2));
   prelude=insertExplicitSpecializationForwardDeclarations(prelude);
-  let withoutInherited=(value)=>inherited.reduce((result,definition)=>removeOutOfLineDefinitions(removeClassDefinition(result,definition.name),definition.name),value),quantityHelpers=paramQuantityHelpers(prelude,body),rawStrippedPreludeSource=withoutInherited(stripUiHeaderIncludes(prelude,detected.sourceFiles,sourceDir)),rawStrippedPreludeReference=[rawStrippedPreludeSource,body,...implementations].join("\n"),rawStrippedPrelude=stripNativeUiReferencesByNames(stripNativeUiPointerReferences(stripRackUiBlocks(rawStrippedPreludeSource),rawStrippedPreludeSource,rawStrippedPreludeReference),detected.uiPointerNames??[]),strippedPrelude=[referencedVecDspHelpers(prelude,body),rawStrippedPrelude].filter(Boolean).join("\n\n"),missingQuantityHelpers=quantityHelpers.filter(helper=>plainStructBody(strippedPrelude,helper.name)===null).map(helper=>helper.source).join("\n\n"),sanguineReferences=[strippedPrelude,body].join("\n"),rgbLightColorUsed=/\bRGBLightColor\b/.test(sanguineReferences),browserStrippedPrelude=rgbLightColorUsed?removeClassDefinition(strippedPrelude,"RGBLightColor"):strippedPrelude,missingSanguineColorHelpers=[/\brgbColorToInt\s*\(/.test(sanguineReferences)&&!/\brgbColorToInt\s*\([^;{}]*\)\s*\{/.test(browserStrippedPrelude)?"inline unsigned int rgbColorToInt(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255) { return (unsigned(alpha) << 24) + (unsigned(blue) << 16) + (unsigned(green) << 8) + unsigned(red); }":"",rgbLightColorUsed?"struct RGBLightColor { float red; float green; float blue; };":""].filter(Boolean).join("\n"),safePrelude=dedupeFreeFunctionDefinitions(stripPluginInitFunctions(stripOrphanPreprocessorEnds([missingSanguineColorHelpers,browserStrippedPrelude,missingQuantityHelpers].filter(Boolean).join("\n\n")))),inheritedPreludeNames=new Set(qualifiedTypeDefinitionRecords(safePrelude).map(record=>record.key)),inheritedImplementationDefinitions=new Set(declaredTypeNames(safePrelude).flatMap(name=>outOfLineDefinitions(safePrelude,name))),inheritedSource=stripUiNamespaces(inherited.map(definition=>{const basePrelude=dedupeTypeDefinitions(stripRackUiBlocks(adaptDailyFortuneHost(stripHeaderGuardOpen(withoutInherited(definition.prelude)))),inheritedPreludeNames),baseBody=stripUiClassMembers(adaptDailyFortuneHost(definition.body)).replace(/=\s*getDefault(?:Dark)?Theme\s*\(\s*\)/g,"= 0").replace(/\bstorage\s*->\s*(?:add|remove)ErrorListener\s*\(\s*this\s*\)\s*;/g,"").replace(/\bstatic\s+std::mutex\s+xtSurgeCreateMutex\s*;/,"inline static std::mutex xtSurgeCreateMutex;"),baseImplementations=[...(definition.supportImplementations??[]),...definition.implementations].filter(value=>!rackUiPattern.test(value)&&!inheritedImplementationDefinitions.has(value)&&inheritedImplementationDefinitions.add(value)),declared=definition.templateDeclaration?definition.declaredBases:definition.bases,bases=(declared??[]).map(base=>rackModuleBase(base)?"Module":base),open=(definition.namespace??[]).map(name=>`namespace ${name} {`).join("\n"),close=(definition.namespace??[]).map(()=>"}").reverse().join("\n");return`${open}${open?"\n":""}${basePrelude}${basePrelude?"\n":""}${definition.templateDeclaration?`${definition.templateDeclaration}\n`:""}struct ${definition.name} : ${bases.join(", ")} {${baseBody}\n};\n${baseImplementations.join("\n\n")}${close?"\n":""}${close}`}).filter(Boolean).join("\n\n")),isolatedBody=stripNativeUiReferencesByNames(stripNativeUiPointerBridges(detected.features.includes("expanders")&&!detected.expander?isolateDisconnectedExpanders(body):body,[body,...implementations].join("\n")),detected.uiPointerNames??[]),quantitySource=[safePrelude,inheritedSource,isolatedBody].join("\n"),availableQuantities=new Set(declaredTypeNames(quantitySource).filter(name=>classDefinitionSource(quantitySource,name)||new RegExp(`\\b(?:using\\s+${name}\\s*=|typedef\\s+[^;]+\s+${name}\\s*;)`).test(quantitySource))),adaptQuantity=(match,method,type)=>availableQuantities.has(baseTypeName(type))?match:`${method}<${method==="configSwitch"?"SwitchQuantity":"ParamQuantity"}>`;inheritedSource=inheritedSource.replace(/\b(configParam|configSwitch)\s*<\s*([A-Za-z_]\w*(?:::[A-Za-z_]\w*)*)\s*>/g,adaptQuantity);let adaptedBody=isolatedBody.replace(/\b(configParam|configSwitch)\s*<\s*([A-Za-z_]\w*(?:::[A-Za-z_]\w*)*)\s*>/g,adaptQuantity).replace(/\bCONFIG_STYLE\s*\(\s*([^)]+)\)/g,'configParam($1, 0.f, 5.f, 0.f, "Text Style")').replace(/\breadDefaultIntegerValue\s*\([^;()]*\)/g,"0").replace(/\bu8"/g,'"');if(/rack::simd::float_4/.test(adaptedBody))adaptedBody=adaptedBody.replace(/DecibelParamQuantity::ampToLinearSSE/g,"DecibelParamQuantity::ampToRackLinear");
+  const rackWebAuntyLogosFile=target.key==="AuntyLangtonsFree/MusicalAnt"?path.join(sourceDir,"src","Logos.cpp"):null,rackWebAuntyLogos=rackWebAuntyLogosFile&&fs.existsSync(rackWebAuntyLogosFile)?classDefinitionSource(fs.readFileSync(rackWebAuntyLogosFile,"utf8"),"Logos"):"",rackWebAuntyLogosDefinition=rackWebAuntyLogos?`${rackWebAuntyLogos}${/;\s*$/.test(rackWebAuntyLogos)?"":";"}`:"",rackWebVoxglitchTarget=target.key==="voxglitch/xy"||target.key==="voxglitch/digitalsequencer"||target.key==="voxglitch/digitalsequencerxp"||target.key==="voxglitch/hazumi",rackWebVoxglitchConstantsFile=rackWebVoxglitchTarget?path.join(sourceDir,"src","vgLib-2.0","constants.cpp"):null,rackWebVoxglitchConstants=rackWebVoxglitchConstantsFile&&fs.existsSync(rackWebVoxglitchConstantsFile)?fs.readFileSync(rackWebVoxglitchConstantsFile,"utf8"):"",rackWebVoxglitchSequencer=target.key==="voxglitch/digitalsequencer"||target.key==="voxglitch/digitalsequencerxp"?["VoltageSequencerHistory.hpp","Sequencer.hpp","VoltageSequencer.hpp","GateSequencer.hpp"].map(file=>fs.readFileSync(path.join(sourceDir,"src","vgLib-2.0","sequencer",file),"utf8").replace(/^\s*#include[^\n]*$/gm,"")).join("\n\n"):"";
+  const rackWebCyclicCaFile=target.key==="AlgoritmArte/CyclicCA"?path.join(sourceDir,"src","CyclicCA.hpp"):null,rackWebCyclicCaSource=rackWebCyclicCaFile&&fs.existsSync(rackWebCyclicCaFile)?fs.readFileSync(rackWebCyclicCaFile,"utf8"):"",rackWebCyclicCaType=rackWebCyclicCaSource?classDefinitionSource(rackWebCyclicCaSource,"CCA"):"",rackWebCyclicCaDefinition=rackWebCyclicCaType?[referencedDefines([rackWebCyclicCaFile],rackWebCyclicCaType,sourceDir),...outOfLineFreeFunctionDefinitions(rackWebCyclicCaSource,"irand"),`${rackWebCyclicCaType}${/;\s*$/.test(rackWebCyclicCaType)?"":";"}`].filter(Boolean).join("\n\n"):"";
+  let withoutInherited=(value)=>inherited.reduce((result,definition)=>removeOutOfLineDefinitions(removeClassDefinition(result,definition.name),definition.name),value),quantityHelpers=paramQuantityHelpers(prelude,body),rawStrippedPreludeSource=withoutInherited(stripUiHeaderIncludes(prelude,detected.sourceFiles,sourceDir)),rawStrippedPreludeReference=[rawStrippedPreludeSource,body,...implementations].join("\n"),rawStrippedPrelude=stripNativeUiReferencesByNames(stripNativeUiPointerReferences(stripRackUiBlocks(rawStrippedPreludeSource),rawStrippedPreludeSource,rawStrippedPreludeReference),detected.uiPointerNames??[]),strippedPrelude=[referencedVecDspHelpers(prelude,body),rawStrippedPrelude].filter(Boolean).join("\n\n"),missingQuantityHelpers=quantityHelpers.filter(helper=>plainStructBody(strippedPrelude,helper.name)===null).map(helper=>helper.source).join("\n\n"),sanguineReferences=[strippedPrelude,body].join("\n"),rgbLightColorUsed=/\bRGBLightColor\b/.test(sanguineReferences),browserStrippedPrelude=rgbLightColorUsed?removeClassDefinition(strippedPrelude,"RGBLightColor"):strippedPrelude,hostDedupedPrelude=(/\bvoid\s+setImmediateValue\s*\(\s*ParamQuantity\s*\*/.test(browserStrippedPrelude)?removeFreeFunction(browserStrippedPrelude,"setImmediateValue"):browserStrippedPrelude).replace(/^\s*(?:inline\s+)?void\s+setImmediateValue\s*\(\s*ParamQuantity\s*\*[^;]+;\s*$/gm,""),missingSanguineColorHelpers=[/\brgbColorToInt\s*\(/.test(sanguineReferences)&&!/\brgbColorToInt\s*\([^;{}]*\)\s*\{/.test(hostDedupedPrelude)?"inline unsigned int rgbColorToInt(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255) { return (unsigned(alpha) << 24) + (unsigned(blue) << 16) + (unsigned(green) << 8) + unsigned(red); }":"",rgbLightColorUsed?"struct RGBLightColor { float red; float green; float blue; };":""].filter(Boolean).join("\n"),safePrelude=dedupeFreeFunctionDefinitions(stripPluginInitFunctions(stripOrphanPreprocessorEnds([missingSanguineColorHelpers,hostDedupedPrelude,missingQuantityHelpers,rackWebAuntyLogosDefinition,rackWebVoxglitchConstants,rackWebVoxglitchSequencer,rackWebCyclicCaDefinition].filter(Boolean).join("\n\n")))),inheritedPreludeNames=new Set(qualifiedTypeDefinitionRecords(safePrelude).map(record=>record.key)),inheritedImplementationDefinitions=new Set(declaredTypeNames(safePrelude).flatMap(name=>outOfLineDefinitions(safePrelude,name))),inheritedSource=stripUiNamespaces(inherited.map(definition=>{const basePrelude=dedupeTypeDefinitions(stripRackUiBlocks(adaptDailyFortuneHost(stripHeaderGuardOpen(withoutInherited(definition.prelude)))),inheritedPreludeNames),baseBody=stripUiClassMembers(adaptDailyFortuneHost(definition.body)).replace(/=\s*getDefault(?:Dark)?Theme\s*\(\s*\)/g,"= 0").replace(/\bstorage\s*->\s*(?:add|remove)ErrorListener\s*\(\s*this\s*\)\s*;/g,"").replace(/\bstatic\s+std::mutex\s+xtSurgeCreateMutex\s*;/,"inline static std::mutex xtSurgeCreateMutex;"),baseImplementations=[...(definition.supportImplementations??[]),...definition.implementations].filter(value=>!rackUiPattern.test(value)&&!inheritedImplementationDefinitions.has(value)&&inheritedImplementationDefinitions.add(value)),declared=definition.templateDeclaration?definition.declaredBases:definition.bases,bases=(declared??[]).map(base=>rackModuleBase(base)?"Module":base),open=(definition.namespace??[]).map(name=>`namespace ${name} {`).join("\n"),close=(definition.namespace??[]).map(()=>"}").reverse().join("\n");return`${open}${open?"\n":""}${basePrelude}${basePrelude?"\n":""}${definition.templateDeclaration?`${definition.templateDeclaration}\n`:""}struct ${definition.name} : ${bases.join(", ")} {${baseBody}\n};\n${baseImplementations.join("\n\n")}${close?"\n":""}${close}`}).filter(Boolean).join("\n\n")),isolatedBody=stripNativeUiReferencesByNames(stripNativeUiPointerBridges(detected.features.includes("expanders")&&!detected.expander?isolateDisconnectedExpanders(body):body,[body,...implementations].join("\n")),detected.uiPointerNames??[]),quantitySource=[safePrelude,inheritedSource,isolatedBody].join("\n"),availableQuantities=new Set(declaredTypeNames(quantitySource).filter(name=>classDefinitionSource(quantitySource,name)||new RegExp(`\\b(?:using\\s+${name}\\s*=|typedef\\s+[^;]+\\s+${name}\\s*;)`).test(quantitySource))),adaptQuantity=(match,method,type)=>availableQuantities.has(baseTypeName(type))?match:`${method}<${method==="configSwitch"?"SwitchQuantity":"ParamQuantity"}>`;inheritedSource=inheritedSource.replace(/\b(configParam|configSwitch)\s*<\s*([A-Za-z_]\w*(?:::[A-Za-z_]\w*)*)\s*>/g,adaptQuantity);let adaptedBody=isolatedBody.replace(/\b(configParam|configSwitch)\s*<\s*([A-Za-z_]\w*(?:::[A-Za-z_]\w*)*)\s*>/g,adaptQuantity).replace(/\bCONFIG_STYLE\s*\(\s*([^)]+)\)/g,'configParam($1, 0.f, 5.f, 0.f, "Text Style")').replace(/\breadDefaultIntegerValue\s*\([^;()]*\)/g,"0").replace(/\bu8"/g,'"');if(/rack::simd::float_4/.test(adaptedBody))adaptedBody=adaptedBody.replace(/DecibelParamQuantity::ampToLinearSSE/g,"DecibelParamQuantity::ampToRackLinear");
+  if(target.key==="voxglitch/digitalsequencer"||target.key==="voxglitch/digitalsequencerxp")safePrelude=safePrelude.replace(/^\s*const\s+int\s+NUMBER_OF_VOLTAGE_RANGES\s*=\s*8\s*;\s*$/gm,"");
   adaptedBody=adaptNativeUiBackedExpressionFields(adaptedBody,detected.uiPointerNames);
+  if(target.key==="patina/MemoryPad")adaptedBody+=`
+  bool isSameColor(NVGcolor const& left, NVGcolor const& right) { return left.r == right.r && left.g == right.g && left.b == right.b; }
+  bool rackWebPathDragging = false;
+  std::array<float, 5> rackWebPathVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebPathVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    Vec point(params[TRACKPAD_X_PARAM].getValue(), params[TRACKPAD_Y_PARAM].getValue());
+    if (!_isRecording && !_recordedPath.empty()) point = _recordedPath[std::min(_lastPathIndex, _recordedPath.size() - 1)];
+    rackWebPathVisual[0] = point.x;
+    rackWebPathVisual[1] = point.y;
+    rackWebPathVisual[2] = pathColor.r;
+    rackWebPathVisual[3] = pathColor.g;
+    rackWebPathVisual[4] = pathColor.b;
+    return rackWebPathVisual.data();
+  }`;
+  if(target.key==="Bidoo/fLAME")adaptedBody+=`
+  static constexpr int rackWebFlameColumns = 130;
+  static constexpr int rackWebFlameRows = 256;
+  static constexpr int rackWebFlameHeader = 8;
+  bool rackWebFlameDragging = false;
+  std::array<float, rackWebFlameHeader + rackWebFlameRows * rackWebFlameColumns + rackWebFlameRows> rackWebFlameVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebFlameVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebFlameVisual.fill(0.f);
+    rackWebFlameVisual[0] = static_cast<float>(colorScheme);
+    rackWebFlameVisual[1] = xBox;
+    rackWebFlameVisual[2] = yBox;
+    rackWebFlameVisual[3] = wBox;
+    rackWebFlameVisual[4] = hBox;
+    rackWebFlameVisual[5] = static_cast<float>(H);
+    rackWebFlameVisual[6] = static_cast<float>(N2);
+    rackWebFlameVisual[7] = inputs[INPUT].isConnected() ? 1.f : 0.f;
+    const int availableRows = std::min<int>(rackWebFlameRows, static_cast<int>(fft.size()));
+    for (int row = 0; row < availableRows; ++row) {
+      if (fft[row].empty()) continue;
+      for (int column = 0; column < rackWebFlameColumns; ++column) {
+        const float normalized = static_cast<float>(column) / static_cast<float>(rackWebFlameColumns);
+        const float position = (1.f - std::pow(1.f - normalized, 0.1f)) * static_cast<float>(N2);
+        const int lower = clamp(static_cast<int>(position), 0, static_cast<int>(fft[row].size()) - 1);
+        const int upper = std::min(lower + 1, static_cast<int>(fft[row].size()) - 1);
+        const float amount = position - static_cast<float>(lower);
+        rackWebFlameVisual[rackWebFlameHeader + row * rackWebFlameColumns + column] = (fft[row][lower] + (fft[row][upper] - fft[row][lower]) * amount) * 5e-4f;
+      }
+      if (row < static_cast<int>(windowSum.size()))
+        rackWebFlameVisual[rackWebFlameHeader + rackWebFlameRows * rackWebFlameColumns + row] = windowSum[row] * 5e-3f;
+    }
+    return rackWebFlameVisual.data();
+  }`;
+  if(target.key==="Bidoo/TiARE")adaptedBody+=`
+  std::array<float, 2> rackWebPhaseVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebPhaseVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebPhaseVisual[0] = phaseDistX;
+    rackWebPhaseVisual[1] = phaseDistY;
+    return rackWebPhaseVisual.data();
+  }`;
+  if(target.key==="Bogaudio/Bogaudio-Walk2")adaptedBody+=`
+  static constexpr int rackWebWalkHeaderSize = 6;
+  std::array<float, rackWebWalkHeaderSize + 2 * 100> rackWebWalkVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebWalkVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebWalkVisual[0] = static_cast<float>(historyPoints);
+    rackWebWalkVisual[1] = _zoomOut ? 1.f : 0.f;
+    rackWebWalkVisual[2] = _drawGrid ? 1.f : 0.f;
+    rackWebWalkVisual[3] = static_cast<float>(_traceColor);
+    rackWebWalkVisual[4] = _offsetX;
+    rackWebWalkVisual[5] = _offsetY;
+    for (int index = 0; index < historyPoints; ++index) {
+      rackWebWalkVisual[rackWebWalkHeaderSize + index] = _outsX.value(index);
+      rackWebWalkVisual[rackWebWalkHeaderSize + historyPoints + index] = _outsY.value(index);
+    }
+    return rackWebWalkVisual.data();
+  }`;
+  if(target.key==="dbRackSequencer/MC1")adaptedBody+=`
+  bool rackWebPositionDragging = false;
+  std::array<float, 1> rackWebPositionVisual{};
+  int rackWebVisualCount() const override { return 1; }
+  float* rackWebVisualBuffer() override {
+    rackWebPositionVisual[0] = y;
+    return rackWebPositionVisual.data();
+  }`;
+  if(target.key==="dbRackSequencer/MouseSeq")adaptedBody+=`
+  std::array<float, 7> rackWebMouseVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebMouseVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebMouseVisual[0] = static_cast<float>(size);
+    rackWebMouseVisual[1] = static_cast<float>(x);
+    rackWebMouseVisual[2] = static_cast<float>(y);
+    rackWebMouseVisual[3] = gate ? 1.f : 0.f;
+    rackWebMouseVisual[4] = static_cast<float>(playX);
+    rackWebMouseVisual[5] = static_cast<float>(playY);
+    rackWebMouseVisual[6] = play ? 1.f : 0.f;
+    return rackWebMouseVisual.data();
+  }`;
+  if(target.key==="AlgoritmArte/CyclicCA")adaptedBody+=`
+  static constexpr int rackWebCaHeaderSize = 5;
+  static constexpr int rackWebCaColorCount = 32;
+  static constexpr int rackWebCaCellsPerWord = 4;
+  static constexpr int rackWebCaBitsPerCell = 5;
+  static constexpr int rackWebCaWordCount = DISPLAY_WIDTH * DISPLAY_HEIGHT / rackWebCaCellsPerWord;
+  int rackWebCaVideoFrame = 0;
+  std::array<float, rackWebCaHeaderSize + rackWebCaColorCount + rackWebCaWordCount> rackWebCaVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebCaVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    const int speedPeriod = MAXSPEED + 1 - cca.caspeed;
+    if ((rackWebCaVideoFrame++ % speedPeriod) == 0) {
+      updateNeighbors(true);
+      cca.procCAParams();
+      updateNeighbors(false);
+      if (speedPeriod <= MAXSPEED) cca.evolveCA();
+    }
+    rackWebCaVisual.fill(0.f);
+    rackWebCaVisual[0] = static_cast<float>(cca.cellsize);
+    rackWebCaVisual[1] = static_cast<float>(cca.cawidth);
+    rackWebCaVisual[2] = static_cast<float>(cca.caheight);
+    rackWebCaVisual[3] = static_cast<float>(cca.numstates);
+    rackWebCaVisual[4] = static_cast<float>(cca.caframe);
+    for (int color = 0; color < rackWebCaColorCount; ++color)
+      rackWebCaVisual[rackWebCaHeaderSize + color] = static_cast<float>(cca.cacolscurr[color] & 0x00ffffff);
+    const int cellOffset = rackWebCaHeaderSize + rackWebCaColorCount;
+    const int cellCount = cca.cawidth * cca.caheight;
+    for (int cell = 0; cell < cellCount; ++cell) {
+      const int column = cell % cca.cawidth;
+      const int row = cell / cca.cawidth;
+      const int state = cca.cagrid[cca.caframe][column][row] & 31;
+      const int word = cell / rackWebCaCellsPerWord;
+      const int shift = (cell % rackWebCaCellsPerWord) * rackWebCaBitsPerCell;
+      rackWebCaVisual[cellOffset + word] += static_cast<float>(state << shift);
+    }
+    return rackWebCaVisual.data();
+  }`;
+  if(target.key==="dbRackSequencer/CCA"||target.key==="dbRackSequencer/CCA2")adaptedBody+=`
+  static constexpr int rackWebMatrixRows = 32;
+  static constexpr int rackWebMatrixHeader = 4;
+  static constexpr int rackWebMatrixCells = rackWebMatrixRows * rackWebMatrixRows;
+  std::array<float, rackWebMatrixHeader + 3 * rackWebMatrixCells> rackWebMatrixVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebMatrixVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebMatrixVisual.fill(-1.f);
+    rackWebMatrixVisual[0] = static_cast<float>(rackWebMatrixRows);
+    rackWebMatrixVisual[1] = params[CV_Y_PARAM].getValue();
+    rackWebMatrixVisual[2] = params[CV_X_PARAM].getValue();
+    rackWebMatrixVisual[3] = static_cast<float>(colorMode);
+    for (int row = 0; row < rackWebMatrixRows; ++row) {
+      for (int column = 0; column < rackWebMatrixRows; ++column) {
+        const int cell = row * rackWebMatrixRows + column;
+        rackWebMatrixVisual[rackWebMatrixHeader + cell] = getCellValue(row, column);
+        int first = -1;
+        int count = 0;
+        for (int channel = 0; channel < channels; ++channel) {
+          if (curRow[channel] != row || curCol[channel] != column) continue;
+          if (first < 0) first = channel;
+          ++count;
+        }
+        rackWebMatrixVisual[rackWebMatrixHeader + rackWebMatrixCells + cell] = count > 1 ? 16.f : static_cast<float>(first);
+      }
+    }
+    return rackWebMatrixVisual.data();
+  }`;
+  if(target.key==="dbRackSequencer/Ant")adaptedBody+=`
+  static constexpr int rackWebMatrixRows = 32;
+  static constexpr int rackWebMatrixHeader = 4;
+  static constexpr int rackWebMatrixCells = rackWebMatrixRows * rackWebMatrixRows;
+  std::array<float, rackWebMatrixHeader + 3 * rackWebMatrixCells> rackWebMatrixVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebMatrixVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebMatrixVisual.fill(-1.f);
+    rackWebMatrixVisual[0] = static_cast<float>(rackWebMatrixRows);
+    rackWebMatrixVisual[3] = static_cast<float>(colorMode);
+    for (int row = 0; row < rackWebMatrixRows; ++row) {
+      for (int column = 0; column < rackWebMatrixRows; ++column) {
+        const int cell = row * rackWebMatrixRows + column;
+        rackWebMatrixVisual[rackWebMatrixHeader + cell] = getCellValue(row, column);
+        rackWebMatrixVisual[rackWebMatrixHeader + 2 * rackWebMatrixCells + cell] = static_cast<float>(getAnt(row, column));
+      }
+    }
+    return rackWebMatrixVisual.data();
+  }`;
+  if(target.key==="dbRackSequencer/C42")adaptedBody+=`
+  static constexpr int rackWebMatrixRows = 32;
+  static constexpr int rackWebMatrixHeader = 4;
+  static constexpr int rackWebMatrixCells = rackWebMatrixRows * rackWebMatrixRows;
+  std::array<float, rackWebMatrixHeader + 3 * rackWebMatrixCells> rackWebMatrixVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebMatrixVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebMatrixVisual.fill(-1.f);
+    rackWebMatrixVisual[0] = static_cast<float>(world.size);
+    rackWebMatrixVisual[1] = params[CV_Y_PARAM].getValue();
+    rackWebMatrixVisual[2] = params[CV_X_PARAM].getValue();
+    rackWebMatrixVisual[3] = 0.f;
+    for (int row = 0; row < world.size; ++row) {
+      for (int column = 0; column < world.size; ++column) {
+        const int cell = row * rackWebMatrixRows + column;
+        rackWebMatrixVisual[rackWebMatrixHeader + cell] = isOn(row, column) ? 1.f : 0.f;
+        int first = -1;
+        int count = 0;
+        for (int channel = 0; channel < channels; ++channel) {
+          if (curRow[channel] != row || curCol[channel] != column) continue;
+          if (first < 0) first = channel;
+          ++count;
+        }
+        rackWebMatrixVisual[rackWebMatrixHeader + rackWebMatrixCells + cell] = count > 1 ? 16.f : static_cast<float>(first);
+      }
+    }
+    return rackWebMatrixVisual.data();
+  }`;
+  if(target.key==="voxglitch/xy")adaptedBody+=`
+  bool rackWebXyDragging = false;
+  std::array<float, 2> rackWebXyVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebXyVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebXyVisual[0] = drag_position.x;
+    rackWebXyVisual[1] = drag_position.y;
+    return rackWebXyVisual.data();
+  }`;
+  if(target.key==="voxglitch/digitalsequencer"||target.key==="voxglitch/digitalsequencerxp")adaptedBody+=`
+  static constexpr int rackWebSequenceHeader = 7;
+  static constexpr int rackWebSequenceColumns = 32;
+  std::array<float, rackWebSequenceHeader + rackWebSequenceColumns * 2> rackWebSequenceVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSequenceVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebSequenceVisual.fill(0.f);
+    rackWebSequenceVisual[0] = static_cast<float>(selected_sequencer_index);
+    rackWebSequenceVisual[1] = static_cast<float>(selected_voltage_sequencer->getWindowEnd());
+    rackWebSequenceVisual[2] = static_cast<float>(selected_gate_sequencer->getWindowEnd());
+    rackWebSequenceVisual[3] = static_cast<float>(selected_voltage_sequencer->getPlaybackPosition());
+    rackWebSequenceVisual[4] = static_cast<float>(selected_gate_sequencer->getPlaybackPosition());
+    rackWebSequenceVisual[5] = static_cast<float>(voltage_range_indexes[selected_sequencer_index]);
+    rackWebSequenceVisual[6] = frozen ? 1.f : 0.f;
+    for (int column = 0; column < rackWebSequenceColumns; ++column) {
+      rackWebSequenceVisual[rackWebSequenceHeader + column] = selected_voltage_sequencer->getValue(column);
+      rackWebSequenceVisual[rackWebSequenceHeader + rackWebSequenceColumns + column] = static_cast<float>(selected_gate_sequencer->getValue(column));
+    }
+    return rackWebSequenceVisual.data();
+  }`;
+  if(target.key==="voxglitch/hazumi")adaptedBody+=`
+  static constexpr int rackWebHazumiColumns = 8;
+  std::array<float, rackWebHazumiColumns * 3> rackWebHazumiVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebHazumiVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    for (int column = 0; column < rackWebHazumiColumns; ++column) {
+      rackWebHazumiVisual[column] = static_cast<float>(hazumi_sequencer.column_heights[column]);
+      rackWebHazumiVisual[rackWebHazumiColumns + column] = static_cast<float>(hazumi_sequencer.ball_locations[column]);
+      rackWebHazumiVisual[rackWebHazumiColumns * 2 + column] = hazumi_sequencer.stored_trigger_results[column] ? 1.f : 0.f;
+      hazumi_sequencer.stored_trigger_results[column] = false;
+    }
+    return rackWebHazumiVisual.data();
+  }`;
+  if(target.key==="Sha-Bang-Modules/StochSeq")adaptedBody+=`
+  static constexpr int rackWebStochHeader = 6;
+  static constexpr int rackWebStochSteps = 32;
+  static constexpr int rackWebStochSequenceStride = rackWebStochSteps + 2;
+  static constexpr int rackWebStochBankCount = 12;
+  static constexpr int rackWebStochBankStride = rackWebStochSteps + 2;
+  std::array<float, rackWebStochHeader + rackWebStochSequenceStride + rackWebStochBankCount * rackWebStochBankStride> rackWebStochVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebStochVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebStochVisual.fill(0.f);
+    rackWebStochVisual[0] = 1.f;
+    rackWebStochVisual[1] = showPercentages ? 1.f : 0.f;
+    rackWebStochVisual[2] = resetMode ? 1.f : 0.f;
+    rackWebStochVisual[3] = 0.f;
+    rackWebStochVisual[4] = static_cast<float>(currentMemBank);
+    rackWebStochVisual[5] = enableKBShortcuts ? 1.f : 0.f;
+    rackWebStochVisual[rackWebStochHeader] = params[LENGTH_PARAM].getValue();
+    rackWebStochVisual[rackWebStochHeader + 1] = static_cast<float>(gateIndex);
+    for (int step = 0; step < rackWebStochSteps; ++step)
+      rackWebStochVisual[rackWebStochHeader + 2 + step] = gateProbabilities[step];
+    const int bankBase = rackWebStochHeader + rackWebStochSequenceStride;
+    for (int bank = 0; bank < rackWebStochBankCount; ++bank) {
+      const int offset = bankBase + bank * rackWebStochBankStride;
+      rackWebStochVisual[offset] = static_cast<float>(memBanks[bank].length);
+      rackWebStochVisual[offset + 1] = memBanks[bank].isOn ? 1.f : 0.f;
+      for (int step = 0; step < rackWebStochSteps; ++step)
+        rackWebStochVisual[offset + 2 + step] = memBanks[bank].gateProbabilities[step];
+    }
+    return rackWebStochVisual.data();
+  }`;
+  if(target.key==="Sha-Bang-Modules/StochSeq4")adaptedBody+=`
+  static constexpr int rackWebStochHeader = 6;
+  static constexpr int rackWebStochSteps = 32;
+  static constexpr int rackWebStochSequences = 4;
+  static constexpr int rackWebStochSequenceStride = rackWebStochSteps + 2;
+  std::array<float, rackWebStochHeader + rackWebStochSequences * rackWebStochSequenceStride> rackWebStochVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebStochVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebStochVisual.fill(0.f);
+    rackWebStochVisual[0] = static_cast<float>(rackWebStochSequences);
+    rackWebStochVisual[1] = showPercentages ? 1.f : 0.f;
+    rackWebStochVisual[2] = resetMode ? 1.f : 0.f;
+    rackWebStochVisual[3] = static_cast<float>(focusedSeq);
+    rackWebStochVisual[4] = -1.f;
+    rackWebStochVisual[5] = enableKBShortcuts ? 1.f : 0.f;
+    for (int sequence = 0; sequence < rackWebStochSequences; ++sequence) {
+      const int offset = rackWebStochHeader + sequence * rackWebStochSequenceStride;
+      rackWebStochVisual[offset] = params[LENGTH_PARAM + sequence].getValue();
+      rackWebStochVisual[offset + 1] = static_cast<float>(seqs[sequence].gateIndex);
+      for (int step = 0; step < rackWebStochSteps; ++step)
+        rackWebStochVisual[offset + 2 + step] = seqs[sequence].gateProbabilities[step];
+    }
+    return rackWebStochVisual.data();
+  }`;
+  if(target.key==="Bidoo/cANARd")adaptedBody+=`
+  static constexpr int rackWebCanardHeader = 10;
+  static constexpr int rackWebCanardSlices = 128;
+  static constexpr int rackWebCanardPoints = 4096;
+  std::array<float, rackWebCanardHeader + rackWebCanardSlices + rackWebCanardPoints * 2> rackWebCanardVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebCanardVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebCanardVisual.fill(0.f);
+    std::lock_guard<std::mutex> rackWebLock(mylock);
+    const int sampleCount = static_cast<int>(playBuffer.size());
+    rackWebCanardVisual[0] = static_cast<float>(sampleCount);
+    if (sampleCount <= 0) return rackWebCanardVisual.data();
+    const float denominator = static_cast<float>(sampleCount);
+    rackWebCanardVisual[1] = samplePos / denominator;
+    rackWebCanardVisual[2] = sampleStart / denominator;
+    rackWebCanardVisual[3] = (sampleStart + loopLength) / denominator;
+    rackWebCanardVisual[4] = fadeLenght / denominator;
+    rackWebCanardVisual[5] = loading ? 1.f : 0.f;
+    rackWebCanardVisual[6] = params[MODE_PARAM].getValue();
+    rackWebCanardVisual[7] = static_cast<float>(selected);
+    rackWebCanardVisual[8] = static_cast<float>(deleteSliceMarker) / denominator;
+    const int sliceCount = std::min<int>(rackWebCanardSlices, static_cast<int>(slices.size()));
+    rackWebCanardVisual[9] = static_cast<float>(sliceCount);
+    for (int slice = 0; slice < sliceCount; ++slice)
+      rackWebCanardVisual[rackWebCanardHeader + slice] = static_cast<float>(slices[slice]) / denominator;
+    for (int point = 0; point < rackWebCanardPoints; ++point) {
+      const int sample = std::min(sampleCount - 1, static_cast<int>((static_cast<int64_t>(point) * sampleCount) / rackWebCanardPoints));
+      rackWebCanardVisual[rackWebCanardHeader + rackWebCanardSlices + point] = playBuffer[sample].samples[0];
+      rackWebCanardVisual[rackWebCanardHeader + rackWebCanardSlices + rackWebCanardPoints + point] = playBuffer[sample].samples[1];
+    }
+    return rackWebCanardVisual.data();
+  }`;
+  if(target.key==="Bidoo/eDsaroS")adaptedBody+=`
+  static constexpr int rackWebEdsarosHeader = 7;
+  static constexpr int rackWebEdsarosPoints = 4096;
+  std::array<float, rackWebEdsarosHeader + rackWebEdsarosPoints> rackWebEdsarosVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebEdsarosVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebEdsarosVisual.fill(0.f);
+    std::lock_guard<std::mutex> rackWebLock(mylock);
+    const int sampleCount = static_cast<int>(loadingBuffer.size());
+    rackWebEdsarosVisual[0] = static_cast<float>(sampleCount);
+    if (sampleCount <= 0) return rackWebEdsarosVisual.data();
+    const float denominator = static_cast<float>(sampleCount);
+    const int playPosition = direction[0] == 1 ? internalIntegerPosition[0] : revIndex(internalIntegerRevPosition[0]);
+    rackWebEdsarosVisual[1] = static_cast<float>(playPosition) / denominator;
+    rackWebEdsarosVisual[2] = static_cast<float>(sampleStart) / denominator;
+    rackWebEdsarosVisual[3] = static_cast<float>(loopStart) / denominator;
+    rackWebEdsarosVisual[4] = static_cast<float>(loopEnd) / denominator;
+    rackWebEdsarosVisual[5] = static_cast<float>(releaseStart) / denominator;
+    rackWebEdsarosVisual[6] = params[GAIN_PARAM].getValue();
+    for (int point = 0; point < rackWebEdsarosPoints; ++point) {
+      const int sampleIndex = std::min(sampleCount - 1, static_cast<int>((static_cast<int64_t>(point) * sampleCount) / rackWebEdsarosPoints));
+      rackWebEdsarosVisual[rackWebEdsarosHeader + point] = loadingBuffer[sampleIndex].samples[0] * rackWebEdsarosVisual[6];
+    }
+    return rackWebEdsarosVisual.data();
+  }`;
+  if(target.key==="Bidoo/OUAIve")adaptedBody+=`
+  static constexpr int rackWebOuaiveHeader = 9;
+  static constexpr int rackWebOuaivePoints = 4096;
+  std::array<float, rackWebOuaiveHeader + rackWebOuaivePoints * 2> rackWebOuaiveVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebOuaiveVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebOuaiveVisual.fill(0.f);
+    std::lock_guard<std::mutex> rackWebLock(mylock);
+    const int sampleCount = static_cast<int>(playBuffer.size());
+    rackWebOuaiveVisual[0] = static_cast<float>(sampleCount);
+    if (sampleCount <= 0) return rackWebOuaiveVisual.data();
+    const float denominator = static_cast<float>(sampleCount);
+    rackWebOuaiveVisual[1] = samplePos / denominator;
+    rackWebOuaiveVisual[2] = loading ? 1.f : 0.f;
+    rackWebOuaiveVisual[3] = static_cast<float>(trigMode);
+    rackWebOuaiveVisual[4] = static_cast<float>(nbSlices);
+    rackWebOuaiveVisual[5] = static_cast<float>(sliceLength) / denominator;
+    rackWebOuaiveVisual[6] = static_cast<float>(readMode);
+    rackWebOuaiveVisual[7] = speed;
+    rackWebOuaiveVisual[8] = play ? 1.f : 0.f;
+    for (int point = 0; point < rackWebOuaivePoints; ++point) {
+      const int sample = std::min(sampleCount - 1, static_cast<int>((static_cast<int64_t>(point) * sampleCount) / rackWebOuaivePoints));
+      rackWebOuaiveVisual[rackWebOuaiveHeader + point] = playBuffer[sample].samples[0];
+      rackWebOuaiveVisual[rackWebOuaiveHeader + rackWebOuaivePoints + point] = playBuffer[sample].samples[1];
+    }
+    return rackWebOuaiveVisual.data();
+  }`;
+  if(target.key==="Bidoo/liMonADe")adaptedBody+=`
+  static constexpr int rackWebLimonadeHeader = 8;
+  static constexpr int rackWebLimonadeFrameLimit = 256;
+  static constexpr int rackWebLimonadeFramePoints = 512;
+  static constexpr int rackWebLimonadeBins = 512;
+  static constexpr int rackWebLimonadeWavePoints = 2048;
+  static constexpr int rackWebLimonadeFlagsOffset = rackWebLimonadeHeader;
+  static constexpr int rackWebLimonadeFramesOffset = rackWebLimonadeFlagsOffset + rackWebLimonadeFrameLimit;
+  static constexpr int rackWebLimonadeMagnitudeOffset = rackWebLimonadeFramesOffset + rackWebLimonadeFrameLimit * rackWebLimonadeFramePoints;
+  static constexpr int rackWebLimonadePhaseOffset = rackWebLimonadeMagnitudeOffset + rackWebLimonadeBins;
+  static constexpr int rackWebLimonadeEditedWaveOffset = rackWebLimonadePhaseOffset + rackWebLimonadeBins;
+  static constexpr int rackWebLimonadePlayedWaveOffset = rackWebLimonadeEditedWaveOffset + rackWebLimonadeWavePoints;
+  std::array<float, rackWebLimonadePlayedWaveOffset + rackWebLimonadeWavePoints> rackWebLimonadeVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebLimonadeVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebLimonadeVisual.fill(0.f);
+    const int frameCount = std::min<int>(rackWebLimonadeFrameLimit, static_cast<int>(table.nFrames));
+    rackWebLimonadeVisual[0] = static_cast<float>(frameCount);
+    rackWebLimonadeVisual[3] = static_cast<float>(displayMode);
+    rackWebLimonadeVisual[4] = static_cast<float>(displayEditedFrame);
+    rackWebLimonadeVisual[5] = static_cast<float>(displayPlayedFrame);
+    rackWebLimonadeVisual[6] = params[UNISSON_PARAM].getValue();
+    rackWebLimonadeVisual[7] = static_cast<float>(rackWebLimonadeFramePoints);
+    if (frameCount <= 0) return rackWebLimonadeVisual.data();
+    const int editedFrame = clamp(static_cast<int>(params[INDEX_PARAM].getValue() * static_cast<float>(frameCount - 1)), 0, frameCount - 1);
+    const int playedFrame = clamp(static_cast<int>(index), 0, frameCount - 1);
+    rackWebLimonadeVisual[1] = static_cast<float>(editedFrame);
+    rackWebLimonadeVisual[2] = static_cast<float>(playedFrame);
+    for (int frame = 0; frame < frameCount; ++frame) {
+      rackWebLimonadeVisual[rackWebLimonadeFlagsOffset + frame] = table.frames[frame].morphed ? 1.f : 0.f;
+      for (int point = 0; point < rackWebLimonadeFramePoints; ++point) {
+        const int sample = std::min<int>(FS - 1, point * 4);
+        rackWebLimonadeVisual[rackWebLimonadeFramesOffset + frame * rackWebLimonadeFramePoints + point] = table.frames[frame].sample[sample];
+      }
+    }
+    for (int bin = 0; bin < rackWebLimonadeBins; ++bin) {
+      rackWebLimonadeVisual[rackWebLimonadeMagnitudeOffset + bin] = table.frames[editedFrame].magnitude[bin];
+      rackWebLimonadeVisual[rackWebLimonadePhaseOffset + bin] = table.frames[editedFrame].phase[bin];
+    }
+    for (int point = 0; point < rackWebLimonadeWavePoints; ++point) {
+      rackWebLimonadeVisual[rackWebLimonadeEditedWaveOffset + point] = table.frames[editedFrame].sample[point];
+      rackWebLimonadeVisual[rackWebLimonadePlayedWaveOffset + point] = table.frames[playedFrame].sample[point];
+    }
+    return rackWebLimonadeVisual.data();
+  }`;
+  if(target.key==="FrozenWasteland/PWGridControlExpander"||target.key==="FrozenWasteland/QARGridControlExpander")adaptedBody+=`
+  static constexpr int rackWebGridColumns = 128;
+  static constexpr int rackWebGridRows = ${target.key.endsWith("PWGridControlExpander")?16:18};
+  static constexpr int rackWebGridHeader = 5;
+  std::array<float, rackWebGridHeader + rackWebGridRows> rackWebGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebGridVisual.fill(0.f);
+    rackWebGridVisual[0] = static_cast<float>(rackWebGridColumns);
+    rackWebGridVisual[1] = static_cast<float>(rackWebGridRows);
+    rackWebGridVisual[2] = ${target.key.endsWith("QARGridControlExpander")?"bidirectional ? 64.f : 0.f":"0.f"};
+    rackWebGridVisual[3] = static_cast<float>(gridCells->pinXAxisValues);
+    rackWebGridVisual[4] = gridCells->pinXAxisPosition;
+    for (int row = 0; row < rackWebGridRows; ++row)
+      rackWebGridVisual[rackWebGridHeader + row] = static_cast<float>(gridCells->displayValueForPosition(row));
+    return rackWebGridVisual.data();
+  }`;
+  if(target.key==="FrozenWasteland/FillingStation")adaptedBody+=`
+  static constexpr int rackWebFillingHeader = 6;
+  std::array<float, rackWebFillingHeader + NBR_INPUTS * MAX_STEPS> rackWebFillingVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebFillingVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebFillingVisual.fill(0.f);
+    rackWebFillingVisual[0] = static_cast<float>(currentSceneNbr);
+    rackWebFillingVisual[1] = static_cast<float>(currentStepCount);
+    for (int track = 0; track < NBR_INPUTS; ++track) {
+      rackWebFillingVisual[2 + track] = static_cast<float>(trackIndex[track]);
+      for (int step = 0; step < MAX_STEPS; ++step)
+        rackWebFillingVisual[rackWebFillingHeader + track * MAX_STEPS + step] = static_cast<float>(trackMatrix[currentSceneNbr][track][step]);
+    }
+    return rackWebFillingVisual.data();
+  }`;
+  if(target.key==="FrozenWasteland/QuadAlgorithmicRhythm")adaptedBody+=`
+  static constexpr int rackWebQarHeader = 8;
+  static constexpr int rackWebQarTrackHeader = 8;
+  static constexpr int rackWebQarStepStride = 11;
+  static constexpr int rackWebQarTrackStride = rackWebQarTrackHeader + MAX_STEPS * rackWebQarStepStride;
+  std::array<float, rackWebQarHeader + TRACK_COUNT * rackWebQarTrackStride> rackWebQarVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebQarVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebQarVisual.fill(0.f);
+    rackWebQarVisual[0] = 1.f;
+    rackWebQarVisual[1] = static_cast<float>(TRACK_COUNT);
+    rackWebQarVisual[2] = static_cast<float>(MAX_STEPS);
+    rackWebQarVisual[3] = static_cast<float>(masterTrack);
+    rackWebQarVisual[4] = constantTime ? 1.f : 0.f;
+    rackWebQarVisual[5] = static_cast<float>(currentScene);
+    for (int track = 0; track < TRACK_COUNT; ++track) {
+      const int trackBase = rackWebQarHeader + track * rackWebQarTrackStride;
+      rackWebQarVisual[trackBase] = static_cast<float>(algorithmMatrix[track]);
+      rackWebQarVisual[trackBase + 1] = static_cast<float>(accentAlgorithmMatrix[track]);
+      rackWebQarVisual[trackBase + 2] = static_cast<float>(stepsCount[track]);
+      rackWebQarVisual[trackBase + 3] = static_cast<float>(beatIndex[track]);
+      rackWebQarVisual[trackBase + 4] = running[track] ? 1.f : 0.f;
+      rackWebQarVisual[trackBase + 5] = swingRandomness[track];
+      rackWebQarVisual[trackBase + 6] = wellFormedTrackDuration[track];
+      rackWebQarVisual[trackBase + 7] = static_cast<float>(probabilityGroupTriggered[track]);
+      for (int step = 0; step < MAX_STEPS; ++step) {
+        const int offset = trackBase + rackWebQarTrackHeader + step * rackWebQarStepStride;
+        rackWebQarVisual[offset] = beatMatrix[track][step] ? 1.f : 0.f;
+        rackWebQarVisual[offset + 1] = accentMatrix[track][step] ? 1.f : 0.f;
+        rackWebQarVisual[offset + 2] = probabilityMatrix[track][step];
+        rackWebQarVisual[offset + 3] = static_cast<float>(conditionalCounterMatrix[track][step]);
+        rackWebQarVisual[offset + 4] = static_cast<float>(conditionalMatrix[track][step]);
+        rackWebQarVisual[offset + 5] = conditionalModeMatrix[track][step] ? 1.f : 0.f;
+        rackWebQarVisual[offset + 6] = swingMatrix[track][step];
+        rackWebQarVisual[offset + 7] = beatWarpMatrix[track][step];
+        rackWebQarVisual[offset + 8] = irrationalRhythmMatrix[track][step];
+        rackWebQarVisual[offset + 9] = wellFormedStepDurations[track][step];
+        rackWebQarVisual[offset + 10] = static_cast<float>(probabilityGroupModeMatrix[track][step]);
+      }
+    }
+    return rackWebQarVisual.data();
+  }`;
+  if(target.key==="fruitsofkarma/CellularAuto")adaptedBody+=`
+  static constexpr int rackWebCellularHeader = 22;
+  std::array<float, rackWebCellularHeader + MAX_WIDTH + MAX_WIDTH * MAX_HEIGHT> rackWebCellularVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebCellularVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebCellularVisual.fill(0.f);
+    rackWebCellularVisual[0] = static_cast<float>(FrameX);
+    rackWebCellularVisual[1] = static_cast<float>(FrameY);
+    rackWebCellularVisual[2] = static_cast<float>(FrameW);
+    rackWebCellularVisual[3] = static_cast<float>(FrameH);
+    rackWebCellularVisual[4] = static_cast<float>(ClockChans());
+    rackWebCellularVisual[5] = static_cast<float>(Rule);
+    for (int channel = 0; channel < MAX_CHANS; ++channel)
+      rackWebCellularVisual[6 + channel] = static_cast<float>(Positions[channel]);
+    for (int x = 0; x < MAX_WIDTH; ++x)
+      rackWebCellularVisual[rackWebCellularHeader + x] = static_cast<float>(InitState[x]);
+    const int fieldBase = rackWebCellularHeader + MAX_WIDTH;
+    for (int y = 0; y < MAX_HEIGHT; ++y)
+      for (int x = 0; x < MAX_WIDTH; ++x)
+        rackWebCellularVisual[fieldBase + y * MAX_WIDTH + x] = Field[y][x] ? 1.f : 0.f;
+    return rackWebCellularVisual.data();
+  }`;
+  if(target.key==="EternalEclipseModular/Saros")adaptedBody+=`
+  static constexpr int rackWebSarosHeader = 7;
+  std::array<float, rackWebSarosHeader + TABLE_N> rackWebSarosVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSarosVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebSarosVisual[0] = dispShape;
+    rackWebSarosVisual[1] = dispWarp;
+    rackWebSarosVisual[2] = dispFlux;
+    rackWebSarosVisual[3] = dispPhase;
+    rackWebSarosVisual[4] = dispDuration;
+    rackWebSarosVisual[5] = dispLoop ? 1.f : 0.f;
+    rackWebSarosVisual[6] = drawMode ? 1.f : 0.f;
+    for (int index = 0; index < TABLE_N; ++index)
+      rackWebSarosVisual[rackWebSarosHeader + index] = drawTable[index];
+    return rackWebSarosVisual.data();
+  }`;
+  if(target.key==="kocmoc/TRG")adaptedBody+=`
+  static constexpr int rackWebTrgHeader = 4;
+  std::array<float, rackWebTrgHeader + MAX_STEPS> rackWebTrgVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebTrgVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebTrgVisual[0] = static_cast<float>(step);
+    rackWebTrgVisual[1] = static_cast<float>(page);
+    rackWebTrgVisual[2] = static_cast<float>(seq_length);
+    rackWebTrgVisual[3] = static_cast<float>(_followactivestep);
+    for (int index = 0; index < MAX_STEPS; ++index)
+      rackWebTrgVisual[rackWebTrgHeader + index] = static_cast<float>(steps[index]);
+    return rackWebTrgVisual.data();
+  }`;
+  if(target.key==="AaronKarp-EarthTones/PolarCV")adaptedBody+=`
+  std::array<float, 6> rackWebPolarCvVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebPolarCvVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebPolarCvVisual[0] = params[A_DIAL_PARAM].getValue() / 2.f;
+    rackWebPolarCvVisual[1] = params[B_DIAL_PARAM].getValue() / 2.f;
+    rackWebPolarCvVisual[2] = params[CUR_EQ_PARAM].getValue();
+    rackWebPolarCvVisual[3] = params[CUR_TIME_MULT_IDX_PARAM].getValue();
+    rackWebPolarCvVisual[4] = cur_theta;
+    rackWebPolarCvVisual[5] = current_cursor.y;
+    return rackWebPolarCvVisual.data();
+  }`;
+  if(target.key==="Axioma/Ikeda")adaptedBody+=`
+  static constexpr int rackWebIkedaPoints = 1000;
+  std::array<float, 3 + rackWebIkedaPoints * 2> rackWebIkedaVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebIkedaVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebIkedaVisual[0] = currentX;
+    rackWebIkedaVisual[1] = currentY;
+    rackWebIkedaVisual[2] = static_cast<float>(rackWebIkedaPoints);
+    for (int index = 0; index < rackWebIkedaPoints; ++index) {
+      rackWebIkedaVisual[3 + index] = plotBufferX[index];
+      rackWebIkedaVisual[3 + rackWebIkedaPoints + index] = plotBufferY[index];
+    }
+    return rackWebIkedaVisual.data();
+  }`;
+  if(target.key==="Axioma/Rhodonea")adaptedBody+=`
+  std::array<float, 4> rackWebRhodoneaVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebRhodoneaVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebRhodoneaVisual[0] = n;
+    rackWebRhodoneaVisual[1] = d;
+    rackWebRhodoneaVisual[2] = a;
+    rackWebRhodoneaVisual[3] = angle;
+    return rackWebRhodoneaVisual.data();
+  }`;
+  if(target.key==="Axioma/Tesseract")adaptedBody+=`
+  std::array<float, 32> rackWebTesseractVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebTesseractVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    for (int index = 0; index < 16; ++index) {
+      rackWebTesseractVisual[index * 2] = vertices2D[index][0];
+      rackWebTesseractVisual[index * 2 + 1] = vertices2D[index][1];
+    }
+    return rackWebTesseractVisual.data();
+  }`;
+  if(target.key==="Axioma/TheBifurcator")adaptedBody+=`
+  static constexpr int rackWebBifurcatorHeader = 11;
+  static constexpr int rackWebBifurcatorPoints = 190;
+  std::array<float, rackWebBifurcatorHeader + rackWebBifurcatorPoints> rackWebBifurcatorVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebBifurcatorVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebBifurcatorVisual[0] = currentX;
+    rackWebBifurcatorVisual[1] = static_cast<float>(plotIndex);
+    rackWebBifurcatorVisual[2] = params[TYPE_KNOB_PARAM].getValue();
+    rackWebBifurcatorVisual[3] = clamp((params[R_KNOB_PARAM].getValue() + inputs[R_INPUT].getVoltage()) / 10.f, 0.f, 1.f);
+    rackWebBifurcatorVisual[4] = params[FUNCTION_KNOB_PARAM].getValue();
+    rackWebBifurcatorVisual[5] = params[ITER_KNOB_PARAM].getValue();
+    for (int index = 0; index < 5; ++index) rackWebBifurcatorVisual[6 + index] = lastPoints[index];
+    for (int index = 0; index < rackWebBifurcatorPoints; ++index)
+      rackWebBifurcatorVisual[rackWebBifurcatorHeader + index] = plotBuffer[index];
+    return rackWebBifurcatorVisual.data();
+  }`;
+  if(target.key==="Autinn/Alias")adaptedBody+=`
+  static constexpr int rackWebAliasHeader = 11;
+  std::array<float, rackWebAliasHeader + STEPS> rackWebAliasVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebAliasVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebAliasVisual[0] = static_cast<float>(currentState);
+    rackWebAliasVisual[1] = mode ? 1.f : 0.f;
+    rackWebAliasVisual[2] = lastSampleRate;
+    rackWebAliasVisual[3] = activeSettleTime;
+    rackWebAliasVisual[4] = static_cast<float>(currentStep);
+    for (int index = 0; index < 3; ++index) {
+      rackWebAliasVisual[5 + index] = benchmarkScores[index];
+      rackWebAliasVisual[8 + index] = benchmarkRecorded[index] ? 1.f : 0.f;
+    }
+    for (int index = 0; index < STEPS; ++index)
+      rackWebAliasVisual[rackWebAliasHeader + index] = ratioCurve[index];
+    return rackWebAliasVisual.data();
+  }`;
+  if(target.key==="ChordChemist/ChordChemist")adaptedBody+=`
+  static constexpr int rackWebChordHeader = 4;
+  static constexpr int rackWebChordSteps = 16;
+  std::array<float, rackWebChordHeader + rackWebChordSteps * 2> rackWebChordVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebChordVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebChordVisual[0] = static_cast<float>(currentStep);
+    rackWebChordVisual[1] = params[STEPS_COUNT_PARAM].getValue();
+    rackWebChordVisual[2] = params[ROOT_NOTE_PARAM].getValue();
+    rackWebChordVisual[3] = params[SCALE_TYPE_PARAM].getValue();
+    for (int index = 0; index < rackWebChordSteps; ++index) {
+      rackWebChordVisual[rackWebChordHeader + index] = params[STEP_DEGREE_PARAM_0 + index].getValue();
+      rackWebChordVisual[rackWebChordHeader + rackWebChordSteps + index] = static_cast<float>(stepQualities[index]);
+    }
+    return rackWebChordVisual.data();
+  }`;
+  if(target.key==="MADZINE/Runshow")adaptedBody+=`
+  std::array<float, 9> rackWebRunshowVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebRunshowVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebRunshowVisual[0] = elapsedSeconds;
+    rackWebRunshowVisual[1] = static_cast<float>(currentBar);
+    rackWebRunshowVisual[2] = static_cast<float>(clockCount);
+    rackWebRunshowVisual[3] = running ? 1.f : 0.f;
+    rackWebRunshowVisual[4] = params[TIMER_5MIN_MAX_PARAM].getValue();
+    rackWebRunshowVisual[5] = params[BAR_1_PARAM].getValue();
+    rackWebRunshowVisual[6] = params[BAR_2_PARAM].getValue();
+    rackWebRunshowVisual[7] = params[BAR_3_PARAM].getValue();
+    rackWebRunshowVisual[8] = params[BAR_4_PARAM].getValue();
+    return rackWebRunshowVisual.data();
+  }`;
+  if(target.key==="eightfold/SDLines")adaptedBody+=`
+  std::array<float, 19> rackWebSdLinesVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSdLinesVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebSdLinesVisual[0] = static_cast<float>(clamp(inputs[IN_INPUT].getChannels(), 0, 16));
+    rackWebSdLinesVisual[1] = static_cast<float>(mode);
+    rackWebSdLinesVisual[2] = static_cast<float>(range);
+    for (int channel = 0; channel < 16; ++channel)
+      rackWebSdLinesVisual[3 + channel] = inputs[IN_INPUT].getVoltage(channel);
+    return rackWebSdLinesVisual.data();
+  }`;
+  if(target.key==="Sulamith/Note")adaptedBody+=`
+  std::array<float, 17> rackWebNoteVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebNoteVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    const int channels = clamp(inputs[POLY_INPUT].getChannels(), 0, 16);
+    rackWebNoteVisual[0] = static_cast<float>(channels);
+    for (int channel = 0; channel < 16; ++channel) {
+      float volts = inputs[POLY_INPUT].getVoltage(channel);
+      if (params[QUANT_SWITCH].getValue() == 1.f) {
+        const float octave = std::floor(volts);
+        const float semitone = (volts - octave) / 0.083333f;
+        volts = std::round(semitone) * 0.083333f + octave;
+      }
+      rackWebNoteVisual[1 + channel] = volts;
+    }
+    return rackWebNoteVisual.data();
+  }`;
+  if(target.key==="az/LoFiTV")adaptedBody+=`
+  static constexpr int rackWebLofiColumns = 127;
+  static constexpr int rackWebLofiRows = 127;
+  static constexpr int rackWebLofiPixels = rackWebLofiColumns * rackWebLofiRows;
+  std::array<float, rackWebLofiPixels * 3> rackWebLofiVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebLofiVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    for (int column = 0; column < rackWebLofiColumns; ++column) {
+      for (int row = 0; row < rackWebLofiRows; ++row) {
+        const int index = column * rackWebLofiRows + row;
+        const RBG& heat = slime.trailMap[column][row];
+        rackWebLofiVisual[index] = heat.r;
+        rackWebLofiVisual[rackWebLofiPixels + index] = heat.g;
+        rackWebLofiVisual[rackWebLofiPixels * 2 + index] = heat.b;
+      }
+    }
+    return rackWebLofiVisual.data();
+  }`;
+  if(target.key==="EternalEclipseModular/CosmicClock")adaptedBody+=`
+  static constexpr int rackWebCosmicHeader = 26;
+  static constexpr int rackWebCosmicAspects = 64;
+  std::array<float, rackWebCosmicHeader + rackWebCosmicAspects * 4> rackWebCosmicVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebCosmicVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    static constexpr double rackWebEpoch = 946727935.816;
+    static constexpr double rackWebTimeChunk = 131072.0;
+    const double relative = simUnix - rackWebEpoch;
+    const double chunk = std::floor(relative / rackWebTimeChunk);
+    rackWebCosmicVisual[0] = static_cast<float>(chunk);
+    rackWebCosmicVisual[1] = static_cast<float>(relative - chunk * rackWebTimeChunk);
+    rackWebCosmicVisual[2] = static_cast<float>(sunSign);
+    rackWebCosmicVisual[3] = static_cast<float>(strongA);
+    rackWebCosmicVisual[4] = static_cast<float>(strongB);
+    rackWebCosmicVisual[5] = static_cast<float>(strongType);
+    rackWebCosmicVisual[6] = strongDelta;
+    rackWebCosmicVisual[7] = static_cast<float>(numActive);
+    for (int body = 0; body < NUM_BODIES; ++body) {
+      rackWebCosmicVisual[8 + body] = lonDisplay[body];
+      rackWebCosmicVisual[17 + body] = dispWeight[body];
+    }
+    for (int index = 0; index < rackWebCosmicAspects; ++index) {
+      const int offset = rackWebCosmicHeader + index * 4;
+      if (index < numActive) {
+        rackWebCosmicVisual[offset] = static_cast<float>(active[index].a);
+        rackWebCosmicVisual[offset + 1] = static_cast<float>(active[index].b);
+        rackWebCosmicVisual[offset + 2] = static_cast<float>(active[index].type);
+        rackWebCosmicVisual[offset + 3] = active[index].intensity;
+      } else {
+        rackWebCosmicVisual[offset] = rackWebCosmicVisual[offset + 1] = 0.f;
+        rackWebCosmicVisual[offset + 2] = -1.f;
+        rackWebCosmicVisual[offset + 3] = 0.f;
+      }
+    }
+    return rackWebCosmicVisual.data();
+  }`;
+  if(target.key==="WrongPeople/Lua")adaptedBody+=`
+public:
+  static constexpr int rackWebLuaHeader = 8;
+  static constexpr int rackWebLuaPointOffset = rackWebLuaHeader;
+  static constexpr int rackWebLuaValueOffset = rackWebLuaPointOffset + SCRIPT_POINTS * 5;
+  static constexpr int rackWebLuaScopeOffset = rackWebLuaValueOffset + SCRIPT_VALUES * 2;
+  static constexpr int rackWebLuaMessageOffset = rackWebLuaScopeOffset + SCOPE_VALUES * SCOPE_BUFFER_SIZE;
+  static constexpr int rackWebLuaLogOffset = rackWebLuaMessageOffset + 128;
+  static constexpr int rackWebLuaVisualSize = rackWebLuaLogOffset + SCRIPT_LOG_LEN * 28;
+  std::array<float, rackWebLuaVisualSize> rackWebLuaVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebLuaVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebLuaVisual.fill(0.f);
+    rackWebLuaVisual[0] = scriptLoaded ? 1.f : 0.f;
+    rackWebLuaVisual[1] = static_cast<float>(displayMode);
+    rackWebLuaVisual[2] = static_cast<float>(std::min<size_t>(displayMessage.size(), 127));
+    rackWebLuaVisual[3] = static_cast<float>(std::min<unsigned int>(scriptLogMessagesCount, SCRIPT_LOG_LEN));
+    rackWebLuaVisual[4] = static_cast<float>(scriptLogMessagesOffset);
+    rackWebLuaVisual[5] = scopeScale;
+    rackWebLuaVisual[6] = scopePos;
+    rackWebLuaVisual[7] = scopeTrigThreshold;
+    for (int point = 0; point < SCRIPT_POINTS; ++point) {
+      const int offset = rackWebLuaPointOffset + point * 5;
+      rackWebLuaVisual[offset] = scriptPoints[point].shown ? 1.f : 0.f;
+      rackWebLuaVisual[offset + 1] = scriptPoints[point].x;
+      rackWebLuaVisual[offset + 2] = scriptPoints[point].y;
+      rackWebLuaVisual[offset + 3] = scriptPoints[point].dirEnabled ? 1.f : 0.f;
+      rackWebLuaVisual[offset + 4] = scriptPoints[point].dir;
+    }
+    for (int index = 0; index < SCRIPT_VALUES; ++index) {
+      rackWebLuaVisual[rackWebLuaValueOffset + index * 2] = scriptValues[index].shown ? 1.f : 0.f;
+      rackWebLuaVisual[rackWebLuaValueOffset + index * 2 + 1] = scriptValues[index].val;
+    }
+    for (int trace = 0; trace < SCOPE_VALUES; ++trace)
+      for (int sample = 0; sample < SCOPE_BUFFER_SIZE; ++sample)
+        rackWebLuaVisual[rackWebLuaScopeOffset + trace * SCOPE_BUFFER_SIZE + sample] = scopeBuffers[trace][sample];
+    auto copyText = [&](int offset, int capacity, const std::string& text) {
+      const int count = std::min<int>(capacity - 1, static_cast<int>(text.size()));
+      for (int index = 0; index < count; ++index)
+        rackWebLuaVisual[offset + index] = static_cast<float>(static_cast<unsigned char>(text[index]));
+    };
+    copyText(rackWebLuaMessageOffset, 128, displayMessage);
+    const int count = std::min<unsigned int>(scriptLogMessagesCount, SCRIPT_LOG_LEN);
+    const int first = count < SCRIPT_LOG_LEN ? 0 : static_cast<int>(scriptLogMessagesOffset);
+    for (int line = 0; line < count; ++line)
+      copyText(rackWebLuaLogOffset + line * 28, 28, scriptLogMessages[(first + line) % SCRIPT_LOG_LEN]);
+    return rackWebLuaVisual.data();
+  }`;
+  if(target.plugin==="CatroBlanco"){
+    const hasSignal2=/CB-(?:4|5|6|7|meter)$/.test(target.model),hasSignal3=target.model.endsWith("CB-4"),meter=target.model.endsWith("CB-meter");
+    adaptedBody+=`
+public:
+  std::array<float, 8> rackWebCatroVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebCatroVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebCatroVisual[0] = input_active ? 1.f : 0.f;
+    rackWebCatroVisual[1] = static_cast<float>(mode);
+    rackWebCatroVisual[2] = sig;
+    rackWebCatroVisual[3] = ${hasSignal2?"sig2":"0.f"};
+    rackWebCatroVisual[4] = ${hasSignal3?"sig3":"0.f"};
+    rackWebCatroVisual[5] = ${meter?"ystart":"0.f"};
+    rackWebCatroVisual[6] = ${meter?"ysize":"0.f"};
+    rackWebCatroVisual[7] = ${meter?"(clip ? 1.f : 0.f)":"0.f"};
+    return rackWebCatroVisual.data();
+  }`;
+  }
+  if(target.key==="Alikins/ColorPanel")adaptedBody+=`
+public:
+  std::array<float, 4> rackWebColorPanelVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebColorPanelVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebColorPanelVisual[0] = red;
+    rackWebColorPanelVisual[1] = green;
+    rackWebColorPanelVisual[2] = blue;
+    rackWebColorPanelVisual[3] = static_cast<float>(colorMode);
+    return rackWebColorPanelVisual.data();
+  }`;
+  if(target.key==="Sparkette/DMAFX")adaptedBody+=`
+public:
+  std::array<float, 1> rackWebDmaFxVisual{};
+  int rackWebVisualCount() const override { return 1; }
+  float* rackWebVisualBuffer() override {
+    rackWebDmaFxVisual[0] = static_cast<float>(getDMAChannelCount());
+    return rackWebDmaFxVisual.data();
+  }`;
+  if(["computerscare/computerscare-foly-pace","computerscare/computerscare-stoly-fick-pigure"].includes(target.key))adaptedBody+=`
+public:
+  std::array<float, 16> rackWebComputerscareFigureVisual{};
+  int rackWebVisualCount() const override { return 16; }
+  float* rackWebVisualBuffer() override {
+    for (int channel = 0; channel < 16; ++channel)
+      rackWebComputerscareFigureVisual[channel] = bufferX[channel][0];
+    return rackWebComputerscareFigureVisual.data();
+  }`;
+  if(target.key==="BGal256/DressMeUp")adaptedBody+=`
+public:
+  std::array<float, 5> rackWebDressVisual{};
+  int rackWebVisualCount() const override { return 5; }
+  float* rackWebVisualBuffer() override {
+    rackWebDressVisual[0] = static_cast<float>(stepIndex);
+    for (int type = 0; type < 4; ++type)
+      rackWebDressVisual[1 + type] = static_cast<float>(clothingManager.getClothId(static_cast<t_clothtype>(type)));
+    return rackWebDressVisual.data();
+  }`;
+  if(target.key==="computerscare/computerscare-portaloof")adaptedBody+=`
+public:
+  std::array<float, 41> rackWebPortaloofVisual{};
+  int rackWebVisualCount() const override { return 41; }
+  float* rackWebVisualBuffer() override {
+    rackWebPortaloofVisual[0] = inputSourceMix;
+    for (int source = 0; source < 2; ++source) {
+      for (int row = 0; row < 10; ++row) {
+        rackWebPortaloofVisual[1 + source * 10 + row] = sourceRowValue[source][row];
+        rackWebPortaloofVisual[21 + source * 10 + row] = sourceRowEnabled[source][row] ? 1.f : 0.f;
+      }
+    }
+    return rackWebPortaloofVisual.data();
+  }`;
+  if(target.key==="JW-Modules/Crawl"){
+    adaptedBody=adaptedBody.replace(/float\s+displayWidth\s*=\s*0\.f\s*;\s*float\s+displayHeight\s*=\s*0\.f\s*;/,"float displayWidth = 296.f;\n\tfloat displayHeight = 268.f;");
+    adaptedBody+=`
+  static constexpr int rackWebCrawlHeaderSize = 4;
+  static constexpr int rackWebCrawlCrawlerStride = 4 + CRAWL_MAX_POINTS;
+  std::array<float, rackWebCrawlHeaderSize + CRAWL_MAX_POINTS * 2 + CRAWL_NUM_CRAWLERS * rackWebCrawlCrawlerStride> rackWebCrawlVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebCrawlVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebCrawlVisual.fill(0.f);
+    const int count = clampijw(static_cast<int>(params[NUM_POINTS_PARAM].getValue()), 1, CRAWL_MAX_POINTS);
+    rackWebCrawlVisual[0] = static_cast<float>(count);
+    rackWebCrawlVisual[1] = displayWidth;
+    rackWebCrawlVisual[2] = displayHeight;
+    rackWebCrawlVisual[3] = params[DISTANCE_PARAM].getValue();
+    for (int index = 0; index < count; ++index) {
+      rackWebCrawlVisual[rackWebCrawlHeaderSize + index * 2] = points[index].x;
+      rackWebCrawlVisual[rackWebCrawlHeaderSize + index * 2 + 1] = points[index].y;
+    }
+    const int crawlerOffset = rackWebCrawlHeaderSize + CRAWL_MAX_POINTS * 2;
+    for (int crawler = 0; crawler < CRAWL_NUM_CRAWLERS; ++crawler) {
+      const int offset = crawlerOffset + crawler * rackWebCrawlCrawlerStride;
+      rackWebCrawlVisual[offset] = crawlers[crawler].displayX;
+      rackWebCrawlVisual[offset + 1] = crawlers[crawler].displayY;
+      rackWebCrawlVisual[offset + 2] = crawlers[crawler].origX;
+      rackWebCrawlVisual[offset + 3] = crawlers[crawler].origY;
+      for (int point = 0; point < count; ++point)
+        rackWebCrawlVisual[offset + 4 + point] = crawlers[crawler].connected[point] ? 1.f : 0.f;
+    }
+    return rackWebCrawlVisual.data();
+  }`;
+  }
+  if(target.key==="AuntyLangtonsFree/MusicalAnt")adaptedBody+=`
+  static constexpr int rackWebGridMaxCells = 20736;
+  static constexpr int rackWebGridWordBits = 16;
+  static constexpr int rackWebGridHeaderSize = 4;
+  static constexpr int rackWebGridWordCount = rackWebGridMaxCells / rackWebGridWordBits;
+  bool rackWebGridPainting = false;
+  bool rackWebGridPaintOn = false;
+  float rackWebGridFrame = 0.f;
+  Logos rackWebGridLogos;
+  std::array<float, rackWebGridHeaderSize + rackWebGridWordCount + 1> rackWebGridVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebGridVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebGridVisual.fill(0.f);
+    if (!systemState) return rackWebGridVisual.data();
+    const int side = getSideLength();
+    const int cellCount = side * side;
+    rackWebGridVisual[0] = static_cast<float>(side);
+    rackWebGridVisual[1] = static_cast<float>(iFromXY(systemState->antX, systemState->antY));
+    rackWebGridVisual[2] = static_cast<float>(iFromXY(systemState->shadowAntX, systemState->shadowAntY));
+    rackWebGridVisual[3] = params[SHADOW_ANT_ON_PARAM].getValue() == 0.f ? 1.f : 0.f;
+    const bool logo = params[AUNTYLANGBUTTON_PARAM].getValue() == 1.f;
+    for (int index = 0; index < cellCount; ++index) {
+      const bool on = logo ? rackWebGridLogos.AL_logo_144x144[index] : systemState->cells.at(index);
+      if (on) rackWebGridVisual[rackWebGridHeaderSize + index / rackWebGridWordBits] += static_cast<float>(1u << (index % rackWebGridWordBits));
+    }
+    rackWebGridFrame += 1.f;
+    rackWebGridVisual.back() = rackWebGridFrame;
+    return rackWebGridVisual.data();
+  }`;
+  if(target.key==="JW-Modules/Trigs128")adaptedBody+=`
+  static constexpr int rackWebSequencerHeaderSize = 5;
+  static constexpr int rackWebSequencerTrackCount = 4;
+  static constexpr int rackWebSequencerTrackStride = 3;
+  static constexpr int rackWebSequencerCellStride = 2;
+  static constexpr int rackWebSequencerCellOffset = rackWebSequencerHeaderSize + rackWebSequencerTrackCount * rackWebSequencerTrackStride;
+  bool rackWebSequencerPainting = false;
+  bool rackWebSequencerPaintState = false;
+  std::array<float, rackWebSequencerCellOffset + GRID_CELLS * rackWebSequencerCellStride> rackWebSequencerVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebSequencerVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    rackWebSequencerVisual.fill(0.f);
+    rackWebSequencerVisual[0] = GRID_ROWS;
+    rackWebSequencerVisual[1] = GRID_COLS;
+    rackWebSequencerVisual[2] = static_cast<float>(selectedX);
+    rackWebSequencerVisual[3] = static_cast<float>(selectedY);
+    rackWebSequencerVisual[4] = rackWebSequencerTrackCount;
+    for (int track = 0; track < rackWebSequencerTrackCount; ++track) {
+      const int offset = rackWebSequencerHeaderSize + track * rackWebSequencerTrackStride;
+      rackWebSequencerVisual[offset] = static_cast<float>(getSeqStart(track));
+      rackWebSequencerVisual[offset + 1] = static_cast<float>(getSeqLen(track));
+      rackWebSequencerVisual[offset + 2] = static_cast<float>(seqPos[track]);
+    }
+    for (int cell = 0; cell < GRID_CELLS; ++cell) {
+      const int offset = rackWebSequencerCellOffset + cell * rackWebSequencerCellStride;
+      rackWebSequencerVisual[offset] = cells[cell].active ? 1.f : 0.f;
+      rackWebSequencerVisual[offset + 1] = getGridShadeNorm(cells[cell]);
+    }
+    return rackWebSequencerVisual.data();
+  }`;
   if(target.key==="tapestry/Tapestry")adaptedBody+=`
   static constexpr int rackWebWaveBins = 90;
   static constexpr int rackWebMaxSplices = 300;
@@ -5281,6 +8908,35 @@ function adapterSource(target,manifest,license,definitionFile,registrationFile,r
     rackWebFullScopeVisual[1028] = (params[ROTATION_PARAM].getValue() + inputs[ROTATION_INPUT].getVoltage()) / 20.f;
     rackWebFullScopeVisual[1029] = inputs[X_INPUT].isConnected() ? 1.f : 0.f;
     rackWebFullScopeVisual[1030] = inputs[Y_INPUT].isConnected() ? 1.f : 0.f;
+    return rackWebFullScopeVisual.data();
+  }`;
+  }
+  if(target.key==="wiqid-anomalies/fullscope"){
+    adaptedBody+=`
+  std::array<float, 1035> rackWebFullScopeVisual{};
+  int rackWebVisualCount() const override { return static_cast<int>(rackWebFullScopeVisual.size()); }
+  float* rackWebVisualBuffer() override {
+    const float gainX=std::pow(2.f,std::round(params[X_SCALE_PARAM].getValue()));
+    const float gainY=std::pow(2.f,std::round(params[Y_SCALE_PARAM].getValue()));
+    const float offsetX=params[X_POS_PARAM].getValue();
+    const float offsetY=params[Y_POS_PARAM].getValue();
+    float minX=INFINITY,maxX=-INFINITY,minY=INFINITY,maxY=-INFINITY;
+    for(int index=0; index<BUFFER_SIZE; ++index) {
+      const int source=lissajous?(index+bufferIndex)%BUFFER_SIZE:index;
+      rackWebFullScopeVisual[index]=(bufferX[source]+offsetX)*gainX/10.f;
+      rackWebFullScopeVisual[BUFFER_SIZE+index]=(bufferY[source]+offsetY)*gainY/10.f;
+      minX=std::min(minX,bufferX[index]); maxX=std::max(maxX,bufferX[index]);
+      minY=std::min(minY,bufferY[index]); maxY=std::max(maxY,bufferY[index]);
+    }
+    rackWebFullScopeVisual[1024]=lissajous?1.f:0.f;
+    rackWebFullScopeVisual[1025]=inputs[COLOR_INPUT].isConnected()?1.f:0.f;
+    rackWebFullScopeVisual[1026]=inputs[COLOR_INPUT].getVoltage()/6.f;
+    rackWebFullScopeVisual[1027]=showstats?1.f:0.f;
+    rackWebFullScopeVisual[1028]=(params[ROTATION_PARAM].getValue()+inputs[ROTATION_INPUT].getVoltage())/20.f;
+    rackWebFullScopeVisual[1029]=inputs[X_INPUT].isConnected()?1.f:0.f;
+    rackWebFullScopeVisual[1030]=inputs[Y_INPUT].isConnected()?1.f:0.f;
+    rackWebFullScopeVisual[1031]=minX; rackWebFullScopeVisual[1032]=maxX;
+    rackWebFullScopeVisual[1033]=minY; rackWebFullScopeVisual[1034]=maxY;
     return rackWebFullScopeVisual.data();
   }`;
   }
@@ -5413,7 +9069,7 @@ public:
     return rackWebFourViewVisual.data();
   }`;
   const inheritedDefineReferences=inherited.flatMap(definition=>[definition.body,...(definition.supportImplementations??[]),...definition.implementations]);
-  const bodyDefineSource=referencedDefines(detected.sourceFiles??[],[body,...implementations,...inheritedDefineReferences].join("\n"),sourceDir),requiredBodyDefines=bodyDefineSource.split("\n").filter(line=>{const name=/^\s*#\s*define\s+([A-Za-z_]\w*)/.exec(line)?.[1];return name&&!new RegExp(`^\\s*#\s*define\\s+${name}\\b`,"m").test(safePrelude)}).join("\n");
+  const bodyDefineSource=referencedDefines(detected.sourceFiles??[],[body,...implementations,...inheritedDefineReferences].join("\n"),sourceDir),requiredBodyDefines=bodyDefineSource.split("\n").filter(line=>{const name=/^\s*#\s*define\s+([A-Za-z_]\w*)/.exec(line)?.[1];if(!name||(target.key==="voxglitch/digitalsequencer"||target.key==="voxglitch/digitalsequencerxp")&&name==="NUMBER_OF_VOLTAGE_RANGES"||new RegExp(`^\\s*#\s*define\\s+${name}\\b`,"m").test(safePrelude))return false;return !new RegExp(`\\b(?:const|constexpr)\\b[^;\\n]*\\b${name}\\b`).test(safePrelude)}).join("\n");
   if(process.env.RACK_WEB_DEBUG_DEPENDENCIES)console.error(JSON.stringify({inherited:inherited.map(item=>item.name),preludeTypes:declaredTypeNames(prelude),strippedPreludeTypes:declaredTypeNames(strippedPrelude)},null,2));
   const rackWebCounts=Object.fromEntries(["params","inputs","outputs","lights"].map(key=>[key,detected.counts?.[key]??enumCount(detected.enums?.[key],countConstants)])),selfModelSymbol=(detected.expander?.models??[]).find(model=>model.key===target.key)?.symbol;
   adaptedBody+=`\npublic:\n  static constexpr int rackWebParamCount = ${rackWebCounts.params};\n  static constexpr int rackWebInputCount = ${rackWebCounts.inputs};\n  static constexpr int rackWebOutputCount = ${rackWebCounts.outputs};\n  static constexpr int rackWebLightCount = ${rackWebCounts.lights};${selfModelSymbol?`\n  rack::plugin::Model* rackWebSelfModel() override { return ${selfModelSymbol}; }`:""}`;
@@ -5706,13 +9362,13 @@ function compileAdapter(adapter,output,initialMemory,sourceDir,sourceFiles,local
   const usesWdlConvolution=/\b(?:WDL_ImpulseBuffer|WDL_ConvolutionEngine(?:_Div)?)\b/.test(adaptedSource);
   if(usesWdlConvolution&&!/[<"](?:WDL\/)?convoengine\.h[>"]/.test(adaptedSource))
     adaptedSource=adaptedSource.replace('#include "rack_web_export.hpp"','#include "rack_web_export.hpp"\n#include "WDL/convoengine.h"\n#include "WDL/resample.h"');
-  const usesDrWav=/\b(?:drwav|drwav_[A-Za-z0-9_]+|DRWAV_[A-Za-z0-9_]+)\b/.test(adaptedSource);
-  if(usesDrWav&&!/[<"][^">]*dr_wav\.h[>"]/.test(adaptedSource))
-    adaptedSource=adaptedSource.replace('#include "rack_web_export.hpp"','#define DR_WAV_IMPLEMENTATION\n#include "third_party/dr_wav.h"\n#include "rack_web_export.hpp"');
-  const usesPffft=/\b(?:PFFFT_[A-Za-z0-9_]+|pffft_[A-Za-z0-9_]+)\b/.test(adaptedSource);
+  const usesDrWav=/\b(?:drwav|drwav_[A-Za-z0-9_]+|DRWAV_[A-Za-z0-9_]+)\b/.test(adaptedSource),hasEmbeddedDrWav=/\}\s*drwav_allocation_callbacks\s*;/.test(adaptedSource),drWavHeader=sourceFiles.find(file=>path.basename(file)==="dr_wav.h"),drWavInclude=drWavHeader?path.relative(sourceDir,drWavHeader).split(path.sep).join("/"):"third_party/dr_wav.h";
+  if(usesDrWav&&!hasEmbeddedDrWav&&!/[<"][^">]*dr_wav\.h[>"]/.test(adaptedSource))
+    adaptedSource=adaptedSource.replace('#include "rack_web_export.hpp"',`#define DR_WAV_IMPLEMENTATION\n#include "${drWavInclude}"\n#include "rack_web_export.hpp"`);
+  const pffftPattern=/\b(?:PFFFT_[A-Za-z0-9_]+|pffft_[A-Za-z0-9_]+)\b/,usesPffft=pffftPattern.test(adaptedSource)||sourceFiles.some(file=>/pffft/i.test(path.basename(file))||pffftPattern.test(fs.readFileSync(file,"utf8")));
   const sseReference=[adaptedSource,...sourceFiles.map(file=>fs.readFileSync(file,"utf8"))].join("\n"),requiresSseCompat=/\b(?:__m128d?|__m128i|__m64|_mm_[A-Za-z0-9_]+|sse_mathfun_[A-Za-z0-9_]+)\b/.test(sseReference)||(/\b(?:(?:rack::)?simd::)?float_4\b/.test(sseReference)&&/\.\s*v\b/.test(sseReference)),requiresSse3=/<pmmintrin\.h>|\b_mm_(?:addsub|hadd|hsub|movehdup|moveldup)_ps\b/.test(sseReference),requiresSseMathfun=/\bsse_mathfun_(?:log|exp|sin|cos)_ps\s*\(/.test(sseReference)&&!/\b(?:inline\s+)?__m128\s+sse_mathfun_(?:log|exp|sin|cos)_ps\s*\([^)]*\)\s*\{/.test(sseReference);
   if(/\bstruct\s+PulseGenerator_4\b/.test(adaptedSource))adaptedSource=adaptedSource.replace('#include "rack_web_export.hpp"','#define RACK_WEB_OMIT_PULSE_GENERATOR_4 1\n#include "rack_web_export.hpp"');
-  if(/\bNeighborConnectable_V1\b/.test(adaptedSource)&&!/\bstruct(?:\s+__attribute__\s*\(\([^)]*\)\))?\s+NeighborConnectable_V1\b/.test(adaptedSource))adaptedSource=adaptedSource.replace('#include "rack_web_export.hpp"',`#include "rack_web_export.hpp"
+  if(/\bNeighborConnectable_V1\b/.test(adaptedSource)&&!/[<"]sst\/rackhelpers\/neighbor_connectable\.h[>"]/.test(adaptedSource)&&!/\bstruct(?:\s+__attribute__\s*\(\([^)]*\)\))?\s+NeighborConnectable_V1\b/.test(adaptedSource))adaptedSource=adaptedSource.replace('#include "rack_web_export.hpp"',`#include "rack_web_export.hpp"
 
 namespace sst::rackhelpers::module_connector {
 struct NeighborConnectable_V1 {
@@ -5773,9 +9429,10 @@ void rdft(int, int, double*, int*, double*);
   const headerDefinitions=new Set(sourceFiles.filter(file=>/\.(?:hpp|hh|h)$/.test(file)).flatMap(file=>outOfLineCallableKeys(fs.readFileSync(file,"utf8")))),
     wdlRoot=usesWdlConvolution?repositories.find(root=>path.basename(root)==="WDL"):null,
     drWavRoot=usesDrWav?repositories.find(root=>fs.existsSync(path.join(root,"third_party","dr_wav.h"))):null,
-    pffftRoot=usesPffft?repositories.find(root=>path.basename(root)==="pffft"):null,
+    vendoredPffftRoot=usesPffft?[path.join(sourceDir,"src","dep","pffft"),path.join(sourceDir,"dep","pffft"),path.join(sourceDir,"pffft")].find(root=>fs.existsSync(path.join(root,"pffft.h"))&&fs.existsSync(path.join(root,"pffft.c"))):null,
+    pffftRoot=usesPffft?(repositories.find(root=>path.basename(root)==="pffft")??vendoredPffftRoot):null,
     wdlSources=wdlRoot?["WDL/convoengine.cpp","WDL/resample.cpp","WDL/fft.c"].map(relative=>path.join(wdlRoot,relative)).filter(file=>fs.existsSync(file)):[],
-    pffftSources=pffftRoot?["src/pffft.c","src/pffft_common.c"].map(relative=>path.join(pffftRoot,relative)).filter(file=>fs.existsSync(file)):[];
+    pffftSources=pffftRoot?["src/pffft.c","src/pffft_common.c","pffft.c"].map(relative=>path.join(pffftRoot,relative)).filter(file=>fs.existsSync(file)):[];
   const externalPffft=Boolean(pffftRoot&&pffftSources.length);
   if(wdlRoot){
     const wdlHeaderArgument=`-idirafter${path.join(wdlRoot,"WDL")}`;
@@ -5786,13 +9443,16 @@ void rdft(int, int, double*, int*, double*);
     if(!prioritizedIncludeArgs.includes(drWavHeaderArgument))prioritizedIncludeArgs.push(drWavHeaderArgument);
   }
   if(pffftRoot){
-    const pffftHeaderArgument=`-iquote${path.join(pffftRoot,"include","pffft")}`;
+    const pffftHeaderDirectory=fs.existsSync(path.join(pffftRoot,"include","pffft","pffft.h"))?path.join(pffftRoot,"include","pffft"):pffftRoot,pffftHeaderArgument=`-iquote${pffftHeaderDirectory}`;
     if(!prioritizedIncludeArgs.includes(pffftHeaderArgument))prioritizedIncludeArgs.push(pffftHeaderArgument);
   }
-  const specializedFactory=specializedSurgeOscillatorFactory(output,adaptedSource,linkExternalSources&&sourceFiles.some(file=>path.basename(file)==="SurgeStorage.h")),specializedEffect=specializedSurgeEffectFactory(output,sourceDir,adaptedSource),juceRuntime=surgeJuceRuntime(output,sourceDir,specializedEffect),originalFactory=path.join(sourceDir,"surge/src/common/dsp/Oscillator.cpp"),legacyFftSource=legacyOpen303Compat?files(sourceDir).find(file=>path.basename(file)==="fft4g.c"):null,rawImplementationSources=[...new Set([...localConditionalSources.filter(browserImplementationSource),...externalSources,...(linkExternalSources?fullSurgeImplementationSources(sourceDir,sourceFiles,specializedFactory?.target):[]),...surgeEffectImplementationSources(sourceDir,specializedEffect),...(specializedFactory?[specializedFactory.file]:[]),...(specializedEffect?[specializedEffect.file]:[]),...(juceRuntime?.sources??[]),...(airwinSuite?[airwinSuite.file]:[]),...(legacyFftSource?[legacyFftSource]:[])])].filter(file=>(!specializedFactory||file!==originalFactory)&&(!specializedEffect||file!==specializedEffect.original)&&(!externalSources.includes(file)||browserImplementationSource(file))&&path.basename(file)!=="LuaSupport.cpp"&&!file.split(path.sep).some(part=>/^luajit(?:lib)?$/i.test(part))),pinkTromboneSources=browserSafePinkTromboneSources(output,rawImplementationSources),safeSurgeStorage=browserSafeSurgeStorage(output,rawImplementationSources),safePresetManager=browserSafeSurgePresetManager(output,rawImplementationSources),safeSpringRng=browserSafeSurgeSpringRng(output,rawImplementationSources),safeSpringEffect=browserSafeSurgeSpringEffect(output,rawImplementationSources),safeQplfo=browserSafeQplfo(output,rawImplementationSources),allImplementationSources=rawImplementationSources.map(file=>pinkTromboneSources.get(file)??(file===safeSurgeStorage?.original?safeSurgeStorage.file:file===safePresetManager?.original?safePresetManager.file:file===safeSpringRng?.original?safeSpringRng.file:file===safeSpringEffect?.original?safeSpringEffect.file:file===safeQplfo?.original?safeQplfo.file:file)),cSources=allImplementationSources.filter(file=>/\.c$/.test(file)),cppSources=allImplementationSources.filter(file=>!/\.c$/.test(file)),usesEigen=sourceFiles.some(file=>file.split(path.sep).includes("Eigen"))||/<Eigen[\\/]/.test(adaptedSource),disableLto=sourceFiles.some(file=>path.basename(file)==="gru_eigen.h"),ltoArgs=disableLto?[]:["-flto"],sstSimdSetup=path.join(sourceDir,"sst-basic-blocks","include","sst","basic-blocks","simd","setup.h"),missingSstSimde=requiresSseCompat&&fs.existsSync(sstSimdSetup)&&!fs.existsSync(path.join(sourceDir,"simde","simde","x86","sse4.2.h"))&&!fs.existsSync(path.join(sourceDir,"sst-basic-blocks","include","simde","x86","sse4.2.h")),compileDefinitions=[...makefileCompileDefinitions(sourceDir),...cmakeCompileDefinitions(sourceDir),...(missingSstSimde?["-DSIMDE_UNAVAILABLE=1"]:[]),...(usesEigen?["-DEIGEN_DONT_VECTORIZE=1","-DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT=1","-DEIGEN_HAS_STD_RESULT_OF=0"]:[]),...(juceRuntime?.definitions??[])],requiresCxx17=sourceFiles.some(file=>/Surge requires C\+\+17/.test(fs.readFileSync(file,"utf8"))),legacyStdArrayIterator=sourceFiles.some(file=>/\biterator\s*\(\s*Base::(?:begin|end)\s*\(\s*\)\s*\)/.test(fs.readFileSync(file,"utf8"))),usesAlpacaCrc=sourceFiles.some(file=>path.basename(file)==="crc32.h"&&file.includes(`${path.sep}alpaca${path.sep}`)),usesCustomSchmittTrigger=sourceFiles.some(file=>path.basename(file).toLowerCase()==="schmitttrigger.h"&&/\bclass\s+SchmittTrigger\b/.test(fs.readFileSync(file,"utf8"))),usesMathTools=sourceFiles.some(file=>/\bnamespace\s+MathTools\b/.test(fs.readFileSync(file,"utf8"))),usesVcvRackBranches=sourceFiles.some(file=>/\bVCVRACK\b/.test(fs.readFileSync(file,"utf8"))),usesChucKRuntime=sourceFiles.some(file=>path.basename(file)==="chuck_def.h"&&/\b__PLATFORM_EMSCRIPTEN__\b/.test(fs.readFileSync(file,"utf8"))),usesRackSimd=sourceFiles.some(file=>/\bRACK_SIMD\b/.test(fs.readFileSync(file,"utf8")))&&rustMakefileAnalysis(sourceDir).allCompileDefinitions.some(definition=>definition==="-DRACK_SIMD"||definition==="-DRACK_SIMD=1"),legacyStdArrayIteratorHeader=path.join(output,"rack_web_legacy_array_iterator.hpp"),platformDefinitions=[...(requiresCxx17?["-DTIXML_USE_STL=1","-DHAVE_STDBOOL_H=1","-DHAVE_UNISTD_H=1","-DPACKAGE=\"libsamplerate\"","-DVERSION=\"0.2.1\"","-include","surge_web_compat.h"]:[]),...(legacyStdArrayIterator?["-include",legacyStdArrayIteratorHeader]:[]),...(externalPffft?["-DRACK_WEB_EXTERNAL_PFFFT=1"]:[]),...(usesAlpacaCrc?["-DALPACA_NO_PREFETCH","-D__ALPACA_BYTE_ORDER=1234"]:[]),...(usesCustomSchmittTrigger?["-DRACK_WEB_NO_GLOBAL_STD_MIN_MAX"]:[]),...(usesMathTools?["-DRACK_WEB_NO_GLOBAL_STD_MIN_MAX"]:[]),...(usesVcvRackBranches?["-DVCVRACK"]:[]),...(usesChucKRuntime?["-D__PLATFORM_LINUX__","-DHAVE_LIBPTHREAD=1"]:[]),...(usesRackSimd?["-DRACK_SIMD=1"]:[])],cppStandard=requiresCxx17?"-std=c++17":"-std=c++20";
+  const specializedFactory=specializedSurgeOscillatorFactory(output,adaptedSource,linkExternalSources&&sourceFiles.some(file=>path.basename(file)==="SurgeStorage.h")),specializedEffect=specializedSurgeEffectFactory(output,sourceDir,adaptedSource),juceRuntime=surgeJuceRuntime(output,sourceDir,specializedEffect),originalFactory=path.join(sourceDir,"surge/src/common/dsp/Oscillator.cpp"),legacyFftSource=legacyOpen303Compat?files(sourceDir).find(file=>path.basename(file)==="fft4g.c"):null,rawImplementationSources=[...new Set([...localConditionalSources.filter(browserImplementationSource),...externalSources,...(linkExternalSources?fullSurgeImplementationSources(sourceDir,sourceFiles,specializedFactory?.target):[]),...surgeEffectImplementationSources(sourceDir,specializedEffect),...(specializedFactory?[specializedFactory.file]:[]),...(specializedEffect?[specializedEffect.file]:[]),...(juceRuntime?.sources??[]),...(airwinSuite?[airwinSuite.file]:[]),...(legacyFftSource?[legacyFftSource]:[])])].filter(file=>(!specializedFactory||file!==originalFactory)&&(!specializedEffect||file!==specializedEffect.original)&&(!externalSources.includes(file)||browserImplementationSource(file))&&path.basename(file)!=="LuaSupport.cpp"&&!file.split(path.sep).some(part=>/^luajit(?:lib)?$/i.test(part))),pinkTromboneSources=browserSafePinkTromboneSources(output,rawImplementationSources),safeSurgeStorage=browserSafeSurgeStorage(output,rawImplementationSources),safePresetManager=browserSafeSurgePresetManager(output,rawImplementationSources),safeSpringRng=browserSafeSurgeSpringRng(output,rawImplementationSources),safeSpringEffect=browserSafeSurgeSpringEffect(output,rawImplementationSources),safeQplfo=browserSafeQplfo(output,rawImplementationSources),allImplementationSources=rawImplementationSources.map(file=>pinkTromboneSources.get(file)??(file===safeSurgeStorage?.original?safeSurgeStorage.file:file===safePresetManager?.original?safePresetManager.file:file===safeSpringRng?.original?safeSpringRng.file:file===safeSpringEffect?.original?safeSpringEffect.file:file===safeQplfo?.original?safeQplfo.file:file)),cSources=allImplementationSources.filter(file=>/\.c$/.test(file)),cppSources=allImplementationSources.filter(file=>!/\.c$/.test(file)),usesEigen=sourceFiles.some(file=>file.split(path.sep).includes("Eigen"))||/<Eigen[\\/]/.test(adaptedSource),disableLto=sourceFiles.some(file=>path.basename(file)==="gru_eigen.h")||/\bRACK_WEB_EXPORTS\(LIMONADE\)/.test(adaptedSource),ltoArgs=disableLto?[]:["-flto"],sstSimdSetup=path.join(sourceDir,"sst-basic-blocks","include","sst","basic-blocks","simd","setup.h"),missingSstSimde=requiresSseCompat&&fs.existsSync(sstSimdSetup)&&!fs.existsSync(path.join(sourceDir,"simde","simde","x86","sse4.2.h"))&&!fs.existsSync(path.join(sourceDir,"sst-basic-blocks","include","simde","x86","sse4.2.h")),compileDefinitions=[...makefileCompileDefinitions(sourceDir),...cmakeCompileDefinitions(sourceDir),...(missingSstSimde?["-DSIMDE_UNAVAILABLE=1"]:[]),...(usesEigen?["-DEIGEN_DONT_VECTORIZE=1","-DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT=1","-DEIGEN_HAS_STD_RESULT_OF=0"]:[]),...(juceRuntime?.definitions??[])],requiresCxx17=sourceFiles.some(file=>/Surge requires C\+\+17/.test(fs.readFileSync(file,"utf8"))),legacyStdArrayIterator=sourceFiles.some(file=>/\biterator\s*\(\s*Base::(?:begin|end)\s*\(\s*\)\s*\)/.test(fs.readFileSync(file,"utf8"))),usesAlpacaCrc=sourceFiles.some(file=>path.basename(file)==="crc32.h"&&file.includes(`${path.sep}alpaca${path.sep}`)),usesCustomSchmittTrigger=sourceFiles.some(file=>path.basename(file).toLowerCase()==="schmitttrigger.h"&&/\bclass\s+SchmittTrigger\b/.test(fs.readFileSync(file,"utf8"))),usesMathTools=sourceFiles.some(file=>/\bnamespace\s+MathTools\b/.test(fs.readFileSync(file,"utf8"))),usesVcvRackBranches=sourceFiles.some(file=>/\bVCVRACK\b/.test(fs.readFileSync(file,"utf8"))),usesChucKRuntime=sourceFiles.some(file=>path.basename(file)==="chuck_def.h"&&/\b__PLATFORM_EMSCRIPTEN__\b/.test(fs.readFileSync(file,"utf8"))),usesRackSimd=sourceFiles.some(file=>/\bRACK_SIMD\b/.test(fs.readFileSync(file,"utf8")))&&rustMakefileAnalysis(sourceDir).allCompileDefinitions.some(definition=>definition==="-DRACK_SIMD"||definition==="-DRACK_SIMD=1"),legacyStdArrayIteratorHeader=path.join(output,"rack_web_legacy_array_iterator.hpp"),platformDefinitions=[...(requiresCxx17?["-DTIXML_USE_STL=1","-DHAVE_STDBOOL_H=1","-DHAVE_UNISTD_H=1","-DPACKAGE=\"libsamplerate\"","-DVERSION=\"0.2.1\"","-include","surge_web_compat.h"]:[]),...(legacyStdArrayIterator?["-include",legacyStdArrayIteratorHeader]:[]),...(externalPffft?["-DRACK_WEB_EXTERNAL_PFFFT=1"]:[]),...(usesAlpacaCrc?["-DALPACA_NO_PREFETCH","-D__ALPACA_BYTE_ORDER=1234"]:[]),...(usesCustomSchmittTrigger?["-DRACK_WEB_NO_GLOBAL_STD_MIN_MAX"]:[]),...(usesMathTools?["-DRACK_WEB_NO_GLOBAL_STD_MIN_MAX"]:[]),...(usesVcvRackBranches?["-DVCVRACK"]:[]),...(usesChucKRuntime?["-D__PLATFORM_LINUX__","-DHAVE_LIBPTHREAD=1"]:[]),...(usesRackSimd?["-DRACK_SIMD=1"]:[])],cppStandard=requiresCxx17?"-std=c++17":"-std=c++20";
   const adapterDefinitions=new Set(outOfLineCallableKeys(adaptedSource)),linkedDefinitionKeys=new Set([...headerDefinitions,...adapterDefinitions]),hasPlatformOverrides=rawImplementationSources.some(file=>outOfLineCallableKeys(fs.readFileSync(file,"utf8")).some(symbol=>linkedDefinitionKeys.has(symbol))),linkerArgs=hasPlatformOverrides?["-Wl,--allow-multiple-definition"]:[];
   if(usesCustomSchmittTrigger&&!platformDefinitions.includes("-DRACK_WEB_NO_GLOBAL_SCHMITT_TRIGGER_ALIAS"))platformDefinitions.push("-DRACK_WEB_NO_GLOBAL_SCHMITT_TRIGGER_ALIAS");
   if(usesChucKRuntime)for(const definition of ["-D__DISABLE_NETWORK__","-D__DISABLE_ASYNCH_IO__","-D__DISABLE_THREADS__","-D__DISABLE_KBHIT__","-D__DISABLE_PROMPTER__","-D__CHUCK_USE_PLANAR_BUFFERS__","-D__OLDSCHOOL_RANDOM__"])if(!platformDefinitions.includes(definition))platformDefinitions.push(definition);
+  // LLVM 22's wasm LTO currently crashes while lowering ChanOut::onSampleRateChange().
+  // The non-LTO build is equivalent at the Rack ABI boundary and remains optimized.
+  if(/\bRACK_WEB_EXPORTS\(ChanOut\)/.test(adaptedSource))ltoArgs.length=0;
   if(usesChucKRuntime)ltoArgs.length=0;
   if(disableLto&&!process.env.RACK_WEB_DEBUG_WASM)optimizationFlags=["-O1"];
   for(const source of wdlSources){
@@ -6278,6 +9938,57 @@ function rackWidgetPlacements(source,enums,constants={},supportSource="",depth=0
 function widgetDisplayRect(source,className,constants={}){
   const text=String(source??""),escaped=className.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),declaration=new RegExp(`\\b${escaped}\\s*\\*\\s*([A-Za-z_]\\w*)\\s*=\\s*new\\s+${escaped}\\b`).exec(text);if(!declaration)return null;const name=declaration[1].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),position=new RegExp(`\\b${name}\\s*->\\s*setPosition\\s*\\(([^;]+)\\)\\s*;`).exec(text),size=new RegExp(`\\b${name}\\s*->\\s*setSize\\s*\\(([^;]+)\\)\\s*;`).exec(text),origin=rackWidgetPosition(position?.[1],constants),dimensions=rackWidgetPosition(size?.[1],constants);return origin&&dimensions?{x:origin.x,y:origin.y,width:dimensions.x,height:dimensions.y}:null
 }
+function lightweightClassDefinitionSource(source,className){
+  const text=String(source??""),escaped=baseTypeName(className).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),declaration=new RegExp(`\\b(?:struct|class)\\s+${escaped}\\b[^;{]*\\{`,"g");for(const match of text.matchAll(declaration)){if(!isCodePosition(text,match.index))continue;const open=text.indexOf("{",match.index),close=matchingBrace(text,open);if(close>=0)return text.slice(match.index,close+1)}return""
+}
+function widgetDisplayRects(source,className,constants={}){
+  const text=String(source??""),escaped=className.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),definition=lightweightClassDefinitionSource(text,className),definitionConstants=widgetNumericConstants(definition,constants),defaultSize=[...definition.matchAll(/(?<![>.])\bbox\.size\s*=\s*([^;]+)\s*;/g)].map(match=>rackWidgetPosition(match[1],definitionConstants)).find(Boolean),rects=[];
+  const add=(origin,dimensions)=>{if(!origin||!dimensions||dimensions.x<=0||dimensions.y<=0)return;const rect={x:Number(origin.x.toFixed(3)),y:Number(origin.y.toFixed(3)),width:Number(dimensions.x.toFixed(3)),height:Number(dimensions.y.toFixed(3))};if(!rects.some(candidate=>JSON.stringify(candidate)===JSON.stringify(rect)))rects.push(rect)};
+  const assignments=new RegExp(`\\b(?:auto\\s*\\*?|${escaped}\\s*\\*)\\s*([A-Za-z_]\\w*)\\s*=\\s*(?:createWidget(?:Centered)?\\s*<\\s*${escaped}\\s*>\\s*\\(([^;]+)\\)|new\\s+${escaped}\\s*\\(([^;]*)\\)|new\\s+${escaped}\\b)`,"g");
+  for(const declaration of text.matchAll(assignments)){
+    const alias=declaration[1].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),factoryArgs=declaration[2]?splitArguments(declaration[2]):[],constructorArgs=declaration[3]!==undefined?splitArguments(declaration[3]):[],positionExpressions=[...text.matchAll(new RegExp(`\\b${alias}\\s*->\\s*(?:setPosition\\s*\\(([^;]+)\\)|box\\.pos\\s*=\\s*([^;]+))\\s*;`,"g"))],sizeExpressions=[...text.matchAll(new RegExp(`\\b${alias}\\s*->\\s*(?:setSize\\s*\\(([^;]+)\\)|box\\.size\\s*=\\s*([^;]+))\\s*;`,"g"))],origin=positionExpressions.map(match=>rackWidgetPosition(match[1]??match[2],constants)).find(Boolean)??rackWidgetPosition(factoryArgs[0],constants)??rackWidgetPosition(constructorArgs[0],constants),dimensions=sizeExpressions.map(match=>rackWidgetPosition(match[1]??match[2],constants)).find(Boolean)??rackWidgetPosition(constructorArgs[1],constants)??defaultSize;add(origin,dimensions)
+  }
+  const direct=new RegExp(`\\b(?:addChild|addChildBottom|addChildBelow)\\s*\\(\\s*new\\s+${escaped}\\s*\\(([^;]*)\\)\\s*\\)`,"g");
+  for(const match of text.matchAll(direct)){const args=splitArguments(match[1]),origin=rackWidgetPosition(args[0],constants),dimensions=rackWidgetPosition(args[1],constants)??defaultSize;add(origin,dimensions)}
+  return rects
+}
+function nativeSignalColor(argumentsText){
+  const values=splitArguments(argumentsText).map(value=>{const trimmed=value.trim(),direct=Number(/^0x/i.test(trimmed)?trimmed:trimmed.replace(/f$/i,""));return Number.isFinite(direct)?direct:numberLiteral(value,Number.NaN)}),rgba=values.length>=4?values.slice(0,4):[...values.slice(0,3),255];if(rgba.length<4||rgba.some(value=>!Number.isFinite(value)))return null;const [red,green,blue,alpha]=rgba.map(value=>Math.max(0,Math.min(255,Math.round(value))));if(alpha<24||Math.max(red,green,blue)<24)return null;return `#${[red,green,blue].map(value=>value.toString(16).padStart(2,"0")).join("")}${alpha<255?alpha.toString(16).padStart(2,"0"):""}`
+}
+function nativeSignalStyle(source,classNames){
+  const classSources=classNames.map(name=>lightweightClassDefinitionSource(source,name)).filter(Boolean),text=classSources.join("\n")||String(source??""),colors=[];
+  const addColor=color=>{if(color&&!colors.includes(color))colors.push(color)};
+  for(const match of text.matchAll(/nvgStrokeColor\s*\([^,]+,\s*nvgRGBA?\s*\(([^)]+)\)/g))addColor(nativeSignalColor(match[1]));
+  if(!colors.length)for(const match of String(source??"").matchAll(/nvgRGBA?\s*\(([^)]+)\)/g))addColor(nativeSignalColor(match[1]));
+  const strokeWidths=[...text.matchAll(/nvgStrokeWidth\s*\([^,]+,\s*([0-9]+(?:\.[0-9]+)?)(?:f)?\s*\)/g)].map(match=>Number(match[1])).filter(value=>Number.isFinite(value)&&value>0),primaryWidth=strokeWidths.length?Math.max(...strokeWidths):1;
+  return {colors:colors.length?colors:["#00ff80"],strokeWidths:[primaryWidth]}
+}
+const nativeSignalOverrides={
+  "AmalgamatedHarmonics/PolyProbe":{mode:"meter",polyphonic:true,stacked:true},
+  "AmalgamatedHarmonics/PolyScope":{mode:"scope",polyphonic:true},
+  "Bogaudio/Bogaudio-VU":{mode:"meter"},
+  "Cella/Loud":{mode:"meter"},
+  "Cella/LoudnessMeter":{mode:"meter"},
+  "CVfunk/Signals":{mode:"scope",sourceKind:"output",stacked:true,bipolar:false,range:15,rect:{x:39,y:75,width:104,height:265},colors:["#a0a0a0","#909090","#808080","#70709b","#60608b","#50507b"],strokeWidths:[1.8]},
+  "dbRackModules/Plotter":{mode:"xy"},
+  "Fundamental/Viz":{mode:"meter",polyphonic:true,stacked:true},
+  "MADZINE/Obserfour":{mode:"scope",stacked:true},
+  "MADZINE/Observer":{mode:"scope",stacked:true},
+  "MADZINE/QQ":{mode:"scope",sourceKind:"output",stacked:true},
+  "Ohmer/Metriks":{mode:"meter"},
+  "SubmarineFree/EO-102":{mode:"scope"},
+  "SubmarineFree/LA-108":{mode:"scope",stacked:true},
+  "SubmarineFree/LA-216":{mode:"scope",stacked:true},
+  "Sulamith/VoltM":{mode:"meter",polyphonic:true,stacked:true},
+};
+function nativeSignalVisual(target,source,constants,panelSize,inputs,outputs){
+  const override=nativeSignalOverrides[target.key];if(!override)return null;const instances=[...String(source??"").matchAll(/(?:createWidget(?:Centered)?\s*<\s*|new\s+)([A-Za-z_]\w*(?:::[A-Za-z_]\w*)*)/g)].map(match=>baseTypeName(match[1])),explicitTypes={"Cella/Loud":["ValueDisplayTinyWidget"],"Cella/LoudnessMeter":["LoudnessBarWidget"],"Fundamental/Viz":["VizDisplay"],"SubmarineFree/EO-102":["EO_Display"],"SubmarineFree/HS-101":["HS_Display"],"SubmarineFree/LA-108":["LA_Display"],"SubmarineFree/LA-216":["LA_Display"],"Ohmer/Metriks":["MetriksDMD"],"Sulamith/VoltM":["StringDisplayWidget"]}[target.key]??[],types=[...new Set([...instances,...explicitTypes])].filter(name=>/(?:Scope|Oscill|Waveform|WaveDisplay|Plotter|Analyzer|Spectrum|VU|Meter|Probe|Trace)Display$|^Scope$/.test(name)||explicitTypes.includes(name)).filter(name=>explicitTypes.includes(name)||!/(?:Bpm|Time|Value|Number|Text|Label|Ratio|Progress|Debug)/i.test(name));
+  if(!types.length)return null;
+  const rectangles=types.flatMap(type=>widgetDisplayRects(source,type,constants)),panelWidth=panelSize?.x??120,panelHeight=panelSize?.y??380,rect=rectangles.length?{x:Math.min(...rectangles.map(value=>value.x)),y:Math.min(...rectangles.map(value=>value.y)),width:Math.max(...rectangles.map(value=>value.x+value.width))-Math.min(...rectangles.map(value=>value.x)),height:Math.max(...rectangles.map(value=>value.y+value.height))-Math.min(...rectangles.map(value=>value.y))}:{x:2,y:30,width:Math.max(1,panelWidth-4),height:Math.max(1,panelHeight-60)},mode=override.mode??(types.some(type=>/(?:VU|Meter|Probe)/i.test(type))?"meter":types.some(type=>/(?:Analyzer|Spectrum)/i.test(type))?"spectrum":types.some(type=>/Plotter/i.test(type))?"xy":"scope"),sourceKind=override.sourceKind??(inputs.length?"input":"output"),ports=(sourceKind==="input"?inputs:outputs).map(port=>port.id),selected=mode==="xy"?ports.slice(0,2):ports.slice(0,16),sources=override.polyphonic&&selected.length?[...Array(16)].map((_,channel)=>({kind:sourceKind,id:selected[0],channel})):selected.map(id=>({kind:sourceKind,id}));
+  if(!sources.length)return null;
+  const style=nativeSignalStyle(source,types);
+  return {kind:"native-signal",mode,sources,colors:override.colors??style.colors,strokeWidths:override.strokeWidths??style.strokeWidths,range:override.range??10,stacked:Boolean(override.stacked),bipolar:override.bipolar!==false,...rect,...(override.rect??{})}
+}
 function widgetLightMatrix(source,constants={}){
   const match=/\bcreateLightMatrix\s*</.exec(String(source??""));if(!match)return null;
   const widget=widgetTemplateType(source,match.index+match[0].length-1),open=source.indexOf("(",match.index),close=matchingParenthesis(source,open);if(open<0||close<0)return null;
@@ -6402,8 +10113,50 @@ function metaModuleElementContract(infoSource){
   }
   return {elements,counts:{params:paramId,inputs:inputId,outputs:outputId,lights:lightId}}
 }
-function metaModuleAdapterSource(registration,coreFile,contract){
+function metaModuleAdapterSource(target,registration,coreFile,contract){
   const sourceMarker=`${path.sep}src${path.sep}`,marker=coreFile.lastIndexOf(sourceMarker),relative=(marker>=0?coreFile.slice(marker+sourceMarker.length):path.basename(coreFile)).split(path.sep).join("/"),coreType=registration.metaModuleCore.includes("::")?registration.metaModuleCore:`MetaModule::${registration.metaModuleCore}`,infoType=registration.metaModuleInfo.includes("::")?registration.metaModuleInfo:`MetaModule::${registration.metaModuleInfo}`,params=contract.elements.filter(element=>element.kind==="param"),floatLiteral=value=>Number.isInteger(Number(value))?`${Number(value)}.0f`:`${Number(value)}f`,config=params.map(element=>`    configParam(${element.id}, 0.f, 1.f, ${floatLiteral(element.default)}, ${JSON.stringify(element.name)});`).join("\n");
+  const hubState=target.key==="4msCompany/HubMedium"?`
+  json_t* rackWebStoredState = json_object();
+  std::string rackWebPatchName;
+  std::string rackWebPatchDescription;
+  std::array<std::string, 8> rackWebKnobSetNames{};
+  int rackWebActiveKnobSet = 0;
+
+  ~RackWebMetaModule() override { json_decref(rackWebStoredState); }
+
+  json_t* dataToJson() override {
+    json_t* root = json_deep_copy(rackWebStoredState);
+    if (!json_is_object(root)) {
+      json_decref(root);
+      root = json_object();
+    }
+    json_object_set_new(root, "PatchName", json_string(rackWebPatchName.c_str()));
+    json_object_set_new(root, "PatchDesc", json_string(rackWebPatchDescription.c_str()));
+    json_t* names = json_array();
+    for (const auto& name : rackWebKnobSetNames) json_array_append_new(names, json_string(name.c_str()));
+    json_object_set_new(root, "KnobSetNames", names);
+    json_object_set_new(root, "DefaultKnobSet", json_integer(rackWebActiveKnobSet));
+    return root;
+  }
+
+  void dataFromJson(json_t* root) override {
+    if (!json_is_object(root)) return;
+    json_decref(rackWebStoredState);
+    rackWebStoredState = json_deep_copy(root);
+    if (const char* value = json_string_value(json_object_get(root, "PatchName"))) rackWebPatchName = value;
+    if (const char* value = json_string_value(json_object_get(root, "PatchDesc"))) rackWebPatchDescription = value;
+    if (json_t* names = json_object_get(root, "KnobSetNames"); json_is_array(names)) {
+      for (size_t index = 0; index < rackWebKnobSetNames.size() && index < json_array_size(names); index++)
+        if (const char* value = json_string_value(json_array_get(names, static_cast<int>(index)))) rackWebKnobSetNames[index] = value;
+    }
+    if (json_t* active = json_object_get(root, "DefaultKnobSet"); json_is_integer(active))
+      rackWebActiveKnobSet = std::clamp(static_cast<int>(json_integer_value(active)), 0, 7);
+  }
+
+  void setState(int id, float value) override {
+    if (id == 0) rackWebActiveKnobSet = std::clamp(static_cast<int>(std::round(value)), 0, 7);
+  }
+`:"";
   return `#include "rack_web_export.hpp"
 #include "${relative}"
 #include "CoreModules/elements/element_counter.hh"
@@ -6416,6 +10169,7 @@ struct RackWebMetaModule final : rack::Module {
   static constexpr int rackWebLightCount = static_cast<int>(rackWebCounts.num_lights);
   ${coreType} core;
   float sampleRate = 0.f;
+${hubState}
 
   RackWebMetaModule() {
     config(rackWebParamCount, rackWebInputCount, rackWebOutputCount, rackWebLightCount);
@@ -6458,7 +10212,33 @@ RACK_WEB_EXPORTS(RackWebMetaModule)
 }
 function metaModuleRuntimeDraft(target,manifest,moduleManifest,license,contract,infoSource,sourceDir){
   const declaredWidthHp=numberLiteral(/\bwidth_hp\s*=\s*([^;]+)/.exec(infoSource)?.[1],Number.NaN),coordinateWidth=Math.max(...contract.elements.map(element=>element.position?.x??0),15)*2,width=Number.isSafeInteger(declaredWidthHp)&&declaredWidthHp>=1&&declaredWidthHp<=40?declaredWidthHp*15:panelWidth(sourceDir,target.model)??Math.round(coordinateWidth/15)*15,params=contract.elements.filter(element=>element.kind==="param").map(({frames,type,kind,...param})=>param),inputs=contract.elements.filter(element=>element.kind==="input").map(({type,kind,portKind,...input})=>({...input,kind:portKind})),outputs=contract.elements.filter(element=>element.kind==="output").map(({type,kind,portKind,...output})=>({...output,kind:portKind})),lightWidgets=contract.elements.filter(element=>element.kind==="light").map(element=>({id:element.id,...(element.paramId===undefined?{}:{paramId:element.paramId}),widget:element.widget,position:element.position}));
-  return {key:target.key,plugin:target.plugin,model:target.model,name:moduleManifest.name??target.model,brand:manifest.brand??manifest.name??target.plugin,version:manifest.version??"0.0.0",license,sourceUrl:manifest.sourceUrl,libraryUrl:target.url,screenshotUrl:`https://library.vcvrack.com/screenshots/400/${target.plugin}/${target.model}.webp`,wasmUrl:"./module.wasm",width,description:moduleManifest.description??`MetaModule DSP core adapted from ${target.key}`,params,inputs,outputs,lights:contract.counts.lights,...(lightWidgets.length?{lightWidgets}:{})}
+  const draft={key:target.key,plugin:target.plugin,model:target.model,name:moduleManifest.name??target.model,brand:manifest.brand??manifest.name??target.plugin,version:manifest.version??"0.0.0",license,sourceUrl:manifest.sourceUrl,libraryUrl:target.url,screenshotUrl:`https://library.vcvrack.com/screenshots/400/${target.plugin}/${target.model}.webp`,wasmUrl:"./module.wasm",width,description:moduleManifest.description??`MetaModule DSP core adapted from ${target.key}`,params,inputs,outputs,lights:contract.counts.lights,...(lightWidgets.length?{lightWidgets}:{})};
+  if(target.key==="4msCompany/HubMedium"){
+    const mm=value=>Number((value*75/25.4).toFixed(3)),editable=config=>({kind:"editable-text",foregroundKey:"",backgroundKey:"",defaultForeground:"#000000",defaultBackground:"#ffffff00",defaultFontSize:12,fontFamily:"sans-serif",lineHeight:1.05,padding:2,borderRadius:0,styleControls:false,multiline:false,rotation:0,...config}),defaults=Array.from({length:8},(_,index)=>`Knob Set ${index+1}`),regions=Array.from({length:8},(_,index)=>{const colors=Array(8).fill("#ffffff54");colors[index]="#ffd714";return{label:`Select knob set ${index+1}`,dragSelect:true,x:mm(39.5+6.5*index),y:mm(57.5),width:mm(6.5),height:mm(6.5),click:{target:"state",id:0,operation:"set",value:index},display:{source:"state",id:0,defaultValue:0,hideValue:true,color:"transparent",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:0,indicator:{width:mm(4),height:mm(4),borderRadius:mm(2),colors}}}});
+    draft.stateKeys=[{key:"DefaultKnobSet",type:"integer",values:defaults,name:"Active knob set",default:0,contextOnly:true}];
+    draft.runtime={visuals:[
+      editable({dataKey:"PatchName",defaultText:"Enter Patch Name",title:"Patch name",x:mm(36.1),y:mm(9.5),width:mm(57.7),height:mm(10)}),
+      editable({dataKey:"KnobSetNames",dataIndexState:0,defaultTexts:defaults,title:"Active knob set name",maximumLength:16,x:mm(52),y:mm(49),width:mm(40),height:mm(7)}),
+      ...Array.from({length:8},(_,index)=>editable({dataKey:"KnobSetNames",dataIndex:index,defaultText:defaults[index],title:`Knob set ${index+1} name`,contextOnly:true,maximumLength:16,x:0,y:0,width:0,height:0})),
+      {kind:"native-interaction",regions,x:0,y:0,width,height:380}
+    ]};
+  }
+  return draft
+}
+function sequelCharacterGlyphs(sourceDir){
+  const file=files(sourceDir).find(file=>path.basename(file)==="CharacterDisplay.cpp");
+  if(!file)return{};
+  const source=fs.readFileSync(file,"utf8"),cases=[...source.matchAll(/\bcase\s+'([^']+)'\s*:/g)],glyphs={};
+  for(const [index,entry] of cases.entries()){
+    const character=entry[1],segment=source.slice(entry.index+entry[0].length,cases[index+1]?.index??source.indexOf("default:",entry.index));
+    glyphs[character]=[...segment.matchAll(/\blightPixel\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*x\s*,\s*y\b/g)].map(match=>[Number(match[1]),Number(match[2])]);
+  }
+  return glyphs;
+}
+function spellbookDefaultText(sourceDir){
+  const file=files(sourceDir).find(file=>path.basename(file)==="spellbook.cpp");
+  if(!file)return"";
+  return /\bstd::string\s+text\s*=\s*R"~\(([\s\S]*?)\)~"\s*;/.exec(fs.readFileSync(file,"utf8"))?.[1]??"";
 }
 function buildMetaModuleScaffold({options,target,manifest,moduleManifest,license,sourceDir,sourceCommit,temporary,registration,rootSourceFiles}){
   const output=path.resolve(options.output||path.join("web-runtime","scaffolds",`${target.plugin}-${target.model}`));fs.mkdirSync(output,{recursive:true});
@@ -6491,13 +10271,13 @@ private:
   }else coreFile=coreFile??sourceFileDefiningType(metaModuleSourceFiles,registration.metaModuleCore);
   if(!coreFile)fail(`Could not locate MetaModule core type for ${target.key}`);
   const infoSource=fs.readFileSync(infoFile,"utf8"),contract=metaModuleElementContract(infoSource),supportSources=fourMsCoreSupportSources(coreFile),dependencyFiles=[...new Set(includedDependencyFiles(sourceDir,[coreFile,infoFile,...supportSources]))],browserSupport=metaModuleBrowserSupport(output,dependencyFiles),sourceFiles=[...dependencyFiles,...browserSupport],excludedBrowserImplementations=new Set(dependencyFiles.filter(file=>/(?:^|[\\/])src[\\/]thread[\\/]async_thread(?:_control)?\.cc$|(?:^|[\\/])src[\\/]comm[\\/]comm_module\.cc$/.test(file))),implementationFiles=sourceFiles.filter(file=>file!==coreFile&&!excludedBrowserImplementations.has(file)&&/\.(?:c|cc|cpp|cxx)$/.test(file)&&!/^\/\/\s*STATIC TESTS:/m.test(fs.readFileSync(file,"utf8"))),adapter=path.join(output,"adapter.cpp"),draft=metaModuleRuntimeDraft(target,manifest,moduleManifest,license,contract,infoSource,sourceDir),report={schemaVersion:1,key:target.key,libraryUrl:target.url,manifest:{slug:manifest.slug,name:manifest.name,version:manifest.version,license,brand:manifest.brand,sourceUrl:manifest.sourceUrl,module:moduleManifest},source:{directory:sourceDir,commit:sourceCommit,file:path.relative(sourceDir,coreFile),registrationFile:path.relative(sourceDir,registration.file),moduleClass:registration.metaModuleCore,widgetClass:registration.widgetClass,infoFile:path.relative(sourceDir,infoFile)},detected:{architecture:"metamodule-generic-core",counts:contract.counts,panelWidth:draft.width,dependencyFiles:dependencyFiles.map(file=>path.relative(sourceDir,file))},assessment:{strategy:"metamodule-core-adapter",compileEligible:true,requiresReview:true,blockers:[]},runtimeDraft:draft};
-  fs.writeFileSync(adapter,metaModuleAdapterSource(registration,coreFile,contract));fs.writeFileSync(path.join(output,"README.md"),`# ${target.key} Rack Web scaffold\n\nMetaModule core adapter generated from the locked open-source revision.\n`);let artifact;
+  fs.writeFileSync(adapter,metaModuleAdapterSource(target,registration,coreFile,contract));fs.writeFileSync(path.join(output,"README.md"),`# ${target.key} Rack Web scaffold\n\nMetaModule core adapter generated from the locked open-source revision.\n`);let artifact;
   if(options.compile){
     const explicitInitialMemory=options["initial-memory"]!==undefined,maximumMemory=268435456,wasiHolder={exports:null},imports=wasiImports(wasiHolder),analysisSource=sourceFiles.map(file=>fs.readFileSync(file,"utf8")).join("\n");let initialMemory=Number(options["initial-memory"]??pageAlignedMemory(estimatedStaticMemory(analysisSource))),wasm;
     if(!Number.isSafeInteger(initialMemory)||initialMemory<1048576||initialMemory%65536!==0)fail("Initial memory must be a whole number of 64 KiB pages");
     while(true){try{artifact=compileAdapter(adapter,output,initialMemory,sourceDir,sourceFiles,implementationFiles,false);wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(artifact)),imports).exports;wasiHolder.exports=wasm;wasm._initialize();break}catch(error){const memoryFailure=/initial memory too small|(?:out of bounds memory access|memory access out of bounds)|cannot enlarge memory|failed to (?:grow|allocate) memory|memory allocation failed|unreachable[^\n]*(?:alloc|memory)|^\s*unreachable\s*$/im.test(error instanceof Error?error.message:String(error));if(explicitInitialMemory||!memoryFailure||initialMemory>=maximumMemory)throw error;initialMemory=Math.min(maximumMemory,initialMemory*2)}}
     const actual=[wasm.rack_web_param_count(),wasm.rack_web_input_count(),wasm.rack_web_output_count(),wasm.rack_web_light_count()],expected=[contract.counts.params,contract.counts.inputs,contract.counts.outputs,contract.counts.lights];if(actual.some((value,index)=>value!==expected[index]))fail(`${target.key} MetaModule ABI differs from parsed element metadata`);
-    for(const param of draft.params){param.default=wasm.rack_web_get_param(param.id);param.min=wasm.rack_web_get_param_min(param.id);param.max=wasm.rack_web_get_param_max(param.id)}draft.runtime={initialMemory};
+    for(const param of draft.params){param.default=wasm.rack_web_get_param(param.id);param.min=wasm.rack_web_get_param_min(param.id);param.max=wasm.rack_web_get_param_max(param.id)}draft.runtime={...(draft.runtime??{}),initialMemory};
   }
   report.runtimeDraft=draft;fs.writeFileSync(path.join(output,"runtime.json"),JSON.stringify(draft,null,2)+"\n");fs.writeFileSync(path.join(output,"adapter.json"),JSON.stringify(report,null,2)+"\n");process.stdout.write(JSON.stringify({...report,output,artifact,temporarySource:temporary},null,2)+"\n")
 }
@@ -7029,6 +10809,25 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
     const rows=[90,123,156,189,222,255,288,321,354,354],toggleIds=[2,5,8,11,14,17,20,23,26,29],knobIds=[3,6,9,12,15,18,21,24,27,30],attenIds=[4,7,10,13,16,19,22,25,28,31],gateIds=[0,1,2,3,4,5,6,14,15,16],cvIds=[7,8,9,10,11,12,13,17,18,19];
     for(let index=0;index<rows.length;index++){if(index===8)continue;const y=rows[index];placements.params.set(toggleIds[index],{x:2,y:y-14,widget:"SmallIsoButton"});placements.params.set(attenIds[index],{x:98,y:y-9,widget:"SmallKnob"});placements.params.set(knobIds[index],{x:120,y:y-13,widget:index===4?"PortaloofKaleidModeKnob":"SmoothKnob"});placements.inputs.set(gateIds[index],{x:30,y:y-17});placements.inputs.set(cvIds[index],{x:68,y:y-14})}
   }
+  if(target.key==="SignalFunctionSet/Fugue"){
+    const mm=value=>Math.round(value*15/5.08*1000)/1000,voiceYs=[99.63,108.42,117.22];
+    for(let voice=0;voice<3;voice++)for(let step=0;step<8;step++){const param=paramsById.get(16+voice*8+step);if(param){param.name=`Gate ${String.fromCharCode(65+voice)} Step ${step+1}`;param.snap=true}}
+    for(let voice=0;voice<3;voice++){
+      const y=mm(voiceYs[voice]);
+      placements.outputs.set(voice*2,{x:mm(89.6),y,centered:true,widget:"PJ301MPort"});
+      placements.outputs.set(voice*2+1,{x:mm(79.94),y,centered:true,widget:"PJ301MPort"});
+    }
+  }
+  if(target.key==="SignalFunctionSet/Gravity"){
+    const mm=value=>Math.round(value*15/5.08*1000)/1000,paramYs=[111.76,86.36,60.96,35.55],inputYs=[121.93,96.52,71.12,45.72];
+    for(let id=0;id<4;id++){
+      placements.params.set(id,{x:mm(10.16),y:mm(paramYs[id]),centered:true,widget:"Trimpot"});
+      placements.inputs.set(id,{x:mm(10.16),y:mm(inputYs[id]),centered:true,widget:"PJ301MPort"});
+    }
+  }
+  if(target.key==="SignalFunctionSet/Muse"){
+    for(let voice=0;voice<4;voice++){const theme=paramsById.get(voice),interval=paramsById.get(4+voice);if(theme){theme.name=`Theme ${voice+1} tap`;theme.snap=true}if(interval){interval.name=`Interval ${voice+1} tap`;interval.snap=true}}
+  }
   if(target.key==="SignalFunctionSet/Meter"){
     const mm=value=>Math.round(value*15/5.08*1000)/1000,subdivisionNames=["Bar","Quarter","Eighth","Sixteenth","Quarter Triplet","Eighth Triplet"];
     detected.panelWidth=270;placements.panelSize={x:270,y:380};
@@ -7062,6 +10861,13 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
     for(const input of runtimeInputs)input.kind=[3,4,11].includes(input.id)?"gate":"cv";
     for(const output of runtimeOutputs)output.kind="gate";
     placements.lights.set(0,{x:mm(10.01),y:mm(121.92),centered:true,widget:"VCVLightLatch<MediumSimpleLight<GreenLight>>",paramId:3});
+  }
+  if(target.key==="SignalFunctionSet/MeterX"){
+    const mm=value=>Math.round(value*15/5.08*1000)/1000,ys=[20,31,42,53,64,75,86,97,108,119];
+    for(let id=0;id<10;id++){
+      placements.outputs.set(id,{x:mm(27),y:mm(ys[id]),centered:true,widget:"PJ301MPort"});
+      runtimeOutputs[id].kind="gate";
+    }
   }
   if(target.key==="SignalFunctionSet/MetaFugue"){
     const mm=value=>Math.round(value*15/5.08*1000)/1000,voiceYs=[99.63,108.42,117.22],voiceXYs=[45.72,60.96,76.2],letters=["A","B","C"];
@@ -7465,6 +11271,23 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
       return item;
     });
   }
+  if(target.key==="wiqid-anomalies/fullscope"){
+    detected.panelWidth=390;
+    detected.stateKeys=detected.stateKeys.map(item=>{
+      if(item.key==="lissajous")return{...item,type:"boolean",name:"Lissajous Mode",default:1,contextOnly:true};
+      if(item.key==="showstats")return{...item,type:"boolean",name:"Show Statistics",default:0,contextOnly:true};
+      if(item.key==="width")return{...item,name:"Module Width",default:390,contextOnly:true};
+      return item;
+    });
+  }
+  if(target.key==="Ahornberg/FlyingFader"){
+    const fader=paramsById.get(0),audioPoly=paramsById.get(3),cvScale=paramsById.get(4);
+    placements.params.set(0,{x:18,y:40.5,width:24,height:272,widget:"MotorizedFader"});
+    if(fader)Object.assign(fader,{button:false,snap:false,dragActionId:1000,position:{x:18,y:40.5,width:24,height:272,widget:"MotorizedFader"}});
+    if(audioPoly)Object.assign(audioPoly,{name:"Audio Polyphony Mode",hidden:false,contextOnly:true,snap:true,values:["Poly In - Poly Out","Poly In - Mono Out"]});
+    if(cvScale)Object.assign(cvScale,{name:"CV-Scale Mode",hidden:false,contextOnly:true,snap:true,values:["VCV Standard","MindMeld MixMaster"]});
+    detected.stateKeys=detected.stateKeys.map(item=>item.key==="fader-cap-color"?{...item,name:"Fader Cap Color",default:0,contextOnly:true,values:["white","grey","black","red","blue","green","brown","orange","pink","purple"]}:item);
+  }
   if(target.key==="JW-Modules/XYPad"){
     for(const input of runtimeInputs)if(placements.inputs.has(input.id))placements.inputs.set(input.id,{...placements.inputs.get(input.id),widget:"TinyPJ301MPort"});
     for(const output of runtimeOutputs)if(placements.outputs.has(output.id))placements.outputs.set(output.id,{...placements.outputs.get(output.id),widget:"TinyPJ301MPort"});
@@ -7550,6 +11373,19 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
       runtimeOutputs[id].name=id===0?"Gate":id===1?"Velocity":id===2?"Pitch Bend":id===3?"Modulation":id===4?"Aftertouch":id<13?`Knob ${id-4}`:`Slider ${id-12}`;
     }
   }
+  if(target.key==="voxglitch/digitalprogrammer"){
+    const panel=svgNamedCenters(path.join(sourceDir,"res","modules","digital_programmer","digital_programmer_panel.svg"));
+    if(panel){
+      const named=(name,widget)=>({...panel.centers.get(name),widget});
+      placements.panelSize=panel.panelSize;
+      for(let id=0;id<16;id++)placements.outputs.set(id,named(`output_${id}`,"VoxglitchOutputPort"));
+      placements.outputs.set(16,named("poly_output","VoxglitchPolyPort"));
+      for(const [id,name] of [[0,"bank_cv_input"],[1,"bank_next_input"],[2,"bank_prev_input"],[3,"bank_reset_input"],[4,"poly_add_input"]])placements.inputs.set(id,named(name,"VoxglitchInputPort"));
+      for(const [id,name,widget] of [[24,"copy_button","squareToggle"],[25,"clear_button","squareToggle"],[26,"randomize_button","squareToggle"],[27,"bank_prev_button","VCVLightBezel<WhiteLight>"],[28,"bank_next_button","VCVLightBezel<WhiteLight>"]])placements.params.set(id,named(name,widget));
+      placements.lights.set(27,{...named("bank_prev_button","MediumLight<WhiteLight>"),paramId:27});
+      placements.lights.set(28,{...named("bank_next_button","MediumLight<WhiteLight>"),paramId:28});
+    }
+  }
   const contextOnlyParams=placements.params.size===0&&runtimeInputs.length===0&&runtimeOutputs.length===0&&/\bappendContextMenu\s*\(/.test(detected.widgetSource??"");for(const param of paramsById.values()){if(placements.params.has(param.id)){const {snap,...position}=placements.params.get(param.id);param.position=position;if(snap||/(?:Snap|CKSS|NKK|Switch|Toggle)/i.test(param.position.widget??""))param.snap=true;if(/(?:^|<)(?:LEDButton|LEDBezel|LightBezel|VCVLightBezel|VCVButton|VCVLightButton|TL1105|BefacoPush|IM(?:Big)?PushButton)(?:>|$)|\bCKD6(?:_|$)|\b\w*Button(?:<|$)/i.test(param.position.widget??""))Object.assign(param,{snap:true,button:true})}else if(placements.params.size||contextOnlyParams)param.hidden=true}for(const input of runtimeInputs){if(placements.inputs.has(input.id))input.position=placements.inputs.get(input.id);else if(placements.inputs.size)input.hidden=true}for(const output of runtimeOutputs){if(placements.outputs.has(output.id))output.position=placements.outputs.get(output.id);else if(placements.outputs.size)output.hidden=true}
   if(target.key==="LyraeModules/Sulafat"){
     Object.assign(paramsById.get(0),{snap:true,values:["Bypass","Fold","Quant Fold","Tangent","Half Quant","Ring","S&H-Ish","Wut?"]});
@@ -7617,7 +11453,548 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
   if(target.key==="ModularMooch/Wolfram")
     Object.assign(paramsById.get(0),{min:-1,max:1,unbounded:true});
   if(process.env.RACK_WEB_DEBUG_WIDGET)process.stderr.write(`${JSON.stringify({source:detected.widgetSource,constants:{...(detected.widgetConstants??{}),...constants},placements:Object.fromEntries(["params","inputs","outputs","lights"].map(group=>[group,[...placements[group]]]))},null,2)}\n`);
-  const runtimeStateKeys=detected.stateKeys.map(item=>runtimeStateKey(target,item)),widgetSource=detected.widgetSource??"",multiMeterVisual=/\bMulti_MeterDisplay\b/.test(widgetSource)&&runtimeInputs.length>=3?[{kind:"multi-meter",inputs:[runtimeInputs[0].id,runtimeInputs[1].id,runtimeInputs[2].id],modeParam:0,channelsParam:1,x:29.173,y:39.862,width:271.654,height:248.031}]:undefined,spectrumRect=widgetDisplayRect(widgetSource,"SpectrumAnalyzerDisplay",constants),spectrumVisual=spectrumRect&&runtimeInputs.length?[{kind:"spectrum-analyzer",inputs:runtimeInputs.slice(0,4).map(input=>input.id),...spectrumRect}]:undefined,cellaFrequencyVisual=target.key==="Cella/FrequencyAnalyzer"?[{kind:"cella-frequency-analyzer",inputs:[0,1],x:0,y:26,width:496,height:320}]:undefined,spectrogramRect=widgetDisplayRect(widgetSource,"SpectralImageDisplay",constants),spectrogramVisual=spectrogramRect&&runtimeInputs.length?[{kind:"spectrogram",inputs:[runtimeInputs[0].id],...spectrogramRect}]:undefined,whatNoteVisual=target.key==="Skylights/SkWhatnoteCV"&&runtimeInputs.length?[{kind:"cv-note",inputs:[runtimeInputs[0].id],x:25,y:154,width:85,height:60}]:undefined,noteMeterVisual=target.key==="Chinenual-VCV/NoteMeter"?[{kind:"note-meter",inputs:Array.from({length:16},(_,index)=>index),accidentalParam:0,modeParam:1,decimalsParam:2,styleParam:3,x:32.48,y:19.193,width:78,height:337,rowHeight:21.038}]:undefined,bpmVisual=target.key==="Chinenual-VCV/MIDIRecorder"?[{kind:"bpm-display",inputs:[0],styleParam:1,x:38.386,y:279.035,width:30,height:10}]:undefined,paramNumericVisual=target.key==="GlueTheGiant/BusRoute"?[23.64,52.68,81.68].map((centerY,param)=>{const mm=value=>value*75/25.4,width=mm(6.519),height=mm(4);return {kind:"param-numeric-display",param,digits:3,x:mm(15.25)-width/2,y:mm(centerY)-height/2,width,height}}):undefined,noteEchoVisual=target.key==="ImpromptuModular/NoteEcho"?[0,1,2,3].map(tap=>({kind:"note-echo-display",tap,tapParam:tap,semiParam:4+tap,cv2Param:8+tap,probabilityParam:12+tap,randomSemiParam:22+tap,cv2ModeParam:17,polyParam:16,x:92.185,y:[209.646,162.402,115.157,67.913][tap],width:52,height:24})):undefined,scribbleVisual=target.key==="Interrobang/ScribbleStrip"?[{kind:"scribble-strip",dataKey:"labelText",defaultText:"Rt-click to edit",orientationState:0,x:7,y:8,width:31,height:325}]:undefined,lightMatrix=widgetLightMatrix(widgetSource,constants),lightMatrixVisual=lightMatrix?[lightMatrix]:undefined,scopeVisual=!multiMeterVisual&&!spectrumVisual&&!cellaFrequencyVisual&&!spectrogramVisual&&!whatNoteVisual&&!noteMeterVisual&&!bpmVisual&&!paramNumericVisual&&!noteEchoVisual&&!scribbleVisual&&!lightMatrixVisual&&/\bScopeDisplay\b/.test(widgetSource)&&runtimeInputs.length>=2?[{kind:"scope",inputs:[runtimeInputs[0].id,runtimeInputs[1].id],x:0,y:38.5,width:placements.panelSize?.x??detected.panelWidth??180,height:165}]:undefined,visuals=multiMeterVisual??spectrumVisual??cellaFrequencyVisual??spectrogramVisual??whatNoteVisual??noteMeterVisual??bpmVisual??paramNumericVisual??noteEchoVisual??scribbleVisual??lightMatrixVisual??scopeVisual,runtime={...(detected.browserAsset?{asset:{type:detected.browserAsset.type,maxSamples:detected.browserAsset.maxSamples,maxSeconds:detected.browserAsset.maxSeconds,channels:detected.browserAsset.channels,...(detected.browserAsset.slots?{slots:detected.browserAsset.slots}:{}),...(detected.browserAsset.url?{url:true}:{})}}:{}),...(detected.features.includes("expanders")?{expanderMode:detected.expander?.transport==="message-buffer"?"message-buffer":detected.expander?"host-snapshot":"disconnected",...(detected.expander?{expander:detected.expander}:{})}:{}),...(target.key==="AriaSalvatrice/Undular"?{hostControl:"rack-view"}:{}),...(target.key==="Chinenual-VCV/MIDIRecorder"?{capture:{format:"midi",channels:1,panelControlParam:0}}:{}),...(visuals?{visuals}:{})};
+  const runtimeStateKeys=detected.stateKeys.map(item=>runtimeStateKey(target,item)),widgetSource=detected.widgetSource??"",multiMeterVisual=/\bMulti_MeterDisplay\b/.test(widgetSource)&&runtimeInputs.length>=3?[{kind:"multi-meter",inputs:[runtimeInputs[0].id,runtimeInputs[1].id,runtimeInputs[2].id],modeParam:0,channelsParam:1,x:29.173,y:39.862,width:271.654,height:248.031}]:undefined,spectrumRect=widgetDisplayRect(widgetSource,"SpectrumAnalyzerDisplay",constants),spectrumVisual=spectrumRect&&runtimeInputs.length?[{kind:"spectrum-analyzer",inputs:runtimeInputs.slice(0,4).map(input=>input.id),...spectrumRect}]:undefined,cellaFrequencyVisual=target.key==="Cella/FrequencyAnalyzer"?[{kind:"cella-frequency-analyzer",inputs:[0,1],x:0,y:26,width:496,height:320}]:undefined,spectrogramRect=widgetDisplayRect(widgetSource,"SpectralImageDisplay",constants),spectrogramVisual=spectrogramRect&&runtimeInputs.length?[{kind:"spectrogram",inputs:[runtimeInputs[0].id],...spectrogramRect}]:undefined,whatNoteVisual=target.key==="Skylights/SkWhatnoteCV"&&runtimeInputs.length?[{kind:"cv-note",inputs:[runtimeInputs[0].id],x:25,y:154,width:85,height:60}]:undefined,noteMeterVisual=target.key==="Chinenual-VCV/NoteMeter"?[{kind:"note-meter",inputs:Array.from({length:16},(_,index)=>index),accidentalParam:0,modeParam:1,decimalsParam:2,styleParam:3,x:32.48,y:19.193,width:78,height:337,rowHeight:21.038}]:undefined,bpmVisual=target.key==="Chinenual-VCV/MIDIRecorder"?[{kind:"bpm-display",inputs:[0],styleParam:1,x:38.386,y:279.035,width:30,height:10}]:undefined,paramNumericVisual=target.key==="GlueTheGiant/BusRoute"?[23.64,52.68,81.68].map((centerY,param)=>{const mm=value=>value*75/25.4,width=mm(6.519),height=mm(4);return {kind:"param-numeric-display",param,digits:3,x:mm(15.25)-width/2,y:mm(centerY)-height/2,width,height}}):undefined,noteEchoVisual=target.key==="ImpromptuModular/NoteEcho"?[0,1,2,3].map(tap=>({kind:"note-echo-display",tap,tapParam:tap,semiParam:4+tap,cv2Param:8+tap,probabilityParam:12+tap,randomSemiParam:22+tap,cv2ModeParam:17,polyParam:16,x:92.185,y:[209.646,162.402,115.157,67.913][tap],width:52,height:24})):undefined,scribbleVisual=target.key==="Interrobang/ScribbleStrip"?[{kind:"scribble-strip",dataKey:"labelText",defaultText:"Rt-click to edit",orientationState:0,x:7,y:8,width:31,height:325}]:undefined,lightMatrix=widgetLightMatrix(widgetSource,constants),lightMatrixVisual=lightMatrix?[lightMatrix]:undefined,scopeVisual=!multiMeterVisual&&!spectrumVisual&&!cellaFrequencyVisual&&!spectrogramVisual&&!whatNoteVisual&&!noteMeterVisual&&!bpmVisual&&!paramNumericVisual&&!noteEchoVisual&&!scribbleVisual&&!lightMatrixVisual&&/\bScopeDisplay\b/.test(widgetSource)&&runtimeInputs.length>=2?[{kind:"scope",inputs:[runtimeInputs[0].id,runtimeInputs[1].id],x:0,y:38.5,width:placements.panelSize?.x??detected.panelWidth??180,height:165}]:undefined,nativeSignal=nativeSignalVisual(target,widgetSource,constants,placements.panelSize??{x:detected.panelWidth??120,y:380},runtimeInputs,runtimeOutputs),nativeSignalVisuals=!multiMeterVisual&&!spectrumVisual&&!cellaFrequencyVisual&&!spectrogramVisual&&!whatNoteVisual&&!noteMeterVisual&&!bpmVisual&&!paramNumericVisual&&!noteEchoVisual&&!scribbleVisual&&!lightMatrixVisual&&!scopeVisual&&nativeSignal?[nativeSignal]:undefined,visuals=multiMeterVisual??spectrumVisual??cellaFrequencyVisual??spectrogramVisual??whatNoteVisual??noteMeterVisual??bpmVisual??paramNumericVisual??noteEchoVisual??scribbleVisual??lightMatrixVisual??scopeVisual??nativeSignalVisuals,runtime={...(detected.browserAsset?{asset:{type:detected.browserAsset.type,maxSamples:detected.browserAsset.maxSamples,maxSeconds:detected.browserAsset.maxSeconds,channels:detected.browserAsset.channels,...(detected.browserAsset.slots?{slots:detected.browserAsset.slots}:{}),...(detected.browserAsset.url?{url:true}:{})}}:{}),...(detected.features.includes("expanders")?{expanderMode:detected.expander?.transport==="message-buffer"?"message-buffer":detected.expander?"host-snapshot":"disconnected",...(detected.expander?{expander:detected.expander}:{})}:{}),...(target.key==="AriaSalvatrice/Undular"?{hostControl:"rack-view"}:{}),...(target.key==="Chinenual-VCV/MIDIRecorder"?{capture:{format:"midi",channels:1,panelControlParam:0}}:{}),...(visuals?{visuals}:{})};
+  if(target.plugin==="alefsbits"&&/\bPanelBackground\b/.test(widgetSource)){
+    const panelSource=widgetSource.match(/["']res\/([^"']+\.svg)["']/i)?.[1];
+    if(panelSource)runtime.visuals=[{kind:"alefsbits-panel",assetBase:"./resources/",panelFile:panelSource,x:0,y:0,width:detected.panelWidth??placements.panelSize?.x??120,height:380},...(runtime.visuals??[])];
+  }
+  if(target.key==="alefsbits/turnt"){
+    runtime.visuals=[...(runtime.visuals??[]),{kind:"alefsbits-turnt",actionBase:1000,maxPoints:2048,topTabs:{x:1,y:221,width:118,height:10},scope:{x:1,y:230,width:118,height:95},bottomTabs:{x:1,y:324,width:118,height:10},x:1,y:221,width:118,height:113}];
+    const stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    if(stateByKey.has("trigger mode"))Object.assign(stateByKey.get("trigger mode"),{name:"Trigger Mode",default:0,values:["trigger","latch"],contextOnly:true});
+    if(stateByKey.has("freeze on disconnect"))Object.assign(stateByKey.get("freeze on disconnect"),{name:"Freeze When Idle",default:0,contextOnly:true});
+  }
+  if(target.key==="Bogaudio/Bogaudio-Analyzer"||target.key==="Bogaudio/Bogaudio-AnalyzerXL"){
+    const xl=target.key.endsWith("AnalyzerXL"),stateIndex=key=>runtimeStateKeys.findIndex(state=>state.key===key);
+    runtime.visuals=[{kind:"spectrum-analyzer",profile:"bogaudio",rangeMode:xl?"analyzer-xl":"analyzer",stateKeys:{frequencyPlot:stateIndex("frequency_plot"),range:stateIndex("range"),amplitudePlot:stateIndex("amplitude_plot")},inputs:runtimeInputs.map(input=>input.id),colors:["#00ff00d0","#ff00ffd0","#ff8000d0","#0080ffd0","#ff0000d0","#ffff00d0","#00ffffd0","#ff8080d0"],axisColor:"#ffffff70",textColor:"#ffffffc0",lineWidth:2,fillAlpha:0,freeze:true,x:xl?30:10,y:xl?1:25,width:xl?599:280,height:xl?378:230}];
+  }
+  if(nativeSignal)runtime.visuals=[nativeSignal];
+  const appendNativeInteraction=regions=>{
+    if(!regions.length)return;
+    runtime.visuals=[...(runtime.visuals??[]),{kind:"native-interaction",regions,x:0,y:0,width:detected.panelWidth??placements.panelSize?.x??120,height:380}];
+  },runtimeParamId=name=>[...paramsById.values()].find(param=>param.name===name)?.id,mm=value=>Number((value*75/25.4).toFixed(3)),setParam=(id,value)=>({target:"param",id,operation:"set",value}),cycleParam=(id,maximum)=>({target:"param",id,operation:"cycle",minimum:0,maximum,step:1,wrap:true}),paramMenu=(title,id,labels)=>({target:"menu",title,choices:labels.map((label,value)=>({label,command:setParam(id,value)}))}),editableText=config=>({kind:"editable-text",foregroundKey:"",backgroundKey:"",defaultForeground:"#111111",defaultBackground:"#eeeeee",defaultFontSize:12,fontFamily:"ui-monospace, monospace",lineHeight:1.05,padding:2,borderRadius:0,styleControls:false,multiline:false,rotation:0,...config});
+  if(target.key==="Cella/Loud"){
+    const rows=[
+      {label:"M",title:"Momentary, LUFS",y:31,invalid:-99,clipAgainst:9},
+      {label:"S",title:"Short-term, LUFS",y:54,invalid:-99},
+      {label:"I",title:"Integrated, LUFS",y:77,invalid:-99},
+      {label:"LR",title:"Loudness range, LU",y:108,invalid:0},
+      {label:"PSR",title:"Dynamics, LU",y:131,invalid:-99},
+      {label:"PLR",title:"Average dynamics, LU",y:154,invalid:-99},
+      {label:"MMAX",title:"Momentary max, LUFS",y:185,invalid:-99},
+      {label:"SMAX",title:"Short-term max, LUFS",y:208,invalid:-99},
+      {label:"TPMAX",title:"True peak max, dBTP",y:231,invalid:-99,clipAt:-.5},
+    ];
+    const visualBase={kind:"native-interaction",assetBase:"./resources/",x:0,y:0,width:90,height:380};
+    runtime.visuals=[
+      {...visualBase,font:{file:"JetBrainsMono-Medium.ttf",family:"Peach Cella JetBrains Mono"},regions:[
+        {label:"Loudness display",interactive:false,x:0,y:26,width:90,height:230,display:{source:"visual",id:0,hideValue:true,color:"transparent",background:"#000000",borderColor:"#333333",borderRadius:3,fontSize:0}},
+        ...rows.map((row,id)=>({label:row.title,title:row.title,hoverOnly:true,cursor:"default",x:0,y:row.y,width:54,height:25,display:{source:"visual",id,precision:1,invalidWhenNonFinite:true,invalidAtOrBelow:row.invalid,clippedAtOrAbove:row.clipAt,clippedAgainst:row.clipAgainst===undefined?undefined:{source:"visual",id:row.clipAgainst},clippedColor:"#c0392b",dash:{width:20,strokeWidth:1.53,color:"#f5f5dc"},color:"#f5f5dc",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:21,fontFamily:"Peach Cella JetBrains Mono",fontWeight:500,lineHeight:1,textAlign:"right",padding:0}})),
+      ]},
+      {...visualBase,font:{file:"SofiaSansExtraCondensed-Regular.ttf",family:"Peach Cella Sofia Sans Condensed"},regions:rows.map(row=>({label:`${row.label}: ${row.title}`,title:row.title,hoverOnly:true,cursor:"default",x:53,y:row.y,width:36,height:25,display:{source:"visual",id:0,text:row.label,color:"#5fbefa",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:16,fontFamily:"Peach Cella Sofia Sans Condensed",fontWeight:400,lineHeight:1,textAlign:"center",padding:0}})),
+      },
+    ];
+  }
+  if(target.key==="SubmarineFree/HS-101")runtime.visuals=[{
+    kind:"storage-scope",
+    input:0,
+    colorParam:6,
+    bins:1001,
+    headerValues:14,
+    scopeHeight:310,
+    info:{x:267.5,y:311,width:177.5,height:40},
+    color:"#29b2efc0",
+    strokeWidth:1.5,
+    x:2.5,
+    y:14,
+    width:445,
+    height:351,
+  }];
+  if(target.key==="unless_modules/room")runtime.visuals=[{
+    kind:"rack-row-tool",
+    inclusiveState:0,
+    stripModeState:1,
+    rows:5,
+    x:0,
+    y:42,
+    width:detected.panelWidth??45,
+    height:296,
+  }];
+  if(target.key==="AmalgamatedHarmonics/PolyScope")appendNativeInteraction([
+    {label:"Pause or resume scope",x:155,y:355,width:30,height:20,click:{target:"action",id:1000}},
+  ]);
+  if(target.key==="C1-ChannelStrip/ChanOut"){
+    for(let engine=0;engine<4;engine++)appendNativeInteraction([
+      {label:`Select character engine ${["Standard","2520","8816","DM2+"][engine]}`,x:16+engine*7,y:45,width:5.6,height:5.6,click:{target:"commands",commands:[{target:"action",id:1000+engine},setParam(0,0),setParam(1,.5)]}},
+    ]);
+    appendNativeInteraction([{label:"Toggle display",x:96,y:43,width:12,height:12,click:{target:"param",id:runtimeParamId("Display Enable"),operation:"toggle",value:1,alternateValue:0}}]);
+  }
+  if(target.key==="wintoid/FourMM"){
+    const algorithm=runtimeParamId("Algorithm"),algorithmNames=["4 => 3 => 2 => 1","(3+4) => 2 => 1","4 => 2 => 1, 3 => 1","4 => 3 => 1, 2 => 1","4 => 3, 2 => 1","4 => (1, 2, 3)","4 => 3, 2, 1","1, 2, 3, 4","4 => 3 => (1, 2)","(3+4) => (1, 2)","(2+3+4) => 1"];
+    appendNativeInteraction([{label:"Select FM algorithm",x:mm(15.96),y:mm(12),width:mm(100.08),height:mm(8),click:cycleParam(algorithm,10),rightClick:paramMenu("Algorithm",algorithm,algorithmNames)}]);
+    const foldNames=["Symmetric","Asymmetric","Soft Clip"];
+    [25,52,79,106.1].forEach((center,index)=>{const id=runtimeParamId(`Op ${index+1} Fold Type`);appendNativeInteraction([{label:`Select operator ${index+1} fold type`,x:mm(center-4),y:mm(105),width:mm(8),height:mm(4),click:cycleParam(id,2),rightClick:paramMenu("Fold Type",id,foldNames)}])});
+  }
+  if(target.key==="wintoid/VortexMM"){
+    const mode=runtimeParamId("Mode"),modeNames=["LP 6dB","LP 12dB","LP 24dB","HP 6dB","HP 12dB","HP 24dB","BP","BP+","Notch","Notch+","AP","AP+"];
+    appendNativeInteraction([{label:"Select filter mode",x:mm(5),y:mm(12),width:mm(20.48),height:mm(8),click:cycleParam(mode,11),rightClick:paramMenu("Filter Mode",mode,modeNames)}]);
+  }
+  if(target.key==="Kilpatrick-Toolbox/MIDI_Clock"){
+    const x=mm(4.32),y=mm(14.446),width=mm(32),height=mm(16),action=id=>({target:"action",id});
+    appendNativeInteraction([
+      {label:"Tap tempo",x,y:y+height*.25,width,height:height*.5,click:action(1000),rightClick:action(1000),wheelUp:action(1004),wheelDown:action(1005),shiftWheelUp:action(1006),shiftWheelDown:action(1007)},
+      {label:"Run or stop",x,y:y+height*.025,width:width*.5,height:height*.25,click:action(1001),rightClick:action(1001)},
+      {label:"Select internal or external clock",x:x+width*.5,y:y+height*.025,width:width*.5,height:height*.25,click:action(1003),rightClick:action(1003)},
+      {label:"Adjust output divider",x,y:y+height*.725,width:width*.5,height:height*.25,wheelUp:action(1008),wheelDown:action(1009)},
+      {label:"Toggle autostart",x:x+width*.5,y:y+height*.725,width:width*.5,height:height*.25,click:action(1002),rightClick:action(1002)},
+    ]);
+  }
+  if(target.key==="Atelier/AtelierPalette")runtime.visuals=[...(runtime.visuals??[]),{kind:"palette-engine-selector",actionBase:1000,positions:[[96.5,102.5],[103.5,90.5],[113.5,81.5],[127.5,75.5],[142.5,75.5],[156.5,81.5],[166.5,90.5],[173.5,102.5]],x:0,y:0,width:placements.panelSize?.x??detected.panelWidth??270,height:placements.panelSize?.y??380}];
+  if(target.key==="Alikins/SpecificValue")runtime.visuals=[...(runtime.visuals??[]),{kind:"specific-value",param:runtimeParamId("The voltage"),x:0,y:0,width:placements.panelSize?.x??detected.panelWidth??90,height:placements.panelSize?.y??380}];
+  if(target.key==="QuestionableDinner/Surgeon"){
+    const defaults=["0","0","0","0","0.0039","0.5","i*f","1/i*e","1"],titles=["Variable J","Variable K","Variable L","Time Warp","Env Attack","Env Decay","Pitch","Amplitude","Phase"];
+    runtime.visuals=[...(runtime.visuals??[]),...defaults.map((defaultText,index)=>({kind:"editable-text",dataKey:`expr${index}`,foregroundKey:"",backgroundKey:"",defaultText,title:titles[index],defaultForeground:"#ffffff80",defaultBackground:"#00000000",defaultFontSize:12,fontFamily:"DepartureMono, ui-monospace, monospace",lineHeight:1,padding:0,borderRadius:0,styleControls:false,multiline:false,rotation:0,x:mm(1.5),y:mm(12+index*6),width:mm(47.8),height:21}))];
+    appendNativeInteraction([{label:"Expression field description",interactive:false,x:mm(3.1),y:mm(7.86),width:mm(44),height:14,display:{source:"visual",id:0,defaultValue:0,labels:["SURGEON"],color:"#ffffff80",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:12,fontFamily:"DepartureMono, ui-monospace, monospace"}}]);
+  }
+  if(target.key==="BerserkAudio/XenScribe")runtime.visuals=[editableText({
+    dataKey:"scale",defaultText:"100\n200\n300\n400\n500\n600\n700\n800\n900\n1000\n1100\n1200",title:"Scale (cents)",multiline:true,x:mm(2),y:mm(2),width:mm(36.64),height:mm(106)
+  })];
+  if(target.key==="FrankBuss/Formula")runtime.visuals=[
+    editableText({dataKey:"text",title:"Formula",defaultForeground:"#f0f0f0",defaultBackground:"#000000",multiline:true,x:mm(3),y:mm(13),width:mm(85),height:mm(51)}),
+    editableText({dataKey:"freq",title:"Frequency formula",defaultForeground:"#f0f0f0",defaultBackground:"#000000",x:mm(16),y:mm(67.5),width:mm(72),height:mm(10)})
+  ];
+  if(target.key==="CVfunk/Count")runtime.visuals=[editableText({
+    dataKey:"maxCount",dataFormat:"integer",allowedCharacters:"0123456789",minimum:1,maximum:99999999999999,maximumLength:14,defaultText:"16",title:"Max count",x:(detected.panelWidth??150)/2-55,y:325,width:(detected.panelWidth??150)-40,height:20
+  })];
+  if(target.key==="CVfunk/JunkDNA")runtime.visuals=[editableText({
+    dataKey:"sequenceText",allowedCharacters:"ACGUTRYWSKMBDHVNX",uppercase:true,maximumLength:2056,defaultText:"N",title:"IUPAC sequence",x:15,y:30,width:mm(65),height:mm(12)
+  })];
+  if(target.key==="BCNmodular/Maestro")runtime.visuals=Array.from({length:6},(_,index)=>editableText({
+    dataKey:"channelLabels",dataIndex:index,defaultText:`CH${index+1}`,title:`Channel ${index+1} label`,maximumLength:4,defaultForeground:"#c8c8dc",defaultBackground:"#1e1e32",defaultFontSize:9,fontFamily:"Inter, sans-serif",textAlign:"center",padding:0,borderRadius:2,x:mm(4),y:mm(47+index*13),width:mm(11),height:mm(8)
+  }));
+  if(target.key==="Stoermelder-P1/CVMapCtx")runtime.visuals=[editableText({
+    dataKey:"cvMapId",defaultText:"",title:"CV-MAP ID",maximumLength:8,defaultForeground:"#ffffff",defaultBackground:"#000000",defaultFontSize:13,fontFamily:"ui-monospace, monospace",padding:0,x:-12,y:305,width:54,height:13,rotation:90
+  })];
+  if(target.key==="SequelSequencers/Samuel"){
+    const pixelSize=mm(1.03),pitch=mm(1.04),border=mm(2);
+    runtime.visuals=[{kind:"dot-matrix-text",dataKey:"samuelText",columns:83,rows:47,glyphs:sequelCharacterGlyphs(sourceDir),pixelSize,pitch,border,color:"#e94f3d",background:"#000000",x:mm(5.759),y:mm(25),width:83*pitch+2*border,height:47*pitch+2*border}];
+  }
+  if(target.key==="TMT/Spellbook")runtime.visuals=[{kind:"spellbook-editor",dataKey:"text",lineHeightKey:"lineHeight",defaultText:spellbookDefaultText(sourceDir),minimumLineHeight:4,maximumLineHeight:128,x:mm(30.48),y:mm(2.54),width:mm(182.88),height:380-mm(5.08)}];
+  if(target.key==="voxglitch/digitalprogrammer")runtime.visuals=[
+    ...(runtime.visuals??[]),
+    {kind:"digital-programmer",banks:24,columns:16,stateBase:0,selectedBankState:384,actionBase:0x43000000,sliderPositions:[27,58.75,90.5,122,154.25,185.75,217.25,249,280.75,312.5,344.5,376.25,408,439.75,471.5,503].map(x=>[x,25.25]),sliderWidth:24,sliderHeight:288.5,bankPositions:Array.from({length:24},(_,index)=>[561.8+(index%6)*30.5,126.8+Math.floor(index/6)*30.3]),bankWidth:25.2,bankHeight:25.2,dataKey:"labels",x:0,y:0,width:placements.panelSize?.x??detected.panelWidth??765,height:placements.panelSize?.y??380},
+    ...Array.from({length:16},(_,index)=>editableText({
+      dataKey:"labels",dataIndex:index,defaultText:"",title:`Slider ${index+1} label`,contextOnly:true,maximumLength:160,x:0,y:0,width:0,height:0
+    })),
+  ];
+  if(target.key==="mscHack/Morze")runtime.visuals=[editableText({
+    dataKey:"MorseText",defaultText:"mscHack",title:"Morse text",multiline:true,x:4,y:100,width:67,height:150
+  })];
+  if(target.key==="SonusModular/Ctrl")runtime.visuals=Array.from({length:8},(_,index)=>editableText({
+    dataKey:`patchworkWebLabel${index}`,title:`Control ${index+1} label`,multiline:true,x:8+60*(index%4),y:160+130*Math.floor(index/4),width:44,height:36
+  }));
+  if(target.key==="dbRackModules/Interface")runtime.visuals=Array.from({length:12},(_,index)=>editableText({
+    dataKey:"labels",dataIndex:index,maximumLength:16,title:`Row ${index+1} label`,defaultForeground:"#204420",defaultBackground:"#cccccc",defaultFontSize:14,fontFamily:"FreeMono, ui-monospace, monospace",fontWeight:700,padding:2,borderRadius:3,x:mm(7.5),y:mm(128.5-((index<6?108.5:105.5)-index*8.3)),width:mm(45.5),height:mm(6)
+  }));
+  if(target.key==="dbRackModules/HexSeq")runtime.visuals=Array.from({length:12},(_,index)=>editableText({
+    dataKey:"hexStrings",dataIndex:index,allowedCharacters:"0123456789ABCDEF*",uppercase:true,maximumLength:16,title:`Sequence ${index+1}`,defaultForeground:"#204420",defaultBackground:index%2===0?"#bbbbbb":"#cccccc",defaultFontSize:14,fontFamily:"FreeMono, ui-monospace, monospace",fontWeight:700,padding:2,x:mm(3),y:mm(128.5-(105-index*8.3)),width:mm(45.5),height:mm(6)
+  }));
+  if(target.key==="dbRackSequencer/HexSeqP2"){
+    const actionBase=0x44000000,stateIndex=key=>runtimeStateKeys.findIndex(state=>state.key===key),stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    runtime.visuals=Array.from({length:16},(_,index)=>editableText({
+      dataKey:"hexStrings",dataIndex:index,dataOuterIndexParam:0,deferred:true,allowedCharacters:"0123456789ABCDEF*",uppercase:true,maximumLength:16,title:`Sequence ${index+1}`,defaultForeground:"#204420",dirtyForeground:"#aa2020",defaultBackground:"#bbbbbb",backgroundCss:"linear-gradient(to right,#bbbbbb 0 25%,#cccccc 25% 50%,#bbbbbb 50% 75%,#cccccc 75% 100%)",focusBackgroundCss:"linear-gradient(to right,#aaddaa 0 25%,#ccffcc 25% 50%,#aaddaa 50% 75%,#ccffcc 75% 100%)",defaultFontSize:14,fontFamily:"FreeMono, ui-monospace, monospace",fontWeight:700,padding:2,borderRadius:0,hexPatternShortcuts:{densityState:stateIndex("randomDens"),minimumLengthState:stateIndex("randomLengthFrom"),maximumLengthState:stateIndex("randomLengthTo")},x:mm(3),y:mm(12+index*7),width:mm(45.5),height:mm(5)
+    }));
+    for(const [id,action] of [[2,0],[3,1],[4,2],[5,3]])paramsById.get(id).actionId=actionBase+action;
+    const metadata={
+      showLights:{name:"Show Lights",default:1,contextOnly:true},delay:{name:"Clock Input Delay",default:0,contextOnly:true},randomDens:{name:"Random Density",default:.3,contextOnly:true},randomLengthFrom:{name:"Random Length From",default:8,contextOnly:true},randomLengthTo:{name:"Random Length To",default:8,contextOnly:true}
+    };
+    for(const [key,value] of Object.entries(metadata))if(stateByKey.has(key))Object.assign(stateByKey.get(key),value);
+    runtime.contextActions=[{id:actionBase+4,name:"Randomize Current Pattern"},{id:actionBase+5,name:"Initialize Current Pattern"}];
+  }
+  if(["Bidoo/ENCORE","Bidoo/ZOUMAI"].includes(target.key))runtime.visuals=Array.from({length:8},(_,index)=>editableText({
+    dataKey:`label${index}`,defaultText:`Track ${index+1}`,title:`Track ${index+1} label`,contextOnly:true,maximumLength:64,x:0,y:0,width:0,height:0
+  }));
+  if(["MADZINE/MADDY","MADZINE/MADDYPlus","MADZINE/PPaTTTerning"].includes(target.key))runtime.visuals=[editableText({
+    dataKey:"customPattern",dataFormat:"one-based-digits",allowedCharacters:"123456789",defaultText:"12345",title:"Custom pattern",contextOnly:true,maximumLength:64,x:0,y:0,width:0,height:0
+  })];
+  if(target.key==="Venom/PolyOffset"){
+    for(const id of [16,17,18]){const param=paramsById.get(id);if(param){delete param.hidden;param.contextOnly=true}}
+    const stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state])),metadata={
+      rangeId:{name:"Range",contextOnly:true},quantV2:{name:"Quantization",contextOnly:true},unit:{name:"Unit",contextOnly:true},channels:{name:"Channels",contextOnly:true}
+    };
+    for(const [key,value] of Object.entries(metadata))if(stateByKey.has(key))Object.assign(stateByKey.get(key),value);
+  }
+  if(target.key==="VCV-Recorder/Recorder"){
+    const labels=[" 0","-3","-6","-12","-24","-36"],centers=[18.068,23.366,28.663,33.961,39.258,44.556].map(mm);
+    appendNativeInteraction(labels.map((label,index)=>({label:`Recorder meter label ${label.trim()}`,interactive:false,x:16,y:centers[index]-7,width:40,height:14,display:{source:"visual",id:0,defaultValue:0,labels:[label],color:"#636363",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:11,fontFamily:"Nunito, sans-serif",fontWeight:700}})));
+  }
+  if(target.key==="mscHack/Compressor1"){
+    const state=runtimeStateKeys.findIndex(item=>item.key==="m_bBypass");
+    appendNativeInteraction([{label:"Compressor bypass",x:10,y:34,width:11,height:11,click:{target:"state",id:state,operation:"toggle",value:1,alternateValue:0},display:{source:"state",id:state,defaultValue:0,hideValue:true,color:"transparent",background:"#b4b4b4",borderColor:"transparent",borderRadius:0,fontSize:0,indicator:{width:8,height:8,borderRadius:2.5,colors:["#404040","#ff0000"]}}}]);
+  }
+  if(target.key==="mscHack/Lorenz"){
+    const state=runtimeStateKeys.findIndex(item=>item.key==="m_FilterState");
+    for(let filter=0;filter<3;filter++){
+      const colors=Array(4).fill("#404040");colors[filter+1]="#ffffff";
+      appendNativeInteraction([{label:`${["Low-pass","Band-pass","High-pass"][filter]} filter`,x:154,y:280+23*filter,width:10,height:10,click:{target:"condition",source:"state",id:state,equals:filter+1,command:{target:"state",id:state,operation:"set",value:0},otherwise:{target:"state",id:state,operation:"set",value:filter+1}},display:{source:"state",id:state,defaultValue:0,hideValue:true,color:"transparent",background:"#b4b4b4",borderColor:"transparent",borderRadius:0,fontSize:0,indicator:{width:8,height:8,borderRadius:2.5,colors}}}]);
+    }
+  }
+  if(target.key==="mscHack/Maude221"){
+    const definitions=[{state:0,x:15,y:81,count:3},{state:1,x:71,y:81,count:3},{state:2,x:32,y:248,count:5}];
+    for(const definition of definitions)for(let button=0;button<definition.count;button++){
+      const state=runtimeStateKeys.findIndex((item)=>item.key==="RectModes"&&item.index==definition.state),colors=Array(definition.count).fill("#404040");colors[button]="#b4b4b4";
+      appendNativeInteraction([{label:`Rectifier ${definition.state+1} mode ${button+1}`,x:definition.x+12*button,y:definition.y,width:12,height:12,click:{target:"state",id:state,operation:"set",value:button},display:{source:"state",id:state,defaultValue:[1,1,2][definition.state],hideValue:true,color:"transparent",background:"#000000",borderColor:"transparent",borderRadius:0,fontSize:0,indicator:{width:11.5,height:11.5,borderRadius:0,colors}}}]);
+    }
+  }
+  if(target.key==="mscHack/MasterClockx4"){
+    const led=(id,colors,width,height,radius=2.5)=>({source:"visual",id,defaultValue:0,hideValue:true,color:"transparent",background:"#b4b4b4",borderColor:"transparent",borderRadius:0,fontSize:0,indicator:{width,height,borderRadius:radius,colors}}),action=id=>({target:"action",id});
+    appendNativeInteraction([
+      {label:"Global clock stop",x:22,y:144,width:25,height:25,click:action(1000),display:led(0,["#404040","#ff0000"],20,20)},
+      {label:"Global clock sync",x:22,y:202,width:25,height:25,click:action(1001),display:led(1,["#404040","#00ffff"],20,20)},
+      {label:"BPM display",interactive:false,x:5,y:115,width:89.375,height:15.125,display:{source:"visual",id:14,defaultValue:120,precision:2,color:"#ffffff",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:14,fontFamily:"DSEG7ClassicMini, ui-monospace, monospace",fontWeight:700}},
+    ]);
+    for(let channel=0;channel<4;channel++){
+      const y=39+80*channel;
+      appendNativeInteraction([
+        {label:`Clock ${channel+1} double time`,x:93,y:y+2,width:11,height:11,click:action(1010+channel),display:led(2+channel,["#404040","#00ffff"],9,9)},
+        {label:`Clock ${channel+1} sync`,x:167,y:y+4,width:19,height:19,click:action(1020+channel),display:led(6+channel,["#404040","#00ffff"],15,15)},
+        {label:`Clock ${channel+1} stop`,x:223,y:y+4,width:19,height:19,click:action(1030+channel),display:led(10+channel,["#404040","#ff0000"],15,15)},
+        {label:`Clock ${channel+1} multiplier display`,interactive:false,x:101,y:y+48,width:113.75,height:19.25,display:{source:"visual",id:15+channel,colorId:19+channel,defaultValue:1,precision:0,colors:["#ff0000","#ffffff","#00ffff"],color:"#ffffff",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:18,fontFamily:"DSEG7ClassicMini, ui-monospace, monospace",fontWeight:700}},
+      ]);
+    }
+  }
+  if(target.key==="Befaco/MidiThingV2"){
+    const mm=value=>Number((value*75/25.4).toFixed(3)),labels=["0/10v","-5/5v","0/8v","0/5v"];
+    for(let row=0;row<4;row++)for(let col=0;col<3;col++){
+      const channel=row*3+col,choices=labels.map((label,mode)=>({label:label.replace("/"," to "),command:{target:"action",id:1000+channel*4+mode}}));
+      appendNativeInteraction([{label:`Voltage mode port ${channel+1}`,x:mm(.828+9.751*col),y:mm(28.019+5.796*row),width:mm(9.298),height:mm(5.116),rightClick:{target:"menu",title:`Voltage mode port ${channel+1}`,choices},display:{source:"visual",id:channel,defaultValue:0,labels,color:"#ff1010",background:"#202020",borderColor:"#101010",activeBorderColor:"#ff2020",activeId:12+channel,borderRadius:2,fontSize:9,fontFamily:"sans-serif"}}]);
+    }
+  }
+  if(target.key==="Chinenual-VCV/DrumMap"){
+    const mm=value=>Number((value*75/25.4).toFixed(3)),definitions=[
+      ["High Q","HighQ"],["Slap","Slap"],["Scratch Push","ScrPush"],["Scratch Pull","ScrPull"],["Sticks","Stick"],["Square Click","S-Clk"],["Metronome Click","M-Clk"],["Metronome Bell","M-Bell"],["Bass Drum 2","Kick2"],["Bass Drum 1","Kick"],["Side Stick","Stick"],["Snare Drum 1","Snare"],["Hand Clap","Clap"],["Snare Drum 2","Snare2"],["Low Tom 2","L-Tom2"],["Closed Hi-hat","C-Hat"],["Low Tom 1","L-Tom"],["Pedal Hi-hat","P-Hat"],["Mid Tom 2","M-Tom2"],["Open Hi-hat","O-Hat"],["Mid Tom 1","M-Tom"],["High Tom 2","H-Tom2"],["Crash Cymbal 1","Crash"],["High Tom 1","H-Tom"],["Ride Cymbal 1","Ride"],["Chinese Cymbal","Chine"],["Ride Bell","RBell"],["Tambourine","Tamb"],["Splash Cymbal","Splash"],["Cowbell","Cowbell"],["Crash Cymbal 2","Crash2"],["Vibra Slap","Vibra"],["Ride Cymbal 2","Ride2"],["High Bongo","HBongo"],["Low Bongo","LBongo"],["Mute High Conga","MHConga"],["Open High Conga","OHConga"],["Low Conga","LConga"],["High Timbale","HTimbal"],["Low Timbale","LTimbal"],["High Agogo","HAgogo"],["Low Agogo","LAgogo"],["Cabasa","Cabasa"],["Maracas","Maraca"],["Short Whistle","SWhistl"],["Long Whistle","LWhistl"],["Short Guiro","SGuiro"],["Long Guiro","LGuiro"],["Claves","Claves"],["High Wood Block","HWBlock"],["Low Wood Block","LWBlock"],["Mute Cuica","M-Cuica"],["Open Cuica","O-Cuica"],["Mute Triangle","M-Tri"],["Open Triangle","O-Tri"],["Shaker","Shaker"],["Jingle Bell","Jingle"],["Belltree","Belltre"],["Castanets","Castanet"],["Mute Surdo","M-Surdo"],["Open Surdo","O-Surdo"]
+    ],defaults=[9,16,11,20,4,23,17,12,15,22,19,24],labels=definitions.map(item=>item[1]);
+    for(let row=0;row<6;row++)for(let col=0;col<2;col++){
+      const id=row*2+col,choices=definitions.map(([name],value)=>({label:`${name} (${value+27})`,command:{target:"state",id,operation:"set",value}}));
+      appendNativeInteraction([{label:`General MIDI mapping ${id+1}`,x:mm(-13+20*col),y:mm(8+16*row),width:55,height:22,click:{target:"menu",title:"General MIDI",choices},display:{source:"state",id,defaultValue:defaults[id],labels,color:"#ffd456",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:15,fontFamily:"Open Sans, sans-serif",fontWeight:700}}]);
+    }
+  }
+  if(target.key==="SickoCV/Clocker2"){
+    const mm=value=>Number((value*75/25.4).toFixed(3)),labels=["/256","/128","/64","/48","/32","/24","/17","/16","/15","/14","/13","/12","/11","/10","/9","/8","/7","/6","/5","/4","/3","/2","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x11","x12","x13","x14","x15","x16","x17","x24","x32","x48","x64","x128","x256"],colors=labels.map((_,index)=>index<22?"#ff2020":"#20ff20"),divControls=runtimeStateKeys.findIndex(state=>state.key==="divControls");
+    for(let index=0;index<6;index++){
+      const param=runtimeParamId(`Mult/Div #${index+1}`),menu={target:"menu",title:`Mult/Div #${index+1}`,choices:labels.map((label,value)=>({label,command:{target:"param",id:param,operation:"set",value}}))};
+      appendNativeInteraction([{label:`Mult/Div #${index+1}`,x:mm(15.5),y:mm(57.2+11*index),width:mm(15),height:mm(6.3),click:{target:"condition",source:"state",id:divControls,equals:1,command:{target:"param",id:param,operation:"cycle",minimum:0,maximum:44,step:-1,wrap:false}},rightClick:{target:"condition",source:"state",id:divControls,equals:1,command:{target:"param",id:param,operation:"cycle",minimum:0,maximum:44,step:1,wrap:false},otherwise:menu},display:{source:"param",id:param,defaultValue:22,labels,colors,color:"#ff2020",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:12,fontFamily:"DSEG7ClassicMini, ui-monospace, monospace",fontWeight:700}}]);
+    }
+  }
+  if(target.key==="moDllz/Kn8b"){
+    runtime.visuals=[{kind:"modllz-kn8b",actionBase:1000,rows:8,rowHeight:35,displayHeight:33,x:41,y:18.5,width:74,height:278}];
+    for(const [paramId,actionId] of [[11,1100],[12,1101],[13,1102],[14,1103]])paramsById.get(paramId).actionId=actionId;
+    const processingRate=runtimeStateKeys.find(state=>state.key==="sampleRateWork");
+    if(processingRate)Object.assign(processingRate,{name:"Processing Rate",default:1,values:["1 ms","Sample"],contextOnly:true});
+  }
+  if(target.key==="moDllz/MIDIpolyMPE"){
+    runtime.visuals=[{kind:"modllz-midi-poly-mpe",actionBase:1000,valueActionBase:2000,x:0,y:0,width:150,height:380}];
+    const stateMetadata={
+      polyModeId:["Polyphony Mode",0],pbDwn:["Pitch Bend Down",-12],pbUp:["Pitch Bend Up",12],pbMPE:["MPE Pitch Bend",96],mpeRvPb:["Release Velocity / Pitch Bend",0],numVoCh:["Voice Channels",8],stealMode:["Voice Steal Mode",0],MPEmasterCh:["MPE Master Channel",0],mpeYcc:["MPE Y CC",74],mpeZcc:["MPE Z CC",128],detune:["Random Detune",10],spread:["Unison Spread",0],trnsps:["Transpose",0],noteMin:["Minimum Note",0],noteMax:["Maximum Note",127],velMin:["Minimum Velocity",1],velMax:["Maximum Velocity",127],xpander:["Xpand Group and Mode",0]
+    };
+    for(const state of runtimeStateKeys){
+      const metadata=stateMetadata[state.key];
+      Object.assign(state,{name:metadata?.[0]??state.key.replace(/([A-Z])/g," $1").replace(/^./,value=>value.toUpperCase()),default:metadata?.[1]??0,contextOnly:true});
+    }
+  }
+  if(target.key==="moDllz/Xpand"){
+    const groupState=runtimeStateKeys.findIndex(state=>state.key==="xpanderId");
+    runtime.visuals=[{kind:"modllz-xpand",state:groupState,choices:["A","B","C","D"],choiceWidth:12.5,activeHeight:16,x:5,y:17,width:50,height:50}];
+    if(groupState>=0)Object.assign(runtimeStateKeys[groupState],{name:"Xpand Group",default:0,values:["A","B","C","D"],contextOnly:true});
+  }
+  if(target.key==="CosineKitty-Sapphire/Moots"){
+    const stateIndex=key=>runtimeStateKeys.findIndex(state=>state.key===key),controlModeState=stateIndex("controlMode"),rampingStates=runtimeStateKeys.map((state,index)=>state.key==="slew"?index:-1).filter(index=>index>=0);
+    runtime.visuals=[{kind:"sapphire-moots",assetBase:"./resources/",controlModeState,rampingStates,labelCenter:[75,219.98],labelHitSize:[35.433,8.858],buttonCenters:[[73.967,50.935],[73.967,114.419],[73.967,177.904],[73.967,241.388],[73.967,304.872]],buttonSize:21.26,x:0,y:0,width:detected.panelWidth??150,height:380}];
+  }
+  if(target.key==="CosineKitty-Sapphire/Nucleus"||target.key==="CosineKitty-Sapphire/Polynucleus"){
+    const state=runtimeStateKeys.findIndex(item=>item.key==="tricorderOutputIndex"),polynucleus=target.key.endsWith("/Polynucleus");
+    runtime.visuals=[{kind:"sapphire-output-selector",state,rows:4,rowBox:polynucleus?{x:164.291,y:224.901,width:63.484,height:28.544,pitch:28.544}:{x:86.781,y:241.141,width:141.407,height:25.592,pitch:25.592},hitFraction:polynucleus?.29:.15,arrow:polynucleus?{a:.8,h:.38,g:.1,v:.71,w:.02}:{a:.89,h:.38,g:.1,v:.85,w:.02},x:0,y:0,width:detected.panelWidth??240,height:380}];
+    const selected=runtimeStateKeys[state];
+    if(selected)Object.assign(selected,{name:"Tricorder Output Row",default:1});
+  }
+  if(target.key==="Alikins/HoveredValue"){
+    runtime.hoverBridge={mode:"inspect",enableParam:1,rangeParam:2,rawParam:0,scaledParam:3};
+    runtime.visuals=[{kind:"alikins-hover-bridge",mode:"inspect",fieldX:10,fieldY:[38,78,118,158,198],fieldWidth:70,fieldHeight:22,x:0,y:0,width:detected.panelWidth??90,height:380}];
+    const tooltip=runtimeStateKeys.find(item=>item.key==="useTooltip");
+    if(tooltip)Object.assign(tooltip,{name:"Show Tooltip",default:1,contextOnly:true});
+  }
+  if(target.key==="Alikins/InjectValue"){
+    runtime.hoverBridge={mode:"inject",enableParam:0,rangeParam:1,input:0};
+    runtime.visuals=[{kind:"alikins-hover-bridge",mode:"inject",fieldX:10,fieldY:[38,78,118,158,198],fieldWidth:70,fieldHeight:22,x:0,y:0,width:detected.panelWidth??90,height:380}];
+  }
+  if(target.key==="Kilpatrick-Toolbox/MIDI_Channel"){
+    const display=(id,format,extra={})=>({source:"param",id,format,digits:2,color:"#eeeeee",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:16,fontFamily:"Peach Kilpatrick Fixedsys, ui-monospace, monospace",fontWeight:400,textAlign:"left",padding:0,...extra}),cycle=(id,minimum,maximum,step)=>({target:"param",id,operation:"cycle",minimum,maximum,step,wrap:false});
+    appendNativeInteraction([
+      {label:"Input MIDI channel",x:mm(2.16),y:mm(16.5),width:mm(16),height:mm(8),wheelUp:cycle(0,-1,15,-1),wheelDown:cycle(0,-1,15,1),display:display(0,"midi-channel-any")},
+      {label:"Output MIDI channel",x:mm(2.16),y:mm(28.5),width:mm(16),height:mm(8),wheelUp:cycle(1,0,15,-1),wheelDown:cycle(1,0,15,1),display:display(1,"midi-channel")},
+      {label:"Key split",x:mm(2.16),y:mm(40.5),width:mm(16),height:mm(8),doubleClick:{target:"param",id:3,operation:"toggle",value:1,alternateValue:0},wheelUp:{target:"commands",commands:[{target:"param",id:3,operation:"set",value:1},cycle(2,36,84,-1)]},wheelDown:{target:"commands",commands:[{target:"param",id:3,operation:"set",value:1},cycle(2,36,84,1)]},display:display(2,"integer",{condition:{source:"param",id:3,equals:1,otherwiseText:"OFF"}})},
+      {label:"Key transpose",x:mm(2.16),y:mm(52.5),width:mm(16),height:mm(8),wheelUp:cycle(4,-24,24,-1),wheelDown:cycle(4,-24,24,1),display:display(4,"signed-integer")},
+    ]);
+    const visual=runtime.visuals?.find(item=>item.kind==="native-interaction");
+    if(visual)Object.assign(visual,{assetBase:"./resources/",font:{file:"fixedsys.ttf",family:"Peach Kilpatrick Fixedsys"}});
+  }
+  if(target.key==="Kilpatrick-Toolbox/MIDI_Mapper"){
+    const regions=[];
+    for(let row=0;row<6;row++)regions.push({label:`MIDI mapping ${row+1}`,x:mm(2.16),y:mm(16.5+12*row),width:mm(16),height:mm(8),click:{target:"action",id:1000+row},wheelUp:{target:"action",id:1010+row},wheelDown:{target:"action",id:1020+row},display:{source:"param",id:row,format:"midi-map",secondary:{source:"param",id:6+row},activeText:{source:"visual",id:0,equals:row,text:"MAP>MAP"},color:"#eeeeee",background:"transparent",borderColor:"transparent",borderRadius:0,fontSize:12,fontFamily:"Peach Kilpatrick Fixedsys, ui-monospace, monospace",fontWeight:400,textAlign:"left",padding:0}});
+    appendNativeInteraction(regions);
+    const visual=runtime.visuals?.find(item=>item.kind==="native-interaction");
+    if(visual)Object.assign(visual,{assetBase:"./resources/",font:{file:"fixedsys.ttf",family:"Peach Kilpatrick Fixedsys"}});
+  }
+  if(target.key==="Kilpatrick-Toolbox/Stereo_Meter"){
+    runtime.visuals=[{kind:"kilpatrick-stereo-meter",refParams:[0,1],assetBase:"./resources/",font:{file:"fixedsys.ttf",family:"Peach Kilpatrick Fixedsys"},radius:mm(1),x:mm(2.24),y:mm(14.5),width:mm(26),height:mm(68)}];
+  }
+  if(target.key==="Kilpatrick-Toolbox/Test_Osc"){
+    runtime.visuals=[{kind:"kilpatrick-test-osc",wheelUpAction:1000,wheelDownAction:1001,assetBase:"./resources/",font:{file:"fixedsys.ttf",family:"Peach Kilpatrick Fixedsys"},radius:mm(1),x:mm(4.32),y:mm(10.5),width:mm(32),height:mm(20)}];
+  }
+  if(target.key==="Kilpatrick-Toolbox/Quad_Panner"){
+    runtime.visuals=[{kind:"kilpatrick-joystick",actionBase:1000,actionSteps:4096,resetParam:0,controlAreaScale:.6,knobRadius:10,knobColor:"#ff0000",x:mm(5.48),y:mm(57.5),width:mm(50),height:mm(50)}];
+  }
+  if(target.key==="QuantalAudio/DaisyChannel2"){
+    const mute=runtimeParamId("Mute");
+    runtime.hoverActions=[{key:"m",phase:"release",param:mute,operation:"toggle",value:1,alternateValue:0},{key:"s",phase:"release",param:mute,operation:"toggle",value:-1,alternateValue:0}];
+  }
+  if(target.key==="QuantalAudio/DaisyMaster2")runtime.hoverActions=[{key:"m",phase:"release",param:runtimeParamId("Mute"),operation:"toggle",value:1,alternateValue:0}];
+  if(target.key==="ZZC/Clock")runtime.hoverActions=[{key:" ",action:1000}];
+  if(target.key==="dbRackModules/Faders")runtime.hoverActions=[{key:"f",action:1000}];
+  if(target.key==="dbRackModules/FadersOne")runtime.hoverActions=[{key:"f",action:1000}];
+  if(target.key==="ModularFungi/LightsOff")runtime.hoverActions=[{key:"x",modifiers:6,action:1000}];
+  if(target.key==="ImpromptuModular/Chord-Key")runtime.hoverActions=[
+    {key:"c",modifiers:1,action:2000},
+    {key:"c",modifiers:5,action:2001},
+    {key:"v",modifiers:1,action:2002},
+    {key:"v",modifiers:5,action:2003},
+  ];
+  if(target.key==="ImpromptuModular/Four-View")runtime.hoverActions=[
+    {key:"c",modifiers:1,action:2000},
+    {key:"c",modifiers:5,action:2001},
+  ];
+  if(target.key==="ImpromptuModular/Cv-Pad")runtime.hoverActions=[
+    {key:"c",modifiers:1,action:2000},
+    {key:"v",modifiers:1,action:2001},
+  ];
+  if(target.key==="ImpromptuModular/Clocked"||target.key==="ImpromptuModular/Clocked-Clkd")runtime.hoverActions=[
+    {key:" ",action:2000},
+    {key:"m",modifiers:2,hostAction:"clock-autopatch"},
+    {key:"m",modifiers:8,hostAction:"clock-autopatch"},
+  ];
+  if(["ImpromptuModular/Foundry","ImpromptuModular/Gate-Seq-64","ImpromptuModular/Phrase-Seq-16","ImpromptuModular/Phrase-Seq-32"].includes(target.key))runtime.hoverActions=[
+    {key:" ",action:2000},
+    ...Array.from({length:10},(_,digit)=>({key:String(digit),action:2100+digit})),
+  ];
+  if(target.key==="Stoermelder-P1/Spin")runtime.globalPointer={
+    paramHoverOnlyParam:0,
+    modifiersState:1,
+    modifiersDefault:1,
+    wheel:{downAction:1000,upAction:1001,lockMs:500},
+    middle:{action:1010,modeState:2,modeDefault:1,disabledValue:0},
+  };
+  if(target.key==="voxglitch/GrooveBoxExpander"){
+    for(let track=0;track<8;track++){
+      Object.assign(paramsById.get(track)??{},{contextActions:[{id:1300,name:"Unmute All"}]});
+      Object.assign(paramsById.get(8+track)??{},{contextActions:[{id:1100+track,name:"Exclusive Solo"},{id:1200,name:"Unsolo All"}]});
+    }
+  }
+  if(target.plugin==="SignalFunctionSet"){const signalFunctionVisuals=signalFunctionSetVisuals(target.model);if(signalFunctionVisuals.length)runtime.visuals=signalFunctionVisuals}
+  if(target.key==="acModules/CRBVi"||target.key==="acModules/CRBViXL"){
+    const stateIndex=key=>runtimeStateKeys.findIndex(state=>state.key===key),mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"touch-ribbon",actionBase:1000,actionSteps:256,octavesParam:1,showGuidesState:stateIndex("showKeys"),guideTypeState:stateIndex("guideType"),x:mm(7.2),y:mm(15),width:mm(target.key.endsWith("XL")?289.71:138),height:mm(80)}];
+    const stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    if(stateByKey.has("isSnapped"))Object.assign(stateByKey.get("isSnapped"),{name:"Snap To Notes",default:0,contextOnly:true});
+    if(stateByKey.has("showKeys"))Object.assign(stateByKey.get("showKeys"),{name:"Show Guides",default:1,contextOnly:true});
+    if(stateByKey.has("yAxisRangeMode"))Object.assign(stateByKey.get("yAxisRangeMode"),{name:"Y-Axis Range (Non-VCA)",default:0,values:["0V to 10V (Default)","0V to 5V","-5V to 5V"],contextOnly:true});
+    if(stateByKey.has("guideType"))Object.assign(stateByKey.get("guideType"),{name:"Guide Type",default:0,values:["Semitones","Quartertones","Octaves"],contextOnly:true});
+    if(stateByKey.has("curveModX"))Object.assign(stateByKey.get("curveModX"),{name:"Use Input Curve For X Modulation",default:0,contextOnly:true});
+    if(stateByKey.has("curveModY"))Object.assign(stateByKey.get("curveModY"),{name:"Use Input Curve For Y Modulation",default:0,contextOnly:true});
+    if(stateByKey.has("modVCA"))Object.assign(stateByKey.get("modVCA"),{name:"Apply Modulation To VCA",default:0,contextOnly:true});
+    if(stateByKey.has("showModIndicators"))Object.assign(stateByKey.get("showModIndicators"),{name:"Show Modulation While Playing",default:0,contextOnly:true});
+  }
+  if(target.key==="Clonotribe/Clonotribe"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"linear-ribbon",actionBase:1000,actionSteps:1024,margin:6,radius:6,color:"#ff6464c8",x:mm(73.8),y:mm(99.2),width:192.8,height:26}];
+  }
+  if(target.key==="voxglitch/xy"){
+    const stateIndex=key=>runtimeStateKeys.findIndex(state=>state.key===key),stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    runtime.visuals=[{kind:"voxglitch-xy",actionBase:1000,hoverActionBase:100000,actionSteps:256,tabletModeState:stateIndex("tablet_mode"),x:19.75,y:19.75,width:260,height:260}];
+    if(stateByKey.has("tablet_mode"))Object.assign(stateByKey.get("tablet_mode"),{name:"Tablet Mode",default:0,contextOnly:true});
+    if(stateByKey.has("no_clk_position_x"))Object.assign(stateByKey.get("no_clk_position_x"),{name:"Saved X Position",default:0,contextOnly:false});
+    if(stateByKey.has("no_clk_position_y"))Object.assign(stateByKey.get("no_clk_position_y"),{name:"Saved Y Position",default:0,contextOnly:false});
+    if(stateByKey.has("voltage_range"))Object.assign(stateByKey.get("voltage_range"),{name:"Output Range",default:0,values:["0.0 to 10.0","-10.0 to 10.0","0.0 to 5.0","-5.0 to 5.0","0.0 to 3.0","-3.0 to 3.0","0.0 to 1.0","-1.0 to 1.0"],contextOnly:true});
+  }
+  if(target.key==="computerscare/computerscare-sloly-pit")runtime.visuals=[{kind:"sloly-pit-routing",modeActionBase:1000,selectActionBase:2000,routeActionBase:3000,truncateActionBase:4000,replaceActionBase:5000,appendActionBase:5100,x:0,y:0,width:detected.panelWidth??60,height:380}];
+  if(target.key==="voxglitch/arpseq")runtime.visuals=[{kind:"voxglitch-arpseq",tabActionBase:1000,barActionBase:10000,sequenceActionBase:50000,windowActionBase:60000,toggleActionBase:70000,controlActionBase:71000,x:0,y:0,width:detected.panelWidth??690,height:380}];
+  if(target.key==="voxglitch/digitalsequencer"||target.key==="voxglitch/digitalsequencerxp"){
+    const xp=target.key.endsWith("xp"),mm=value=>Number((value*75/25.4).toFixed(3)),voltageY=mm(xp?10.4:9.5),gateY=mm(xp?86.9:77),voltageHeight=xp?214:190;
+    runtime.visuals=[{kind:"digital-sequencer",actionBase:1000,valueSteps:1024,columns:32,sequencers:xp?16:6,voltageX:mm(xp?9.9:9),voltageY,voltageWidth:486,voltageHeight,gateX:mm(xp?9.9:9),gateY,gateWidth:486,gateHeight:16,x:mm(xp?9.9:9),y:voltageY,width:486,height:Number((gateY-voltageY+16).toFixed(3))}];
+  }
+  if(target.key==="voxglitch/hazumi")runtime.visuals=[{kind:"hazumi-sequencer",actionBase:1000,x:21.25,y:21,width:177,height:354.2}];
+  if(target.key==="voxglitch/onepoint"||target.key==="voxglitch/onezero")runtime.visuals=[{kind:"native-interaction",assetBase:"./resources/",font:{file:"ShareTechMono-Regular.ttf",family:"Peach Voxglitch Share Tech Mono"},regions:[{label:"Sequence file",title:"Double-click to load a text sequence",x:16.6063,y:110.5335,width:56.7845,height:15.0384,doubleClick:{target:"asset"},display:{source:"visual",id:1,format:"integer",digits:1,condition:{source:"visual",id:0,equals:1,otherwiseText:"NO DATA"},color:"#f5ece5",fontSize:10,fontFamily:"Peach Voxglitch Share Tech Mono",textAlign:"center",padding:0}}],x:0,y:0,width:detected.panelWidth??90,height:380}];
+  if(target.key==="EH_modules/FV-1emu"){
+    const load={target:"menu",title:"FV-1 effect",choices:[{label:"Load SPN file…",command:{target:"asset"}}]};
+    runtime.visuals=[{kind:"native-interaction",regions:[{label:"FV-1 program display",title:"Click to load an FV-1 SPN file",x:10,y:150,width:(detected.panelWidth??165)-20,height:80,click:load,rightClick:load,display:{source:"visual",id:1,format:"ascii",asciiLengthId:0,color:"#ffffff",background:"transparent",borderColor:"transparent",fontSize:11,fontFamily:"RackShareTechMono",fontWeight:400,lineHeight:11,textAlign:"left",padding:5}}],x:0,y:0,width:detected.panelWidth??165,height:380}];
+  }
+  if(target.key==="Sha-Bang-Modules/StochSeq")runtime.visuals=[{kind:"stoch-sequencer",actionBase:1000,sequences:1,displays:[{x:7.4,y:47.7,width:480,height:102.9}],banks:{x:7.6,y:160.8,width:480,height:28.9,count:12}}];
+  if(target.key==="Sha-Bang-Modules/StochSeq4")runtime.visuals=[{kind:"stoch-sequencer",actionBase:1000,sequences:4,displays:[18.2,105.7,193.2,280.6].map(y=>({x:277.6,y,width:480,height:80.7}))}];
+  if(target.key==="Bidoo/cANARd")runtime.visuals=[{kind:"bidoo-sample",mode:"canard",actionBase:1000,x:10,y:35,width:175,height:110}];
+  if(target.key==="Bidoo/eDsaroS")runtime.visuals=[{kind:"bidoo-sample",mode:"edsaros",x:5,y:25,width:125,height:60}];
+  if(target.key==="Bidoo/OUAIve")runtime.visuals=[{kind:"bidoo-sample",mode:"ouaive",x:5,y:55,width:125,height:125}];
+  if(target.key==="Bidoo/liMonADe")runtime.visuals=[
+    {kind:"bidoo-limonade",mode:"bins",actionBase:1000,x:15,y:33,width:500,height:164},
+    {kind:"bidoo-limonade",mode:"wavetable",actionBase:1000,x:11,y:235,width:150,height:110}
+  ];
+  if(target.key==="FrozenWasteland/PWGridControlExpander")runtime.visuals=[{kind:"fw-cell-bar-grid",actionBase:1000,x:56,y:26,width:128,height:128}];
+  if(target.key==="FrozenWasteland/QARGridControlExpander")runtime.visuals=[{kind:"fw-cell-bar-grid",actionBase:1000,x:11,y:26,width:128,height:144}];
+  if(target.key==="FrozenWasteland/FillingStation")runtime.visuals=[{kind:"filling-station",actionBase:1000,x:15,y:30,width:325,height:150}];
+  if(target.key==="FrozenWasteland/ProbablyNoteMN")runtime.visuals=[{kind:"probably-note-mn",maxPitches:8192,fixedValues:512,pitchStride:8,x:0,y:0,width:detected.panelWidth??735,height:380}];
+  if(target.key==="FrozenWasteland/QuadAlgorithmicRhythm")runtime.visuals=[{kind:"qar-rhythm",actionBase:1000,accentActionBase:2000,maxSteps:73,x:10,y:20,width:(detected.panelWidth??645)-10,height:365}];
+  if(target.key==="fruitsofkarma/CellularAuto")runtime.visuals=[{kind:"cellular-auto",actionBase:1000,columns:64,rows:256,x:7,y:5,width:585,height:286}];
+  if(target.key==="EternalEclipseModular/Saros")runtime.visuals=[{kind:"saros-envelope",actionBase:1000,actionSteps:4096,tableSize:256,x:10.335,y:54.626,width:159.331,height:88.583}];
+  if(target.key==="kocmoc/TRG")runtime.visuals=[{kind:"trg-sequencer",actionBase:1000,steps:32,pageSize:16,x:10,y:78,width:70,height:212}];
+  if(target.key==="kocmoc/TRG"&&runtimeStateKeys[34])Object.assign(runtimeStateKeys[34],{name:"Follow Active Step",default:1,contextOnly:true});
+  if(target.key==="AaronKarp-EarthTones/PolarCV")runtime.visuals=[{kind:"polar-cv-display",points:1024,x:0,y:38.501,width:195,height:195}];
+  if(target.key==="Axioma/Ikeda")runtime.visuals=[{kind:"axioma-display",mode:"ikeda",points:1000,x:10.335,y:19.931,width:144.39,height:144.39}];
+  if(target.key==="Axioma/Rhodonea")runtime.visuals=[{kind:"axioma-display",mode:"rhodonea",points:1000,x:5.906,y:19.931,width:156.496,height:156.496}];
+  if(target.key==="Axioma/Tesseract")runtime.visuals=[{kind:"axioma-display",mode:"tesseract",points:16,x:10.335,y:19.931,width:124.016,height:124.016}];
+  if(target.key==="Axioma/TheBifurcator")runtime.visuals=[
+    {kind:"axioma-display",mode:"bifurcation",points:190,x:141.732,y:59.055,width:191.929,height:289.37},
+    {kind:"axioma-display",mode:"cobweb",points:190,x:20.669,y:57.579,width:100.394,height:100.394}
+  ];
+  if(target.key==="Autinn/Alias")runtime.visuals=[{kind:"alias-display",steps:256,x:11,y:50,width:128,height:110}];
+  if(target.key==="ChordChemist/ChordChemist")runtime.visuals=[{kind:"chord-chemist-display",steps:16,x:73.819,y:94.488,width:236.22,height:236.22,root:{x:115.157,y:70.866,width:29.528,height:23.622},scale:{x:224.409,y:70.866,width:29.528,height:23.622}}];
+  if(target.key==="MADZINE/Runshow")runtime.visuals=[{kind:"runshow-display",maxParam:8,time:{x:68,y:64,width:70,height:40},bars:{x:15,y:110,width:150,height:200}}];
+  if(target.key==="eightfold/SDLines"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"sd-lines-display",x:0,y:mm(5.709/2),width:mm(10.16),height:mm(104.845)}];
+    const stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    if(stateByKey.has("mode"))Object.assign(stateByKey.get("mode"),{name:"Mode",default:0,values:["Horizontal","Vertical"],contextOnly:true});
+    if(stateByKey.has("range"))Object.assign(stateByKey.get("range"),{name:"Range",default:0,values:["0 .. +10","-10 .. +10","0 .. +5","-5 .. +5"],contextOnly:true});
+  }
+  if(target.key==="Sulamith/Note")runtime.visuals=[{kind:"note-poly-display",channels:16,x:1,y:24,width:40,rowHeight:15}];
+  if(target.key==="az/LoFiTV")runtime.visuals=[{kind:"lofi-tv-display",columns:127,rows:127,cellSize:3,x:0,y:0,width:380,height:380}];
+  if(target.key==="EternalEclipseModular/CosmicClock"){
+    runtime.visuals=[{kind:"cosmic-clock-display",x:0,y:0,width:detected.panelWidth??600,height:380}];
+    runtime.contextActions=[{id:1000,name:"Set time to now"}];
+  }
+  if(target.key==="WrongPeople/Lua"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"lua-display",x:0,y:mm(24.225),width:mm(50.8),height:mm(48.53)}];
+  }
+  if(target.plugin==="CatroBlanco"){
+    const rect=(signal,x,y,width,height,alpha=255,active=0)=>({shape:"rect",signal,active,mode:1,x,y,width,height,alpha});
+    const circle=(signal,x,y,radius,alpha=255,active=0)=>({shape:"circle",signal,active,mode:1,x,y,width:radius,height:radius,alpha});
+    const layersByModel={
+      "CatroBlanco_CB-1":[rect(2,0,0,29,379)],
+      "CatroBlanco_CB-2":[rect(2,0,0,45,379)],
+      "CatroBlanco_CB-3":[rect(2,0,0,45,379)],
+      "CatroBlanco_CB-4":[rect(2,0,0,60,301),rect(3,0,94,60,207,160),rect(4,0,301,60,78,95)],
+      "CatroBlanco_CB-5":[rect(2,0,0,60,378,128),rect(3,14,181,33,33)],
+      "CatroBlanco_CB-6":[rect(2,30,39,15,26),rect(3,0,0,75,378,128)],
+      "CatroBlanco_CB-7":[rect(2,0,0,192,485,138),circle(3,75,20.5,15.4),circle(3,75,150.4,12),rect(3,43,44,64,4.2),rect(3,69.6,51.4,11,45)],
+      "CatroBlanco_CB-meter":[{shape:"meter",signal:2,active:0,mode:1,x:1.4,y:355,width:27.8,height:0,alpha:255,yStart:5,ySize:6},rect(3,10.2,19.7,9.6,9.6,255,7)],
+    };
+    runtime.visuals=[{kind:"catro-color-display",x:0,y:0,width:detected.panelWidth??60,height:380,layers:layersByModel[target.model]??[]}];
+  }
+  if(target.key==="Alikins/ColorPanel"){
+    const stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    Object.assign(stateByKey.get("inputRange")??{}, {name:"Input range",default:1,values:["0 - +10V (uni)","-5 - +5V (bi)"],contextOnly:true});
+    Object.assign(stateByKey.get("colorMode")??{}, {name:"Color mode",default:1,values:["RGB","HSL"],contextOnly:true});
+    runtime.visuals=[{kind:"panel-color",x:0,y:0,width:detected.panelWidth??90,height:380}];
+  }
+  if(target.key==="cf/LABEL")runtime.visuals=[{kind:"vertical-label",dataKey:"lastPath",defaultText:"Right clic to write",maximumLength:20,x:4,y:43,width:23,height:294}];
+  if(target.key==="Sparkette/DMAFX"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"value-label",offset:0,color:"#32bfff",background:"#000000",borderColor:"#777777",fontSize:12,x:mm(20.805),y:mm(9.381),width:mm(6.135),height:mm(5.08)}];
+  }
+  if(["SubmarineFree/TD-116","SubmarineFree/TD-202","SubmarineFree/TD-316"].includes(target.key)){
+    const config=target.model==="TD-116"
+      ? {x:10.038,y:46.764,width:219.921,height:303.405,multiline:true,rotation:0,defaultBackground:"#000000",defaultFontSize:12,fontSizeKey:"size"}
+      : target.model==="TD-202"
+        ? {x:2.5,y:15,width:350,height:25,multiline:false,rotation:90,defaultBackground:"#00000000",defaultFontSize:28}
+        : {x:4,y:18,width:(detected.panelWidth??240)-8,height:344,multiline:true,rotation:0,defaultBackground:"#000000",defaultFontSize:12,fontSizeKey:"size"};
+    runtime.visuals=[{kind:"editable-text",dataKey:"text",foregroundKey:"fg",backgroundKey:"bg",defaultForeground:"#23d7ff",...config}];
+    for(const state of runtimeStateKeys){
+      if(state.key==="size")Object.assign(state,{name:"Text size",default:12,contextOnly:true});
+      if(state.key==="width")Object.assign(state,{name:"Module width",default:240,contextOnly:true});
+    }
+  }
+  if(["computerscare/computerscare-foly-pace","computerscare/computerscare-stoly-fick-pigure"].includes(target.key)){
+    const stateKey=target.model==="computerscare-foly-pace"?"faceEmitsLight":"figureEmitsLight";
+    const state=runtimeStateKeys.find(item=>item.key===stateKey);
+    if(state)Object.assign(state,{name:target.model==="computerscare-foly-pace"?"Face emits light":"Stick figure emits light",default:1,contextOnly:true});
+    runtime.visuals=[{kind:"computerscare-figure",figure:target.model==="computerscare-foly-pace"?"face":"stick",x:0,y:0,width:detected.panelWidth??135,height:380}];
+  }
+  if(target.key==="computerscare/computerscare-blank"){
+    const stateIndex=key=>runtimeStateKeys.findIndex(state=>state.key===key),stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    const stateDefaults={width:120,imageFitEnum:0,invertY:1,zoomX:1,zoomY:1,xOffset:0,yOffset:0,rotation:0,hidePanel:0};
+    const stateNames={width:"Module width",imageFitEnum:"Image scaling",invertY:"Invert Y-axis",zoomX:"Image zoom X",zoomY:"Image zoom Y",xOffset:"Image X offset",yOffset:"Image Y offset",rotation:"Quarter-turn rotation",hidePanel:"Hide panel"};
+    for(const [key,state] of stateByKey)Object.assign(state,{name:stateNames[key]??key,default:stateDefaults[key]??0,contextOnly:true});
+    Object.assign(stateByKey.get("imageFitEnum")??{},{values:["Fit both","Fit width","Fit height","Free"]});
+    runtime.visuals=[{kind:"computerscare-blank",stateKeys:{fit:stateIndex("imageFitEnum"),invertY:stateIndex("invertY"),zoomX:stateIndex("zoomX"),zoomY:stateIndex("zoomY"),xOffset:stateIndex("xOffset"),yOffset:stateIndex("yOffset"),rotation:stateIndex("rotation"),hidePanel:stateIndex("hidePanel")},x:0,y:0,width:detected.panelWidth??120,height:380}];
+  }
+  if(target.key==="computerscare/computerscare-portaloof"){
+    runtime.asset={type:"image",maxSamples:16777216,maxSeconds:0,channels:4};
+    runtime.visuals=[{kind:"portaloof",displayX:150,actionBase:1000,x:150,y:0,width:Math.max(15,(detected.panelWidth??300)-150),height:380}];
+    const defaults={kind:0,moduleId:-1,width:300,tileEmptySpace:1,maintainAspect:1,cropRackBorders:0,backdropEnabled:0,emptyWindowInBgMode:0,transformPost:0,translateFirst:0,hideUi:0,dimVisualsWithRoom:1,sourceBlendMode:0,rackSourceModuleId:-1,rackRectSourceEnabled:0,screenRectSourceEnabled:0};
+    for(const state of runtimeStateKeys)Object.assign(state,{name:state.key.replace(/([A-Z])/g," $1").replace(/^./,value=>value.toUpperCase()),default:defaults[state.key]??0,contextOnly:true});
+  }
+  if(target.key==="BGal256/DressMeUp"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    const stateIndex=key=>runtimeStateKeys.findIndex(state=>state.key===key);
+    runtime.visuals=[{kind:"dress-me-up",assetBase:"./resources/",actionBase:1000,stateKeys:{enableShader:stateIndex("enableShader"),spotWidth:stateIndex("spotWidth"),spotHeight:stateIndex("spotHeight"),colorBoost:stateIndex("colorBoost"),inputGamma:stateIndex("inputGamma"),outputGamma:stateIndex("outputGamma"),effectScale:stateIndex("effectScale")},x:mm(4.91),y:mm(7.301),width:mm(91.781),height:mm(74.925)}];
+    const stateDefaults={stepIndex:0,step:0,lastValue:0,enableShader:1,enableOutputFilter:0,spotWidth:1.2,spotHeight:0.65,colorBoost:1.45,inputGamma:2.4,outputGamma:2.2,effectScale:2.5};
+    for(const state of runtimeStateKeys)Object.assign(state,{name:state.key.replace(/([A-Z])/g," $1").replace(/^./,value=>value.toUpperCase()),default:stateDefaults[state.key]??0,contextOnly:true});
+  }
+  if(target.key==="QuestionableDinner/Boxes"){
+    const mm=value=>Number((value*75/25.4).toFixed(3)),stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    runtime.visuals=[{kind:"param-xy-points",points:[
+      {xParam:0,yParam:1,label:"I",shape:"circle",color:"#f2df00"},
+      {xParam:5,yParam:7,label:"A",shape:"square",color:"#ff6526"},
+      {xParam:6,yParam:8,label:"B",shape:"square",color:"#ae56ff"},
+    ],inputs:[3,4],widthParam:3,heightParam:4,gridSize:10,pointSize:10,gridColor:"#ffffff66",x:mm(3.81),y:mm(9),width:mm(68.58),height:mm(68.58)}];
+    if(stateByKey.has("theme"))Object.assign(stateByKey.get("theme"),{name:"Panel Theme",default:-1,contextOnly:true});
+  }
+  if(target.key==="JW-Modules/Crawl")runtime.visuals=[{kind:"crawl-display",actionBase:1000,actionSteps:256,maxPoints:64,crawlerCount:4,colors:["#ff960a","#fff20a","#8f1afd","#1a96fd"],x:2,y:14,width:296,height:268}];
+  if(target.key==="AuntyLangtonsFree/MusicalAnt")runtime.visuals=[{kind:"cell-grid",actionBase:1000,actionSteps:256,maxCells:20736,packedWordBits:16,cellScale:0.9,onColor:"#00ff00",antColor:"#14ff32",shadowColor:"#004600",monitorFuzz:true,reflection:true,x:35,y:28,width:135,height:135}];
+  if(target.key==="JW-Modules/Trigs128")runtime.visuals=[{kind:"sequencer-grid",actionBase:1000,rows:16,columns:32,trackRows:4,colors:["#ff9709","#fff309","#901afc","#1996fc"],gridColor:"#3c4649",markerColor:"#ffffff",majorEvery:4,x:8,y:70,width:374,height:188}];
+  if(target.key==="patina/MemoryPad"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"path-trackpad",actionBase:1000,actionSteps:1024,x:mm(2.48),y:mm(22.88),width:mm(46.08),height:mm(46.08)}];
+  }
+  if(target.key==="Bidoo/fLAME")runtime.visuals=[{kind:"flame-spectrogram",actionBase:1000,columns:130,rows:256,x:10,y:28,width:130,height:256}];
+  if(target.key==="Bidoo/TiARE")runtime.visuals=[{kind:"phase-distortion-pad",actionBase:1000,actionSteps:256,x:5,y:119,width:140,height:140}];
+  if(target.key==="Bogaudio/Bogaudio-Walk2"){
+    runtime.visuals=[{kind:"walk2-display",actionBase:1000,actionSteps:256,historyPoints:100,x:10,y:25,width:190,height:190}];
+    const stateByKey=new Map(runtimeStateKeys.map(state=>[state.key,state]));
+    if(stateByKey.has("zoom_out"))Object.assign(stateByKey.get("zoom_out"),{name:"Zoom out",default:0,contextOnly:true});
+    if(stateByKey.has("grid"))Object.assign(stateByKey.get("grid"),{name:"Show grid",default:1,contextOnly:true});
+    if(stateByKey.has("color"))Object.assign(stateByKey.get("color"),{name:"Trace color",default:0,values:["Green","Orange","Red","Blue"],contextOnly:true});
+  }
+  if(["dbRackSequencer/CCA","dbRackSequencer/CCA2","dbRackSequencer/Ant","dbRackSequencer/C42"].includes(target.key)){
+    const mm=value=>Number((value*75/25.4).toFixed(3)),geometry=target.key==="dbRackSequencer/CCA"?{x:mm(10),y:mm(4),width:356,height:356}:target.key==="dbRackSequencer/C42"?{x:mm(7),y:mm(7.5),width:mm(112),height:mm(112)}:{x:mm(4),y:mm(4),width:356,height:356},mode=target.key==="dbRackSequencer/Ant"?"ant":target.key==="dbRackSequencer/C42"?"binary":"continuous";
+    runtime.visuals=[{kind:"db-matrix",actionBase:1000,maxRows:32,mode,...geometry}];
+  }
+  if(target.key==="dbRackSequencer/MC1"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"vertical-position",actionBase:1000,actionSteps:1024,x:mm(3),y:mm(7),width:mm(14),height:mm(89.3)}];
+  }
+  if(target.key==="dbRackSequencer/MouseSeq"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"mouse-seq-grid",actionBase:1000,hotkeyBase:100000,x:mm(4),y:mm(4),width:mm(70),height:mm(120)}];
+    const placeParam=(id,x,y)=>{const param=paramsById.get(id);if(param)param.position={...(param.position??{}),x:mm(x),y:mm(y)}};
+    const placePort=(ports,id,x,y)=>{const port=ports[id];if(port)port.position={...(port.position??{}),x:mm(x),y:mm(y)}};
+    [[0,80,108],[1,78.5,38],[2,78.5,18.75],[3,100,108],[4,110,108],[5,80,94],[6,122,50],[7,122,60]].forEach(([id,x,y])=>placeParam(id,x,y));
+    for(let clock=0;clock<4;clock++)placePort(runtimeInputs,clock,80+clock*10,23);
+    [[4,110,116],[5,100,116],[6,110,94],[7,100,94],[8,90,94],[9,88,108],[10,121,37],[11,121,17],[12,122.4,64]].forEach(([id,x,y])=>placePort(runtimeInputs,id,x,y));
+    [[0,122,116],[1,122,80],[2,122,104],[3,122,92]].forEach(([id,x,y])=>placePort(runtimeOutputs,id,x,y));
+  }
+  if(target.key==="AlgoritmArte/CyclicCA"){
+    const mm=value=>Number((value*75/25.4).toFixed(3));
+    runtime.visuals=[{kind:"cyclic-ca",cellsPerWord:4,bitsPerCell:5,pixelWidth:360,pixelHeight:360,x:mm(16),y:mm(4),width:350,height:350}];
+  }
   const lightWidgets=[...placements.lights].filter(([id])=>Number.isSafeInteger(id)&&id>=0&&id<lightCount).map(([id,{widget,paramId,...position}])=>({id,widget,position,...(paramId!==undefined?{paramId}:{})})).filter(light=>light.widget);
   if(target.key==="OPC-OctobIR/OPC-OctobIR")
     runtime.visuals=[{kind:"octobir-display",offset:0,x:0,y:0,width:600,height:380}];
@@ -7837,7 +12214,115 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
     if(stateByKey.has("waveformColor"))Object.assign(stateByKey.get("waveformColor"),{name:"Waveform color",default:3,values:["Red","Amber","Green","Baby Blue","Peach","Pink","White"]});
   }
   if(target.key==="JW-Modules/BouncyBalls")runtime.visuals=[{kind:"bouncy-balls",actionBase:1000,paddleXState:0,paddleYState:1,displayWidth:448,displayHeight:376,x:270,y:2,width:448,height:376}];
-  if(target.key==="JW-Modules/FullScope")runtime.visuals=[{kind:"full-scope",points:512,x:0,y:0,width:detected.panelWidth??255,height:380}];
+  const jwGridVisuals={
+    "JW-Modules/1Pattern":{style:"one-pattern",cols:1,rows:16,cellWidth:30,cellHeight:11.75,x:7,y:120,width:30,height:188},
+    "JW-Modules/Arrange":{style:"arrange",cols:64,rows:16,cellWidth:10,cellHeight:20,playheadActionBase:3048,x:60,y:42,width:640,height:320},
+    "JW-Modules/Arrange16":{style:"arrange",cols:16,rows:16,cellWidth:10,cellHeight:20,playheadActionBase:1512,x:60,y:42,width:160,height:320},
+    "JW-Modules/NoteSeq":{style:"note-seq",cols:32,rows:32,cellWidth:11.75,cellHeight:11.75,x:172,y:2,width:376,height:376},
+    "JW-Modules/NoteSeqFu":{style:"note-seq-fu",cols:32,rows:32,cellWidth:11.75,cellHeight:11.75,x:172,y:2,width:376,height:376},
+    "JW-Modules/Patterns":{style:"patterns",cols:16,rows:16,cellWidth:11.75,cellHeight:11.75,x:3,y:75,width:188,height:188},
+    "JW-Modules/Pres1t":{style:"pres1t",cols:4,rows:8,cellWidth:30,cellHeight:30,x:0,y:15,width:120,height:250},
+    "JW-Modules/Trigs":{style:"trigs",cols:16,rows:16,cellWidth:11.75,cellHeight:11.75,x:3,y:75,width:188,height:188},
+  };
+  if(jwGridVisuals[target.key])runtime.visuals=[{kind:"jw-grid",actionBase:1000,...jwGridVisuals[target.key]}];
+  if(target.key==="JW-Modules/D1v1de")runtime.visuals=[{kind:"jw-d1v1de",x:0,y:15,width:120,height:250}];
+  if(target.key==="JW-Modules/ThingThing")runtime.visuals=[{kind:"jw-thing-thing",x:0,y:0,width:detected.panelWidth??300,height:380}];
+  if(target.key==="JW-Modules/Tree")runtime.visuals=[{kind:"jw-tree",x:0,y:0,width:detected.panelWidth??300,height:380}];
+  if(target.key==="Biset/Biset-Tree")runtime.visuals=[{kind:"biset-tree",maxBranches:1024,color:"#ecae52",x:0,y:0,width:detected.panelWidth??165,height:Number((60*75/25.4).toFixed(6))}];
+  if(target.key==="Biset/Biset-Regex"||target.key==="Biset/Biset-Regex-Condensed"){
+    const condensed=target.key.endsWith("-Condensed"),mm=value=>Number((value*75/25.4).toFixed(6));
+    runtime.visuals=[{
+      kind:"biset-regex",condensed,rows:condensed?12:8,dataKey:"expressions",
+      compileActionBase:1000,compileAllAction:1100,stopActionBase:1200,
+      assetBase:"./resources/",font:{family:"BisetFT88",file:"FT88-Regular.ttf"},
+      displayX:mm(10),displayY:mm(condensed?5.5:3),displayWidth:mm(95),
+      displayHeight:mm(condensed?6:10),rowStep:mm(condensed?8.265:13),
+      colors:{clock:"#333c57",pitch:"#566c86",error:"#b13e53",running:"#aff070",editing:"#41a6f6",active:"#ef7d57",syntax:"#94b0c2",value:"#ffcd75"},
+      width:detected.panelWidth??450,height:380,x:0,y:0,
+    }];
+  }
+  if(target.key==="Biset/Biset-Tracker"){
+    const mm=value=>Number((value*75/25.4).toFixed(6));
+    runtime.visuals=[{
+      kind:"biset-tracker",assetBase:"./resources/",font:{family:"BisetFT88",file:"FT88-Regular.ttf"},
+      main:{x:mm(31.25),y:mm(5),width:Number((6.302522*87+4).toFixed(6)),height:Number((8.5*39+5.5).toFixed(6))},
+      side:{x:mm(223.75),y:mm(5),width:Number((6.302522*26).toFixed(6)),height:Number((8.5*39+5.5).toFixed(6))},
+      info:{x:mm(3),y:mm(75),width:Number((6.302522*12+4).toFixed(6)),height:Number((8.5*5+4).toFixed(6))},
+      charWidth:6.302522,charHeight:8.5,columns:84,rows:39,
+      colors:["#1a1c2c","#5d275d","#b13e53","#ef7d57","#ffcd75","#aff070","#38b764","#257179","#29366f","#3b5dc9","#41a6f6","#73eff7","#f4f4f4","#94b0c2","#566c86","#333c57"],
+      userColors:["#5d275d","#b13e53","#ef7d57","#ffcd75","#38b764","#257179","#41a6f6","#3b5dc9"],
+      width:detected.panelWidth??840,height:380,x:0,y:0,
+    }];
+  }
+  if(target.key==="Biset/Biset-Tracker-Synth"||target.key==="Biset/Biset-Tracker-Drum"){
+    const mm=value=>Number((value*75/25.4).toFixed(6));
+    runtime.visuals=[{
+      kind:"biset-tracker-output",variant:target.key.endsWith("-Drum")?"drum":"synth",synthParam:0,
+      assetBase:"./resources/",font:{family:"BisetFT88",file:"FT88-Regular.ttf"},
+      colors:{background:"#333c57",selected:"#566c86",text:"#ffcd75",learn:"#b13e53"},
+      x:mm(17),y:mm(4),width:mm(21.25),height:mm(9),
+    }];
+  }
+  if(target.key==="Biset/Biset-Tracker-State"){
+    const mm=value=>Number((value*75/25.4).toFixed(6));
+    runtime.visuals=[{
+      kind:"biset-tracker-state",userColors:["#5d275d","#b13e53","#ef7d57","#ffcd75","#38b764","#257179","#41a6f6","#3b5dc9"],
+      x:mm(5),y:mm(5),width:mm(46),height:mm(88),background:"#1a1c2c",
+    }];
+  }
+  if(target.key==="Biset/Biset-Blank"){
+    const names=[
+      "Cable animation enabled","Cable brightness","Cable LED","Cable polyphonic thickness",
+      "Cable polyphonic mode","Cable CPU fast","Cable slew","Cable scale","Scope enabled",
+      "Scope on Shift","Scope display mode","Scope position","Scope scale","Scope thickness",
+      "Scope background alpha","Scope voltage alpha","Scope label alpha","Scope alpha","Panel",
+    ],values={0:["Off","On"],1:["Off","On"],2:["Off","On"],3:["Off","On"],4:["1st channel","Sum","Sum / channel count"],5:["Precision","Fast"],8:["Off","On"],9:["Always","Shift only"],10:["Circular","Linear"],11:["Top left","Top right","Bottom left","Bottom right","Center"],18:["City pigeon","Wild pigeon","Pigeon gang","Pigeon Army (loops)"]};
+    for(const param of paramsById.values()){
+      param.name=names[param.id]??param.name;
+      param.contextOnly=true;
+      param.hidden=true;
+      if(values[param.id])param.values=values[param.id];
+    }
+    runtime.visuals=[{
+    kind:"biset-blank-overlay",bufferSize:2048,cablePoints:128,scopePoints:256,
+    maxCableDistance:300,cableWidth:6,polyCableWidth:9,plugRadius:8.5,
+    plugStrokeWidth:4,lightRadius:5.75,lightStrokeWidth:1.5,
+    positiveColor:"#a0d249",negativeColor:"#f1352c",lightBorderColor:"#e6e1e1",
+    fontFamily:"RackShareTechMono",assetBase:"./resources/",panelParam:18,
+    panels:["Blank.svg","Blank-Wild.svg","Blank-Gang.svg","Blank-Army.svg"],
+    x:0,y:0,width:detected.panelWidth??105,height:380,
+  }];
+  }
+  if(target.key==="BGal256/SortStep")runtime.visuals=[{kind:"sort-step",actionBase:1000,valueSteps:1000,x:12.136,y:19.196,width:339.325,height:225.96}];
+  if(target.plugin==="BaconMusic"){
+    const panelWidth=detected.panelWidth??placements.panelSize?.x??120;
+    const x=panelWidth<82.5?panelWidth-18:panelWidth/2-8;
+    (runtime.visuals??=[]).push({kind:"bacon-footer",x,y:362,width:16,height:16});
+    if(target.key==="BaconMusic/LintBuddy")runtime.visuals.push({kind:"lint-buddy",x:0,y:0,width:270,height:360});
+  }
+  if(target.key==="JW-Modules/FullScope")runtime.visuals=[{kind:"full-scope",profile:"jw",points:512,x:0,y:0,width:detected.panelWidth??255,height:380,defaultColor:"rgba(25,150,252,.753)",xColor:"rgba(40,176,243,.753)"}];
+  if(target.key==="wiqid-anomalies/fullscope")runtime.visuals=[{kind:"full-scope",profile:"wiqid",points:512,x:0,y:0,width:detected.panelWidth??390,height:380,defaultColor:"rgba(244,189,141,.753)",xColor:"rgba(176,141,244,.753)",showStats:true,assetBase:"./resources/",font:{family:"WiqidOfficeCodePro",file:"OfficeCodePro-Light.ttf"}}];
+  if(target.key==="Ahornberg/FlyingFader")runtime.visuals=[
+    {kind:"flying-fader",param:0,capColorState:0,dataKey:"fader-name",defaultText:"My Flying Fader",assetBase:"./resources/",font:{family:"AhornbergComili",file:"Comili-Book.ttf"},colors:["white","grey","black","red","blue","green","brown","orange","pink","purple"],minHandleY:230,maxHandleY:2,x:18,y:40.5,width:24,height:272},
+    {kind:"editable-text",contextOnly:true,dataKey:"fader-name",foregroundKey:"",backgroundKey:"",defaultText:"My Flying Fader",title:"Fader Name",maximumLength:128,defaultForeground:"#000000",defaultBackground:"#00000000",defaultFontSize:16,fontFamily:"AhornbergComili",styleControls:false,multiline:false,rotation:0,x:0,y:0,width:1,height:1},
+  ];
+  if(target.plugin==="DelexanderVol1"&&target.model.startsWith("Algomorph")){
+    const large=target.key==="DelexanderVol1/Algomorph",mm=value=>Number((value*75/25.4).toFixed(6));
+    runtime.visuals=[{
+      kind:"algomorph-display",
+      graphFile:"algomorph-graphs.bin",
+      assetBase:"./resources/",
+      font:{family:"DelexanderMiriamLibre",file:"MiriamLibre-Regular.ttf"},
+      currentAction:1000,
+      allAction:1001,
+      display:{x:mm(large?16.411:6.252),y:mm(11.631),width:mm(38.295),height:mm(31.590)},
+      operators:(large?[[25.578,86.926],[25.578,75.904],[25.578,64.883],[25.578,53.863]]:[[17.714,96.854],[17.714,86.612],[17.714,76.591],[17.714,66.570]]).map(([x,y])=>[mm(x),mm(y)]),
+      modulators:(large?[[45.278,86.926],[45.278,75.904],[45.278,64.883],[45.278,53.863]]:[[32.968,96.854],[32.968,86.612],[32.968,76.591],[32.968,66.570]]).map(([x,y])=>[mm(x),mm(y)]),
+      connectionRegion:large?{x:mm(25.578),y:mm(53.863),width:mm(45.278-25.578),height:mm(86.926-53.863)}:{x:mm(17.714),y:mm(66.570),width:mm(32.968-17.714),height:mm(96.854-66.570)},
+      ...(large?{auxPanel:{x:mm(2.750),y:mm(13.570),width:mm(9.057),height:mm(61.191),labelX:mm(4.291)+1.15,labelY:[mm(14.643)-35,mm(26.682)-35,mm(39.159)-35,mm(51.634)-35,mm(64.178)-35]}}:{}),
+      width:detected.panelWidth??(large?225:150),height:380,x:0,y:0,
+    }];
+  }
   if(target.key==="JW-Modules/XYPad")runtime.visuals=[{kind:"xy-pad",actionBase:1000,xParam:0,yParam:1,displayWidth:356,displayHeight:300,x:2,y:40,width:356,height:300}];
   if(target.key==="KautenjaDSP-PotatoChips/106")runtime.visuals=[{kind:"wavetable-editor",actionBase:1000,tables:5,samples:32,bitDepth:15,x:10,y:26,width:135,height:60,gap:8,colors:["#ff0000","#00ff00","#0000ff","#ffff00","#ffffff"]}];
   if(target.key==="KautenjaDSP-PotatoChips/2A03"){
@@ -8030,6 +12515,8 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
   if(target.key==="ImpromptuModular/NoteLoop")runtime.visuals=[{kind:"note-loop-display",param:1,x:10.551,y:52.961,width:35,height:24}];
   if(target.key==="ImpromptuModular/Phrase-Seq-16")runtime.visuals=[{kind:"phrase-seq-display",x:320.5,y:102,width:55,height:30},{kind:"piano-keyboard",actionBase:1000,keys:12,voices:1,lightStart:55,lightStride:2,x:53.805,y:98.336,width:195.736,height:80.431,layout:"small",rightClick:true}];
   if(target.key==="ImpromptuModular/Phrase-Seq-32")runtime.visuals=[{kind:"phrase-seq-display",x:350.5,y:102,width:55,height:30},{kind:"piano-keyboard",actionBase:1000,keys:12,voices:1,lightStart:103,lightStride:2,x:53.805,y:98.336,width:195.736,height:80.431,layout:"small",rightClick:true}];
+  if(target.key==="ImpromptuModular/Foundry")runtime.visuals=[{kind:"phrase-seq-display",label:"Foundry sequence display",fontSize:15,x:330,y:98,width:48,height:24}];
+  if(target.key==="ImpromptuModular/Gate-Seq-64")runtime.visuals=[{kind:"phrase-seq-display",label:"GateSeq64 sequence display",x:173.5,y:203,width:55,height:30}];
   if(target.key==="ImpromptuModular/Hotkey"){
     runtime.hotkey={scope:"module-hover",actionBase:0x20000000,recordParam:0,keyState:2,modsState:3};
     if(runtimeStateKeys[2])runtimeStateKeys[2].default=32;
@@ -8039,8 +12526,8 @@ function runtimeDraft(target,manifest,moduleManifest,license,detected,moduleClas
   return applyModuleUiOverrides({key:target.key,plugin:target.plugin,model:target.model,name:moduleManifest.name??target.model,brand:manifest.brand??manifest.name??target.plugin,version:manifest.version??"0.0.0",license,sourceUrl:manifest.sourceUrl,libraryUrl:target.url,screenshotUrl:`https://library.vcvrack.com/screenshots/400/${target.plugin}/${target.model}.webp`,wasmUrl:"./module.wasm",width:detected.panelWidth??placements.panelSize?.x??180,description:moduleManifest.description??`Automatically isolated from the ${target.key} Rack source`,params:[...paramsById.values()].sort((a,b)=>a.id-b.id),inputs:runtimeInputs,outputs:runtimeOutputs,lights:lightCount,...(lightWidgets.length?{lightWidgets}:{}),...(runtimeStateKeys.length?{stateKeys:runtimeStateKeys}:{}),...(bypassRoutes.length?{bypassRoutes}:{}),...(Object.keys(runtime).length?{runtime}:{})});
 }
 
-async function main(){
-  const options=args(process.argv.slice(2)),target=libraryUrl(options.url),fixtureManifest=Boolean(options["manifest-file"]);
+async function scaffoldLibraryModule(argv=process.argv.slice(2)){
+  const options=args(argv),target=libraryUrl(options.url),fixtureManifest=Boolean(options["manifest-file"]);
   let manifest,sourceCommit,sourceDir,temporary=false;
   if(fixtureManifest){
     manifest=JSON.parse(fs.readFileSync(path.resolve(options["manifest-file"]),"utf8"));
@@ -8072,8 +12559,9 @@ async function main(){
   if(sourceManifest.slug!==manifest.slug)fail("Source plugin.json slug differs from the official manifest");
   if(!fixtureManifest&&sourceManifest.version!==manifest.version)fail(`Source version ${sourceManifest.version} differs from Library version ${manifest.version}`);
   hydrateLockedFallbackDependencies(sourceDir);const browserLuaRuntime=hydrateWrongPeopleLuaRuntime(sourceDir,target);dependencyFileInventoryCache.clear();
-  let rootSourceFiles=target.key==="ParableInstruments/Neil"?files(path.join(sourceDir,"src")):filesOutsideNestedRepositories(sourceDir),
-    rustModelAnalysis=target.key!=="ParableInstruments/Neil"?rustModelCandidateStarts(sourceDir):null,
+  const modelSourceRoot=target.key==="Atelier/AtelierPalette"?path.join(sourceDir,"src"):sourceDir;
+  let rootSourceFiles=target.key==="ParableInstruments/Neil"||target.key==="Atelier/AtelierPalette"?files(path.join(sourceDir,"src")):filesOutsideNestedRepositories(sourceDir),
+    rustModelAnalysis=target.key!=="ParableInstruments/Neil"?rustModelCandidateStarts(modelSourceRoot):null,
     rustCandidateStarts=rustModelAnalysis?.byFile??null,
     rustCustomModelCandidates=rustModelAnalysis?.customModelCandidatesByFile??null,
     rustMetaModuleCandidates=rustModelAnalysis?.metaModuleCandidatesByFile??null,
@@ -8106,6 +12594,7 @@ async function main(){
   const activeRootSourceFiles=pruneInactiveConditionalDependencies(rootSourceFiles,sourceDir);
   let registration=registrations.find(item=>item.slug===target.model);
   if(!registration)fail(`Could not locate a Rack or MetaModule model registration for "${target.model}" in source`);
+  if(target.key==="eightfold/SDLines")registration=registrations.find(item=>item.slug===target.model&&/[/\\]src[/\\]SDLines\.cpp$/.test(item.file))??registration;
   if(target.plugin==="4msCompany"&&target.model==="HubMedium")registration={...registration,metaModuleGeneric:true,metaModuleCore:"MetaModule::HubMedium",metaModuleInfo:"MetaModule::HubMediumInfo",metaModuleCoreFile:path.join(sourceDir,"lib","CoreModules","hub","hub_medium.cc")};
   if(target.plugin==="4msCompany"&&target.model==="MMAudioExpander")registration={...registration,metaModuleGeneric:true,metaModuleExternal:true,metaModuleCore:"MetaModule::RackWebMMAudioExpanderCore",metaModuleInfo:"MetaModule::MMAudioExpanderInfo"};
   if(target.plugin==="4msCompany"&&target.model==="MMButtonExpander")registration={...registration,metaModuleGeneric:true,metaModuleExternal:true,metaModuleCore:"MetaModule::RackWebMMButtonExpanderCore",metaModuleInfo:"MetaModule::MMButtonExpanderInfo"};
@@ -8116,7 +12605,7 @@ async function main(){
   targetAdaptedBody=target.key==="MUS-X/Synth"?adaptMusxSynthBrowserBody(hostAdaptedBody,sourceDir):target.key==="MindMeldModular/EqMaster"?adaptMindMeldEqMasterBrowserBody(hostAdaptedBody):target.key==="Minilab3/MiniLog"?adaptMinilabMiniLogBrowserBody(hostAdaptedBody):target.key==="ModularMooch/Wolfram"?adaptModularMoochWolframBrowserBody(hostAdaptedBody):target.key==="BaconMusic/LintBuddy"?adaptLintBuddyBrowserBody(hostAdaptedBody):target.key==="FrozenWasteland/MidiRecorder"?adaptMidiRecorderBrowserBody(hostAdaptedBody):target.key==="Edge/K_Rush"?adaptEdgeKRushBrowserSource(hostAdaptedBody,sourceDir):target.key==="HoyerHoppes/scanning_frequency_division_osc_poly"?adaptHoyerScanningDivisionBrowserBody(hostAdaptedBody):target.key==="Leviathan/IntegralFlux"?adaptLeviathanIntegralFluxBrowserBody(hostAdaptedBody):target.key==="Leviathan/Proc"?adaptLeviathanProcBrowserBody(hostAdaptedBody):target.key==="Leviathan/Undertow"?adaptLeviathanUndertowBrowserBody(hostAdaptedBody):target.key==="PathSet/IceTray"?adaptPathSetIceTrayBrowserBody(hostAdaptedBody):target.plugin==="Fundamental"||target.key==="HetrickCVGPL/PhasorWavetable"?adaptFundamentalWavetableBrowserBody(hostAdaptedBody):hostAdaptedBody,
   embeddedJsonAssets=embeddedJsonAssetFiles(sourceDir,definition.source),embeddedMidiAssets=embeddedMidiAssetFiles(sourceDir,definition.source),embeddedBinaryAssets=embeddedBinaryAssetFiles(sourceDir,definition.source),browserAdaptedBody=adaptEmbeddedBinaryAssetLoads(adaptEmbeddedMidiAssetLoads(adaptEmbeddedJsonAssetLoads(targetAdaptedBody,embeddedJsonAssets),embeddedMidiAssets),embeddedBinaryAssets),body=target.model.startsWith("SurgeXTFX")?adaptSurgeFxModuleBody(browserAdaptedBody):browserAdaptedBody,dependencyBody=stripUiClassMembers(body),rawModulePreludeBase=(value=>target.key==="HetrickCVGPL/PhasorWavetable"?removeClassDefinition(value,"PhasorWavetableData"):value)(adaptEmbeddedBinaryAssetLoads(adaptEmbeddedMidiAssetLoads(adaptEmbeddedJsonAssetLoads(stripHeaderGuardOpen(target.plugin==="CosineKitty-Sapphire"?namespacedModulePrelude(definition.source,registration.moduleClass):modulePrelude(definition.source,registration.moduleClass,definition.typeDeclaration)),embeddedJsonAssets),embeddedMidiAssets),embeddedBinaryAssets).replace(/^\s*#include\s+<pffft\.h>\s*$/gm,"")),
   rawModulePreludeSource=target.plugin==="Fundamental"&&["VCO2","LFO2"].includes(target.model)?"":target.key==="BaconMusic/LintBuddy"?stripLintBuddyBrowserPrelude(rawModulePreludeBase):target.key==="FrozenWasteland/MidiRecorder"?adaptMidiRecorderBrowserPrelude(rawModulePreludeBase):target.key==="Leviathan/IntegralFlux"?adaptLeviathanIntegralFluxBrowserPrelude(rawModulePreludeBase):target.key==="Leviathan/Proc"?adaptLeviathanProcBrowserPrelude(rawModulePreludeBase):target.key==="Leviathan/Undertow"?adaptLeviathanUndertowBrowserPrelude(rawModulePreludeBase):rawModulePreludeBase,
-  modulePreludeSource=target.plugin==="CosineKitty-Sapphire"?rawModulePreludeSource:rawModulePreludeSource&&definition.namespace?.length?`namespace ${definition.namespace.join("::")} {\n${rawModulePreludeSource}\n}`:rawModulePreludeSource,preludeNames=new Set(declaredTypeNames(modulePreludeSource)),strippedAnalysisPrelude=stripRackUiBlocks(modulePreludeSource),analysisPrelude=[referencedVecDspHelpers(modulePreludeSource,dependencyBody),strippedAnalysisPrelude].filter(Boolean).join("\n\n"),template=templateContract(definition.source,registration.moduleClass,definition.typeDeclaration),directImplementations=classImplementations(activeRootSourceFiles,registration.file,registration.moduleClass),includedDeclarationSource=[rawModulePreludeSource,...sourceFiles.map(file=>fs.readFileSync(file,"utf8"))].join("\n"),rawImplementations=[...directImplementations,...preludeTypeImplementations(activeRootSourceFiles,includedDeclarationSource,[dependencyBody,...directImplementations].join("\n"),registration.moduleClass,definition.file)].map(stripHostHistoryStatements),browserAsset=browserAssetSamplerContract([body,...rawImplementations].join("\n")),browserLoadStub=browserAsset?.mode==="rgba-image"?`void ${registration.moduleClass}::loadSample(std::string) { loading = false; }`:browserAsset?.mode==="wavetable"?`void ${registration.moduleClass}::loadSample() {}`:`void ${registration.moduleClass}::loadSample() { loading = false; }`,implementations=browserAsset?rawImplementations.map(value=>replaceOutOfLineMethod(replaceOutOfLineMethod(value,registration.moduleClass,"loadSample",browserLoadStub),registration.moduleClass,"saveSample",`void ${registration.moduleClass}::saveSample() { save = false; }`)):rawImplementations,configCandidate=[body,...implementations].join("\n"),configSource=template?specializeConstantBranches(configCandidate,template.constants):configCandidate,inherited=inheritedDefinitions(rootSourceFiles,definition.source,registration.moduleClass,definition.typeDeclaration),allBases=definition.typeDeclaration?.bases??declaredBases(definition.source,registration.moduleClass),secondaryBases=allBases.slice(1),secondaryInterfaces=secondaryBaseDefinitions(rootSourceFiles,secondaryBases.filter(type=>!preludeNames.has(baseTypeName(type)))),localPlainStructs=localPlainStructDefinitions(definition.source,registration.moduleClass,dependencyBody,preludeNames),inheritedSource=inherited.filter(item=>!item.missing).flatMap(item=>[stripRackUiBlocks(item.prelude),stripRackUiBlocks(item.analysisBody??item.body),...item.implementations.filter(value=>!rackUiPattern.test(value)).map(stripHostHistoryStatements)]),rawAnalysisSource=[...inheritedSource,secondaryInterfaces,localPlainStructs,analysisPrelude,dependencyBody,...implementations].join("\n"),externalSourceRoots=repositoryRoots(sourceDir).slice(1).map(root=>path.resolve(root)),localSourceFiles=sourceFiles.filter(file=>!externalSourceRoots.some(root=>file.startsWith(`${root}${path.sep}`))),referencedHeaderGlobals=localSourceFiles.filter(file=>/\.(?:h|hh|hpp)$/.test(file)).map(file=>namespaceGlobalDefinitions(stripRackUiBlocks(flattenExternCWrappers(sourceWithoutIncludes(stripHeaderGuardOpen(fs.readFileSync(file,"utf8"))))),rawAnalysisSource)).filter(Boolean),globalEnumDeclarations=referencedGlobalEnumDeclarations(localSourceFiles,rawAnalysisSource),dependencyAnalysisSource=[...globalEnumDeclarations,...referencedHeaderGlobals,allBases.join("\n"),rawAnalysisSource,registration.moduleClass].join("\n"),vendoredDependencies=vendoredDependencyBundleForAdapter(sourceDir,definition.file,sourceFiles),dependencyBundle=browserAsset&&!["earlevel-wavetable","octobir-ir-pair","midi-file"].includes(browserAsset.mode)?{source:"",files:[],implementationFiles:browserAssetImplementationFiles(sourceDir,browserAsset)}:vendoredDependencies??referencedDependencyBundleForAdapter(sourceFiles,dependencyAnalysisSource,new Set([definition.file]),sourceDir),implementationGlobalReference=[dependencyBundle.source,rawAnalysisSource].join("\n"),referencedImplementationGlobals=localSourceFiles.filter(file=>/\.(?:c|cc|cpp|cxx)$/.test(file)&&file!==definition.file&&!(target.key==="PathSet/IceTray"&&path.basename(file)==="pffft.c")).map(file=>namespaceGlobalDefinitions(fs.readFileSync(file,"utf8"),implementationGlobalReference,[],implementationGlobalReference)).filter(Boolean),globalEnumPrelude=globalEnumDeclarations.filter(declaration=>!dependencyBundle.source.includes(declaration)).join("\n\n"),externalPrelude=[embeddedJsonAssetPrelude(sourceDir,embeddedJsonAssets),embeddedMidiAssetPrelude(sourceDir,embeddedMidiAssets),embeddedBinaryAssetPrelude(sourceDir,embeddedBinaryAssets),browserAssetDependencyPrelude(browserAsset?definition.source:"",browserAsset),externalDependencyPrelude(sourceDir,definition.source,sourceFiles),...standardDependencyIncludes(definition.registrationSource),...inherited.flatMap(item=>item.source?externalDependencyPrelude(sourceDir,item.source,sourceFiles):[])].filter(Boolean).join("\n"),rackDspUsingPrelude=sourceFiles.some(file=>{const source=fs.readFileSync(file,"utf8");return rustNamespaceUsingDirectives(file,source).some(candidate=>candidate.target==="rack::dsp")})?"using namespace rack::dsp;":"",pluginGlobals=referencedPluginGlobalParts(sourceDir,[dependencyBundle.source,globalEnumPrelude,rawAnalysisSource].join("\n")),macroDefines=referencedDefinesWithoutPluginGlobals(rootSourceFiles,[dependencyBundle.source,globalEnumPrelude,...referencedImplementationGlobals,...referencedHeaderGlobals,body,rawAnalysisSource,pluginGlobals.declarations,pluginGlobals.implementations].join("\n"),sourceDir),defines=[macroDefines,pluginGlobals.declarations].filter(Boolean).join("\n\n"),prelude=[defines,rackDspUsingPrelude,externalPrelude,...referencedImplementationGlobals,dependencyBundle.source,globalEnumPrelude,pluginGlobals.implementations,secondaryInterfaces,localPlainStructs,analysisPrelude].filter(Boolean).join("\n\n"),analysisSource=[defines,...referencedImplementationGlobals,dependencyBundle.source,globalEnumPrelude,pluginGlobals.implementations,rawAnalysisSource].filter(Boolean).join("\n"),jsonFunctions=[...analysisSource.matchAll(/\b(json_[A-Za-z0-9_]+)\s*\(/g)].filter(match=>isCodePosition(analysisSource,match.index)).map(match=>match[1]),directBase=allBases[0],targetMemberConstants=rackWebMemberArrayConstants(body,baseTypeName(registration.moduleClass)),constantOverrides={...targetMemberConstants,...fxConfigConstants(sourceFiles,registration.moduleClass),...(template?.constants??{})},globalConstants=numericConstants(analysisSource,constantOverrides),constants=numericConstants(body,{...globalConstants,...constantOverrides},baseTypeName(registration.moduleClass)),configuredSource=[configSource,...inheritedSource].join("\n"),directConfigCalls=name=>rustDirectConfigCalls(configuredSource,name,constants),configured=directConfigCalls("venomConfig")[0]??directConfigCalls("config")[0],configuredIds=configured?splitArguments(configured):[],configuredCountValues=rackWebIntegers([0,1,2,3].map(index=>configuredIds[index]??""),constants),configuredCounts=Object.fromEntries([["params",0],["inputs",1],["outputs",2],["lights",3]].flatMap(([key,index])=>{const value=configuredCountValues[index];return Number.isSafeInteger(value)&&value>=0?[[key,value]]:[]})),classIncludeSource=includedClassSource(definition.file,body),resolveEnum=(names,index)=>enumInfo(body,names)??enumInfo(classIncludeSource,names)??enumInfoByQualifiedAlias(analysisSource,configuredIds[index])??enumInfo(analysisSource,names)??enumInfoByTerminal(classIncludeSource,configuredIds[index])??enumInfoByTerminal(analysisSource,configuredIds[index]),objectExpander=objectExpanderContract(analysisSource,dependencyBody,directBase,definition.namespace),messageExpander=usesMessageExpander(rawAnalysisSource)?messageExpanderContract(rawAnalysisSource,target,manifest):null,runtimeFeatureSource=[dependencyBody,...implementations,...inherited.filter(item=>!item.missing).flatMap(item=>[item.analysisBody??item.body,...item.implementations]),secondaryInterfaces,localPlainStructs,...referencedImplementationGlobals,dependencyBundle.source,pluginGlobals.implementations].join("\n"),detectedFeatures=features(runtimeFeatureSource).filter(feature=>feature!=="expanders"||Boolean(objectExpander??messageExpander));if(process.env.RACK_WEB_DEBUG_DEPENDENCIES)console.error(JSON.stringify({rootSourceFiles:rootSourceFiles.map(file=>path.relative(sourceDir,file)),sourceFiles:sourceFiles.map(file=>path.relative(sourceDir,file))},null,2));
+  modulePreludeSource=target.plugin==="CosineKitty-Sapphire"?rawModulePreludeSource:rawModulePreludeSource&&definition.namespace?.length?`namespace ${definition.namespace.join("::")} {\n${rawModulePreludeSource}\n}`:rawModulePreludeSource,preludeNames=new Set(declaredTypeNames(modulePreludeSource)),strippedAnalysisPrelude=stripRackUiBlocks(modulePreludeSource),analysisPrelude=[referencedVecDspHelpers(modulePreludeSource,dependencyBody),strippedAnalysisPrelude].filter(Boolean).join("\n\n"),template=templateContract(definition.source,registration.moduleClass,definition.typeDeclaration),directImplementations=classImplementations(activeRootSourceFiles,registration.file,registration.moduleClass),includedDeclarationSource=[rawModulePreludeSource,...sourceFiles.map(file=>fs.readFileSync(file,"utf8"))].join("\n"),rawImplementations=[...directImplementations,...preludeTypeImplementations(activeRootSourceFiles,includedDeclarationSource,[dependencyBody,...directImplementations].join("\n"),registration.moduleClass,definition.file)].map(stripHostHistoryStatements),browserAsset=browserAssetSamplerContract([body,...rawImplementations].join("\n"))??browserAssetTargetContract(target.key),browserLoadStub=browserAsset?.mode==="rgba-image"?`void ${registration.moduleClass}::loadSample(std::string) { loading = false; }`:browserAsset?.mode==="wavetable"?`void ${registration.moduleClass}::loadSample() {}`:`void ${registration.moduleClass}::loadSample() { loading = false; }`,implementations=browserAsset?rawImplementations.map(value=>replaceOutOfLineMethod(replaceOutOfLineMethod(value,registration.moduleClass,"loadSample",browserLoadStub),registration.moduleClass,"saveSample",`void ${registration.moduleClass}::saveSample() { save = false; }`)):rawImplementations,configCandidate=[body,...implementations].join("\n"),configSource=template?specializeConstantBranches(configCandidate,template.constants):configCandidate,inherited=inheritedDefinitions(rootSourceFiles,definition.source,registration.moduleClass,definition.typeDeclaration),allBases=definition.typeDeclaration?.bases??declaredBases(definition.source,registration.moduleClass),secondaryBases=allBases.slice(1),secondaryInterfaces=secondaryBaseDefinitions(rootSourceFiles,secondaryBases.filter(type=>!preludeNames.has(baseTypeName(type)))),localPlainStructs=localPlainStructDefinitions(definition.source,registration.moduleClass,dependencyBody,preludeNames),inheritedSource=inherited.filter(item=>!item.missing).flatMap(item=>[stripRackUiBlocks(item.prelude),stripRackUiBlocks(item.analysisBody??item.body),...item.implementations.filter(value=>!rackUiPattern.test(value)).map(stripHostHistoryStatements)]),rawAnalysisSource=[...inheritedSource,secondaryInterfaces,localPlainStructs,analysisPrelude,dependencyBody,...implementations].join("\n"),externalSourceRoots=repositoryRoots(sourceDir).slice(1).map(root=>path.resolve(root)),localSourceFiles=sourceFiles.filter(file=>!externalSourceRoots.some(root=>file.startsWith(`${root}${path.sep}`))),referencedHeaderGlobals=localSourceFiles.filter(file=>/\.(?:h|hh|hpp)$/.test(file)).map(file=>namespaceGlobalDefinitions(stripRackUiBlocks(flattenExternCWrappers(sourceWithoutIncludes(stripHeaderGuardOpen(fs.readFileSync(file,"utf8"))))),rawAnalysisSource)).filter(Boolean),globalEnumDeclarations=referencedGlobalEnumDeclarations(localSourceFiles,rawAnalysisSource),dependencyAnalysisSource=[...globalEnumDeclarations,...referencedHeaderGlobals,allBases.join("\n"),rawAnalysisSource,registration.moduleClass].join("\n"),vendoredDependencies=vendoredDependencyBundleForAdapter(sourceDir,definition.file,sourceFiles),dependencyBundle=browserAsset&&!["earlevel-wavetable","octobir-ir-pair","midi-file"].includes(browserAsset.mode)?{source:"",files:[],implementationFiles:browserAssetImplementationFiles(sourceDir,browserAsset)}:vendoredDependencies??referencedDependencyBundleForAdapter(sourceFiles,dependencyAnalysisSource,new Set([definition.file]),sourceDir),implementationGlobalReference=[dependencyBundle.source,rawAnalysisSource].join("\n"),referencedImplementationGlobals=localSourceFiles.filter(file=>/\.(?:c|cc|cpp|cxx)$/.test(file)&&file!==definition.file&&!(target.key==="PathSet/IceTray"&&path.basename(file)==="pffft.c")).map(file=>namespaceGlobalDefinitions(fs.readFileSync(file,"utf8"),implementationGlobalReference,[],implementationGlobalReference)).filter(Boolean),globalEnumPrelude=globalEnumDeclarations.filter(declaration=>!dependencyBundle.source.includes(declaration)).join("\n\n"),externalPrelude=[embeddedJsonAssetPrelude(sourceDir,embeddedJsonAssets),embeddedMidiAssetPrelude(sourceDir,embeddedMidiAssets),embeddedBinaryAssetPrelude(sourceDir,embeddedBinaryAssets),browserAssetDependencyPrelude(browserAsset?definition.source:"",browserAsset),externalDependencyPrelude(sourceDir,definition.source,sourceFiles),...standardDependencyIncludes(definition.registrationSource),...inherited.flatMap(item=>item.source?externalDependencyPrelude(sourceDir,item.source,sourceFiles):[])].filter(Boolean).join("\n"),rackDspUsingPrelude=sourceFiles.some(file=>{const source=fs.readFileSync(file,"utf8");return rustNamespaceUsingDirectives(file,source).some(candidate=>candidate.target==="rack::dsp")})?"using namespace rack::dsp;":"",pluginGlobals=referencedPluginGlobalParts(sourceDir,[dependencyBundle.source,globalEnumPrelude,rawAnalysisSource].join("\n")),macroDefines=referencedDefinesWithoutPluginGlobals(rootSourceFiles,[dependencyBundle.source,globalEnumPrelude,...referencedImplementationGlobals,...referencedHeaderGlobals,body,rawAnalysisSource,pluginGlobals.declarations,pluginGlobals.implementations].join("\n"),sourceDir),defines=[macroDefines,pluginGlobals.declarations].filter(Boolean).join("\n\n"),prelude=[defines,rackDspUsingPrelude,externalPrelude,...referencedImplementationGlobals,dependencyBundle.source,globalEnumPrelude,pluginGlobals.implementations,secondaryInterfaces,localPlainStructs,analysisPrelude].filter(Boolean).join("\n\n"),analysisSource=[defines,...referencedImplementationGlobals,dependencyBundle.source,globalEnumPrelude,pluginGlobals.implementations,rawAnalysisSource].filter(Boolean).join("\n"),jsonFunctions=[...analysisSource.matchAll(/\b(json_[A-Za-z0-9_]+)\s*\(/g)].filter(match=>isCodePosition(analysisSource,match.index)).map(match=>match[1]),directBase=allBases[0],targetMemberConstants=rackWebMemberArrayConstants(body,baseTypeName(registration.moduleClass)),constantOverrides={...targetMemberConstants,...fxConfigConstants(sourceFiles,registration.moduleClass),...(template?.constants??{})},globalConstants=numericConstants(analysisSource,constantOverrides),constants=numericConstants(body,{...globalConstants,...constantOverrides},baseTypeName(registration.moduleClass)),configuredSource=[configSource,...inheritedSource].join("\n"),directConfigCalls=name=>rustDirectConfigCalls(configuredSource,name,constants),configured=directConfigCalls("venomConfig")[0]??directConfigCalls("config")[0],configuredIds=configured?splitArguments(configured):[],configuredCountValues=rackWebIntegers([0,1,2,3].map(index=>configuredIds[index]??""),constants),configuredCounts=Object.fromEntries([["params",0],["inputs",1],["outputs",2],["lights",3]].flatMap(([key,index])=>{const value=configuredCountValues[index];return Number.isSafeInteger(value)&&value>=0?[[key,value]]:[]})),classIncludeSource=includedClassSource(definition.file,body),resolveEnum=(names,index)=>enumInfo(body,names)??enumInfo(classIncludeSource,names)??enumInfoByQualifiedAlias(analysisSource,configuredIds[index])??enumInfo(analysisSource,names)??enumInfoByTerminal(classIncludeSource,configuredIds[index])??enumInfoByTerminal(analysisSource,configuredIds[index]),objectExpander=objectExpanderContract(analysisSource,dependencyBody,directBase,definition.namespace),messageExpander=usesMessageExpander(rawAnalysisSource)?messageExpanderContract(rawAnalysisSource,target,manifest):null,runtimeFeatureSource=[dependencyBody,...implementations,...inherited.filter(item=>!item.missing).flatMap(item=>[item.analysisBody??item.body,...item.implementations]),secondaryInterfaces,localPlainStructs,...referencedImplementationGlobals,dependencyBundle.source,pluginGlobals.implementations].join("\n"),detectedFeatures=features(runtimeFeatureSource).filter(feature=>feature!=="expanders"||Boolean(objectExpander??messageExpander));if(process.env.RACK_WEB_DEBUG_DEPENDENCIES)console.error(JSON.stringify({rootSourceFiles:rootSourceFiles.map(file=>path.relative(sourceDir,file)),sourceFiles:sourceFiles.map(file=>path.relative(sourceDir,file))},null,2));
   if(target.key==="ParableInstruments/Neil"){
     const neilImplementationFiles=[
       "parasites/clouds/dsp/correlator.cc",
@@ -8310,12 +12799,29 @@ ${dependencyBundle.source??""}`;
   if(translationUnitGlobals)implementations.unshift(translationUnitGlobals);
   if(target.key.startsWith("Biset/Biset-Tracker"))detected.features=detected.features.filter(feature=>feature!=="assets"&&feature!=="filesystem");
   if(target.key==="Biset/Biset-Blank")detected.features=detected.features.filter(feature=>feature!=="assets"&&feature!=="rack-app");
+  if(["SignalFunctionSet/Operator","SignalFunctionSet/Phase","SignalFunctionSet/Play","SignalFunctionSet/Record"].includes(target.key))detected.features=detected.features.filter(feature=>feature!=="filesystem");
   if(target.key==="Airwin2Rack/Airwin2Rack"){
     const effectNames=airwinRegistryEntries(sourceDir).filter(entry=>entry.accepted).map(entry=>entry.name);
     detected.stateKeys=[{key:"airwindowSelectedFX",type:"string-enum",values:effectNames},...detected.stateKeys.filter(item=>item.key!=="airwindowSelectedFX")];
   }
   if(target.key==="CatroModulo/CatroModulo_CM-3")detected.stateKeys=Array.from({length:64},(_,index)=>({index,key:"recorder",type:"real"}));
   if(target.key==="CatroModulo/CatroModulo_CM-9")detected.stateKeys=[{index:0,key:"opmode",type:"integer"}];
+  if(target.key==="acModules/CRBVi")detected.stateKeys=[
+    {key:"isSnapped",type:"boolean"},
+    {key:"showKeys",type:"boolean"},
+    {key:"yAxisRangeMode",type:"integer"},
+    {key:"guideType",type:"integer"},
+  ];
+  if(target.key==="acModules/CRBViXL")detected.stateKeys=[
+    {key:"isSnapped",type:"boolean"},
+    {key:"showKeys",type:"boolean"},
+    {key:"yAxisRangeMode",type:"integer"},
+    {key:"curveModX",type:"boolean"},
+    {key:"curveModY",type:"boolean"},
+    {key:"modVCA",type:"boolean"},
+    {key:"showModIndicators",type:"boolean"},
+    {key:"guideType",type:"integer"},
+  ];
   if(target.key==="Cella/CognitiveShift")detected.stateKeys=[...Array.from({length:8},(_,index)=>({index,key:"values",type:"boolean"})),...detected.stateKeys.filter(item=>item.key!=="values")];
   if(target.key==="Chinenual-VCV/MIDIRecorderCC")detected.stateKeys=Array.from({length:5},(_,index)=>[
     {key:"ccConfig",path:[index,"cc"],type:"integer"},
@@ -8336,6 +12842,51 @@ ${dependencyBundle.source??""}`;
     ];
   }
   if(target.key==="Chinenual-VCV/DrumMap")detected.stateKeys=Array.from({length:12},(_,index)=>({index,key:"map",type:"integer"}));
+  if(target.key==="moDllz/Kn8b")detected.stateKeys=[{key:"sampleRateWork",type:"boolean"}];
+  if(target.key==="CosineKitty-Sapphire/Moots")detected.stateKeys=[
+    {key:"controlMode",type:"string-enum",values:["gate","trigger"],name:"Control Mode",default:0,contextOnly:true},
+    ...Array.from({length:5},(_,index)=>({key:"slew",path:[index],type:"boolean",name:`Anti-click ramping on #${index+1}`,default:0,contextOnly:true})),
+  ];
+  if(target.key==="Stoermelder-P1/Spin")detected.stateKeys=[
+    {key:"panelTheme",type:"integer"},
+    {key:"mods",type:"integer",name:"Modifier",default:1,contextOnly:true,bitmask:[{bit:1,name:"Shift"},{bit:2,name:"Ctrl"},{bit:4,name:"Alt"}]},
+    {key:"clickMode",type:"integer",name:"Middle click mode",default:1,contextOnly:true,values:["Off","Toggle","Trigger","Gate"]},
+    {key:"clickHigh",type:"boolean",default:0},
+  ];
+  if(target.key==="CosineKitty-Sapphire/Nucleus"||target.key==="CosineKitty-Sapphire/Polynucleus"){
+    detected.expander={transport:"message-buffer",direction:"both",capacity:32768,models:[
+      {key:"CosineKitty-Sapphire/Tricorder",symbol:"modelSapphireTricorder",index:0},
+      {key:"CosineKitty-Sapphire/Tout",symbol:"modelSapphireTout",index:1},
+    ]};
+    if(!detected.features.includes("expanders"))detected.features.push("expanders");
+  }
+  if(target.key==="voxglitch/digitalprogrammer"){
+    Object.assign(detected.constants,{
+      NUMBER_OF_BANKS:24,NUMBER_OF_SLIDERS:16,
+      BANK_BUTTONS:0,COPY_MODE_PARAM:24,CLEAR_MODE_PARAM:25,RANDOMIZE_MODE_PARAM:26,BANK_PREV_PARAM:27,BANK_NEXT_PARAM:28,NUM_PARAMS:29,
+      CV_OUTPUTS:0,POLY_OUTPUT:16,NUM_OUTPUTS:17,
+      BANK_LIGHTS:0,COPY_MODE_LIGHT:24,CLEAR_MODE_LIGHT:25,RANDOMIZE_MODE_LIGHT:26,BANK_PREV_LIGHT:27,BANK_NEXT_LIGHT:28,NUM_LIGHTS:29,
+    });
+    Object.assign(detected.counts,{params:29,inputs:5,outputs:17,lights:29});
+    for(const kind of ["params","inputs","outputs","lights"])explicitCountKinds.add(kind);
+    const snapValues=["None","32","16","8","4"],rangeValues=["0.0 to 10.0","-10.0 to 10.0","0.0 to 5.0","-5.0 to 5.0","0.0 to 3.0","-3.0 to 3.0","0.0 to 1.0","-1.0 to 1.0"];
+    detected.stateKeys=[
+      ...Array.from({length:24},(_,bank)=>Array.from({length:16},(_,slider)=>({key:"banks",path:[bank,slider],type:"real"}))).flat(),
+      {key:"selected_bank",type:"integer"},
+      {key:"colorful_sliders",type:"boolean",name:"Match Cable Colors",contextOnly:true},
+      {key:"visualize_sums",type:"boolean",name:"Visualize Sums",contextOnly:true},
+      ...Array.from({length:16},(_,index)=>({key:"snap_settings",path:[index],type:"integer",values:snapValues,name:`Slider ${index+1} snap`,contextOnly:true})),
+      ...Array.from({length:16},(_,index)=>({key:"voltage_ranges",path:[index],type:"integer",values:rangeValues,name:`Slider ${index+1} output range`,contextOnly:true})),
+    ];
+  }
+  if(target.key==="mscHack/Lorenz")detected.stateKeys=[{key:"m_FilterState",type:"integer"}];
+  if(target.key==="mscHack/Maude221")detected.stateKeys=Array.from({length:3},(_,index)=>({index,key:"RectModes",type:"integer"}));
+  if(target.key==="mscHack/MasterClockx4")detected.stateKeys=[
+    {key:"m_bGlobalStopState",type:"boolean"},
+    ...Array.from({length:4},(_,index)=>({index,key:"m_bStopState",type:"boolean"})),
+    ...Array.from({length:4},(_,index)=>({index,key:"m_bTimeX2",type:"boolean"})),
+    ...Array.from({length:4},(_,index)=>({index,key:"m_ChannelMultSelect",type:"integer"})),
+  ];
   if(target.model.startsWith("SurgeXTFX")){
     const fxPortConfigSource=fxSpecializationRoots.map(file=>fs.readFileSync(file,"utf8")).join("\n");
     const fxConfigCalls=name=>rustSourceConfigCalls(fxPortConfigSource,name,constants);
@@ -8380,7 +12931,7 @@ ${dependencyBundle.source??""}`;
   if(!lightsCompatible)blockers.push({kind:"lights",detail:"Module uses lights[] without a light enum or config() count"});
   if(unsupportedJson.length)blockers.push({kind:"json-api",symbols:unsupportedJson});
   if(unsupportedSimd.length)blockers.push({kind:"simd-api",symbols:unsupportedSimd});
-  if(!rackAppCompatible&&target.key!=="Biset/Biset-Blank"&&target.key!=="computerscare/computerscare-blank"&&target.key!=="computerscare/computerscare-portaloof")blockers.push({kind:"host-feature",feature:"rack-app",symbols:appTargets});
+  if(!rackAppCompatible&&target.key!=="Biset/Biset-Blank"&&target.key!=="BGal256/DressMeUp"&&target.key!=="computerscare/computerscare-blank"&&target.key!=="computerscare/computerscare-portaloof"&&target.key!=="ImpromptuModular/Chord-Key")blockers.push({kind:"host-feature",feature:"rack-app",symbols:appTargets});
   if(!expanderCompatible)blockers.push({kind:"host-feature",feature:"adjacent-expander-routing"});
   if(!assetsCompatible)blockers.push({kind:"host-feature",feature:"assets"});
   for(const feature of blockedUsed)blockers.push({kind:"host-feature",feature});
@@ -8428,8 +12979,8 @@ inline float rackWebPluginGetSampleRate() noexcept;
 ${effectivePrelude}`;
   }
   const embeddedMidiBytes=embeddedMidiAssets.reduce((sum,file)=>sum+fs.statSync(file).size,0),embeddedBinaryBytes=embeddedBinaryAssets.reduce((sum,file)=>sum+fs.statSync(file).size,0),partitionedConvolverBytes=/\bRealTimeConvolver\b/.test(analysisSource)?12*1024*1024:0,
-  targetMinimumMemory=target.key==="OPC-OctobIR/OPC-OctobIR"?128*1024*1024:target.key==="FrozenWasteland/StringTheory"||target.key==="KautenjaDSP-RackNES/RackNES"?72*1024*1024:target.key==="Fundamental/VCO2"||target.key==="HetrickCVGPL/PhasorWavetable"||target.key==="NoSuchDevice/Corrupter"?32*1024*1024:target.key==="Airwin2Rack/Airwin2Rack"||target.key==="Chinenual-VCV/MIDIRecorder"?16*1024*1024:target.plugin==="DrumKit"?16*1024*1024:target.key==="tnn1t1s-ghost/CrashRide"||target.plugin==="GP"&&(target.model.startsWith("ChainMixer")||target.model==="Rotary")?8*1024*1024:0,
-  staticMemoryBytes=Math.max(estimatedStaticMemory(analysisSource)+embeddedMidiBytes+embeddedBinaryBytes*2+partitionedConvolverBytes,targetMinimumMemory),output=path.resolve(options.output||path.join("web-runtime","scaffolds",`${target.plugin}-${target.model}`));fs.mkdirSync(output,{recursive:true});const definitionFile=path.relative(sourceDir,definition.file),registrationFile=path.relative(sourceDir,registration.file),draft=compileEligible?runtimeDraft(target,manifest,moduleManifest,license,detected,registration.moduleClass,sourceDir):null,report={schemaVersion:1,key:target.key,libraryUrl:target.url,manifest:{slug:manifest.slug,name:manifest.name,version:manifest.version,license,brand:manifest.brand,sourceUrl:manifest.sourceUrl,module:moduleManifest},source:{directory:sourceDir,commit:sourceCommit,file:definitionFile,registrationFile:path.relative(sourceDir,registration.file),moduleClass:registration.moduleClass,widgetClass:registration.widgetClass},detected:{...detected,staticMemoryBytes},assessment:{strategy:compileEligible?"direct-rack-source-adapter":"manual-browser-adapter",compileEligible:Boolean(compileEligible),requiresReview:true,blockers},runtimeDraft:draft};const adapter=path.join(output,"adapter.cpp"),isolatedAdapter=adapterSource(target,manifest,license,definitionFile,registrationFile,registration,effectivePrelude,body,implementations,inherited.filter(item=>!item.missing),detected,Boolean(compileEligible),sourceDir);if(process.env.RACK_WEB_DEBUG_ADAPTER==="raw")process.stderr.write(`${isolatedAdapter}\n`);let normalizedAdapter=normalizeGeneratedImplementations(stripNamespaceScopeReturns(normalizeLegacyMidiOverrides(isolatedAdapter)));if(target.key==="PinkTrombone/PinkTrombone")normalizedAdapter=adaptPinkTromboneGeneratedAdapter(normalizedAdapter);if(target.key==="PitchGrid/MicroExquis")normalizedAdapter=adaptPitchGridMicroExquisBrowserSource(normalizedAdapter);if(target.key==="OPC-OctobIR/OPC-OctobIR")normalizedAdapter=adaptOpcOctobirBrowserSource(normalizedAdapter,detected.browserAsset);if(target.key==="Ohmer/RKD")normalizedAdapter=adaptOhmerRkdBrowserSource(normalizedAdapter);if(target.key==="KautenjaDSP-RackNES/RackNES")normalizedAdapter=adaptRackNesBrowserSource(normalizedAdapter);if(target.key==="LOGinstruments/Speck")normalizedAdapter=adaptSpeckBrowserSource(normalizedAdapter);if(target.key==="MADZINE/NIGOQ")normalizedAdapter=adaptMadzineNigoqBrowserSource(normalizedAdapter);if(target.key==="MADZINE/Manual")normalizedAdapter=adaptMadzineManualBrowserSource(normalizedAdapter);if(target.key==="ML_modules/Arpeggiator")normalizedAdapter=adaptMlArpeggiatorBrowserSource(normalizedAdapter);if(target.key==="ML_modules/TrigBuf")normalizedAdapter=adaptMlTrigBufBrowserSource(normalizedAdapter);if(target.key==="NoSuchDevice/Corrupter")normalizedAdapter=adaptNoSuchDeviceCorrupterBrowserSource(normalizedAdapter);if(target.key==="Leviathan/IntegralFlux")normalizedAdapter=adaptIntegralFluxBrowserSource(normalizedAdapter);if(target.key==="Leviathan/Undertow")normalizedAdapter=adaptLeviathanUndertowBrowserImplementation(normalizedAdapter);if(target.key==="LOGinstruments/LessMess")normalizedAdapter=adaptLessMessBrowserSource(normalizedAdapter);if(target.key==="Minilab3/MiniLog")normalizedAdapter=normalizedAdapter.replace("this->connected = connected;","connected = connected || rackWebDirectMidi;\n    this->connected = connected;");if(target.key==="JW-Modules/XYPad")normalizedAdapter=normalizedAdapter.replace(/\benum\s+PlayModes\s*\{[^}]+\}\s*;/,"");if(target.plugin==="CosineKitty-Sapphire")normalizedAdapter=adaptSapphireGeneratedAdapter(normalizedAdapter,sourceDir);if(target.plugin==="DrumKit")normalizedAdapter=adaptDrumKitSampleAdapter(sourceDir,target,normalizedAdapter);if(target.key==="DanTSynth/AOCR")normalizedAdapter=adaptDanTSynthAocrBrowserSource(normalizedAdapter);if(target.plugin==="DelexanderVol1"&&target.model.startsWith("Algomorph"))normalizedAdapter=adaptAlgomorphBrowserSource(normalizedAdapter,target.key==="DelexanderVol1/Algomorph");if(target.key==="Edge/WCO_Osc")normalizedAdapter=adaptEdgeWcoBrowserSource(normalizedAdapter,sourceDir);if(target.key==="IggyLabsModules/table")normalizedAdapter=adaptIggyTableBrowserSource(normalizedAdapter);if(target.key==="EH_modules/FV-1emu")normalizedAdapter=adaptFv1EmuBrowserSource(normalizedAdapter,fs.readFileSync(path.join(sourceDir,"fx","demo.spn"),"utf8"));if(target.key==="FrozenWasteland/PortlandWeather")normalizedAdapter=adaptFrozenWastelandPortlandWeatherBrowserSource(normalizedAdapter);if(target.key==="FrozenWasteland/StringTheory")normalizedAdapter=adaptStringTheoryBrowserSource(normalizedAdapter);if(target.key==="ChowDSP/ChowFDN")normalizedAdapter=normalizedAdapter.replace("HISTORY_SIZE = 1 << 21","HISTORY_SIZE = 1 << 17");if(target.key==="ChowDSP/ChowRNN")normalizedAdapter=removeTemplatedOutOfLineDefinitions(normalizedAdapter,"GRULayer");if(target.key==="Clonotribe/Clonotribe")normalizedAdapter=adaptClonotribeBrowserBody(normalizedAdapter).replace(/(\bClonotribe::Clonotribe\s*\(\s*\)\s*:\s*filterProcessor\s*\(\s*ms20Filter\s*\))\s*,\s*ribbonController\s*\(\s*this\s*\)/g,"$1");if(target.key==="InfrasonicAudio/WarpCore")normalizedAdapter=adaptInfrasonicWarpCoreBrowserSource(normalizedAdapter);if(target.key==="MUS-X/Synth")normalizedAdapter=normalizedAdapter.replace(/\bBipolarColorParamQuantity\b/g,"ParamQuantity");if(target.key==="ImpromptuModular/Prob-Key")normalizedAdapter=normalizedAdapter.replace(/RACK_WEB_EXPORTS\(([^)]+)\)\s*$/,`struct RackWebProbKeyModule : $1 {
+  targetMinimumMemory=target.key==="OPC-OctobIR/OPC-OctobIR"?128*1024*1024:target.key==="FrozenWasteland/StringTheory"||target.key==="KautenjaDSP-RackNES/RackNES"?72*1024*1024:target.key==="Fundamental/VCO2"||target.key==="HetrickCVGPL/PhasorWavetable"||target.key==="NoSuchDevice/Corrupter"?32*1024*1024:target.key==="Airwin2Rack/Airwin2Rack"||target.key==="Chinenual-VCV/MIDIRecorder"?16*1024*1024:target.plugin==="DrumKit"?16*1024*1024:target.key==="tnn1t1s-ghost/CrashRide"||target.plugin==="GP"&&(target.model.startsWith("ChainMixer")||target.model=="Rotary")?8*1024*1024:0,
+staticMemoryBytes=Math.max(estimatedStaticMemory(analysisSource)+embeddedMidiBytes+embeddedBinaryBytes*2+partitionedConvolverBytes,targetMinimumMemory),output=path.resolve(options.output||path.join("web-runtime","scaffolds",`${target.plugin}-${target.model}`));fs.mkdirSync(output,{recursive:true});const definitionFile=path.relative(sourceDir,definition.file),registrationFile=path.relative(sourceDir,registration.file),draft=compileEligible?runtimeDraft(target,manifest,moduleManifest,license,detected,registration.moduleClass,sourceDir):null,report={schemaVersion:1,key:target.key,libraryUrl:target.url,manifest:{slug:manifest.slug,name:manifest.name,version:manifest.version,license,brand:manifest.brand,sourceUrl:manifest.sourceUrl,module:moduleManifest},source:{directory:sourceDir,commit:sourceCommit,file:definitionFile,registrationFile:path.relative(sourceDir,registration.file),moduleClass:registration.moduleClass,widgetClass:registration.widgetClass},detected:{...detected,staticMemoryBytes},assessment:{strategy:compileEligible?"direct-rack-source-adapter":"manual-browser-adapter",compileEligible:Boolean(compileEligible),requiresReview:true,blockers},runtimeDraft:draft};const adapter=path.join(output,"adapter.cpp"),isolatedAdapter=adapterSource(target,manifest,license,definitionFile,registrationFile,registration,effectivePrelude,body,implementations,inherited.filter(item=>!item.missing),detected,Boolean(compileEligible),sourceDir);if(process.env.RACK_WEB_DEBUG_ADAPTER==="raw")process.stderr.write(`${isolatedAdapter}\n`);let normalizedAdapter=normalizeGeneratedImplementations(stripNamespaceScopeReturns(normalizeLegacyMidiOverrides(isolatedAdapter)));if(target.plugin==="SignalFunctionSet")normalizedAdapter=adaptSignalFunctionSetBrowserSource(normalizedAdapter,target.model);if(target.plugin==="Bogaudio")normalizedAdapter=adaptBogaudioGeneratedAdapter(normalizedAdapter);if(target.key==="FrozenWasteland/FillingStation"&&!/^\s*#\s*define\s+MAX_STEPS\b/m.test(normalizedAdapter))normalizedAdapter=normalizedAdapter.replace('#include "rack_web_export.hpp"','#include "rack_web_export.hpp"\n#define MAX_STEPS 16');if(target.key==="BGal256/SortStep")normalizedAdapter=normalizedAdapter.replace('#include "rack_web_export.hpp"','#include "rack_web_export.hpp"\ntypedef int section_t;\ntypedef int sorterarray_event_t;\nstruct SorterArrayWidget;');if(target.key==="PinkTrombone/PinkTrombone")normalizedAdapter=adaptPinkTromboneGeneratedAdapter(normalizedAdapter);if(target.key==="PitchGrid/MicroExquis")normalizedAdapter=adaptPitchGridMicroExquisBrowserSource(normalizedAdapter);if(target.key==="OPC-OctobIR/OPC-OctobIR")normalizedAdapter=adaptOpcOctobirBrowserSource(normalizedAdapter,detected.browserAsset);if(target.key==="Ohmer/RKD")normalizedAdapter=adaptOhmerRkdBrowserSource(normalizedAdapter);if(target.key==="KautenjaDSP-RackNES/RackNES")normalizedAdapter=adaptRackNesBrowserSource(normalizedAdapter);if(target.key==="LOGinstruments/Speck")normalizedAdapter=adaptSpeckBrowserSource(normalizedAdapter);if(target.key==="MADZINE/NIGOQ")normalizedAdapter=adaptMadzineNigoqBrowserSource(normalizedAdapter);if(target.key==="MADZINE/Manual")normalizedAdapter=adaptMadzineManualBrowserSource(normalizedAdapter);if(target.key==="ML_modules/Arpeggiator")normalizedAdapter=adaptMlArpeggiatorBrowserSource(normalizedAdapter);if(target.key==="ML_modules/TrigBuf")normalizedAdapter=adaptMlTrigBufBrowserSource(normalizedAdapter);if(target.key==="NoSuchDevice/Corrupter")normalizedAdapter=adaptNoSuchDeviceCorrupterBrowserSource(normalizedAdapter);if(target.key==="Leviathan/IntegralFlux")normalizedAdapter=adaptIntegralFluxBrowserSource(normalizedAdapter);if(target.key==="Leviathan/Undertow")normalizedAdapter=adaptLeviathanUndertowBrowserImplementation(normalizedAdapter);if(target.key==="LOGinstruments/LessMess")normalizedAdapter=adaptLessMessBrowserSource(normalizedAdapter);if(target.key==="Minilab3/MiniLog")normalizedAdapter=normalizedAdapter.replace("this->connected = connected;","connected = connected || rackWebDirectMidi;\n    this->connected = connected;");if(target.key==="JW-Modules/XYPad")normalizedAdapter=normalizedAdapter.replace(/\benum\s+PlayModes\s*\{[^}]+\}\s*;/,"");if(target.plugin==="CosineKitty-Sapphire")normalizedAdapter=adaptSapphireGeneratedAdapter(normalizedAdapter,sourceDir);if(target.plugin==="DrumKit")normalizedAdapter=adaptDrumKitSampleAdapter(sourceDir,target,normalizedAdapter);if(target.key==="DanTSynth/AOCR")normalizedAdapter=adaptDanTSynthAocrBrowserSource(normalizedAdapter);if(target.plugin==="DelexanderVol1"&&target.model.startsWith("Algomorph"))normalizedAdapter=adaptAlgomorphBrowserSource(normalizedAdapter,target.key==="DelexanderVol1/Algomorph");if(target.key==="Edge/WCO_Osc")normalizedAdapter=adaptEdgeWcoBrowserSource(normalizedAdapter,sourceDir);if(target.key==="IggyLabsModules/table")normalizedAdapter=adaptIggyTableBrowserSource(normalizedAdapter);if(target.key==="EH_modules/FV-1emu")normalizedAdapter=adaptFv1EmuBrowserSource(normalizedAdapter,fs.readFileSync(path.join(sourceDir,"fx","demo.spn"),"utf8"));if(target.key==="FrozenWasteland/PortlandWeather")normalizedAdapter=adaptFrozenWastelandPortlandWeatherBrowserSource(normalizedAdapter);if(target.key==="FrozenWasteland/StringTheory")normalizedAdapter=adaptStringTheoryBrowserSource(normalizedAdapter);if(target.key==="ChowDSP/ChowFDN")normalizedAdapter=normalizedAdapter.replace("HISTORY_SIZE = 1 << 21","HISTORY_SIZE = 1 << 17");if(target.key==="ChowDSP/ChowRNN")normalizedAdapter=removeTemplatedOutOfLineDefinitions(normalizedAdapter,"GRULayer");if(target.key==="Clonotribe/Clonotribe")normalizedAdapter=adaptClonotribeBrowserBody(normalizedAdapter,sourceDir).replace(/(\bClonotribe::Clonotribe\s*\(\s*\)\s*:\s*filterProcessor\s*\(\s*ms20Filter\s*\))\s*,\s*ribbonController\s*\(\s*this\s*\)/g,"$1");if(target.key==="InfrasonicAudio/WarpCore")normalizedAdapter=adaptInfrasonicWarpCoreBrowserSource(normalizedAdapter);if(target.key==="MUS-X/Synth")normalizedAdapter=normalizedAdapter.replace(/\bBipolarColorParamQuantity\b/g,"ParamQuantity");if(target.key==="ImpromptuModular/Prob-Key")normalizedAdapter=normalizedAdapter.replace(/RACK_WEB_EXPORTS\(([^)]+)\)\s*$/,`struct RackWebProbKeyModule : $1 {
   float rackWebProbDisplay[4] = {32.f, 32.f, 32.f, 49.f};
   int rackWebVisualCount() const override { return 4; }
   float* rackWebVisualBuffer() override {
@@ -8588,11 +13139,14 @@ RACK_WEB_EXPORTS(RackWebPhraseSeq32Module)`);if(target.key==="Skylights/SkWhatno
   }
 };
 
-RACK_WEB_EXPORTS(RackWebWhatNoteModule)`);if(target.key==="WrongPeople/MIDIPlayer")normalizedAdapter=adaptWrongPeopleMidiPlayerBrowserSource(normalizedAdapter);if(target.key==="WrongPeople/Lua")normalizedAdapter=adaptWrongPeopleLuaBrowserSource(normalizedAdapter,sourceDir);if(target.plugin==="tnn1t1s-ghost")normalizedAdapter=adaptTnnGhostBrowserSource(normalizedAdapter);if(process.env.RACK_WEB_DEBUG_ADAPTER&&process.env.RACK_WEB_DEBUG_ADAPTER!=="raw")process.stderr.write(`${normalizedAdapter}\n`);fs.writeFileSync(path.join(output,"adapter.json"),JSON.stringify(report,null,2)+"\n");fs.writeFileSync(adapter,normalizedAdapter);fs.writeFileSync(path.join(output,"README.md"),`# ${target.key} Rack Web scaffold\n\n- [ ] Review source license and dependencies\n- [ ] Preserve ordered Param/Input/Output/Light IDs from adapter.json\n- [ ] Translate DSP and state without native widget code\n- [ ] Add manifest and runtime catalog records\n- [ ] Add executable ABI regression tests\n\nAssessment: **${report.assessment.strategy}**\n`);let artifact;if(options.compile){if(!compileEligible)fail(`${target.key} requires a manual browser adapter: ${blockers.map(blocker=>blocker.symbols?.join(", ")??blocker.feature??blocker.detail).join("; ")}`);const explicitInitialMemory=options["initial-memory"]!==undefined,maximumMemory=268435456,wasiHolder={exports:null},imports=wasiImports(wasiHolder);let initialMemory=Number(options["initial-memory"]??pageAlignedMemory(staticMemoryBytes)),wasm;if(!Number.isSafeInteger(initialMemory)||initialMemory<1048576||initialMemory%65536!==0)fail("Initial memory must be a whole number of 64 KiB pages");while(true){try{artifact=compileAdapter(adapter,output,initialMemory,sourceDir,[...new Set([...sourceFiles,...dependencyBundle.files])],dependencyBundle.implementationFiles,!portableSurgeHost);wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(artifact)),imports).exports;wasiHolder.exports=wasm;wasm._initialize();if(browserAsset){const image=browserAsset.mode==="rgba-image",frames=image?1024:Math.min(4096,wasm.rack_web_asset_capacity()),channels=image?4:1,samples=new Float32Array(wasm.memory.buffer,wasm.rack_web_asset_buffer(),frames*channels);for(let index=0;index<samples.length;index++)samples[index]=image?(index%4===3?1:(index%256)/255):Math.sin(index*.1);wasm.rack_web_commit_asset(frames,channels,image?32:48000)}break}catch(error){const memoryFailure=/initial memory too small|(?:out of bounds memory access|memory access out of bounds)|cannot enlarge memory|failed to (?:grow|allocate) memory|memory allocation failed|unreachable[^\n]*(?:alloc|memory)|^\s*unreachable\s*$/im.test(error instanceof Error?error.message:String(error));if(explicitInitialMemory||!memoryFailure||initialMemory>=maximumMemory)throw error;initialMemory=Math.min(maximumMemory,initialMemory*2)}}for(const param of draft.params){param.default=wasm.rack_web_get_param(param.id);const minimum=wasm.rack_web_get_param_min(param.id),maximum=wasm.rack_web_get_param_max(param.id);if(Number.isFinite(minimum))param.min=minimum;if(Number.isFinite(maximum))param.max=maximum}draft.runtime={...(draft.runtime??{}),initialMemory}}if(draft)fs.writeFileSync(path.join(output,"runtime.json"),JSON.stringify(draft,null,2)+"\n");fs.writeFileSync(path.join(output,"adapter.json"),JSON.stringify(report,null,2)+"\n");process.stdout.write(JSON.stringify({...report,output,artifact,temporarySource:temporary},null,2)+"\n")}
+RACK_WEB_EXPORTS(RackWebWhatNoteModule)`);if(target.key==="WrongPeople/MIDIPlayer")normalizedAdapter=adaptWrongPeopleMidiPlayerBrowserSource(normalizedAdapter);if(target.key==="WrongPeople/Lua")normalizedAdapter=adaptWrongPeopleLuaBrowserSource(normalizedAdapter,sourceDir);if(target.plugin==="tnn1t1s-ghost")normalizedAdapter=adaptTnnGhostBrowserSource(normalizedAdapter);if(target.key==="FrankBuss/Formula"&&!/ParserException::~ParserException\s*\(\s*\)/.test(normalizedAdapter))normalizedAdapter=normalizedAdapter.replace(/(inline\s+ParserException&\s+ParserException::operator=)/,"inline ParserException::~ParserException() {}\n\n$1");if(target.key==="CVfunk/JunkDNA")normalizedAdapter=normalizedAdapter.replace(/^\s*if\s*\(\s*displayRibbon\s*\[\s*i\s*\]\s*\)\s*displayRibbon\s*\[\s*i\s*\]\s*->\s*text\s*=.*;\s*$/gm,"");if(target.key==="Stoermelder-P1/CVMapCtx")normalizedAdapter=adaptStoermelderCvMapCtxBrowserSource(normalizedAdapter);if(target.key==="voxglitch/digitalprogrammer")normalizedAdapter=adaptVoxglitchDigitalProgrammerBrowserSource(normalizedAdapter,sourceDir);if(process.env.RACK_WEB_DEBUG_ADAPTER&&process.env.RACK_WEB_DEBUG_ADAPTER!=="raw")process.stderr.write(`${normalizedAdapter}\n`);fs.writeFileSync(path.join(output,"adapter.json"),JSON.stringify(report,null,2)+"\n");fs.writeFileSync(adapter,normalizedAdapter);fs.writeFileSync(path.join(output,"README.md"),`# ${target.key} Rack Web scaffold\n\n- [ ] Review source license and dependencies\n- [ ] Preserve ordered Param/Input/Output/Light IDs from adapter.json\n- [ ] Translate DSP and state without native widget code\n- [ ] Add manifest and runtime catalog records\n- [ ] Add executable ABI regression tests\n\nAssessment: **${report.assessment.strategy}**\n`);let artifact;if(options.compile){if(!compileEligible)fail(`${target.key} requires a manual browser adapter: ${blockers.map(blocker=>blocker.symbols?.join(", ")??blocker.feature??blocker.detail).join("; ")}`);const explicitInitialMemory=options["initial-memory"]!==undefined,maximumMemory=268435456,wasiHolder={exports:null},imports=wasiImports(wasiHolder);let initialMemory=Number(options["initial-memory"]??pageAlignedMemory(staticMemoryBytes)),wasm;if(!Number.isSafeInteger(initialMemory)||initialMemory<1048576||initialMemory%65536!==0)fail("Initial memory must be a whole number of 64 KiB pages");while(true){try{artifact=compileAdapter(adapter,output,initialMemory,sourceDir,[...new Set([...sourceFiles,...dependencyBundle.files])],dependencyBundle.implementationFiles,!portableSurgeHost);wasm=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(artifact)),imports).exports;wasiHolder.exports=wasm;wasm._initialize();if(browserAsset){const image=browserAsset.mode==="rgba-image",frames=image?1024:Math.min(4096,wasm.rack_web_asset_capacity()),channels=image?4:1,samples=new Float32Array(wasm.memory.buffer,wasm.rack_web_asset_buffer(),frames*channels);for(let index=0;index<samples.length;index++)samples[index]=image?(index%4===3?1:(index%256)/255):Math.sin(index*.1);wasm.rack_web_commit_asset(frames,channels,image?32:48000)}break}catch(error){const memoryFailure=/initial memory too small|(?:out of bounds memory access|memory access out of bounds)|cannot enlarge memory|failed to (?:grow|allocate) memory|memory allocation failed|unreachable[^\n]*(?:alloc|memory)|^\s*unreachable\s*$/im.test(error instanceof Error?error.message:String(error));if(explicitInitialMemory||!memoryFailure||initialMemory>=maximumMemory)throw error;initialMemory=Math.min(maximumMemory,initialMemory*2)}}for(const param of draft.params){param.default=wasm.rack_web_get_param(param.id);const minimum=wasm.rack_web_get_param_min(param.id),maximum=wasm.rack_web_get_param_max(param.id);if(Number.isFinite(minimum))param.min=minimum;if(Number.isFinite(maximum))param.max=maximum}draft.runtime={...(draft.runtime??{}),initialMemory}}if(draft)fs.writeFileSync(path.join(output,"runtime.json"),JSON.stringify(draft,null,2)+"\n");fs.writeFileSync(path.join(output,"adapter.json"),JSON.stringify(report,null,2)+"\n");process.stdout.write(JSON.stringify({...report,output,artifact,temporarySource:temporary},null,2)+"\n")}
 
-if(import.meta.url===pathToFileURL(process.argv[1]).href)main().catch(error=>{process.stderr.write(`${error instanceof Error?error.message:String(error)}\n`);process.exitCode=1});
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)scaffoldLibraryModule().catch(error=>{process.stderr.write(`${error instanceof Error?error.message:String(error)}\n`);process.exitCode=1});
 
 export {
+  scaffoldLibraryModule,
+  adaptSignalFunctionSetBrowserSource,
+  signalFunctionSetVisuals,
   adaptAlgomorphBrowserSource,
   adaptRackNesBrowserSource,
   adaptSpeckBrowserSource,
@@ -8678,6 +13232,11 @@ export {
   pruneInactiveConditionalDependencies,
   preferNearestTargetEnums,
   rackWidgetPlacements,
+  sourceInteractionActionMethod,
+  widgetDisplayRects,
+  nativeSignalColor,
+  nativeSignalStyle,
+  nativeSignalVisual,
   referencedDependencyBundleForAdapter,
   referencedDefinesWithoutPluginGlobals,
   referencedHostModels,

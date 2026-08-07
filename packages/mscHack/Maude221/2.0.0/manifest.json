@@ -62,7 +62,8 @@
           "x": 47,
           "y": 188,
           "widget": "Knob_Blue2_26_Snap"
-        }
+        },
+        "snap": true
       },
       {
         "id": 4,
@@ -99,14 +100,6 @@
           "y": 152,
           "widget": "Knob_Green1_15"
         }
-      },
-      {
-        "id": 7,
-        "name": "Param 8",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "hidden": true
       }
     ],
     "inputs": [
@@ -116,7 +109,8 @@
         "kind": "audio",
         "position": {
           "x": 22,
-          "y": 48
+          "y": 48,
+          "widget": "MyPortInSmall"
         }
       },
       {
@@ -125,7 +119,8 @@
         "kind": "audio",
         "position": {
           "x": 79,
-          "y": 48
+          "y": 48,
+          "widget": "MyPortInSmall"
         }
       },
       {
@@ -134,7 +129,8 @@
         "kind": "cv",
         "position": {
           "x": 6,
-          "y": 173
+          "y": 173,
+          "widget": "MyPortInSmall"
         }
       },
       {
@@ -143,14 +139,9 @@
         "kind": "cv",
         "position": {
           "x": 93,
-          "y": 173
+          "y": 173,
+          "widget": "MyPortInSmall"
         }
-      },
-      {
-        "id": 4,
-        "name": "ninputs",
-        "kind": "cv",
-        "hidden": true
       }
     ],
     "outputs": [
@@ -160,14 +151,9 @@
         "kind": "cv",
         "position": {
           "x": 50,
-          "y": 344
+          "y": 344,
+          "widget": "MyPortOutSmall"
         }
-      },
-      {
-        "id": 1,
-        "name": "noutputs",
-        "kind": "cv",
-        "hidden": true
       }
     ],
     "lights": 0,
@@ -178,15 +164,517 @@
       ]
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 1 mode 1",
+              "x": 15,
+              "y": 81,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 0,
+                "operation": "set",
+                "value": 0
+              },
+              "display": {
+                "source": "state",
+                "id": 0,
+                "defaultValue": 1,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#b4b4b4",
+                    "#404040",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 1 mode 2",
+              "x": 27,
+              "y": 81,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 0,
+                "operation": "set",
+                "value": 1
+              },
+              "display": {
+                "source": "state",
+                "id": 0,
+                "defaultValue": 1,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#b4b4b4",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 1 mode 3",
+              "x": 39,
+              "y": 81,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 0,
+                "operation": "set",
+                "value": 2
+              },
+              "display": {
+                "source": "state",
+                "id": 0,
+                "defaultValue": 1,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#404040",
+                    "#b4b4b4"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 2 mode 1",
+              "x": 71,
+              "y": 81,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 1,
+                "operation": "set",
+                "value": 0
+              },
+              "display": {
+                "source": "state",
+                "id": 1,
+                "defaultValue": 1,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#b4b4b4",
+                    "#404040",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 2 mode 2",
+              "x": 83,
+              "y": 81,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 1,
+                "operation": "set",
+                "value": 1
+              },
+              "display": {
+                "source": "state",
+                "id": 1,
+                "defaultValue": 1,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#b4b4b4",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 2 mode 3",
+              "x": 95,
+              "y": 81,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 1,
+                "operation": "set",
+                "value": 2
+              },
+              "display": {
+                "source": "state",
+                "id": 1,
+                "defaultValue": 1,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#404040",
+                    "#b4b4b4"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 3 mode 1",
+              "x": 32,
+              "y": 248,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 2,
+                "operation": "set",
+                "value": 0
+              },
+              "display": {
+                "source": "state",
+                "id": 2,
+                "defaultValue": 2,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#b4b4b4",
+                    "#404040",
+                    "#404040",
+                    "#404040",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 3 mode 2",
+              "x": 44,
+              "y": 248,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 2,
+                "operation": "set",
+                "value": 1
+              },
+              "display": {
+                "source": "state",
+                "id": 2,
+                "defaultValue": 2,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#b4b4b4",
+                    "#404040",
+                    "#404040",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 3 mode 3",
+              "x": 56,
+              "y": 248,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 2,
+                "operation": "set",
+                "value": 2
+              },
+              "display": {
+                "source": "state",
+                "id": 2,
+                "defaultValue": 2,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#404040",
+                    "#b4b4b4",
+                    "#404040",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 3 mode 4",
+              "x": 68,
+              "y": 248,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 2,
+                "operation": "set",
+                "value": 3
+              },
+              "display": {
+                "source": "state",
+                "id": 2,
+                "defaultValue": 2,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#404040",
+                    "#404040",
+                    "#b4b4b4",
+                    "#404040"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Rectifier 3 mode 5",
+              "x": 80,
+              "y": 248,
+              "width": 12,
+              "height": 12,
+              "click": {
+                "target": "state",
+                "id": 2,
+                "operation": "set",
+                "value": 4
+              },
+              "display": {
+                "source": "state",
+                "id": 2,
+                "defaultValue": 2,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 11.5,
+                  "height": 11.5,
+                  "borderRadius": 0,
+                  "colors": [
+                    "#404040",
+                    "#404040",
+                    "#404040",
+                    "#404040",
+                    "#b4b4b4"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/mscHack/Maude221/2.0.0/manifest.json",
     "sourceCommit": "42668cc2bc4c6b9ecd473586bdcddfa5e4174a0c",
     "artifact": {
-      "sha256": "6101c574f4685f3b0c9189376566d121473bd54bc8870842067fae9f79560d04",
-      "size": 76511
-    }
+      "sha256": "7e0fd997a41529130b54b92e607de248d780ecce17497184baa069bee1590795",
+      "size": 85907
+    },
+    "stateKeys": [
+      {
+        "index": 0,
+        "key": "RectModes",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "RectModes",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "RectModes",
+        "type": "integer"
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/baconpaul/mschack-VCV-Rack-Plugins",
@@ -194,7 +682,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:13:19.038Z"
+    "fingerprint": "e20bbd6e0d5b43be",
+    "builtAt": "2026-08-06T12:08:23.891Z"
   }
 }

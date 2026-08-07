@@ -812,16 +812,24 @@ fn process_group(
     context: &Mutex<BuildContext>,
 ) -> Result<(), String> {
     let result = (|| {
-        let Some((first, rest)) = items.split_first() else {
-            return Ok(());
-        };
-        process_item(first, options, paths, context)?;
-        if rest.is_empty() {
+        if items.is_empty() {
             return Ok(());
         }
         let checkout_ready = paths.source_cache.join(plugin).exists();
-        if !checkout_ready || options.concurrency == 1 {
-            for item in rest {
+        let pending = if checkout_ready {
+            items
+        } else {
+            let (first, rest) = items
+                .split_first()
+                .expect("non-empty build group should have a first item");
+            process_item(first, options, paths, context)?;
+            rest
+        };
+        if pending.is_empty() {
+            return Ok(());
+        }
+        if options.concurrency == 1 {
+            for item in pending {
                 process_item(item, options, paths, context)?;
             }
             return Ok(());
@@ -829,7 +837,7 @@ fn process_group(
         let cursor = AtomicUsize::new(0);
         let infrastructure_error = Mutex::new(None::<String>);
         thread::scope(|scope| {
-            for _ in 0..options.concurrency.min(rest.len()) {
+            for _ in 0..options.concurrency.min(pending.len()) {
                 scope.spawn(|| loop {
                     if infrastructure_error
                         .lock()
@@ -839,7 +847,7 @@ fn process_group(
                         return;
                     }
                     let index = cursor.fetch_add(1, Ordering::Relaxed);
-                    let Some(item) = rest.get(index) else {
+                    let Some(item) = pending.get(index) else {
                         return;
                     };
                     if let Err(error) = process_item(item, options, paths, context) {

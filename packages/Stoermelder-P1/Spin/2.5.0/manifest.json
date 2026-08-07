@@ -40,7 +40,8 @@
         "position": {
           "x": 22.5,
           "y": 290.5,
-          "centered": true
+          "centered": true,
+          "widget": "StoermelderPort"
         }
       },
       {
@@ -50,7 +51,8 @@
         "position": {
           "x": 22.5,
           "y": 254.8,
-          "centered": true
+          "centered": true,
+          "widget": "StoermelderPort"
         }
       },
       {
@@ -60,7 +62,8 @@
         "position": {
           "x": 22.5,
           "y": 218.4,
-          "centered": true
+          "centered": true,
+          "widget": "StoermelderPort"
         }
       }
     ],
@@ -72,26 +75,69 @@
       },
       {
         "key": "mods",
-        "type": "integer"
+        "type": "integer",
+        "name": "Modifier",
+        "default": 1,
+        "contextOnly": true,
+        "bitmask": [
+          {
+            "bit": 1,
+            "name": "Shift"
+          },
+          {
+            "bit": 2,
+            "name": "Ctrl"
+          },
+          {
+            "bit": 4,
+            "name": "Alt"
+          }
+        ]
       },
       {
         "key": "clickMode",
-        "type": "integer"
+        "type": "integer",
+        "name": "Middle click mode",
+        "default": 1,
+        "contextOnly": true,
+        "values": [
+          "Off",
+          "Toggle",
+          "Trigger",
+          "Gate"
+        ]
       },
       {
         "key": "clickHigh",
-        "type": "boolean"
+        "type": "boolean",
+        "default": 0
       }
     ],
     "runtime": {
+      "globalPointer": {
+        "paramHoverOnlyParam": 0,
+        "modifiersState": 1,
+        "modifiersDefault": 1,
+        "wheel": {
+          "downAction": 1000,
+          "upAction": 1001,
+          "lockMs": 500
+        },
+        "middle": {
+          "action": 1010,
+          "modeState": 2,
+          "modeDefault": 1,
+          "disabledValue": 0
+        }
+      },
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Stoermelder-P1/Spin/2.5.0/manifest.json",
     "sourceCommit": "d02f0b6d79e792416c5876e369adf2e69f5513bc",
     "artifact": {
-      "sha256": "06495fa88b29e6ffb0be98b7ff45e136bd4324a0aa45f504990f7bb2001571f9",
-      "size": 72706
+      "sha256": "ada7a9b695f604351912c21522cd5af7ae50b42e5b149eb4814fb6ee1f3cc9ec",
+      "size": 77289
     }
   },
   "source": {
@@ -100,7 +146,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-23T00:35:11.823Z"
+    "fingerprint": "b659f7f03c3d2d3b",
+    "builtAt": "2026-08-06T17:10:01.806Z"
   }
 }

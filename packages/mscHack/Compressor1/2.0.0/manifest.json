@@ -23,11 +23,8 @@
         "max": 4,
         "default": 1,
         "position": {
-          "x": 34,
-          "y": 160,
-          "width": 26,
-          "height": 26,
-          "centered": true,
+          "x": 21,
+          "y": 147,
           "widget": "Knob_Yellow1_26"
         }
       },
@@ -38,11 +35,8 @@
         "max": 8,
         "default": 1,
         "position": {
-          "x": 85,
-          "y": 160,
-          "width": 26,
-          "height": 26,
-          "centered": true,
+          "x": 72,
+          "y": 147,
           "widget": "Knob_Yellow1_26"
         }
       },
@@ -53,11 +47,8 @@
         "max": 0.9900000095367432,
         "default": 0,
         "position": {
-          "x": 62,
-          "y": 196,
-          "width": 26,
-          "height": 26,
-          "centered": true,
+          "x": 49,
+          "y": 183,
           "widget": "Knob_Yellow1_26"
         }
       },
@@ -68,11 +59,8 @@
         "max": 2,
         "default": 0,
         "position": {
-          "x": 62,
-          "y": 236,
-          "width": 26,
-          "height": 26,
-          "centered": true,
+          "x": 49,
+          "y": 223,
           "widget": "Knob_Yellow1_26"
         }
       },
@@ -83,11 +71,8 @@
         "max": 1,
         "default": 0,
         "position": {
-          "x": 62,
-          "y": 276,
-          "width": 26,
-          "height": 26,
-          "centered": true,
+          "x": 49,
+          "y": 263,
           "widget": "Knob_Yellow1_26"
         }
       },
@@ -98,11 +83,8 @@
         "max": 1,
         "default": 0,
         "position": {
-          "x": 62,
-          "y": 316,
-          "width": 26,
-          "height": 26,
-          "centered": true,
+          "x": 49,
+          "y": 303,
           "widget": "Knob_Yellow1_26"
         }
       },
@@ -121,21 +103,10 @@
         "max": 1,
         "default": 0,
         "position": {
-          "x": 18,
-          "y": 216,
-          "width": 26,
-          "height": 26,
-          "centered": true,
+          "x": 5,
+          "y": 203,
           "widget": "Knob_Blue2_26"
         }
-      },
-      {
-        "id": 8,
-        "name": "Param 9",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "hidden": true
       }
     ],
     "inputs": [
@@ -144,11 +115,8 @@
         "name": "Left",
         "kind": "audio",
         "position": {
-          "x": 18.5,
-          "y": 74.5,
-          "width": 17,
-          "height": 17,
-          "centered": true,
+          "x": 10,
+          "y": 66,
           "widget": "MyPortInSmall"
         }
       },
@@ -157,11 +125,8 @@
         "name": "Right",
         "kind": "audio",
         "position": {
-          "x": 18.5,
-          "y": 120.5,
-          "width": 17,
-          "height": 17,
-          "centered": true,
+          "x": 10,
+          "y": 112,
           "widget": "MyPortInSmall"
         }
       },
@@ -170,19 +135,10 @@
         "name": "Side CHain",
         "kind": "cv",
         "position": {
-          "x": 17.5,
-          "y": 252.5,
-          "width": 17,
-          "height": 17,
-          "centered": true,
+          "x": 9,
+          "y": 244,
           "widget": "MyPortInSmall"
         }
-      },
-      {
-        "id": 3,
-        "name": "ninputs",
-        "kind": "cv",
-        "hidden": true
       }
     ],
     "outputs": [
@@ -191,11 +147,8 @@
         "name": "Left",
         "kind": "audio",
         "position": {
-          "x": 101.5,
-          "y": 74.5,
-          "width": 17,
-          "height": 17,
-          "centered": true,
+          "x": 93,
+          "y": 66,
           "widget": "MyPortOutSmall"
         }
       },
@@ -204,19 +157,10 @@
         "name": "Right",
         "kind": "audio",
         "position": {
-          "x": 101.5,
-          "y": 120.5,
-          "width": 17,
-          "height": 17,
-          "centered": true,
+          "x": 93,
+          "y": 112,
           "widget": "MyPortOutSmall"
         }
-      },
-      {
-        "id": 2,
-        "name": "noutputs",
-        "kind": "cv",
-        "hidden": true
       }
     ],
     "lights": 0,
@@ -237,14 +181,59 @@
       ]
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Compressor bypass",
+              "x": 10,
+              "y": 34,
+              "width": 11,
+              "height": 11,
+              "click": {
+                "target": "state",
+                "id": 0,
+                "operation": "toggle",
+                "value": 1,
+                "alternateValue": 0
+              },
+              "display": {
+                "source": "state",
+                "id": 0,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 8,
+                  "height": 8,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#ff0000"
+                  ]
+                }
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        }
+      ],
       "initialMemory": 4325376,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/mscHack/Compressor1/2.0.0/manifest.json",
     "sourceCommit": "42668cc2bc4c6b9ecd473586bdcddfa5e4174a0c",
     "artifact": {
-      "sha256": "dc4bc9318138478166e7e742be1390e81a4156a984ee5cc85aa7ec234b127b2c",
-      "size": 71990
+      "sha256": "54773c1a7425d26294928c7c19b21ef58edb3dc5386942f66d21bd380dd4276e",
+      "size": 78620
     }
   },
   "source": {
@@ -253,7 +242,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:13:05.058Z"
+    "fingerprint": "100f044dc293a91f",
+    "builtAt": "2026-08-06T12:02:25.583Z"
   }
 }

@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "moDllz/MIDIpolyMPE",
+    "plugin": "moDllz",
+    "model": "MIDIpolyMPE",
+    "name": "MIDIpolyMPE",
+    "brand": "moDllz",
+    "version": "2.1.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/dllmusic/moDllz/tree/master/src",
+    "libraryUrl": "https://library.vcvrack.com/moDllz/MIDIpolyMPE",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/moDllz/MIDIpolyMPE.webp",
+    "wasmUrl": "packages/moDllz/MIDIpolyMPE/2.1.2/module.wasm",
+    "width": 150,
+    "description": "Polyphonic MIDI to CV with MPE mode",
+    "params": [
+      {
+        "id": 0,
+        "name": "(Selected) -1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 47,
+          "y": 117,
+          "widget": "minusButtonB"
+        }
+      },
+      {
+        "id": 1,
+        "name": "(Selected) +1",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 126,
+          "y": 117,
+          "widget": "plusButtonB"
+        }
+      },
+      {
+        "id": 2,
+        "name": "cc64 Sustain hold",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "position": {
+          "x": 104,
+          "y": 170.5,
+          "widget": "moDllzSwitchLed"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Retrigger",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "position": {
+          "x": 98.5,
+          "y": 170.5,
+          "widget": "moDllzSwitchT"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Data Entry",
+        "min": 1000,
+        "max": 1000,
+        "default": 1000,
+        "hidden": true
+      }
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "1V/oct pitch",
+        "kind": "cv",
+        "position": {
+          "x": 42.5,
+          "y": 171,
+          "widget": "moDllzPolyO"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 45.5,
+          "y": 218.5,
+          "widget": "moDllzPolyO"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Z",
+        "kind": "cv",
+        "position": {
+          "x": 88.5,
+          "y": 218.5,
+          "widget": "moDllzPolyO"
+        }
+      },
+      {
+        "id": 3,
+        "name": "0~10V Velocity",
+        "kind": "cv",
+        "position": {
+          "x": 137.5,
+          "y": 171,
+          "widget": "moDllzPolyO"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Rvel",
+        "kind": "cv",
+        "position": {
+          "x": 131.5,
+          "y": 218.5,
+          "widget": "moDllzPolyO"
+        }
+      },
+      {
+        "id": 5,
+        "name": "10V Gate",
+        "kind": "gate",
+        "position": {
+          "x": 73.5,
+          "y": 171,
+          "widget": "moDllzPolyO"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Master Pitch Bend",
+        "kind": "cv",
+        "position": {
+          "x": 142,
+          "y": 251,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mm 1",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 296,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Mm 2",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 296,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mm 3",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 296,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Mm 4",
+        "kind": "cv",
+        "position": {
+          "x": 113,
+          "y": 296,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Mm 5",
+        "kind": "cv",
+        "position": {
+          "x": 14,
+          "y": 336,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 12,
+        "name": "Mm 6",
+        "kind": "cv",
+        "position": {
+          "x": 47,
+          "y": 336,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 13,
+        "name": "Mm 7",
+        "kind": "cv",
+        "position": {
+          "x": 80,
+          "y": 336,
+          "widget": "moDllzPortO"
+        }
+      },
+      {
+        "id": 14,
+        "name": "Mm 8",
+        "kind": "cv",
+        "position": {
+          "x": 113,
+          "y": 336,
+          "widget": "moDllzPortO"
+        }
+      }
+    ],
+    "lights": 18,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 14,
+          "y": 296
+        }
+      },
+      {
+        "id": 2,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 22,
+          "y": 296
+        }
+      },
+      {
+        "id": 3,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 30,
+          "y": 296
+        }
+      },
+      {
+        "id": 4,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 38,
+          "y": 296
+        }
+      },
+      {
+        "id": 5,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 46,
+          "y": 296
+        }
+      },
+      {
+        "id": 6,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 54,
+          "y": 296
+        }
+      },
+      {
+        "id": 7,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 62,
+          "y": 296
+        }
+      },
+      {
+        "id": 8,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 70,
+          "y": 296
+        }
+      },
+      {
+        "id": 9,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 78,
+          "y": 296
+        }
+      },
+      {
+        "id": 10,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 86,
+          "y": 296
+        }
+      },
+      {
+        "id": 11,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 94,
+          "y": 296
+        }
+      },
+      {
+        "id": 12,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 102,
+          "y": 296
+        }
+      },
+      {
+        "id": 13,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 110,
+          "y": 296
+        }
+      },
+      {
+        "id": 14,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 118,
+          "y": 296
+        }
+      },
+      {
+        "id": 15,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 126,
+          "y": 296
+        }
+      },
+      {
+        "id": 16,
+        "widget": "VoiceChGreenLed",
+        "position": {
+          "x": 134,
+          "y": 296
+        }
+      },
+      {
+        "id": 17,
+        "widget": "TranspOffRedLight",
+        "position": {
+          "x": 104,
+          "y": 170.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "driver",
+        "type": "integer",
+        "name": "Driver",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "channel",
+        "type": "integer",
+        "name": "Channel",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "polyModeId",
+        "type": "integer",
+        "name": "Polyphony Mode",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "pbDwn",
+        "type": "integer",
+        "name": "Pitch Bend Down",
+        "default": -12,
+        "contextOnly": true
+      },
+      {
+        "key": "pbUp",
+        "type": "integer",
+        "name": "Pitch Bend Up",
+        "default": 12,
+        "contextOnly": true
+      },
+      {
+        "key": "pbMPE",
+        "type": "integer",
+        "name": "MPE Pitch Bend",
+        "default": 96,
+        "contextOnly": true
+      },
+      {
+        "key": "mpeRvPb",
+        "type": "integer",
+        "name": "Release Velocity / Pitch Bend",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "numVoCh",
+        "type": "integer",
+        "name": "Voice Channels",
+        "default": 8,
+        "contextOnly": true
+      },
+      {
+        "key": "stealMode",
+        "type": "integer",
+        "name": "Voice Steal Mode",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "MPEmasterCh",
+        "type": "integer",
+        "name": "MPE Master Channel",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiAcc",
+        "type": "integer",
+        "name": "Midi Acc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiBcc",
+        "type": "integer",
+        "name": "Midi Bcc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiCcc",
+        "type": "integer",
+        "name": "Midi Ccc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiDcc",
+        "type": "integer",
+        "name": "Midi Dcc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiEcc",
+        "type": "integer",
+        "name": "Midi Ecc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiFcc",
+        "type": "integer",
+        "name": "Midi Fcc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiGcc",
+        "type": "integer",
+        "name": "Midi Gcc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "midiHcc",
+        "type": "integer",
+        "name": "Midi Hcc",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "mpeYcc",
+        "type": "integer",
+        "name": "MPE Y CC",
+        "default": 74,
+        "contextOnly": true
+      },
+      {
+        "key": "mpeZcc",
+        "type": "integer",
+        "name": "MPE Z CC",
+        "default": 128,
+        "contextOnly": true
+      },
+      {
+        "key": "detune",
+        "type": "integer",
+        "name": "Random Detune",
+        "default": 10,
+        "contextOnly": true
+      },
+      {
+        "key": "spread",
+        "type": "integer",
+        "name": "Unison Spread",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "trnsps",
+        "type": "integer",
+        "name": "Transpose",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "noteMin",
+        "type": "integer",
+        "name": "Minimum Note",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "noteMax",
+        "type": "integer",
+        "name": "Maximum Note",
+        "default": 127,
+        "contextOnly": true
+      },
+      {
+        "key": "velMin",
+        "type": "integer",
+        "name": "Minimum Velocity",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "velMax",
+        "type": "integer",
+        "name": "Maximum Velocity",
+        "default": 127,
+        "contextOnly": true
+      },
+      {
+        "key": "xpander",
+        "type": "integer",
+        "name": "Xpand Group and Mode",
+        "default": 0,
+        "contextOnly": true
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "modllz-midi-poly-mpe",
+          "actionBase": 1000,
+          "valueActionBase": 2000,
+          "x": 0,
+          "y": 0,
+          "width": 150,
+          "height": 380
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "artifact": {
+      "sha256": "a76218c963978b3a3e877c5318e7f75144b64eae8bb070a4d73243cdd41ac1fc",
+      "size": 121960
+    },
+    "manifestUrl": "packages/moDllz/MIDIpolyMPE/2.1.2/manifest.json",
+    "sourceCommit": "7a038e02ba175a524a16ac5e2f9e3d2baac2066f"
+  },
+  "source": {
+    "url": "https://github.com/dllmusic/moDllz/tree/master/src",
+    "commit": "7a038e02ba175a524a16ac5e2f9e3d2baac2066f"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "b0b1b8ee8322962c",
+    "builtAt": "2026-08-06T18:36:28.472Z"
+  }
+}

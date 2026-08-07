@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Record",
+    "plugin": "SignalFunctionSet",
+    "model": "Record",
+    "name": "Record",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Record",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Record.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Record/2.16.3/module.wasm",
+    "width": 240,
+    "description": "Multisample auto-sampler. Drives an external voice with V/oct, gate, and velocity and captures its stereo output across a chosen note range and velocity layers, then writes a folder of WAVs plus an .sfz manifest.",
+    "params": [
+      {
+        "default": 36,
+        "id": 0,
+        "max": 127,
+        "min": 0,
+        "name": "Start note",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 235.719
+        },
+        "snap": true
+      },
+      {
+        "default": 4,
+        "id": 1,
+        "max": 8,
+        "min": 1,
+        "name": "Octaves",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 297.667
+        },
+        "snap": true
+      },
+      {
+        "default": 2,
+        "id": 2,
+        "max": 5,
+        "min": 0,
+        "name": "Sample spacing",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 90,
+          "y": 235.719
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 3,
+        "max": 4,
+        "min": 1,
+        "name": "Velocity layers",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 90,
+          "y": 297.667
+        },
+        "snap": true
+      },
+      {
+        "default": 2,
+        "id": 4,
+        "max": 10,
+        "min": 0.10000000149011612,
+        "name": "Sustain (gate held)",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 90,
+          "y": 360.709
+        }
+      },
+      {
+        "default": 1,
+        "id": 5,
+        "max": 10,
+        "min": 0,
+        "name": "Release tail",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 360.709
+        }
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 6,
+        "max": 1,
+        "min": 0,
+        "name": "Record",
+        "position": {
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<RedLight>>",
+          "x": 210,
+          "y": 230.728
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 7,
+        "max": 1,
+        "min": 0,
+        "name": "Audition (play, no capture)",
+        "position": {
+          "centered": true,
+          "widget": "VCVLightButton<MediumSimpleLight<GreenLight>>",
+          "x": 165,
+          "y": 230.728
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "kind": "audio",
+        "name": "Audio L",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 268.228
+        }
+      },
+      {
+        "id": 1,
+        "kind": "audio",
+        "name": "Audio R",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 210,
+          "y": 268.228
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "kind": "cv",
+        "name": "V/oct",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 360.709
+        }
+      },
+      {
+        "id": 1,
+        "kind": "gate",
+        "name": "Gate",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 207.49,
+          "y": 360.709
+        }
+      },
+      {
+        "id": 2,
+        "kind": "cv",
+        "name": "Velocity",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 315.709
+        }
+      },
+      {
+        "id": 3,
+        "kind": "gate",
+        "name": "Done trigger",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 207.49,
+          "y": 315.709
+        }
+      }
+    ],
+    "lights": 2,
+    "lightWidgets": [
+      {
+        "id": 1,
+        "paramId": 7,
+        "position": {
+          "centered": true,
+          "x": 165,
+          "y": 230.728
+        },
+        "widget": "VCVLightButton<MediumSimpleLight<GreenLight>>"
+      },
+      {
+        "id": 0,
+        "paramId": 6,
+        "position": {
+          "centered": true,
+          "x": 210,
+          "y": 230.728
+        },
+        "widget": "VCVLightButton<MediumSimpleLight<RedLight>>"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 168.307,
+          "kind": "signal-function-set",
+          "model": "Record",
+          "width": 215.551,
+          "x": 11.811,
+          "y": 35.433
+        }
+      ]
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Record/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "f168a2644bd4671fe8ee90eeab5e09f2e67b4fb3b87924ea7dff1b2889880455",
+      "size": 91789
+    },
+    "stateKeys": [
+      {
+        "key": "normalize",
+        "type": "boolean"
+      },
+      {
+        "key": "autoTrim",
+        "type": "boolean"
+      },
+      {
+        "key": "loopInstrument",
+        "type": "boolean"
+      },
+      {
+        "key": "triggerMode",
+        "type": "boolean"
+      },
+      {
+        "key": "waitSilence",
+        "type": "boolean"
+      },
+      {
+        "key": "gapMs",
+        "type": "integer"
+      },
+      {
+        "key": "channels",
+        "type": "integer"
+      },
+      {
+        "key": "bitDepth",
+        "type": "integer"
+      },
+      {
+        "key": "rrCount",
+        "type": "integer"
+      },
+      {
+        "key": "latencySamps",
+        "type": "integer"
+      },
+      {
+        "key": "kbView",
+        "type": "integer"
+      },
+      {
+        "key": "gridLayout",
+        "type": "integer"
+      },
+      {
+        "key": "gridRoot",
+        "type": "integer"
+      },
+      {
+        "key": "gridScale",
+        "type": "integer"
+      },
+      {
+        "key": "gridBase",
+        "type": "integer"
+      }
+    ]
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "builtAt": "2026-08-06T00:20:59.271Z"
+  }
+}

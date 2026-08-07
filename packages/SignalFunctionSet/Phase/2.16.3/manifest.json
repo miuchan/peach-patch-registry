@@ -1,0 +1,549 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Phase",
+    "plugin": "SignalFunctionSet",
+    "model": "Phase",
+    "name": "Phase",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Phase",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Phase.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Phase/2.16.3/module.wasm",
+    "width": 285,
+    "description": "Dual sample looper with phase drift via sleep and rotate modes, transient detection, and waveform display",
+    "params": [
+      {
+        "default": 0,
+        "id": 0,
+        "max": 500,
+        "min": -500,
+        "name": "Drift A",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 165,
+          "y": 157.5
+        }
+      },
+      {
+        "default": 1,
+        "id": 1,
+        "max": 4,
+        "min": -4,
+        "name": "Speed A",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 217.5,
+          "y": 157.5
+        }
+      },
+      {
+        "default": 0,
+        "id": 2,
+        "max": 1,
+        "min": -1,
+        "name": "Pan A",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 262.5,
+          "y": 157.5
+        }
+      },
+      {
+        "default": 0,
+        "id": 3,
+        "max": 500,
+        "min": -500,
+        "name": "Drift B",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 165,
+          "y": 240
+        }
+      },
+      {
+        "default": 1,
+        "id": 4,
+        "max": 4,
+        "min": -4,
+        "name": "Speed B",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 217.5,
+          "y": 240
+        }
+      },
+      {
+        "default": 0,
+        "id": 5,
+        "max": 1,
+        "min": -1,
+        "name": "Pan B",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 262.5,
+          "y": 240
+        }
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 6,
+        "max": 1,
+        "min": 0,
+        "name": "Play / Stop",
+        "position": {
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+          "x": 30,
+          "y": 315
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 7,
+        "max": 1,
+        "min": 0,
+        "name": "Mode A",
+        "position": {
+          "centered": true,
+          "widget": "CKSS",
+          "x": 127.5,
+          "y": 157.5
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 8,
+        "max": 1,
+        "min": 0,
+        "name": "Mode B",
+        "position": {
+          "centered": true,
+          "widget": "CKSS",
+          "x": 127.5,
+          "y": 240
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 9,
+        "max": 1,
+        "min": 0,
+        "name": "Sync (reset both loops)",
+        "position": {
+          "centered": true,
+          "widget": "VCVButton",
+          "x": 60,
+          "y": 315
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 10,
+        "max": 1,
+        "min": 0,
+        "name": "Record A (latch)",
+        "position": {
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+          "x": 105,
+          "y": 315
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 11,
+        "max": 1,
+        "min": 0,
+        "name": "Record B (latch)",
+        "position": {
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>",
+          "x": 194.97,
+          "y": 315
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 12,
+        "max": 1,
+        "min": 0,
+        "name": "Link record buttons (one click triggers both)",
+        "position": {
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<YellowLight>>",
+          "x": 149.97,
+          "y": 315
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "kind": "cv",
+        "name": "Drift A CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 187.5
+        }
+      },
+      {
+        "id": 1,
+        "kind": "cv",
+        "name": "Speed A CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 217.5,
+          "y": 187.5
+        }
+      },
+      {
+        "id": 2,
+        "kind": "cv",
+        "name": "Pan A CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 262.5,
+          "y": 187.5
+        }
+      },
+      {
+        "id": 3,
+        "kind": "gate",
+        "name": "Clock A (transient jump)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 157.5
+        }
+      },
+      {
+        "id": 4,
+        "kind": "cv",
+        "name": "Drift B CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 270
+        }
+      },
+      {
+        "id": 5,
+        "kind": "cv",
+        "name": "Speed B CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 217.5,
+          "y": 270
+        }
+      },
+      {
+        "id": 6,
+        "kind": "cv",
+        "name": "Pan B CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 262.5,
+          "y": 270
+        }
+      },
+      {
+        "id": 7,
+        "kind": "gate",
+        "name": "Clock B (transient jump)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 240
+        }
+      },
+      {
+        "id": 8,
+        "kind": "gate",
+        "name": "Sync (reset both loops)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 60,
+          "y": 345
+        }
+      },
+      {
+        "id": 9,
+        "kind": "gate",
+        "name": "Play gate (high = play)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 345
+        }
+      },
+      {
+        "id": 10,
+        "kind": "cv",
+        "name": "Loop Start A (0-10V = 0-100%)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 60,
+          "y": 157.5
+        }
+      },
+      {
+        "id": 11,
+        "kind": "cv",
+        "name": "Loop Length A (0-10V = 0-100%)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 90,
+          "y": 157.5
+        }
+      },
+      {
+        "id": 12,
+        "kind": "cv",
+        "name": "Loop Start B (0-10V = 0-100%)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 60,
+          "y": 240
+        }
+      },
+      {
+        "id": 13,
+        "kind": "cv",
+        "name": "Loop Length B (0-10V = 0-100%)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 90,
+          "y": 240
+        }
+      },
+      {
+        "id": 14,
+        "kind": "gate",
+        "name": "Record A audio",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 135,
+          "y": 345
+        }
+      },
+      {
+        "id": 15,
+        "kind": "gate",
+        "name": "Record A gate (high = recording)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 105,
+          "y": 345
+        }
+      },
+      {
+        "id": 16,
+        "kind": "gate",
+        "name": "Record B audio (normalled from Record A audio)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 345
+        }
+      },
+      {
+        "id": 17,
+        "kind": "gate",
+        "name": "Record B gate (normalled from Record A gate)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 195.266,
+          "y": 345
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "kind": "audio",
+        "name": "Left",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 232.5,
+          "y": 345
+        }
+      },
+      {
+        "id": 1,
+        "kind": "audio",
+        "name": "Right",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 262.5,
+          "y": 345
+        }
+      }
+    ],
+    "lights": 4,
+    "runtime": {
+      "initialMemory": 33554432,
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 70.866,
+          "kind": "signal-function-set",
+          "model": "Phase",
+          "width": 270,
+          "x": 7.5,
+          "y": 41.339
+        }
+      ]
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Phase/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "12c066767052c40bff6a5f57f2ab5696050b6057a0a02b06181bf96b357fa197",
+      "size": 147487
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "paramId": 6,
+        "position": {
+          "centered": true,
+          "x": 30,
+          "y": 315
+        },
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
+      },
+      {
+        "id": 1,
+        "paramId": 10,
+        "position": {
+          "centered": true,
+          "x": 105,
+          "y": 315
+        },
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+      },
+      {
+        "id": 3,
+        "paramId": 12,
+        "position": {
+          "centered": true,
+          "x": 149.97,
+          "y": 315
+        },
+        "widget": "VCVLightLatch<MediumSimpleLight<YellowLight>>"
+      },
+      {
+        "id": 2,
+        "paramId": 11,
+        "position": {
+          "centered": true,
+          "x": 194.97,
+          "y": 315
+        },
+        "widget": "VCVLightLatch<MediumSimpleLight<RedLight>>"
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "sampleBExplicit",
+        "type": "boolean"
+      },
+      {
+        "key": "playing",
+        "type": "boolean"
+      },
+      {
+        "key": "transientSensitivity",
+        "type": "real"
+      },
+      {
+        "key": "transientMinGapMs",
+        "type": "real"
+      },
+      {
+        "key": "vcaMode",
+        "type": "boolean"
+      },
+      {
+        "key": "recordAppend",
+        "type": "boolean"
+      },
+      {
+        "key": "recLink",
+        "type": "boolean"
+      },
+      {
+        "key": "persistRecordedBuffers",
+        "type": "boolean"
+      },
+      {
+        "key": "loopStartA",
+        "type": "real"
+      },
+      {
+        "key": "loopEndA",
+        "type": "real"
+      },
+      {
+        "key": "loopStartB",
+        "type": "real"
+      },
+      {
+        "key": "loopEndB",
+        "type": "real"
+      }
+    ]
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "builtAt": "2026-08-06T00:20:59.271Z"
+  }
+}

@@ -10,6 +10,24 @@ fn root() -> PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR")).to_owned()
 }
 
+#[test]
+fn exported_audio_buffers_keep_the_documented_port_major_layout() {
+    let header = fs::read_to_string(root().join("web-runtime/include/rack_web_export.hpp"))
+        .expect("Rack browser export header should be readable");
+    let offset = "(port * rackWebMaxChannels + channel) * rackWebBlockSize + frame";
+    assert_eq!(
+        header.matches(offset).count(),
+        2,
+        "input and output copies must use the host's port-major buffer ABI"
+    );
+    assert!(!header.contains(
+        "(channel * RackWebModuleTraits<ModuleType>::inputCount + port) * rackWebBlockSize"
+    ));
+    assert!(!header.contains(
+        "(channel * RackWebModuleTraits<ModuleType>::outputCount + port) * rackWebBlockSize"
+    ));
+}
+
 fn compile_fixture(label: &str, source: &str) {
     let temporary = TemporaryDirectory::new(label);
     let fixture = temporary.path().join("fixture.cpp");
@@ -43,7 +61,9 @@ fn scalar_simd_fallbacks_do_not_make_ordinary_math_calls_ambiguous() {
             "using namespace rack;\nusing namespace rack::simd;\n",
             "float exercise(float value) { int32_4 lanes{1, 2, 3, 4}; ",
             "return sqrt(value) + tan(value) + abs(value) + floor(value) + ",
-            "pow(value, 2.f) + fmod(value, 2) + lanes[3]; }\n"
+            "pow(value, 2.f) + fmod(value, 2) + lanes[3]; }\n",
+            "std::string pathExercise() { rack::system::createDirectories(\"samples\"); ",
+            "return rack::system::join(\"samples\", \"voice.wav\"); }\n"
         ),
     );
 }

@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/SubmarineFree/TD-316",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SubmarineFree/TD-316.webp",
     "wasmUrl": "packages/SubmarineFree/TD-316/2.0.4/module.wasm",
-    "width": 240,
+    "width": 180,
     "description": "TD-316 Text Display",
     "params": [],
     "inputs": [],
@@ -28,16 +28,31 @@
           "y": 14,
           "centered": true
         }
+      },
+      {
+        "id": 1,
+        "widget": "LeftLight",
+        "position": {
+          "x": 11,
+          "y": 14,
+          "centered": true
+        }
       }
     ],
     "stateKeys": [
       {
         "key": "width",
-        "type": "real"
+        "type": "real",
+        "name": "Module width",
+        "default": 240,
+        "contextOnly": true
       },
       {
         "key": "size",
-        "type": "real"
+        "type": "real",
+        "name": "Text size",
+        "default": 12,
+        "contextOnly": true
       }
     ],
     "runtime": {
@@ -48,25 +63,43 @@
         "capacity": 16384,
         "models": [
           {
-            "key": "SubmarineFree/TF101",
+            "key": "SubmarineFree/TF-101",
             "symbol": "modelTF101",
             "index": 0
           },
           {
-            "key": "SubmarineFree/TF102",
+            "key": "SubmarineFree/TF-102",
             "symbol": "modelTF102",
             "index": 1
           }
         ]
       },
+      "visuals": [
+        {
+          "kind": "editable-text",
+          "dataKey": "text",
+          "foregroundKey": "fg",
+          "backgroundKey": "bg",
+          "defaultForeground": "#23d7ff",
+          "x": 4,
+          "y": 18,
+          "width": 232,
+          "height": 344,
+          "multiline": true,
+          "rotation": 0,
+          "defaultBackground": "#000000",
+          "defaultFontSize": 12,
+          "fontSizeKey": "size"
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/SubmarineFree/TD-316/2.0.4/manifest.json",
     "sourceCommit": "16796663a6e75a9d8fd003961329e98c531e848f",
     "artifact": {
-      "sha256": "c0caf252cade7def6f956f46770cd68263f4b2f74cb95bcca6628b55fd8cd8a3",
-      "size": 74348
+      "sha256": "39cbd1559b13bb296c1269245c7a2ed454aa75b706ce703fe4760a55a134f3c9",
+      "size": 85143
     }
   },
   "source": {
@@ -75,7 +108,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T20:44:22.368Z"
+    "fingerprint": "ec78a150b7d3b4c6",
+    "builtAt": "2026-08-06T08:19:33.825Z"
   }
 }

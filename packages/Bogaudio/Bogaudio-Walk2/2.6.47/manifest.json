@@ -109,7 +109,8 @@
         "kind": "cv",
         "position": {
           "x": 10.5,
-          "y": 284
+          "y": 284,
+          "widget": "Port24"
         }
       },
       {
@@ -118,7 +119,8 @@
         "kind": "cv",
         "position": {
           "x": 41.5,
-          "y": 284
+          "y": 284,
+          "widget": "Port24"
         }
       },
       {
@@ -127,7 +129,8 @@
         "kind": "cv",
         "position": {
           "x": 10.5,
-          "y": 323
+          "y": 323,
+          "widget": "Port24"
         }
       },
       {
@@ -136,7 +139,8 @@
         "kind": "cv",
         "position": {
           "x": 145.5,
-          "y": 284
+          "y": 284,
+          "widget": "Port24"
         }
       },
       {
@@ -145,7 +149,8 @@
         "kind": "cv",
         "position": {
           "x": 176.5,
-          "y": 284
+          "y": 284,
+          "widget": "Port24"
         }
       },
       {
@@ -154,7 +159,8 @@
         "kind": "cv",
         "position": {
           "x": 145.5,
-          "y": 323
+          "y": 323,
+          "widget": "Port24"
         }
       },
       {
@@ -163,7 +169,8 @@
         "kind": "gate",
         "position": {
           "x": 78,
-          "y": 291
+          "y": 291,
+          "widget": "Port24"
         }
       }
     ],
@@ -174,7 +181,8 @@
         "kind": "audio",
         "position": {
           "x": 41.5,
-          "y": 323
+          "y": 323,
+          "widget": "Port24"
         }
       },
       {
@@ -183,7 +191,8 @@
         "kind": "audio",
         "position": {
           "x": 176.5,
-          "y": 323
+          "y": 323,
+          "widget": "Port24"
         }
       },
       {
@@ -192,7 +201,8 @@
         "kind": "audio",
         "position": {
           "x": 109,
-          "y": 291
+          "y": 291,
+          "widget": "Port24"
         }
       }
     ],
@@ -239,26 +249,53 @@
       },
       {
         "key": "zoom_out",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Zoom out",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "grid",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Show grid",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "color",
-        "type": "integer"
+        "type": "integer",
+        "name": "Trace color",
+        "default": 0,
+        "values": [
+          "Green",
+          "Orange",
+          "Red",
+          "Blue"
+        ],
+        "contextOnly": true
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "walk2-display",
+          "actionBase": 1000,
+          "actionSteps": 256,
+          "historyPoints": 100,
+          "x": 10,
+          "y": 25,
+          "width": 190,
+          "height": 190
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Bogaudio/Bogaudio-Walk2/2.6.47/manifest.json",
     "sourceCommit": "656eaae458e045602dc974bae82e15a11e104958",
     "artifact": {
-      "sha256": "1e395b5f0f36d412ed19998ea04e23cf0382e69a2482546bb01d6b789a1b6cbc",
-      "size": 95662
+      "sha256": "34f062674070764e98575ff5817898128343ffbca46ae03baf7c6d201f5a1f84",
+      "size": 98781
     }
   },
   "source": {
@@ -267,7 +304,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-24T10:19:37.446Z"
+    "fingerprint": "3988c521c7fff7d9",
+    "builtAt": "2026-08-06T06:19:44.393Z"
   }
 }

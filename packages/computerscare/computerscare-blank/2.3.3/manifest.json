@@ -13,7 +13,7 @@
     "libraryUrl": "https://library.vcvrack.com/computerscare/computerscare-blank",
     "screenshotUrl": "https://library.vcvrack.com/screenshots/400/computerscare/computerscare-blank.webp",
     "wasmUrl": "packages/computerscare/computerscare-blank/2.3.3/module.wasm",
-    "width": 120,
+    "width": 30,
     "description": "Customizable, resizable, lovable blank panel. \nLoad your own PNG, JPEG, BMP, or GIF.",
     "params": [
       {
@@ -119,39 +119,72 @@
     "stateKeys": [
       {
         "key": "width",
-        "type": "real"
+        "type": "real",
+        "name": "Module width",
+        "default": 120,
+        "contextOnly": true
       },
       {
         "key": "imageFitEnum",
-        "type": "integer"
+        "type": "integer",
+        "name": "Image scaling",
+        "default": 0,
+        "contextOnly": true,
+        "values": [
+          "Fit both",
+          "Fit width",
+          "Fit height",
+          "Free"
+        ]
       },
       {
         "key": "invertY",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Invert Y-axis",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "zoomX",
-        "type": "real"
+        "type": "real",
+        "name": "Image zoom X",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "zoomY",
-        "type": "real"
+        "type": "real",
+        "name": "Image zoom Y",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "xOffset",
-        "type": "real"
+        "type": "real",
+        "name": "Image X offset",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "yOffset",
-        "type": "real"
+        "type": "real",
+        "name": "Image Y offset",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "rotation",
-        "type": "integer"
+        "type": "integer",
+        "name": "Quarter-turn rotation",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "hidePanel",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Hide panel",
+        "default": 0,
+        "contextOnly": true
       }
     ],
     "runtime": {
@@ -168,14 +201,33 @@
         "capacity": 16384,
         "models": []
       },
+      "visuals": [
+        {
+          "kind": "computerscare-blank",
+          "stateKeys": {
+            "fit": 1,
+            "invertY": 2,
+            "zoomX": 3,
+            "zoomY": 4,
+            "xOffset": 5,
+            "yOffset": 6,
+            "rotation": 7,
+            "hidePanel": 8
+          },
+          "x": 0,
+          "y": 0,
+          "width": 30,
+          "height": 380
+        }
+      ],
       "initialMemory": 33554432,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/computerscare/computerscare-blank/2.3.3/manifest.json",
     "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
     "artifact": {
-      "sha256": "311f9f66458513eb163dd1354eb2c0b6151f1daf91953d063f536a8dbd68df01",
-      "size": 74393
+      "sha256": "fce0c52d5dc83dc5084aab7de3a36d5503a67e01d70be2f573c1543d4a44159b",
+      "size": 76220
     }
   },
   "source": {
@@ -184,7 +236,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-24T13:59:30.609Z"
+    "fingerprint": "be68f3a271b2571e",
+    "builtAt": "2026-08-06T08:58:59.985Z"
   }
 }

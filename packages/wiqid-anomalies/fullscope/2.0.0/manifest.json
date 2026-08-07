@@ -21,181 +21,90 @@
         "name": "x scale",
         "min": -2,
         "max": 8,
-        "default": 0,
-        "position": {
-          "x": 13,
-          "y": 167,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "KnobMiniSnap"
-        }
+        "default": 0
       },
       {
         "id": 1,
         "name": "x position",
         "min": -10,
         "max": 10,
-        "default": 0,
-        "position": {
-          "x": 13,
-          "y": 123,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "KnobMini"
-        }
+        "default": 0
       },
       {
         "id": 2,
         "name": "y scale",
         "min": -2,
         "max": 8,
-        "default": 0,
-        "position": {
-          "x": 13,
-          "y": 189,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "KnobMiniSnap"
-        }
+        "default": 0
       },
       {
         "id": 3,
         "name": "y position",
         "min": -10,
         "max": 10,
-        "default": 0,
-        "position": {
-          "x": 13,
-          "y": 145,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "KnobMini"
-        }
+        "default": 0
       },
       {
         "id": 4,
         "name": "time",
         "min": 4,
         "max": 16,
-        "default": 10,
-        "position": {
-          "x": 13,
-          "y": 233,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "KnobMini"
-        }
+        "default": 10
       },
       {
         "id": 5,
-        "name": "Param 6",
+        "name": "Lissajous",
         "min": 0,
         "max": 1,
-        "default": 0,
-        "hidden": true
+        "default": 0
       },
       {
         "id": 6,
-        "name": "Param 7",
+        "name": "Trigger",
         "min": 0,
         "max": 1,
-        "default": 0,
-        "hidden": true
+        "default": 0
       },
       {
         "id": 7,
-        "name": "Param 8",
+        "name": "External",
         "min": 0,
         "max": 1,
-        "default": 0,
-        "hidden": true
+        "default": 0
       },
       {
         "id": 8,
         "name": "rotation",
         "min": -10,
         "max": 10,
-        "default": 0,
-        "position": {
-          "x": 13,
-          "y": 211,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "KnobMini"
-        }
+        "default": 0
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "x",
-        "kind": "cv",
-        "position": {
-          "x": 13,
-          "y": 13,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "InPortMini"
-        }
+        "kind": "cv"
       },
       {
         "id": 1,
         "name": "y",
-        "kind": "cv",
-        "position": {
-          "x": 13,
-          "y": 35,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "InPortMini"
-        }
+        "kind": "cv"
       },
       {
         "id": 2,
         "name": "color cv",
-        "kind": "cv",
-        "position": {
-          "x": 13,
-          "y": 57,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "InPortMini"
-        }
+        "kind": "cv"
       },
       {
         "id": 3,
         "name": "time cv",
-        "kind": "cv",
-        "position": {
-          "x": 13,
-          "y": 101,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "InPortMini"
-        }
+        "kind": "cv"
       },
       {
         "id": 4,
         "name": "rotation cv",
-        "kind": "cv",
-        "position": {
-          "x": 13,
-          "y": 79,
-          "width": 16,
-          "height": 16,
-          "centered": true,
-          "widget": "InPortMini"
-        }
+        "kind": "cv"
       }
     ],
     "outputs": [],
@@ -203,26 +112,54 @@
     "stateKeys": [
       {
         "key": "lissajous",
-        "type": "integer"
+        "type": "boolean",
+        "name": "Lissajous Mode",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "showstats",
-        "type": "integer"
+        "type": "boolean",
+        "name": "Show Statistics",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "width",
-        "type": "real"
+        "type": "real",
+        "name": "Module Width",
+        "default": 390,
+        "contextOnly": true
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "full-scope",
+          "profile": "wiqid",
+          "points": 512,
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 380,
+          "defaultColor": "rgba(244,189,141,.753)",
+          "xColor": "rgba(176,141,244,.753)",
+          "showStats": true,
+          "assetBase": "packages/wiqid-anomalies/fullscope/2.0.0/resources/",
+          "font": {
+            "family": "WiqidOfficeCodePro",
+            "file": "OfficeCodePro-Light.ttf"
+          }
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/wiqid-anomalies/fullscope/2.0.0/manifest.json",
     "sourceCommit": "7dd0a1292b101542c11aa179142593474db7127d",
     "artifact": {
-      "sha256": "43d4fedc45a5c8ed49ef669bc338ea301190a7a9e28c84f7b450d21e16a53127",
-      "size": 70423
+      "sha256": "98a19467bac9c58f136a59a732a1510f373e76c02eb3528609eb1900cf09b7ee",
+      "size": 77135
     }
   },
   "source": {
@@ -231,7 +168,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:21:22.000Z"
+    "fingerprint": "e9ea14e02e58c949",
+    "builtAt": "2026-08-06T19:42:00.913Z"
   }
 }

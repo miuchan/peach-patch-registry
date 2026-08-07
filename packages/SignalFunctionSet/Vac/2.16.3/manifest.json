@@ -17,167 +17,175 @@
     "description": "Semi-stable A/R envelope with vactrol-like drift. Rise and fall each have a bipolar STAB control: each trigger samples a fresh random factor scaled exponentially by STAB, so cycle-to-cycle timing wanders without ever collapsing. Linear↔exponential CURVE (with CV), latching LOOP, END trigger out.",
     "params": [
       {
-        "id": 0,
-        "name": "Rise time",
-        "min": 0,
-        "max": 1,
         "default": 0.30000001192092896,
+        "id": 0,
+        "max": 1,
+        "min": 0,
+        "name": "Rise time",
         "position": {
-          "x": 22.5,
-          "y": 60,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 22.5,
+          "y": 60
         }
       },
       {
+        "default": 0,
         "id": 1,
+        "max": 1,
+        "min": -1,
         "name": "Rise stability",
-        "min": -1,
-        "max": 1,
-        "default": 0,
         "position": {
-          "x": 22.5,
-          "y": 105,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 22.5,
+          "y": 105
         }
       },
       {
-        "id": 2,
-        "name": "Fall time",
-        "min": 0,
-        "max": 1,
         "default": 0.550000011920929,
+        "id": 2,
+        "max": 1,
+        "min": 0,
+        "name": "Fall time",
         "position": {
-          "x": 22.5,
-          "y": 165,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 22.5,
+          "y": 165
         }
       },
       {
+        "default": 0,
         "id": 3,
-        "name": "Fall stability",
+        "max": 1,
         "min": -1,
-        "max": 1,
-        "default": 0,
+        "name": "Fall stability",
         "position": {
-          "x": 22.5,
-          "y": 210,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 22.5,
+          "y": 210
         }
       },
       {
-        "id": 4,
-        "name": "Curve (linear → exponential)",
-        "min": 0,
-        "max": 1,
         "default": 0.6000000238418579,
+        "id": 4,
+        "max": 1,
+        "min": 0,
+        "name": "Curve (linear → exponential)",
         "position": {
-          "x": 22.5,
-          "y": 254.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 22.5,
+          "y": 254.97
         }
       },
       {
-        "id": 5,
-        "name": "Loop (auto-retrigger at end of fall)",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
         "button": true,
+        "default": 0,
+        "id": 5,
+        "max": 1,
+        "min": 0,
+        "name": "Loop (auto-retrigger at end of fall)",
         "position": {
-          "x": 22.5,
-          "y": 314.97,
           "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+          "x": 22.5,
+          "y": 314.97
+        },
+        "snap": true
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Trigger (rising edge fires one A/R cycle)",
         "kind": "gate",
+        "name": "Trigger (rising edge fires one A/R cycle)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 22.5,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       },
       {
         "id": 1,
-        "name": "Rise CV (±5V → ±50%)",
         "kind": "cv",
+        "name": "Rise CV (±5V → ±50%)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 67.5,
-          "y": 60,
-          "centered": true
+          "y": 60
         }
       },
       {
         "id": 2,
-        "name": "Rise stability CV (±5V → ±50%)",
         "kind": "cv",
+        "name": "Rise stability CV (±5V → ±50%)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 67.5,
-          "y": 105,
-          "centered": true
+          "y": 105
         }
       },
       {
         "id": 3,
-        "name": "Fall CV (±5V → ±50%)",
         "kind": "cv",
+        "name": "Fall CV (±5V → ±50%)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 67.5,
-          "y": 165,
-          "centered": true
+          "y": 165
         }
       },
       {
         "id": 4,
-        "name": "Fall stability CV (±5V → ±50%)",
         "kind": "cv",
+        "name": "Fall stability CV (±5V → ±50%)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 67.5,
-          "y": 210,
-          "centered": true
+          "y": 210
         }
       },
       {
         "id": 5,
-        "name": "Curve CV (±5V → ±50%)",
         "kind": "cv",
+        "name": "Curve CV (±5V → ±50%)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 67.5,
-          "y": 254.97,
-          "centered": true
+          "y": 254.97
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "End-of-cycle trigger (1ms pulse at end of fall)",
         "kind": "gate",
+        "name": "End-of-cycle trigger (1ms pulse at end of fall)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 67.5,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 1,
-        "name": "Envelope (0–10V)",
         "kind": "cv",
+        "name": "Envelope (0–10V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 67.5,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       }
     ],
@@ -185,13 +193,13 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 5,
         "position": {
+          "centered": true,
           "x": 22.5,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         },
-        "paramId": 5
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       }
     ],
     "stateKeys": [
@@ -207,8 +215,8 @@
     "manifestUrl": "packages/SignalFunctionSet/Vac/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "f4d91a147bf4e0dce2d8f110c939ce1f82da2bc2ee8b97967a84c0e2d8fad1ea",
-      "size": 77023
+      "sha256": "93ae933dca2fe98eb62f59f8ca44c2c1f0e8349d2c8cc40c6a0a7b554f0b3f4c",
+      "size": 81389
     }
   },
   "source": {
@@ -217,7 +225,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:11:57.428Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

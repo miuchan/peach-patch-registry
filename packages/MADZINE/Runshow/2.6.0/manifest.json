@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/Runshow",
+    "plugin": "MADZINE",
+    "model": "Runshow",
+    "name": "Runshow",
+    "brand": "MADZINE",
+    "version": "2.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/Runshow",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/Runshow.webp",
+    "wasmUrl": "packages/MADZINE/Runshow/2.6.0/module.wasm",
+    "width": 180,
+    "description": "Timer with bar counting and visual feedback",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 152,
+          "y": 70,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Start/Stop",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 30,
+          "y": 70,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Pulse Width (Bar %)",
+        "min": 1,
+        "max": 99,
+        "default": 10,
+        "position": {
+          "x": 15,
+          "y": 343,
+          "centered": true,
+          "widget": "madzine::widgets::MediumGrayKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Waveform",
+        "min": 0,
+        "max": 4,
+        "default": 4,
+        "snap": true,
+        "position": {
+          "x": 46,
+          "y": 343,
+          "centered": true,
+          "widget": "madzine::widgets::MADDYPlusSnapKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bar 1 Length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 76,
+          "y": 343,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 5,
+        "name": "Bar 2 Length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 107,
+          "y": 343,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 6,
+        "name": "Bar 3 Length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 137,
+          "y": 343,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 7,
+        "name": "Bar 4 Length",
+        "min": 1,
+        "max": 16,
+        "default": 16,
+        "position": {
+          "x": 168,
+          "y": 343,
+          "centered": true,
+          "widget": "madzine::widgets::SnapKnob"
+        },
+        "snap": true
+      },
+      {
+        "id": 8,
+        "name": "Timer Max",
+        "min": 1,
+        "max": 60,
+        "default": 5,
+        "snap": true,
+        "hidden": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 54,
+          "y": 70,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 152,
+          "y": 96,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Start/Stop",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 96,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "5Min Timer",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "1Min Timer",
+        "kind": "cv",
+        "position": {
+          "x": 46,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bar 1 Timer",
+        "kind": "cv",
+        "position": {
+          "x": 76,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Bar 2 Timer",
+        "kind": "cv",
+        "position": {
+          "x": 107,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bar 3 Timer",
+        "kind": "cv",
+        "position": {
+          "x": 137,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Bar 4 Timer",
+        "kind": "cv",
+        "position": {
+          "x": 168,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "lights": 1,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "LargeLight<PinkLight>",
+        "position": {
+          "x": 54,
+          "y": 95,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "running",
+        "type": "boolean"
+      },
+      {
+        "key": "clockCount",
+        "type": "integer"
+      },
+      {
+        "key": "currentBar",
+        "type": "integer"
+      },
+      {
+        "key": "quarter_notes",
+        "type": "integer"
+      },
+      {
+        "key": "eighth_notes",
+        "type": "integer"
+      },
+      {
+        "key": "sixteenth_notes",
+        "type": "integer"
+      },
+      {
+        "key": "elapsedSeconds",
+        "type": "real"
+      },
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "runshow-display",
+          "maxParam": 8,
+          "time": {
+            "x": 68,
+            "y": 64,
+            "width": 70,
+            "height": 40
+          },
+          "bars": {
+            "x": 15,
+            "y": 110,
+            "width": 150,
+            "height": 200
+          }
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/Runshow/2.6.0/manifest.json",
+    "sourceCommit": "f8f8a93c0ec59255984ff2c3e56e080927b80522",
+    "artifact": {
+      "sha256": "d02379dee5ad65b0d7adb48d50ad37c9b9bad7dc27abfb58f9664e76784cf40f",
+      "size": 91665
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "f8f8a93c0ec59255984ff2c3e56e080927b80522"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "4b53c6ef25fc61a0",
+    "builtAt": "2026-08-06T07:24:10.861Z"
+  }
+}

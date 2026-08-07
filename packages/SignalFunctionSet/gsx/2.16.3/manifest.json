@@ -17,244 +17,256 @@
     "description": "Granular synthesis module based on Barry Truax's GSX system (1985-86), with real-time control over temporal, spectral, and spatial parameters",
     "params": [
       {
-        "id": 0,
-        "name": "Frequency",
-        "min": 5.643856048583984,
-        "max": 10.965784072875977,
         "default": 7.031329154968262,
+        "id": 0,
+        "max": 10.965784072875977,
+        "min": 5.643856048583984,
+        "name": "Frequency",
         "position": {
-          "x": 30,
-          "y": 85.01,
           "centered": true,
-          "widget": "RoundBlackKnob"
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 85.01
         }
       },
       {
-        "id": 1,
-        "name": "Streams",
-        "min": 1,
-        "max": 20,
         "default": 10,
+        "id": 1,
+        "max": 20,
+        "min": 1,
+        "name": "Streams",
         "position": {
-          "x": 90,
-          "y": 85.01,
           "centered": true,
-          "widget": "RoundBlackKnob"
+          "widget": "RoundBlackKnob",
+          "x": 90,
+          "y": 85.01
         }
       },
       {
-        "id": 2,
-        "name": "Shape",
-        "min": 0,
-        "max": 1,
         "default": 0,
+        "id": 2,
+        "max": 1,
+        "min": 0,
+        "name": "Shape",
         "position": {
-          "x": 150,
-          "y": 85.01,
           "centered": true,
-          "widget": "RoundBlackKnob"
+          "widget": "RoundBlackKnob",
+          "x": 150,
+          "y": 85.01
         }
       },
       {
+        "default": 100,
         "id": 3,
-        "name": "Range",
-        "min": 0,
         "max": 500,
-        "default": 100,
+        "min": 0,
+        "name": "Range",
         "position": {
-          "x": 30,
-          "y": 175.01,
           "centered": true,
-          "widget": "RoundBlackKnob"
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 175.01
         }
       },
       {
-        "id": 4,
-        "name": "Duration",
-        "min": 1,
-        "max": 100,
         "default": 20,
-        "position": {
-          "x": 90,
-          "y": 175.01,
-          "centered": true,
-          "widget": "RoundBlackKnob"
-        }
-      },
-      {
-        "id": 5,
-        "name": "Delay",
-        "min": 0.10000000149011612,
-        "max": 200,
-        "default": 0.10000000149011612,
-        "position": {
-          "x": 150,
-          "y": 175.01,
-          "centered": true,
-          "widget": "RoundBlackKnob"
-        }
-      },
-      {
-        "id": 6,
-        "name": "Density",
+        "id": 4,
+        "max": 100,
         "min": 1,
-        "max": 1000,
-        "default": 100,
+        "name": "Duration",
         "position": {
-          "x": 30,
-          "y": 265.01,
           "centered": true,
-          "widget": "RoundBlackKnob"
-        }
-      },
-      {
-        "id": 7,
-        "name": "Variation",
-        "min": 0,
-        "max": 1,
-        "default": 0.5,
-        "position": {
+          "widget": "RoundBlackKnob",
           "x": 90,
-          "y": 265.01,
-          "centered": true,
-          "widget": "RoundBlackKnob"
+          "y": 175.01
         }
       },
       {
-        "id": 8,
-        "name": "Spread",
-        "min": 0,
-        "max": 1,
-        "default": 0.5,
+        "default": 0.10000000149011612,
+        "id": 5,
+        "max": 200,
+        "min": 0.10000000149011612,
+        "name": "Delay",
         "position": {
-          "x": 150,
-          "y": 265.01,
           "centered": true,
-          "widget": "RoundBlackKnob"
+          "widget": "RoundBlackKnob",
+          "x": 150,
+          "y": 175.01
+        }
+      },
+      {
+        "default": 100,
+        "id": 6,
+        "max": 1000,
+        "min": 1,
+        "name": "Density",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 265.01
+        }
+      },
+      {
+        "default": 0.5,
+        "id": 7,
+        "max": 1,
+        "min": 0,
+        "name": "Variation",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 90,
+          "y": 265.01
+        }
+      },
+      {
+        "default": 0.5,
+        "id": 8,
+        "max": 1,
+        "min": 0,
+        "name": "Spread",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 150,
+          "y": 265.01
         }
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Frequency CV",
         "kind": "cv",
+        "name": "Frequency CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 122.51,
-          "centered": true
+          "y": 122.51
         }
       },
       {
         "id": 1,
-        "name": "Streams CV",
         "kind": "cv",
+        "name": "Streams CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 122.51,
-          "centered": true
+          "y": 122.51
         }
       },
       {
         "id": 2,
-        "name": "Shape CV",
         "kind": "cv",
+        "name": "Shape CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 122.51,
-          "centered": true
+          "y": 122.51
         }
       },
       {
         "id": 3,
-        "name": "Range CV",
         "kind": "cv",
+        "name": "Range CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 212.51,
-          "centered": true
+          "y": 212.51
         }
       },
       {
         "id": 4,
-        "name": "Duration CV",
         "kind": "cv",
+        "name": "Duration CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 212.51,
-          "centered": true
+          "y": 212.51
         }
       },
       {
         "id": 5,
-        "name": "Delay CV",
         "kind": "cv",
+        "name": "Delay CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 212.51,
-          "centered": true
+          "y": 212.51
         }
       },
       {
         "id": 6,
-        "name": "Density CV",
         "kind": "cv",
+        "name": "Density CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 302.51,
-          "centered": true
+          "y": 302.51
         }
       },
       {
         "id": 7,
-        "name": "Variation CV",
         "kind": "cv",
+        "name": "Variation CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 302.51,
-          "centered": true
+          "y": 302.51
         }
       },
       {
         "id": 8,
-        "name": "Spread CV",
         "kind": "cv",
+        "name": "Spread CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 302.51,
-          "centered": true
+          "y": 302.51
         }
       },
       {
         "id": 9,
-        "name": "VCA CV",
         "kind": "cv",
+        "name": "VCA CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 355.01,
-          "centered": true
+          "y": 355.01
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Left",
         "kind": "audio",
+        "name": "Left",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 120,
-          "y": 355.01,
-          "centered": true
+          "y": 355.01
         }
       },
       {
         "id": 1,
-        "name": "Right",
         "kind": "gate",
+        "name": "Right",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 355.01,
-          "centered": true
+          "y": 355.01
         }
       }
     ],
@@ -266,8 +278,8 @@
     "manifestUrl": "packages/SignalFunctionSet/gsx/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "c2d0fba4906a5832306b0fd64875bb317472b2c39701e27018b1a7544e5c5e04",
-      "size": 85909
+      "sha256": "f76ff4af44de0fea524c4c4650d892c39ee55fa09aab3cb36bb9cffc56a1e528",
+      "size": 87148
     }
   },
   "source": {
@@ -276,7 +288,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:11:45.989Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

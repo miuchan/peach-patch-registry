@@ -21,40 +21,35 @@
         "name": "IN CHAN",
         "min": -1,
         "max": 15,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 1,
         "name": "OUT CHAN",
         "min": 0,
         "max": 15,
-        "default": 0,
-        "hidden": true
+        "default": 0
       },
       {
         "id": 2,
         "name": "KEY SPLIT",
         "min": 36,
         "max": 84,
-        "default": 60,
-        "hidden": true
+        "default": 60
       },
       {
         "id": 3,
         "name": "KEY SPLIT ENABLE",
         "min": 0,
         "max": 1,
-        "default": 0,
-        "hidden": true
+        "default": 0
       },
       {
         "id": 4,
         "name": "KEY TRANS",
         "min": -24,
         "max": 24,
-        "default": 0,
-        "hidden": true
+        "default": 0
       }
     ],
     "inputs": [
@@ -65,10 +60,8 @@
         "position": {
           "x": 30,
           "y": 225.886,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -80,10 +73,8 @@
         "position": {
           "x": 30,
           "y": 273.13,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -93,10 +84,8 @@
         "position": {
           "x": 30,
           "y": 320.374,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -104,34 +93,28 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "rack::componentlibrary::MediumLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "widget": "MediumLight<RedLight>",
         "position": {
           "x": 11.25,
           "y": 207.136,
-          "width": 8.858,
-          "height": 8.858,
           "centered": true
         }
       },
       {
         "id": 1,
-        "widget": "rack::componentlibrary::MediumLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "widget": "MediumLight<RedLight>",
         "position": {
           "x": 11.25,
           "y": 254.38,
-          "width": 8.858,
-          "height": 8.858,
           "centered": true
         }
       },
       {
         "id": 2,
-        "widget": "rack::componentlibrary::MediumLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "widget": "MediumLight<RedLight>",
         "position": {
           "x": 11.25,
           "y": 301.624,
-          "width": 8.858,
-          "height": 8.858,
           "centered": true
         }
       }
@@ -143,14 +126,225 @@
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Input MIDI channel",
+              "x": 6.378,
+              "y": 48.72,
+              "width": 47.244,
+              "height": 23.622,
+              "wheelUp": {
+                "target": "param",
+                "id": 0,
+                "operation": "cycle",
+                "minimum": -1,
+                "maximum": 15,
+                "step": -1,
+                "wrap": false
+              },
+              "wheelDown": {
+                "target": "param",
+                "id": 0,
+                "operation": "cycle",
+                "minimum": -1,
+                "maximum": 15,
+                "step": 1,
+                "wrap": false
+              },
+              "display": {
+                "source": "param",
+                "id": 0,
+                "format": "midi-channel-any",
+                "digits": 2,
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Output MIDI channel",
+              "x": 6.378,
+              "y": 84.154,
+              "width": 47.244,
+              "height": 23.622,
+              "wheelUp": {
+                "target": "param",
+                "id": 1,
+                "operation": "cycle",
+                "minimum": 0,
+                "maximum": 15,
+                "step": -1,
+                "wrap": false
+              },
+              "wheelDown": {
+                "target": "param",
+                "id": 1,
+                "operation": "cycle",
+                "minimum": 0,
+                "maximum": 15,
+                "step": 1,
+                "wrap": false
+              },
+              "display": {
+                "source": "param",
+                "id": 1,
+                "format": "midi-channel",
+                "digits": 2,
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            },
+            {
+              "label": "Key split",
+              "x": 6.378,
+              "y": 119.587,
+              "width": 47.244,
+              "height": 23.622,
+              "doubleClick": {
+                "target": "param",
+                "id": 3,
+                "operation": "toggle",
+                "value": 1,
+                "alternateValue": 0
+              },
+              "wheelUp": {
+                "target": "commands",
+                "commands": [
+                  {
+                    "target": "param",
+                    "id": 3,
+                    "operation": "set",
+                    "value": 1
+                  },
+                  {
+                    "target": "param",
+                    "id": 2,
+                    "operation": "cycle",
+                    "minimum": 36,
+                    "maximum": 84,
+                    "step": -1,
+                    "wrap": false
+                  }
+                ]
+              },
+              "wheelDown": {
+                "target": "commands",
+                "commands": [
+                  {
+                    "target": "param",
+                    "id": 3,
+                    "operation": "set",
+                    "value": 1
+                  },
+                  {
+                    "target": "param",
+                    "id": 2,
+                    "operation": "cycle",
+                    "minimum": 36,
+                    "maximum": 84,
+                    "step": 1,
+                    "wrap": false
+                  }
+                ]
+              },
+              "display": {
+                "source": "param",
+                "id": 2,
+                "format": "integer",
+                "digits": 2,
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0,
+                "condition": {
+                  "source": "param",
+                  "id": 3,
+                  "equals": 1,
+                  "otherwiseText": "OFF"
+                }
+              }
+            },
+            {
+              "label": "Key transpose",
+              "x": 6.378,
+              "y": 155.02,
+              "width": 47.244,
+              "height": 23.622,
+              "wheelUp": {
+                "target": "param",
+                "id": 4,
+                "operation": "cycle",
+                "minimum": -24,
+                "maximum": 24,
+                "step": -1,
+                "wrap": false
+              },
+              "wheelDown": {
+                "target": "param",
+                "id": 4,
+                "operation": "cycle",
+                "minimum": -24,
+                "maximum": 24,
+                "step": 1,
+                "wrap": false
+              },
+              "display": {
+                "source": "param",
+                "id": 4,
+                "format": "signed-integer",
+                "digits": 2,
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 16,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 60,
+          "height": 380,
+          "assetBase": "packages/Kilpatrick-Toolbox/MIDI_Channel/2.0.3/resources/",
+          "font": {
+            "file": "fixedsys.ttf",
+            "family": "Peach Kilpatrick Fixedsys"
+          }
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Kilpatrick-Toolbox/MIDI_Channel/2.0.3/manifest.json",
     "sourceCommit": "96f186fafb0f66cf2e0a066fd781d44964a52ef5",
     "artifact": {
-      "sha256": "f1ead9cbede34722c4c4236fd636fc5c0dbac4e882908099d9b8ac7aca6b6456",
-      "size": 87787
+      "sha256": "7dbba5e473273bed9eaf704a907b1e8ea4243cd782d8a331cabcbd759137b30e",
+      "size": 90568
     }
   },
   "source": {
@@ -159,7 +353,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-23T01:45:13.616Z"
+    "fingerprint": "8700bf0a6bb7571a",
+    "builtAt": "2026-08-06T15:48:39.484Z"
   }
 }

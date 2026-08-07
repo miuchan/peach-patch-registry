@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Ohmer/Metriks",
+    "plugin": "Ohmer",
+    "model": "Metriks",
+    "name": "Metriks",
+    "brand": "Ohmer Modules",
+    "version": "2.6.13",
+    "license": "BSD-3-Clause",
+    "sourceUrl": "https://github.com/DomiKamu/Ohmer.git",
+    "libraryUrl": "https://library.vcvrack.com/Ohmer/Metriks",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Ohmer/Metriks.webp",
+    "wasmUrl": "packages/Ohmer/Metriks/2.6.13/module.wasm",
+    "width": 120,
+    "description": "Voltmeter",
+    "params": [
+      {
+        "id": 0,
+        "name": "Param Encoder",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 20,
+          "y": 106,
+          "widget": "Ohmer_Encoder"
+        }
+      },
+      {
+        "id": 1,
+        "name": "OPTIONS",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 94,
+          "y": 178,
+          "widget": "Ohmer_ButtonGold"
+        }
+      },
+      {
+        "id": 2,
+        "name": "PLAY/PAUSE",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 27.4,
+          "y": 240,
+          "widget": "Ohmer_ButtonGold"
+        }
+      },
+      {
+        "id": 3,
+        "name": "RESET",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 75.4,
+          "y": 240,
+          "widget": "Ohmer_ButtonGold"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Signal to meter",
+        "kind": "audio",
+        "position": {
+          "x": 24,
+          "y": 304,
+          "centered": true,
+          "widget": "DynSVGPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Play/Pause",
+        "kind": "cv",
+        "position": {
+          "x": 24,
+          "y": 262,
+          "centered": true,
+          "widget": "DynSVGPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 72,
+          "y": 262,
+          "centered": true,
+          "widget": "DynSVGPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "INput thru",
+        "kind": "cv",
+        "position": {
+          "x": 72,
+          "y": 304,
+          "centered": true,
+          "widget": "DynSVGPort"
+        }
+      }
+    ],
+    "lights": 3,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<GreenRedLight>",
+        "position": {
+          "x": 18,
+          "y": 252
+        }
+      },
+      {
+        "id": 2,
+        "widget": "MediumLight<RedLight>",
+        "position": {
+          "x": 83,
+          "y": 200.5
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "Model",
+        "type": "integer"
+      },
+      {
+        "key": "Mode",
+        "type": "integer"
+      },
+      {
+        "key": "lastVMin",
+        "type": "real"
+      },
+      {
+        "key": "lastVMax",
+        "type": "real"
+      }
+    ],
+    "bypassRoutes": [
+      [
+        0,
+        0
+      ]
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "native-signal",
+          "mode": "meter",
+          "sources": [
+            {
+              "kind": "input",
+              "id": 0
+            },
+            {
+              "kind": "input",
+              "id": 1
+            },
+            {
+              "kind": "input",
+              "id": 2
+            }
+          ],
+          "colors": [
+            "#c0e910"
+          ],
+          "strokeWidths": [
+            1
+          ],
+          "range": 10,
+          "stacked": false,
+          "bipolar": true,
+          "x": 2,
+          "y": 30,
+          "width": 116,
+          "height": 320
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Ohmer/Metriks/2.6.13/manifest.json",
+    "sourceCommit": "00f3497ddc62edda46463d8084e6bc7cf5bcd1db",
+    "artifact": {
+      "sha256": "4ae336be5cc7cd6b182381e0232843417a2d69da0ee8a0745b1361cb97873ee7",
+      "size": 110745
+    }
+  },
+  "source": {
+    "url": "https://github.com/DomiKamu/Ohmer.git",
+    "commit": "00f3497ddc62edda46463d8084e6bc7cf5bcd1db"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "bb4a9b047050795c",
+    "builtAt": "2026-08-06T05:36:19.758Z"
+  }
+}

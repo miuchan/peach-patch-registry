@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Operator",
+    "plugin": "SignalFunctionSet",
+    "model": "Operator",
+    "name": "Operator",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Operator",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Operator.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Operator/2.16.3/module.wasm",
+    "width": 150,
+    "description": "DX7-style 6-operator FM voice. Loads Yamaha DX7 .syx cartridges (or your own banks exported from Dexed), selects a voice, and plays it polyphonically. Built on the msfa FM engine.",
+    "params": [
+      {
+        "default": 0,
+        "id": 0,
+        "max": 31,
+        "min": 0,
+        "name": "Voice",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 87.49,
+          "y": 189.39
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 1,
+        "max": 15,
+        "min": 0,
+        "name": "Bank",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 22.5,
+          "y": 189.39
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 2,
+        "max": 1,
+        "min": 0,
+        "name": "Previous voice",
+        "position": {
+          "centered": true,
+          "widget": "VCVButton",
+          "x": 64.99,
+          "y": 189.39
+        },
+        "snap": true
+      },
+      {
+        "button": true,
+        "default": 0,
+        "id": 3,
+        "max": 1,
+        "min": 0,
+        "name": "Next voice",
+        "position": {
+          "centered": true,
+          "widget": "VCVButton",
+          "x": 109.99,
+          "y": 189.39
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 4,
+        "max": 12,
+        "min": -12,
+        "name": "Tune",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 55.01,
+          "y": 269.38
+        }
+      },
+      {
+        "default": 0,
+        "id": 5,
+        "max": 1,
+        "min": -1,
+        "name": "Brightness",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 87.49,
+          "y": 269.38
+        }
+      },
+      {
+        "default": 0,
+        "id": 6,
+        "max": 7,
+        "min": -7,
+        "name": "Feedback offset",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 22.5,
+          "y": 269.38
+        },
+        "snap": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "kind": "cv",
+        "name": "V/oct (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 22.5,
+          "y": 359.38
+        }
+      },
+      {
+        "id": 1,
+        "kind": "gate",
+        "name": "Gate (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 55.01,
+          "y": 359.38
+        }
+      },
+      {
+        "id": 2,
+        "kind": "cv",
+        "name": "Velocity (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 87.49,
+          "y": 359.38
+        }
+      },
+      {
+        "id": 3,
+        "kind": "cv",
+        "name": "Voice/patch select CV (scale set in right-click menu)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 87.49,
+          "y": 229.4
+        }
+      },
+      {
+        "id": 4,
+        "kind": "cv",
+        "name": "Bank select CV (scale set in right-click menu)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 22.5,
+          "y": 229.4
+        }
+      },
+      {
+        "id": 5,
+        "kind": "cv",
+        "name": "Tune CV (1V/oct)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 55.01,
+          "y": 314.38
+        }
+      },
+      {
+        "id": 6,
+        "kind": "cv",
+        "name": "Brightness CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 87.49,
+          "y": 314.38
+        }
+      },
+      {
+        "id": 7,
+        "kind": "cv",
+        "name": "Feedback CV (±5V)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 22.5,
+          "y": 314.38
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "kind": "audio",
+        "name": "VCA — voice audio with its internal envelope (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 127.5,
+          "y": 359.38
+        }
+      },
+      {
+        "id": 1,
+        "kind": "cv",
+        "name": "VCO — raw tone, no internal envelope (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 127.5,
+          "y": 314.38
+        }
+      },
+      {
+        "id": 2,
+        "kind": "audio",
+        "name": "Envelope follower — 0-10V tracking the audio amplitude (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 127.5,
+          "y": 269.38
+        }
+      }
+    ],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "curBank",
+        "type": "integer"
+      },
+      {
+        "index": 0,
+        "key": "opEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "opEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "opEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "opEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 4,
+        "key": "opEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 5,
+        "key": "opEnabled",
+        "type": "boolean"
+      },
+      {
+        "key": "screenTab",
+        "type": "integer"
+      },
+      {
+        "key": "outLevelDb",
+        "type": "real"
+      },
+      {
+        "key": "bankCvMode",
+        "type": "integer"
+      },
+      {
+        "key": "voiceCvMode",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 124.104,
+          "kind": "signal-function-set",
+          "model": "Operator",
+          "width": 135.827,
+          "x": 7.087,
+          "y": 35.433
+        }
+      ]
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Operator/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "245b991fbdbdaa8c3f671e17d8ad21f3ab60d74b01689a790970369693adfa99",
+      "size": 121902
+    }
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "builtAt": "2026-08-06T00:20:59.271Z"
+  }
+}

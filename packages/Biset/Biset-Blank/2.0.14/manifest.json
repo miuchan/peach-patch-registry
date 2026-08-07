@@ -18,57 +18,88 @@
     "params": [
       {
         "id": 0,
-        "name": "Param Cable Enabled",
+        "name": "Cable animation enabled",
         "min": 0,
         "max": 1,
         "default": 1,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Off",
+          "On"
+        ]
       },
       {
         "id": 1,
-        "name": "Param Cable Brightness",
+        "name": "Cable brightness",
         "min": 0,
         "max": 1,
         "default": 1,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Off",
+          "On"
+        ]
       },
       {
         "id": 2,
-        "name": "Param Cable Light",
+        "name": "Cable LED",
         "min": 0,
         "max": 1,
         "default": 1,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Off",
+          "On"
+        ]
       },
       {
         "id": 3,
-        "name": "Param Cable Poly Thick",
+        "name": "Cable polyphonic thickness",
         "min": 0,
         "max": 1,
         "default": 1,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Off",
+          "On"
+        ]
       },
       {
         "id": 4,
-        "name": "Param Cable Poly Mode",
+        "name": "Cable polyphonic mode",
         "min": 0,
         "max": 2,
         "default": 0,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "1st channel",
+          "Sum",
+          "Sum / channel count"
+        ]
       },
       {
         "id": 5,
-        "name": "Param Cable Fast",
+        "name": "Cable CPU fast",
         "min": 0,
         "max": 1,
         "default": 0,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Precision",
+          "Fast"
+        ]
       },
       {
         "id": 6,
@@ -76,7 +107,8 @@
         "min": 0,
         "max": 1,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 7,
@@ -84,43 +116,67 @@
         "min": 0,
         "max": 2,
         "default": 1,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 8,
-        "name": "Param Scope Enabled",
+        "name": "Scope enabled",
         "min": 0,
         "max": 1,
         "default": 1,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Off",
+          "On"
+        ]
       },
       {
         "id": 9,
-        "name": "Param Scope Maj",
+        "name": "Scope on Shift",
         "min": 0,
         "max": 1,
         "default": 0,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Always",
+          "Shift only"
+        ]
       },
       {
         "id": 10,
-        "name": "Param Scope Mode",
+        "name": "Scope display mode",
         "min": 0,
         "max": 1,
         "default": 0,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Circular",
+          "Linear"
+        ]
       },
       {
         "id": 11,
-        "name": "Param Scope Position",
+        "name": "Scope position",
         "min": 0,
         "max": 4,
         "default": 0,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "Top left",
+          "Top right",
+          "Bottom left",
+          "Bottom right",
+          "Center"
+        ]
       },
       {
         "id": 12,
@@ -128,7 +184,8 @@
         "min": 0.019999999552965164,
         "max": 1,
         "default": 0.20000000298023224,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 13,
@@ -136,7 +193,8 @@
         "min": 1,
         "max": 10,
         "default": 2,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 14,
@@ -144,7 +202,8 @@
         "min": 0,
         "max": 1,
         "default": 0.6000000238418579,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 15,
@@ -152,7 +211,8 @@
         "min": 0,
         "max": 1,
         "default": 0.30000001192092896,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 16,
@@ -160,7 +220,8 @@
         "min": 0,
         "max": 1,
         "default": 1,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 17,
@@ -168,30 +229,69 @@
         "min": 0,
         "max": 1,
         "default": 1,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true
       },
       {
         "id": 18,
-        "name": "Param Panel",
+        "name": "Panel",
         "min": 0,
         "max": 3,
         "default": 0,
         "snap": true,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "values": [
+          "City pigeon",
+          "Wild pigeon",
+          "Pigeon gang",
+          "Pigeon Army (loops)"
+        ]
       }
     ],
     "inputs": [],
     "outputs": [],
     "lights": 0,
     "runtime": {
+      "visuals": [
+        {
+          "kind": "biset-blank-overlay",
+          "bufferSize": 2048,
+          "cablePoints": 128,
+          "scopePoints": 256,
+          "maxCableDistance": 300,
+          "cableWidth": 6,
+          "polyCableWidth": 9,
+          "plugRadius": 8.5,
+          "plugStrokeWidth": 4,
+          "lightRadius": 5.75,
+          "lightStrokeWidth": 1.5,
+          "positiveColor": "#a0d249",
+          "negativeColor": "#f1352c",
+          "lightBorderColor": "#e6e1e1",
+          "fontFamily": "RackShareTechMono",
+          "assetBase": "packages/Biset/Biset-Blank/2.0.14/resources/",
+          "panelParam": 18,
+          "panels": [
+            "Blank.svg",
+            "Blank-Wild.svg",
+            "Blank-Gang.svg",
+            "Blank-Army.svg"
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 105,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Biset/Biset-Blank/2.0.14/manifest.json",
     "sourceCommit": "af5277d7e5819d56382ee934ca78ae477764377d",
     "artifact": {
-      "sha256": "79e7431449dc17edd6868fc45f199fdca69e754bed35496852190b5ebfc95de8",
-      "size": 72487
+      "sha256": "9407e67a7abfe3175206e447c069097ce02cc849107f589e7062c94d93585be9",
+      "size": 73617
     }
   },
   "source": {
@@ -200,7 +300,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-24T03:31:59.707Z"
+    "fingerprint": "f8dd123c7254aa0e",
+    "builtAt": "2026-08-06T21:20:19.102Z"
   }
 }

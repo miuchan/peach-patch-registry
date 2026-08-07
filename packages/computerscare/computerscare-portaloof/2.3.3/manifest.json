@@ -27,7 +27,8 @@
           "x": 28,
           "y": 39,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 1,
@@ -52,7 +53,8 @@
           "x": 2,
           "y": 76,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 3,
@@ -89,7 +91,8 @@
           "x": 2,
           "y": 109,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 6,
@@ -126,7 +129,8 @@
           "x": 2,
           "y": 142,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 9,
@@ -163,7 +167,8 @@
           "x": 2,
           "y": 175,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 12,
@@ -200,7 +205,8 @@
           "x": 2,
           "y": 208,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 15,
@@ -208,6 +214,7 @@
         "min": -12,
         "max": 12,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 120,
           "y": 209,
@@ -237,7 +244,8 @@
           "x": 2,
           "y": 241,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 18,
@@ -274,7 +282,8 @@
           "x": 2,
           "y": 274,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 21,
@@ -311,7 +320,8 @@
           "x": 2,
           "y": 307,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 24,
@@ -373,7 +383,8 @@
           "x": 2,
           "y": 340,
           "widget": "SmallIsoButton"
-        }
+        },
+        "button": true
       },
       {
         "id": 30,
@@ -605,7 +616,8 @@
         "kind": "gate",
         "position": {
           "x": 52,
-          "y": 41
+          "y": 41,
+          "widget": "InPort"
         }
       },
       {
@@ -614,7 +626,8 @@
         "kind": "cv",
         "position": {
           "x": 118,
-          "y": 41
+          "y": 41,
+          "widget": "InPort"
         }
       }
     ],
@@ -623,78 +636,143 @@
     "stateKeys": [
       {
         "key": "kind",
-        "type": "integer"
+        "type": "integer",
+        "name": "Kind",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "moduleId",
-        "type": "integer"
+        "type": "integer",
+        "name": "Module Id",
+        "default": -1,
+        "contextOnly": true
       },
       {
         "key": "width",
-        "type": "real"
+        "type": "real",
+        "name": "Width",
+        "default": 300,
+        "contextOnly": true
       },
       {
         "key": "tileEmptySpace",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Tile Empty Space",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "maintainAspect",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Maintain Aspect",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "cropRackBorders",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Crop Rack Borders",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "backdropEnabled",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Backdrop Enabled",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "emptyWindowInBgMode",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Empty Window In Bg Mode",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "transformPost",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Transform Post",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "translateFirst",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Translate First",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "hideUi",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Hide Ui",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "dimVisualsWithRoom",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Dim Visuals With Room",
+        "default": 1,
+        "contextOnly": true
       },
       {
         "key": "sourceBlendMode",
-        "type": "integer"
+        "type": "integer",
+        "name": "Source Blend Mode",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "rackSourceModuleId",
-        "type": "integer"
+        "type": "integer",
+        "name": "Rack Source Module Id",
+        "default": -1,
+        "contextOnly": true
       },
       {
         "key": "rackRectSourceEnabled",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Rack Rect Source Enabled",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "screenRectSourceEnabled",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Screen Rect Source Enabled",
+        "default": 0,
+        "contextOnly": true
       }
     ],
     "runtime": {
+      "asset": {
+        "type": "image",
+        "maxSamples": 16777216,
+        "maxSeconds": 0,
+        "channels": 4
+      },
+      "visuals": [
+        {
+          "kind": "portaloof",
+          "displayX": 150,
+          "actionBase": 1000,
+          "x": 150,
+          "y": 0,
+          "width": 150,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/computerscare/computerscare-portaloof/2.3.3/manifest.json",
     "sourceCommit": "3b002037ddc5cf04ebe2e572d7893eeba30deef3",
     "artifact": {
-      "sha256": "6cecd398a0b0100a317759cba867116a474bff0d83ccad10960445cc12908516",
-      "size": 94798
+      "sha256": "40a2e94cde6b5e80e2e65a32cca50125033d4271fbe65f302fc6930726eeb5e7",
+      "size": 97464
     }
   },
   "source": {
@@ -703,7 +781,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-24T15:04:25.241Z"
+    "fingerprint": "be68f3a271b2571e",
+    "builtAt": "2026-08-06T08:58:59.995Z"
   }
 }

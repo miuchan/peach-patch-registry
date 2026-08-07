@@ -22,6 +22,7 @@
         "min": -5,
         "max": 4,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 59.096,
           "y": 321.112,
@@ -35,6 +36,7 @@
         "min": 1,
         "max": 5,
         "default": 1,
+        "snap": true,
         "position": {
           "x": 145.86,
           "y": 321.112,
@@ -48,6 +50,7 @@
         "min": 0,
         "max": 4,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 302.158,
           "y": 321.112,
@@ -164,7 +167,8 @@
         "position": {
           "x": 778.042,
           "y": 350.705,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -174,7 +178,8 @@
         "position": {
           "x": 399.068,
           "y": 310.078,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       }
     ],
@@ -186,7 +191,8 @@
         "position": {
           "x": 778.042,
           "y": 310.078,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -196,7 +202,8 @@
         "position": {
           "x": 821.793,
           "y": 310.078,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -206,7 +213,8 @@
         "position": {
           "x": 863.979,
           "y": 310.078,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -216,7 +224,8 @@
         "position": {
           "x": 821.793,
           "y": 350.705,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -226,7 +235,8 @@
         "position": {
           "x": 863.979,
           "y": 350.705,
-          "centered": true
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
         }
       }
     ],
@@ -274,15 +284,97 @@
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "touch-ribbon",
+          "actionBase": 1000,
+          "actionSteps": 256,
+          "octavesParam": 1,
+          "showGuidesState": 1,
+          "guideTypeState": 7,
+          "x": 21.26,
+          "y": 44.291,
+          "width": 855.443,
+          "height": 236.22
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/acModules/CRBViXL/2.0.7/manifest.json",
     "sourceCommit": "be6dcc9beb9e8d837b2606a2136c9cd74e573fdf",
     "artifact": {
-      "sha256": "2dbc943c943f911917a809aa284a41bb18b56b0a75a1b5c45951e01f35ab6e4d",
-      "size": 83301
-    }
+      "sha256": "35d1437d59c10df30617e4f8582fbdbfa7078c6de34fe6fcb939ec8474367d53",
+      "size": 89350
+    },
+    "stateKeys": [
+      {
+        "key": "isSnapped",
+        "type": "boolean",
+        "name": "Snap To Notes",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "showKeys",
+        "type": "boolean",
+        "name": "Show Guides",
+        "default": 1,
+        "contextOnly": true
+      },
+      {
+        "key": "yAxisRangeMode",
+        "type": "integer",
+        "name": "Y-Axis Range (Non-VCA)",
+        "default": 0,
+        "values": [
+          "0V to 10V (Default)",
+          "0V to 5V",
+          "-5V to 5V"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "curveModX",
+        "type": "boolean",
+        "name": "Use Input Curve For X Modulation",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "curveModY",
+        "type": "boolean",
+        "name": "Use Input Curve For Y Modulation",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "modVCA",
+        "type": "boolean",
+        "name": "Apply Modulation To VCA",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "showModIndicators",
+        "type": "boolean",
+        "name": "Show Modulation While Playing",
+        "default": 0,
+        "contextOnly": true
+      },
+      {
+        "key": "guideType",
+        "type": "integer",
+        "name": "Guide Type",
+        "default": 0,
+        "values": [
+          "Semitones",
+          "Quartertones",
+          "Octaves"
+        ],
+        "contextOnly": true
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/gwygonik/acModules",
@@ -290,7 +382,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T20:57:45.702Z"
+    "fingerprint": "d71ad8ea9d7150c5",
+    "builtAt": "2026-08-06T03:37:03.758Z"
   }
 }

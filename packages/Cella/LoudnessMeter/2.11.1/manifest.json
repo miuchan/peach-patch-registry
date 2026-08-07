@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "Cella/LoudnessMeter",
+    "plugin": "Cella",
+    "model": "LoudnessMeter",
+    "name": "Loudness Meter",
+    "brand": "Cella",
+    "version": "2.11.1",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/victorkashirin/CellaVCV",
+    "libraryUrl": "https://library.vcvrack.com/Cella/LoudnessMeter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/Cella/LoudnessMeter.webp",
+    "wasmUrl": "packages/Cella/LoudnessMeter/2.11.1/module.wasm",
+    "width": 225,
+    "description": "Loudness meter based on EBU R128 standard",
+    "params": [
+      {
+        "id": 0,
+        "name": "Reset",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 157.5,
+          "y": 329.25,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Target loudness",
+        "min": -36,
+        "max": 0,
+        "default": -23,
+        "position": {
+          "x": 202.5,
+          "y": 329.25,
+          "centered": true,
+          "widget": "RoundSmallBlackKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Audio L / Mono",
+        "kind": "audio",
+        "position": {
+          "x": 22.5,
+          "y": 329.25,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Audio R",
+        "kind": "audio",
+        "position": {
+          "x": 67.5,
+          "y": 329.25,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 112.5,
+          "y": 329.25,
+          "centered": true,
+          "widget": "ThemedPJ301MPort"
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "stateKeys": [
+      {
+        "key": "integratedLufs",
+        "type": "real"
+      },
+      {
+        "key": "processingMode",
+        "type": "integer"
+      },
+      {
+        "key": "shortTermEnabled",
+        "type": "boolean"
+      }
+    ],
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": [
+          {
+            "key": "Cella/LoudnessCV",
+            "symbol": "modelLoudnessCV",
+            "index": 0
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "native-signal",
+          "mode": "meter",
+          "sources": [
+            {
+              "kind": "input",
+              "id": 0
+            },
+            {
+              "kind": "input",
+              "id": 1
+            },
+            {
+              "kind": "input",
+              "id": 2
+            }
+          ],
+          "colors": [
+            "#dddddd"
+          ],
+          "strokeWidths": [
+            0.7
+          ],
+          "range": 10,
+          "stacked": false,
+          "bipolar": true,
+          "x": 2,
+          "y": 30,
+          "width": 221,
+          "height": 320
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/Cella/LoudnessMeter/2.11.1/manifest.json",
+    "sourceCommit": "5b158347dca6e2a7d384b78a7c6ffd8873bdc174",
+    "artifact": {
+      "sha256": "597e88d7ae471cd9c6ee4370409aef7891a4b4b74cea9efa4b800e56cd44d8f6",
+      "size": 112744
+    }
+  },
+  "source": {
+    "url": "https://github.com/victorkashirin/CellaVCV",
+    "commit": "5b158347dca6e2a7d384b78a7c6ffd8873bdc174"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "2e7cc2a2de2d5c81",
+    "builtAt": "2026-08-06T06:24:51.723Z"
+  }
+}

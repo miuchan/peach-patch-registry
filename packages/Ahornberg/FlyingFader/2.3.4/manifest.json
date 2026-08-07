@@ -22,14 +22,14 @@
         "min": 0,
         "max": 1.4125375747680664,
         "default": 1,
-        "snap": true,
-        "button": true,
+        "snap": false,
+        "button": false,
+        "dragActionId": 1000,
         "position": {
-          "x": 30,
-          "y": 176.5,
+          "x": 18,
+          "y": 40.5,
           "width": 24,
           "height": 272,
-          "centered": true,
           "widget": "MotorizedFader"
         }
       },
@@ -51,19 +51,31 @@
       },
       {
         "id": 3,
-        "name": "Audio Poly Mode",
+        "name": "Audio Polyphony Mode",
         "min": 0,
         "max": 1,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "snap": true,
+        "values": [
+          "Poly In - Poly Out",
+          "Poly In - Mono Out"
+        ]
       },
       {
         "id": 4,
-        "name": "CV Scale Mode",
+        "name": "CV-Scale Mode",
         "min": 0,
         "max": 1,
         "default": 0,
-        "hidden": true
+        "hidden": true,
+        "contextOnly": true,
+        "snap": true,
+        "values": [
+          "VCV Standard",
+          "MindMeld MixMaster"
+        ]
       }
     ],
     "inputs": [
@@ -74,8 +86,6 @@
         "position": {
           "x": 44.5,
           "y": 349.5,
-          "width": 23.685,
-          "height": 23.685,
           "centered": true,
           "widget": "InPort"
         }
@@ -87,8 +97,6 @@
         "position": {
           "x": 15.5,
           "y": 357,
-          "width": 23.685,
-          "height": 23.685,
           "centered": true,
           "widget": "InPort"
         }
@@ -102,8 +110,6 @@
         "position": {
           "x": 44.5,
           "y": 23,
-          "width": 23.685,
-          "height": 23.685,
           "centered": true,
           "widget": "OutPort"
         }
@@ -115,8 +121,6 @@
         "position": {
           "x": 15.5,
           "y": 330,
-          "width": 23.685,
-          "height": 23.685,
           "centered": true,
           "widget": "OutPort"
         }
@@ -126,7 +130,22 @@
     "stateKeys": [
       {
         "key": "fader-cap-color",
-        "type": "integer"
+        "type": "integer",
+        "name": "Fader Cap Color",
+        "default": 0,
+        "contextOnly": true,
+        "values": [
+          "white",
+          "grey",
+          "black",
+          "red",
+          "blue",
+          "green",
+          "brown",
+          "orange",
+          "pink",
+          "purple"
+        ]
       }
     ],
     "bypassRoutes": [
@@ -140,14 +159,67 @@
       ]
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "flying-fader",
+          "param": 0,
+          "capColorState": 0,
+          "dataKey": "fader-name",
+          "defaultText": "My Flying Fader",
+          "assetBase": "packages/Ahornberg/FlyingFader/2.3.4/resources/",
+          "font": {
+            "family": "AhornbergComili",
+            "file": "Comili-Book.ttf"
+          },
+          "colors": [
+            "white",
+            "grey",
+            "black",
+            "red",
+            "blue",
+            "green",
+            "brown",
+            "orange",
+            "pink",
+            "purple"
+          ],
+          "minHandleY": 230,
+          "maxHandleY": 2,
+          "x": 18,
+          "y": 40.5,
+          "width": 24,
+          "height": 272
+        },
+        {
+          "kind": "editable-text",
+          "contextOnly": true,
+          "dataKey": "fader-name",
+          "foregroundKey": "",
+          "backgroundKey": "",
+          "defaultText": "My Flying Fader",
+          "title": "Fader Name",
+          "maximumLength": 128,
+          "defaultForeground": "#000000",
+          "defaultBackground": "#00000000",
+          "defaultFontSize": 16,
+          "fontFamily": "AhornbergComili",
+          "styleControls": false,
+          "multiline": false,
+          "rotation": 0,
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Ahornberg/FlyingFader/2.3.4/manifest.json",
     "sourceCommit": "3a9441f594d6a7cc8b6f11c19ff81d95ff8977ad",
     "artifact": {
-      "sha256": "ea5f1e654539a381aad2c730c6c53b611c24f15575dfcb6a4a28421f8f59c7af",
-      "size": 74838
+      "sha256": "6068f4f3043393944d824c646b0616cc09f68fb7bdf7fa9e3d09bc4315ab5583",
+      "size": 77581
     }
   },
   "source": {
@@ -156,7 +228,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-23T03:37:04.194Z"
+    "fingerprint": "0be024d4165bd072",
+    "builtAt": "2026-08-06T19:43:01.118Z"
   }
 }

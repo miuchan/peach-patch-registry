@@ -21,96 +21,84 @@
         "name": "CC_IN1",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 1,
         "name": "CC_IN2",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 2,
         "name": "CC_IN3",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 3,
         "name": "CC_IN4",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 4,
         "name": "CC_IN5",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 5,
         "name": "CC_IN6",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 6,
         "name": "CC_OUT1",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 7,
         "name": "CC_OUT2",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 8,
         "name": "CC_OUT3",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 9,
         "name": "CC_OUT4",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 10,
         "name": "CC_OUT5",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       },
       {
         "id": 11,
         "name": "CC_OUT6",
         "min": 0,
         "max": 255,
-        "default": -1,
-        "hidden": true
+        "default": -1
       }
     ],
     "inputs": [
@@ -121,10 +109,8 @@
         "position": {
           "x": 30,
           "y": 284.941,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -136,10 +122,8 @@
         "position": {
           "x": 30,
           "y": 320.374,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -147,23 +131,19 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "rack::componentlibrary::MediumLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "widget": "MediumLight<RedLight>",
         "position": {
           "x": 11.25,
           "y": 266.191,
-          "width": 8.858,
-          "height": 8.858,
           "centered": true
         }
       },
       {
         "id": 1,
-        "widget": "rack::componentlibrary::MediumLight<rack::componentlibrary::TRedLight<rack::componentlibrary::TGrayModuleLightWidget<rack::app::ModuleLightWidget>>>",
+        "widget": "MediumLight<RedLight>",
         "position": {
           "x": 11.25,
           "y": 301.624,
-          "width": 8.858,
-          "height": 8.858,
           "centered": true
         }
       }
@@ -175,14 +155,288 @@
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "MIDI mapping 1",
+              "x": 6.378,
+              "y": 48.72,
+              "width": 47.244,
+              "height": 23.622,
+              "click": {
+                "target": "action",
+                "id": 1000
+              },
+              "wheelUp": {
+                "target": "action",
+                "id": 1010
+              },
+              "wheelDown": {
+                "target": "action",
+                "id": 1020
+              },
+              "display": {
+                "source": "param",
+                "id": 0,
+                "format": "midi-map",
+                "secondary": {
+                  "source": "param",
+                  "id": 6
+                },
+                "activeText": {
+                  "source": "visual",
+                  "id": 0,
+                  "equals": 0,
+                  "text": "MAP>MAP"
+                },
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 12,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            },
+            {
+              "label": "MIDI mapping 2",
+              "x": 6.378,
+              "y": 84.154,
+              "width": 47.244,
+              "height": 23.622,
+              "click": {
+                "target": "action",
+                "id": 1001
+              },
+              "wheelUp": {
+                "target": "action",
+                "id": 1011
+              },
+              "wheelDown": {
+                "target": "action",
+                "id": 1021
+              },
+              "display": {
+                "source": "param",
+                "id": 1,
+                "format": "midi-map",
+                "secondary": {
+                  "source": "param",
+                  "id": 7
+                },
+                "activeText": {
+                  "source": "visual",
+                  "id": 0,
+                  "equals": 1,
+                  "text": "MAP>MAP"
+                },
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 12,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            },
+            {
+              "label": "MIDI mapping 3",
+              "x": 6.378,
+              "y": 119.587,
+              "width": 47.244,
+              "height": 23.622,
+              "click": {
+                "target": "action",
+                "id": 1002
+              },
+              "wheelUp": {
+                "target": "action",
+                "id": 1012
+              },
+              "wheelDown": {
+                "target": "action",
+                "id": 1022
+              },
+              "display": {
+                "source": "param",
+                "id": 2,
+                "format": "midi-map",
+                "secondary": {
+                  "source": "param",
+                  "id": 8
+                },
+                "activeText": {
+                  "source": "visual",
+                  "id": 0,
+                  "equals": 2,
+                  "text": "MAP>MAP"
+                },
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 12,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            },
+            {
+              "label": "MIDI mapping 4",
+              "x": 6.378,
+              "y": 155.02,
+              "width": 47.244,
+              "height": 23.622,
+              "click": {
+                "target": "action",
+                "id": 1003
+              },
+              "wheelUp": {
+                "target": "action",
+                "id": 1013
+              },
+              "wheelDown": {
+                "target": "action",
+                "id": 1023
+              },
+              "display": {
+                "source": "param",
+                "id": 3,
+                "format": "midi-map",
+                "secondary": {
+                  "source": "param",
+                  "id": 9
+                },
+                "activeText": {
+                  "source": "visual",
+                  "id": 0,
+                  "equals": 3,
+                  "text": "MAP>MAP"
+                },
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 12,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            },
+            {
+              "label": "MIDI mapping 5",
+              "x": 6.378,
+              "y": 190.453,
+              "width": 47.244,
+              "height": 23.622,
+              "click": {
+                "target": "action",
+                "id": 1004
+              },
+              "wheelUp": {
+                "target": "action",
+                "id": 1014
+              },
+              "wheelDown": {
+                "target": "action",
+                "id": 1024
+              },
+              "display": {
+                "source": "param",
+                "id": 4,
+                "format": "midi-map",
+                "secondary": {
+                  "source": "param",
+                  "id": 10
+                },
+                "activeText": {
+                  "source": "visual",
+                  "id": 0,
+                  "equals": 4,
+                  "text": "MAP>MAP"
+                },
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 12,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            },
+            {
+              "label": "MIDI mapping 6",
+              "x": 6.378,
+              "y": 225.886,
+              "width": 47.244,
+              "height": 23.622,
+              "click": {
+                "target": "action",
+                "id": 1005
+              },
+              "wheelUp": {
+                "target": "action",
+                "id": 1015
+              },
+              "wheelDown": {
+                "target": "action",
+                "id": 1025
+              },
+              "display": {
+                "source": "param",
+                "id": 5,
+                "format": "midi-map",
+                "secondary": {
+                  "source": "param",
+                  "id": 11
+                },
+                "activeText": {
+                  "source": "visual",
+                  "id": 0,
+                  "equals": 5,
+                  "text": "MAP>MAP"
+                },
+                "color": "#eeeeee",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 12,
+                "fontFamily": "Peach Kilpatrick Fixedsys, ui-monospace, monospace",
+                "fontWeight": 400,
+                "textAlign": "left",
+                "padding": 0
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 60,
+          "height": 380,
+          "assetBase": "packages/Kilpatrick-Toolbox/MIDI_Mapper/2.0.3/resources/",
+          "font": {
+            "file": "fixedsys.ttf",
+            "family": "Peach Kilpatrick Fixedsys"
+          }
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Kilpatrick-Toolbox/MIDI_Mapper/2.0.3/manifest.json",
     "sourceCommit": "96f186fafb0f66cf2e0a066fd781d44964a52ef5",
     "artifact": {
-      "sha256": "3dcd3d026eacd9588392d8d119377e3d6c80d2eb3da9a4bb5dfdb14f6a42f2cc",
-      "size": 87146
+      "sha256": "4cb84875bec01f54d5b63ec344c03168cc596e038daecb0bd467fe7d3adbc7e2",
+      "size": 87793
     }
   },
   "source": {
@@ -191,7 +445,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-23T01:46:20.179Z"
+    "fingerprint": "8700bf0a6bb7571a",
+    "builtAt": "2026-08-06T15:48:39.493Z"
   }
 }

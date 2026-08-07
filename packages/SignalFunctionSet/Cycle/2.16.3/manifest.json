@@ -17,479 +17,502 @@
     "description": "Bar-synced quad LFO. Four channels (A-D), each with its own morphable shape and depth, lock to a musical bar via clock + bar inputs (free-running in Hz when unpatched). Global phase spread and stability, per-channel unipolar and bipolar outputs, and full CV.",
     "params": [
       {
-        "id": 0,
-        "name": "Frequency",
-        "min": 0,
-        "max": 9,
         "default": 6,
+        "id": 0,
+        "max": 9,
+        "min": 0,
+        "name": "Frequency",
         "position": {
-          "x": 30,
-          "y": 299.97,
           "centered": true,
-          "widget": "RoundBlackKnob"
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 299.97
         }
       },
       {
+        "default": 0,
         "id": 1,
+        "max": 1,
+        "min": 0,
         "name": "Phase spread",
-        "min": 0,
-        "max": 1,
-        "default": 0,
         "position": {
-          "x": 30,
-          "y": 179.97,
           "centered": true,
-          "widget": "RoundBlackKnob"
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 179.97
         }
       },
       {
+        "default": 1,
         "id": 2,
+        "max": 1,
+        "min": 0,
         "name": "Stability",
-        "min": 0,
-        "max": 1,
-        "default": 1,
         "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
           "x": 30,
-          "y": 239.97,
-          "centered": true,
-          "widget": "RoundBlackKnob"
+          "y": 239.97
         }
       },
       {
-        "id": 3,
-        "name": "Reset (restart cycle)",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
         "button": true,
+        "default": 0,
+        "id": 3,
+        "max": 1,
+        "min": 0,
+        "name": "Reset (restart cycle)",
         "position": {
-          "x": 239.97,
-          "y": 359.97,
           "centered": true,
-          "widget": "VCVButton"
-        }
+          "widget": "VCVButton",
+          "x": 239.97,
+          "y": 359.97
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 4,
+        "max": 1,
+        "min": 0,
         "name": "A shape",
-        "min": 0,
-        "max": 1,
-        "default": 0,
         "position": {
-          "x": 150,
-          "y": 179.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 150,
+          "y": 179.97
         }
       },
       {
+        "default": 0,
         "id": 5,
+        "max": 1,
+        "min": 0,
         "name": "B shape",
-        "min": 0,
-        "max": 1,
-        "default": 0,
         "position": {
-          "x": 150,
-          "y": 224.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 150,
+          "y": 224.97
         }
       },
       {
+        "default": 0,
         "id": 6,
+        "max": 1,
+        "min": 0,
         "name": "C shape",
-        "min": 0,
-        "max": 1,
-        "default": 0,
         "position": {
-          "x": 150,
-          "y": 269.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 150,
+          "y": 269.97
         }
       },
       {
+        "default": 0,
         "id": 7,
+        "max": 1,
+        "min": 0,
         "name": "D shape",
-        "min": 0,
-        "max": 1,
-        "default": 0,
         "position": {
+          "centered": true,
+          "widget": "Trimpot",
           "x": 150,
-          "y": 314.97,
-          "centered": true,
-          "widget": "Trimpot"
+          "y": 314.97
         }
       },
       {
+        "default": 1,
         "id": 8,
+        "max": 1,
+        "min": -1,
         "name": "A scale (bipolar)",
-        "min": -1,
-        "max": 1,
-        "default": 1,
         "position": {
-          "x": 239.97,
-          "y": 179.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 239.97,
+          "y": 179.97
         }
       },
       {
+        "default": 1,
         "id": 9,
+        "max": 1,
+        "min": -1,
         "name": "B scale (bipolar)",
-        "min": -1,
-        "max": 1,
-        "default": 1,
         "position": {
-          "x": 239.97,
-          "y": 224.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 239.97,
+          "y": 224.97
         }
       },
       {
+        "default": 1,
         "id": 10,
+        "max": 1,
+        "min": -1,
         "name": "C scale (bipolar)",
-        "min": -1,
-        "max": 1,
-        "default": 1,
         "position": {
-          "x": 239.97,
-          "y": 269.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 239.97,
+          "y": 269.97
         }
       },
       {
+        "default": 1,
         "id": 11,
-        "name": "D scale (bipolar)",
+        "max": 1,
         "min": -1,
-        "max": 1,
-        "default": 1,
+        "name": "D scale (bipolar)",
         "position": {
+          "centered": true,
+          "widget": "Trimpot",
           "x": 239.97,
-          "y": 314.97,
-          "centered": true,
-          "widget": "Trimpot"
+          "y": 314.97
         }
       },
       {
+        "default": 1,
         "id": 12,
+        "max": 1,
+        "min": 0,
         "name": "Link A-B shape",
-        "min": 0,
-        "max": 1,
-        "default": 1,
-        "snap": true,
         "position": {
-          "x": 172.5,
-          "y": 202.47,
           "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+          "x": 172.5,
+          "y": 202.47
+        },
+        "snap": true
       },
       {
+        "default": 1,
         "id": 13,
+        "max": 1,
+        "min": 0,
         "name": "Link B-C shape",
-        "min": 0,
-        "max": 1,
-        "default": 1,
-        "snap": true,
         "position": {
-          "x": 172.5,
-          "y": 247.47,
           "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+          "x": 172.5,
+          "y": 247.47
+        },
+        "snap": true
       },
       {
+        "default": 1,
         "id": 14,
+        "max": 1,
+        "min": 0,
         "name": "Link C-D shape",
-        "min": 0,
-        "max": 1,
-        "default": 1,
-        "snap": true,
         "position": {
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
           "x": 172.5,
-          "y": 292.47,
-          "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "y": 292.47
+        },
+        "snap": true
       },
       {
+        "default": 1,
         "id": 15,
+        "max": 1,
+        "min": 0,
         "name": "Link A-B scale",
-        "min": 0,
-        "max": 1,
-        "default": 1,
-        "snap": true,
         "position": {
-          "x": 262.5,
-          "y": 202.47,
           "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+          "x": 262.5,
+          "y": 202.47
+        },
+        "snap": true
       },
       {
+        "default": 1,
         "id": 16,
-        "name": "Link B-C scale",
-        "min": 0,
         "max": 1,
-        "default": 1,
-        "snap": true,
+        "min": 0,
+        "name": "Link B-C scale",
         "position": {
-          "x": 262.5,
-          "y": 247.47,
           "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+          "x": 262.5,
+          "y": 247.47
+        },
+        "snap": true
       },
       {
-        "id": 17,
-        "name": "Link C-D scale",
-        "min": 0,
-        "max": 1,
         "default": 1,
-        "snap": true,
+        "id": 17,
+        "max": 1,
+        "min": 0,
+        "name": "Link C-D scale",
         "position": {
-          "x": 262.5,
-          "y": 292.47,
           "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+          "x": 262.5,
+          "y": 292.47
+        },
+        "snap": true
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Clock (optional — sets the staircase / stepped-random step grid: one step per pulse)",
         "kind": "gate",
+        "name": "Clock (optional — sets the staircase / stepped-random step grid: one step per pulse)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 75,
-          "y": 359.97,
-          "centered": true
+          "y": 359.97
         }
       },
       {
         "id": 1,
-        "name": "Bar (downbeat sync)",
         "kind": "cv",
+        "name": "Bar (downbeat sync)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 359.97,
-          "centered": true
+          "y": 359.97
         }
       },
       {
         "id": 2,
-        "name": "Reset (restart cycle)",
         "kind": "gate",
+        "name": "Reset (restart cycle)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 285,
-          "y": 359.97,
-          "centered": true
+          "y": 359.97
         }
       },
       {
         "id": 3,
-        "name": "Frequency CV",
         "kind": "cv",
+        "name": "Frequency CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 75,
-          "y": 299.97,
-          "centered": true
+          "y": 299.97
         }
       },
       {
         "id": 4,
-        "name": "Phase spread CV",
         "kind": "cv",
+        "name": "Phase spread CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 75,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 5,
-        "name": "Stability CV",
         "kind": "cv",
+        "name": "Stability CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 75,
-          "y": 239.97,
-          "centered": true
+          "y": 239.97
         }
       },
       {
         "id": 6,
-        "name": "A shape CV",
         "kind": "cv",
+        "name": "A shape CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 194.97,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 7,
-        "name": "B shape CV",
         "kind": "cv",
+        "name": "B shape CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 194.97,
-          "y": 224.97,
-          "centered": true
+          "y": 224.97
         }
       },
       {
         "id": 8,
-        "name": "C shape CV",
         "kind": "cv",
+        "name": "C shape CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 194.97,
-          "y": 269.97,
-          "centered": true
+          "y": 269.97
         }
       },
       {
         "id": 9,
-        "name": "D shape CV",
         "kind": "cv",
+        "name": "D shape CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 194.97,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 10,
-        "name": "A scale CV",
         "kind": "cv",
+        "name": "A scale CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 285,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 11,
-        "name": "B scale CV",
         "kind": "cv",
+        "name": "B scale CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 285,
-          "y": 224.97,
-          "centered": true
+          "y": 224.97
         }
       },
       {
         "id": 12,
-        "name": "C scale CV",
         "kind": "cv",
+        "name": "C scale CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 285,
-          "y": 269.97,
-          "centered": true
+          "y": 269.97
         }
       },
       {
         "id": 13,
-        "name": "D scale CV",
         "kind": "cv",
+        "name": "D scale CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 285,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "A unipolar (0-5V)",
         "kind": "cv",
+        "name": "A unipolar (0-5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 1,
-        "name": "B unipolar (0-5V)",
         "kind": "cv",
+        "name": "B unipolar (0-5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 224.97,
-          "centered": true
+          "y": 224.97
         }
       },
       {
         "id": 2,
-        "name": "C unipolar (0-5V)",
         "kind": "cv",
+        "name": "C unipolar (0-5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 269.97,
-          "centered": true
+          "y": 269.97
         }
       },
       {
         "id": 3,
-        "name": "D unipolar (0-5V)",
         "kind": "cv",
+        "name": "D unipolar (0-5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 4,
-        "name": "A bipolar (±5V)",
         "kind": "cv",
+        "name": "A bipolar (±5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 360,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 5,
-        "name": "B bipolar (±5V)",
         "kind": "cv",
+        "name": "B bipolar (±5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 360,
-          "y": 224.97,
-          "centered": true
+          "y": 224.97
         }
       },
       {
         "id": 6,
-        "name": "C bipolar (±5V)",
         "kind": "cv",
+        "name": "C bipolar (±5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 360,
-          "y": 269.97,
-          "centered": true
+          "y": 269.97
         }
       },
       {
         "id": 7,
-        "name": "D bipolar (±5V)",
         "kind": "cv",
+        "name": "D bipolar (±5V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 360,
-          "y": 314.97,
-          "centered": true
+          "y": 314.97
         }
       },
       {
         "id": 8,
-        "name": "End of cycle (trigger)",
         "kind": "gate",
+        "name": "End of cycle (trigger)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 360,
-          "y": 359.97,
-          "centered": true
+          "y": 359.97
         }
       }
     ],
@@ -497,83 +520,95 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "SmallLight<GreenLight>",
         "position": {
+          "centered": true,
           "x": 52.5,
-          "y": 359.97,
-          "centered": true
-        }
+          "y": 359.97
+        },
+        "widget": "SmallLight<GreenLight>"
       },
       {
         "id": 1,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 12,
         "position": {
+          "centered": true,
           "x": 172.5,
-          "y": 202.47,
-          "centered": true
+          "y": 202.47
         },
-        "paramId": 12
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       },
       {
         "id": 2,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 13,
         "position": {
+          "centered": true,
           "x": 172.5,
-          "y": 247.47,
-          "centered": true
+          "y": 247.47
         },
-        "paramId": 13
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       },
       {
         "id": 3,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 14,
         "position": {
+          "centered": true,
           "x": 172.5,
-          "y": 292.47,
-          "centered": true
+          "y": 292.47
         },
-        "paramId": 14
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       },
       {
         "id": 4,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 15,
         "position": {
+          "centered": true,
           "x": 262.5,
-          "y": 202.47,
-          "centered": true
+          "y": 202.47
         },
-        "paramId": 15
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       },
       {
         "id": 5,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 16,
         "position": {
+          "centered": true,
           "x": 262.5,
-          "y": 247.47,
-          "centered": true
+          "y": 247.47
         },
-        "paramId": 16
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       },
       {
         "id": 6,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 17,
         "position": {
+          "centered": true,
           "x": 262.5,
-          "y": 292.47,
-          "centered": true
+          "y": 292.47
         },
-        "paramId": 17
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       }
     ],
     "runtime": {
       "initialMemory": 4194304,
-      "strategy": "direct-rack-source-adapter"
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 87.49,
+          "kind": "signal-function-set",
+          "model": "Cycle",
+          "width": 360,
+          "x": 15,
+          "y": 34.99
+        }
+      ]
     },
     "manifestUrl": "packages/SignalFunctionSet/Cycle/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "1eb511dfad2edacca61f9479ba78811b31b93ea08fc65b8d63c3db8a0815d477",
-      "size": 90206
+      "sha256": "0c48c4be4eaaee40545758f0c6d360a5bfc8cbfa1d14cdbbdd919a234c2fa210",
+      "size": 92046
     }
   },
   "source": {
@@ -582,7 +617,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-24T15:41:14.970Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

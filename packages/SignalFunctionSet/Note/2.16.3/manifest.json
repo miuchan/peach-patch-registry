@@ -17,168 +17,181 @@
     "description": "Monophonic CV/gate pattern sequencer with 12-note pitch matrix, scale and root selection (incl. just-intonation harmonic series), 8 patterns x 8 steps with velocity/accent/probability editing",
     "params": [
       {
+        "default": 0,
         "id": 0,
-        "name": "Root note",
-        "min": 0,
         "max": 11,
-        "default": 0,
-        "snap": true,
-        "position": {
-          "x": 69.98,
-          "y": 240.059,
-          "centered": true,
-          "widget": "Trimpot"
-        }
-      },
-      {
-        "id": 1,
-        "name": "Scale",
         "min": 0,
-        "max": 18,
-        "default": 0,
-        "snap": true,
+        "name": "Root note",
         "position": {
-          "x": 99.98,
-          "y": 240.059,
           "centered": true,
-          "widget": "Trimpot"
-        }
+          "widget": "Trimpot",
+          "x": 69.98,
+          "y": 240.059
+        },
+        "snap": true
       },
       {
-        "id": 2,
-        "name": "Octave shift",
-        "min": -4,
-        "max": 4,
         "default": 0,
+        "id": 1,
+        "max": 18,
+        "min": 0,
+        "name": "Scale",
         "position": {
-          "x": 130.01,
-          "y": 240.059,
           "centered": true,
-          "widget": "Trimpot"
-        }
+          "widget": "Trimpot",
+          "x": 99.98,
+          "y": 240.059
+        },
+        "snap": true
+      },
+      {
+        "default": 0,
+        "id": 2,
+        "max": 4,
+        "min": -4,
+        "name": "Octave shift",
+        "position": {
+          "centered": true,
+          "widget": "Trimpot",
+          "x": 130.01,
+          "y": 240.059
+        },
+        "snap": true
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Clock (step advance)",
         "kind": "gate",
+        "name": "Clock (step advance)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 19.99,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       },
       {
         "id": 1,
-        "name": "Bar (pattern advance)",
         "kind": "cv",
+        "name": "Bar (pattern advance)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 19.99,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 2,
-        "name": "Reset",
         "kind": "gate",
+        "name": "Reset",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 19.99,
-          "y": 270.03,
-          "centered": true
+          "y": 270.03
         }
       },
       {
         "id": 3,
-        "name": "Root note CV (1V/oct, semitone-quantized)",
         "kind": "cv",
+        "name": "Root note CV (1V/oct, semitone-quantized)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 69.98,
-          "y": 270.03,
-          "centered": true
+          "y": 270.03
         }
       },
       {
         "id": 4,
-        "name": "Scale select CV (1V/scale)",
         "kind": "cv",
+        "name": "Scale select CV (1V/scale)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 99.98,
-          "y": 270.03,
-          "centered": true
+          "y": 270.03
         }
       },
       {
         "id": 5,
-        "name": "Octave shift CV (1V/oct)",
         "kind": "cv",
+        "name": "Octave shift CV (1V/oct)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 130.01,
-          "y": 270.03,
-          "centered": true
+          "y": 270.03
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Gate",
         "kind": "gate",
+        "name": "Gate",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 99.98,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       },
       {
         "id": 1,
-        "name": "1V/octave pitch",
         "kind": "cv",
+        "name": "1V/octave pitch",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 130.01,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       },
       {
         "id": 2,
-        "name": "Velocity (0-10V)",
         "kind": "cv",
+        "name": "Velocity (0-10V)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 99.98,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 3,
-        "name": "Accent",
         "kind": "cv",
+        "name": "Accent",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 130.01,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 4,
-        "name": "Root (relays current root)",
         "kind": "cv",
+        "name": "Root (relays current root)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 69.98,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 5,
-        "name": "Scale (relays current scale index)",
         "kind": "cv",
+        "name": "Scale (relays current scale index)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 69.98,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       }
     ],
@@ -227,13 +240,25 @@
     ],
     "runtime": {
       "initialMemory": 4194304,
-      "strategy": "direct-rack-source-adapter"
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 177.165,
+          "kind": "signal-function-set",
+          "model": "Note",
+          "width": 135.827,
+          "x": 7.087,
+          "y": 35.433
+        }
+      ]
     },
     "manifestUrl": "packages/SignalFunctionSet/Note/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "bbf94b9325ed20bb6e7aaea5b24cdaa6f716362f456915de9342101218a5d687",
-      "size": 92521
+      "sha256": "552f907db1061f856caa0ce4723b43ffe89c0a2cbf80def728cee90e56f5081b",
+      "size": 100574
     }
   },
   "source": {
@@ -242,7 +267,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:11:54.804Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

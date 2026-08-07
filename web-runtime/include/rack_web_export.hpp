@@ -48,14 +48,14 @@ struct RackWebModuleTraits<ModuleType, std::void_t<decltype(ModuleType::rackWebP
     rack::rackWebEngine.frame = args.frame; \
     for (int port = 0; port < RackWebModuleTraits<ModuleType>::inputCount; port++) { \
       static_cast<rack::Module&>(rackWebModule).inputs[port].setChannels(rackWebInputChannels[port]); \
-      for (int channel = 0; channel < rackWebInputChannels[port]; channel++) static_cast<rack::Module&>(rackWebModule).inputs[port].setVoltage(rackWebInputBuffer[(channel * RackWebModuleTraits<ModuleType>::inputCount + port) * rackWebBlockSize + frame], channel); \
+      for (int channel = 0; channel < rackWebInputChannels[port]; channel++) static_cast<rack::Module&>(rackWebModule).inputs[port].setVoltage(rackWebInputBuffer[(port * rackWebMaxChannels + channel) * rackWebBlockSize + frame], channel); \
     } \
     if (rackWebExpanderInputBuffer) rackWebModule.rackWebSyncExpanderFrame(frame, rackWebExpanderInputBuffer, rackWebBlockSize); \
     rackWebModule.rackWebProcessNeighbors(args); \
     rack::midi::rackWebActivateModule(&rackWebModule); \
     static_cast<rack::Module&>(rackWebModule).process(args); \
     if (rackWebExpanderOutputBuffer) rackWebModule.rackWebCopyExpanderOutputFrame(frame, rackWebExpanderOutputBuffer, rackWebBlockSize); \
-    for (int port = 0; port < RackWebModuleTraits<ModuleType>::outputCount; port++) for (int channel = 0; channel < rackWebMaxChannels; channel++) rackWebOutputBuffer[(channel * RackWebModuleTraits<ModuleType>::outputCount + port) * rackWebBlockSize + frame] = channel < static_cast<rack::Module&>(rackWebModule).outputs[port].getChannels() ? static_cast<rack::Module&>(rackWebModule).outputs[port].getVoltage(channel) : 0.f; \
+    for (int port = 0; port < RackWebModuleTraits<ModuleType>::outputCount; port++) for (int channel = 0; channel < rackWebMaxChannels; channel++) rackWebOutputBuffer[(port * rackWebMaxChannels + channel) * rackWebBlockSize + frame] = channel < static_cast<rack::Module&>(rackWebModule).outputs[port].getChannels() ? static_cast<rack::Module&>(rackWebModule).outputs[port].getVoltage(channel) : 0.f; \
     for (int id = 0; id < RackWebModuleTraits<ModuleType>::lightCount; id++) rackWebLightBuffer[id] = static_cast<rack::Module&>(rackWebModule).lights[id].getBrightness(); \
   } \
   extern "C" { \
@@ -69,7 +69,7 @@ struct RackWebModuleTraits<ModuleType, std::void_t<decltype(ModuleType::rackWebP
   __attribute__((used)) float* rack_web_light_buffer() { return rackWebLightBuffer; } \
   __attribute__((used)) int rack_web_visual_count() { return rackWebModule.rackWebVisualCount(); } \
   __attribute__((used)) float* rack_web_visual_buffer() { return rackWebModule.rackWebVisualBuffer(); } \
-  __attribute__((used)) void rack_web_set_param(int id, float value) { if (id >= 0 && id < RackWebModuleTraits<ModuleType>::paramCount) { if (auto* quantity = rackWebModule.getParamQuantity(id)) { quantity->setValue(value); static_cast<rack::Module&>(rackWebModule).params[id].setValue(quantity->getValue()); } else static_cast<rack::Module&>(rackWebModule).params[id].setValue(value); } } \
+  __attribute__((used)) void rack_web_set_param(int id, float value) { if (id >= 0 && id < RackWebModuleTraits<ModuleType>::paramCount) rackWebModule.rackWebSetParam(id, value); } \
   __attribute__((used)) void rack_web_reset_param(int id, float value) { if (id >= 0 && id < RackWebModuleTraits<ModuleType>::paramCount) rackWebModule.rackWebResetParam(id, value); } \
   __attribute__((used)) float rack_web_get_param(int id) { return id >= 0 && id < RackWebModuleTraits<ModuleType>::paramCount ? static_cast<rack::Module&>(rackWebModule).params[id].getValue() : 0.f; } \
   __attribute__((used)) float rack_web_get_param_min(int id) { auto* quantity = rackWebModule.getParamQuantity(id); return quantity ? quantity->getMinValue() : 0.f; } \

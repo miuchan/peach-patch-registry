@@ -27,10 +27,8 @@
         "position": {
           "x": 118,
           "y": 220,
-          "width": 15.36,
-          "height": 15.358,
           "centered": true,
-          "widget": "rack::componentlibrary::TL1105"
+          "widget": "TL1105"
         }
       },
       {
@@ -44,10 +42,8 @@
         "position": {
           "x": 32,
           "y": 220,
-          "width": 15.36,
-          "height": 15.358,
           "centered": true,
-          "widget": "rack::componentlibrary::TL1105"
+          "widget": "TL1105"
         }
       },
       {
@@ -61,10 +57,8 @@
         "position": {
           "x": 75,
           "y": 220,
-          "width": 15.36,
-          "height": 15.358,
           "centered": true,
-          "widget": "rack::componentlibrary::TL1105"
+          "widget": "TL1105"
         }
       },
       {
@@ -77,10 +71,8 @@
         "position": {
           "x": 32,
           "y": 170,
-          "width": 13.457,
-          "height": 28.348,
           "centered": true,
-          "widget": "rack::componentlibrary::CKSSThree"
+          "widget": "CKSSThree"
         }
       },
       {
@@ -93,10 +85,8 @@
         "position": {
           "x": 75,
           "y": 293,
-          "width": 28.348,
-          "height": 13.457,
           "centered": true,
-          "widget": "rack::componentlibrary::CKSSThreeHorizontal"
+          "widget": "CKSSThreeHorizontal"
         }
       }
     ],
@@ -108,10 +98,8 @@
         "position": {
           "x": 118,
           "y": 245,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
@@ -121,51 +109,43 @@
         "position": {
           "x": 32,
           "y": 245,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
         "id": 2,
         "name": "Reset CV",
-        "kind": "gate",
+        "kind": "cv",
         "position": {
           "x": 75,
           "y": 245,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+          "widget": "ThemedPJ301MPort"
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "High Gate at Loop Point or upon reaching Start/End",
+        "name": "Count Gate",
         "kind": "gate",
         "position": {
           "x": 75,
           "y": 170,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+          "widget": "ThemedPJ301MPort"
         }
       },
       {
         "id": 1,
-        "name": "Stepped-Phase 0-10V",
+        "name": "Stepped-Phase",
         "kind": "cv",
         "position": {
           "x": 118,
           "y": 170,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::ThemedPJ301MPort"
+          "widget": "ThemedPJ301MPort"
         }
       }
     ],
@@ -185,14 +165,43 @@
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "editable-text",
+          "foregroundKey": "",
+          "backgroundKey": "",
+          "defaultForeground": "#111111",
+          "defaultBackground": "#eeeeee",
+          "defaultFontSize": 12,
+          "fontFamily": "ui-monospace, monospace",
+          "lineHeight": 1.05,
+          "padding": 2,
+          "borderRadius": 0,
+          "styleControls": false,
+          "multiline": false,
+          "rotation": 0,
+          "dataKey": "maxCount",
+          "dataFormat": "integer",
+          "allowedCharacters": "0123456789",
+          "minimum": 1,
+          "maximum": 99999999999999,
+          "maximumLength": 14,
+          "defaultText": "16",
+          "title": "Max count",
+          "x": 20,
+          "y": 325,
+          "width": 110,
+          "height": 20
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/CVfunk/Count/2.0.48/manifest.json",
     "sourceCommit": "c9c37ae4e8e57c3039be4b3ff13d7414cbe989c2",
     "artifact": {
-      "sha256": "ae44a7c64ec48b27b4587ee7463d47dab3e249c3d248a5ac8eb502f28b683184",
-      "size": 73286
+      "sha256": "5148be683dfc5f953abd542a9a9f5a4633aa6462e04a9bb7aa995b0f169675c8",
+      "size": 80408
     }
   },
   "source": {
@@ -201,7 +210,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T19:14:59.616Z"
+    "fingerprint": "482d028399730e8e",
+    "builtAt": "2026-08-06T13:20:26.951Z"
   }
 }

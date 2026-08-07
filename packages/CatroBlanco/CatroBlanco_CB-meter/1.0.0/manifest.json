@@ -11,7 +11,7 @@
     "license": "BSD-3-Clause",
     "sourceUrl": "https://github.com/catronomix/catro-blanco",
     "libraryUrl": "https://library.vcvrack.com/CatroBlanco/CatroBlanco_CB-meter",
-    "screenshotUrl": "packages/CatroBlanco/CatroBlanco_CB-meter/1.0.0/panel.webp",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/CatroBlanco/CatroBlanco_CB-meter.webp",
     "wasmUrl": "packages/CatroBlanco/CatroBlanco_CB-meter/1.0.0/module.wasm",
     "width": 30,
     "description": "2hp decorated meter",
@@ -23,11 +23,8 @@
         "max": 1,
         "default": 0,
         "position": {
-          "x": 7.07,
-          "y": 357.071,
-          "width": 8.14,
-          "height": 8.142,
-          "centered": true,
+          "x": 3,
+          "y": 353,
           "widget": "CB_Ledbutton_mini"
         }
       }
@@ -38,11 +35,8 @@
         "name": "Input Sig",
         "kind": "cv",
         "position": {
-          "x": 18.209,
-          "y": 368.209,
-          "width": 16.418,
-          "height": 16.418,
-          "centered": true,
+          "x": 10,
+          "y": 360,
           "widget": "CB_Input_small"
         }
       }
@@ -50,14 +44,49 @@
     "outputs": [],
     "lights": 0,
     "runtime": {
+      "visuals": [
+        {
+          "kind": "catro-color-display",
+          "x": 0,
+          "y": 0,
+          "width": 30,
+          "height": 380,
+          "layers": [
+            {
+              "shape": "meter",
+              "signal": 2,
+              "active": 0,
+              "mode": 1,
+              "x": 1.4,
+              "y": 355,
+              "width": 27.8,
+              "height": 0,
+              "alpha": 255,
+              "yStart": 5,
+              "ySize": 6
+            },
+            {
+              "shape": "rect",
+              "signal": 3,
+              "active": 7,
+              "mode": 1,
+              "x": 10.2,
+              "y": 19.7,
+              "width": 9.6,
+              "height": 9.6,
+              "alpha": 255
+            }
+          ]
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/CatroBlanco/CatroBlanco_CB-meter/1.0.0/manifest.json",
     "sourceCommit": "339c73cde637a61da4a57cd7bedc3878f42ca3f7",
     "artifact": {
-      "sha256": "1c0b1f29ca952ca9a5a70628bd2ea0604b605414b5396bae270a29c25c6b2449",
-      "size": 68619
+      "sha256": "3be6673b3ba657bf394c8039a73c07b45aaa989325406df712f6d693786604c6",
+      "size": 72797
     }
   },
   "source": {
@@ -66,7 +95,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:14:12.982Z"
+    "fingerprint": "35ba299db716758f",
+    "builtAt": "2026-08-06T08:08:03.106Z"
   }
 }

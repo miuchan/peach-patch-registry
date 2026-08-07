@@ -1,9 +1,11 @@
 use regex::Regex;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use std::cell::RefCell;
 use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet, VecDeque};
 use std::fs;
 use std::path::{Component, Path, PathBuf};
+use std::sync::LazyLock;
 
 use crate::abi::{evaluate_static_string, numeric_expression};
 
@@ -59,6 +61,12 @@ const MAX_PREPROCESS_SOURCE_BYTES: usize = 64 * 1024 * 1024;
 const MAX_PREPROCESS_DEFINITIONS: usize = 65_536;
 const MAX_PREPROCESS_DEFINITION_BYTES: usize = 1024 * 1024;
 const MAX_BUILD_METADATA_BYTES: usize = 16 * 1024 * 1024;
+
+fn read_source_text(path: &Path) -> Result<String, String> {
+    let bytes = fs::read(path)
+        .map_err(|error| format!("Cannot read source file {}: {error}", path.display()))?;
+    Ok(String::from_utf8_lossy(&bytes).into_owned())
+}
 
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -141,7 +149,7 @@ const fn default_expand_object_macros() -> bool {
     true
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SourceDeclarationRequest {
     pub source: String,
@@ -516,6 +524,14 @@ pub struct ConfigStringBindingCandidate {
     pub end: usize,
     pub name: String,
     pub expression: String,
+}
+
+#[derive(Clone, Debug)]
+struct ParsedConfigStringBinding {
+    start: usize,
+    end: usize,
+    name: String,
+    expression: String,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize)]
@@ -1175,8 +1191,7 @@ pub fn source_include_inventory(source_root: &Path) -> Result<SourceIncludeInven
     let pattern = include_directive_pattern()?;
     let mut includes = BTreeSet::new();
     for file in &inventory.source_files {
-        let source = fs::read_to_string(file)
-            .map_err(|error| format!("Cannot read source file {}: {error}", file.display()))?;
+        let source = read_source_text(file)?;
         if source.len() > MAX_PREPROCESS_SOURCE_BYTES {
             return Err(format!("Source file is too large: {}", file.display()));
         }
@@ -1410,12 +1425,7 @@ fn duplicates_header_globals(
     if header_names.is_empty() {
         return Ok(false);
     }
-    let implementation_source = fs::read_to_string(implementation).map_err(|error| {
-        format!(
-            "Cannot read companion implementation {}: {error}",
-            implementation.display()
-        )
-    })?;
+    let implementation_source = read_source_text(implementation)?;
     let implementation_names = initialized_global_names(&implementation_source, pattern);
     Ok(header_names
         .iter()
@@ -1434,8 +1444,7 @@ fn companion_implementations(
             Some("h" | "hh" | "hpp" | "inl")
         ) && file.file_name().and_then(|name| name.to_str()) != Some("plugin.hpp")
     }) {
-        let header_source = fs::read_to_string(header)
-            .map_err(|error| format!("Cannot read source file {}: {error}", header.display()))?;
+        let header_source = read_source_text(header)?;
         let mut targets = Vec::new();
         for extension in ["c", "cpp", "cc", "cxx"] {
             let local = header.with_extension(extension);
@@ -1542,6 +1551,119 @@ fn skipped_non_code(source: &str, index: usize) -> Option<usize> {
     matches!(bytes.get(index), Some(b'\'' | b'"')).then(|| skip_quoted(source, index, bytes[index]))
 }
 
+type LexicalEvent = (usize, Vec<String>, Vec<TypeOwnerCandidate>, Vec<usize>);
+
+struct CodePositionIndex {
+    pointer: usize,
+    length: usize,
+    code: Vec<bool>,
+    utf16_offsets: Vec<usize>,
+    lexical_events: Vec<LexicalEvent>,
+}
+
+thread_local! {
+    static CODE_POSITION_INDEX: RefCell<Option<CodePositionIndex>> = const { RefCell::new(None) };
+}
+
+fn prime_code_positions(source: &str, type_pattern: Option<&Regex>) {
+    let mut code = vec![true; source.len() + 1];
+    let mut utf16_offsets = vec![0; source.len() + 1];
+    let mut utf16_units = 0;
+    for (start, character) in source.char_indices() {
+        let end = start + character.len_utf8();
+        utf16_offsets[start..end].fill(utf16_units);
+        utf16_units += character.len_utf16();
+        utf16_offsets[end] = utf16_units;
+    }
+    let mut namespace = Vec::new();
+    let mut namespace_bodies = Vec::new();
+    let mut owners = Vec::new();
+    let mut lexical_frames = Vec::new();
+    let mut lexical_events = vec![(0, Vec::new(), Vec::new(), Vec::new())];
+    let mut index = 0;
+    while index < source.len() {
+        if let Some(end) = skipped_non_code(source, index) {
+            code[index..end].fill(false);
+            index = end;
+        } else {
+            let width = source[index..].chars().next().map_or(1, char::len_utf8);
+            if source.as_bytes()[index] == b'{' {
+                let namespace_declaration = namespace_declaration_before_brace(source, index);
+                let names = namespace_declaration.clone().unwrap_or_default();
+                let is_namespace = namespace_declaration.is_some();
+                let owner = if is_namespace {
+                    None
+                } else {
+                    type_pattern.and_then(|pattern| type_before_brace(source, index, pattern))
+                };
+                let has_owner = owner.is_some();
+                namespace.extend(names.iter().cloned());
+                if is_namespace {
+                    namespace_bodies.push(index + width);
+                }
+                if let Some(owner) = owner {
+                    owners.push(owner);
+                }
+                lexical_frames.push((names.len(), has_owner, is_namespace));
+                if is_namespace || has_owner {
+                    lexical_events.push((
+                        index + width,
+                        namespace.clone(),
+                        owners.clone(),
+                        namespace_bodies.clone(),
+                    ));
+                }
+            } else if source.as_bytes()[index] == b'}' {
+                if let Some((names, owner, is_namespace)) = lexical_frames.pop() {
+                    if is_namespace || owner {
+                        namespace.truncate(namespace.len().saturating_sub(names));
+                        if is_namespace {
+                            namespace_bodies.pop();
+                        }
+                        if owner {
+                            owners.pop();
+                        }
+                        lexical_events.push((
+                            index + width,
+                            namespace.clone(),
+                            owners.clone(),
+                            namespace_bodies.clone(),
+                        ));
+                    }
+                }
+            }
+            index += width;
+        }
+    }
+    CODE_POSITION_INDEX.with(|cache| {
+        *cache.borrow_mut() = Some(CodePositionIndex {
+            pointer: source.as_ptr() as usize,
+            length: source.len(),
+            code,
+            utf16_offsets,
+            lexical_events,
+        });
+    });
+}
+
+fn utf16_offset(source: &str, byte_offset: usize) -> usize {
+    if let Some(offset) = CODE_POSITION_INDEX.with(|cache| {
+        let cache = cache.borrow();
+        cache.as_ref().and_then(|index| {
+            (index.pointer == source.as_ptr() as usize && index.length == source.len())
+                .then(|| index.utf16_offsets.get(byte_offset).copied())
+                .flatten()
+        })
+    }) {
+        return offset;
+    }
+    source
+        .get(..byte_offset)
+        .expect("UTF-16 offset should be a character boundary")
+        .encode_utf16()
+        .count()
+}
+
 fn include_directives_in_source(
     source: &str,
     file: &Path,
@@ -1560,7 +1682,7 @@ fn include_directives_in_source(
                 .or_else(|| captures.name("quoted").map(|include| (include, false)))?;
             Some(IncludeDirectiveCandidate {
                 file: file.to_owned(),
-                start: source[..include.start()].encode_utf16().count(),
+                start: utf16_offset(source, include.start()),
                 include: include.as_str().to_owned(),
                 angle,
                 target: None,
@@ -1591,8 +1713,8 @@ fn source_preprocessor_directives(
             let directive = captures.get(0)?;
             let kind = captures.name("kind")?.as_str().to_owned();
             Some(SourcePreprocessorDirectiveCandidate {
-                start: source[..directive.start()].encode_utf16().count(),
-                end: source[..directive.end()].encode_utf16().count(),
+                start: utf16_offset(source, directive.start()),
+                end: utf16_offset(source, directive.end()),
                 kind,
                 commented: captures.name("commented").is_some(),
             })
@@ -1617,11 +1739,22 @@ fn source_macro_definitions(
     pattern: &Regex,
     continuation_pattern: &Regex,
 ) -> Vec<SourceMacroDefinitionCandidate> {
+    let mut previous_end = 0;
     pattern
         .captures_iter(source)
         .filter_map(|captures| {
             let definition = captures.get(0)?;
-            if !is_code_position(source, definition.start()) {
+            // A physical line inside a continued replacement may itself start
+            // with `#define`. It is replacement text, not a second directive.
+            if definition.start() < previous_end {
+                return None;
+            }
+            // A leading `//` is an intentional part of this report: callers use
+            // commented macro facts when preserving source structure.  The
+            // precomputed code-position index correctly marks the line as a
+            // comment, so only apply the code-position guard to active macros.
+            if captures.name("commented").is_none() && !is_code_position(source, definition.start())
+            {
                 return None;
             }
             let name_match = captures.name("name")?;
@@ -1642,10 +1775,10 @@ fn source_macro_definitions(
                     .position(|byte| matches!(byte, b'\r' | b'\n'))
                     .map_or(source.len(), |offset| next_start + offset);
             }
+            previous_end = end;
             let tail = &source[name_match.end()..end];
-            let trimmed = tail.trim_start();
             let (function_like, parameters, replacement) = if let Some(arguments) =
-                trimmed.strip_prefix('(').and_then(|value| {
+                tail.strip_prefix('(').and_then(|value| {
                     value
                         .find(')')
                         .map(|end| (&value[..end], &value[end + 1..]))
@@ -1664,8 +1797,8 @@ fn source_macro_definitions(
                 (false, Vec::new(), tail)
             };
             Some(SourceMacroDefinitionCandidate {
-                start: source[..definition.start()].encode_utf16().count(),
-                end: source[..end].encode_utf16().count(),
+                start: utf16_offset(source, definition.start()),
+                end: utf16_offset(source, end),
                 name,
                 function_like,
                 parameters,
@@ -1791,11 +1924,10 @@ fn source_conditional_blocks(
         .map(|(index, open)| {
             let close = closes[index].map(|close_index| &conditionals[close_index]);
             SourceConditionalBlockCandidate {
-                open_start: source[..open.start].encode_utf16().count(),
-                open_end: source[..open.end].encode_utf16().count(),
-                close_start: close
-                    .map(|candidate| source[..candidate.start].encode_utf16().count()),
-                close_end: close.map(|candidate| source[..candidate.end].encode_utf16().count()),
+                open_start: utf16_offset(source, open.start),
+                open_end: utf16_offset(source, open.end),
+                close_start: close.map(|candidate| utf16_offset(source, candidate.start)),
+                close_end: close.map(|candidate| utf16_offset(source, candidate.end)),
             }
         })
         .collect()
@@ -1865,13 +1997,12 @@ fn source_header_guards(
             });
             Some(SourceHeaderGuardCandidate {
                 name,
-                open_start: source[..open.start].encode_utf16().count(),
-                open_end: source[..open.end].encode_utf16().count(),
+                open_start: utf16_offset(source, open.start),
+                open_end: utf16_offset(source, open.end),
                 define_start: definition.start,
                 define_end: definition.end,
-                close_start: close
-                    .map(|candidate| source[..candidate.start].encode_utf16().count()),
-                close_end: close.map(|candidate| source[..candidate.end].encode_utf16().count()),
+                close_start: close.map(|candidate| utf16_offset(source, candidate.start)),
+                close_end: close.map(|candidate| utf16_offset(source, candidate.end)),
             })
         })
         .collect()
@@ -1910,6 +2041,46 @@ fn namespace_declaration_before_brace(source: &str, brace: usize) -> Option<Vec<
         .find(|(_, character)| matches!(character, ';' | '{' | '}' | '\n'))
         .map_or(0, |(index, character)| index + character.len_utf8());
     let mut declaration = prefix[boundary..].trim();
+    if !declaration.starts_with("namespace") && !declaration.starts_with("inline") {
+        // Rack sources commonly put the opening brace on the line after the
+        // namespace declaration. The line-oriented fast path above then sees
+        // an empty declaration, so recover the nearest valid namespace
+        // keyword whose suffix contains only a qualified identifier.
+        // Only the immediately preceding declaration can own this brace. A
+        // whole-prefix reverse search makes every ordinary non-namespace
+        // brace rescan the file from the beginning (quadratic on large Rack
+        // plugins with generated tables). Keep a generous bounded window for
+        // line-broken/qualified namespace declarations.
+        let mut search_start = prefix.len().saturating_sub(4096);
+        while !prefix.is_char_boundary(search_start) {
+            search_start += 1;
+        }
+        let search = &prefix[search_start..];
+        declaration = search
+            .rmatch_indices("namespace")
+            .find_map(|(relative_index, _)| {
+                let index = search_start + relative_index;
+                let before = prefix[..index].chars().next_back();
+                if before.is_some_and(|character| character.is_alphanumeric() || character == '_') {
+                    return None;
+                }
+                let candidate = prefix[index..].trim();
+                let name = candidate.strip_prefix("namespace")?.trim();
+                if name.is_empty()
+                    || name.split("::").all(|part| {
+                        let mut bytes = part.trim().bytes();
+                        bytes
+                            .next()
+                            .is_some_and(|byte| byte.is_ascii_alphabetic() || byte == b'_')
+                            && bytes.all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
+                    })
+                {
+                    Some(candidate)
+                } else {
+                    None
+                }
+            })?;
+    }
     if let Some(rest) = declaration.strip_prefix("inline") {
         if rest.starts_with(char::is_whitespace) {
             declaration = rest.trim_start();
@@ -1940,22 +2111,7 @@ fn namespace_before_brace(source: &str, brace: usize) -> Vec<String> {
     namespace_declaration_before_brace(source, brace).unwrap_or_default()
 }
 
-fn extern_c_declaration_before_brace(source: &str, brace: usize) -> bool {
-    let mut prefix_start = 0usize;
-    let mut cursor = 0usize;
-    while cursor < brace {
-        if let Some(end) = skipped_non_code(source, cursor) {
-            cursor = end;
-            continue;
-        }
-        let Some(character) = source[cursor..].chars().next() else {
-            break;
-        };
-        if matches!(character, ';' | '{' | '}' | '\n') {
-            prefix_start = cursor + character.len_utf8();
-        }
-        cursor += character.len_utf8();
-    }
+fn extern_c_declaration(source: &str, prefix_start: usize, brace: usize) -> bool {
     source_without_comments_preserving_literals(&source[prefix_start..brace])
         .split_whitespace()
         .collect::<Vec<_>>()
@@ -1963,48 +2119,123 @@ fn extern_c_declaration_before_brace(source: &str, brace: usize) -> bool {
         == r#"extern "C""#
 }
 
-fn namespace_scope_at(source: &str, target: usize) -> bool {
+#[derive(Clone, Copy)]
+struct ScopeFrame {
+    namespace: bool,
+    c_linkage: bool,
+}
+
+#[derive(Default)]
+struct ScopeScanCache {
+    source_pointer: usize,
+    source_length: usize,
+    source_marker: u64,
+    cursor: usize,
+    prefix_start: usize,
+    frames: Vec<ScopeFrame>,
+}
+
+thread_local! {
+    static SCOPE_SCAN_CACHE: std::cell::RefCell<ScopeScanCache> =
+        std::cell::RefCell::new(ScopeScanCache::default());
+}
+
+fn scope_source_marker(source: &str) -> u64 {
     let bytes = source.as_bytes();
-    let mut namespace_braces = Vec::new();
-    let mut index = 0usize;
-    while index < target.min(bytes.len()) {
-        if let Some(end) = skipped_non_code(source, index) {
-            index = end;
-            continue;
+    let mut marker = 0xcbf29ce484222325u64;
+    let starts = [0, bytes.len() / 2, bytes.len().saturating_sub(32)];
+    for start in starts {
+        for byte in bytes.iter().skip(start).take(32) {
+            marker ^= u64::from(*byte);
+            marker = marker.wrapping_mul(0x100000001b3);
         }
-        if bytes[index] == b'{' {
-            namespace_braces.push(
-                namespace_declaration_before_brace(source, index).is_some()
-                    || extern_c_declaration_before_brace(source, index),
-            );
-        } else if bytes[index] == b'}' {
-            namespace_braces.pop();
-        }
-        index += source[index..].chars().next().map_or(1, char::len_utf8);
     }
-    namespace_braces.iter().all(|namespace| *namespace)
+    marker
+}
+
+/*
+ * Scope queries are made in source order within each analysis pass. Keeping the
+ * parser state here changes those queries from repeated full-prefix scans to a
+ * single incremental scan. When another pass moves backwards, the cache resets
+ * and preserves the exact same lexical behavior.
+ */
+fn scope_state_at(source: &str, target: usize) -> (bool, bool) {
+    SCOPE_SCAN_CACHE.with(|stored| {
+        let mut cache = stored.borrow_mut();
+        let pointer = source.as_ptr() as usize;
+        let length = source.len();
+        let marker = scope_source_marker(source);
+        let limit = target.min(length);
+        if cache.source_pointer != pointer
+            || cache.source_length != length
+            || cache.source_marker != marker
+            || limit < cache.cursor
+        {
+            *cache = ScopeScanCache {
+                source_pointer: pointer,
+                source_length: length,
+                source_marker: marker,
+                ..ScopeScanCache::default()
+            };
+        }
+
+        let bytes = source.as_bytes();
+        while cache.cursor < limit {
+            if let Some(end) = skipped_non_code(source, cache.cursor) {
+                cache.cursor = end;
+                continue;
+            }
+            let index = cache.cursor;
+            let Some(character) = source[index..].chars().next() else {
+                break;
+            };
+            let width = character.len_utf8();
+            if bytes[index] == b'{' {
+                let namespace = namespace_declaration_before_brace(source, index).is_some();
+                let c_linkage = extern_c_declaration(source, cache.prefix_start, index);
+                cache.frames.push(ScopeFrame {
+                    namespace: namespace || c_linkage,
+                    c_linkage,
+                });
+            } else if bytes[index] == b'}' {
+                cache.frames.pop();
+            }
+            if matches!(character, ';' | '{' | '}' | '\n') {
+                cache.prefix_start = index + width;
+            }
+            cache.cursor = index + width;
+        }
+        (
+            cache.frames.iter().all(|frame| frame.namespace),
+            cache.frames.iter().any(|frame| frame.c_linkage),
+        )
+    })
+}
+
+fn namespace_scope_at(source: &str, target: usize) -> bool {
+    scope_state_at(source, target).0
 }
 
 fn c_linkage_at(source: &str, target: usize) -> bool {
-    let bytes = source.as_bytes();
-    let mut frames = Vec::new();
-    let mut index = 0usize;
-    while index < target.min(bytes.len()) {
-        if let Some(end) = skipped_non_code(source, index) {
-            index = end;
-            continue;
-        }
-        if bytes[index] == b'{' {
-            frames.push(extern_c_declaration_before_brace(source, index));
-        } else if bytes[index] == b'}' {
-            frames.pop();
-        }
-        index += source[index..].chars().next().map_or(1, char::len_utf8);
-    }
-    frames.into_iter().any(|frame| frame)
+    scope_state_at(source, target).1
 }
 
 fn namespace_at(source: &str, target: usize) -> Vec<String> {
+    if let Some(namespace) = CODE_POSITION_INDEX.with(|cache| {
+        let cache = cache.borrow();
+        cache.as_ref().and_then(|index| {
+            if index.pointer != source.as_ptr() as usize || index.length != source.len() {
+                return None;
+            }
+            let event = index
+                .lexical_events
+                .partition_point(|(position, _, _, _)| *position <= target.min(source.len()))
+                .saturating_sub(1);
+            Some(index.lexical_events[event].1.clone())
+        })
+    }) {
+        return namespace;
+    }
     let bytes = source.as_bytes();
     let mut namespace = Vec::new();
     let mut frames = Vec::new();
@@ -2172,19 +2403,7 @@ fn type_declaration_before_brace(
     brace: usize,
     pattern: &Regex,
 ) -> Option<ParsedTypeDeclaration> {
-    let mut prefix_start = 0usize;
-    let mut cursor = 0usize;
-    while cursor < brace {
-        if let Some(end) = skipped_non_code(source, cursor) {
-            cursor = end;
-            continue;
-        }
-        let character = source[cursor..].chars().next()?;
-        if matches!(character, ';' | '{' | '}') {
-            prefix_start = cursor + character.len_utf8();
-        }
-        cursor += character.len_utf8();
-    }
+    let prefix_start = declaration_prefix_start(source, brace)?;
     let declaration = &source[prefix_start..brace];
     let captures = pattern.captures(declaration)?;
     let name = captures.name("name")?;
@@ -2227,6 +2446,83 @@ fn type_declaration_before_brace(
         kind: kind.as_str().to_owned(),
         template_source,
         bases,
+    })
+}
+
+#[derive(Default)]
+struct DeclarationPrefixCache {
+    source_pointer: usize,
+    source_length: usize,
+    source_marker: u64,
+    cursor: usize,
+    prefix_start: usize,
+    starts: HashMap<usize, usize>,
+}
+
+thread_local! {
+    static DECLARATION_PREFIX_CACHE: std::cell::RefCell<DeclarationPrefixCache> =
+        std::cell::RefCell::new(DeclarationPrefixCache::default());
+}
+
+/*
+ * Type-owner discovery asks for the declaration prefix at the same braces
+ * many times. Scan new braces incrementally and remember exact answers so a
+ * large embedded header does not turn each lexical-scope query into another
+ * full-prefix scan.
+ */
+fn declaration_prefix_start(source: &str, brace: usize) -> Option<usize> {
+    DECLARATION_PREFIX_CACHE.with(|stored| {
+        let mut cache = stored.borrow_mut();
+        let pointer = source.as_ptr() as usize;
+        let length = source.len();
+        let marker = scope_source_marker(source);
+        if cache.source_pointer != pointer
+            || cache.source_length != length
+            || cache.source_marker != marker
+        {
+            *cache = DeclarationPrefixCache {
+                source_pointer: pointer,
+                source_length: length,
+                source_marker: marker,
+                ..DeclarationPrefixCache::default()
+            };
+        }
+        if let Some(prefix) = cache.starts.get(&brace) {
+            return Some(*prefix);
+        }
+        if brace < cache.cursor {
+            let mut cursor = 0usize;
+            let mut prefix = 0usize;
+            while cursor < brace {
+                if let Some(end) = skipped_non_code(source, cursor) {
+                    cursor = end;
+                    continue;
+                }
+                let character = source[cursor..].chars().next()?;
+                let width = character.len_utf8();
+                if matches!(character, ';' | '{' | '}') {
+                    prefix = cursor + width;
+                }
+                cursor += width;
+            }
+            cache.starts.insert(brace, prefix);
+            return Some(prefix);
+        }
+        while cache.cursor < brace {
+            if let Some(end) = skipped_non_code(source, cache.cursor) {
+                cache.cursor = end;
+                continue;
+            }
+            let character = source[cache.cursor..].chars().next()?;
+            let width = character.len_utf8();
+            if matches!(character, ';' | '{' | '}') {
+                cache.prefix_start = cache.cursor + width;
+            }
+            cache.cursor += width;
+        }
+        let prefix = cache.prefix_start;
+        cache.starts.insert(brace, prefix);
+        Some(prefix)
     })
 }
 
@@ -2281,13 +2577,13 @@ fn type_declarations_in_source(
                     }
                     candidates.push(TypeDeclarationCandidate {
                         file: file.to_owned(),
-                        start: source[..declaration.start].encode_utf16().count(),
+                        start: utf16_offset(source, declaration.start),
                         declaration_start: source[..declaration.declaration_start]
                             .encode_utf16()
                             .count(),
-                        declaration_end: source[..declaration_end].encode_utf16().count(),
-                        body_start: source[..index + 1].encode_utf16().count(),
-                        body_end: source[..close].encode_utf16().count(),
+                        declaration_end: utf16_offset(source, declaration_end),
+                        body_start: utf16_offset(source, index + 1),
+                        body_end: utf16_offset(source, close),
                         name: declaration.owner.name.clone(),
                         kind: declaration.kind,
                         namespace: namespace.clone(),
@@ -2367,11 +2663,11 @@ fn anonymous_typedef_declarations_in_source(
         let (namespace, owners) = lexical_scope_at(source, index, type_pattern);
         candidates.push(AnonymousTypedefDeclarationCandidate {
             file: file.to_owned(),
-            start: source[..index].encode_utf16().count(),
-            end: source[..declaration_end].encode_utf16().count(),
-            body_start: source[..open + 1].encode_utf16().count(),
-            body_end: source[..close].encode_utf16().count(),
-            name_start: source[..name_start].encode_utf16().count(),
+            start: utf16_offset(source, index),
+            end: utf16_offset(source, declaration_end),
+            body_start: utf16_offset(source, open + 1),
+            body_end: utf16_offset(source, close),
+            name_start: utf16_offset(source, name_start),
             name: source[name_start..name_end].to_owned(),
             kind: kind.to_owned(),
             namespace,
@@ -2669,10 +2965,10 @@ fn enum_declarations_in_source(
         let (namespace, owners) = lexical_scope_at(source, declaration_start, type_pattern);
         candidates.push(EnumDeclarationCandidate {
             file: file.to_owned(),
-            start: source[..declaration_start].encode_utf16().count(),
-            end: source[..end].encode_utf16().count(),
-            body_start: source[..open + 1].encode_utf16().count(),
-            body_end: source[..close].encode_utf16().count(),
+            start: utf16_offset(source, declaration_start),
+            end: utf16_offset(source, end),
+            body_start: utf16_offset(source, open + 1),
+            body_end: utf16_offset(source, close),
             name,
             scoped,
             namespace,
@@ -2700,24 +2996,46 @@ struct ParsedConfigLoop {
 }
 
 fn config_loops_in_source(source: &str, pattern: &Regex) -> Vec<ParsedConfigLoop> {
-    pattern
-        .captures_iter(source)
-        .filter_map(|captures| {
+    let mut candidates = Vec::new();
+    let mut cursor = 0;
+    while let Some(offset) = source[cursor..].find("for") {
+        let start = cursor + offset;
+        cursor = start + 3;
+        if !is_code_position(source, start)
+            || source[..start]
+                .chars()
+                .next_back()
+                .is_some_and(|character| character == '_' || character.is_alphanumeric())
+            || source[cursor..]
+                .chars()
+                .next()
+                .is_some_and(|character| character == '_' || character.is_alphanumeric())
+        {
+            continue;
+        }
+        let mut search_end = (start + 8 * 1024).min(source.len());
+        while !source.is_char_boundary(search_end) {
+            search_end -= 1;
+        }
+        let Some(captures) = pattern.captures(&source[start..search_end]) else {
+            continue;
+        };
+        if captures.get(0).is_none_or(|matched| matched.start() != 0) {
+            continue;
+        }
+        let Some(candidate) = (|| {
             let matched = captures.get(0)?;
-            if !is_code_position(source, matched.start()) {
-                return None;
-            }
             let variable = captures.name("variable")?;
             let condition_variable = captures.name("condition_variable")?;
             if variable.as_str() != condition_variable.as_str() {
                 return None;
             }
-            let open = source[matched.start()..matched.end()]
+            let open = source[start..start + matched.end()]
                 .rfind('{')
-                .map(|offset| matched.start() + offset)?;
+                .map(|offset| start + offset)?;
             let close = matching_delimiter(source, open, b'{', b'}')?;
             Some(ParsedConfigLoop {
-                start: matched.start(),
+                start,
                 end: close + 1,
                 body_start: open + 1,
                 body_end: close,
@@ -2725,8 +3043,12 @@ fn config_loops_in_source(source: &str, pattern: &Regex) -> Vec<ParsedConfigLoop
                 start_expression: captures.name("start")?.as_str().trim().to_owned(),
                 end_expression: captures.name("end")?.as_str().trim().to_owned(),
             })
-        })
-        .collect()
+        })() else {
+            continue;
+        };
+        candidates.push(candidate);
+    }
+    candidates
 }
 
 fn byte_index_for_utf16(source: &str, target: usize) -> usize {
@@ -2740,24 +3062,20 @@ fn byte_index_for_utf16(source: &str, target: usize) -> usize {
     source.len()
 }
 
-fn config_string_bindings(
+fn config_string_bindings_in_source(
     source: &str,
-    start: usize,
-    end: usize,
     pattern: &Regex,
-) -> Vec<ConfigStringBindingCandidate> {
+) -> Vec<ParsedConfigStringBinding> {
     pattern
-        .captures_iter(&source[start..end])
+        .captures_iter(source)
         .filter_map(|captures| {
             let matched = captures.get(0)?;
-            let absolute_start = start + matched.start();
-            if !is_code_position(source, absolute_start) {
+            if !is_code_position(source, matched.start()) {
                 return None;
             }
-            let absolute_end = start + matched.end();
-            Some(ConfigStringBindingCandidate {
-                start: source[..absolute_start].encode_utf16().count(),
-                end: source[..absolute_end].encode_utf16().count(),
+            Some(ParsedConfigStringBinding {
+                start: matched.start(),
+                end: matched.end(),
                 name: captures.name("name")?.as_str().to_owned(),
                 expression: captures.name("expression")?.as_str().trim().to_owned(),
             })
@@ -2769,9 +3087,9 @@ fn config_context_at(
     source: &str,
     index: usize,
     source_loops: &[ParsedConfigLoop],
-    binding_pattern: &Regex,
+    source_bindings: &[ParsedConfigStringBinding],
 ) -> (Vec<ConfigLoopCandidate>, Vec<ConfigStringBindingCandidate>) {
-    let start_utf16 = source[..index].encode_utf16().count();
+    let start_utf16 = utf16_offset(source, index);
     let enclosing_loops = source_loops
         .iter()
         .filter(|candidate| candidate.body_start <= index && candidate.body_end > index)
@@ -2781,14 +3099,23 @@ fn config_context_at(
         || byte_index_for_utf16(source, start_utf16.saturating_sub(2_000)),
         |candidate| candidate.body_start,
     );
-    let string_bindings = config_string_bindings(source, binding_start, index, binding_pattern);
+    let string_bindings = source_bindings
+        .iter()
+        .filter(|binding| binding.start >= binding_start && binding.end <= index)
+        .map(|binding| ConfigStringBindingCandidate {
+            start: utf16_offset(source, binding.start),
+            end: utf16_offset(source, binding.end),
+            name: binding.name.clone(),
+            expression: binding.expression.clone(),
+        })
+        .collect();
     let loops = enclosing_loops
         .into_iter()
         .map(|candidate| ConfigLoopCandidate {
-            start: source[..candidate.start].encode_utf16().count(),
-            end: source[..candidate.end].encode_utf16().count(),
-            body_start: source[..candidate.body_start].encode_utf16().count(),
-            body_end: source[..candidate.body_end].encode_utf16().count(),
+            start: utf16_offset(source, candidate.start),
+            end: utf16_offset(source, candidate.end),
+            body_start: utf16_offset(source, candidate.body_start),
+            body_end: utf16_offset(source, candidate.body_end),
             variable: candidate.variable,
             start_expression: candidate.start_expression,
             end_expression: candidate.end_expression,
@@ -2807,6 +3134,11 @@ fn config_calls_in_source(
 ) -> Vec<ConfigCallCandidate> {
     let bytes = source.as_bytes();
     let source_loops = config_loops_in_source(source, loop_pattern);
+    // Bindings were previously rediscovered with the same regex for every
+    // config* call. Large vendor headers can contain thousands of such calls,
+    // making declaration analysis quadratic. Parse once and select the small
+    // enclosing window for each call instead.
+    let source_bindings = config_string_bindings_in_source(source, binding_pattern);
     let mut candidates = Vec::new();
     let mut index = 0usize;
     while index < bytes.len() {
@@ -2851,12 +3183,12 @@ fn config_calls_in_source(
             .map(str::to_owned)
             .collect();
         let (loops, string_bindings) =
-            config_context_at(source, index, &source_loops, binding_pattern);
+            config_context_at(source, index, &source_loops, &source_bindings);
         let (namespace, owners) = lexical_scope_at(source, index, type_pattern);
         candidates.push(ConfigCallCandidate {
             file: file.to_owned(),
-            start: source[..index].encode_utf16().count(),
-            end: source[..close + 1].encode_utf16().count(),
+            start: utf16_offset(source, index),
+            end: utf16_offset(source, close + 1),
             name: name.to_owned(),
             template_source,
             arguments_source,
@@ -2869,38 +3201,40 @@ fn config_calls_in_source(
         });
         index = name_end;
     }
-    for pattern in snap_patterns {
-        for captures in pattern.captures_iter(source) {
-            let Some(matched) = captures.get(0) else {
-                continue;
-            };
-            if !is_code_position(source, matched.start()) {
-                continue;
+    if source.contains("snapEnabled") {
+        for pattern in snap_patterns {
+            for captures in pattern.captures_iter(source) {
+                let Some(matched) = captures.get(0) else {
+                    continue;
+                };
+                if !is_code_position(source, matched.start()) {
+                    continue;
+                }
+                let Some(argument) = captures.name("argument") else {
+                    continue;
+                };
+                let arguments_source = argument.as_str().trim().to_owned();
+                if arguments_source.is_empty() {
+                    continue;
+                }
+                let (loops, string_bindings) =
+                    config_context_at(source, matched.start(), &source_loops, &source_bindings);
+                let (namespace, owners) = lexical_scope_at(source, matched.start(), type_pattern);
+                candidates.push(ConfigCallCandidate {
+                    file: file.to_owned(),
+                    start: utf16_offset(source, matched.start()),
+                    end: utf16_offset(source, matched.end()),
+                    name: "rackWebSnapParam".to_owned(),
+                    template_source: None,
+                    arguments_source: arguments_source.clone(),
+                    arguments: vec![arguments_source],
+                    namespace,
+                    owners,
+                    loops,
+                    string_bindings,
+                    synthetic: true,
+                });
             }
-            let Some(argument) = captures.name("argument") else {
-                continue;
-            };
-            let arguments_source = argument.as_str().trim().to_owned();
-            if arguments_source.is_empty() {
-                continue;
-            }
-            let (loops, string_bindings) =
-                config_context_at(source, matched.start(), &source_loops, binding_pattern);
-            let (namespace, owners) = lexical_scope_at(source, matched.start(), type_pattern);
-            candidates.push(ConfigCallCandidate {
-                file: file.to_owned(),
-                start: source[..matched.start()].encode_utf16().count(),
-                end: source[..matched.end()].encode_utf16().count(),
-                name: "rackWebSnapParam".to_owned(),
-                template_source: None,
-                arguments_source: arguments_source.clone(),
-                arguments: vec![arguments_source],
-                namespace,
-                owners,
-                loops,
-                string_bindings,
-                synthetic: true,
-            });
         }
     }
     candidates.sort_by_key(|candidate| candidate.start);
@@ -3116,7 +3450,20 @@ fn out_of_line_definition_start(
     {
         start = template_start;
     }
-    let namespace_body_start = {
+    let indexed_namespace_body_start = CODE_POSITION_INDEX.with(|cache| {
+        let cache = cache.borrow();
+        cache.as_ref().and_then(|index| {
+            if index.pointer != source.as_ptr() as usize || index.length != source.len() {
+                return None;
+            }
+            let event = index
+                .lexical_events
+                .partition_point(|(position, _, _, _)| *position <= match_start.min(source.len()))
+                .saturating_sub(1);
+            Some(index.lexical_events[event].3.last().copied())
+        })
+    });
+    let namespace_body_start = indexed_namespace_body_start.unwrap_or_else(|| {
         let bytes = source.as_bytes();
         let mut frames = Vec::new();
         let mut index = 0usize;
@@ -3133,7 +3480,7 @@ fn out_of_line_definition_start(
             index += source[index..].chars().next().map_or(1, char::len_utf8);
         }
         frames.into_iter().rev().flatten().next()
-    };
+    });
     if let Some(namespace_body_start) = namespace_body_start.filter(|body| *body > start) {
         start = namespace_body_start;
         while source[start..]
@@ -3234,10 +3581,10 @@ fn out_of_line_definitions_in_source(
         if signature.is_some() && seen.insert((start, end, owner.clone())) {
             candidates.push(OutOfLineDefinitionCandidate {
                 file: file.to_owned(),
-                start: source[..start].encode_utf16().count(),
-                end: source[..end].encode_utf16().count(),
-                body_start: Some(source[..open + 1].encode_utf16().count()),
-                body_end: Some(source[..close].encode_utf16().count()),
+                start: utf16_offset(source, start),
+                end: utf16_offset(source, end),
+                body_start: Some(utf16_offset(source, open + 1)),
+                body_end: Some(utf16_offset(source, close)),
                 owner,
                 owner_chain,
                 kind: "function".to_owned(),
@@ -3312,10 +3659,10 @@ fn inline_member_definitions_in_source(
                         "function"
                     };
                     candidates.push(SourceInlineMemberDefinitionCandidate {
-                        start: source[..start].encode_utf16().count(),
-                        end: source[..close + 1].encode_utf16().count(),
-                        body_start: source[..index + 1].encode_utf16().count(),
-                        body_end: source[..close].encode_utf16().count(),
+                        start: utf16_offset(source, start),
+                        end: utf16_offset(source, close + 1),
+                        body_start: utf16_offset(source, index + 1),
+                        body_end: utf16_offset(source, close),
                         owner: declaration.name.clone(),
                         owner_chain,
                         namespace: declaration.namespace.clone(),
@@ -3358,8 +3705,8 @@ fn defaulted_definitions_in_source(
             }
             Some(OutOfLineDefinitionCandidate {
                 file: file.to_owned(),
-                start: source[..matched.start()].encode_utf16().count(),
-                end: source[..matched.end()].encode_utf16().count(),
+                start: utf16_offset(source, matched.start()),
+                end: utf16_offset(source, matched.end()),
                 body_start: None,
                 body_end: None,
                 owner,
@@ -3430,8 +3777,8 @@ fn static_definitions_in_source(
             let end = namespace_statement_end(source, qualified.end())?;
             Some(OutOfLineDefinitionCandidate {
                 file: file.to_owned(),
-                start: source[..matched.start()].encode_utf16().count(),
-                end: source[..end].encode_utf16().count(),
+                start: utf16_offset(source, matched.start()),
+                end: utf16_offset(source, end),
                 body_start: None,
                 body_end: None,
                 owner,
@@ -3796,8 +4143,8 @@ fn repeated_default_argument_ranges_in_source(
                 .default_argument_ranges
                 .into_iter()
                 .map(|(start, end)| SourceTextRangeCandidate {
-                    start: source[..start].encode_utf16().count(),
-                    end: source[..end].encode_utf16().count(),
+                    start: utf16_offset(source, start),
+                    end: utf16_offset(source, end),
                 }),
         );
     }
@@ -3818,8 +4165,8 @@ fn free_function_declarations_in_source(
             let end = free_function_declaration_end(source, close_parenthesis + 1)?;
             Some(FreeFunctionDeclarationCandidate {
                 file: file.to_owned(),
-                start: source[..matched.start].encode_utf16().count(),
-                end: source[..end].encode_utf16().count(),
+                start: utf16_offset(source, matched.start),
+                end: utf16_offset(source, end),
                 name: matched.name,
                 namespace: namespace_at(source, matched.start),
             })
@@ -3856,8 +4203,8 @@ fn free_function_definitions_in_source(
             )?;
             Some(FreeFunctionDefinitionCandidate {
                 file: file.to_owned(),
-                start: source[..matched.start].encode_utf16().count(),
-                end: source[..close + 1].encode_utf16().count(),
+                start: utf16_offset(source, matched.start),
+                end: utf16_offset(source, close + 1),
                 name: matched.name,
                 namespace: namespace_at(source, matched.start),
                 signature,
@@ -3873,6 +4220,24 @@ fn lexical_scope_at(
     target: usize,
     type_pattern: &Regex,
 ) -> (Vec<String>, Vec<TypeOwnerCandidate>) {
+    if let Some(scope) = CODE_POSITION_INDEX.with(|cache| {
+        let cache = cache.borrow();
+        cache.as_ref().and_then(|index| {
+            if index.pointer != source.as_ptr() as usize || index.length != source.len() {
+                return None;
+            }
+            let event = index
+                .lexical_events
+                .partition_point(|(position, _, _, _)| *position <= target.min(source.len()))
+                .saturating_sub(1);
+            Some((
+                index.lexical_events[event].1.clone(),
+                index.lexical_events[event].2.clone(),
+            ))
+        })
+    }) {
+        return scope;
+    }
     struct ScopeFrame {
         namespaces: usize,
         owner: bool,
@@ -3958,7 +4323,7 @@ fn candidates_in_source(source: &str, file: &Path) -> Vec<ModelFactoryCandidate>
                         let call_source = &source[call_open + 1..call_close];
                         candidates.push(ModelFactoryCandidate {
                             file: file.to_owned(),
-                            start: source[..start].encode_utf16().count(),
+                            start: utf16_offset(source, start),
                             factory: identifier.to_owned(),
                             template_source: template_source.to_owned(),
                             call_source: call_source.to_owned(),
@@ -4274,7 +4639,7 @@ fn custom_model_candidates_in_source(
             });
         candidates.push(CustomModelFactoryCandidate {
             file: file.to_owned(),
-            start: source[..assignment.start()].encode_utf16().count(),
+            start: utf16_offset(source, assignment.start()),
             variable_slug,
             slug_source: first_code_capture_in_range(
                 source,
@@ -4333,7 +4698,7 @@ fn meta_module_candidates_in_source(
         let _end = template_close + 1 + tail.end();
         candidates.push(MetaModuleFactoryCandidate {
             file: file.to_owned(),
-            start: source[..generic.start()].encode_utf16().count(),
+            start: utf16_offset(source, generic.start()),
             variable_slug: variable.as_str().to_owned(),
             template_source: template_source.to_owned(),
             template_arguments,
@@ -4344,6 +4709,15 @@ fn meta_module_candidates_in_source(
 }
 
 fn is_code_position(source: &str, target: usize) -> bool {
+    if let Some(value) = CODE_POSITION_INDEX.with(|cache| {
+        let cache = cache.borrow();
+        cache.as_ref().and_then(|index| {
+            (index.pointer == source.as_ptr() as usize && index.length == source.len())
+                .then(|| index.code.get(target).copied().unwrap_or(false))
+        })
+    }) {
+        return value;
+    }
     let mut index = 0;
     while index < target {
         if let Some(end) = skipped_non_code(source, index) {
@@ -4381,7 +4755,7 @@ fn string_constants_in_source(
                 .unwrap_or(expression_source);
             Some(StringConstantCandidate {
                 file: file.to_owned(),
-                start: source[..name.start()].encode_utf16().count(),
+                start: utf16_offset(source, name.start()),
                 name: name.as_str().to_owned(),
                 expression: expression_source.to_owned(),
                 value: evaluate_static_string(normalized),
@@ -4749,9 +5123,9 @@ fn type_aliases_in_source(
             let (namespace, owners) = lexical_scope_at(source, matched.start(), type_pattern);
             Some(TypeAliasCandidate {
                 file: file.to_owned(),
-                start: source[..name.start()].encode_utf16().count(),
-                declaration_start: source[..matched.start()].encode_utf16().count(),
-                declaration_end: source[..matched.end()].encode_utf16().count(),
+                start: utf16_offset(source, name.start()),
+                declaration_start: utf16_offset(source, matched.start()),
+                declaration_end: utf16_offset(source, matched.end()),
                 name: name.as_str().to_owned(),
                 target: target.as_str().trim().to_owned(),
                 kind: kind.to_owned(),
@@ -4780,8 +5154,8 @@ fn namespace_constant_declarations_in_source(
             }
             Some(NamespaceConstantDeclarationCandidate {
                 file: file.to_owned(),
-                start: source[..matched.start()].encode_utf16().count(),
-                end: source[..matched.end()].encode_utf16().count(),
+                start: utf16_offset(source, matched.start()),
+                end: utf16_offset(source, matched.end()),
                 name: name.as_str().to_owned(),
                 namespace: namespace_at(source, matched.start()),
             })
@@ -4837,10 +5211,10 @@ fn namespace_variable_declarations_in_source(
             }
             Some(NamespaceVariableDeclarationCandidate {
                 file: file.to_owned(),
-                start: source[..declaration.start()].encode_utf16().count(),
-                end: source[..end].encode_utf16().count(),
-                name_start: source[..name.start()].encode_utf16().count(),
-                declarator_end: source[..declaration.end()].encode_utf16().count(),
+                start: utf16_offset(source, declaration.start()),
+                end: utf16_offset(source, end),
+                name_start: utf16_offset(source, name.start()),
+                declarator_end: utf16_offset(source, declaration.end()),
                 name: name.as_str().to_owned(),
                 namespace: namespace_at(source, declaration.start()),
                 type_source,
@@ -4870,8 +5244,8 @@ fn namespace_using_declarations_in_source(
             }
             Some(NamespaceUsingDeclarationCandidate {
                 file: file.to_owned(),
-                start: source[..matched.start()].encode_utf16().count(),
-                end: source[..matched.end()].encode_utf16().count(),
+                start: utf16_offset(source, matched.start()),
+                end: utf16_offset(source, matched.end()),
                 target: target.as_str().to_owned(),
                 namespace: namespace_at(source, matched.start()),
             })
@@ -4896,8 +5270,8 @@ fn namespace_using_directives_in_source(
             }
             Some(NamespaceUsingDirectiveCandidate {
                 file: file.to_owned(),
-                start: source[..matched.start()].encode_utf16().count(),
-                end: source[..matched.end()].encode_utf16().count(),
+                start: utf16_offset(source, matched.start()),
+                end: utf16_offset(source, matched.end()),
                 target: target.as_str().to_owned(),
                 namespace: namespace_at(source, matched.start()),
             })
@@ -5071,42 +5445,84 @@ fn free_function_pattern() -> Result<Regex, String> {
     .map_err(|error| format!("Could not compile free-function analysis: {error}"))
 }
 
+struct SourceDeclarationPatterns {
+    type_declaration: Regex,
+    include_directive: Regex,
+    preprocessor_directive: Regex,
+    macro_definition: Regex,
+    macro_continuation: Regex,
+    conditional_directive: Regex,
+    type_alias: Regex,
+    namespace_constant: Regex,
+    namespace_variable: Regex,
+    namespace_using: Regex,
+    namespace_using_directive: Regex,
+    enum_macro: Regex,
+    enum_identifier: Regex,
+    config_loop: Regex,
+    config_binding: Regex,
+    config_snap: [Regex; 2],
+    inline_member: Regex,
+    out_of_line: Regex,
+    out_of_line_signature_prefix: Regex,
+    defaulted_member: Regex,
+    static_definition: Regex,
+    detached_return: Regex,
+    template_prefix: Regex,
+    free_function: Regex,
+}
+
+impl SourceDeclarationPatterns {
+    fn compile() -> Result<Self, String> {
+        Ok(Self {
+            type_declaration: type_declaration_pattern()?,
+            include_directive: include_directive_pattern()?,
+            preprocessor_directive: source_preprocessor_directive_pattern()?,
+            macro_definition: source_macro_definition_pattern()?,
+            macro_continuation: macro_continuation_pattern()?,
+            conditional_directive: source_conditional_directive_pattern()?,
+            type_alias: type_alias_pattern()?,
+            namespace_constant: namespace_constant_pattern()?,
+            namespace_variable: namespace_variable_pattern()?,
+            namespace_using: namespace_using_pattern()?,
+            namespace_using_directive: namespace_using_directive_pattern()?,
+            enum_macro: enum_macro_pattern()?,
+            enum_identifier: enum_identifier_pattern()?,
+            config_loop: config_loop_pattern()?,
+            config_binding: config_binding_pattern()?,
+            config_snap: config_snap_patterns()?,
+            inline_member: inline_member_definition_pattern()?,
+            out_of_line: out_of_line_pattern()?,
+            out_of_line_signature_prefix: out_of_line_signature_prefix_pattern()?,
+            defaulted_member: defaulted_member_pattern()?,
+            static_definition: static_definition_pattern()?,
+            detached_return: detached_return_pattern()?,
+            template_prefix: template_prefix_pattern()?,
+            free_function: free_function_pattern()?,
+        })
+    }
+}
+
+static SOURCE_DECLARATION_PATTERNS: LazyLock<Result<SourceDeclarationPatterns, String>> =
+    LazyLock::new(SourceDeclarationPatterns::compile);
+
 pub fn source_declarations(
     request: &SourceDeclarationRequest,
 ) -> Result<SourceDeclarationReport, String> {
     if request.source.len() > MAX_PREPROCESS_SOURCE_BYTES || request.source.contains('\0') {
         return Err("Declaration-analysis source is invalid".to_owned());
     }
-    let type_pattern = type_declaration_pattern()?;
-    let include_pattern = include_directive_pattern()?;
-    let preprocessor_directive_pattern = source_preprocessor_directive_pattern()?;
-    let macro_definition_pattern = source_macro_definition_pattern()?;
-    let macro_continuation_pattern = macro_continuation_pattern()?;
-    let conditional_directive_pattern = source_conditional_directive_pattern()?;
-    let type_alias_pattern = type_alias_pattern()?;
-    let namespace_constant_pattern = namespace_constant_pattern()?;
-    let namespace_variable_pattern = namespace_variable_pattern()?;
-    let namespace_using_pattern = namespace_using_pattern()?;
-    let namespace_using_directive_pattern = namespace_using_directive_pattern()?;
-    let enum_macro_pattern = enum_macro_pattern()?;
-    let enum_identifier_pattern = enum_identifier_pattern()?;
-    let config_loop_pattern = config_loop_pattern()?;
-    let config_binding_pattern = config_binding_pattern()?;
-    let config_snap_patterns = config_snap_patterns()?;
-    let inline_member_pattern = inline_member_definition_pattern()?;
-    let out_of_line_pattern = out_of_line_pattern()?;
-    let out_of_line_signature_prefix_pattern = out_of_line_signature_prefix_pattern()?;
-    let defaulted_member_pattern = defaulted_member_pattern()?;
-    let static_definition_pattern = static_definition_pattern()?;
-    let detached_return_pattern = detached_return_pattern()?;
-    let template_prefix_pattern = template_prefix_pattern()?;
-    let free_function_pattern = free_function_pattern()?;
+    let patterns = SOURCE_DECLARATION_PATTERNS
+        .as_ref()
+        .map_err(std::clone::Clone::clone)?;
+    prime_code_positions(&request.source, Some(&patterns.type_declaration));
     let file = Path::new("<source-declarations>");
-    let raw_type_declarations = type_declarations_in_source(&request.source, file, &type_pattern);
+    let raw_type_declarations =
+        type_declarations_in_source(&request.source, file, &patterns.type_declaration);
     let inline_member_definitions = inline_member_definitions_in_source(
         &request.source,
         &raw_type_declarations,
-        &inline_member_pattern,
+        &patterns.inline_member,
     );
     let type_declarations = raw_type_declarations
         .into_iter()
@@ -5127,7 +5543,7 @@ pub fn source_declarations(
         })
         .collect();
     let anonymous_typedef_declarations =
-        anonymous_typedef_declarations_in_source(&request.source, file, &type_pattern)
+        anonymous_typedef_declarations_in_source(&request.source, file, &patterns.type_declaration)
             .into_iter()
             .map(|candidate| SourceAnonymousTypedefDeclarationCandidate {
                 start: candidate.start,
@@ -5142,27 +5558,31 @@ pub fn source_declarations(
                 owners: candidate.owners,
             })
             .collect();
-    let type_aliases =
-        type_aliases_in_source(&request.source, file, &type_alias_pattern, &type_pattern)
-            .into_iter()
-            .map(|candidate| SourceTypeAliasCandidate {
-                start: candidate.start,
-                declaration_start: candidate.declaration_start,
-                declaration_end: candidate.declaration_end,
-                name: candidate.name,
-                target: candidate.target,
-                kind: candidate.kind,
-                namespace: candidate.namespace,
-                namespace_scope: candidate.namespace_scope,
-                owners: candidate.owners,
-            })
-            .collect();
+    let type_aliases = type_aliases_in_source(
+        &request.source,
+        file,
+        &patterns.type_alias,
+        &patterns.type_declaration,
+    )
+    .into_iter()
+    .map(|candidate| SourceTypeAliasCandidate {
+        start: candidate.start,
+        declaration_start: candidate.declaration_start,
+        declaration_end: candidate.declaration_end,
+        name: candidate.name,
+        target: candidate.target,
+        kind: candidate.kind,
+        namespace: candidate.namespace,
+        namespace_scope: candidate.namespace_scope,
+        owners: candidate.owners,
+    })
+    .collect();
     let enum_declarations = enum_declarations_in_source(
         &request.source,
         file,
-        &type_pattern,
-        &enum_macro_pattern,
-        &enum_identifier_pattern,
+        &patterns.type_declaration,
+        &patterns.enum_macro,
+        &patterns.enum_identifier,
     )
     .into_iter()
     .map(|candidate| SourceEnumDeclarationCandidate {
@@ -5184,7 +5604,7 @@ pub fn source_declarations(
     let namespace_constant_declarations = namespace_constant_declarations_in_source(
         &request.source,
         file,
-        &namespace_constant_pattern,
+        &patterns.namespace_constant,
     )
     .into_iter()
     .map(|candidate| SourceNamespaceConstantDeclarationCandidate {
@@ -5197,7 +5617,7 @@ pub fn source_declarations(
     let namespace_variable_declarations = namespace_variable_declarations_in_source(
         &request.source,
         file,
-        &namespace_variable_pattern,
+        &patterns.namespace_variable,
     )
     .into_iter()
     .map(|candidate| SourceNamespaceVariableDeclarationCandidate {
@@ -5215,7 +5635,7 @@ pub fn source_declarations(
     })
     .collect();
     let namespace_using_declarations =
-        namespace_using_declarations_in_source(&request.source, file, &namespace_using_pattern)
+        namespace_using_declarations_in_source(&request.source, file, &patterns.namespace_using)
             .into_iter()
             .map(|candidate| SourceNamespaceUsingDeclarationCandidate {
                 start: candidate.start,
@@ -5227,7 +5647,7 @@ pub fn source_declarations(
     let namespace_using_directives = namespace_using_directives_in_source(
         &request.source,
         file,
-        &namespace_using_directive_pattern,
+        &patterns.namespace_using_directive,
     )
     .into_iter()
     .map(|candidate| SourceNamespaceUsingDirectiveCandidate {
@@ -5240,10 +5660,10 @@ pub fn source_declarations(
     let config_calls = config_calls_in_source(
         &request.source,
         file,
-        &type_pattern,
-        &config_loop_pattern,
-        &config_binding_pattern,
-        &config_snap_patterns,
+        &patterns.type_declaration,
+        &patterns.config_loop,
+        &patterns.config_binding,
+        &patterns.config_snap,
     )
     .into_iter()
     .map(|candidate| SourceConfigCallCandidate {
@@ -5263,21 +5683,21 @@ pub fn source_declarations(
     let out_of_line_definitions = out_of_line_definitions_in_source(
         &request.source,
         file,
-        &out_of_line_pattern,
-        &detached_return_pattern,
-        &template_prefix_pattern,
-        &out_of_line_signature_prefix_pattern,
+        &patterns.out_of_line,
+        &patterns.detached_return,
+        &patterns.template_prefix,
+        &patterns.out_of_line_signature_prefix,
     )
     .into_iter()
     .chain(defaulted_definitions_in_source(
         &request.source,
         file,
-        &defaulted_member_pattern,
+        &patterns.defaulted_member,
     ))
     .chain(static_definitions_in_source(
         &request.source,
         file,
-        &static_definition_pattern,
+        &patterns.static_definition,
     ))
     .map(|candidate| SourceOutOfLineDefinitionCandidate {
         start: candidate.start,
@@ -5294,7 +5714,7 @@ pub fn source_declarations(
     })
     .collect();
     let free_function_declarations =
-        free_function_declarations_in_source(&request.source, file, &free_function_pattern)
+        free_function_declarations_in_source(&request.source, file, &patterns.free_function)
             .into_iter()
             .map(|candidate| SourceFreeFunctionDeclarationCandidate {
                 start: candidate.start,
@@ -5304,7 +5724,7 @@ pub fn source_declarations(
             })
             .collect();
     let free_function_definitions =
-        free_function_definitions_in_source(&request.source, file, &free_function_pattern)
+        free_function_definitions_in_source(&request.source, file, &patterns.free_function)
             .into_iter()
             .map(|candidate| SourceFreeFunctionDefinitionCandidate {
                 start: candidate.start,
@@ -5317,11 +5737,11 @@ pub fn source_declarations(
             })
             .collect();
     let repeated_default_argument_ranges =
-        repeated_default_argument_ranges_in_source(&request.source, &free_function_pattern);
+        repeated_default_argument_ranges_in_source(&request.source, &patterns.free_function);
     let include_directives = include_directives_in_source(
         &request.source,
         Path::new("<declaration-source>"),
-        &include_pattern,
+        &patterns.include_directive,
     )
     .into_iter()
     .map(|candidate| SourceIncludeDirectiveCandidate {
@@ -5331,16 +5751,16 @@ pub fn source_declarations(
     })
     .collect();
     let preprocessor_directives =
-        source_preprocessor_directives(&request.source, &preprocessor_directive_pattern);
+        source_preprocessor_directives(&request.source, &patterns.preprocessor_directive);
     let macro_definitions = source_macro_definitions(
         &request.source,
-        &macro_definition_pattern,
-        &macro_continuation_pattern,
+        &patterns.macro_definition,
+        &patterns.macro_continuation,
     );
     let raw_conditional_directives = source_conditional_directives(
         &request.source,
-        &conditional_directive_pattern,
-        &macro_continuation_pattern,
+        &patterns.conditional_directive,
+        &patterns.macro_continuation,
     );
     let header_guards = source_header_guards(
         &request.source,
@@ -5352,8 +5772,8 @@ pub fn source_declarations(
     let conditional_directives = raw_conditional_directives
         .into_iter()
         .map(|candidate| SourceConditionalDirectiveCandidate {
-            start: request.source[..candidate.start].encode_utf16().count(),
-            end: request.source[..candidate.end].encode_utf16().count(),
+            start: utf16_offset(&request.source, candidate.start),
+            end: utf16_offset(&request.source, candidate.end),
             kind: candidate.kind,
             expression: candidate.expression,
             simple_macro: candidate.simple_macro,
@@ -5459,8 +5879,8 @@ pub fn model_candidates(source_root: &Path) -> Result<ModelCandidateReport, Stri
     )
     .map_err(|error| format!("Could not compile companion analysis: {error}"))?;
     for file in &inventory.source_files {
-        let source = fs::read_to_string(file)
-            .map_err(|error| format!("Cannot read source file {}: {error}", file.display()))?;
+        let source = read_source_text(file)?;
+        prime_code_positions(&source, Some(&type_pattern));
         candidates.extend(candidates_in_source(&source, file));
         let source_type_declarations = type_declarations_in_source(&source, file, &type_pattern);
         custom_model_candidates.extend(custom_model_candidates_in_source(
@@ -5558,8 +5978,7 @@ pub fn model_candidates(source_root: &Path) -> Result<ModelCandidateReport, Stri
     dependency_files.sort();
     dependency_files.dedup();
     for file in &dependency_files {
-        let source = fs::read_to_string(file)
-            .map_err(|error| format!("Cannot read source file {}: {error}", file.display()))?;
+        let source = read_source_text(file)?;
         include_directives.extend(include_directives_in_source(
             &source,
             file,
@@ -6150,8 +6569,7 @@ fn prune_inactive_dependencies(
     let mut sources = HashMap::new();
     let mut condition_names = HashSet::new();
     for file in &headers {
-        let source = fs::read_to_string(file)
-            .map_err(|error| format!("Cannot read source file {}: {error}", file.display()))?;
+        let source = read_source_text(file)?;
         condition_names.extend(
             condition_pattern
                 .captures_iter(&source)
@@ -6328,5 +6746,93 @@ mod tests {
             free_function_definitions_in_source(source, Path::new("compact.cpp"), &pattern);
         assert_eq!(definitions.len(), 1, "{definitions:#?}");
         assert_eq!(definitions[0].namespace, ["compact"]);
+    }
+
+    #[test]
+    fn declaration_analysis_tracks_namespaces_with_next_line_braces() {
+        let source = r#"
+namespace Sapphire
+{
+    namespace Moots
+    {
+        struct MootsModule
+        {
+            void process() {}
+        };
+    }
+}
+"#;
+        let declarations = type_declarations_in_source(
+            source,
+            Path::new("moots.cpp"),
+            &type_declaration_pattern().expect("type pattern"),
+        );
+        let module = declarations
+            .iter()
+            .find(|declaration| declaration.name == "MootsModule")
+            .expect("Moots module declaration");
+        assert_eq!(module.namespace, ["Sapphire", "Moots"]);
+        assert!(module.namespace_scope);
+    }
+
+    #[test]
+    fn config_loop_scan_keeps_utf8_window_boundaries_valid() {
+        let mut source =
+            "for (int index = 0; index < 2; ++index) { configParam(index, 0.f, 1.f, 0.f); }"
+                .to_owned();
+        source.push_str(&" ".repeat(8 * 1024 - source.len() - 1));
+        source.push('≈');
+        let pattern = config_loop_pattern().expect("config-loop pattern should compile");
+        let loops = config_loops_in_source(&source, &pattern);
+        assert_eq!(loops.len(), 1, "{loops:#?}");
+    }
+
+    #[test]
+    fn macro_analysis_does_not_report_defines_inside_continuations() {
+        let source =
+            "#define OUTER(value) value \\\n+#define INNER(left, right) ((left) + (right))\n";
+        let pattern = source_macro_definition_pattern().expect("macro pattern should compile");
+        let continuation =
+            macro_continuation_pattern().expect("continuation pattern should compile");
+        let definitions = source_macro_definitions(source, &pattern, &continuation);
+        assert_eq!(definitions.len(), 1, "{definitions:#?}");
+        assert_eq!(definitions[0].name, "OUTER");
+        assert!(definitions[0].replacement.contains("#define INNER"));
+    }
+
+    #[test]
+    fn out_of_line_definition_start_uses_indexed_namespace_bodies() {
+        let source = r#"
+namespace outer::inner {
+
+template <typename T>
+int Widget<T>::value() {
+    return 1;
+}
+
+} // namespace outer::inner
+"#;
+        prime_code_positions(source, None);
+        let match_start = source.find("Widget<T>::value").expect("member definition");
+        let detached_return_pattern = detached_return_pattern().expect("detached-return pattern");
+        let template_pattern = template_prefix_pattern().expect("template pattern");
+        let start = out_of_line_definition_start(
+            source,
+            match_start,
+            &detached_return_pattern,
+            &template_pattern,
+        );
+        assert_eq!(&source[start..match_start], "template <typename T>\nint ");
+        let namespace_body = source.find('{').expect("namespace body") + 1;
+        let indexed_body = CODE_POSITION_INDEX.with(|cache| {
+            let cache = cache.borrow();
+            let index = cache.as_ref()?;
+            let event = index
+                .lexical_events
+                .partition_point(|(position, _, _, _)| *position <= match_start)
+                .saturating_sub(1);
+            index.lexical_events[event].3.last().copied()
+        });
+        assert_eq!(indexed_body, Some(namespace_body));
     }
 }

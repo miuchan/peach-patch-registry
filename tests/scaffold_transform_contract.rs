@@ -56,6 +56,456 @@ fn inspect_text(operation: &str, arguments: Value) -> String {
 }
 
 #[test]
+fn generated_normalization_keeps_macros_used_by_const_initializers() {
+    let normalized = inspect_text(
+        "normalizeGeneratedImplementations",
+        json!([concat!(
+            "#define MAX_PATS 100\n",
+            "struct ModuleWithPreset {\n",
+            "  const int pattern = MAX_PATS - 1;\n",
+            "};\n"
+        )]),
+    );
+    assert!(normalized.contains("#define MAX_PATS 100"), "{normalized}");
+
+    let collision = inspect_text(
+        "normalizeGeneratedImplementations",
+        json!([concat!(
+            "#define MAX_PATS 100\n",
+            "constexpr int MAX_PATS = 64;\n"
+        )]),
+    );
+    assert!(!collision.contains("#define MAX_PATS 100"), "{collision}");
+    assert!(
+        collision.contains("constexpr int MAX_PATS = 64"),
+        "{collision}"
+    );
+}
+
+#[test]
+fn voxglitch_arpseq_normalization_restores_quantizer_tables_and_dependency_order() {
+    let normalized = inspect_text(
+        "normalizeGeneratedImplementations",
+        json!([concat!(
+            "struct Quantizer {\n",
+            "  static const unsigned int NUM_SCALES = 13;\n",
+            "  static const bool chromaticScale[12];\n",
+            "  static const bool majorScale[12];\n",
+            "  static const bool minorScale[12];\n",
+            "  static const bool pentatonicScale[12];\n",
+            "  static const bool dorianScale[12];\n",
+            "  static const bool phrygianScale[12];\n",
+            "  static const bool lydianScale[12];\n",
+            "  static const bool mixolydianScale[12];\n",
+            "  static const bool harmonicMinorScale[12];\n",
+            "  static const bool melodicMinorScale[12];\n",
+            "  static const bool bluesScale[12];\n",
+            "  static const bool wholeToneScale[12];\n",
+            "  static const bool diminishedScale[12];\n",
+            "  static const bool* scales[NUM_SCALES];\n",
+            "};\n",
+            "struct Page { VoltageSequencer voltage; };\n",
+            "struct VoltageSequencer {};\n",
+            "struct ArpSeq : Module {};\n"
+        )]),
+    );
+    assert!(
+        normalized.contains("const bool* Quantizer::scales[Quantizer::NUM_SCALES]"),
+        "{normalized}"
+    );
+    assert_eq!(
+        normalized.matches("Quantizer::chromaticScale[12]").count(),
+        1,
+        "{normalized}"
+    );
+    assert!(
+        normalized.find("struct VoltageSequencer").unwrap()
+            < normalized.find("struct Page").unwrap(),
+        "{normalized}"
+    );
+    assert!(
+        normalized.find("struct Page").unwrap() < normalized.find("struct ArpSeq").unwrap(),
+        "{normalized}"
+    );
+}
+
+#[test]
+fn modllz_expander_sync_is_injected_once_into_the_native_process_method() {
+    let master = inspect_text(
+        "normalizeGeneratedImplementations",
+        json!([concat!(
+            "struct MIDIpolyMPE : Module {\n",
+            "  void process(const ProcessArgs &args) override { if (!ready) return; }\n",
+            "  void rackWebPullXpandPresence() {}\n",
+            "  void rackWebPushXpandData() {}\n",
+            "};\n"
+        )]),
+    );
+    assert_eq!(master.matches("void process(").count(), 1, "{master}");
+    assert_eq!(
+        master.matches("rackWebPullXpandPresence();").count(),
+        1,
+        "{master}"
+    );
+    assert_eq!(
+        master.matches("rackWebPushXpandData();").count(),
+        1,
+        "{master}"
+    );
+    assert!(
+        master.find("rackWebPushXpandData();").unwrap()
+            < master.find("if (!ready) return").unwrap(),
+        "{master}"
+    );
+
+    let expander = inspect_text(
+        "normalizeGeneratedImplementations",
+        json!([concat!(
+            "struct Xpand : Module {\n",
+            "  void process(const ProcessArgs &args) override { render(); }\n",
+            "  void rackWebPullXpandData() {}\n",
+            "};\n"
+        )]),
+    );
+    assert_eq!(expander.matches("void process(").count(), 1, "{expander}");
+    assert_eq!(
+        expander.matches("rackWebPullXpandData();").count(),
+        1,
+        "{expander}"
+    );
+    assert!(
+        expander.find("rackWebPullXpandData();").unwrap() < expander.find("render();").unwrap(),
+        "{expander}"
+    );
+}
+
+#[test]
+fn sort_step_publishes_live_array_events_and_guarded_drag_actions() {
+    let contract = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "BGal256/SortStep"}, ""]),
+    );
+    for marker in [
+        "rackWebSortStepVisual.assign(4 + size * 2, 0.f)",
+        "static_cast<float>(sorterArray.currentType)",
+        "rackWebSortStepVisual[4 + size + element.index] = element.elementEvent",
+        "if (!active || !sorterArray.processingFinished) return",
+        "const int index = encoded / 1001",
+        "sorterArray.array[index] = clamp(value, 0, size)",
+    ] {
+        assert!(contract.contains(marker), "missing {marker}: {contract}");
+    }
+}
+
+#[test]
+fn jw_grids_publish_native_state_and_source_level_edit_actions() {
+    let arrange = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "JW-Modules/Arrange"}, ""]),
+    );
+    for marker in [
+        "std::array<float, 1056> rackWebJwGridVisual",
+        "rackWebJwGridVisual[2]=static_cast<float>(resetMode?getSeqStart():seqPos)",
+        "if(id>=3048&&id<3112)",
+        "seqPos=clampijw(id-3048,getSeqStart(),getSeqEnd())",
+        "setCellOn(index%64,index/64,(encoded%2)!=0)",
+    ] {
+        assert!(arrange.contains(marker), "missing {marker}: {arrange}");
+    }
+
+    let note_seq_fu = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "JW-Modules/NoteSeqFu"}, ""]),
+    );
+    for marker in [
+        "std::array<float, 1056> rackWebJwGridVisual",
+        "rackWebJwGridVisual[10+playhead]",
+        "rackWebJwGridVisual[22+playhead]",
+        "setCellOn(index%32,index/32,(encoded%2)!=0)",
+    ] {
+        assert!(
+            note_seq_fu.contains(marker),
+            "missing {marker}: {note_seq_fu}"
+        );
+    }
+
+    let pres1t = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "JW-Modules/Pres1t"}, ""]),
+    );
+    for marker in [
+        "rackWebJwGridVisual[5]=static_cast<float>(selectedWriteCellIdx)",
+        "rackWebJwGridVisual[6]=static_cast<float>(selectedReadCellIdx)",
+        "setCellOn(index%4,index/4,true,(encoded%2)==0)",
+    ] {
+        assert!(pres1t.contains(marker), "missing {marker}: {pres1t}");
+    }
+
+    let trigs = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "JW-Modules/Trigs"}, ""]),
+    );
+    assert!(trigs.contains("resetMode[track]?getSeqStart(track):seqPos[track]"));
+    assert!(trigs.contains("setCellOn(index%16,index/16,(encoded%2)!=0)"));
+}
+
+#[test]
+fn jw_generative_displays_publish_source_derived_live_geometry() {
+    let divider = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "JW-Modules/D1v1de"}, ""]),
+    );
+    for marker in [
+        "std::array<float, 4> rackWebD1v1deVisual",
+        "rackWebD1v1deVisual[0]=static_cast<float>(ticks)",
+        "rackWebD1v1deVisual[1]=static_cast<float>(getDivInt())",
+        "rackWebD1v1deVisual[3]=params[COLOR_PARAM].getValue()",
+    ] {
+        assert!(divider.contains(marker), "missing {marker}: {divider}");
+    }
+
+    let thing = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "JW-Modules/ThingThing"}, ""]),
+    );
+    for marker in [
+        "std::array<float, 12> rackWebThingThingVisual",
+        "inputs[BALL_RAD_INPUT].isConnected()",
+        "inputs[ZOOM_MULT_INPUT].isConnected()",
+        "angle=(inputs[ANG_INPUT+index].getVoltage()+angle)*atten[index]",
+        "sinf(rescale(angle,-5.f,5.f,-2.f*M_PI+M_PI/2.f,2.f*M_PI+M_PI/2.f))*zoom",
+    ] {
+        assert!(thing.contains(marker), "missing {marker}: {thing}");
+    }
+
+    let tree = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "JW-Modules/Tree"}, ""]),
+    );
+    for marker in [
+        "std::array<float, 31> rackWebTreeVisual",
+        "params[ANGLE_PARAM].getValue()/9.f+angleOffset",
+        "rescale(reduceOffset,-5.f,5.f,0.05f,0.33f)",
+        "params[JITTER_AMT_PARAM].getValue()+jitterOffset",
+        "rackWebTreeVisual[6+index]=rnd[index]",
+    ] {
+        assert!(tree.contains(marker), "missing {marker}: {tree}");
+    }
+}
+
+#[test]
+fn flying_fader_drag_action_owns_the_native_cv_override_window() {
+    let contract = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "Ahornberg/FlyingFader"}, ""]),
+    );
+    assert!(
+        contract.contains("if(id==1000) faderDragged=active"),
+        "{contract}"
+    );
+}
+
+#[test]
+fn algomorph_publishes_exact_graph_ids_aux_labels_and_randomize_actions() {
+    let large = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "DelexanderVol1/Algomorph", "plugin": "DelexanderVol1", "model": "Algomorph"}, ""]),
+    );
+    for marker in [
+        "std::array<float, 11> rackWebAlgomorphVisual",
+        "std::bitset<16> display=algoName[scene]",
+        "display.set(12+op,fullDisable)",
+        "rackWebAlgomorphVisual[4]=static_cast<float>(rackWebDisplayAlgorithm(scene))",
+        "auxInput[index]->activeModes",
+        "auxInput[index]->lastSetMode",
+        "if(id==1000)",
+        "for(int scene=0; scene<3; ++scene) randomizeAlgorithm(scene)",
+    ] {
+        assert!(large.contains(marker), "missing {marker}: {large}");
+    }
+
+    let small = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "DelexanderVol1/AlgomorphSmall", "plugin": "DelexanderVol1", "model": "AlgomorphSmall"}, ""]),
+    );
+    assert!(small.contains("rackWebDisplayAlgorithm"), "{small}");
+    assert!(!small.contains("auxInput[index]"), "{small}");
+
+    let batch = fs::read_to_string(root().join("scripts/compile-scaffold-batch.mjs")).unwrap();
+    for marker in [
+        "algomorph-graphs.bin",
+        "GraphData::${name}",
+        "0x31474c41",
+        "graphCount = 1980",
+        "MiriamLibre-Regular.ttf",
+    ] {
+        assert!(batch.contains(marker), "missing {marker}");
+    }
+}
+
+#[test]
+fn biset_tree_exports_every_native_wind_deformed_branch() {
+    let contract = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "Biset/Biset-Tree"}, ""]),
+    );
+    for marker in [
+        "std::min(branch_count, TREE_BRANCH_MAX)",
+        "branch.wpos_root.x",
+        "branch.wpos_root.y",
+        "branch.wpos_tail.x",
+        "branch.wpos_tail.y",
+        "branch.width",
+    ] {
+        assert!(contract.contains(marker), "missing {marker}: {contract}");
+    }
+
+    let stripped = inspect_text(
+        "stripRackUiBlocks",
+        json!([concat!(
+            "struct TreeBranch { Vec wpos_root; Vec wpos_tail; float width; void grow(); };\n",
+            "struct TreeDisplay : LedDisplay { Vec cursor; void draw(const DrawArgs& args); };"
+        )]),
+    );
+    assert!(stripped.contains("struct TreeBranch"), "{stripped}");
+    assert!(stripped.contains("Vec wpos_root"), "{stripped}");
+    assert!(!stripped.contains("struct TreeDisplay"), "{stripped}");
+}
+
+#[test]
+fn biset_regex_preserves_live_edits_compile_stop_and_native_status() {
+    let contract = inspect_text(
+        "sourceInteractionActionMethod",
+        json!([{"key": "Biset/Biset-Regex"}, ""]),
+    );
+    for marker in [
+        "std::array<float, 37> rackWebRegexVisual",
+        "sequence.check_syntax()",
+        "sequence.string_run==sequence.string_edit",
+        "if(id>=1000&&id<1000+exp_count)",
+        "else if(id==1100)",
+        "sequences[id-1200].reset(true)",
+    ] {
+        assert!(contract.contains(marker), "missing {marker}: {contract}");
+    }
+    let scaffold = fs::read_to_string(root().join("scripts/scaffold-library-module.mjs")).unwrap();
+    for marker in [
+        "adaptBisetRegexBrowserSource",
+        "const bool firstLoad=!rackWebRegexStateInitialized",
+        "static bool rackWebRegexStateInitialized=false",
+        "sequences[index].string_edit=next",
+        "if(firstLoad&&params[PARAM_RUN_START].getValue()>0.f)",
+        "kind:\"biset-regex\"",
+        "FT88-Regular.ttf",
+    ] {
+        assert!(scaffold.contains(marker), "missing {marker}");
+    }
+    let condensed = inspect_text(
+        "normalizeGeneratedImplementations",
+        json!(["struct RegexItem {}; struct Regex : Module {}; struct RegexCondensed : Regex {}; RACK_WEB_EXPORTS(RegexCondensed)"]),
+    );
+    assert!(condensed.contains("struct RegexSeq {"), "{condensed}");
+    assert!(condensed.contains("std::string string_edit"), "{condensed}");
+}
+
+#[test]
+fn browser_sequence_assets_parse_text_and_generated_globals_remain_unique() {
+    let results = inspect_batch(json!([
+        {
+            "operation": "browserAssetSamplerMethods",
+            "arguments": [{
+                "type": "text",
+                "maxSamples": 1024,
+                "maxSeconds": 0,
+                "channels": 1,
+                "mode": "sequence-text",
+                "sequenceKind": "voltage"
+            }]
+        },
+        {
+            "operation": "browserAssetSamplerMethods",
+            "arguments": [{
+                "type": "text",
+                "maxSamples": 1024,
+                "maxSeconds": 0,
+                "channels": 1,
+                "mode": "sequence-text",
+                "sequenceKind": "gate"
+            }]
+        },
+        {
+            "operation": "normalizeLegacyMidiOverrides",
+            "arguments": [concat!(
+                "namespace constants { extern const float gate_low_trigger { 0.1 }; }\n",
+                "namespace constants { extern const float gate_low_trigger { 0.1 }; }\n"
+            )]
+        }
+    ]));
+    let voltage = results[0].as_str().unwrap();
+    assert!(voltage.contains("std::strtof"));
+    assert!(voltage.contains("std::vector<float> sequence"));
+    assert!(voltage.contains("browser://sequence.txt"));
+    let gate = results[1].as_str().unwrap();
+    assert!(gate.contains("std::vector<bool> sequence"));
+    assert!(gate.contains("character == '0'"));
+    assert_eq!(
+        results[2]
+            .as_str()
+            .unwrap()
+            .matches("gate_low_trigger")
+            .count(),
+        1
+    );
+}
+
+#[test]
+fn native_signal_metadata_preserves_source_geometry_color_and_stroke_width() {
+    let source = concat!(
+        "struct EO_Display : TransparentWidget {\n",
+        "  EO_Display() { box.size = Vec(120, 60); }\n",
+        "  void draw(const DrawArgs& args) override {\n",
+        "    nvgStrokeColor(args.vg, nvgRGBA(0x44, 0xff, 0x88, 0xff));\n",
+        "    nvgStrokeWidth(args.vg, 1.75f);\n",
+        "  }\n",
+        "};\n",
+        "struct FixtureWidget : ModuleWidget { FixtureWidget(Module* module) {\n",
+        "  auto* display = new EO_Display();\n",
+        "  display->box.pos = Vec(12, 34);\n",
+        "  addChild(display);\n",
+        "} };\n"
+    );
+    let results = inspect_batch(json!([
+        {
+            "operation": "widgetDisplayRects",
+            "arguments": [source, "EO_Display", {}]
+        },
+        {
+            "operation": "nativeSignalStyle",
+            "arguments": [source, ["EO_Display"]]
+        },
+        {
+            "operation": "nativeSignalVisual",
+            "arguments": [
+                {"key": "SubmarineFree/EO-102"}, source, {}, {"x": 180, "y": 380},
+                [{"id": 2}], []
+            ]
+        }
+    ]));
+    assert_eq!(
+        results[0],
+        json!([{"x": 12, "y": 34, "width": 120, "height": 60}])
+    );
+    assert_eq!(
+        results[1],
+        json!({"colors": ["#44ff88"], "strokeWidths": [1.75]})
+    );
+    assert_eq!(results[2]["kind"], "native-signal");
+    assert_eq!(results[2]["sources"], json!([{"kind": "input", "id": 2}]));
+    assert_eq!(results[2]["x"], 12);
+    assert_eq!(results[2]["strokeWidths"], json!([1.75]));
+}
+
+#[test]
 fn preprocessing_and_preludes_consume_rust_ranges_without_losing_active_defines() {
     let source = concat!(
         "😀\n\n#include \"Dsp.hpp\"\n#pragma once\n#define ACTIVE_GAIN 2\n",
@@ -166,6 +616,166 @@ fn native_visual_adapters_publish_browser_abi_instead_of_desktop_state() {
     ] {
         assert!(tapestry.contains(marker), "missing {marker}");
     }
+}
+
+#[test]
+fn signal_function_set_adapters_publish_live_displays_and_pointer_actions() {
+    let requests = json!([
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["struct Band : Module {};\nRACK_WEB_EXPORTS(Band)", "Band"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["struct Beat : Module {};\nRACK_WEB_EXPORTS(Beat)", "Beat"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["struct Gravity : Module {};\nRACK_WEB_EXPORTS(Gravity)", "Gravity"]
+        },
+        {
+            "operation": "signalFunctionSetVisuals",
+            "arguments": ["Muse"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["namespace sfs {\nstatic const Scale SCALES[] = {};\n}\nnamespace sfs {\nstruct Scale { int size; };\n}\nstruct Chance : Module {};\nRACK_WEB_EXPORTS(Chance)", "Chance"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["namespace sfs { struct Bell : Module {}; }\nRACK_WEB_EXPORTS(sfs::Bell)", "Operator"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["#define N (1 << LG_N)\nstruct Shift : Module {};\nRACK_WEB_EXPORTS(Shift)", "Shift"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["#define TANH_N_SAMPLES 8\nextern int32_t tanhtab[TANH_N_SAMPLES << 1];\nstruct FmAlgorithm { int ops[6]; };\nconst FmAlgorithm algorithms[32] = {};\nstruct OpEnvEngine { struct Impl; };\nOpEnvEngine::OpEnvEngine() : p_(new Impl) {}\nstruct OpEnv : Module {};\nRACK_WEB_EXPORTS(OpEnv)", "OpEnv"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["#include \"rack_web_export.hpp\"\ntemplate<typename T> inline static T min(const T& a, const T& b) { return a < b ? a : b; }\ntemplate<typename T> inline static T max(const T& a, const T& b) { return a > b ? a : b; }\nvoid neon_fm_kernel(int);\nvoid neon_fm_kernel(int) { int neonOnly = 1; }\nint ScaleRate(int, int) { return 1; }\nint ScaleRate(int, int) { return 2; }\nint32_t tanhtab[TANH_N_SAMPLES << 1];\n#define TANH_N_SAMPLES 8\nextern int32_t tanhtab[TANH_N_SAMPLES << 1];\nstruct BellEngineImpl;\nBellEngine::BellEngine() : p_(new BellEngineImpl) {}\nstruct Operator : Module {};\nRACK_WEB_EXPORTS(Operator)", "Operator"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["#define N (1 << LG_N)\nstruct Wave : Module {};\nRACK_WEB_EXPORTS(Wave)", "Wave"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["#include \"rack_web_export.hpp\"\n#define R (1 << 29)\nDRWAV_API const char* drwav_version_string(void);\nstruct SfzRegion {};\nstruct Play : Module {};\nRACK_WEB_EXPORTS(Play)", "Play"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["#include \"rack_web_export.hpp\"\nDRWAV_API const char* drwav_version_string(void);\nusing PhaseSampleT = float;\nstruct SampleData {};\nstruct Phase : Module {};\nRACK_WEB_EXPORTS(Phase)", "Phase"]
+        },
+        {
+            "operation": "adaptSignalFunctionSetBrowserSource",
+            "arguments": ["#include \"rack_web_export.hpp\"\nDRWAV_API const char* drwav_version_string(void);\nstruct NoteParamQuantity : ParamQuantity {};\nstruct Record : Module {};\nRACK_WEB_EXPORTS(Record)", "Record"]
+        }
+    ]);
+    let results = inspect_batch(requests);
+    let band = results[0].as_str().expect("Band adapter should be text");
+    assert!(band.contains("spectrum[bin]"));
+    assert!(band.contains("RACK_WEB_EXPORTS(RackWebSignalFunctionSetBand)"));
+
+    let beat = results[1].as_str().expect("Beat adapter should be text");
+    for marker in [
+        "rackWebPatternStride",
+        "rackWebDecodeAction",
+        "patterns[pattern].velocities[step]",
+        "RACK_WEB_EXPORTS(RackWebSignalFunctionSetBeat)",
+    ] {
+        assert!(beat.contains(marker), "missing {marker}");
+    }
+
+    let gravity = results[2].as_str().expect("Gravity adapter should be text");
+    for marker in [
+        "billiardsLaunch",
+        "dragTargetX",
+        "dispGateFlash",
+        "hmPassRing[node]",
+        "rackWebSampleTrail",
+        "sectorOut[sector]",
+    ] {
+        assert!(gravity.contains(marker), "missing {marker}");
+    }
+
+    let visuals = results[3]
+        .as_array()
+        .expect("Muse should publish display and scope visuals");
+    assert_eq!(visuals.len(), 2);
+    assert_eq!(visuals[0]["kind"], "signal-function-set");
+    assert_eq!(visuals[0]["actionBase"], 100_000);
+    assert_eq!(visuals[1]["model"], "MuseScope");
+
+    let scale = results[4]
+        .as_str()
+        .expect("Scale adapter repair should be text");
+    assert!(
+        scale.find("struct Scale").expect("Scale type")
+            < scale.find("static const Scale").expect("Scale table")
+    );
+    assert_eq!(scale.matches("struct Scale").count(), 1);
+
+    let qualified = results[5]
+        .as_str()
+        .expect("qualified Operator adapter should be text");
+    assert!(qualified.contains("RackWebSignalFunctionSetOperator : sfs::Bell"));
+
+    let shift = results[6]
+        .as_str()
+        .expect("Shift macro repair should be text");
+    assert!(shift.contains("#undef N\nstruct Shift"));
+
+    let op_env = results[7]
+        .as_str()
+        .expect("OpEnv adapter repair should be text");
+    assert!(op_env.contains("int32_t tanhtab[TANH_N_SAMPLES << 1]{};"));
+    assert!(op_env.contains("static constexpr int OUT_BUS_ADD = 1 << 2;"));
+    assert!(op_env.contains("struct OpEnvEngine::Impl {"));
+
+    let operator = results[8]
+        .as_str()
+        .expect("Operator adapter repair should be text");
+    assert!(operator.contains("class Controllers;\nstruct BellEngineImpl;"));
+    assert!(operator.contains("struct BellEngineImpl {"));
+    assert!(operator.contains("int32_t tanhtab[TANH_N_SAMPLES << 1]{};"));
+    assert!(operator.contains("#include \"bell_patches.h\""));
+    assert!(!operator.contains("inline static T min"));
+    assert!(!operator.contains("inline static T max"));
+    assert!(!operator.contains("neonOnly"));
+    assert!(operator.contains("void neon_fm_kernel(int);"));
+    assert!(operator.contains("return 1"));
+    assert!(!operator.contains("return 2"));
+    assert!(operator.contains("12.567f + 26.f"));
+
+    let wave = results[9]
+        .as_str()
+        .expect("Wave macro repair should be text");
+    let play = results[10]
+        .as_str()
+        .expect("Play dr_wav repair should be text");
+    assert!(play.contains("#define DRWAV_API extern"));
+    assert!(play.contains("#define DRWAV_PRIVATE static"));
+    assert!(play.contains("#define DR_WAV_IMPLEMENTATION"));
+    assert!(play.contains("#define DRWAV_MAX_SAMPLE_RATE 384000"));
+    assert!(play.contains("#define DRWAV_MAX_CHANNELS 256"));
+    assert!(play.contains("#define DRWAV_MAX_BITS_PER_SAMPLE 64"));
+    assert!(play.contains("#undef R"));
+    assert!(play.contains("struct SfzRegion"));
+    assert!(play.contains("static inline int gridNoteAt"));
+    let phase = results[11]
+        .as_str()
+        .expect("Phase constant repair should be text");
+    assert!(phase.contains("MAX_SAMPLE_LENGTH = 48000 * 60 * 10"));
+    assert!(phase.contains("MAX_REC_LENGTH = 48000 * 60"));
+    let record = results[12]
+        .as_str()
+        .expect("Record grid repair should be text");
+    assert!(record.contains("static const int GRID_COLS = 12, GRID_ROWS = 8"));
+    assert!(record.contains("static inline int gridNoteAt"));
+    assert!(wave.contains("#undef N\nstruct Wave"));
 }
 
 #[test]

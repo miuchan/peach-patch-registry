@@ -17,88 +17,92 @@
     "description": "Tunable 3rd-order pingable resonator based on the Gamelan Resonator circuit, with variable damping and VCA anti-click mode",
     "params": [
       {
+        "default": 0,
         "id": 0,
-        "name": "Frequency",
-        "min": -4,
         "max": 4,
-        "default": 0,
+        "min": -4,
+        "name": "Frequency",
         "position": {
+          "centered": true,
+          "widget": "RoundHugeBlackKnob",
           "x": 60,
-          "y": 90,
-          "centered": true,
-          "widget": "RoundHugeBlackKnob"
+          "y": 90
         }
       },
       {
-        "id": 1,
-        "name": "Damping",
-        "min": 0,
-        "max": 1,
         "default": 0.5,
+        "id": 1,
+        "max": 1,
+        "min": 0,
+        "name": "Damping",
         "position": {
-          "x": 30,
-          "y": 180,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 30,
+          "y": 180
         }
       },
       {
-        "id": 2,
-        "name": "Ping",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
         "button": true,
+        "default": 0,
+        "id": 2,
+        "max": 1,
+        "min": 0,
+        "name": "Ping",
         "position": {
-          "x": 90,
-          "y": 180,
           "centered": true,
-          "widget": "VCVButton"
-        }
+          "widget": "VCVButton",
+          "x": 90,
+          "y": 180
+        },
+        "snap": true
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "V/Oct",
         "kind": "cv",
+        "name": "V/Oct",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 345,
-          "centered": true
+          "y": 345
         }
       },
       {
         "id": 1,
-        "name": "Trigger (ping)",
         "kind": "gate",
+        "name": "Trigger (ping)",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 345,
-          "centered": true
+          "y": 345
         }
       },
       {
         "id": 2,
-        "name": "Damping CV",
         "kind": "cv",
+        "name": "Damping CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 180,
-          "centered": true
+          "y": 180
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Audio",
         "kind": "audio",
+        "name": "Audio",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 345,
-          "centered": true
+          "y": 345
         }
       }
     ],
@@ -116,8 +120,8 @@
     "manifestUrl": "packages/SignalFunctionSet/Tine/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "1863be30d3a98cfb818aac1c5d198700f244b15819fff1ca6b09a4950a924f74",
-      "size": 84342
+      "sha256": "4025ce128480c39d75190a990f7d22c39844bb593298720c3f77de8b8cd3ee4b",
+      "size": 88460
     }
   },
   "source": {
@@ -126,7 +130,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:11:51.508Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

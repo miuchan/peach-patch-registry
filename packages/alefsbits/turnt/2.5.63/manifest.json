@@ -24,8 +24,8 @@
         "default": 0,
         "snap": true,
         "position": {
-          "x": 100,
-          "y": 52.5,
+          "x": 60,
+          "y": 157.5,
           "centered": true,
           "widget": "CKSSThreeHorizontal"
         }
@@ -37,8 +37,8 @@
         "max": 10,
         "default": 0,
         "position": {
-          "x": 107.5,
-          "y": 37.5,
+          "x": 45,
+          "y": 112.5,
           "centered": true,
           "widget": "SmallBitKnob"
         }
@@ -50,8 +50,8 @@
         "max": 1,
         "default": 1,
         "position": {
-          "x": 92.5,
-          "y": 37.5,
+          "x": 75,
+          "y": 112.5,
           "centered": true,
           "widget": "SmallBitKnob"
         }
@@ -63,9 +63,10 @@
         "name": "source",
         "kind": "cv",
         "position": {
-          "x": 100,
+          "x": 60,
           "y": 75,
-          "centered": true
+          "centered": true,
+          "widget": "BitPort"
         }
       },
       {
@@ -73,9 +74,10 @@
         "name": "zero threshold",
         "kind": "gate",
         "position": {
-          "x": 81.25,
-          "y": 67.5,
-          "centered": true
+          "x": 18.75,
+          "y": 112.5,
+          "centered": true,
+          "widget": "BitPort"
         }
       },
       {
@@ -83,9 +85,10 @@
         "name": "probability",
         "kind": "cv",
         "position": {
-          "x": 118.75,
-          "y": 67.5,
-          "centered": true
+          "x": 101.25,
+          "y": 112.5,
+          "centered": true,
+          "widget": "BitPort"
         }
       }
     ],
@@ -95,9 +98,10 @@
         "name": "trigger",
         "kind": "gate",
         "position": {
-          "x": 100,
-          "y": 60,
-          "centered": true
+          "x": 60,
+          "y": 195,
+          "centered": true,
+          "widget": "BitPort"
         }
       }
     ],
@@ -105,22 +109,70 @@
     "stateKeys": [
       {
         "key": "trigger mode",
-        "type": "integer"
+        "type": "integer",
+        "name": "Trigger Mode",
+        "default": 0,
+        "values": [
+          "trigger",
+          "latch"
+        ],
+        "contextOnly": true
       },
       {
         "key": "freeze on disconnect",
-        "type": "boolean"
+        "type": "boolean",
+        "name": "Freeze When Idle",
+        "default": 0,
+        "contextOnly": true
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "alefsbits-panel",
+          "assetBase": "packages/alefsbits/turnt/2.5.63/resources/",
+          "panelFile": "turnt.svg",
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 380
+        },
+        {
+          "kind": "alefsbits-turnt",
+          "actionBase": 1000,
+          "maxPoints": 2048,
+          "topTabs": {
+            "x": 1,
+            "y": 221,
+            "width": 118,
+            "height": 10
+          },
+          "scope": {
+            "x": 1,
+            "y": 230,
+            "width": 118,
+            "height": 95
+          },
+          "bottomTabs": {
+            "x": 1,
+            "y": 324,
+            "width": 118,
+            "height": 10
+          },
+          "x": 1,
+          "y": 221,
+          "width": 118,
+          "height": 113
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/alefsbits/turnt/2.5.63/manifest.json",
     "sourceCommit": "f6192a74f867be4338da7accde238b32c577ab3d",
     "artifact": {
-      "sha256": "7753dcd71676f0e33e5a4b1cb5aaaabe72a69484cd155e154fa84f834c27bedc",
-      "size": 74977
+      "sha256": "768e976371814b0450b87819c7a6387541ec950d65160052ddaedd12960fd51b",
+      "size": 82078
     }
   },
   "source": {
@@ -129,7 +181,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:42:30.574Z"
+    "fingerprint": "879de7c68d760900",
+    "builtAt": "2026-08-06T09:48:35.648Z"
   }
 }

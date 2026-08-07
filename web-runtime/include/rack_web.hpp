@@ -680,8 +680,10 @@ inline std::string getFilename(const std::string& value) { const auto slash=valu
 inline std::string getDirectory(const std::string& value) { const auto slash=value.find_last_of("/\\"); return slash==std::string::npos?std::string():value.substr(0,slash); }
 inline std::string getExtension(const std::string& value) { const std::string filename=getFilename(value); const auto dot=filename.find_last_of('.'); return dot==std::string::npos?std::string():filename.substr(dot+1); }
 inline std::string getStem(const std::string& value) { const std::string filename=getFilename(value); const auto dot=filename.find_last_of('.'); return dot==std::string::npos?filename:filename.substr(0,dot); }
+inline std::string join(const std::string& directory, const std::string& name) { if(directory.empty())return name;if(name.empty())return directory;const char tail=directory.back();return tail=='/'||tail=='\\'?directory+name:directory+"/"+name; }
 inline bool isFile(const std::string&) { return false; }
 inline bool isDirectory(const std::string&) { return false; }
+inline void createDirectories(const std::string&) {}
 inline std::vector<std::string> getEntries(const std::string&) { return {}; }
 inline double getTime() { static double time = 0.; time += 1. / 60.; return time; }
 }
@@ -940,7 +942,15 @@ struct SampleRateChangeEvent {
   float sampleTime = 1.f / 48000.f;
 };
 
-struct NVGcolor { float r = 0.f; float g = 0.f; float b = 0.f; float a = 1.f; };
+struct NVGcolor {
+  union {
+    struct { float r; float g; float b; float a; };
+    float rgba[4];
+  };
+  constexpr NVGcolor() : r(0.f), g(0.f), b(0.f), a(1.f) {}
+  constexpr NVGcolor(float red, float green, float blue, float alpha)
+      : r(red), g(green), b(blue), a(alpha) {}
+};
 enum NVGlineCap {
   NVG_BUTT,
   NVG_ROUND,
@@ -1032,7 +1042,25 @@ struct Engine {
 };
 }
 using ParamHandle = engine::ParamHandle;
+extern "C" int rack_web_host_clipboard_size()
+    __attribute__((import_module("env"), import_name("rack_web_host_clipboard_size")));
+extern "C" int rack_web_host_get_clipboard(char* destination, int capacity)
+    __attribute__((import_module("env"), import_name("rack_web_host_get_clipboard")));
+extern "C" void rack_web_host_set_clipboard(const char* source, int length)
+    __attribute__((import_module("env"), import_name("rack_web_host_set_clipboard")));
+extern "C" float rack_web_host_shared_get(int index)
+    __attribute__((import_module("env"), import_name("rack_web_host_shared_get")));
+extern "C" void rack_web_host_shared_set(int index, float value)
+    __attribute__((import_module("env"), import_name("rack_web_host_shared_set")));
+extern "C" void rack_web_host_shared_touch(int index)
+    __attribute__((import_module("env"), import_name("rack_web_host_shared_touch")));
+extern "C" int rack_web_host_shared_active(int index)
+    __attribute__((import_module("env"), import_name("rack_web_host_shared_active")));
+extern "C" int rack_web_host_shared_count(int index)
+    __attribute__((import_module("env"), import_name("rack_web_host_shared_count")));
+
 struct RackWebWindow {
+  void* win = nullptr;
   int mods = 0;
   int getMods() const { return mods; }
 };
@@ -1192,6 +1220,17 @@ inline constexpr int GLFW_KEY_KP_ADD = 334;
 inline constexpr int GLFW_KEY_KP_ENTER = 335;
 inline constexpr int GLFW_KEY_KP_EQUAL = 336;
 inline const char* glfwGetKeyName(int, int) { return nullptr; }
+inline void glfwSetClipboardString(void*, const char* text) {
+  if (!text) return;
+  rack_web_host_set_clipboard(text, static_cast<int>(std::strlen(text)));
+}
+inline const char* glfwGetClipboardString(void*) {
+  static std::string clipboard;
+  const int length = std::max(0, rack_web_host_clipboard_size());
+  clipboard.assign(static_cast<size_t>(length), '\0');
+  if (length > 0) rack_web_host_get_clipboard(clipboard.data(), length);
+  return clipboard.c_str();
+}
 inline constexpr int GLFW_MOD_SHIFT = 0x0001;
 inline constexpr int GLFW_MOD_CONTROL = 0x0002;
 inline constexpr int GLFW_MOD_ALT = 0x0004;
@@ -1592,13 +1631,16 @@ struct Module {
   }
   uint8_t* rackWebSnapshotStateBuffer() { return rackWebStateJson.empty() ? nullptr : rackWebStateJson.data(); }
   virtual void rackWebTriggerAction(int, bool) {}
-  virtual void rackWebResetParam(int id, float value) {
+  virtual void rackWebSetParam(int id, float value) {
     if (id < 0 || id >= rackWebMaxParams) return;
     if (auto* quantity = getParamQuantity(id)) {
       quantity->setValue(value);
       params[id].setValue(quantity->getValue());
     }
     else params[id].setValue(value);
+  }
+  virtual void rackWebResetParam(int id, float value) {
+    rackWebSetParam(id, value);
   }
   virtual void rackWebPushMidi(int size, int status, int data1, int data2) { midi::rackWebPushToInputs(size, status, data1, data2, APP && APP->engine ? APP->engine->getFrame() : -1); }
   void rackWebEmitMidi(int size, int status, int data1 = 0, int data2 = 0) {

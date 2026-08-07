@@ -26,11 +26,12 @@
           "x": 53,
           "y": 26,
           "widget": "NKK_UpDown"
-        }
+        },
+        "snap": true
       },
       {
         "id": 1,
-        "name": "Param 2",
+        "name": "Half Step",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -38,11 +39,12 @@
           "x": 50,
           "y": 85,
           "widget": "CKSS"
-        }
+        },
+        "snap": true
       },
       {
         "id": 2,
-        "name": "Param 3",
+        "name": "Whole Step",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -50,7 +52,7 @@
       },
       {
         "id": 3,
-        "name": "Param 4",
+        "name": "Minor Third",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -58,7 +60,7 @@
       },
       {
         "id": 4,
-        "name": "Param 5",
+        "name": "Major Third",
         "min": 0,
         "max": 1,
         "default": 1,
@@ -66,7 +68,7 @@
       },
       {
         "id": 5,
-        "name": "Param 6",
+        "name": "Fifth",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -74,7 +76,7 @@
       },
       {
         "id": 6,
-        "name": "Param 7",
+        "name": "Octave",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -87,7 +89,7 @@
         "max": 1,
         "default": 0.550000011920929,
         "position": {
-          "x": 48,
+          "x": 7,
           "y": 322,
           "widget": "RoundSmallBlackKnob"
         }
@@ -100,55 +102,58 @@
         "kind": "cv",
         "position": {
           "x": 7,
-          "y": 322
+          "y": 322,
+          "widget": "PJ301MPort"
         }
       },
       {
         "id": 1,
         "name": "Gate to force toggle to UP",
-        "kind": "gate",
+        "kind": "cv",
         "position": {
           "x": 90,
-          "y": 35.664
+          "y": 35.664,
+          "widget": "PJ301MPort"
         }
       },
       {
         "id": 2,
         "name": "Gate to add an extra half step",
-        "kind": "gate",
+        "kind": "cv",
         "position": {
           "x": 68,
-          "y": 83.164
+          "y": 83.164,
+          "widget": "PJ301MPort"
         }
       },
       {
         "id": 3,
         "name": "Gate to add an extra whole step",
-        "kind": "gate",
+        "kind": "cv",
         "hidden": true
       },
       {
         "id": 4,
         "name": "Gate to add an extra minor third",
-        "kind": "gate",
+        "kind": "cv",
         "hidden": true
       },
       {
         "id": 5,
         "name": "Gate to add an extra major third",
-        "kind": "gate",
+        "kind": "cv",
         "hidden": true
       },
       {
         "id": 6,
         "name": "Gate to add an extra fifth",
-        "kind": "gate",
+        "kind": "cv",
         "hidden": true
       },
       {
         "id": 7,
         "name": "Gate to add an extra octave",
-        "kind": "gate",
+        "kind": "cv",
         "hidden": true
       }
     ],
@@ -164,8 +169,9 @@
         "name": "Harmonized Output",
         "kind": "cv",
         "position": {
-          "x": 89,
-          "y": 322
+          "x": 7,
+          "y": 322,
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -207,14 +213,23 @@
       ]
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "bacon-footer",
+          "x": 52,
+          "y": 362,
+          "width": 16,
+          "height": 16
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/BaconMusic/HarMoNee/2.7.0/manifest.json",
     "sourceCommit": "2886a282a0f8518e0515b549e426428db332378c",
     "artifact": {
-      "sha256": "d506a0c584d6213ae891ea76309d2f5cbb01b5b3e293960d8dbfed2fc4b9086e",
-      "size": 77671
+      "sha256": "4b5a242f1fa8f70bf70985bdcf215c08ce9665d4e68eae0900b7de35e680a7ce",
+      "size": 78293
     }
   },
   "source": {
@@ -223,7 +238,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-23T23:28:01.232Z"
+    "fingerprint": "d1860b9e5712950e",
+    "builtAt": "2026-08-06T19:08:46.394Z"
   }
 }

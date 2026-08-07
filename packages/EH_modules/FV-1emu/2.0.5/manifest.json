@@ -172,7 +172,8 @@
         "kind": "cv",
         "position": {
           "x": 22.5,
-          "y": 45
+          "y": 45,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -181,7 +182,8 @@
         "kind": "cv",
         "position": {
           "x": 62.5,
-          "y": 45
+          "y": 45,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -190,7 +192,8 @@
         "kind": "cv",
         "position": {
           "x": 102.5,
-          "y": 45
+          "y": 45,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -199,7 +202,8 @@
         "kind": "audio",
         "position": {
           "x": 22.5,
-          "y": 292.5
+          "y": 292.5,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -208,7 +212,8 @@
         "kind": "audio",
         "position": {
           "x": 142.5,
-          "y": 292.5
+          "y": 292.5,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -217,7 +222,8 @@
         "kind": "cv",
         "position": {
           "x": 142.5,
-          "y": 45
+          "y": 45,
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -228,7 +234,8 @@
         "kind": "audio",
         "position": {
           "x": 22.5,
-          "y": 337.5
+          "y": 337.5,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -237,20 +244,85 @@
         "kind": "audio",
         "position": {
           "x": 142.5,
-          "y": 337.5
+          "y": 337.5,
+          "widget": "PJ301MPort"
         }
       }
     ],
     "lights": 0,
     "runtime": {
+      "asset": {
+        "type": "text",
+        "maxSamples": 262144,
+        "maxSeconds": 0,
+        "channels": 1
+      },
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "FV-1 program display",
+              "title": "Click to load an FV-1 SPN file",
+              "x": 10,
+              "y": 150,
+              "width": 145,
+              "height": 80,
+              "click": {
+                "target": "menu",
+                "title": "FV-1 effect",
+                "choices": [
+                  {
+                    "label": "Load SPN file…",
+                    "command": {
+                      "target": "asset"
+                    }
+                  }
+                ]
+              },
+              "rightClick": {
+                "target": "menu",
+                "title": "FV-1 effect",
+                "choices": [
+                  {
+                    "label": "Load SPN file…",
+                    "command": {
+                      "target": "asset"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 1,
+                "format": "ascii",
+                "asciiLengthId": 0,
+                "color": "#ffffff",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "fontSize": 11,
+                "fontFamily": "RackShareTechMono",
+                "fontWeight": 400,
+                "lineHeight": 11,
+                "textAlign": "left",
+                "padding": 5
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 165,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/EH_modules/FV-1emu/2.0.5/manifest.json",
     "sourceCommit": "5c5bb66ad78d8ad5ceb07d3e8bbec967edb4d438",
     "artifact": {
-      "sha256": "7d93764272d023a0967459ea2c5321d30ca3ac3171c2765645982457ecb890e1",
-      "size": 280992
+      "sha256": "0fc4df047c40aa3cc960e91af8a363e5a47e082e6824747a8de75a428409dbba",
+      "size": 283106
     }
   },
   "source": {
@@ -259,7 +331,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-27T18:10:36.193Z"
+    "fingerprint": "c6c53082d18936bd",
+    "builtAt": "2026-08-06T16:36:24.028Z"
   }
 }

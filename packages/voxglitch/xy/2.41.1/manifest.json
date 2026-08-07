@@ -21,116 +21,103 @@
         "name": "Retrigger",
         "min": 0,
         "max": 1,
-        "default": 1,
-        "position": {
-          "x": 127.374,
-          "y": 343.475,
-          "width": 22,
-          "height": 22,
-          "centered": true,
-          "widget": "squareToggle"
-        }
+        "default": 1
       },
       {
         "id": 1,
         "name": "Punch",
         "min": 0,
         "max": 1,
-        "default": 0,
-        "position": {
-          "x": 171.878,
-          "y": 343.475,
-          "width": 22,
-          "height": 22,
-          "centered": true,
-          "widget": "squareToggle"
-        }
+        "default": 0
       }
     ],
     "inputs": [
       {
         "id": 0,
         "name": "Clk",
-        "kind": "cv",
-        "position": {
-          "x": 32.876,
-          "y": 343.475,
-          "width": 23.528,
-          "height": 23.528,
-          "centered": true,
-          "widget": "VoxglitchInputPort"
-        }
+        "kind": "cv"
       },
       {
         "id": 1,
         "name": "Reset",
-        "kind": "gate",
-        "position": {
-          "x": 73.46,
-          "y": 343.475,
-          "width": 23.528,
-          "height": 23.528,
-          "centered": true,
-          "widget": "VoxglitchInputPort"
-        }
+        "kind": "gate"
       }
     ],
     "outputs": [
       {
         "id": 0,
         "name": "X",
-        "kind": "cv",
-        "position": {
-          "x": 231.887,
-          "y": 343.475,
-          "width": 23.528,
-          "height": 23.528,
-          "centered": true,
-          "widget": "VoxglitchOutputPort"
-        }
+        "kind": "cv"
       },
       {
         "id": 1,
         "name": "Y",
-        "kind": "cv",
-        "position": {
-          "x": 270.339,
-          "y": 343.475,
-          "width": 23.528,
-          "height": 23.528,
-          "centered": true,
-          "widget": "VoxglitchOutputPort"
-        }
+        "kind": "cv"
       }
     ],
     "lights": 0,
     "stateKeys": [
       {
         "key": "tablet_mode",
-        "type": "integer"
+        "type": "integer",
+        "name": "Tablet Mode",
+        "default": 0,
+        "contextOnly": true
       },
       {
         "key": "no_clk_position_x",
-        "type": "real"
+        "type": "real",
+        "name": "Saved X Position",
+        "default": 0,
+        "contextOnly": false
       },
       {
         "key": "no_clk_position_y",
-        "type": "real"
+        "type": "real",
+        "name": "Saved Y Position",
+        "default": 0,
+        "contextOnly": false
       },
       {
         "key": "voltage_range",
-        "type": "integer"
+        "type": "integer",
+        "name": "Output Range",
+        "default": 0,
+        "values": [
+          "0.0 to 10.0",
+          "-10.0 to 10.0",
+          "0.0 to 5.0",
+          "-5.0 to 5.0",
+          "0.0 to 3.0",
+          "-3.0 to 3.0",
+          "0.0 to 1.0",
+          "-1.0 to 1.0"
+        ],
+        "contextOnly": true
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "voxglitch-xy",
+          "actionBase": 1000,
+          "hoverActionBase": 100000,
+          "actionSteps": 256,
+          "tabletModeState": 0,
+          "x": 19.75,
+          "y": 19.75,
+          "width": 260,
+          "height": 260
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/voxglitch/xy/2.41.1/manifest.json",
     "sourceCommit": "267101591c21dee84c3e18e4bac64d5177c94d5a",
     "artifact": {
-      "sha256": "0fce1bfd7644dccb3524bce8bce6d2a24b9e5abd082980deab458ba163cb4f2c",
-      "size": 78625
+      "sha256": "0fdf9c320248c64e604c3f7128fb88407aa0aa0ca9ce907841d2ec294c8aced5",
+      "size": 79811
     }
   },
   "source": {
@@ -139,7 +126,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-26T21:46:52.415Z"
+    "fingerprint": "d71ad8ea9d7150c5",
+    "builtAt": "2026-08-06T03:37:03.753Z"
   }
 }

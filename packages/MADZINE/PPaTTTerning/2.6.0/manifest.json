@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/PPaTTTerning",
+    "plugin": "MADZINE",
+    "model": "PPaTTTerning",
+    "name": "PPaTTTerning",
+    "brand": "MADZINE",
+    "version": "2.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/PPaTTTerning",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/PPaTTTerning.webp",
+    "wasmUrl": "packages/MADZINE/PPaTTTerning/2.6.0/module.wasm",
+    "width": 60,
+    "description": "Pattern-based CV sequencer with style and density control",
+    "params": [
+      {
+        "id": 0,
+        "name": "K1",
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "position": {
+          "x": 85,
+          "y": 97,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "K2",
+        "min": -10,
+        "max": 10,
+        "default": 2,
+        "position": {
+          "x": 85,
+          "y": 142,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "K3",
+        "min": -10,
+        "max": 10,
+        "default": 4,
+        "position": {
+          "x": 85,
+          "y": 187,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "K4",
+        "min": -10,
+        "max": 10,
+        "default": 6,
+        "position": {
+          "x": 85,
+          "y": 232,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "K5",
+        "min": -10,
+        "max": 10,
+        "default": 8,
+        "position": {
+          "x": 85,
+          "y": 277,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Style",
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 115,
+          "y": 97,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Density",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 115,
+          "y": 142,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Chaos",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 115,
+          "y": 187,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "CVD Time/Attenuation",
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "position": {
+          "x": 15,
+          "y": 370,
+          "centered": true,
+          "widget": "Trimpot"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Delay",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "snap": true,
+        "button": true,
+        "position": {
+          "x": 15,
+          "y": 315,
+          "centered": true,
+          "widget": "VCVButton"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Clock",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 55,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Reset",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 55,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CVD Time CV",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 370,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "CV",
+        "kind": "cv",
+        "position": {
+          "x": 115,
+          "y": 232,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 115,
+          "y": 277,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "CV2",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 345,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "TRIG2",
+        "kind": "gate",
+        "position": {
+          "x": 45,
+          "y": 345,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "lights": 6,
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 115,
+          "y": 97,
+          "centered": true
+        }
+      },
+      {
+        "id": 3,
+        "widget": "MediumLight<RedGreenBlueLight>",
+        "position": {
+          "x": 15,
+          "y": 315,
+          "centered": true
+        }
+      }
+    ],
+    "stateKeys": [
+      {
+        "key": "track2Delay",
+        "type": "integer"
+      },
+      {
+        "key": "styleMode",
+        "type": "integer"
+      },
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "editable-text",
+          "foregroundKey": "",
+          "backgroundKey": "",
+          "defaultForeground": "#111111",
+          "defaultBackground": "#eeeeee",
+          "defaultFontSize": 12,
+          "fontFamily": "ui-monospace, monospace",
+          "lineHeight": 1.05,
+          "padding": 2,
+          "borderRadius": 0,
+          "styleControls": false,
+          "multiline": false,
+          "rotation": 0,
+          "dataKey": "customPattern",
+          "dataFormat": "one-based-digits",
+          "allowedCharacters": "123456789",
+          "defaultText": "12345",
+          "title": "Custom pattern",
+          "contextOnly": true,
+          "maximumLength": 64,
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/PPaTTTerning/2.6.0/manifest.json",
+    "sourceCommit": "f8f8a93c0ec59255984ff2c3e56e080927b80522",
+    "artifact": {
+      "sha256": "b5b3af9a16f66320521eb719c59c7068ab7e77cc0f898804f77ca3bc37d33fec",
+      "size": 83600
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "f8f8a93c0ec59255984ff2c3e56e080927b80522"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "482d028399730e8e",
+    "builtAt": "2026-08-06T13:20:26.974Z"
+  }
+}

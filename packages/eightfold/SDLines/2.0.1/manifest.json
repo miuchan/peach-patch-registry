@@ -19,27 +19,63 @@
     "inputs": [
       {
         "id": 0,
-        "name": "",
+        "name": "Input",
         "kind": "cv",
         "position": {
           "x": 15,
           "y": 352.32,
-          "centered": true
+          "centered": true,
+          "widget": "SDPolyInPort"
         }
       }
     ],
     "outputs": [],
     "lights": 0,
     "runtime": {
+      "visuals": [
+        {
+          "kind": "sd-lines-display",
+          "x": 0,
+          "y": 8.429,
+          "width": 30,
+          "height": 309.582
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/eightfold/SDLines/2.0.1/manifest.json",
     "sourceCommit": "b8c3b1abb76f6602dfbf49d57232115b01250df0",
     "artifact": {
-      "sha256": "a2529d019ad175f0e75b9e48e80037e4c18db64d4a6046940aaf188cd716c72c",
-      "size": 65045
-    }
+      "sha256": "ea882fa660cc488764af6a4c4a7dfd205c615846901d72e96412edee5999dc19",
+      "size": 72630
+    },
+    "stateKeys": [
+      {
+        "key": "range",
+        "type": "integer",
+        "name": "Range",
+        "default": 0,
+        "values": [
+          "0 .. +10",
+          "-10 .. +10",
+          "0 .. +5",
+          "-5 .. +5"
+        ],
+        "contextOnly": true
+      },
+      {
+        "key": "mode",
+        "type": "integer",
+        "name": "Mode",
+        "default": 0,
+        "values": [
+          "Horizontal",
+          "Vertical"
+        ],
+        "contextOnly": true
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/scanner-darkly/eightfold",
@@ -47,7 +83,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:06:56.714Z"
+    "fingerprint": "948fe4b08aeaab98",
+    "builtAt": "2026-08-06T07:34:54.515Z"
   }
 }

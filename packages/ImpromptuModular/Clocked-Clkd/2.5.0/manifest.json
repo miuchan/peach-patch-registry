@@ -22,6 +22,7 @@
         "min": -34,
         "max": 34,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 30,
           "y": 227,
@@ -35,6 +36,7 @@
         "min": -34,
         "max": 34,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 75,
           "y": 227,
@@ -48,6 +50,7 @@
         "min": -34,
         "max": 34,
         "default": 0,
+        "snap": true,
         "position": {
           "x": 120,
           "y": 227,
@@ -61,6 +64,7 @@
         "min": 30,
         "max": 300,
         "default": 120,
+        "snap": true,
         "position": {
           "x": 120,
           "y": 95,
@@ -185,7 +189,7 @@
       {
         "id": 2,
         "name": "BPM CV / Ext clock",
-        "kind": "gate",
+        "kind": "cv",
         "position": {
           "x": 120,
           "y": 58,
@@ -264,7 +268,7 @@
       {
         "id": 6,
         "name": "BPM CV / Ext clock thru",
-        "kind": "gate",
+        "kind": "cv",
         "position": {
           "x": 120,
           "y": 328,
@@ -363,14 +367,30 @@
       ]
     ],
     "runtime": {
+      "hoverActions": [
+        {
+          "key": " ",
+          "action": 2000
+        },
+        {
+          "key": "m",
+          "modifiers": 2,
+          "hostAction": "clock-autopatch"
+        },
+        {
+          "key": "m",
+          "modifiers": 8,
+          "hostAction": "clock-autopatch"
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/ImpromptuModular/Clocked-Clkd/2.5.0/manifest.json",
     "sourceCommit": "5ba4ccd49cd657d04bb73b9143daa7ab490baf2b",
     "artifact": {
-      "sha256": "8d56e5ed4c1cc0ede56436c28207f0b3d61735161a2af12eeaa7d62b4cee07ec",
-      "size": 89293
+      "sha256": "426dbcea156734f240e197920eb73633fb467d1c0af9c6ec5b58c238128bc837",
+      "size": 96950
     },
     "lightWidgets": [
       {
@@ -444,7 +464,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T19:37:50.206Z"
+    "fingerprint": "ab9edecb68d45b80",
+    "builtAt": "2026-08-06T17:43:19.781Z"
   }
 }

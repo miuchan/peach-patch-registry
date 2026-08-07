@@ -17,387 +17,387 @@
     "description": "Time-signature-aware musical clock with bar/quarter/eighth/sixteenth/triplet outputs, CV-controllable time signature, and external clock sync",
     "params": [
       {
-        "id": 0,
-        "name": "BPM",
-        "min": 30,
-        "max": 300,
         "default": 120,
+        "id": 0,
+        "max": 300,
+        "min": 30,
+        "name": "BPM",
         "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
           "x": 29.705,
-          "y": 149.97,
-          "centered": true,
-          "widget": "RoundBlackKnob"
+          "y": 149.97
         }
       },
       {
-        "id": 1,
-        "name": "Numerator",
-        "min": 1,
-        "max": 16,
         "default": 4,
-        "snap": true,
+        "id": 1,
+        "max": 16,
+        "min": 1,
+        "name": "Numerator",
         "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
           "x": 30,
-          "y": 262.47,
-          "centered": true,
-          "widget": "RoundBlackKnob"
-        }
+          "y": 262.47
+        },
+        "snap": true
       },
       {
-        "id": 2,
-        "name": "Denominator",
-        "min": 0,
-        "max": 5,
         "default": 2,
-        "snap": true,
+        "id": 2,
+        "max": 5,
+        "min": 0,
+        "name": "Denominator",
         "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
           "x": 60,
-          "y": 262.47,
-          "centered": true,
-          "widget": "RoundBlackKnob"
-        }
+          "y": 262.47
+        },
+        "snap": true
       },
       {
+        "button": true,
+        "default": 0,
         "id": 3,
+        "max": 1,
+        "min": 0,
         "name": "Run / Stop",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
-        "button": true,
         "position": {
+          "centered": true,
+          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
           "x": 29.557,
-          "y": 360,
-          "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
-        }
+          "y": 360
+        },
+        "snap": true
       },
       {
-        "id": 4,
-        "name": "Reset",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
         "button": true,
+        "default": 0,
+        "id": 4,
+        "max": 1,
+        "min": 0,
+        "name": "Reset",
         "position": {
-          "x": 149.97,
-          "y": 360,
           "centered": true,
-          "widget": "VCVButton"
-        }
+          "widget": "VCVButton",
+          "x": 149.97,
+          "y": 360
+        },
+        "snap": true
       },
       {
+        "default": 0,
+        "hidden": true,
         "id": 5,
-        "name": "Bar Swing",
-        "min": -0.5,
         "max": 0.5,
-        "default": 0,
-        "hidden": true
+        "min": -0.5,
+        "name": "Bar Swing"
       },
       {
+        "default": 0,
         "id": 6,
+        "max": 0.5,
+        "min": -0.5,
         "name": "Quarter Swing",
-        "min": -0.5,
-        "max": 0.5,
-        "default": 0,
         "position": {
-          "x": 149.97,
-          "y": 179.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 149.97,
+          "y": 179.97
         }
       },
       {
+        "default": 0,
         "id": 7,
+        "max": 0.5,
+        "min": -0.5,
         "name": "Eighth Swing",
-        "min": -0.5,
-        "max": 0.5,
-        "default": 0,
         "position": {
-          "x": 149.97,
-          "y": 209.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 149.97,
+          "y": 209.97
         }
       },
       {
+        "default": 0,
         "id": 8,
+        "max": 0.5,
+        "min": -0.5,
         "name": "Sixteenth Swing",
-        "min": -0.5,
-        "max": 0.5,
-        "default": 0,
         "position": {
-          "x": 149.97,
-          "y": 239.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 149.97,
+          "y": 239.97
         }
       },
       {
+        "default": 0,
         "id": 9,
-        "name": "Quarter Triplet Swing",
-        "min": -0.5,
         "max": 0.5,
-        "default": 0,
+        "min": -0.5,
+        "name": "Quarter Triplet Swing",
         "position": {
-          "x": 149.97,
-          "y": 269.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 149.97,
+          "y": 269.97
         }
       },
       {
-        "id": 10,
-        "name": "Eighth Triplet Swing",
-        "min": -0.5,
-        "max": 0.5,
         "default": 0,
+        "id": 10,
+        "max": 0.5,
+        "min": -0.5,
+        "name": "Eighth Triplet Swing",
         "position": {
-          "x": 149.97,
-          "y": 299.97,
           "centered": true,
-          "widget": "Trimpot"
+          "widget": "Trimpot",
+          "x": 149.97,
+          "y": 299.97
         }
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "BPM CV (additive ~27 BPM/V, or absolute 0.01V/BPM via menu)",
         "kind": "cv",
+        "name": "BPM CV (additive ~27 BPM/V, or absolute 0.01V/BPM via menu)",
         "position": {
+          "centered": true,
           "x": 59.705,
-          "y": 149.97,
-          "centered": true
+          "y": 149.97
         }
       },
       {
         "id": 1,
-        "name": "Numerator CV",
         "kind": "cv",
+        "name": "Numerator CV",
         "position": {
+          "centered": true,
           "x": 30,
-          "y": 299.97,
-          "centered": true
+          "y": 299.97
         }
       },
       {
         "id": 2,
-        "name": "Denominator CV",
         "kind": "cv",
+        "name": "Denominator CV",
         "position": {
+          "centered": true,
           "x": 60,
-          "y": 299.97,
-          "centered": true
+          "y": 299.97
         }
       },
       {
         "id": 3,
-        "name": "Run gate",
         "kind": "gate",
+        "name": "Run gate",
         "position": {
+          "centered": true,
           "x": 60,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       },
       {
         "id": 4,
-        "name": "External clock",
         "kind": "gate",
+        "name": "External clock",
         "position": {
+          "centered": true,
           "x": 30,
-          "y": 209.97,
-          "centered": true
+          "y": 209.97
         }
       },
       {
+        "hidden": true,
         "id": 5,
-        "name": "Bar Swing CV",
         "kind": "cv",
-        "hidden": true
+        "name": "Bar Swing CV"
       },
       {
         "id": 6,
-        "name": "Quarter Swing CV",
         "kind": "cv",
+        "name": "Quarter Swing CV",
         "position": {
+          "centered": true,
           "x": 179.97,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 7,
-        "name": "Eighth Swing CV",
         "kind": "cv",
+        "name": "Eighth Swing CV",
         "position": {
+          "centered": true,
           "x": 179.97,
-          "y": 209.97,
-          "centered": true
+          "y": 209.97
         }
       },
       {
         "id": 8,
-        "name": "Sixteenth Swing CV",
         "kind": "cv",
+        "name": "Sixteenth Swing CV",
         "position": {
+          "centered": true,
           "x": 179.97,
-          "y": 239.97,
-          "centered": true
+          "y": 239.97
         }
       },
       {
         "id": 9,
-        "name": "Quarter Triplet Swing CV",
         "kind": "cv",
+        "name": "Quarter Triplet Swing CV",
         "position": {
+          "centered": true,
           "x": 179.97,
-          "y": 269.97,
-          "centered": true
+          "y": 269.97
         }
       },
       {
         "id": 10,
-        "name": "Eighth Triplet Swing CV",
         "kind": "cv",
+        "name": "Eighth Triplet Swing CV",
         "position": {
+          "centered": true,
           "x": 179.97,
-          "y": 299.97,
-          "centered": true
+          "y": 299.97
         }
       },
       {
         "id": 11,
-        "name": "Reset (resets bar/position, forwards to Reset OUT)",
         "kind": "gate",
+        "name": "Reset (resets bar/position, forwards to Reset OUT)",
         "position": {
+          "centered": true,
           "x": 179.97,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Bar",
         "kind": "gate",
+        "name": "Bar",
         "position": {
+          "centered": true,
           "x": 239.97,
-          "y": 329.97,
-          "centered": true
+          "y": 329.97
         }
       },
       {
         "id": 1,
-        "name": "Quarter note (swung)",
         "kind": "gate",
+        "name": "Quarter note (swung)",
         "position": {
+          "centered": true,
           "x": 209.97,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 2,
-        "name": "Eighth note (swung)",
         "kind": "gate",
+        "name": "Eighth note (swung)",
         "position": {
+          "centered": true,
           "x": 209.97,
-          "y": 209.97,
-          "centered": true
+          "y": 209.97
         }
       },
       {
         "id": 3,
-        "name": "Sixteenth note (swung)",
         "kind": "gate",
+        "name": "Sixteenth note (swung)",
         "position": {
+          "centered": true,
           "x": 209.97,
-          "y": 239.97,
-          "centered": true
+          "y": 239.97
         }
       },
       {
         "id": 4,
-        "name": "Quarter triplet (swung)",
         "kind": "gate",
+        "name": "Quarter triplet (swung)",
         "position": {
+          "centered": true,
           "x": 209.97,
-          "y": 269.97,
-          "centered": true
+          "y": 269.97
         }
       },
       {
         "id": 5,
-        "name": "Eighth triplet (swung)",
         "kind": "gate",
+        "name": "Eighth triplet (swung)",
         "position": {
+          "centered": true,
           "x": 209.97,
-          "y": 299.97,
-          "centered": true
+          "y": 299.97
         }
       },
       {
         "id": 6,
-        "name": "Reset (fires on Reset button or Reset IN)",
         "kind": "gate",
+        "name": "Reset (fires on Reset button or Reset IN)",
         "position": {
+          "centered": true,
           "x": 239.97,
-          "y": 360,
-          "centered": true
+          "y": 360
         }
       },
       {
         "id": 7,
-        "name": "Quarter note (grid, no swing)",
         "kind": "gate",
+        "name": "Quarter note (grid, no swing)",
         "position": {
+          "centered": true,
           "x": 239.97,
-          "y": 179.97,
-          "centered": true
+          "y": 179.97
         }
       },
       {
         "id": 8,
-        "name": "Eighth note (grid, no swing)",
         "kind": "gate",
+        "name": "Eighth note (grid, no swing)",
         "position": {
+          "centered": true,
           "x": 239.97,
-          "y": 209.97,
-          "centered": true
+          "y": 209.97
         }
       },
       {
         "id": 9,
-        "name": "Sixteenth note (grid, no swing)",
         "kind": "gate",
+        "name": "Sixteenth note (grid, no swing)",
         "position": {
+          "centered": true,
           "x": 239.97,
-          "y": 239.97,
-          "centered": true
+          "y": 239.97
         }
       },
       {
         "id": 10,
-        "name": "Quarter triplet (grid)",
         "kind": "gate",
+        "name": "Quarter triplet (grid)",
         "position": {
+          "centered": true,
           "x": 239.97,
-          "y": 269.97,
-          "centered": true
+          "y": 269.97
         }
       },
       {
         "id": 11,
-        "name": "Eighth triplet (grid)",
         "kind": "gate",
+        "name": "Eighth triplet (grid)",
         "position": {
+          "centered": true,
           "x": 239.97,
-          "y": 299.97,
-          "centered": true
+          "y": 299.97
         }
       }
     ],
@@ -405,13 +405,13 @@
     "lightWidgets": [
       {
         "id": 0,
-        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>",
+        "paramId": 3,
         "position": {
+          "centered": true,
           "x": 29.557,
-          "y": 360,
-          "centered": true
+          "y": 360
         },
-        "paramId": 3
+        "widget": "VCVLightLatch<MediumSimpleLight<GreenLight>>"
       }
     ],
     "stateKeys": [
@@ -441,27 +441,39 @@
       }
     ],
     "runtime": {
-      "expanderMode": "message-buffer",
       "expander": {
-        "transport": "message-buffer",
-        "direction": "both",
         "capacity": 16384,
+        "direction": "both",
         "models": [
           {
+            "index": 0,
             "key": "SignalFunctionSet/MeterExpander",
-            "symbol": "modelMeterExpander",
-            "index": 0
+            "symbol": "modelMeterExpander"
           }
-        ]
+        ],
+        "transport": "message-buffer"
       },
+      "expanderMode": "message-buffer",
       "initialMemory": 4194304,
-      "strategy": "direct-rack-source-adapter"
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 76.772,
+          "kind": "signal-function-set",
+          "model": "Meter",
+          "width": 252.283,
+          "x": 8.858,
+          "y": 35.433
+        }
+      ]
     },
     "manifestUrl": "packages/SignalFunctionSet/Meter/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "e3322f67d72b50aa00bde4c380ebd1ff8e27df68b090dcd7f17c252066bbbb5a",
-      "size": 88022
+      "sha256": "b2bfb7976addef72d24a9ba130f3fb7af2f93a0d58770de8d0068e6269628c84",
+      "size": 89745
     }
   },
   "source": {
@@ -470,7 +482,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-24T16:14:11.264Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

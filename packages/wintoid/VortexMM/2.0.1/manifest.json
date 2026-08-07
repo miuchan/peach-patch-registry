@@ -22,6 +22,7 @@
         "min": 0,
         "max": 11,
         "default": 0,
+        "snap": true,
         "hidden": true
       },
       {
@@ -33,10 +34,8 @@
         "position": {
           "x": 45,
           "y": 94.488,
-          "width": 22.676,
-          "height": 22.676,
           "centered": true,
-          "widget": "rack::componentlibrary::RoundSmallBlackKnob"
+          "widget": "RoundSmallBlackKnob"
         }
       },
       {
@@ -48,10 +47,8 @@
         "position": {
           "x": 45,
           "y": 177.165,
-          "width": 22.676,
-          "height": 22.676,
           "centered": true,
-          "widget": "rack::componentlibrary::RoundSmallBlackKnob"
+          "widget": "RoundSmallBlackKnob"
         }
       },
       {
@@ -63,10 +60,8 @@
         "position": {
           "x": 45,
           "y": 259.843,
-          "width": 22.676,
-          "height": 22.676,
           "centered": true,
-          "widget": "rack::componentlibrary::RoundSmallBlackKnob"
+          "widget": "RoundSmallBlackKnob"
         }
       },
       {
@@ -78,10 +73,8 @@
         "position": {
           "x": 70.128,
           "y": 129.921,
-          "width": 17.856,
-          "height": 17.859,
           "centered": true,
-          "widget": "rack::componentlibrary::Trimpot"
+          "widget": "Trimpot"
         }
       },
       {
@@ -93,10 +86,8 @@
         "position": {
           "x": 70.128,
           "y": 212.598,
-          "width": 17.856,
-          "height": 17.859,
           "centered": true,
-          "widget": "rack::componentlibrary::Trimpot"
+          "widget": "Trimpot"
         }
       },
       {
@@ -108,10 +99,8 @@
         "position": {
           "x": 70.128,
           "y": 295.276,
-          "width": 17.856,
-          "height": 17.859,
           "centered": true,
-          "widget": "rack::componentlibrary::Trimpot"
+          "widget": "Trimpot"
         }
       }
     ],
@@ -123,10 +112,8 @@
         "position": {
           "x": 26.575,
           "y": 339.567,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -136,10 +123,8 @@
         "position": {
           "x": 45,
           "y": 129.921,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -149,10 +134,8 @@
         "position": {
           "x": 45,
           "y": 212.598,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -162,10 +145,8 @@
         "position": {
           "x": 45,
           "y": 295.276,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -177,23 +158,162 @@
         "position": {
           "x": 63.484,
           "y": 339.567,
-          "width": 23.7,
-          "height": 23.7,
           "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "widget": "PJ301MPort"
         }
       }
     ],
     "lights": 0,
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Select filter mode",
+              "x": 14.764,
+              "y": 35.433,
+              "width": 60.472,
+              "height": 23.622,
+              "click": {
+                "target": "param",
+                "id": 0,
+                "operation": "cycle",
+                "minimum": 0,
+                "maximum": 11,
+                "step": 1,
+                "wrap": true
+              },
+              "rightClick": {
+                "target": "menu",
+                "title": "Filter Mode",
+                "choices": [
+                  {
+                    "label": "LP 6dB",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "label": "LP 12dB",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "label": "LP 24dB",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 2
+                    }
+                  },
+                  {
+                    "label": "HP 6dB",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 3
+                    }
+                  },
+                  {
+                    "label": "HP 12dB",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 4
+                    }
+                  },
+                  {
+                    "label": "HP 24dB",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 5
+                    }
+                  },
+                  {
+                    "label": "BP",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 6
+                    }
+                  },
+                  {
+                    "label": "BP+",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 7
+                    }
+                  },
+                  {
+                    "label": "Notch",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 8
+                    }
+                  },
+                  {
+                    "label": "Notch+",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 9
+                    }
+                  },
+                  {
+                    "label": "AP",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "label": "AP+",
+                    "command": {
+                      "target": "param",
+                      "id": 0,
+                      "operation": "set",
+                      "value": 11
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/wintoid/VortexMM/2.0.1/manifest.json",
     "sourceCommit": "483baf72a4dba00bd286dbf2a075214307ce7051",
     "artifact": {
-      "sha256": "e2979eb94cac3b01d279ed2fac0aebeb9080cfe885327b2a7d3151fb219a6fb5",
-      "size": 74615
+      "sha256": "c3f9f85682cf1b440acfb56753ce6f18f1fcd0186b4e3f7b7b73aab1c76e16d0",
+      "size": 80525
     }
   },
   "source": {
@@ -202,7 +322,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:21:10.041Z"
+    "fingerprint": "382d29d849e8b356",
+    "builtAt": "2026-08-06T10:32:59.054Z"
   }
 }

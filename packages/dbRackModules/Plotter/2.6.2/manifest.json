@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "dbRackModules/Plotter",
+    "plugin": "dbRackModules",
+    "model": "Plotter",
+    "name": "Plotter",
+    "brand": "docB",
+    "version": "2.6.2",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/docb/dbRackModules",
+    "libraryUrl": "https://library.vcvrack.com/dbRackModules/Plotter",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/dbRackModules/Plotter.webp",
+    "wasmUrl": "packages/dbRackModules/Plotter/2.6.2/module.wasm",
+    "width": 405,
+    "description": "Plots a 2D signal",
+    "params": [
+      {
+        "id": 0,
+        "name": "Scale",
+        "min": 0.5,
+        "max": 4,
+        "default": 1,
+        "position": {
+          "x": 14.764,
+          "y": 143.209,
+          "widget": "TrimbotWhite"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Dimmer",
+        "min": 2,
+        "max": 255,
+        "default": 255,
+        "position": {
+          "x": 14.764,
+          "y": 178.642,
+          "widget": "TrimbotWhite"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "X",
+        "kind": "cv",
+        "position": {
+          "x": 14.764,
+          "y": 72.343,
+          "widget": "SmallPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Y",
+        "kind": "cv",
+        "position": {
+          "x": 14.764,
+          "y": 107.776,
+          "widget": "SmallPort"
+        }
+      }
+    ],
+    "outputs": [],
+    "lights": 0,
+    "runtime": {
+      "expanderMode": "message-buffer",
+      "expander": {
+        "transport": "message-buffer",
+        "direction": "both",
+        "capacity": 16384,
+        "models": []
+      },
+      "visuals": [
+        {
+          "kind": "native-signal",
+          "mode": "xy",
+          "sources": [
+            {
+              "kind": "input",
+              "id": 0
+            },
+            {
+              "kind": "input",
+              "id": 1
+            }
+          ],
+          "colors": [
+            "#58ff58"
+          ],
+          "strokeWidths": [
+            1
+          ],
+          "range": 10,
+          "stacked": false,
+          "bipolar": true,
+          "x": 2,
+          "y": 30,
+          "width": 401,
+          "height": 320
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/dbRackModules/Plotter/2.6.2/manifest.json",
+    "sourceCommit": "fa15d1b708e1e27f560a2bc0788888b9d80a4bfc",
+    "artifact": {
+      "sha256": "4776a985ae470422465368b9838f9f2c9ba4daa295a3ec34193dc707f2e383b1",
+      "size": 72760
+    }
+  },
+  "source": {
+    "url": "https://github.com/docb/dbRackModules",
+    "commit": "fa15d1b708e1e27f560a2bc0788888b9d80a4bfc"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "bb4a9b047050795c",
+    "builtAt": "2026-08-06T05:36:19.744Z"
+  }
+}

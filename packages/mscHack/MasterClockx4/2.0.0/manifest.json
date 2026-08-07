@@ -30,10 +30,11 @@
       },
       {
         "id": 1,
-        "name": "Param 2",
+        "name": "Clock Mult/Div",
         "min": 0,
         "max": 24,
         "default": 12,
+        "snap": true,
         "position": {
           "x": 104,
           "y": 52,
@@ -42,100 +43,1127 @@
       },
       {
         "id": 2,
-        "name": "Humanize clock",
+        "name": "Clock Mult/Div",
         "min": 0,
         "max": 24,
         "default": 12,
+        "snap": true,
+        "position": {
+          "x": 104,
+          "y": 132,
+          "widget": "MasterClockx4::MyMult_Knob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Clock Mult/Div",
+        "min": 0,
+        "max": 24,
+        "default": 12,
+        "snap": true,
+        "position": {
+          "x": 104,
+          "y": 212,
+          "widget": "MasterClockx4::MyMult_Knob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Clock Mult/Div",
+        "min": 0,
+        "max": 24,
+        "default": 12,
+        "snap": true,
+        "position": {
+          "x": 104,
+          "y": 292,
+          "widget": "MasterClockx4::MyMult_Knob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Humanize clock",
+        "min": 0,
+        "max": 1,
+        "default": 0,
         "position": {
           "x": 22,
           "y": 235,
           "widget": "MasterClockx4::MyHumanize_Knob"
         }
-      },
-      {
-        "id": 3,
-        "name": "Param 4",
-        "min": 0,
-        "max": 24,
-        "default": 12,
-        "hidden": true
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Input Ext Sync",
+        "name": "Sync 1",
         "kind": "cv",
         "position": {
           "x": 145,
-          "y": 44
+          "y": 44,
+          "widget": "MyPortInSmall"
         }
       },
       {
         "id": 1,
-        "name": "Chain",
+        "name": "Sync 2",
         "kind": "cv",
         "position": {
-          "x": 30,
-          "y": 13
+          "x": 145,
+          "y": 124,
+          "widget": "MyPortInSmall"
         }
       },
       {
         "id": 2,
-        "name": "ninputs",
+        "name": "Sync 3",
         "kind": "cv",
-        "hidden": true
+        "position": {
+          "x": 145,
+          "y": 204,
+          "widget": "MyPortInSmall"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sync 4",
+        "kind": "cv",
+        "position": {
+          "x": 145,
+          "y": 284,
+          "widget": "MyPortInSmall"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Chain",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 13,
+          "widget": "MyPortInSmall"
+        }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Output Clk",
+        "name": "OUTPUT_CLK + (0 * 4) + 0",
         "kind": "cv",
         "position": {
           "x": 198,
-          "y": 70
+          "y": 70,
+          "widget": "MyPortOutSmall"
         }
       },
       {
         "id": 1,
-        "name": "Output Trigger",
-        "kind": "gate",
+        "name": "OUTPUT_CLK + (0 * 4) + 1",
+        "kind": "cv",
         "position": {
-          "x": 145,
-          "y": 70
+          "x": 198,
+          "y": 92,
+          "widget": "MyPortOutSmall"
         }
       },
       {
         "id": 2,
-        "name": "Chain",
+        "name": "OUTPUT_CLK + (0 * 4) + 2",
         "kind": "cv",
         "position": {
-          "x": 30,
-          "y": 345
+          "x": 221,
+          "y": 70,
+          "widget": "MyPortOutSmall"
         }
       },
       {
         "id": 3,
-        "name": "noutputs",
+        "name": "OUTPUT_CLK + (0 * 4) + 3",
         "kind": "cv",
         "position": {
+          "x": 221,
+          "y": 92,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 4,
+        "name": "OUTPUT_CLK + (1 * 4) + 0",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 150,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 5,
+        "name": "OUTPUT_CLK + (1 * 4) + 1",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 172,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 6,
+        "name": "OUTPUT_CLK + (1 * 4) + 2",
+        "kind": "cv",
+        "position": {
+          "x": 221,
+          "y": 150,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 7,
+        "name": "OUTPUT_CLK + (1 * 4) + 3",
+        "kind": "cv",
+        "position": {
+          "x": 221,
+          "y": 172,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 8,
+        "name": "OUTPUT_CLK + (2 * 4) + 0",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 230,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 9,
+        "name": "OUTPUT_CLK + (2 * 4) + 1",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 252,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 10,
+        "name": "OUTPUT_CLK + (2 * 4) + 2",
+        "kind": "cv",
+        "position": {
+          "x": 221,
+          "y": 230,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 11,
+        "name": "OUTPUT_CLK + (2 * 4) + 3",
+        "kind": "cv",
+        "position": {
+          "x": 221,
+          "y": 252,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 12,
+        "name": "OUTPUT_CLK + (3 * 4) + 0",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 310,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 13,
+        "name": "OUTPUT_CLK + (3 * 4) + 1",
+        "kind": "cv",
+        "position": {
+          "x": 198,
+          "y": 332,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 14,
+        "name": "OUTPUT_CLK + (3 * 4) + 2",
+        "kind": "cv",
+        "position": {
+          "x": 221,
+          "y": 310,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 15,
+        "name": "OUTPUT_CLK + (3 * 4) + 3",
+        "kind": "cv",
+        "position": {
+          "x": 221,
+          "y": 332,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 16,
+        "name": "OUTPUT_TRIG + (0 * 4) + 0",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 70,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 17,
+        "name": "OUTPUT_TRIG + (0 * 4) + 1",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 92,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 18,
+        "name": "OUTPUT_TRIG + (0 * 4) + 2",
+        "kind": "gate",
+        "position": {
           "x": 168,
-          "y": 70
+          "y": 70,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 19,
+        "name": "OUTPUT_TRIG + (0 * 4) + 3",
+        "kind": "gate",
+        "position": {
+          "x": 168,
+          "y": 92,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 20,
+        "name": "OUTPUT_TRIG + (1 * 4) + 0",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 150,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 21,
+        "name": "OUTPUT_TRIG + (1 * 4) + 1",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 172,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 22,
+        "name": "OUTPUT_TRIG + (1 * 4) + 2",
+        "kind": "gate",
+        "position": {
+          "x": 168,
+          "y": 150,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 23,
+        "name": "OUTPUT_TRIG + (1 * 4) + 3",
+        "kind": "gate",
+        "position": {
+          "x": 168,
+          "y": 172,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 24,
+        "name": "OUTPUT_TRIG + (2 * 4) + 0",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 230,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 25,
+        "name": "OUTPUT_TRIG + (2 * 4) + 1",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 252,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 26,
+        "name": "OUTPUT_TRIG + (2 * 4) + 2",
+        "kind": "gate",
+        "position": {
+          "x": 168,
+          "y": 230,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 27,
+        "name": "OUTPUT_TRIG + (2 * 4) + 3",
+        "kind": "gate",
+        "position": {
+          "x": 168,
+          "y": 252,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 28,
+        "name": "OUTPUT_TRIG + (3 * 4) + 0",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 310,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 29,
+        "name": "OUTPUT_TRIG + (3 * 4) + 1",
+        "kind": "gate",
+        "position": {
+          "x": 145,
+          "y": 332,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 30,
+        "name": "OUTPUT_TRIG + (3 * 4) + 2",
+        "kind": "gate",
+        "position": {
+          "x": 168,
+          "y": 310,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 31,
+        "name": "OUTPUT_TRIG + (3 * 4) + 3",
+        "kind": "gate",
+        "position": {
+          "x": 168,
+          "y": 332,
+          "widget": "MyPortOutSmall"
+        }
+      },
+      {
+        "id": 32,
+        "name": "Chain",
+        "kind": "cv",
+        "position": {
+          "x": 30,
+          "y": 345,
+          "widget": "MyPortOutSmall"
         }
       }
     ],
     "lights": 0,
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Global clock stop",
+              "x": 22,
+              "y": 144,
+              "width": 25,
+              "height": 25,
+              "click": {
+                "target": "action",
+                "id": 1000
+              },
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 20,
+                  "height": 20,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#ff0000"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Global clock sync",
+              "x": 22,
+              "y": 202,
+              "width": 25,
+              "height": 25,
+              "click": {
+                "target": "action",
+                "id": 1001
+              },
+              "display": {
+                "source": "visual",
+                "id": 1,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 20,
+                  "height": 20,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "BPM display",
+              "interactive": false,
+              "x": 5,
+              "y": 115,
+              "width": 89.375,
+              "height": 15.125,
+              "display": {
+                "source": "visual",
+                "id": 14,
+                "defaultValue": 120,
+                "precision": 2,
+                "color": "#ffffff",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 14,
+                "fontFamily": "DSEG7ClassicMini, ui-monospace, monospace",
+                "fontWeight": 700
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 270,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Clock 1 double time",
+              "x": 93,
+              "y": 41,
+              "width": 11,
+              "height": 11,
+              "click": {
+                "target": "action",
+                "id": 1010
+              },
+              "display": {
+                "source": "visual",
+                "id": 2,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 9,
+                  "height": 9,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 1 sync",
+              "x": 167,
+              "y": 43,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1020
+              },
+              "display": {
+                "source": "visual",
+                "id": 6,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 1 stop",
+              "x": 223,
+              "y": 43,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1030
+              },
+              "display": {
+                "source": "visual",
+                "id": 10,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#ff0000"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 1 multiplier display",
+              "interactive": false,
+              "x": 101,
+              "y": 87,
+              "width": 113.75,
+              "height": 19.25,
+              "display": {
+                "source": "visual",
+                "id": 15,
+                "colorId": 19,
+                "defaultValue": 1,
+                "precision": 0,
+                "colors": [
+                  "#ff0000",
+                  "#ffffff",
+                  "#00ffff"
+                ],
+                "color": "#ffffff",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 18,
+                "fontFamily": "DSEG7ClassicMini, ui-monospace, monospace",
+                "fontWeight": 700
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 270,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Clock 2 double time",
+              "x": 93,
+              "y": 121,
+              "width": 11,
+              "height": 11,
+              "click": {
+                "target": "action",
+                "id": 1011
+              },
+              "display": {
+                "source": "visual",
+                "id": 3,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 9,
+                  "height": 9,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 2 sync",
+              "x": 167,
+              "y": 123,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1021
+              },
+              "display": {
+                "source": "visual",
+                "id": 7,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 2 stop",
+              "x": 223,
+              "y": 123,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1031
+              },
+              "display": {
+                "source": "visual",
+                "id": 11,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#ff0000"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 2 multiplier display",
+              "interactive": false,
+              "x": 101,
+              "y": 167,
+              "width": 113.75,
+              "height": 19.25,
+              "display": {
+                "source": "visual",
+                "id": 16,
+                "colorId": 20,
+                "defaultValue": 1,
+                "precision": 0,
+                "colors": [
+                  "#ff0000",
+                  "#ffffff",
+                  "#00ffff"
+                ],
+                "color": "#ffffff",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 18,
+                "fontFamily": "DSEG7ClassicMini, ui-monospace, monospace",
+                "fontWeight": 700
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 270,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Clock 3 double time",
+              "x": 93,
+              "y": 201,
+              "width": 11,
+              "height": 11,
+              "click": {
+                "target": "action",
+                "id": 1012
+              },
+              "display": {
+                "source": "visual",
+                "id": 4,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 9,
+                  "height": 9,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 3 sync",
+              "x": 167,
+              "y": 203,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1022
+              },
+              "display": {
+                "source": "visual",
+                "id": 8,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 3 stop",
+              "x": 223,
+              "y": 203,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1032
+              },
+              "display": {
+                "source": "visual",
+                "id": 12,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#ff0000"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 3 multiplier display",
+              "interactive": false,
+              "x": 101,
+              "y": 247,
+              "width": 113.75,
+              "height": 19.25,
+              "display": {
+                "source": "visual",
+                "id": 17,
+                "colorId": 21,
+                "defaultValue": 1,
+                "precision": 0,
+                "colors": [
+                  "#ff0000",
+                  "#ffffff",
+                  "#00ffff"
+                ],
+                "color": "#ffffff",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 18,
+                "fontFamily": "DSEG7ClassicMini, ui-monospace, monospace",
+                "fontWeight": 700
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 270,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Clock 4 double time",
+              "x": 93,
+              "y": 281,
+              "width": 11,
+              "height": 11,
+              "click": {
+                "target": "action",
+                "id": 1013
+              },
+              "display": {
+                "source": "visual",
+                "id": 5,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 9,
+                  "height": 9,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 4 sync",
+              "x": 167,
+              "y": 283,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1023
+              },
+              "display": {
+                "source": "visual",
+                "id": 9,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#00ffff"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 4 stop",
+              "x": 223,
+              "y": 283,
+              "width": 19,
+              "height": 19,
+              "click": {
+                "target": "action",
+                "id": 1033
+              },
+              "display": {
+                "source": "visual",
+                "id": 13,
+                "defaultValue": 0,
+                "hideValue": true,
+                "color": "transparent",
+                "background": "#b4b4b4",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 0,
+                "indicator": {
+                  "width": 15,
+                  "height": 15,
+                  "borderRadius": 2.5,
+                  "colors": [
+                    "#404040",
+                    "#ff0000"
+                  ]
+                }
+              }
+            },
+            {
+              "label": "Clock 4 multiplier display",
+              "interactive": false,
+              "x": 101,
+              "y": 327,
+              "width": 113.75,
+              "height": 19.25,
+              "display": {
+                "source": "visual",
+                "id": 18,
+                "colorId": 22,
+                "defaultValue": 1,
+                "precision": 0,
+                "colors": [
+                  "#ff0000",
+                  "#ffffff",
+                  "#00ffff"
+                ],
+                "color": "#ffffff",
+                "background": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 0,
+                "fontSize": 18,
+                "fontFamily": "DSEG7ClassicMini, ui-monospace, monospace",
+                "fontWeight": 700
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 270,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/mscHack/MasterClockx4/2.0.0/manifest.json",
     "sourceCommit": "42668cc2bc4c6b9ecd473586bdcddfa5e4174a0c",
     "artifact": {
-      "sha256": "9715e4487bb066b2e501b330b32aa4ea9ba3b9be012c8144c1b0844fec95162e",
-      "size": 76744
-    }
+      "sha256": "568cb1df5a9701aceec9300b10e572f46b6907445b10ea97cfc5e2b91f9c3090",
+      "size": 92413
+    },
+    "stateKeys": [
+      {
+        "key": "m_bGlobalStopState",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "m_bStopState",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "m_bStopState",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "m_bStopState",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "m_bStopState",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "m_bTimeX2",
+        "type": "boolean"
+      },
+      {
+        "index": 1,
+        "key": "m_bTimeX2",
+        "type": "boolean"
+      },
+      {
+        "index": 2,
+        "key": "m_bTimeX2",
+        "type": "boolean"
+      },
+      {
+        "index": 3,
+        "key": "m_bTimeX2",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "m_ChannelMultSelect",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "m_ChannelMultSelect",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "m_ChannelMultSelect",
+        "type": "integer"
+      },
+      {
+        "index": 3,
+        "key": "m_ChannelMultSelect",
+        "type": "integer"
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/baconpaul/mschack-VCV-Rack-Plugins",
@@ -143,7 +1171,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T21:13:09.291Z"
+    "fingerprint": "e20bbd6e0d5b43be",
+    "builtAt": "2026-08-06T12:10:28.629Z"
   }
 }

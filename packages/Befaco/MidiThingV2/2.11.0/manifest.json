@@ -18,7 +18,7 @@
     "params": [
       {
         "id": 0,
-        "name": "",
+        "name": "Refresh",
         "min": 0,
         "max": 1,
         "default": 0,
@@ -40,7 +40,8 @@
         "position": {
           "x": 15,
           "y": 206.014,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -50,7 +51,8 @@
         "position": {
           "x": 44.528,
           "y": 206.014,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -60,7 +62,8 @@
         "position": {
           "x": 74.055,
           "y": 206.014,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -70,7 +73,8 @@
         "position": {
           "x": 15,
           "y": 248.017,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -80,7 +84,8 @@
         "position": {
           "x": 44.528,
           "y": 248.017,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -90,7 +95,8 @@
         "position": {
           "x": 74.055,
           "y": 248.017,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -100,7 +106,8 @@
         "position": {
           "x": 15,
           "y": 290.02,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -110,7 +117,8 @@
         "position": {
           "x": 44.528,
           "y": 290.02,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -120,7 +128,8 @@
         "position": {
           "x": 74.055,
           "y": 290.02,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -130,7 +139,8 @@
         "position": {
           "x": 15,
           "y": 332.023,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -140,7 +150,8 @@
         "position": {
           "x": 44.528,
           "y": 332.023,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       },
       {
@@ -150,7 +161,8 @@
         "position": {
           "x": 74.055,
           "y": 332.023,
-          "centered": true
+          "centered": true,
+          "widget": "MidiThingPort"
         }
       }
     ],
@@ -163,14 +175,844 @@
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 1",
+              "x": 2.445,
+              "y": 82.733,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 1",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1000
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1001
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1002
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1003
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 0,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 12,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 2",
+              "x": 31.237,
+              "y": 82.733,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 2",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1004
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1005
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1006
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1007
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 1,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 13,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 3",
+              "x": 60.03,
+              "y": 82.733,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 3",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1008
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1009
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1010
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1011
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 2,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 14,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 4",
+              "x": 2.445,
+              "y": 99.847,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 4",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1012
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1013
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1014
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1015
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 3,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 15,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 5",
+              "x": 31.237,
+              "y": 99.847,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 5",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1016
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1017
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1018
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1019
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 4,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 16,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 6",
+              "x": 60.03,
+              "y": 99.847,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 6",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1020
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1021
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1022
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1023
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 5,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 17,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 7",
+              "x": 2.445,
+              "y": 116.962,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 7",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1024
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1025
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1026
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1027
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 6,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 18,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 8",
+              "x": 31.237,
+              "y": 116.962,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 8",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1028
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1029
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1030
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1031
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 7,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 19,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 9",
+              "x": 60.03,
+              "y": 116.962,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 9",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1032
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1033
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1034
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1035
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 8,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 20,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 10",
+              "x": 2.445,
+              "y": 134.076,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 10",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1036
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1037
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1038
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1039
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 9,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 21,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 11",
+              "x": 31.237,
+              "y": 134.076,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 11",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1040
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1041
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1042
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1043
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 10,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 22,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        },
+        {
+          "kind": "native-interaction",
+          "regions": [
+            {
+              "label": "Voltage mode port 12",
+              "x": 60.03,
+              "y": 134.076,
+              "width": 27.455,
+              "height": 15.106,
+              "rightClick": {
+                "target": "menu",
+                "title": "Voltage mode port 12",
+                "choices": [
+                  {
+                    "label": "0 to 10v",
+                    "command": {
+                      "target": "action",
+                      "id": 1044
+                    }
+                  },
+                  {
+                    "label": "-5 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1045
+                    }
+                  },
+                  {
+                    "label": "0 to 8v",
+                    "command": {
+                      "target": "action",
+                      "id": 1046
+                    }
+                  },
+                  {
+                    "label": "0 to 5v",
+                    "command": {
+                      "target": "action",
+                      "id": 1047
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "source": "visual",
+                "id": 11,
+                "defaultValue": 0,
+                "labels": [
+                  "0/10v",
+                  "-5/5v",
+                  "0/8v",
+                  "0/5v"
+                ],
+                "color": "#ff1010",
+                "background": "#202020",
+                "borderColor": "#101010",
+                "activeBorderColor": "#ff2020",
+                "activeId": 23,
+                "borderRadius": 2,
+                "fontSize": 9,
+                "fontFamily": "sans-serif"
+              }
+            }
+          ],
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Befaco/MidiThingV2/2.11.0/manifest.json",
     "sourceCommit": "637e42c1589d212ff70eee1ffa35236e72ac78c6",
     "artifact": {
-      "sha256": "a322feb2ba07791b69192c22c34da199e098f76645ad2556f10caed235609f0e",
-      "size": 89676
+      "sha256": "f92b30c3ebbfefbcfe14b64df992bb3f69cfe74794bbbd5fdb5375bbfddf9316",
+      "size": 91843
     }
   },
   "source": {
@@ -179,7 +1021,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-24T00:52:16.647Z"
+    "fingerprint": "d6343c662efeca16",
+    "builtAt": "2026-08-06T11:30:38.574Z"
   }
 }

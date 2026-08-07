@@ -15,11 +15,124 @@ use peach_cli::publisher::{publish, PublishOptions};
 use peach_cli::repository::verify_checkout;
 use peach_cli::scheduler::{build, BuildOptions};
 use peach_cli::source::{checkout_locked_dependency, prepare, PrepareOptions};
+use serde::{Deserialize, Serialize};
+use serde_json::Value;
+use std::io::{BufRead, BufReader, Read, Write};
+use std::net::{Ipv4Addr, SocketAddrV4, TcpListener, TcpStream};
 use std::path::PathBuf;
-use std::time::Duration;
+use std::thread;
+use std::time::{Duration, Instant};
 
 const USAGE: &str =
-    "peach-registry <verify|publish|discover|build|source prepare|source checkout|analyze inventory|analyze files|analyze includes|analyze makefile|analyze cmake|analyze model-candidates|analyze dependencies|analyze constants|analyze preprocess|analyze declarations|abi wrapper|abi layout|abi integers|abi numbers|abi strings|abi config-expansions|compile wasm> [options]";
+    "peach-registry <verify|publish|discover|build|source prepare|source checkout|analyze inventory|analyze files|analyze includes|analyze makefile|analyze cmake|analyze model-candidates|analyze dependencies|analyze constants|analyze preprocess|analyze declarations|analyze declarations-server|analyze declarations-client|abi wrapper|abi layout|abi integers|abi numbers|abi strings|abi config-expansions|compile wasm> [options]";
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct DeclarationServerRequest {
+    token: String,
+    request: SourceDeclarationRequest,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct DeclarationServerResponse {
+    report: Option<Value>,
+    error: Option<String>,
+}
+
+fn declaration_address(port: u16) -> SocketAddrV4 {
+    SocketAddrV4::new(Ipv4Addr::LOCALHOST, port)
+}
+
+fn declaration_server(port: u16, token: &str) -> Result<(), String> {
+    let listener = TcpListener::bind(declaration_address(port))
+        .map_err(|error| format!("Cannot bind declaration-analysis server: {error}"))?;
+    for connection in listener.incoming() {
+        let mut stream = connection
+            .map_err(|error| format!("Cannot accept declaration-analysis request: {error}"))?;
+        let mut line = String::new();
+        BufReader::new(
+            stream
+                .try_clone()
+                .map_err(|error| format!("Cannot read declaration-analysis request: {error}"))?,
+        )
+        .take(128 * 1024 * 1024)
+        .read_line(&mut line)
+        .map_err(|error| format!("Cannot read declaration-analysis request: {error}"))?;
+        let response = match serde_json::from_str::<DeclarationServerRequest>(&line) {
+            Ok(envelope) if envelope.token == token => match source_declarations(&envelope.request)
+            {
+                Ok(report) => DeclarationServerResponse {
+                    report: Some(serde_json::to_value(report).map_err(|error| error.to_string())?),
+                    error: None,
+                },
+                Err(error) => DeclarationServerResponse {
+                    report: None,
+                    error: Some(error),
+                },
+            },
+            Ok(_) => DeclarationServerResponse {
+                report: None,
+                error: Some("Declaration-analysis server token mismatch".to_owned()),
+            },
+            Err(error) => DeclarationServerResponse {
+                report: None,
+                error: Some(format!(
+                    "Invalid declaration-analysis server request: {error}"
+                )),
+            },
+        };
+        serde_json::to_writer(&mut stream, &response).map_err(|error| error.to_string())?;
+        stream
+            .write_all(b"\n")
+            .map_err(|error| format!("Cannot write declaration-analysis response: {error}"))?;
+    }
+    Ok(())
+}
+
+fn declaration_client(port: u16, token: &str) -> Result<Value, String> {
+    let mut source = String::new();
+    std::io::stdin()
+        .read_to_string(&mut source)
+        .map_err(|error| format!("Cannot read declaration-analysis request: {error}"))?;
+    let request: SourceDeclarationRequest = serde_json::from_str(&source)
+        .map_err(|error| format!("Cannot parse declaration-analysis request: {error}"))?;
+    let deadline = Instant::now() + Duration::from_secs(10);
+    let mut stream = loop {
+        match TcpStream::connect(declaration_address(port)) {
+            Ok(stream) => break stream,
+            Err(error) if Instant::now() < deadline => {
+                let _ = error;
+                thread::sleep(Duration::from_millis(20));
+            }
+            Err(error) => {
+                return Err(format!(
+                    "Cannot connect to declaration-analysis server: {error}"
+                ));
+            }
+        }
+    };
+    serde_json::to_writer(
+        &mut stream,
+        &serde_json::json!({"token": token, "request": request}),
+    )
+    .map_err(|error| error.to_string())?;
+    stream
+        .write_all(b"\n")
+        .map_err(|error| format!("Cannot send declaration-analysis request: {error}"))?;
+    let mut line = String::new();
+    BufReader::new(stream)
+        .take(128 * 1024 * 1024)
+        .read_line(&mut line)
+        .map_err(|error| format!("Cannot read declaration-analysis response: {error}"))?;
+    let response: DeclarationServerResponse = serde_json::from_str(&line)
+        .map_err(|error| format!("Invalid declaration-analysis response: {error}"))?;
+    response.report.ok_or_else(|| {
+        response
+            .error
+            .unwrap_or_else(|| "Declaration analysis failed".to_owned())
+    })
+}
 
 fn run(args: &[String]) -> Result<i32, String> {
     let command = args.first().map(String::as_str).unwrap_or("help");
@@ -52,6 +165,8 @@ fn run(args: &[String]) -> Result<i32, String> {
     let mut limit = None;
     let mut concurrency = None;
     let mut timeout = None;
+    let mut declaration_port = None;
+    let mut declaration_token = None;
     let mut retry = false;
     let mut force = false;
     let mut keep_source = false;
@@ -141,6 +256,28 @@ fn run(args: &[String]) -> Result<i32, String> {
                     Some(Duration::from_millis(value.parse::<u64>().map_err(
                         |_| format!("Invalid --timeout-ms value: {value}"),
                     )?))
+            }
+            "--port"
+                if command == "analyze"
+                    && matches!(
+                        nested_command,
+                        Some("declarations-server" | "declarations-client")
+                    ) =>
+            {
+                declaration_port = Some(
+                    value
+                        .parse::<u16>()
+                        .map_err(|_| format!("Invalid --port value: {value}"))?,
+                )
+            }
+            "--token"
+                if command == "analyze"
+                    && matches!(
+                        nested_command,
+                        Some("declarations-server" | "declarations-client")
+                    ) =>
+            {
+                declaration_token = Some(value.clone())
             }
             _ => return Err(format!("Unknown option: {option}")),
         }
@@ -452,6 +589,26 @@ fn run(args: &[String]) -> Result<i32, String> {
                     report.config_calls.len()
                 );
             }
+        }
+        "analyze" if nested_command == Some("declarations-server") => {
+            declaration_server(
+                declaration_port.ok_or_else(|| "declarations-server requires --port".to_owned())?,
+                declaration_token
+                    .as_deref()
+                    .ok_or_else(|| "declarations-server requires --token".to_owned())?,
+            )?;
+        }
+        "analyze" if nested_command == Some("declarations-client") => {
+            let report = declaration_client(
+                declaration_port.ok_or_else(|| "declarations-client requires --port".to_owned())?,
+                declaration_token
+                    .as_deref()
+                    .ok_or_else(|| "declarations-client requires --token".to_owned())?,
+            )?;
+            println!(
+                "{}",
+                serde_json::to_string(&report).map_err(|error| error.to_string())?
+            );
         }
         "abi" if nested_command == Some("wrapper") => {
             let request: RackWebAbiRequest = serde_json::from_reader(std::io::stdin().lock())

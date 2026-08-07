@@ -21,24 +21,21 @@
         "name": "Red or Hue",
         "min": 0,
         "max": 1,
-        "default": 0.75,
-        "hidden": true
+        "default": 0.75
       },
       {
         "id": 1,
         "name": "Green or Saturation",
         "min": 0,
         "max": 1,
-        "default": 1,
-        "hidden": true
+        "default": 1
       },
       {
         "id": 2,
         "name": "Blue or Lightness",
         "min": 0,
         "max": 1,
-        "default": 0.5,
-        "hidden": true
+        "default": 0.5
       }
     ],
     "inputs": [
@@ -47,12 +44,9 @@
         "name": "Red",
         "kind": "cv",
         "position": {
-          "x": 15.047,
-          "y": 351.85,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "x": 3.197,
+          "y": 340,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -60,12 +54,9 @@
         "name": "Green",
         "kind": "cv",
         "position": {
-          "x": 42.916,
-          "y": 351.85,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "x": 31.066,
+          "y": 340,
+          "widget": "PJ301MPort"
         }
       },
       {
@@ -73,12 +64,9 @@
         "name": "Blue",
         "kind": "cv",
         "position": {
-          "x": 70.784,
-          "y": 351.85,
-          "width": 23.7,
-          "height": 23.7,
-          "centered": true,
-          "widget": "rack::componentlibrary::PJ301MPort"
+          "x": 58.934,
+          "y": 340,
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -87,22 +75,45 @@
     "stateKeys": [
       {
         "key": "inputRange",
-        "type": "integer"
+        "type": "integer",
+        "name": "Input range",
+        "default": 1,
+        "values": [
+          "0 - +10V (uni)",
+          "-5 - +5V (bi)"
+        ],
+        "contextOnly": true
       },
       {
         "key": "colorMode",
-        "type": "integer"
+        "type": "integer",
+        "name": "Color mode",
+        "default": 1,
+        "values": [
+          "RGB",
+          "HSL"
+        ],
+        "contextOnly": true
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "panel-color",
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 380
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Alikins/ColorPanel/2.0.1/manifest.json",
     "sourceCommit": "c403f2c04e10dbb1513c9632c77801de6f8e9af2",
     "artifact": {
-      "sha256": "632b7cfad0acdf40d0bbe988bfa0c918364c5714043cb56c310e964e77a7ead0",
-      "size": 66998
+      "sha256": "0c2137eea1b9c4810787ad55f673182578152dae8740e8b4c1e3067dffa131b4",
+      "size": 73567
     }
   },
   "source": {
@@ -111,7 +122,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T18:53:01.250Z"
+    "fingerprint": "eb890763d0a5bef7",
+    "builtAt": "2026-08-06T08:09:47.434Z"
   }
 }

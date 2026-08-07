@@ -327,7 +327,7 @@ fn pure_expander_compiles_the_message_buffer_abi() {
     );
     let mut runtime = RackRuntime::new(artifact.wasm.as_deref().unwrap());
     assert_eq!(runtime.count("rack_web_message_capacity"), 32_768);
-    runtime.function::<(), ()>("rack_web_process_frame");
+    runtime.function::<(i32, f32), ()>("rack_web_process_frame");
 }
 
 #[test]

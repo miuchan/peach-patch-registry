@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "MADZINE/QQ",
+    "plugin": "MADZINE",
+    "model": "QQ",
+    "name": "QQ",
+    "brand": "MADZINE",
+    "version": "2.6.0",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "libraryUrl": "https://library.vcvrack.com/MADZINE/QQ",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/MADZINE/QQ.webp",
+    "wasmUrl": "packages/MADZINE/QQ/2.6.0/module.wasm",
+    "width": 60,
+    "description": "3-track S-Curve Decay Trigger envelope generator with CV control and waveform scope",
+    "params": [
+      {
+        "id": 0,
+        "name": "Track 1 Decay Time",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 85,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 1 Shape",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 100,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 2 Decay Time",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 165,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 2 Shape",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 180,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 3 Decay Time",
+        "min": 0.009999999776482582,
+        "max": 2,
+        "default": 1,
+        "position": {
+          "x": 15,
+          "y": 245,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 3 Shape",
+        "min": 0,
+        "max": 0.9900000095367432,
+        "default": 0.5,
+        "position": {
+          "x": 45,
+          "y": 260,
+          "centered": true,
+          "widget": "StandardBlackKnob"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Time",
+        "min": -5.643856048583984,
+        "max": 7.643856048583984,
+        "default": 1,
+        "position": {
+          "x": 0,
+          "y": 279,
+          "widget": "HiddenTimeKnobQQ"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Track 1 Decay CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 73,
+          "y": 65,
+          "widget": "HiddenAttenuatorKnob"
+        }
+      },
+      {
+        "id": 8,
+        "name": "Track 2 Decay CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 73,
+          "y": 145,
+          "widget": "HiddenAttenuatorKnob"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Track 3 Decay CV Amount",
+        "min": 0,
+        "max": 1,
+        "default": 0.5,
+        "position": {
+          "x": 73,
+          "y": 225,
+          "widget": "HiddenAttenuatorKnob"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "name": "Track 1 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 55,
+          "y": 45,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 55,
+          "y": 125,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 3 Trigger",
+        "kind": "gate",
+        "position": {
+          "x": 55,
+          "y": 205,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Track 1 Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 63,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Track 2 Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 143,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Track 3 Decay CV",
+        "kind": "cv",
+        "position": {
+          "x": 85,
+          "y": 223,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "name": "Track 1 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 343,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Track 2 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 15,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Track 3 Envelope",
+        "kind": "cv",
+        "position": {
+          "x": 45,
+          "y": 368,
+          "centered": true,
+          "widget": "PJ301MPort"
+        }
+      }
+    ],
+    "lights": 3,
+    "stateKeys": [
+      {
+        "key": "panelTheme",
+        "type": "integer"
+      },
+      {
+        "key": "panelContrast",
+        "type": "real"
+      },
+      {
+        "index": 0,
+        "key": "attackTimes",
+        "type": "real"
+      },
+      {
+        "index": 1,
+        "key": "attackTimes",
+        "type": "real"
+      },
+      {
+        "index": 2,
+        "key": "attackTimes",
+        "type": "real"
+      },
+      {
+        "key": "retriggerEnabled",
+        "type": "boolean"
+      },
+      {
+        "index": 0,
+        "key": "shapeModes",
+        "type": "integer"
+      },
+      {
+        "index": 1,
+        "key": "shapeModes",
+        "type": "integer"
+      },
+      {
+        "index": 2,
+        "key": "shapeModes",
+        "type": "integer"
+      }
+    ],
+    "runtime": {
+      "visuals": [
+        {
+          "kind": "native-signal",
+          "mode": "scope",
+          "sources": [
+            {
+              "kind": "output",
+              "id": 0
+            },
+            {
+              "kind": "output",
+              "id": 1
+            },
+            {
+              "kind": "output",
+              "id": 2
+            }
+          ],
+          "colors": [
+            "#ffffff1e",
+            "#646464"
+          ],
+          "strokeWidths": [
+            1.5
+          ],
+          "range": 10,
+          "stacked": true,
+          "bipolar": true,
+          "x": 0,
+          "y": 279,
+          "width": 60,
+          "height": 51
+        }
+      ],
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter"
+    },
+    "manifestUrl": "packages/MADZINE/QQ/2.6.0/manifest.json",
+    "sourceCommit": "f8f8a93c0ec59255984ff2c3e56e080927b80522",
+    "artifact": {
+      "sha256": "521d30ee6d00e7cd4ea590b430ca83992af94bcaeec7335d8ccfeb651d7ede9d",
+      "size": 85456
+    }
+  },
+  "source": {
+    "url": "https://github.com/mmmmmmmadman/MADZINE-VCV",
+    "commit": "f8f8a93c0ec59255984ff2c3e56e080927b80522"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "fingerprint": "bb4a9b047050795c",
+    "builtAt": "2026-08-06T05:36:19.755Z"
+  }
+}

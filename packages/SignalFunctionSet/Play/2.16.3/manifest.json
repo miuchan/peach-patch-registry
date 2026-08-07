@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "abiVersion": "0.3",
+  "module": {
+    "key": "SignalFunctionSet/Play",
+    "plugin": "SignalFunctionSet",
+    "model": "Play",
+    "name": "Play",
+    "brand": "SignalFunctionSet",
+    "version": "2.16.3",
+    "license": "GPL-3.0-or-later",
+    "sourceUrl": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "libraryUrl": "https://library.vcvrack.com/SignalFunctionSet/Play",
+    "screenshotUrl": "https://library.vcvrack.com/screenshots/400/SignalFunctionSet/Play.webp",
+    "wasmUrl": "packages/SignalFunctionSet/Play/2.16.3/module.wasm",
+    "width": 240,
+    "description": "Polyphonic multisample player. Loads SFZ instruments (including those written by Record) and plays them polyphonically via V/oct, gate, and velocity, with CV instrument selection and stereo output.",
+    "params": [
+      {
+        "default": 0,
+        "id": 0,
+        "max": 15,
+        "min": 0,
+        "name": "Instrument",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 239.705
+        },
+        "snap": true
+      },
+      {
+        "default": 1,
+        "id": 1,
+        "max": 2,
+        "min": 0,
+        "name": "Level",
+        "position": {
+          "centered": true,
+          "widget": "RoundBlackKnob",
+          "x": 30,
+          "y": 299.705
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "id": 0,
+        "kind": "cv",
+        "name": "V/oct (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 30,
+          "y": 359.705
+        }
+      },
+      {
+        "id": 1,
+        "kind": "gate",
+        "name": "Gate (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 75,
+          "y": 359.705
+        }
+      },
+      {
+        "id": 2,
+        "kind": "cv",
+        "name": "Velocity (poly)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 120,
+          "y": 359.705
+        }
+      },
+      {
+        "id": 3,
+        "kind": "cv",
+        "name": "Instrument select CV",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 75,
+          "y": 239.705
+        }
+      },
+      {
+        "id": 4,
+        "kind": "cv",
+        "name": "Level CV (VCA)",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 75,
+          "y": 299.705
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": 0,
+        "kind": "audio",
+        "name": "Left",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 165,
+          "y": 360.62
+        }
+      },
+      {
+        "id": 1,
+        "kind": "audio",
+        "name": "Right",
+        "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
+          "x": 210,
+          "y": 359.705
+        }
+      }
+    ],
+    "lights": 0,
+    "runtime": {
+      "initialMemory": 4194304,
+      "strategy": "direct-rack-source-adapter",
+      "visuals": [
+        {
+          "actionBase": 100000,
+          "eventShift": 22,
+          "height": 168.307,
+          "kind": "signal-function-set",
+          "model": "Play",
+          "width": 215.551,
+          "x": 11.811,
+          "y": 35.433
+        }
+      ]
+    },
+    "manifestUrl": "packages/SignalFunctionSet/Play/2.16.3/manifest.json",
+    "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
+    "artifact": {
+      "sha256": "bb0239cce0a897460207c2da9ff1be677af4fa733d00ce8c3a31580fc4a02788",
+      "size": 152992
+    },
+    "stateKeys": [
+      {
+        "key": "oneShot",
+        "type": "boolean"
+      },
+      {
+        "key": "kbView",
+        "type": "integer"
+      },
+      {
+        "key": "gridLayout",
+        "type": "integer"
+      },
+      {
+        "key": "gridRoot",
+        "type": "integer"
+      },
+      {
+        "key": "gridScale",
+        "type": "integer"
+      },
+      {
+        "key": "gridBase",
+        "type": "integer"
+      }
+    ]
+  },
+  "source": {
+    "url": "https://github.com/stuart78/SignalFunctionSet-VCV-Rack",
+    "commit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55"
+  },
+  "build": {
+    "strategy": "direct-rack-source-adapter",
+    "builtAt": "2026-08-06T00:20:59.271Z"
+  }
+}

@@ -17,601 +17,641 @@
     "description": "Expander for Fugue — per-voice steps, range, sleep, probability, S&H mode, sorted CV outputs, and per-step trigger outputs",
     "params": [
       {
-        "id": 0,
-        "name": "Randomize Sequence",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
         "button": true,
+        "default": 0,
+        "id": 0,
+        "max": 1,
+        "min": 0,
+        "name": "Randomize Sequence",
         "position": {
-          "x": 30,
-          "y": 82.5,
           "centered": true,
-          "widget": "VCVButton"
-        }
+          "widget": "VCVButton",
+          "x": 30,
+          "y": 82.5
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 1,
+        "max": 1,
+        "min": 0,
         "name": "Sample & Hold Mode",
-        "min": 0,
-        "max": 1,
-        "default": 0,
-        "snap": true,
         "position": {
-          "x": 120,
-          "y": 82.5,
           "centered": true,
-          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
-        }
+          "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+          "x": 120,
+          "y": 82.5
+        },
+        "snap": true
       },
       {
+        "default": 8,
         "id": 2,
+        "max": 8,
+        "min": 1,
         "name": "Steps A Param +  0",
-        "min": 1,
-        "max": 8,
-        "default": 8,
-        "snap": true,
         "position": {
-          "x": 30,
-          "y": 135,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "widget": "RoundSmallBlackKnob",
+          "x": 30,
+          "y": 135
+        },
+        "snap": true
       },
       {
+        "default": 8,
         "id": 3,
+        "max": 8,
+        "min": 1,
         "name": "Steps A Param +  1",
-        "min": 1,
-        "max": 8,
-        "default": 8,
-        "snap": true,
         "position": {
-          "x": 30,
-          "y": 180,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "widget": "RoundSmallBlackKnob",
+          "x": 30,
+          "y": 180
+        },
+        "snap": true
       },
       {
+        "default": 8,
         "id": 4,
-        "name": "Steps A Param +  2",
-        "min": 1,
         "max": 8,
-        "default": 8,
-        "snap": true,
+        "min": 1,
+        "name": "Steps A Param +  2",
         "position": {
+          "centered": true,
+          "widget": "RoundSmallBlackKnob",
           "x": 30,
-          "y": 225,
-          "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "y": 225
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 5,
+        "max": 2,
+        "min": 0,
         "name": "Range A Param +  0",
-        "min": 0,
-        "max": 2,
-        "default": 0,
-        "snap": true,
         "position": {
-          "x": 120,
-          "y": 135,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "widget": "RoundSmallBlackKnob",
+          "x": 120,
+          "y": 135
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 6,
+        "max": 2,
+        "min": 0,
         "name": "Range A Param +  1",
-        "min": 0,
-        "max": 2,
-        "default": 0,
-        "snap": true,
         "position": {
-          "x": 120,
-          "y": 180,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "widget": "RoundSmallBlackKnob",
+          "x": 120,
+          "y": 180
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 7,
-        "name": "Range A Param +  2",
-        "min": 0,
         "max": 2,
-        "default": 0,
-        "snap": true,
+        "min": 0,
+        "name": "Range A Param +  2",
         "position": {
+          "centered": true,
+          "widget": "RoundSmallBlackKnob",
           "x": 120,
-          "y": 225,
-          "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "y": 225
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 8,
+        "max": 9,
+        "min": 0,
         "name": "Sleep A Param +  0",
-        "min": 0,
-        "max": 9,
-        "default": 0,
-        "snap": true,
         "position": {
-          "x": 210.354,
-          "y": 135,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "widget": "RoundSmallBlackKnob",
+          "x": 210.354,
+          "y": 135
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 9,
+        "max": 9,
+        "min": 0,
         "name": "Sleep A Param +  1",
-        "min": 0,
-        "max": 9,
-        "default": 0,
-        "snap": true,
         "position": {
-          "x": 210.354,
-          "y": 180,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "widget": "RoundSmallBlackKnob",
+          "x": 210.354,
+          "y": 180
+        },
+        "snap": true
       },
       {
+        "default": 0,
         "id": 10,
-        "name": "Sleep A Param +  2",
-        "min": 0,
         "max": 9,
-        "default": 0,
-        "snap": true,
+        "min": 0,
+        "name": "Sleep A Param +  2",
         "position": {
+          "centered": true,
+          "widget": "RoundSmallBlackKnob",
           "x": 210.354,
-          "y": 225,
-          "centered": true,
-          "widget": "RoundSmallBlackKnob"
-        }
+          "y": 225
+        },
+        "snap": true
       },
       {
+        "default": 1,
         "id": 11,
+        "max": 1,
+        "min": 0,
         "name": "Prob A Param +  0",
-        "min": 0,
-        "max": 1,
-        "default": 1,
         "position": {
-          "x": 300,
-          "y": 135,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
+          "widget": "RoundSmallBlackKnob",
+          "x": 300,
+          "y": 135
         }
       },
       {
+        "default": 1,
         "id": 12,
-        "name": "Prob A Param +  1",
-        "min": 0,
         "max": 1,
-        "default": 1,
+        "min": 0,
+        "name": "Prob A Param +  1",
         "position": {
-          "x": 300,
-          "y": 180,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
+          "widget": "RoundSmallBlackKnob",
+          "x": 300,
+          "y": 180
         }
       },
       {
-        "id": 13,
-        "name": "Prob A Param +  2",
-        "min": 0,
-        "max": 1,
         "default": 1,
+        "id": 13,
+        "max": 1,
+        "min": 0,
+        "name": "Prob A Param +  2",
         "position": {
-          "x": 300,
-          "y": 225,
           "centered": true,
-          "widget": "RoundSmallBlackKnob"
+          "widget": "RoundSmallBlackKnob",
+          "x": 300,
+          "y": 225
         }
       }
     ],
     "inputs": [
       {
         "id": 0,
-        "name": "Randomize Sequence Trigger",
         "kind": "gate",
+        "name": "Randomize Sequence Trigger",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 82.5,
-          "centered": true
+          "y": 82.5
         }
       },
       {
         "id": 1,
-        "name": "STEPS_A_INPUT + 0",
         "kind": "cv",
+        "name": "STEPS_A_INPUT + 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 135,
-          "centered": true
+          "y": 135
         }
       },
       {
         "id": 2,
-        "name": "STEPS_A_INPUT + 1",
         "kind": "cv",
+        "name": "STEPS_A_INPUT + 1",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 180,
-          "centered": true
+          "y": 180
         }
       },
       {
         "id": 3,
-        "name": "STEPS_A_INPUT + 2",
         "kind": "cv",
+        "name": "STEPS_A_INPUT + 2",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 225,
-          "centered": true
+          "y": 225
         }
       },
       {
         "id": 4,
-        "name": "RANGE_A_INPUT + 0",
         "kind": "cv",
+        "name": "RANGE_A_INPUT + 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 135,
-          "centered": true
+          "y": 135
         }
       },
       {
         "id": 5,
-        "name": "RANGE_A_INPUT + 1",
         "kind": "cv",
+        "name": "RANGE_A_INPUT + 1",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 180,
-          "centered": true
+          "y": 180
         }
       },
       {
         "id": 6,
-        "name": "RANGE_A_INPUT + 2",
         "kind": "cv",
+        "name": "RANGE_A_INPUT + 2",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 225,
-          "centered": true
+          "y": 225
         }
       },
       {
         "id": 7,
-        "name": "SLEEP_A_INPUT + 0",
         "kind": "cv",
+        "name": "SLEEP_A_INPUT + 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 240,
-          "y": 135,
-          "centered": true
+          "y": 135
         }
       },
       {
         "id": 8,
-        "name": "SLEEP_A_INPUT + 1",
         "kind": "cv",
+        "name": "SLEEP_A_INPUT + 1",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 240,
-          "y": 180,
-          "centered": true
+          "y": 180
         }
       },
       {
         "id": 9,
-        "name": "SLEEP_A_INPUT + 2",
         "kind": "cv",
+        "name": "SLEEP_A_INPUT + 2",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 240,
-          "y": 225,
-          "centered": true
+          "y": 225
         }
       },
       {
         "id": 10,
-        "name": "PROB_A_INPUT + 0",
         "kind": "cv",
+        "name": "PROB_A_INPUT + 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 135,
-          "centered": true
+          "y": 135
         }
       },
       {
         "id": 11,
-        "name": "PROB_A_INPUT + 1",
         "kind": "cv",
+        "name": "PROB_A_INPUT + 1",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 180,
-          "centered": true
+          "y": 180
         }
       },
       {
         "id": 12,
-        "name": "PROB_A_INPUT + 2",
         "kind": "cv",
+        "name": "PROB_A_INPUT + 2",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 225,
-          "centered": true
+          "y": 225
         }
       }
     ],
     "outputs": [
       {
         "id": 0,
-        "name": "Max CV",
         "kind": "cv",
+        "name": "Max CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 1,
-        "name": "Mid CV",
         "kind": "cv",
+        "name": "Mid CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 2,
-        "name": "Min CV",
         "kind": "cv",
+        "name": "Min CV",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 330,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 3,
-        "name": "Gate A Output  0",
         "kind": "gate",
+        "name": "Gate A Output 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 4,
+        "kind": "audio",
         "name": "OUT 5",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 5,
+        "kind": "audio",
         "name": "OUT 6",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 6,
+        "kind": "audio",
         "name": "OUT 7",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 120,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 7,
+        "kind": "audio",
         "name": "OUT 8",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 8,
+        "kind": "audio",
         "name": "OUT 9",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 180,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 9,
+        "kind": "audio",
         "name": "OUT 10",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 210,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 10,
+        "kind": "audio",
         "name": "OUT 11",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 240,
-          "y": 285,
-          "centered": true
+          "y": 285
         }
       },
       {
         "id": 11,
-        "name": "Gate B Output  0",
         "kind": "gate",
+        "name": "Gate B Output 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 12,
+        "kind": "audio",
         "name": "OUT 13",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 13,
+        "kind": "audio",
         "name": "OUT 14",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 14,
+        "kind": "audio",
         "name": "OUT 15",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 120,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 15,
+        "kind": "audio",
         "name": "OUT 16",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 16,
+        "kind": "audio",
         "name": "OUT 17",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 180,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 17,
+        "kind": "audio",
         "name": "OUT 18",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 210,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 18,
+        "kind": "audio",
         "name": "OUT 19",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 240,
-          "y": 315,
-          "centered": true
+          "y": 315
         }
       },
       {
         "id": 19,
-        "name": "Gate C Output  0",
         "kind": "gate",
+        "name": "Gate C Output 0",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 30,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 20,
+        "kind": "audio",
         "name": "OUT 21",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 60,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 21,
+        "kind": "audio",
         "name": "OUT 22",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 90,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 22,
+        "kind": "audio",
         "name": "OUT 23",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 120,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 23,
+        "kind": "audio",
         "name": "OUT 24",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 150,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 24,
+        "kind": "audio",
         "name": "OUT 25",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 180,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 25,
+        "kind": "audio",
         "name": "OUT 26",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 210,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       },
       {
         "id": 26,
+        "kind": "audio",
         "name": "OUT 27",
-        "kind": "cv",
         "position": {
+          "centered": true,
+          "widget": "PJ301MPort",
           "x": 240,
-          "y": 344.97,
-          "centered": true
+          "y": 344.97
         }
       }
     ],
@@ -619,280 +659,280 @@
     "lightWidgets": [
       {
         "id": 1,
-        "widget": "SmallLight<RedLight>",
         "position": {
+          "centered": true,
           "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 2,
-        "widget": "SmallLight<RedLight>",
         "position": {
+          "centered": true,
           "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 3,
-        "widget": "SmallLight<RedLight>",
         "position": {
+          "centered": true,
           "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 4,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 210,
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 5,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 210,
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 6,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 210,
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 7,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 225,
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 8,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 225,
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 9,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 225,
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 10,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 240,
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 11,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 240,
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 12,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 240,
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 13,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 255,
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 14,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 255,
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 15,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 255,
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 16,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 270,
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 17,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 270,
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 18,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 270,
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 19,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 285,
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 20,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 285,
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 21,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 285,
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 22,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 52.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 300,
+          "y": 52.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 23,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 67.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 300,
+          "y": 67.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 24,
-        "widget": "SmallLight<RedLight>",
         "position": {
-          "x": 30,
-          "y": 82.5,
-          "centered": true
-        }
+          "centered": true,
+          "x": 300,
+          "y": 82.5
+        },
+        "widget": "SmallLight<RedLight>"
       },
       {
         "id": 25,
-        "widget": "SmallLight<YellowLight>",
         "position": {
+          "centered": true,
           "x": 330,
-          "y": 52.5,
-          "centered": true
-        }
+          "y": 52.5
+        },
+        "widget": "SmallLight<YellowLight>"
       },
       {
         "id": 26,
-        "widget": "SmallLight<YellowLight>",
         "position": {
+          "centered": true,
           "x": 330,
-          "y": 67.5,
-          "centered": true
-        }
+          "y": 67.5
+        },
+        "widget": "SmallLight<YellowLight>"
       },
       {
         "id": 27,
-        "widget": "SmallLight<YellowLight>",
         "position": {
+          "centered": true,
           "x": 330,
-          "y": 82.5,
-          "centered": true
-        }
+          "y": 82.5
+        },
+        "widget": "SmallLight<YellowLight>"
       },
       {
         "id": 0,
-        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>",
+        "paramId": 1,
         "position": {
+          "centered": true,
           "x": 120,
-          "y": 82.5,
-          "centered": true
+          "y": 82.5
         },
-        "paramId": 1
+        "widget": "VCVLightLatch<MediumSimpleLight<WhiteLight>>"
       }
     ],
     "runtime": {
-      "expanderMode": "message-buffer",
       "expander": {
-        "transport": "message-buffer",
-        "direction": "both",
         "capacity": 16384,
+        "direction": "both",
         "models": [
           {
+            "index": 0,
             "key": "SignalFunctionSet/MetaFugue",
-            "symbol": "modelFugue",
-            "index": 0
+            "symbol": "modelFugue"
           }
-        ]
+        ],
+        "transport": "message-buffer"
       },
+      "expanderMode": "message-buffer",
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/SignalFunctionSet/FugueX/2.16.3/manifest.json",
     "sourceCommit": "797bfd98e95aa54a35e2e372ec19a31515a7dd55",
     "artifact": {
-      "sha256": "cf3dcd3643120d5d1e393646677df85c3d4bf5c9d7ba57fb0e997a276913ca7a",
-      "size": 79621
+      "sha256": "8f4a265ba46fd642dbf03d7ed15529ae298fdcef67a8662d91a7494b11f73987",
+      "size": 84056
     }
   },
   "source": {
@@ -901,7 +941,6 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": null,
-    "builtAt": "2026-07-22T23:11:51.833Z"
+    "builtAt": "2026-08-06T00:20:59.271Z"
   }
 }

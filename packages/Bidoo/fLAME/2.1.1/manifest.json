@@ -18,69 +18,87 @@
     "params": [
       {
         "id": 0,
-        "name": "Param 1",
+        "name": "Min",
         "min": 0,
         "max": 1,
         "default": 0,
         "position": {
           "x": 45,
-          "y": 300
-        }
+          "y": 300,
+          "widget": "LEDButton"
+        },
+        "snap": true,
+        "button": true
       },
       {
         "id": 1,
-        "name": "Param 2",
+        "name": "Med",
         "min": 0,
         "max": 1,
         "default": 0,
         "position": {
           "x": 66,
-          "y": 300
-        }
+          "y": 300,
+          "widget": "LEDButton"
+        },
+        "snap": true,
+        "button": true
       },
       {
         "id": 2,
-        "name": "Param 3",
+        "name": "Max",
         "min": 0,
         "max": 1,
         "default": 0,
         "position": {
           "x": 87,
-          "y": 300
-        }
+          "y": 300,
+          "widget": "LEDButton"
+        },
+        "snap": true,
+        "button": true
       },
       {
         "id": 3,
-        "name": "Param 4",
+        "name": "Yellow",
         "min": 0,
         "max": 1,
         "default": 0,
         "position": {
           "x": 45,
-          "y": 330
-        }
+          "y": 330,
+          "widget": "LEDButton"
+        },
+        "snap": true,
+        "button": true
       },
       {
         "id": 4,
-        "name": "Param 5",
+        "name": "Blue",
         "min": 0,
         "max": 1,
         "default": 0,
         "position": {
           "x": 66,
-          "y": 330
-        }
+          "y": 330,
+          "widget": "LEDButton"
+        },
+        "snap": true,
+        "button": true
       },
       {
         "id": 5,
-        "name": "Param 6",
+        "name": "Green",
         "min": 0,
         "max": 1,
         "default": 0,
         "position": {
           "x": 87,
-          "y": 330
-        }
+          "y": 330,
+          "widget": "LEDButton"
+        },
+        "snap": true,
+        "button": true
       }
     ],
     "inputs": [
@@ -90,7 +108,8 @@
         "kind": "cv",
         "position": {
           "x": 7,
-          "y": 330
+          "y": 330,
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -101,7 +120,8 @@
         "kind": "cv",
         "position": {
           "x": 119,
-          "y": 330
+          "y": 330,
+          "widget": "PJ301MPort"
         }
       }
     ],
@@ -137,15 +157,77 @@
       }
     ],
     "runtime": {
+      "visuals": [
+        {
+          "kind": "flame-spectrogram",
+          "actionBase": 1000,
+          "columns": 130,
+          "rows": 256,
+          "x": 10,
+          "y": 28,
+          "width": 130,
+          "height": 256
+        }
+      ],
       "initialMemory": 4194304,
       "strategy": "direct-rack-source-adapter"
     },
     "manifestUrl": "packages/Bidoo/fLAME/2.1.1/manifest.json",
     "sourceCommit": "85c00f2aefa22d72d2a7472a1a937a962be3b07d",
     "artifact": {
-      "sha256": "6a5e3f76a950418d580d6f903833b368c8394c349e868629cd62e7d735c9c632",
-      "size": 93141
-    }
+      "sha256": "4c64893d4ec43b20dc968cdca652f2f46635b1381a8b2ad22d1a3b9e8dca05c6",
+      "size": 117998
+    },
+    "lightWidgets": [
+      {
+        "id": 0,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 51,
+          "y": 306
+        }
+      },
+      {
+        "id": 1,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 72,
+          "y": 306
+        }
+      },
+      {
+        "id": 2,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 93,
+          "y": 306
+        }
+      },
+      {
+        "id": 3,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 51,
+          "y": 336
+        }
+      },
+      {
+        "id": 4,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 72,
+          "y": 336
+        }
+      },
+      {
+        "id": 5,
+        "widget": "SmallLight<BlueLight>",
+        "position": {
+          "x": 93,
+          "y": 336
+        }
+      }
+    ]
   },
   "source": {
     "url": "https://github.com/sebastien-bouffier/Bidoo",
@@ -153,7 +235,7 @@
   },
   "build": {
     "strategy": "direct-rack-source-adapter",
-    "fingerprint": "afca62745bbcf8a4",
-    "builtAt": "2026-07-19T14:07:51.189Z"
+    "fingerprint": "7b10477314100fe5",
+    "builtAt": "2026-08-06T04:32:31.610Z"
   }
 }
